@@ -1,0 +1,31 @@
+--- 
+title: "Python Book"
+author: "Yong Keh Soon"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: yongks/python_book
+description: "This is a python cookbook, written using RMarkdown Notebook. It is made possible by using reticulate R library as the bridge between R and Python."
+---
+
+# Prerequisites
+
+```{r, setup, include=FALSE}
+
+## Global environment  setting for entire book
+## further look and feel setting, refer to file: _output.yml
+
+library(knitr)
+knitr::opts_chunk$set(echo=TRUE, 
+                      message=FALSE, 
+                      fig.width=2.6736, 
+                      fig.height=2.5, 
+                      fig.show='hold', 
+                      error=TRUE, 
+                      results='markup',
+                      collapse=FALSE) 
+```

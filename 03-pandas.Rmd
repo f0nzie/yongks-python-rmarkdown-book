@@ -1,0 +1,2634 @@
+
+<!-- jupyter_markdown, jupyter_meta = list(`toc-hr-collapsed` = FALSE) -->
+# pandas
+
+<!-- jupyter_markdown, jupyter_meta = list(tags = "remove_cell", `toc-hr-collapsed` = TRUE) -->
+## Environment Setup <a class="tocSkip">
+
+```{python, jupyter_meta = list(tags = "remove_cell")}
+from IPython.core.display import display, HTML
+display(HTML("<style>.container { width:70% !important; margin-left:350px; }</style>"))
+```
+
+## Modules Import
+
+```{python, jupyter_meta = list(tags = "remove_cell")}
+import pandas as pd
+
+## Other Libraries
+import numpy as np
+import datetime as dt
+from datetime import datetime
+from datetime import date
+```
+
+### Display Setup
+It is good idea to configure output setup as prefered 
+
+```{python}
+pd.set_option( 'display.notebook_repr_html', False)  # render Series and DataFrame as text, not HTML
+pd.set_option( 'display.max_column', 10)    # number of columns
+pd.set_option( 'display.max_rows', 10)     # number of rows
+pd.set_option( 'display.width', 80)        # number of characters per row
+```
+
+
+## Pandas Objects
+### Pandas Data Types
+- pandas.Timestamp
+- pandas.Timedelta
+- pandas.Period
+- pandas.Interval
+- pandas.DateTimeIndex
+
+### Pandas Data Structure  
+
+|Type        | Dimension | Size      | Value   | Constructor
+|:---------- |:----------|:----------|:--------|:----------------------------------------------------
+|Series      | 1         | Immutable | Mutable | pandas.DataFrame( data, index, dtype, copy)  
+|DataFrame   | 2         | Mutable   | Mutable | pandas.DataFrame( data, index, columns, dtype, copy)
+|Panel       | 3         | Mutable   | Mutable | 
+
+**data** can be ndarray, list, constants  
+**index** must be unique and same length as data. Can be integer or string
+**dtype** if none, it will be inferred  
+**copy** copy data. Default false
+
+## Class Method
+
+### Conversion: ```to_datetime()```
+Source can be **string, date, datetime object**
+
+#### From List to ```DateTimeIndex```
+
+```{python}
+dti = pd.to_datetime(['2011-01-03',             # from string
+                       date(2018,4,13),         # from date
+                       datetime(2018,3,1,7,30)] # from datetime
+              )
+print(dti)
+print('\nObject Type:  ',type(dti))
+print('Object dtype: ', dti.dtype)
+print('\nElement Type: ',type(dti[1]))
+```
+
+#### From List to Series to Series
+
+```{python}
+sdt = pd.to_datetime(pd.Series(['2011-01-03',      # from string
+                                date(2018,4,13),        # from date
+                                datetime(2018,3,1,7,30)]# from datetime
+              ))
+print(sdt)
+print('\nObject Type:  ',type(sdt))
+print('Object dtype: ', sdt.dtype)
+print('\nElement Type: ',type(sdt[1]))
+```
+
+#### From Scalar to Timestamp
+
+```{python}
+print( pd.to_datetime('2011-01-03'))    # from string
+print( pd.to_datetime(date(2011,1,3)))  # from date
+print( pd.to_datetime(datetime(2011,1,3,5,30))) # from datetime
+print('\nElement Type: ', type(pd.to_datetime(datetime(2011,1,3,5,30))))
+```
+
+
+### Generate Timestamp Sequence
+
+
+#### ```date_range()```
+Return ```DateTimeIndex``` object
+
+
+Generate **sequence of HOURS**
+
+```{python}
+## Specify start, Periods, Frequency
+## Start from Date Only
+pd.date_range('2018-01-01', periods=3, freq='H')
+```
+
+```{python}
+## Start from DateTime
+dti = pd.date_range(datetime(2018,1,1,12,30), periods=3, freq='H')
+print(dti)
+print(type(dti))
+print(dti.dtype)
+print(type(dti[1]))
+```
+
+```{python}
+## Specify start, End and Frequency
+dti = pd.date_range(start='2018-01-03-1230', end='2018-01-03-18:30', freq='H')
+print(dti)
+```
+
+Generate **sequence of DAYS**
+
+```{python}
+pd.date_range(date(2018,1,2), periods=3, freq='D')
+```
+
+```{python}
+pd.date_range('2018-01-01-1230', periods=4, freq='D')
+```
+
+Generate **sequence of Start of Month**
+
+```{python, jupyter_meta = list(scrolled = TRUE)}
+pd.date_range('2018-01', periods=4, freq='MS')
+```
+
+```{python}
+pd.date_range(datetime(2018,1,3,12,30), periods=4, freq='MS')
+```
+
+Generate **sequence of End of Month**
+
+```{python}
+dti = pd.date_range('2018-02', periods=4, freq='M')
+dti
+```
+
+### Frequency Table (crosstab)
+
+crosstab returns **Dataframe** Object
+```
+crosstab( index = <SeriesObj>, columns = <new_colName> )                    # one dimension table
+crosstab( index = <SeriesObj>, columns = <SeriesObj> )                  # two dimension table
+crosstab( index = <SeriesObj>, columns = [<SeriesObj1>, <SeriesObj2>] ) # multi dimension table   
+crosstab( index = <SeriesObj>, columns = <SeriesObj>, margines=True )   # add column and row margins
+```
+
+#### Sample Data
+
+```{python}
+n = 200
+comp = ['C' + i for i in np.random.randint( 1,4, size  = n).astype(str)] # 3x Company
+dept = ['D' + i for i in np.random.randint( 1,6, size  = n).astype(str)] # 5x Department
+grp =  ['G' + i for i in np.random.randint( 1,3, size  = n).astype(str)] # 2x Groups
+value1 = np.random.normal( loc=50 , scale=5 , size = n)
+value2 = np.random.normal( loc=20 , scale=3 , size = n)
+value3 = np.random.normal( loc=5 , scale=30 , size = n)
+
+mydf = pd.DataFrame({
+    'comp':comp, 
+    'dept':dept, 
+    'grp': grp,
+    'value1':value1, 
+    'value2':value2,
+    'value3':value3 })
+mydf.head()
+```
+
+#### One DimensionTable
+
+```{python}
+print( pd.crosstab(index=mydf.comp, columns='counter') )
+type ( pd.crosstab(index=mydf.comp, columns='counter'))
+```
+
+#### Two Dimension Table
+
+```{python}
+pd.crosstab(index=mydf.comp, columns=mydf.dept)
+```
+
+#### Higher Dimension Table
+
+```{python}
+tb = pd.crosstab(index=mydf.comp, columns=[mydf.dept, mydf.grp])
+print( tb )
+tb.columns
+```
+
+Get the **subdataframe** under D2
+
+```{python}
+tb['D2']
+```
+
+#### Getting Margin
+Sum of each row and each column is created at the end.
+
+```{python}
+tb = pd.crosstab(index=mydf.dept, columns=mydf.grp, margins=True)
+tb
+```
+
+```{python}
+print(tb.loc[:,'All'] )  # row total, return a Series
+print(type(tb.loc[:,'All']))
+```
+
+```{python}
+print(tb.loc['All']) # column total, return a Series
+print(type(tb.loc['All']))
+```
+
+
+#### Getting Proportion
+Use matrix operation divide for each cells over the margin
+
+```{python}
+tb/tb.loc['All']
+```
+
+
+#### Reseting Index
+- When creating a crosstab, **column specified by index** will become index  
+- To convert it to normal column, use **reset_index()**
+```
+DataFrameObj.reset_index( inpalce=False )
+```
+
+
+
+## Timestamp
+This is an enhanced version to datetime standard library.  
+https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.html#pandas.Timestamp
+
+
+### Constructor
+#### From Number
+
+```{python}
+print( pd.Timestamp(year=2017, month=1, day=1) ) #date-like numbers
+print( pd.Timestamp(2017,1,1) )                  # date-like numbers
+print( pd.Timestamp(2017,12,11,5,45))            # datetime-like numbers
+print( pd.Timestamp(2017,12,11,5,45,55,999))     # + microseconds
+print( pd.Timestamp(2017,12,11,5,45,55,999,8))   # + nanoseconds
+print( type(pd.Timestamp(2017,12,11,5,45,55,999,8)))
+```
+
+<!-- jupyter_markdown, jupyter_meta = list(`toc-hr-collapsed` = FALSE) -->
+#### From String
+Observe that pandas support many string input format  
+**Year Month Day**, default no timezone
+
+```{python}
+print( pd.Timestamp('2017-12-11'))      # date-like string: year-month-day
+print( pd.Timestamp('2017 12 11'))      # date-like string: year-month-day
+print( pd.Timestamp('2017 Dec 11'))      # date-like string: year-month-day
+print( pd.Timestamp('Dec 11, 2017'))      # date-like string: year-month-day
+```
+
+
+**YMD Hour Minute Second Ms**
+
+```{python}
+print( pd.Timestamp('2017-12-11 0545'))     ## hour minute
+print( pd.Timestamp('2017-12-11-05:45'))
+print( pd.Timestamp('2017-12-11T0545'))
+
+print( pd.Timestamp('2017-12-11 054533'))   ## hour minute seconds
+print( pd.Timestamp('2017-12-11 05:45:33'))
+```
+
+
+**Timezone**
+
+```{python}
+print( pd.Timestamp('2017-01-01T0545Z'))     # GMT 
+print( pd.Timestamp('2017-01-01T0545+9'))    # GMT+9
+print( pd.Timestamp('2017-01-01T0545+0800')) # GMT+0800
+```
+
+
+#### From Standard Library ```datetime``` and ```date``` Object
+
+```{python}
+print( pd.Timestamp(date(2017,3,5)) )           # from date
+print( pd.Timestamp(datetime(2017,3,5,4,30)))   # from datetime
+print( pd.Timestamp(datetime(2017,3,5,4,30), tz='Asia/Kuala_Lumpur'))   # from datetime, + tz
+```
+
+### Attributes
+
+```{python}
+ts = pd.Timestamp('2017-01-01T054533+0800') # GMT+0800
+print( ts.month )
+print( ts.day   )
+print( ts.year   )
+print( ts.hour  )
+print( ts.minute)
+print( ts.second)
+print( ts.microsecond)
+print( ts.nanosecond)
+print( ts.tz)
+```
+
+```{python}
+ts1 = pd.Timestamp(datetime(2017,3,5,4,30), tz='Asia/Kuala_Lumpur')   # from datetime, + tz
+ts2 = pd.Timestamp('2017-01-01T054533+0800') # GMT+0800
+ts3 = pd.Timestamp('2017-01-01T0545')
+
+print( ts1.tz )
+print( ts2.tz )
+print( ts3.tz )
+```
+
+
+### Operator
+
+```{python}
+
+```
+
+```{python}
+
+```
+
+
+### Instance Methods
+#### Useful Methods
+
+```{python}
+ts = pd.Timestamp(2017,1,1)
+print( ts.weekday()  )
+print( ts.isoweekday() )
+```
+
+#### Convert To datetime
+
+Use ```to_pydatetime()``` to convert into standard library ```datetime.datetime```, optionally to ```datetime.date```
+
+```{python}
+ts = pd.Timestamp(2017,1,10,7,30,52)  # to datetime.datetime
+ts.to_pydatetime()
+```
+
+```{python}
+ts = pd.Timestamp(2017,1,10,7,30,52)  # to datetime.date
+ts.to_pydatetime().date()
+```
+
+#### Convert To ```numpy```
+
+Use ```to_datetime64()``` to convert into ```numpy.datetime64```
+
+```{python}
+ts = pd.Timestamp(2017,1,10,7,30,52)
+ts.to_datetime64()
+```
+
+
+#### Formatting with ```strftime```
+
+
+Use **```strftime()```** to customize string format. For complete directive, see below:  
+https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior
+
+```{python}
+ts = pd.Timestamp(2017,1,10,7,30,52)
+ts.strftime("%m/%d")
+```
+
+
+#### Add Timezone
+Add timezone to tz-naive or tz-non-existance object. Clock will not be shifted as there is no original offset
+
+```{python}
+ts = pd.Timestamp(2017,1,10,10,34)   ## No timezone
+ts = ts.tz_localize('Asia/Kuala_Lumpur')  ## Add timezone
+ts
+```
+
+
+#### Convert Timezone
+Convert timezone to tz-aware object. The clock will be shifted according to the offset
+
+```{python}
+ts = pd.Timestamp(2017,1,10,10,34)        ## No timezone
+ts = ts.tz_localize('Asia/Kuala_Lumpur')  ## Add timezone
+ts = ts.tz_convert('UTC')                 ## Convert timezone
+ts
+```
+
+
+#### Removing TImezone
+
+```{python}
+ts = pd.Timestamp(2017,1,10,10,34)        ## No timezone
+ts = ts.tz_localize('Asia/Kuala_Lumpur')  ## Add timezone
+ts = ts.tz_localize(None)                 ## Convert timezone
+ts
+```
+
+
+#### Formatting with ```isoformat```
+
+
+Use **```isoformat()```** to format ISO string (**without timezone**)
+
+```{python}
+ts.isoformat()
+```
+
+
+#### ```ceil```
+
+```{python}
+print( ts.ceil(freq='D') ) # ceiling to day
+```
+
+
+#### ```replace()```
+
+```{python}
+ts.replace(year=2000, month=1,day=1)
+```
+
+
+## Series
+Series allows different data types (object class) as its element
+
+
+### Constructor
+
+
+#### Empty Series
+Passing empty parameter result in empty series
+
+```{python}
+s = pd.Series()
+print (s)
+type(s)
+```
+
+
+#### From Scalar
+If data is a scalar value, an **index must be provided**. The **value will be repeated** to match the length of index
+
+```{python}
+pd.Series( 99, index = ['a','b','c','d'])
+```
+
+
+#### From array-like
+
+
+**From list**
+
+```{python}
+pd.Series(['a','b','c','d','e'])           # from Python list
+```
+
+
+**From numpy.array**  
+If index is not specified, default to 0 and continue incrementally
+
+```{python}
+pd.Series(np.array(['a','b','c','d','e']))  # from np.array
+```
+
+
+**From DateTimeIndex**
+
+```{python}
+dti = pd.date_range('2011-1-1','2011-1-3')
+dti
+```
+
+```{python}
+pd.Series(pd.date_range('2011-1-1','2011-1-3'))
+```
+
+
+#### From Dictionary
+The **dictionary key** will be the index
+
+
+If **index sequence is not specified**, then the Series will be **automatically sorted** according to the key
+
+```{python}
+pd.Series({'a' : 0., 'c' : 1., 'b' : 2.})  # from Python dict, autosort by default key
+```
+
+
+If **index sequence** is specifeid, then Series will forllow the index order  
+Objerve that **missing data** (index without value) will be marked as NaN
+
+```{python}
+pd.Series({'a' : 0., 'c' : 1., 'b' : 2.},index = ['a','b','c','d'])  # from Python Dict, index specified, no auto sort
+```
+
+
+#### Specify Index
+
+```{python}
+pd.Series(['a','b','c','d','e'], index=[10,20,30,40,50])
+```
+
+
+#### Mix Element Types
+dType will be **'object'** when there were mixture of classes
+
+```{python}
+ser = pd.Series(['a',1,2,3])
+print('Object Type :  ', type(ser))
+print('Object dType:  ', ser.dtype)
+print('Element 1 Type: ',type(ser[0]))
+print('Elmeent 2 Type: ',type(ser[1]))
+```
+
+
+#### Specify Data Types
+
+```{python}
+ser1 = pd.Series([1,2,3])
+ser2 = pd.Series([1,2,3], dtype="int8")
+ser3 = pd.Series([1,2,3], dtype="object")
+
+print(ser1, ser1.dtype)
+print(ser2, ser2.dtype)
+print(ser3, ser3.dtype)
+```
+
+
+### Accessing Series
+```
+series     ( single/list/range_of_row_label/number ) # can cause confusion
+series.loc ( single/list/range_of_row_label )
+series.iloc( single/list/range_of_row_number )
+```
+
+
+#### Sample Data
+
+```{python}
+s = pd.Series([1,2,3,4,5],index=['a','b','c','d','e']) 
+s
+```
+
+
+#### by Row Number(s)
+
+
+**Single Item**
+
+```{python}
+s.iloc[1]
+```
+
+
+**Multiple Items**
+
+```{python}
+s.iloc[[1,3]] 
+```
+
+
+**Range (First 3)**
+
+```{python}
+s.iloc[:3]
+```
+
+
+**Range (Last 3)**
+
+```{python, jupyter_meta = list(scrolled = TRUE)}
+s.iloc[-3:]
+```
+
+
+**Range (in between)**
+
+```{python}
+s.iloc[2:3]
+```
+
+
+#### by Index(es)
+
+
+**Single Label**
+
+```{python}
+s.loc['c'] 
+# or  ... s[['c']]
+```
+
+
+**Multiple Labels**
+
+```{python}
+s.loc[['b','c']]
+```
+
+
+** Range of Labels **
+
+```{python}
+s.loc['b':'d']
+```
+
+
+#### Filtering Criteria
+Use logical array to filter
+
+```{python}
+s = pd.Series(range(1,8))
+s[s<5]
+```
+
+Use **logical array** with **where**
+
+```{python}
+s.where(s>4)
+```
+
+```{python}
+s.where(s>4,None)
+```
+
+
+### Modifying Series
+#### by Row Number(s)
+
+```{python}
+s = pd.Series(range(1,7), index=['a','b','c','d','e','f'])
+s[2] = 999
+s[[3,4]] = 888,777
+s
+```
+
+
+#### by Index(es)
+
+```{python}
+s = pd.Series(range(1,7), index=['a','b','c','d','e','f'])
+s['e'] = 888
+s[['c','d']] = 777,888
+s
+```
+
+
+### Series Attributes
+#### The Data
+
+```{python}
+s = pd.Series([1,2,3,4,5],index=['a','b','c','d','e'],name='SuperHero') 
+```
+
+
+#### ```index```
+
+```{python}
+s.index
+```
+
+
+#### ```dtype```
+
+```{python}
+s.dtype
+```
+
+
+#### Dimensions
+
+```{python}
+print(s)
+print( s.size  )
+```
+
+```{python}
+print( s.shape )
+print( s.ndim  )
+```
+
+
+#### ```.name```
+
+```{python}
+s.name
+```
+
+<!-- jupyter_markdown, jupyter_meta = list(`toc-hr-collapsed` = FALSE) -->
+### Instance Methods
+
+
+#### .reset_index ()
+Resetting index will:  
+- Convert index to a normal column, header is 'index'
+- Index renumbered to ,1,2,3
+- Retrun DataFrame (became two columns)
+
+```{python}
+print(s)
+print(s.reset_index())
+```
+
+
+#### Structure Conversion
+Use **```values()```** to convert into ```numpy.ndarray``
+
+```{python}
+type(s.values)
+```
+
+
+Use **```to_list()```** to convert into standard python ```list``
+
+```{python}
+##
+```
+
+
+#### DataType Conversion
+Use **```astype()```** to convert to another numpy supproted datatypes  
+Warning: casting to incompatible type will result in **error**
+
+```{python}
+ser = pd.Series([1, 2], dtype='int32')
+ser
+```
+
+```{python}
+ser.astype('int8')
+```
+
+
+### Series Operators
+
+
+The result of applying operator (arithmetic or logic) to Series object **returns a new Series object**
+
+
+#### Arithmetic Operator
+
+```{python}
+s1 = pd.Series( [100,200,300,400,500] )
+s2 = pd.Series( [10, 20, 30, 40, 50] )
+```
+
+**Apply To One Series Object**
+
+```{python}
+100 - s2
+```
+
+**Apply To Two Series Objects**
+
+```{python}
+s1 - s2
+```
+
+
+#### Logic Operator
+- Apply logic operator to a Series return a **new Series** of boolean result  
+- This can be used for **Series or DataFrame filtering**
+
+```{python}
+bs = pd.Series(range(0,10))
+bs
+```
+
+```{python}
+print (bs>3)
+print (type (bs>3))
+```
+
+```{python}
+~((bs>3) & (bs<8))
+```
+
+
+### Series String Accesor ```.str```
+
+If the underlying data is **str** type, then pandas exposed various properties and methos through **```str``` accessor**. 
+
+- This chapter focus on various functions that can be applied to entire Series data  
+```
+SeriesObj.str.operatorFunction()
+``` 
+
+
+**Pandas ```str``` Method**
+
+
+Nearly all Python's built-in string methods are mirrored by a Pandas vectorized string method. Here is a list of Pandas str methods that mirror Python string methods:  
+
+len()	lower()	translate()	islower()
+ljust()	upper()	startswith()	isupper()
+rjust()	find()	endswith()	isnumeric()
+center()	rfind()	isalnum()	isdecimal()
+zfill()	index()	isalpha()	split()
+strip()	rindex()	isdigit()	rsplit()
+rstrip()	capitalize()	isspace()	partition()
+lstrip()	swapcase()	istitle()	rpartition()
+
+
+#### Splitting
+
+```{python}
+s = pd.Series(['a_b_c', 'c_d_e', np.nan, 'f_g_h_i_j'])
+s
+```
+
+
+**```str.split()```**
+By default, split will split the string into **array**
+
+```{python}
+s.str.split('_')
+```
+
+
+After split, **select rows** to return
+
+```{python}
+print( s.str.split('_').get(1) )
+print( s.str.split('_')[1] )
+```
+
+
+**```str.split( expand=True, n= )```**
+
+
+**```split```** and **```expand=True```** will return a **dataframe** instead of series
+
+```{python}
+print( s.str.split('_', expand=True) )
+```
+
+
+It is possible to limit the number of columns splitted
+
+```{python}
+print( s.str.split('_', expand=True, n=1) )
+```
+
+
+**```str.rsplit()```**
+
+
+**```rsplit```** stands for **reverse split**, it works the same way, except it is reversed
+
+```{python}
+print( s.str.rsplit('_', expand=True, n=1) )
+```
+
+
+#### Matching
+
+```{python}
+monte = pd.Series(['Graham Chapman', 'John Cleese', 'Terry Gilliam',
+                   'Eric Idle', 'Terry Jones', 'Michael Palin'])
+monte
+```
+
+
+**```startwith```**
+
+```{python}
+monte.str.startswith('T')
+```
+
+```{python}
+monte.str.split()
+```
+
+
+**```Slicing```**
+
+```{python}
+monte.str[0:3]
+```
+
+```{python}
+monte.str[0:-1]
+```
+
+```{python}
+s = pd.Series(['A', 'B', 'C', 'Aaba', 'Baca', np.nan, 'CABA', 'dog', 'cat'])
+```
+
+
+#### Case Conversion
+```
+SeriesObj.str.upper()
+SeriesObj.str.lower()
+```
+
+```{python}
+s.str.upper()
+```
+
+
+#### Number of Characters
+
+```{python}
+s.str.len()
+```
+
+```{python}
+d=['a','b','c']
+names = pd.Series(data=d)
+names.str.capitalize()
+```
+
+
+#### String Indexing
+
+```{python}
+s = pd.Series(['A', 'B', 'C', 'Aaba', 'Baca', np.nan,'CABA', 'dog', 'cat'])
+s
+```
+
+```{python}
+s.str[1]  # return char-1 (second char) of every item
+```
+
+
+#### Splitting
+
+
+**Sample Data**
+
+```{python}
+s = pd.Series(['a_b_c', 'c_d_e', np.nan, 'f_g_h'])
+```
+
+
+**Splitting base on a a delimieter**
+Result is a SeriesObj with list of splitted characters
+
+```{python}
+sp = s.str.split('_')
+sp
+```
+
+
+**Retrieving Split Result**  
+Use **.str.get()** to retrieve splitted elments 
+
+```{python}
+sp.str.get(-1) 
+```
+
+
+Alternatively, use **str[ ]** for the same result
+
+```{python}
+sp.str[-1]
+```
+
+
+#### Split and Expand Into DataFrame
+
+```{python}
+s.str.split('_',expand=True, n=5)  # limit expansion into n columns
+```
+
+
+#### Series Substring Extraction
+
+
+**Sample Data**
+
+```{python}
+s = pd.Series(['a1', 'b2', 'c3'])
+s
+```
+
+
+**Extract absed on regex matching**  
+... to improve ...
+
+```{python}
+type(s.str.extract('([ab])(\d)', expand=False))
+```
+
+
+### Series DateTime Accessor ```.dt```
+
+If the underlying data is **datetime64** type, then pandas exposed various properties and methos through **```dt``` accessor**. 
+
+
+#### Sample Data
+
+```{python}
+s = pd.Series([
+    datetime(2000,1,1,0,0,0),
+    datetime(1999,12,15,12,34,55),
+    datetime(2020,3,8,5,7,12),
+    datetime(2018,1,1,0,0,0),
+    datetime(2003,3,4,5,6,7)
+])
+s
+```
+
+
+#### Convert To 
+**datetime.datetime**  
+Use **```to_pydatetime()```** to convert into **```numpy.array```** of standard library **```datetime.datetime```**  
+
+```{python}
+pdt  = s.dt.to_pydatetime()
+print( type(pdt) )
+pdt
+```
+
+
+**datetime.date**  
+Use **```dt.date```** to convert into **```pandas.Series```** of standard library **```datetime.date```**   
+Is it possible to have a pandas.Series of datetime.datetime ? No, because Pandas want it as its own Timestamp.
+
+```{python}
+sdt = s.dt.date
+print( type(sdt[1] ))
+print( type(sdt))
+sdt
+```
+
+
+#### Timestamp Attributes
+A Series::DateTime object support below properties:  
+- date  
+- month  
+- day  
+- year  
+- dayofweek  
+- dayofyear  
+- weekday  
+- weekday_name  
+- quarter  
+- daysinmonth  
+- hour
+- minute
+
+Full list below:  
+https://pandas.pydata.org/pandas-docs/stable/reference/series.html#datetimelike-properties
+
+```{python}
+s.dt.date
+```
+
+```{python}
+s.dt.month
+```
+
+```{python}
+s.dt.dayofweek
+```
+
+```{python}
+s.dt.weekday
+```
+
+```{python}
+s.dt.weekday_name
+```
+
+```{python}
+s.dt.quarter
+```
+
+```{python}
+s.dt.daysinmonth
+```
+
+```{python}
+s.dt.time   # extract time as time Object
+```
+
+```{python}
+s.dt.hour  # extract hour as integer
+```
+
+```{python}
+s.dt.minute # extract minute as integer
+```
+
+
+## DataFrame
+
+
+### Constructor
+
+
+#### From Row Oriented Data (List of Lists)
+Create from **List of Lists**
+```
+DataFrame( [row_list1, row_list2, row_list3] )
+DataFrame( [row_list1, row_list2, row_list3], column=columnName_list )
+DataFrame( [row_list1, row_list2, row_list3], index=row_label_list )
+```
+
+
+**Basic DataFrame with default Row Label and Column Header**
+
+```{python}
+pd.DataFrame ([[101,'Alice',40000,2017],
+               [102,'Bob',  24000, 2017], 
+               [103,'Charles',31000,2017]] )
+```
+
+
+**Specify Column Header during Creation**
+
+```{python}
+pd.DataFrame ([[101,'Alice',40000,2017],
+               [102,'Bob',  24000, 2017], 
+               [103,'Charles',31000,2017]], columns = ['empID','name','salary','year'])
+```
+
+
+**Specify Row Label during Creation**
+
+```{python}
+pd.DataFrame ([[101,'Alice',40000,2017],
+               [102,'Bob',  24000, 2017], 
+               [103,'Charles',31000,2017]], index   = ['r1','r2','r3'] )
+```
+
+
+#### From Row Oriented Data (List of Dictionary)
+```
+DataFrame( [dict1, dict2, dict3] )
+DataFrame( [row_list1, row_list2, row_list3], column=np.arrange )
+DataFrame( [row_list1, row_list2, row_list3], index=row_label_list )
+
+by default,keys will become collumn names, and autosorted
+```
+
+
+**Default Column Name Follow Dictionary Key**  
+Note missing info as NaN
+
+```{python}
+pd.DataFrame ([{"name":"Yong", "id":1,"zkey":101},{"name":"Gan","id":2}])
+```
+
+
+**Specify Index**
+
+```{python}
+pd.DataFrame ([{"name":"Yong", "id":'wd1'},{"name":"Gan","id":'wd2'}], 
+             index = (1,2))
+```
+
+
+**Specify Column Header during Creation**, can acts as column filter and manual arrangement  
+Note missing info as NaN
+
+```{python}
+pd.DataFrame ([{"name":"Yong", "id":1, "zkey":101},{"name":"Gan","id":2}], 
+              columns=("name","id","zkey"))
+```
+
+
+#### From Column Oriented Data
+Create from **Dictrionary of List**
+```
+DataFrame(  { 'column1': list1,
+              'column2': list2,
+              'column3': list3 } , 
+              index    = row_label_list, 
+              columns  = column_list)
+              
+```
+By default, DataFrame will **arrange the columns alphabetically**, unless **columns** is specified
+
+
+**Default Row Label**
+
+```{python}
+data = {'empID':  [100,      101,    102,      103,     104],
+        'year':   [2017,     2017,   2017,      2018,    2018],
+        'salary': [40000,    24000,  31000,     20000,   30000],
+        'name':   ['Alice', 'Bob',  'Charles', 'David', 'Eric']}
+pd.DataFrame(data)
+```
+
+
+**Specify Row Label during Creation**
+
+```{python}
+data = {'empID':  [100,      101,    102,      103,     104],
+        'name':   ['Alice', 'Bob',  'Charles', 'David', 'Eric'],
+        'year':   [2017,     2017,   2017,      2018,    2018],
+        'salary': [40000,    24000,  31000,     20000,   30000] }
+pd.DataFrame (data, index=['r1','r2','r3','r4','r5'])
+```
+
+
+**Manualy Choose Columns and Arrangement**
+
+```{python}
+data = {'empID':  [100,      101,    102,      103,     104],
+        'name':   ['Alice', 'Bob',  'Charles', 'David', 'Eric'],
+        'year':   [2017,     2017,   2017,      2018,    2018],
+        'salary': [40000,    24000,  31000,     20000,   30000] }
+pd.DataFrame (data, columns=('empID','name','salary'), index=['r1','r2','r3','r4','r5'])
+```
+
+
+### Attributes
+
+```{python}
+df = pd.DataFrame(
+    { 'empID':  [100,      101,    102,      103,     104],
+      'year1':   [2017,     2017,   2017,      2018,    2018],
+      'name':   ['Alice',  'Bob',  'Charles','David', 'Eric'],
+      'year2':   [2001,     1907,   2003,      1998,    2011],
+      'salary': [40000,    24000,  31000,     20000,   30000]},
+    columns = ['year1','salary','year2','empID','name'])
+```
+
+
+#### Dimensions
+
+```{python}
+df.shape
+```
+
+
+#### Index
+
+```{python}
+df.index
+```
+
+**Underlying Index values are numpy object**
+
+```{python}
+df.index.values
+```
+
+#### Columns
+
+```{python}
+df.columns
+```
+
+**Underlying Index values are numpy object**
+
+```{python}
+df.columns.values
+```
+
+#### Values
+
+**Underlying Column values are numpy object**
+
+```{python}
+df.values
+```
+
+### Index Manipulation
+**index** and **row label** are used interchangeably in this book
+
+
+#### Sample Data
+Columns are intentionaly ordered in a messy way 
+
+```{python}
+df = pd.DataFrame(
+    { 'empID':  [100,      101,    102,      103,     104],
+      'year1':   [2017,     2017,   2017,      2018,    2018],
+      'name':   ['Alice',  'Bob',  'Charles','David', 'Eric'],
+      'year2':   [2001,     1907,   2003,      1998,    2011],
+      'salary': [40000,    24000,  31000,     20000,   30000]},
+    columns = ['year1','salary','year2','empID','name'])
+
+print (df, '\n')
+print (df.index)
+```
+
+#### Convert Column To Index
+```
+set_index('column_name', inplace=False)
+```
+**inplace=True** means don't create a new dataframe. Modify existing dataframe    
+**inplace=False** means return a new dataframe
+
+```{python}
+print(df)
+print(df.index,'\n')
+
+df.set_index('empID',inplace=True) 
+print(df)
+print(df.index) # return new DataFrameObj
+```
+
+#### Convert Index Back To Column
+- Reseting index will resequence the index as 0,1,2 etc  
+- Old index column will be converted back as normal column  
+- Operation support inplace** option
+
+```{python}
+df.reset_index(inplace=True)
+print(df)
+```
+
+
+#### Updating Index ( .index= )
+**Warning:**  
+- Updating index doesn't reorder the data sequence  
+- Number of elements before and after reorder must match, otherwise **error**  
+- Same label are **allowed to repeat**
+- Not reversable
+
+```{python}
+df.index = [101, 101, 101, 102, 103]
+print( df )
+```
+
+
+#### Reordering Index (. reindex )
+- Reindex will reorder the rows according to new index  
+- The operation is not reversable
+
+
+**Start from this original dataframe**
+
+
+**Change the order of Index**, always return a new dataframe
+
+```{python}
+df.index = [101,102,103,104,105]
+print( df )                                ## original sequence
+print( df.reindex([103,102,101,104,105]) ) ## new sequence, new dataframe
+```
+
+
+### Subsetting Columns
+**Select Single Column** Return **Series**
+```
+dataframe.columnName               # single column, name based, return Series object
+dataframe[ single_col_name ]       # single column, name based, return Series object
+dataframe[ [single_col_name] ]     # single column, name based, return DataFrame object
+```
+**Select Single/Multiple Columns** Return **DataFrame**
+```
+dataframe[ single/list_of_col_names ]                       # name based, return Dataframe object
+dataframe.loc[ : , single_col_name  ]  # single column, series
+dataframe.loc[ : , col_name_list    ]  # multiple columns, dataframe
+dataframe.loc[ : , col_name_ranage  ]  # multiple columns, dataframe
+
+dataframe.iloc[ : , col_number      ]  # single column, series
+dataframe.iloc[ : , col_number_list ]  # multiple columns, dataframe
+dataframe.iloc[ : , number_range    ]  # multiple columns, dataframe
+```
+
+
+#### Select Single Column
+Selecting single column always return as ```panda::Series```
+
+```{python}
+df.name
+```
+
+```{python}
+df['name']
+```
+
+```{python}
+df.loc[:, 'name']
+```
+
+```{python}
+df.iloc[:, 3]
+```
+
+
+#### Select Multiple Columns
+Multiple columns return as **panda::Dataframe** object`
+
+```{python}
+df[['name']]  # return one column dataframe
+```
+
+```{python}
+print(df.columns)
+df[['name','year1']]
+```
+
+```{python}
+df.loc[:,['name','year1']]
+```
+
+```{python}
+df.loc[:,'year1':'year2']  # range of columns
+```
+
+```{python}
+df.iloc[:,[0,3]]
+```
+
+```{python}
+df.iloc[:,0:3]
+```
+
+
+#### Selection by Data Type
+
+```
+df.select_dtypes(include=None, exclude=None)
+```
+Always return **panda::DataFrame**, even though only single column matches.  
+Allowed types are:
+- number (integer and float)  
+- integer / float 
+- datetime  
+- timedelta  
+- category  
+
+```{python}
+df.get_dtype_counts()
+```
+
+```{python}
+df.select_dtypes(exclude='number')
+```
+
+```{python}
+df.select_dtypes(exclude=('number','object'))
+```
+
+
+#### Subset by ```filter()```
+```.filter(items=None, like=None, regex=None, axis=1)```  
+
+
+**like = Substring Matches**  
+
+```{python}
+df.filter( like='year',  axis='columns')  ## or axis = 1
+```
+
+
+**items = list of column names**
+
+```{python}
+df.filter( items=('year1','year2'),  axis=1)  ## or axis = 1
+```
+
+
+**regex = Regular Expression**  
+Select column names that contain integer
+
+```{python}
+df.filter(regex='\d')  ## default axis=1 if DataFrame
+```
+
+
+### Column Manipulation
+
+
+#### Sample Data
+
+```{python}
+df
+```
+
+
+#### Renaming Columns
+
+
+**Method 1 : Rename All Columns (.columns =)**  
+- Construct the new column names, **check if there is no missing** column names   
+- **Missing columns** will return **error**  
+- Direct Assignment to column property result in change to dataframe
+
+```{python}
+new_columns = ['year.1','salary','year.2','empID','name']
+df.columns = new_columns
+df.head(2)
+```
+
+
+**Method 2 : Renaming Specific Column (.rename (columns=) )** 
+- Change column name through **rename** function  
+- Support **inpalce** option for original dataframe change  
+- Missing column is OK
+
+```{python}
+df.rename( columns={'year.1':'year1', 'year.2':'year2'}, inplace=True)
+df.head(2)
+```
+
+
+#### Reordering Columns
+Always return a new dataframe.  There is **no inplace option** for reordering columns  
+
+**Method 1 - reindex(columns = )**  
+- **reindex** may sounds like operation on row labels, but it works  
+- **Missmatch** column names will result in **NA** for the unfound column
+
+```{python}
+new_colorder = [ 'empID', 'name', 'salary', 'year1', 'year2']
+df.reindex(columns = new_colorder).head(2)
+```
+
+
+**Method 2 - [ ] notation**  
+- **Missmatch** column will result in **ERROR**  
+
+```{python}
+new_colorder = [ 'empID', 'name', 'salary', 'year1', 'year2']
+df[new_colorder]
+```
+
+
+#### Duplicating or Replacing Column
+- **New Column** will be created instantly using **[] notation**  
+- **DO NOT USE dot Notation** because it is view only attribute
+
+```{python}
+df['year3'] = df.year1
+df
+```
+
+
+#### Dropping Columns (.drop)
+```
+dataframe.drop( columns='column_name',    inplace=True/False)   # delete single column
+dataframe.drop( columns=list_of_colnames, inplace=True/False)   # delete multiple column
+
+dataframe.drop( index='row_label',         inplace=True/False)   # delete single row
+dataframe.drop( index= list_of_row_labels, inplace=True/False)   # delete multiple rows
+
+```
+**inplace=True** means column will be deleted from original dataframe. **Default is False**, which return a copy of dataframe  
+
+
+**By Column Name(s)**
+
+```{python}
+df.drop( columns='year1') # drop single column
+```
+
+```{python}
+df.drop(columns=['year2','year3'])  # drop multiple columns
+```
+
+
+**By Column Number(s)**   
+Use dataframe.columns to produce interim list of column names
+
+```{python}
+df.drop( columns=df.columns[[3,4,5]] )   # delete columns by list of column number
+```
+
+```{python}
+df.drop( columns=df.columns[3:6] )       # delete columns by range of column number
+```
+
+
+### Subsetting Rows
+```
+dataframe.loc[ row_label       ]  # return series, single row
+dataframe.loc[ row_label_list  ]  # multiple rows
+dataframe.loc[ boolean_list    ]  # multiple rows
+
+dataframe.iloc[ row_number       ]  # return series, single row
+dataframe.iloc[ row_number_list  ]  # multiple rows
+dataframe.iloc[ number_range     ]  # multiple rows
+
+dataframe.sample(frac=)                                        # frac = 0.6 means sampling 60% of rows randomly
+```
+
+
+#### Sample Data
+
+```{python}
+df = pd.DataFrame(
+    { 'empID':  [100,      101,    102,      103,     104],
+      'year1':   [2017,     2017,   2017,      2018,    2018],
+      'name':   ['Alice',  'Bob',  'Charles','David', 'Eric'],
+      'year2':   [2001,     1907,   2003,      1998,    2011],
+      'salary': [40000,    24000,  31000,     20000,   30000]},
+    columns = ['year1','salary','year2','empID','name']).set_index(['empID'])
+df
+```
+
+
+#### By Index or Boolean
+
+
+**Single Index** return Series
+
+
+```{python}
+df.loc[101]         # by single row label, return series
+```
+
+
+**List or Range of Indexes** returns DataFrame
+
+```{python}
+df.loc[ [100,103] ]  # by multiple row labels
+```
+
+```{python}
+df.loc[  100:103  ]  # by range of row labels
+```
+
+
+**List of Boolean** returns DataFrame
+
+```{python}
+criteria = (df.salary > 30000) & (df.year1==2017)
+print (criteria)
+print (df.loc[criteria])
+```
+
+
+#### By Row Number
+**Single Row** return Series
+
+```{python}
+df.iloc[1]  # by single row number
+```
+
+
+Multiple rows **returned as dataframe** object
+
+```{python}
+df.iloc[ [0,3] ]    # by row numbers
+```
+
+```{python}
+df.iloc[  0:3  ]    # by row number range
+```
+
+
+#### ```query()```
+```.query(expr, inplace=False)```
+
+```{python}
+df.query('salary<=31000 and year1 == 2017')
+```
+
+
+#### ```sample()```
+
+```{python}
+np.random.seed(15)
+df.sample(frac=0.6) #randomly pick 60% of rows, without replacement
+```
+
+
+### Row Manipulation
+
+
+#### Sample Data
+
+
+#### Dropping Rows (.drop)
+```.drop(labels=None, axis=0, index=None, columns=None, level=None, inplace=False, errors='raise')```
+
+
+**By Row Label(s)**
+
+```{python}
+df.drop(index=100)       # single row
+```
+
+```{python}
+df.drop(index=[100,103])   # multiple rows
+```
+
+
+### Slicing
+
+
+#### Sample Data
+
+```{python}
+df
+```
+
+
+#### Getting One Cell  
+**By Row Label and Column Name (loc)**
+
+
+```
+dataframe.loc [ row_label , col_name   ]    # by row label and column names
+dataframe.loc [ bool_list , col_name   ]    # by row label and column names
+dataframe.iloc[ row_number, col_number ]    # by row and column number
+```
+
+```{python}
+print (df.loc[100,'year1'])
+```
+
+
+**By Row Number and Column Number (iloc)**
+
+```{python}
+print (df.iloc[1,2])
+```
+
+
+#### Getting Multiple Cells
+Specify rows and columns (by individual or range)
+
+```
+dataframe.loc [ list/range_of_row_labels , list/range_col_names   ]    # by row label and column names
+dataframe.iloc[ list/range_row_numbers,    list/range_col_numbers ]    # by row number
+```
+
+
+**By Index and Column Name (loc)**
+
+```{python}
+print (df.loc[ [101,103], ['name','year1'] ], '\n')  # by list of row label and column names
+print (df.loc[  101:104 ,  'year1':'year2'  ], '\n')  # by range of row label and column names
+```
+
+
+**By Boolean Row and Column Names (loc)**
+
+```{python}
+df.loc[df.year1==2017, 'year1':'year2']
+```
+
+
+**By Row and Column Number (iloc)**
+
+```{python}
+print (df.iloc[ [1,4], [0,3]],'\n' )   # by individual rows/columns
+print (df.iloc[  1:4 ,  0:3], '\n')    # by range
+```
+
+
+### Chained Indexing
+
+
+**Chained Index** Method creates a copy of dataframe, any modification of data on original dataframe does not affect the copy  
+```
+dataframe.loc  [...]  [...]
+dataframe.iloc [...]  [...]
+```
+Suggesting, **never use** chain indexing
+
+```{python}
+df = pd.DataFrame(
+    { 'empID':  [100,      101,    102,      103,     104],
+      'year1':   [2017,     2017,   2017,      2018,    2018],
+      'name':   ['Alice',  'Bob',  'Charles','David', 'Eric'],
+      'year2':   [2001,     1907,   2003,      1998,    2011],
+      'salary': [40000,    24000,  31000,     20000,   30000]},
+    columns = ['year1','salary','year2','empID','name']).set_index(['empID'])
+df
+```
+
+```{python}
+df.loc[100]['year'] =2000
+df  ## notice row label 100 had not been updated, because data was updated on a copy due to chain indexing
+```
+
+
+### Data Structure
+
+
+#### Instance Methods - Structure
+Find out the column names, data type in a summary. Output is for display only, not a data object
+
+```{python}
+df.info()  # return text output
+```
+
+```{python}
+df.get_dtype_counts() # return Series
+```
+
+
+#### Conversion To Other Format
+
+```{python}
+df.to_json()
+```
+
+```{python}
+df.to_records()
+```
+
+```{python}
+df.to_csv()
+```
+
+
+### Exploratory Analysis
+
+
+#### Sample Data
+
+```{python}
+df
+```
+
+
+#### All Stats in One  - .describe()
+
+
+```
+df.describe(include='number') # default
+df.describe(include='object') # display for non-numeric columns
+df.describe(include='all')    # display both numeric and non-numeric
+```
+
+When applied to DataFrame object, describe shows all **basic statistic** for **all numeric** columns:
+- Count (non-NA)  
+- Unique (for string)  
+- Top (for string)   
+- Frequency (for string)  
+- Percentile  
+- Mean  
+- Min / Max  
+- Standard Deviation  
+
+
+**For Numeric Columns only**  
+You can **customize the percentiles requred**. Notice 0.5 percentile is always there although not specified
+
+```{python}
+df.describe()
+```
+
+```{python}
+df.describe(percentiles=[0.9,0.3,0.2,0.1])
+```
+
+
+**For both Numeric and Object**
+
+```{python}
+df.describe(include='all')
+```
+
+
+#### min/max/mean/median
+
+```{python}
+df.min()  # default axis=0, column-wise
+```
+
+```{python}
+df.min(axis=1) # axis=1, row-wise
+```
+
+
+Observe, sum on **string will concatenate column-wise**, whereas row-wise only sum up numeric fields
+
+```{python}
+df.sum(0)
+```
+
+```{python}
+df.sum(1)
+```
+
+
+### Plotting
+
+```{python}
+
+```
+
+```{python}
+
+```
+
+
+## Categories
+
+
+### Creating
+
+
+#### From List
+**Basic (Auto Category Mapping)**  
+Basic syntax return categorical index with sequence with code 0,1,2,3... mapping to first found category   
+In this case, **low(0), high(1), medium(2)**
+
+```{python}
+temp = ['low','high','medium','high','high','low','medium','medium','high']
+temp_cat = pd.Categorical(temp)
+temp_cat
+```
+
+```{python}
+type( temp_cat )
+```
+
+
+**Manual Category Mapping**  
+During creation, we can specify mapping of codes to category: **low(0), medium(1), high(2)**
+
+```{python}
+temp_cat = pd.Categorical(temp, categories=['low','medium','high'])
+temp_cat
+```
+
+
+#### From Series
+- We can 'add' categorical structure into a Series. With these methods, additional property (.cat) is added as a **categorical accessor**  
+- Through this accessor, you gain access to various properties of the category such as .codes, .categories. But not .get_values() as the information is in the Series itself  
+- Can we manual map category ?????
+
+```{python}
+temp = ['low','high','medium','high','high','low','medium','medium','high']
+temp_cat = pd.Series(temp, dtype='category')
+print (type(temp_cat))       # Series object
+print (type(temp_cat.cat))   # Categorical Accessor
+```
+
+
+- Method below has the same result as above by using **.astype('category')**  
+- It is useful adding category structure into existing series.
+
+```{python}
+temp_ser = pd.Series(temp)
+temp_cat = pd.Series(temp).astype('category')
+print (type(temp_cat))       # Series object
+print (type(temp_cat.cat))   # Categorical Accessor
+```
+
+```{python}
+temp_cat.cat.categories
+```
+
+
+#### Ordering Category
+
+```{python}
+temp = ['low','high','medium','high','high','low','medium','medium','high']
+temp_cat = pd.Categorical(temp, categories=['low','medium','high'], ordered=True)
+temp_cat
+```
+
+```{python}
+temp_cat.get_values()
+```
+
+```{python}
+temp_cat.codes
+```
+
+```{python}
+temp_cat[0] < temp_cat[3]
+```
+
+<!-- jupyter_markdown, jupyter_meta = list(heading_collapsed = TRUE) -->
+### Properties
+
+<!-- jupyter_markdown, jupyter_meta = list(hidden = TRUE) -->
+#### .categories
+first element's code = 0  
+second element's code = 1  
+third element's code = 2
+
+```{python, jupyter_meta = list(hidden = TRUE)}
+temp_cat.categories
+```
+
+<!-- jupyter_markdown, jupyter_meta = list(hidden = TRUE) -->
+#### .codes
+Codes are actual **integer** value stored as array. 1 represent 'high', 
+
+```{python, jupyter_meta = list(hidden = TRUE)}
+temp_cat.codes
+```
+
+<!-- jupyter_markdown, jupyter_meta = list(heading_collapsed = TRUE) -->
+### Rename Category
+
+<!-- jupyter_markdown, jupyter_meta = list(hidden = TRUE) -->
+#### Renamce To New Category Object
+**.rename_categories()** method return a new category object with new changed categories
+
+```{python, jupyter_meta = list(hidden = TRUE)}
+temp = ['low','high','medium','high','high','low','medium','medium','high']
+new_temp_cat = temp_cat.rename_categories(['sejuk','sederhana','panas'])
+new_temp_cat 
+```
+
+```{python, jupyter_meta = list(hidden = TRUE)}
+temp_cat   # original category object categories not changed
+```
+
+<!-- jupyter_markdown, jupyter_meta = list(hidden = TRUE) -->
+#### Rename Inplace
+Observe the original categories had been changed using **.rename()**
+
+```{python, jupyter_meta = list(hidden = TRUE)}
+temp_cat.categories = ['sejuk','sederhana','panas']
+temp_cat   # original category object categories is changed
+```
+
+<!-- jupyter_markdown, jupyter_meta = list(heading_collapsed = TRUE) -->
+### Adding New Category
+This return a new category object with added categories
+
+```{python, jupyter_meta = list(hidden = TRUE)}
+temp_cat_more = temp_cat.add_categories(['susah','senang'])
+temp_cat_more
+```
+
+<!-- jupyter_markdown, jupyter_meta = list(heading_collapsed = TRUE) -->
+### Removing Category
+This is **not in place**, hence return a new categorical object  
+
+<!-- jupyter_markdown, jupyter_meta = list(hidden = TRUE) -->
+#### Remove Specific Categor(ies)
+Elements with its category removed will become **NaN**
+
+```{python, jupyter_meta = list(hidden = TRUE)}
+temp = ['low','high','medium','high','high','low','medium','medium','high']
+temp_cat = pd.Categorical(temp)
+temp_cat_removed = temp_cat.remove_categories('low')
+temp_cat_removed
+```
+
+<!-- jupyter_markdown, jupyter_meta = list(hidden = TRUE) -->
+#### Remove Unused Category
+Since categories removed are not used, there is no impact to the element
+
+```{python, jupyter_meta = list(hidden = TRUE)}
+print (temp_cat_more)
+temp_cat_more.remove_unused_categories()
+```
+
+<!-- jupyter_markdown, jupyter_meta = list(heading_collapsed = TRUE) -->
+### Add and Remove Categories In One Step - Set()
+
+```{python, jupyter_meta = list(hidden = TRUE)}
+temp = ['low','high','medium','high','high','low','medium','medium','high']
+temp_cat = pd.Categorical(temp, ordered=True)
+temp_cat
+```
+
+```{python, jupyter_meta = list(hidden = TRUE)}
+temp_cat.set_categories(['low','medium','sederhana','susah','senang'])
+```
+
+<!-- jupyter_markdown, jupyter_meta = list(heading_collapsed = TRUE) -->
+### Categorical Descriptive Analysis 
+
+<!-- jupyter_markdown, jupyter_meta = list(hidden = TRUE) -->
+#### At One Glance
+
+```{python, jupyter_meta = list(hidden = TRUE)}
+temp_cat.describe()
+```
+
+<!-- jupyter_markdown, jupyter_meta = list(hidden = TRUE) -->
+#### Frequency Count
+
+```{python, jupyter_meta = list(hidden = TRUE, scrolled = TRUE)}
+temp_cat.value_counts()
+```
+
+<!-- jupyter_markdown, jupyter_meta = list(hidden = TRUE) -->
+#### Least Frequent Category, Most Frequent Category, and Most Frequent Category
+
+```{python, jupyter_meta = list(hidden = TRUE)}
+( temp_cat.min(), temp_cat.max(), temp_cat.mode() )
+```
+
+
+### Other Methods
+
+
+#### .get_values()
+Since actual value stored by categorical object are integer **codes**, get_values() function return values translated from *.codes** property
+
+```{python}
+temp_cat.get_values()  #array
+```
+
+
+## Dummies
+
+- **get_dummies** creates columns for each categories 
+- The underlying data can be string or pd.Categorical  
+- It produces a **new pd.DataFrame**
+
+
+### Sample Data
+
+```{python}
+df = pd.DataFrame (
+    {'A': ['A1', 'A2', 'A3','A1','A3','A1'], 
+     'B': ['B1','B2','B3','B1','B1','B3'],
+     'C': ['C1','C2','C3','C1',np.nan,np.nan]})
+df
+```
+
+
+### Dummies on Array-Like Data
+
+```{python}
+pd.get_dummies(df.A)
+```
+
+
+### Dummies on DataFrame (multiple columns)
+
+
+#### All Columns
+
+```{python}
+pd.get_dummies(df)
+```
+
+
+#### Selected Columns
+
+```{python}
+cols = ['A','B']
+pd.get_dummies(df[cols])
+```
+
+
+### Dummies with na
+By default, nan values are ignored
+
+```{python}
+pd.get_dummies(df.C)
+```
+
+
+**Make NaN as a dummy variable**
+
+```{python}
+pd.get_dummies(df.C,dummy_na=True)
+```
+
+
+### Specify Prefixes
+
+```{python}
+pd.get_dummies(df.A, prefix='col')
+```
+
+```{python}
+pd.get_dummies(df[cols], prefix=['colA','colB'])
+```
+
+
+### Dropping First Column
+- Dummies cause **colinearity issue** for regression as it has redundant column.  
+- Dropping a column **does not loose any information** technically
+
+```{python}
+pd.get_dummies(df[cols],drop_first=True)
+```
+
+
+## Getting External Data
+
+
+### html_table parser
+
+
+- Read the web page, create a list: which contain one or more dataframes that maps to each html table found
+- Auto detect column header
+- Auto create index using number starting from 0
+```
+read_html(url)  # return list of dataframe(s) that maps to web table(s) structure
+```
+
+```{python}
+#df_list = pd.read_html('https://www.bloomberg.com/markets/currencies')
+#print ('Total Table(s) Found : ', len(df_list))
+#df = df_list[0]
+#print (df)
+```
+
+
+### CSV Import
+
+
+#### Syntax
+```
+pandas.read_csv( 
+    'url or filePath',                     # path to file or url 
+    encoding    = 'utf_8',                 # optional: default is 'utf_8'
+    index_col   = ['colName1', ...],       # optional: specify one or more index column
+    parse_dates = ['dateCol1', ...],       # optional: specify multiple string column to convert to date
+    na_values   = ['.','na','NA','N/A'],   # optional: values that is considered NA
+    names       = ['newColName1', ... ],   # optional: overwrite column names
+    thousands   = '.',                     # optional: thousand seperator symbol
+    nrows       = n,                       # optional: load only first n rows
+    skiprows    = 0                        # optional: don't load first n rows
+)
+```
+Refer to full codec [Python Codec](https://docs.python.org/3/library/codecs.html#standard-encodings).
+
+
+#### Default Import
+**By default:**  
+- index is sequence of integer 0,1,2...  
+- only two data type: number and string (auto detection)
+- **date is not parsed**, hence stayed as string
+
+```{python}
+goo = pd.read_csv('data/goog.csv', encoding='utf_8')
+```
+
+```{python, jupyter_meta = list(scrolled = TRUE)}
+goo.head()
+```
+
+```{python}
+goo.info()
+```
+
+
+#### Specify Data Types
+By default ```read_csv``` only import data types of float64 and **object(str)**. This is done through auto detection.  
+To customize the data type, use **```dtype```** parameter with a **dict** of definition.
+
+```{python}
+d_types = {'Volume': str}
+pd.read_csv('data/goog.csv', dtype=d_types).head()
+```
+
+```{python}
+pd.read_csv('data/goog.csv', dtype=d_types).info()
+```
+
+
+#### On The Fly Date Parsing and Indexing
+You can specify multiple date-alike column for parsing
+
+```{python}
+pd.read_csv('data/goog.csv', parse_dates=['Date']).head()
+```
+
+```{python}
+pd.read_csv('data/goog.csv', parse_dates=['Date']).info()
+```
+
+
+#### Parse Date, Then Set as Index
+When date is set as index, the type is **```DateTimeIndex```**
+
+```{python}
+goo3 = pd.read_csv('data/goog.csv',index_col='Date', parse_dates=['Date'])
+```
+
+```{python}
+goo3.head()
+```
+
+
+**Observe index is now DateTime data type**
+
+```{python}
+type(goo3.index)
+```
+
+```{python}
+tb.reset_index()
+```
+
+
+## GroupBy
+- Aggretation and summarization require creating **DataFrameGroupBy** object from existing DataFrame  
+- The **GroupBy** object is a **very flexible abstraction**. In many ways, you can simply treat it as if it's a **collection of DataFrames**, and it does the difficult things under the hood  
+
+```{python}
+company = pd.read_csv('data/company.csv')
+company.head()
+```
+
+
+### Creating Groups
+
+```{python}
+com_grp = company.groupby(['Company','Department'])
+com_grp
+```
+
+
+### Properties
+
+
+#### Number of Groups Created
+
+```{python}
+com_grp.ngroups
+```
+
+
+#### Row Numbers Associated For Each Group
+
+```{python}
+com_grp.groups  # return Dictionary
+```
+
+
+### Methods
+
+
+#### Number of Rows In Each Group
+
+```{python}
+com_grp.size()  # return panda Series object
+```
+
+
+#### Valid (not Null) Data Count For Each Fields In The Group
+
+```{python}
+com_grp.count()  # return panda DataFrame object
+```
+
+
+### Retrieve Rows
+All row retrieval operations **return a dataframe**
+
+
+#### Retrieve N Rows For Each Groups
+Example below retrieve 2 rows from each group
+
+```{python}
+com_grp.head(2)
+```
+
+
+#### Retrieve Rows In One Specific Group
+
+```{python}
+com_grp.get_group(('C1','D3'))
+```
+
+
+#### Retrieve n-th Row From Each Group
+Row number is 0-based
+
+```{python}
+com_grp.nth(-1)    # retireve last row from each group
+```
+
+
+### Iteration
+**DataFrameGroupBy** object can be thought as a collection of named groups
+
+```{python}
+def print_groups (g):
+    for name,group in g:
+        print (name)
+        print (group[:2])
+        
+print_groups (com_grp)
+```
+
+```{python}
+com_grp
+```
+
+
+### Apply Aggregate Functions to Groups
+Aggregate apply functions to columns in every groups, and return a summary data for each group
+
+
+#### Apply One Function to One or More Columns
+
+```{python}
+com_grp['Age'].sum()
+```
+
+```{python}
+com_grp[['Age','Salary']].sum()
+```
+
+
+#### Apply One or More Functions To All Columns
+
+```{python}
+com_grp.agg(np.mean)
+```
+
+```{python}
+com_grp.agg([np.mean,np.sum])
+```
+
+
+#### Apply Different Functions To Different Columns
+
+```{python}
+com_grp.agg({'Age':np.mean, 'Salary': [np.min,np.max]})
+```
+
+
+### Transform
+
+
+- Transform is an operation used combined with **DataFrameGroupBy** object  
+- **transform()** return a **new DataFrame object**  
+
+```{python}
+grp = company.groupby('Company')
+grp.size()
+```
+
+
+**transform()** perform a function to a group, and **expands and replicate** it to multiple rows according to original DataFrame
+
+```{python}
+grp[['Age','Salary']].transform('sum')
+```
+
+```{python}
+grp.transform( lambda x:x+10 )
+```
+
+
+## Concat
+
+
+### Sample Data
+
+```{python}
+s1 = pd.Series(['A1','A2','A3','A4'])
+s2 = pd.Series(['B1','B2','B3','B4'])
+s3 = pd.Series(['C1','C2','C3','C4'])
+df = pd.DataFrame({ 'A': s1, 'B': s2})
+df
+```
+
+
+### Column-Wise
+
+
+#### Multiple Arrays/Series
+- Added series will have 0,1,2,... column names
+
+```{python}
+pd.concat([s1,s2,s3],axis=1)
+```
+
+
+#### DataFrame and Series
+- No change to original data frame column name
+- Added columns from series will have 0,1,2,3,.. column name
+
+```{python}
+pd.concat([df,s3,s1],axis=1)
+```
+
+
+### Row-Wise
+
+```{python}
+
+```
+
+```{python}
+
+```
+
+```{python}
+
+```
+
+<!-- jupyter_markdown, jupyter_meta = list(heading_collapsed = TRUE, `toc-hr-collapsed` = TRUE) -->
+## Fundamental Analysis
+
+<!-- jupyter_markdown, jupyter_meta = list(hidden = TRUE) -->
+### Structure of the Dataframe (.info())
+**info()** is a function that print information to screen. It doesn't return any object
+```
+dataframe.info()  # display columns and number of rows (that has no missing data)
+```
+
+```{python, jupyter_meta = list(hidden = TRUE)}
+df.info()
+```
+
+<!-- jupyter_markdown, jupyter_meta = list(hidden = TRUE) -->
+### First Few Rows (.head())
+```
+dataframe.head (n) # return dataframe of first n rows, default n = 5
+```
+
+```{python, jupyter_meta = list(hidden = TRUE)}
+df.head()
+```
+
+
+## Missing Data
+
+
+### What Is Considered Missing Data ? 
+
+
+### Sample Data
+
+```{python}
+df = pd.DataFrame( np.random.randn(5, 3), 
+                   index   =['a', 'c', 'e', 'f', 'h'],
+                   columns =['one', 'two', 'three'])
+df['four'] = 'bar'
+df['five'] = df['one'] > 0
+df
+df.reindex(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'])
+```
+
+**How Missing Data For Each Column ?**
+
+```{python}
+
+df.count()
+```
+
+```{python}
+len(df.index) - df.count()
+```
+
+```{python}
+df.isnull()
+```
+
+```{python}
+df.describe()
+```
+
+## Pandas DateTime
+pandas contains **extensive capabilities and features** for working with time series data for all domains. Using the NumPy **datetime64 and timedelta64** dtypes  
+
+**```panda.Timestamp```**, a subclass of **datetime.datetime**, is pandas? scalar type for timezone-naive or timezone-aware datetime data. It mimics datetime.datime
+
+
+## DateTimeIndex
+### Creating 
+Source can be **string, date, datetime object**
+
+
+#### Convert From
+When the input is **list-like**, **```to_datetime```** convert to **DateTimeIndex**
+
+```{python}
+dti = pd.to_datetime(['2011-01-03',      # from string
+                date(2018,4,13),        # from date
+                datetime(2018,3,1,7,30)]# from datetime
+              )
+dti
+```
+
+```{python}
+dti[1]
+```
+
+
+### Instance Method
+
+
+#### Conversion to: datetime.datetime 
+Use **```to_pydatetime```** to convert into python standard datetime object
+
+```{python}
+print(dti.to_pydatetime())
+print(type(dti.to_pydatetime()))
+```
+
+#### Converion: ```to_series```
+This creates **index and data** with the same value
+
+```{python}
+dti = pd.date_range('2018-02', periods=4, freq='M')
+dts = dti.to_series()
+print( dts)
+print(type(dts))
+```
+
+```{python}
+
+```
+
+
+#### Converion: ```to_frame()```
+This convert to **single column** dataframe with index as the same value
+
+```{python}
+dtf = dti.to_frame()
+dtf
+```
+
+```{python}
+dtf.info()
+```
+
+### Properties
+
+```{python}
+dti = pd.date_range('2018-02', periods=4, freq='D')
+```
+
+```{python}
+print( dti.weekday )
+print( dti.month   )
+```

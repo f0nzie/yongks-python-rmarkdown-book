@@ -1,0 +1,2423 @@
+# Environment Setup
+
+## Notebook Setup
+
+```{r include=FALSE}
+library(reticulate)
+use_condaenv('base')
+```
+
+```{python include=FALSE}
+from IPython.core.display import display, HTML
+display(HTML("<style>.container { width:75% !important; margin-left:350px; }</style>"))
+```
+
+## Most Common Libraries
+
+```{python}
+import numpy as np
+import pandas as pd
+import datetime as dt
+
+import matplotlib
+import matplotlib.pyplot as plt
+
+from plydata import define, query, select, group_by, summarize, arrange, head, rename
+import plotnine
+from plotnine import *
+```
+
+### numpy
+- large multi-dimensional array and matrices  
+- High level mathematical funcitons to operate on them 
+- Efficient array computation, modeled after matlab  
+- Support vectorized array math functions (built on C, hence faster than python for loop and list)  
+
+
+### scipy
+- Collection of mathematical algorithms and convenience functions built on the numpy extension  
+- Built uponi **numpy**
+
+### Pandas
+- Data manipulation and analysis 
+- Offer data structures and operations for manipulating numerical tables and time series  
+- Good for analyzing tabular data  
+- Use for exploratory data analysis, data pre-processing, statistics and visualization
+- Built upon **numpy**
+
+### scikit-learn
+- Machine learning functions  
+- Built on top of scipy
+
+### matplotlib
+- Data Visualization
+
+## Magic Functions
+
+- IPython has a set of predefined ?magic functions? that you can call with a command line style syntax  
+- There are two types of magics:  
+    - **Line Magic** : prefix with %  
+    Work much like OS command-line calls: they get as an argument the rest of the line, where arguments are passed without parentheses or quotes. Lines magics can return results and can be used in the right hand side of an assignment  
+    - **Cell Magic**  : prefix with %%  
+    They are functions that get as an argument not only the rest of the line, but also the lines below it in a separate argument.
+
+### List of Magic 
+
+```{python}
+#%lsmagic
+```
+
+### Line Magic
+Execute magic on each line
+
+#### %timeit
+- Run the line for default 7 times (use -r to specify)
+- Each **run** has default 100,000,000 loops (use -n to specify)
+
+```{python}
+#%timeit -r 2 -n 100 3+1000/0.25*100
+```
+
+#### %matplotlib
+Output graph inline to frontend (Jupyter Notebook). Therefore is stored in the Notebook document
+
+```{python}
+#%matplotlib inline
+```
+
+#### %who
+- Analyse variables of global scope  
+- Specify optional type to filter the variables
+
+```{python}
+a = 1
+type(a)
+```
+
+```{python}
+#%who int
+```
+
+```{python}
+#%who
+```
+
+### Cell Magic
+Execute magic on the entire cell
+
+#### %%timeit
+- Run the line for default 7 times (use -r to specify)
+- Each **run** has default 100,000,000 loops (use -n to specify)
+
+```{python}
+#%%timeit -r 1 -n 10
+import time
+for _ in range(100):
+    time.sleep(0.01)# sleep for 0.01 seconds
+```
+
+## Package Management
+### Conda
+
+#### Conda Environment
+
+```{python}
+#!conda info
+```
+
+#### Package Version
+
+```{r}
+system("conda list") 
+```
+
+#### Package Installation
+
+Conda is recommended distribution.  
+
+To install from **official** conda channel:
+
+```
+conda install <package_name>  # always install latest
+conda install <package_name=version_number>
+
+# Example: Install From conda official channel
+conda install numpy
+conda install scipy
+conda install pandas
+conda install matpotlib
+conda install scikit-learn
+conda install seaborn
+conda install pip
+```
+
+To install from **conda-forge community** channel:
+
+```
+conda install -c conda-forge <package_name>
+conda install -c conda-forge <package_name=version_number>
+
+# Example: Install From conda community:
+conda install -c conda-forge plotnine
+```
+
+### PIP
+
+PIP is python open repository (not part of conda). Use **pip** if the package is not available in conda.
+
+#### Package Version
+
+```{python}
+#!pip list
+```
+
+#### Package Installation
+
+```
+pip install <package_name>
+
+pip install plydata
+```
+
+# Python Fundamental
+
+## Variable and Values
+- Every varibales in python are **objects**  
+- Every variable assginment is **reference based**, that is, each object value is the reference to memory block of data 
+
+In the below exmaple, **a and b** refer to the **same memory location**.
+
+```{python}
+a = 123
+b = a  
+print ('Data of a =',  a,
+       '\nData of b =',b,
+       '\nID of a = ', id(a),
+       '\nID of b = ', id(b)
+)
+```
+
+Changing data value (using assignment) actually changed **the reference value**
+
+```{python}
+a = 123
+b = a
+a = 456  # reassignemnt changed a memory reference
+         # b memory reference not changed
+print ('Data of a =',a,
+     '\nData of b =',b,
+     '\nID of a = ', id(a),
+     '\nID of b = ', id(b)
+)
+```
+
+## Assignment
+
+### Multiple Assignment
+
+Note that all object created using this method refer to the **same memory location**.
+
+```{python }
+x = y = 'same mem loc'
+print ('x = ', x,
+     '\ny = ', y,
+     '\nid(x) = ', id(x), 
+     '\nid(y) = ', id(y)
+)
+```
+
+### Augmented Assignment
+
+```{python }
+x = 1
+y = x + 1
+y += 1
+print ('y = ', y)
+```
+
+
+### Unpacking Assingment
+
+```{python, }
+x,y = 1,3
+print (x,y)
+```
+
+
+# Built-in Data Types
+
+
+## Numbers
+
+
+### Integer
+
+```{python, }
+n = 123
+type (n)
+```
+
+
+### Float
+
+```{python, }
+f = 123.4
+type (f)
+```
+
+
+### Number Operators
+
+
+**Division** always return float
+
+```{python, }
+print(4/2)  # return int
+type(4/2)
+```
+
+
+**Integer Division** return truncated int or float
+
+```{python, }
+print (8//3)    # return int
+print (8//3.2)  # return float
+```
+
+**Remainder** return either float or integer
+
+```{python, }
+print (8%3)    # return int
+print (8%3.2)  # return float
+```
+
+**Power** return int or float
+
+```{python, }
+print (2**3)    # return int
+print (2.1**3)  # return float
+print (2**3.1)  # return float
+```
+
+
+## String
+### A List of Characters
+String is an object class 'str'. It is an **ordered collection of letters**, an array of object type **str**
+
+
+### Load Library
+
+```{python}
+import string
+```
+
+
+### Constructor
+#### Classical Method
+```class str(object='')```
+
+```{python}
+my_string = str()        ## empty string
+```
+
+
+```class str(object=b'', encoding='utf-8', errors='strict')```
+
+```{python}
+my_string = str('abc')
+```
+
+
+#### Shortcut Method
+
+```{python}
+my_string = 'abc'
+```
+
+#### Multiline Method
+
+```{python}
+my_string = '''
+This is me.
+Yong Keh Soon
+'''
+print(my_string)
+my_string
+```
+
+```{python}
+my_string = '''
+This is me.
+Yong Keh Soon
+'''
+print(my_string)
+my_string
+```
+
+```{python}
+s='abcde'
+print( type(s) )
+print( s[0], s[1], s[2] )
+print( len(s) )
+print(type(s[1]))
+```
+
+
+#### Immutability
+- String is **immuatable**. Changing its content will result in **error** 
+- Changing the variable completley change the reference (for new object)
+
+```{python}
+s = 'abcde'
+print ('s : ', id(s))
+s = 'efgh'
+print ('s : ', id(s))
+```
+
+```{python}
+## s[1] = 'z' # error
+```
+
+### Class Constants
+
+**Letters**
+
+```{python}
+print( string.ascii_letters )
+print( string.ascii_lowercase )
+print( string.ascii_uppercase )
+```
+
+
+**Digits**
+
+```{python}
+string.digits
+```
+
+
+**White Spaces**
+
+```{python}
+string.whitespace
+```
+
+### Instance Methods
+
+#### Substitution : **```format()```**
+**By Positional**
+
+```{python}
+'{} + {} + {}'.format('a', 'b', 'c')  # auto sequence
+```
+
+```{python}
+'{0} + {1} = {2}'.format('aa', 'bb', 'cc') # manual sequence
+```
+
+```{python}
+'{2} + {1} = {2}'.format('a', 'b', 'c') # manual sequence
+```
+
+**By Name**
+
+```{python}
+'Coordinates: {latitude}, {longitude}'.format(latitude='37.24N', longitude='-115.81W') ## constant
+```
+
+```{python}
+coord = {'latitude': '37.24N', 'longitude': '-115.81W'} ## dictionary key/value
+'Coordinates: {latitude}, {longitude}'.format(**coord)
+```
+
+**Formatting Number**  
+Float
+
+```{python}
+'{:+f}; {:+f}'.format(3.14, -3.14)  # show it always
+```
+
+```{python}
+'{: f}; {: f}'.format(3.14, -3.14)  # show a space for positive numbers
+```
+
+```{python}
+'Correct answers: {:.2f}'.format(55676.345345)
+```
+
+Integer, Percentage
+
+```{python}
+'{:,}  {:,.2%}'.format(1234567890, 55676.345345)
+```
+
+**Alignment**
+
+```{python}
+'{:<30}'.format('left aligned')
+```
+
+```{python}
+'{:>30}'.format('right aligned')
+```
+
+```{python}
+'{:^30}'.format('centered')  # use '*' as a fill char
+```
+
+```{python}
+'{:*^30}'.format('centered')  # use '*' as a fill char
+```
+
+
+#### Substitution : **```f-string```**
+
+```{python}
+my_name = 'Yong Keh Soon'
+salary = 11123.346
+f'Hello, {my_name}, your salary is {salary:,.2f} !'
+```
+
+#### Conversion: ```upper() lower()```
+
+```{python}
+'myEXEel.xls'.upper()
+```
+
+```{python}
+'myEXEel.xls'.lower()
+```
+
+#### ```find()``` pattern position
+```
+string.find() return position of first occurance. -1 if not found
+```
+
+```{python}
+s='I love karaoke, I know you love it oo'
+print (s.find('lov'))
+print (s.find('kemuning'))
+```
+
+
+#### ```strip()``` off blank spaces
+
+```{python}
+filename = '  myexce l.   xls   '
+filename.strip()
+```
+
+
+#### List Related: ```split()```
+
+
+Splitting delimeter is specified. Observe the empty spaces were conserved in result array
+
+```{python}
+animals = 'a1,a2 ,a3, a4'
+animals.split(',')
+```
+
+
+#### List Related: ```join()```
+
+```{python}
+'-'.join(['1', '2', '3', '4'])
+```
+
+
+### Operator
+#### ```%``` Old Style Substitution
+
+
+https://docs.python.org/3/library/stdtypes.html#old-string-formatting
+
+```{python, jupyter_meta = list(scrolled = TRUE)}
+name = 'Yong'
+'Hey %s, how are you !' % name
+```
+
+```{python}
+name = 'Yong'
+errno = 123
+'Hey %s, there is a %d error!' % (name, errno)
+```
+
+
+#### ```+``` Concatenation
+
+```{python}
+'this is ' + 'awesome'
+```
+
+#### ```in```  matching
+
+For single string, **partial match**
+
+```{python}
+print( 'abc' in '123abcdefg' )
+```
+
+For list of strings, **exact match**. Workaround for partial match in list of strings, **convert list to single string**
+
+```{python}
+print( 'abc' in ['123','abcdefg'] )
+print( 'abc' in ['abcdefg','123'] )
+print( 'abc' in ['123','abc','def'] )
+print( 'abc' in str(['123','abcdefg']) )
+```
+
+
+#### Comparitor
+
+```{python}
+a='abc'
+b='abc'
+print(a==b)
+print(a!=b)
+```
+
+
+### Iterations
+```
+string[start:end:step]  # default step:1, start:0, end:last
+```
+If step is negative, end value must be lower than start value
+
+```{python}
+s = 'abcdefghijk'
+print (s[0])      # first later
+print (s[:3])     # first 3 letters
+print (s[2:8:2])  # stepping
+print (s[-1])     # last letter
+print (s[-3:])    # last three letters
+print (s[::-1])   # reverse everything
+print (s[8:2:-1])
+```
+
+
+## Boolean
+
+```{python, jupyter_meta = list(code_folding = list())}
+b = False
+
+if (b):
+    print ('It is true')
+else:
+    print ('It is fake')
+    
+```
+
+
+### What is Considered False ?
+Everything below are false, **anything else are true**
+
+```{python}
+print (bool(0))      # zero
+print (bool(None))   # none
+print (bool(''))     # empty string
+print (bool([]))     # empty list
+print (bool(()))     # empty tupple
+print (bool(False))  # False
+print (bool(2-2))    # expression that return any value above
+```
+
+
+### ```and``` operator
+- **and** can return different data types  
+- If evaluated result is **True**, the last **True Value** is returned (because python need to evaluate up to the last value)  
+- If evaluated result is **False**, the first **False Value** will be returned (because python return it immediately when detecting False value)
+
+```{python}
+print (123 and 2 and 1)
+print (123 and () and 2)
+```
+
+
+### ```not``` operator
+
+```{python}
+not (True or False)
+```
+
+### ```or``` operator
+- **or** can return different data type  
+- If evaluated result is True, first **True Value** will be returned  (right hand side value **need not be evaluated**)  
+- If evaluated result is False, last **Fasle Value** will be returned (need to evalute all items before concluding False)
+
+```{python}
+print (1 or 2)
+print (0 or 1 or 1)
+print (0 or () or [])
+```
+
+
+## None
+### None is Object
+- None is a Python **object NonType**  
+- Any operation to None object will result in **error**  
+- For array data with None elements, verification is required to check through iteration to determine if the item is not None. It is very computaionaly heavy 
+
+```{python}
+type(None)
+```
+
+```{python}
+t = np.array([1,2,3,4,5])
+t.dtype  #  its an integer
+```
+
+```{python, jupyter_meta = list(scrolled = FALSE)}
+t = np.array([1, 2, 3, None, 4, 5])
+t.dtype  # it's an object
+```
+
+
+### Comparing None
+**Not Prefered Method**
+
+```{python}
+null_variable = None
+print( null_variable == None )
+```
+
+
+**Prefered**
+
+```{python}
+print( null_variable is None )
+print( null_variable is not None )
+```
+
+
+# Built-In Data Structure
+
+
+## Tuple
+Tuple is an **immutable list**. Any attempt to change/update tuple will return error. It can contain **different types** of object.
+
+Benefits of tuple against List are:
+- **Faster** than list
+- **Protects** your data against accidental change
+- Can be used as key in dictionaries, list can't
+
+
+### Assignment
+
+
+#### (item1, item2, item3)
+This is a formal syntax for defining tuple, items inside (  ) notation
+
+```{python}
+t = (1,2,3,'o','apple')
+t
+```
+
+```{python}
+type(t)
+```
+
+
+#### item1, item2, item3
+- Without (  ) notation, it is also considered as tuple  
+- However, some functions may not consider this method 
+
+```{python}
+1,2,3,'o','apple'
+```
+
+### Accessing
+
+```{python}
+print (t[1])
+print (type(t[1]))
+```
+
+```{python, jupyter_meta = list(scrolled = TRUE)}
+print (t[1:3])
+type ([t[1:3]])
+```
+
+
+### Duplicating Tuple
+
+```{python}
+original = (1,2,3,4,5)
+copy_test = original
+print(original)
+print(copy_test)
+```
+
+```{python}
+print('Original ID: ', id(original))
+print('Copy ID:     ', id(copy_test))
+```
+
+
+## List
+- List is a collection of **ordered** items, where the items **can be different data types**  
+- You can pack list of items by placing them into []  
+- List is mutable
+
+
+### Creating List
+
+
+#### List is An Object
+
+```{python}
+test = [1,2,34,5]
+type(test)
+```
+
+
+#### Empty List
+
+```{python}
+empty = []      # literal assignment method
+empty = list()  # constructor method
+print (empty)
+type(empty)
+```
+
+
+#### Literal Assignment Method
+- **Multiple data types** is allowed in a list
+
+```{python}
+mylist = [123,'abc',456]
+```
+
+
+**Creating List using Constructor Method**  
+- Note that **list(string)** will split the string into letters
+
+```{python}
+list('hello')
+```
+
+**Creating List using split() method**  
+- Split base on spaces (by default) to create a list item
+
+```{python}
+'a bunch of words'.split()
+```
+
+- Split can also break into items base on specified delimter
+
+```{python}
+'a1,a2,a3, a4'.split(',')
+```
+
+
+### Accessing Items
+
+
+**Access specific index number**
+
+```{python}
+food = ['bread', 'noodle', 'rice', 'biscuit','jelly','cake']
+print (food[2])  # 3rd item
+print (food[-1]) # last item
+```
+
+
+**Access range of indexes**
+
+```{python}
+print (food[:4])     # first 3 items
+print (food[-3:])    # last 3 items
+print (food[1:5])    # item 1 to 4
+print (food[5:2:-1]) # item 3 to 5, reverse order
+print (food[::-1])   # reverse order
+```
+
+
+### Remove Item(s)
+Removal of non-existance item will result in error
+
+**Search and remove first occurance** of an item
+
+```{python}
+food = list(['bread', 'noodle', 'rice', 'biscuit','jelly','cake','noodle'])
+food.remove('noodle')
+print (food)
+```
+
+
+**Remove last item**
+
+```{python}
+food.pop()
+print (food)
+```
+
+
+**Remove item at specific position**
+
+```{python}
+food.pop(1)  # counter start from 0
+print(food)
+```
+
+```{python}
+food.remove('jelly')
+print(food)
+```
+
+
+### Appending Item (s)
+
+
+**Append One Item**
+
+```{python}
+food.append('jelly')
+print (food)
+```
+
+
+**Append Multiple Items**  **```extend()```** will expand the list/tupple argument and append as multiple items
+
+```{python}
+food.extend(['nand','puff'])
+print (food)
+```
+
+
+### Concateneting Multiple Lists
+
+
+**Concatenating Lists**
+Although you can use '+' operator, however '-' operator is not supported
+
+```{python}
+['dog','cat','horse'] + ['elephant','tiger'] + ['sheep']
+```
+
+
+### Other Methods ###
+
+
+**Reversing the order of the items**
+
+```{python}
+food.reverse()
+food
+```
+
+
+**Locating the Index Number of An Item**
+
+```{python}
+food.index('biscuit')
+```
+
+
+**Count occurance**
+
+```{python}
+test = ['a','a','a','b','c']
+test.count('a')
+```
+
+
+**Sorting The Order of Items**
+
+```{python}
+food.sort()
+print (food)
+```
+
+
+### List is Mutable
+The reference list variable won't change after adding/removing its item
+
+```{python}
+food = ['cake','jelly','roti','noodle']
+print ('food : ',id(food))
+food += ['salad','chicken']
+print ('food : ',id(food))
+```
+
+```{python}
+x = [1,2,3]
+y = [x,'abc']
+print (y)
+x[2] = 'k'
+print (y)
+```
+
+
+A function is actually an **object**, which reference never change, hence **mutable**
+
+```{python}
+def spam (elem, some_list=['a','b']):
+    some_list.append(elem)
+    return some_list
+
+print (spam(1,['x']))
+print (spam(2)) ## second parameter is not passed
+print (spam(3)) ##  notice the default was remembered
+```
+
+### Duplicate or Reference
+
+**Use =** : It just copy the refernce. IDs are similar
+
+```{python}
+original = [1,2,3,4,5]
+copy_test = original
+print('Original ID: ', id(original))
+print('Copy ID:     ', id(copy_test))                          
+```
+
+```{python}
+original[0]=999   ## change original
+print(original)
+print(copy_test)  ## copy affected
+```
+
+
+**Duplicate A List Object** with **```copy()```**. Resulting IDs are different
+
+```{python}
+original = [1,2,3,4,5]
+copy_test = original.copy()
+print(original)
+print(copy_test)
+```
+
+```{python}
+print('Original ID: ', id(original))
+print('Copy ID:     ', id(copy_test))
+```
+
+```{python}
+original[0] = 999  ## change original
+print(original)    
+print(copy_test)   ## copy not affected
+```
+
+
+**Passing To Function As Reference**
+
+```{python, jupyter_meta = list(scrolled = TRUE)}
+def func(x):
+    print (x)
+    print('ID in Function:      ', id(x))
+    x.append(6)    ## modify the refrence
+    
+my_list = [1,2,3,4,5]
+print('ID outside Function: ', id(my_list))
+
+func(my_list)  ## call the function, pass the reference
+print(my_list) ## content was altered
+```
+
+
+### List Is Iterable
+
+
+#### For Loop
+
+```{python}
+s = ['abc','abcd','bcde','bcdee','cdefg']
+for x in s:
+    if 'abc' in x:
+        print (x)
+```
+
+```{python}
+new_list = []
+old_list = ['abc','abcd','bcde','bcdee','cdefg']
+for x in old_list:
+    if 'abc' in x:
+        new_list.append(x)
+        
+print( new_list )
+```
+
+```{python}
+new_list = [x for x in old_list if 'abc' in x]
+print( new_list)
+```
+
+
+### Conversion
+Convert mutable list to immutable **tuple** with **```tuple()```**
+
+```{python}
+original_tuple = tuple(original)
+print( id(original) )
+print(id(original_tuple))
+```
+
+
+### Built-In Functions Applicable To List
+**Number of Elements**
+
+```{python}
+len(food)
+```
+
+**Max Value**
+
+```{python}
+test = [1,2,3,5,5,3,2,1]
+m = max(test)
+test.index(m)  ## only first occurance is found
+```
+
+## Dictionaries
+Dictionary is a list of index-value items.
+
+### Creating dict
+**Creating dict with literals**
+
+Simple Dictionary
+
+```{python}
+animal_counts = { 'cats' : 2, 'dogs' : 5, 'horses':4}
+print (animal_counts)
+print( type(animal_counts) )
+```
+
+
+Dictionary with list
+
+```{python}
+animal_names = {'cats':   ['Walter','Ra'],
+                'dogs':   ['Jim','Roy','John','Lucky','Row'],
+                'horses': ['Sax','Jack','Ann','Jeep']
+               }
+animal_names
+```
+
+
+**Creating dict with variables**
+
+```{python}
+cat_names = ['Walter','Ra','Jim']
+dog_names = ['Jim','Roy','John','Lucky','Row']
+horse_names= ['Sax','Jack','Ann','Jeep']
+animal_names = {'cats': cat_names, 'dogs': dog_names, 'horses': horse_names}
+animal_names
+```
+
+### Accessing dict
+Find out the list of keys using **keys()**  
+
+```{python}
+print (animal_names.keys())
+print (sorted(animal_names.keys()))
+```
+
+
+Find out the list of values using **values()**
+
+```{python}
+print (animal_names.values())
+print (sorted(animal_names.values()))
+```
+
+
+**Refer a dictionary item using index**
+
+```{python}
+animal_names['dogs']
+```
+
+
+**Accessing non-existance key natively will return Error**
+
+```{python}
+##animal_count['cow']
+```
+
+
+**Accessing non-existance key** with **get()** will return None
+
+```{python}
+print (animal_counts.get('cow'))
+```
+
+
+### Dict are Mutable
+Use **[key]** notation to update the content of element. However, if the key is non-existance, this will return error.
+
+```{python}
+animal_names['dogs'] = ['Ali','Abu','Bakar']
+animal_names
+```
+
+
+Use **```clear()```** to erase all elements
+
+```{python}
+animal_names.clear()
+```
+
+
+## Sets
+Set is unordered collection of unique items
+
+```{python}
+myset = {'a','b','c','d','a','b','e','f','g'}
+print (myset) # notice no repetition values
+```
+
+
+### Membership Test
+
+```{python}
+print ('a' in myset)      # is member ?
+print ('f' not in myset)  # is not member ?
+```
+
+
+### Subset Test
+Subset Test : <=  
+Proper Subset Test : <
+
+```{python}
+mysubset = {'d','g'}
+mysubset <= myset
+```
+
+
+Proper Subset test that the master set **contain at least one element** which is not in the subset
+
+```{python}
+mysubset = {'b','a','d','c','e','f','g'}
+print ('Is Subset : ', mysubset <= myset)
+print ('Is Proper Subet : ', mysubset < myset)
+```
+
+
+### Union using '|'
+
+```{python}
+{'a','b','c'} | {'e','f'}
+```
+
+
+### Intersection using '&'
+Any elments that exist in both left and right set
+
+```{python}
+{'a','b','c','d'} & {'c','d','e','f'}
+```
+
+
+### Difference using '-'
+Anything in **left** that is **not in right** 
+
+```{python}
+{'a','b','c','d'} - {'c','d','e','f'}
+```
+
+
+## range
+**range(X)** generates sequence of integer object
+```
+range (lower_bound, upper_bound, step_size)  
+# lower bound is optional, default = 0
+# upper bound is not included in result
+# step is optional, default = 1
+```
+
+
+**Use list() to convert in order to view actual sequence of data**
+
+```{python}
+r = range(10)     # default lower bound =0, step =1
+print (type (r))
+print (r)
+print (list(r))
+```
+
+
+**More Examples**
+
+```{python}
+print (list(range(2,8)))    # step not specified, default 1
+print ('Odds Number : ' , list(range(1,10,2))) # generate odds number
+```
+
+
+# Control and Loops
+
+
+## If Statement
+### Multiline If.. Statements
+
+```{python}
+price = 102
+if price <100:
+    print ('buy')
+elif price < 110:
+    print ('hold')
+elif price < 120:
+    print ('think about it')
+else:
+    print ('sell')
+print('end of programming')
+```
+
+
+### Single Line If .. Statement
+
+```{python}
+price = 70
+if price<80: print('buy')
+```
+
+```{python}
+price = 85
+'buy' if (price<80) else 'dont buy'
+```
+
+
+## For Loops
+
+
+### Loop thorugh 'range'
+
+```{python}
+for i in range (1,10,2):
+    print ('Odds Number : ',i) 
+```
+
+
+### Loop through 'list'
+#### Standard For Loop
+
+```{python}
+letters = ['a','b','c','d']
+for e in letters:
+    print ('Letter : ',e)
+```
+
+
+#### List Comprehension
+
+
+Iterate through existing list, and **build new list** based on condition  
+```new_list = [expression(i) for i in old_list]```
+
+```{python}
+s = ['abc','abcd','bcde','bcdee','cdefg']
+[x.upper() for x in s]
+```
+
+
+Extend list comprehension can be extended with **```if```** condition**  
+```new_list = [expression(i) for i in old_list if filter(i)]```
+
+```{python}
+old_list    = ['abc','abcd','bcde','bcdee','cdefg']
+matching = [ x.upper() for x in old_list if 'bcd' in x ]
+print( matching )
+```
+
+
+### Loop Through 'Dictionary'
+Looping through dict will picup **key**
+
+```{python, jupyter_meta = list(scrolled = TRUE)}
+d = {"x": 1, "y": 2}
+for key in d:
+    print (key, d[key])
+```
+
+
+## Generators
+
+
+- Generator is lazy, produce items only if asked for, hence more memory efficient
+- Generator is **function** with 'yield' instead of 'return'  
+- Generator contains one or more yields statement  
+- When called, it returns an object (iterator) but **does not start execution** immediately  
+- Methods like __iter__() and __next__() are implemented automatically. So we can iterate through the items using **next()**  
+- Once the function yields, the **function is paused** and the control is transferred to the caller  
+- Local variables and their states are **remembered** between successive calls  
+- Finally, when the function **terminates**, **StopIteration** is raised automatically on further calls
+
+
+### Basic Generator Function
+Below example give clear understanding of how generator works
+
+```{python}
+def my_gen():
+    n = 1
+    print('This is printed first')
+    # Generator function contains yield statements
+    yield n
+
+    n += 1
+    print('This is printed second')
+    yield n
+
+    n += 1
+    print('This is printed at last')
+    yield n
+```
+
+```{python}
+a = my_gen()
+type(a)
+```
+
+```{python}
+next(a)
+```
+
+```{python}
+next(a)
+```
+
+
+### Useful Generator Fuction
+Generator is only useful when it uses **for-loop**
+- for-loop within generator
+- for-loop to iterate through a generator
+
+```{python}
+def rev_str(my_str):
+    length = len(my_str)
+    for i in range(length - 1,-1,-1):
+        yield my_str[i]
+```
+
+```{python}
+for c in rev_str("hello"):
+     print(c)
+```
+
+### Generator Expression
+Use () to create an annonymous generator function
+
+```{python}
+my_list = [1, 3, 6, 10]
+a = (x**2 for x in my_list)
+```
+
+```{python}
+next(a)
+```
+
+```{python}
+next(a)
+```
+
+```{python}
+sum(a) # sum the power of 6,10
+```
+
+
+### Compare to Iterator Class
+
+```{python}
+class PowTwo:
+    def __init__(self, max = 0):
+        self.max = max
+
+    def __iter__(self):
+        self.n = 0
+        return self
+
+    def __next__(self):
+        if self.n > self.max:
+            raise StopIteration
+
+        result = 2 ** self.n
+        self.n += 1
+        return result
+```
+
+
+**Obviously, Generator is more concise and cleaner**
+
+```{python}
+def PowTwoGen(max = 0):
+    n = 0
+    while n < max:
+        yield 2 ** n
+        n += 1
+```
+
+
+# Library and Functions
+Library are group of functions
+
+
+## Package Source
+
+
+### Conda
+- Package manager for any language  
+- Install binaries
+
+
+### PIP
+- Package manager python only  
+- Compile from source  
+- Stands for Pip Installs Packages  
+- Python's officially-sanctioned package manager, and is most commonly used to install packages published on the **Python Package Index (PyPI)**  
+- Both pip and PyPI are governed and supported by the Python Packaging Authority (PyPA).
+
+
+## Importing Library
+
+There are two methods to import library functions:  
+
+**Standalone Namespace**
+```
+- import <libName>                        # access function through: libName.functionName
+- import <libName> as <shortName>         # access function through: shortName.functionName
+```
+**Global Namespace**
+```
+- from   <libName> import *               # all functions available at global namespace
+- from   <libName> import <functionName>  # access function through: functionName    
+- from   <libName> import <functionName> as <shortFunctionName>  # access function through shortFunctionName
+```
+
+
+### Import Entire Library
+
+
+#### Import Into Standalone Namespace
+
+```{python}
+import math
+math.sqrt(9)
+```
+
+
+Use **as** for aliasing library name. This is useful if you have conflicting library name
+
+```{python}
+import math as m
+m.sqrt(9)
+```
+
+
+#### Import Into Global Name Space
+All functions in the library accessible through global namespace
+```
+from <libName> import *
+```
+
+
+### Import Specific Function
+
+```{python}
+from math import sqrt
+print (sqrt(9))
+```
+
+
+Use **as** for aliasing function name
+
+```{python}
+from math import sqrt as sq
+print (sq(9))
+```
+
+
+### Machine Learning Packages
+
+![alt text](img/ml_libraries.jpg)
+
+
+## Define Function
+
+### Function Arguments
+By default, arguments are assigned to function left to right
+
+```{python}
+def myfun(x,y):
+    print ('x:',x)
+    print ('y:',y)
+    
+myfun(5,8)
+```
+
+However, you can also specify the argument assigment during function call
+
+```{python}
+myfun (y=8,x=5)
+```
+
+
+Function can have **default argement value**
+
+```{python}
+def myfun(x=1,y=1):  # default argument value is 1
+    print ('x:',x)
+    print ('y:',y)
+    
+myfun(5)  # pass only one argument
+```
+
+
+### List Within Function
+
+Consider a function is an object, its variable (some_list) is immutable and hence its reference won't change, even data changes
+
+```{python}
+def spam (elem, some_list=[]):
+    some_list.append(elem)
+    return some_list
+
+print (spam(1))
+print (spam(2))
+print (spam(3))
+```
+
+
+### Return Statement
+
+```{python}
+def bigger(x,y):
+    if (x>y):
+        return x
+    else:
+        return y
+    
+print (bigger(5,8))
+```
+
+
+### No Return Statement
+if no **return** statement, python return **None**
+
+```{python}
+def dummy():
+    print ('This is a dummy function, return no value')
+
+dummy()
+```
+
+
+### Return Multiple Value
+Multiple value is returned as **tuple**. Use multiple assignment to assign to multiple variable
+
+```{python}
+def minmax(x,y,z):
+    return min(x,y,z), max(x,y,z)
+
+a,b = minmax(7,8,9)     # multiple assignment
+c   = minmax(7,8,9)     # tuple
+
+print (a,b)
+print (c)    
+```
+
+
+### Passing Function as Argument 
+You can pass a function name as an argument to a function
+
+```{python}
+def myfun(x,y,f):
+    f(x,y)
+
+myfun('hello',54,print)
+```
+
+
+### Arguments
+
+args is a **tuple**
+
+
+#### Example 1
+Error example, too many parameters passed over to function
+
+
+#### Example 2
+First argument goes to x, remaining goes to args as tuple
+
+```{python}
+def myfun(x,*args):
+    print (x)
+    print (args)     #tuple
+    
+myfun(1,2,3,4,5,'abc')
+```
+
+
+#### Example 3
+First argument goes to x, second argument goest to y, remaining goes to args
+
+```{python}
+def myfun(x,y,*args):
+    print (x)
+    print (y)
+    print (args)     #tuple
+    
+myfun(1,2,3)
+```
+
+
+#### Example 4
+
+```{python}
+def myfun(x,*args, y=9):
+    print (x)
+    print (y)
+    print (args)     #tuple
+    
+myfun(1,2,3,4,5)
+```
+
+
+#### Example 5
+All goes to args
+
+```{python}
+def myfun(*args):
+    print (args)     #tuple
+    
+myfun(1,2,3,4,5)
+```
+
+
+#### Example 6 Empty args
+
+```{python}
+def myfun(x,y,*args):
+    print (x)
+    print (y)
+    print (args)
+    
+myfun(1,2)
+```
+
+
+### keyword arguments
+kwargs is a **dictionary**
+
+
+#### Example 1
+
+```{python}
+def foo(**kwargs):
+    print(kwargs)
+    
+foo(a=1,b=2,c=3)
+```
+
+
+#### Example 2
+
+```{python}
+def foo(x,**kwargs):
+    print(x)
+    print(kwargs)
+    
+foo(9,a=1,b=2,c=3)
+```
+
+```{python}
+foo(9) #empty dictionary
+```
+
+
+#### Example 3
+
+```{python}
+def foo(a,b,c,d=1):
+    print(a)
+    print(b)
+    print(c)
+    print(d)
+    
+foo(**{"a":2,"b":3,"c":4})
+```
+
+
+### Mixing *args, **kwargs
+
+Always put args **before** kwargs
+
+#### Example 1
+
+```{python}
+def foo(x,y=1,**kwargs):
+    print (x)
+    print (y)
+    print (kwargs)
+    
+foo(1,2,c=3,d=4)
+```
+
+
+#### Example 2
+
+```{python}
+def foo(x,y=2,*args,**kwargs):
+    print (x)
+    print (y)
+    print (args)
+    print (kwargs)
+    
+foo(1,2,3,4,5,c=6,d=7)
+```
+
+
+# Object Oriented Programming
+
+
+## Defining Class
+
+
+- Every function within a class **must have** at least one parameter - **self**, accept it
+- Use **init** as the constructor function. **init** is optional
+
+```{python}
+class Person:
+    wallet = 0  # 
+    def __init__(self, myname,money=0):   # constructor
+        self.name = myname
+        self.wallet=money
+    def say_hi(self):
+        print('Hello, my name is : ', self.name)
+    def say_bye(self):
+        print('Goodbye', Person.ID)
+    def take(self,amount):
+        self.wallet+=amount
+    def balance(self):
+        print('Wallet Balance:',self.wallet)
+```
+
+
+## Object Class Assignment
+
+```{python}
+#p = Person() ## this will fail, as the constructor expect a parameter
+p1 = Person('Yong')  
+p2 = Person('Gan',200)
+```
+
+
+## Calling Method
+
+```{python}
+p1.say_hi()
+p1.balance()
+```
+
+```{python}
+p2.say_hi()
+p2.balance()
+```
+
+
+## Getting Property
+
+```{python}
+p1.wallet
+```
+
+```{python}
+p2.wallet
+```
+
+
+## Setting Property
+
+```{python}
+p1.wallet = 900
+p1.wallet
+```
+
+
+# Decorator
+
+
+## Definition
+- **Decorator** is a function that accept callable as the **only argument**
+- The main purpose of decarator is to **enhance** the program of the decorated function
+- It returns a **callable**
+
+## Examples
+
+### Example 1 - Plain decorator function
+- Many times, it is useful to register a function elsewhere - for example, registering a task in a task runner, or a functin with signal handler
+- **register** is a decarator, it accept **decorated** as the only argument
+- foo() and bar() are the **decorated function** of **register**
+
+```{python}
+registry = []
+
+def register(decorated):
+    registry.append(decorated)
+    return decorated
+
+@register
+def foo():
+    return 3
+
+@register
+def bar():
+    return 5
+```
+
+```{python}
+registry
+```
+
+```{python}
+registry[0]()
+```
+
+```{python}
+registry[1]()
+```
+
+### Example 2 - Decorator with Class
+- Extending the use case above
+- register is the **decarator**, it has only one argument
+
+```{python}
+class Registry(object):
+    def __init__(self):
+        self._functions = []
+    def register(self,decorated):
+        self._functions.append(decorated)
+        return decorated
+    def run_all(self,*args,**kwargs):
+        return_values = []
+        for func in self._functions:
+            return_values.append(func(*args,**kwargs))
+        return return_values
+```
+
+
+The decorator will decorate two functions, for both object **a** and **b**
+
+```{python}
+a = Registry()
+b = Registry()
+
+@a.register
+def foo(x=3):
+    return x
+
+@b.register
+def bar(x=5):
+    return x
+
+@a.register
+@b.register
+def bax(x=7):
+    return x
+```
+
+Observe the result
+
+```{python}
+print (a._functions)
+print (b._functions)
+```
+
+```{python}
+print (a.run_all())
+print (b.run_all())
+```
+
+```{python}
+
+```
+
+```{python}
+print ( a.run_all(x=9) )
+print ( b.run_all(x=9) )
+```
+
+
+# datetime Standard Library
+This is a built-in library by Python. There is no need to install this library.
+
+## ISO8601
+
+https://en.wikipedia.org/wiki/ISO_8601#Time_zone_designators
+
+### Date Time
+```UTC:   "2007-04-05T14:30Z"      #notice Z
+GMT+8:  "2007-04-05T12:30+08:00  #notice +08:00
+GMT+8:  "2007-04-05T12:30+0800   #notice +0800
+GMT+8:  "2007-04-05T12:30+08     #notice +08```
+
+### Date
+2019-02-04 #notice no timezone available
+
+
+## Module Import
+
+```{python}
+from datetime import date     # module for date object
+from datetime import time     # module for time object
+from datetime import datetime # module for datetime object
+from datetime import timedelta
+```
+
+
+## Class
+datetime library contain **three class of objects**:  
+- **date** (year,month,day)  
+- **time** (hour,minute,second)  
+- **datetime** (year,month,day,hour,minute,second)  
+- **timedelta**: duration between two datetime or date object
+
+## date
+
+### Constructor
+
+```{python}
+print( date(2000,1,1) )
+print( date(year=2000,month=1,day=1) )
+print( type(date(year=2000,month=1,day=1)))
+```
+
+
+### Class Method
+
+
+#### ```today```
+This is **local date** (not UTC)
+
+```{python}
+date.today()
+```
+
+```{python}
+print( date.today() )
+```
+
+
+#### Convert From ISO ```fromisoformat```
+```strptime``` is **not available for date** conversion. It is only for datetime conversion
+
+```{python}
+date.fromisoformat('2011-11-11')
+```
+
+To convert **non-iso format** date string to date object, **convert to datetime first**, then to date
+
+### Instance Method
+
+#### ```replace()```
+- Replace **year/month/day** with specified parameter, non specified params will remain unchange.  
+- Example below change only month. You can change year or day in combination
+
+```{python}
+print( date.today() )
+print( date.today().replace(month=8) )
+```
+
+#### ```weekday(), isoweekday()```
+For ```weekday()```, Zero being Monday   
+For ```isoweekday()```, Zero being Sunday
+
+```{python}
+print( date.today().weekday() )
+print( date.today().isoweekday() )
+```
+
+```{python}
+weekdays = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun']
+wd = date.today().weekday()
+print( date.today(), "is day", wd ,"which is", weekdays[wd] )
+```
+
+#### Formating with ```isoformat()```
+```isoformat()``` return **ISO 8601 String (YYYY-MM-DD)**
+
+```{python}
+date.today().isoformat() # return string
+```
+
+#### Formating with ```strftime```
+For complete directive, see below:  
+https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior
+
+```{python}
+date.today().strftime("%m/%d")
+```
+
+#### ```isocalendar()```
+```isocalendar``` return a 3-tuple, **(ISO year, ISO week number, ISO weekday)**.
+
+```{python}
+date.today().isocalendar() ## return tuple 
+```
+
+### Attributes
+
+```{python}
+print( date.today().year )
+print( date.today().month )
+print( date.today().day )
+```
+
+## datetime
+### Constructor
+
+```{python}
+print( datetime(2000,1,1,0,0,0))
+print( datetime(year=2000,month=1,day=1,hour=23,minute=15,second=55))
+print(type(datetime(2000,1,1,0,0,0)))
+```
+
+### Class Method
+
+#### ```now``` and ```today```
+Both ```now()``` and ```today()``` return current **local**  datetime
+
+```{python}
+datetime.now()
+```
+
+```{python}
+datetime.today()
+```
+
+#### ```utcnow```
+
+```{python}
+datetime.utcnow()
+```
+
+#### ```combine()``` date and time
+Apply ```datetime.combine()``` module method on both **date and time**  object to get **datetime**
+
+```{python}
+now = datetime.now()
+datetime.combine(now.date(), now.time())
+```
+
+#### Convert from String ```strptime()```
+Use **```strptime```** to convert string into **datetime** object
+
+```
+%I : 12-hour
+%H : 24-hour
+%M : Minute
+%p : AM/PM
+%y : 18
+%Y : 2018
+%b : Mar
+%m : month (1 to 12)
+%d : day
+```
+
+```{python}
+datetime.strptime('2011-02-25','%Y-%m-%d')
+```
+
+```{python}
+datetime.strptime('9-01-18','%d-%m-%y')
+```
+
+```{python}
+datetime.strptime('09-Mar-2018','%d-%b-%Y')
+```
+
+```{python}
+datetime.strptime('2/5/2018 4:49 PM', '%m/%d/%Y %I:%M %p')
+```
+
+#### Convert from ISO ```fromisoformat```
+- ```fromisoformat()``` is intend to be reverse of ```isoformat()```  
+-  It actually **not ISO compliance**: when Z or +8 is included at the nd of the string, error occur
+
+```{python}
+s = datetime.now().isoformat()
+datetime.fromisoformat("2019-02-05T10:22:33")
+```
+
+### Instance Method
+#### ```weekday```
+
+```{python}
+datetime.now().weekday()
+```
+
+#### ```replace```
+
+```{python}
+datetime.now().replace(year=1999)
+```
+
+#### convert to ```.time()```
+
+```{python, jupyter_meta = list(scrolled = TRUE)}
+datetime.now().time()
+```
+
+#### Convert to ```.date()```
+
+```{python}
+datetime.now().date()
+```
+
+#### Convert to String
+**```str```**
+
+```{python}
+str( datetime.now() )
+```
+
+**Use ```strftime()```**
+
+```{python, jupyter_meta = list(scrolled = TRUE)}
+datetime.now().strftime('%d-%b-%Y')
+```
+
+```{python}
+datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%S.%fZ')  ## ISO 8601 UTC
+```
+
+**Use ```isoformat()```**
+
+```{python}
+datetime.utcnow().isoformat()
+```
+
+### Attributes
+
+```{python}
+print( datetime.now().year )
+print( datetime.now().month )
+print( datetime.now().day )
+print( datetime.now().hour )
+print( datetime.now().minute )
+```
+
+## time
+
+### Constructor
+
+```{python}
+print( time(2) )    #default single arugement, hour
+print( time(2,15) ) #default two arguments, hour, minute
+print( time(hour=2,minute=15,second=30) )
+```
+
+### Class Method
+#### ```now()```
+There is unfortunately no single function to extract the current time. Use **time()** function of an **datetime** object
+
+```{python}
+datetime.now().time()
+```
+
+### Attributes
+
+```{python}
+print( datetime.now().time().hour )
+print( datetime.now().time().minute )
+print( datetime.now().time().second )
+```
+
+## timedelta
+- **years** argument is **not supported**  
+- Apply timedelta on **datetime** object  
+- timedelta **cannot** be applied on **time object**  , because timedelta potentially go beyond single day (24H)
+
+```{python}
+delt = timedelta(days=365,minutes=33,seconds=15)
+```
+
+```{python}
+now = datetime.now()
+print ('delt+now : ', now+delt)
+```
+
+# Getting External Data
+
+# Plydata (dplyr for Python)
+
+## Sample Data
+
+```{python, }
+n = 200
+comp = ['C' + i for i in np.random.randint( 1,4, size  = n).astype(str)] # 3x Company
+dept = ['D' + i for i in np.random.randint( 1,6, size  = n).astype(str)] # 5x Department
+grp =  ['G' + i for i in np.random.randint( 1,3, size  = n).astype(str)] # 2x Groups
+value1 = np.random.normal( loc=50 , scale=5 , size = n)
+value2 = np.random.normal( loc=20 , scale=3 , size = n)
+#value3 = np.random.normal( loc=5 , scale=30 , size = n)
+
+mydf = pd.DataFrame({
+    'comp':comp, 
+    'dept':dept, 
+    'grp': grp,
+    'value1':value1, 
+    'value2':value2
+    #'value3':value3 
+})
+mydf.head()
+```
+
+## Column Manipulation
+
+### Copy Column
+
+```{python, }
+mydf >> define(newcol = 'value1')                 # simple method for one column
+```
+
+```{python, jupyter_meta = list(hidden = TRUE, scrolled = TRUE)}
+mydf >> define (('newcol1', 'value1'), newcol2='value2')  # method for muiltiple new columns
+```
+
+<!-- jupyter_markdown,  -->
+### New Column from existing Column
+
+<!-- jupyter_markdown,  -->
+**Without specify the new column name**, it will be derived from expression
+
+```{python, }
+mydf >> define ('value1*2')
+```
+
+<!-- jupyter_markdown,  -->
+**Specify the new column name**
+
+```{python, }
+mydf >> define(value3 = 'value1*2')
+```
+
+<!-- jupyter_markdown,  -->
+Define **multiple** new columns in one go. Observe there are three ways to specify the new columns
+
+```{python, }
+mydf >> define('value1*2',('newcol2','value2*2'),newcol3='value2*3')
+```
+
+<!-- jupyter_markdown,  -->
+### Select Column(s)
+
+```{python, }
+mydf2 = mydf >> define(newcol1='value1',newcol2='value2')
+mydf2.info()
+```
+
+<!-- jupyter_markdown,  -->
+#### By Column Names
+**Exact Coumn Name**
+
+```{python, }
+mydf2 >> select ('comp','dept','value1')
+```
+
+**Column Name Starts With** ...
+
+```{python, }
+mydf2 >> select ('comp', startswith='val')
+```
+
+**Column Name Ends With ...**
+
+```{python, }
+mydf2 >> select ('comp',endswith=('1','2','3'))
+```
+
+**Column Name Contains ...**
+
+```{python, }
+mydf2 >> select('comp', contains=('col','val'))
+```
+
+#### Specify Column Range
+
+```{python, }
+mydf2 >> select ('comp', slice('value1','newcol2'))
+```
+
+### Drop Column(s)
+
+```{python, }
+mydf2 >> select('newcol1','newcol2',drop=True)
+```
+
+
+```{python, }
+mydf >> rename( {'val.1' : 'value1',
+                 'val.2' : 'value2' })
+```
+
+**Combined Method**  
+Combine both assignment and dictionary method
+
+```{python, }
+mydf >> rename( {'val.1' : 'value1',
+                 'val.2' : 'value2'
+              }, group = 'grp' )
+```
+
+## Sorting (arrange)
+Use **'-colName'** for decending
+
+```{python, }
+mydf >> arrange('comp', '-value1')
+```
+
+```{python, }
+
+```
+
+```{python, }
+
+```
+
+## Grouping
+
+```{python, }
+mydf.info()
+```
+
+```{python, }
+gdf = mydf >> group_by('comp','dept')
+type(gdf)
+```
+
+## Summarization
+
+### Simple Method
+**Passing Multiple Expressions**
+
+```{python, }
+gdf >> summarize('n()','sum(value1)','mean(value2)')
+```
+
+### Specify Summarized Column Name
+
+**Assignment Method**  
+- Passing colName='expression'**  
+- Column name cannot contain special character
+
+```{python, }
+gdf >> summarize(count='n()',v1sum='sum(value1)',v2_mean='mean(value2)')
+```
+
+**Tuple Method ('colName','expression')**  
+Use when the column name contain special character
+
+```{python, }
+gdf >> summarize(('count','n()'),('v1.sum','sum(value1)'),('s2.sum','sum(value2)'),v2mean=np.mean(value2))
+```
+
+
+### Number of Rows in Group
+- n()        : total rows in group  
+- n_unique() : total of rows with unique value
+
+```{python, }
+gdf >> summarize(count='n()', va11_unique='n_unique(value1)')
+```
