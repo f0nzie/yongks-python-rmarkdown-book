@@ -56,44 +56,39 @@ TreebankWordTokenizer().tokenize("hi @ali-baba, you are aweeeeeesome! isn't it. 
 
 ## N-Gram
 
+To create n-gram, first create 1-gram token
 
 ```{python}
 from nltk.util import ngrams 
 import re
 sentence = "Thomas Jefferson began building the city, at the age of 25"
-```
-
-```{python}
-
 pattern = re.compile(r"[-\s.,;!?]+")
 tokens = pattern.split(sentence)
 print(tokens)
 ```
 
-
-
-Convert To 2-Gram List in two steps
+**ngrams()** is a generator, therefore, use **list()** to convert into full list
 
 ```{python}
 ngrams(tokens,2)
 ```
 
+Convert 1-gram to 2-Gram, wrap into list
 
 ```{python}
 grammy = list( ngrams(tokens,2) )
 print(grammy)
 ```
 
+Combine each 2-gram into a string object
 
 ```{python}
 [ " ".join(x) for x in grammy]
-
 ```
 
 ## Stopwords
 
 ### Custom Stop Words
-
 
 ```{python}
 stop_words = ['a','an','the','on','of','off','this','is','at']
