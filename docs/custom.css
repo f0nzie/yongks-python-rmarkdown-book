@@ -1,24 +1,26 @@
 
-
-p.caption {
-  color: #777;
-  margin-top: 10px;
-}
-p code {
-  white-space: inherit;
-}
-pre {
-  word-break: normal;
-  word-wrap: normal;
-}
-pre code {
-  white-space: inherit;
-}
-
+/*  Source Code - Outer Box */
 div.sourceCode {
-  background-color: transparent;
+  background-color: transparent         !important;
 }
 
-div.pre {
-  margin-bottom: 0  !important;
+/* Source Code - Inner Box */
+pre.sourceCode {
+  border:           2px solid lightgray !important;
+  border-radius:    5px;
+}
+
+
+/* Output Box - Outer Box*/
+pre {
+  margin-top:       5px                 !important;
+  margin-bottom:    5px                 !important;
+}
+
+
+/* Code block - Inner Box */
+/* Make the word wrap           */
+code {
+  white-space:  pre-wrap                !important;
+  word-break:   keep-all                !important;
 }

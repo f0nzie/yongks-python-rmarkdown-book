@@ -128,6 +128,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 
 <ul class="summary">
 <li><a href="./">Python Bookdown</a></li>
+
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prerequisites</a></li>
 <li class="chapter" data-level="1" data-path="environment-setup.html"><a href="environment-setup.html"><i class="fa fa-check"></i><b>1</b> Environment Setup</a><ul>
@@ -599,42 +600,45 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">16.1.1</span> 1xNumeric</h3>
 <pre><code>plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( bins=10 )
 plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth=? )</code></pre>
-<div class="sourceCode" id="cb1060"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1060-1" title="1">plotnine.options.figure_size <span class="op">=</span> (<span class="dv">3</span>, <span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb1060-2" title="2">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>)) <span class="op">+</span> geom_histogram()  <span class="co"># default bins = 10</span></a></code></pre></div>
-<p>&lt;ggplot: (45928112)&gt;</p>
-<p>C:3-packages.py:93: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
-C:3-packages_bin.py:93: UserWarning: ‘stat_bin()’ using ‘bins = 10’. Pick better value with ‘binwidth’.
-warn(msg.format(params[‘bins’]))
-C:3-packages.py:367: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (<code>matplotlib.pyplot.figure</code>) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam <code>figure.max_open_warning</code>).
-figure = plt.figure()
-C:3-packages.py:553: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-return cbook.iterable(var) and not is_string(var)
-<img src="_main_files/figure-html/unnamed-chunk-671-1.png" /><!-- --></p>
-<div class="sourceCode" id="cb1061"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1061-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>)) <span class="op">+</span> geom_histogram(bins <span class="op">=</span> <span class="dv">15</span>)</a></code></pre></div>
-<p>&lt;ggplot: (45969058)&gt;</p>
-<p>C:3-packages.py:93: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
-C:3-packages.py:367: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (<code>matplotlib.pyplot.figure</code>) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam <code>figure.max_open_warning</code>).
-figure = plt.figure()
-C:3-packages.py:553: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-return cbook.iterable(var) and not is_string(var)
-<img src="_main_files/figure-html/unnamed-chunk-672-1.png" /><!-- --></p>
-<div class="sourceCode" id="cb1062"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1062-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>)) <span class="op">+</span> geom_histogram(binwidth <span class="op">=</span> <span class="dv">3</span>)</a></code></pre></div>
-<p>&lt;ggplot: (-9223372036848008027)&gt;</p>
-<p>C:3-packages.py:93: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
-C:3-packages.py:367: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (<code>matplotlib.pyplot.figure</code>) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam <code>figure.max_open_warning</code>).
-figure = plt.figure()
-C:3-packages.py:553: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-return cbook.iterable(var) and not is_string(var)
-<img src="_main_files/figure-html/unnamed-chunk-673-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb1808"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1808-1" title="1">plotnine.options.figure_size <span class="op">=</span> (<span class="dv">3</span>, <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb1808-2" title="2">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>)) <span class="op">+</span> geom_histogram()  <span class="co"># default bins = 10</span></a></code></pre></div>
+<pre><code>## &lt;ggplot: (-9223372036847926012)&gt;
+## 
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
+## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
+##   if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\stats\stat_bin.py:93: UserWarning: &#39;stat_bin()&#39; using &#39;bins = 10&#39;. Pick better value with &#39;binwidth&#39;.
+##   warn(msg.format(params[&#39;bins&#39;]))
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\ggplot.py:367: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+##   figure = plt.figure()
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\utils.py:553: MatplotlibDeprecationWarning: 
+## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
+##   return cbook.iterable(var) and not is_string(var)</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-671-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb1810"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1810-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>)) <span class="op">+</span> geom_histogram(bins <span class="op">=</span> <span class="dv">15</span>)</a></code></pre></div>
+<pre><code>## &lt;ggplot: (45701594)&gt;
+## 
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
+## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
+##   if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\ggplot.py:367: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+##   figure = plt.figure()
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\utils.py:553: MatplotlibDeprecationWarning: 
+## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
+##   return cbook.iterable(var) and not is_string(var)</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-672-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb1812"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1812-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>)) <span class="op">+</span> geom_histogram(binwidth <span class="op">=</span> <span class="dv">3</span>)</a></code></pre></div>
+<pre><code>## &lt;ggplot: (44660470)&gt;
+## 
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
+## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
+##   if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\ggplot.py:367: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+##   figure = plt.figure()
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\utils.py:553: MatplotlibDeprecationWarning: 
+## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
+##   return cbook.iterable(var) and not is_string(var)</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-673-1.png" /><!-- --></p>
 </div>
 <div id="xnumeric-1xcategorical" class="section level3">
 <h3><span class="header-section-number">16.1.2</span> 1xNumeric + 1xCategorical</h3>
@@ -642,34 +646,36 @@ return cbook.iterable(var) and not is_string(var)
                     aes(x=&#39;colName&#39;), 
                     fill=&#39;categorical-alike-colName&#39;) 
 + geom_histogram()</code></pre>
-<div class="sourceCode" id="cb1064"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1064-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, fill<span class="op">=</span><span class="st">&#39;grp&#39;</span>)) <span class="op">+</span> geom_histogram(bins<span class="op">=</span><span class="dv">15</span>)</a></code></pre></div>
-<p>&lt;ggplot: (6733993)&gt;</p>
-<p>C:3-packages.py:93: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
-C:3-packages.py:367: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (<code>matplotlib.pyplot.figure</code>) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam <code>figure.max_open_warning</code>).
-figure = plt.figure()
-C:3-packages.py:553: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-return cbook.iterable(var) and not is_string(var)
-<img src="_main_files/figure-html/unnamed-chunk-674-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb1815"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1815-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, fill<span class="op">=</span><span class="st">&#39;grp&#39;</span>)) <span class="op">+</span> geom_histogram(bins<span class="op">=</span><span class="dv">15</span>)</a></code></pre></div>
+<pre><code>## &lt;ggplot: (-9223372036847443389)&gt;
+## 
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
+## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
+##   if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\ggplot.py:367: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+##   figure = plt.figure()
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\utils.py:553: MatplotlibDeprecationWarning: 
+## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
+##   return cbook.iterable(var) and not is_string(var)</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-674-1.png" /><!-- --></p>
 </div>
 </div>
 <div id="scatter-plot-2" class="section level2">
 <h2><span class="header-section-number">16.2</span> Scatter Plot</h2>
 <div id="x-numeric-2" class="section level3">
 <h3><span class="header-section-number">16.2.1</span> 2x Numeric</h3>
-<div class="sourceCode" id="cb1065"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1065-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>,y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> geom_point()</a></code></pre></div>
-<p>&lt;ggplot: (-9223372036847969073)&gt;</p>
-<p>C:3-packages.py:93: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
-C:3-packages.py:367: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (<code>matplotlib.pyplot.figure</code>) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam <code>figure.max_open_warning</code>).
-figure = plt.figure()
-C:3-packages.py:553: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-return cbook.iterable(var) and not is_string(var)
-<img src="_main_files/figure-html/unnamed-chunk-675-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb1817"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1817-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>,y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> geom_point()</a></code></pre></div>
+<pre><code>## &lt;ggplot: (-9223372036847879508)&gt;
+## 
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
+## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
+##   if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\ggplot.py:367: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+##   figure = plt.figure()
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\utils.py:553: MatplotlibDeprecationWarning: 
+## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
+##   return cbook.iterable(var) and not is_string(var)</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-675-1.png" /><!-- --></p>
 </div>
 <div id="x-numeric-1x-categorical" class="section level3">
 <h3><span class="header-section-number">16.2.2</span> 2x Numeric + 1x Categorical</h3>
@@ -678,156 +684,166 @@ return cbook.iterable(var) and not is_string(var)
         color=&#39;categorical-alike-colName&#39;,
         size=&#39;numberColName&#39;
     ))</code></pre>
-<div class="sourceCode" id="cb1067"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1067-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>,y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> geom_point(aes(color<span class="op">=</span><span class="st">&#39;grp&#39;</span>))</a></code></pre></div>
-<p>&lt;ggplot: (45995875)&gt;</p>
-<p>C:3-packages.py:93: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
-C:3-packages.py:367: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (<code>matplotlib.pyplot.figure</code>) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam <code>figure.max_open_warning</code>).
-figure = plt.figure()
-C:3-packages.py:553: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-return cbook.iterable(var) and not is_string(var)
-<img src="_main_files/figure-html/unnamed-chunk-676-1.png" /><!-- --></p>
-<div class="sourceCode" id="cb1068"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1068-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>,y<span class="op">=</span><span class="st">&#39;value2&#39;</span>,color<span class="op">=</span><span class="st">&#39;grp&#39;</span>)) <span class="op">+</span> geom_point()</a></code></pre></div>
-<p>&lt;ggplot: (-9223372036808546437)&gt;</p>
-<p>C:3-packages.py:93: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
-C:3-packages.py:367: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (<code>matplotlib.pyplot.figure</code>) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam <code>figure.max_open_warning</code>).
-figure = plt.figure()
-C:3-packages.py:553: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-return cbook.iterable(var) and not is_string(var)
-<img src="_main_files/figure-html/unnamed-chunk-677-1.png" /><!-- --></p>
-<div class="sourceCode" id="cb1069"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1069-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>,y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> <span class="op">\</span></a>
-<a class="sourceLine" id="cb1069-2" title="2">    geom_point(aes(</a>
-<a class="sourceLine" id="cb1069-3" title="3">        color<span class="op">=</span><span class="st">&#39;grp&#39;</span></a>
-<a class="sourceLine" id="cb1069-4" title="4">    ))</a></code></pre></div>
-<p>&lt;ggplot: (6873180)&gt;</p>
-<p>C:3-packages.py:93: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
-C:3-packages.py:367: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (<code>matplotlib.pyplot.figure</code>) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam <code>figure.max_open_warning</code>).
-figure = plt.figure()
-C:3-packages.py:553: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-return cbook.iterable(var) and not is_string(var)
-<img src="_main_files/figure-html/unnamed-chunk-678-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb1820"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1820-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>,y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> geom_point(aes(color<span class="op">=</span><span class="st">&#39;grp&#39;</span>))</a></code></pre></div>
+<pre><code>## &lt;ggplot: (-9223372036847498366)&gt;
+## 
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
+## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
+##   if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\ggplot.py:367: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+##   figure = plt.figure()
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\utils.py:553: MatplotlibDeprecationWarning: 
+## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
+##   return cbook.iterable(var) and not is_string(var)</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-676-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb1822"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1822-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>,y<span class="op">=</span><span class="st">&#39;value2&#39;</span>,color<span class="op">=</span><span class="st">&#39;grp&#39;</span>)) <span class="op">+</span> geom_point()</a></code></pre></div>
+<pre><code>## &lt;ggplot: (7226337)&gt;
+## 
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
+## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
+##   if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\ggplot.py:367: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+##   figure = plt.figure()
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\utils.py:553: MatplotlibDeprecationWarning: 
+## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
+##   return cbook.iterable(var) and not is_string(var)</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-677-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb1824"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1824-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>,y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> <span class="op">\</span></a>
+<a class="sourceLine" id="cb1824-2" title="2">    geom_point(aes(</a>
+<a class="sourceLine" id="cb1824-3" title="3">        color<span class="op">=</span><span class="st">&#39;grp&#39;</span></a>
+<a class="sourceLine" id="cb1824-4" title="4">    ))</a></code></pre></div>
+<pre><code>## &lt;ggplot: (-9223372036848047125)&gt;
+## 
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
+## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
+##   if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\ggplot.py:367: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+##   figure = plt.figure()
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\utils.py:553: MatplotlibDeprecationWarning: 
+## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
+##   return cbook.iterable(var) and not is_string(var)</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-678-1.png" /><!-- --></p>
 </div>
 <div id="x-numeric-1x-numeric-1x-categorical" class="section level3">
 <h3><span class="header-section-number">16.2.3</span> 2x Numeric + 1x Numeric + 1x Categorical</h3>
-<div class="sourceCode" id="cb1070"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1070-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>,y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> <span class="op">\</span></a>
-<a class="sourceLine" id="cb1070-2" title="2">    geom_point(aes( </a>
-<a class="sourceLine" id="cb1070-3" title="3">        color<span class="op">=</span><span class="st">&#39;grp&#39;</span>, size<span class="op">=</span><span class="st">&#39;value3&#39;</span></a>
-<a class="sourceLine" id="cb1070-4" title="4">    ))</a></code></pre></div>
-<p>&lt;ggplot: (6821149)&gt;</p>
-<p>C:3-packages.py:93: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
-C:3-packages.py:367: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (<code>matplotlib.pyplot.figure</code>) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam <code>figure.max_open_warning</code>).
-figure = plt.figure()
-C:3-packages.py:553: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-return cbook.iterable(var) and not is_string(var)
-<img src="_main_files/figure-html/unnamed-chunk-679-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb1826"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1826-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>,y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> <span class="op">\</span></a>
+<a class="sourceLine" id="cb1826-2" title="2">    geom_point(aes( </a>
+<a class="sourceLine" id="cb1826-3" title="3">        color<span class="op">=</span><span class="st">&#39;grp&#39;</span>, size<span class="op">=</span><span class="st">&#39;value3&#39;</span></a>
+<a class="sourceLine" id="cb1826-4" title="4">    ))</a></code></pre></div>
+<pre><code>## &lt;ggplot: (-9223372036846890159)&gt;
+## 
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
+## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
+##   if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\ggplot.py:367: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+##   figure = plt.figure()
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\utils.py:553: MatplotlibDeprecationWarning: 
+## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
+##   return cbook.iterable(var) and not is_string(var)</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-679-1.png" /><!-- --></p>
 </div>
 <div id="overlay-smooth-line" class="section level3">
 <h3><span class="header-section-number">16.2.4</span> Overlay Smooth Line</h3>
-<div class="sourceCode" id="cb1071"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1071-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> <span class="op">\</span></a>
-<a class="sourceLine" id="cb1071-2" title="2">    geom_point() <span class="op">+</span> <span class="op">\</span></a>
-<a class="sourceLine" id="cb1071-3" title="3">    geom_smooth()          <span class="co"># default method=&#39;loess&#39;</span></a></code></pre></div>
-<p>&lt;ggplot: (6742641)&gt;</p>
-<p>C:3-packages.py:93: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
-C:3-packages.py:146: UserWarning: Confidence intervals are not yet implementedfor lowess smoothings.
-warnings.warn(“Confidence intervals are not yet implemented”
-C:3-packages.py:367: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (<code>matplotlib.pyplot.figure</code>) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam <code>figure.max_open_warning</code>).
-figure = plt.figure()
-C:3-packages.py:553: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-return cbook.iterable(var) and not is_string(var)
-<img src="_main_files/figure-html/unnamed-chunk-680-1.png" /><!-- --></p>
-<div class="sourceCode" id="cb1072"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1072-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>,fill<span class="op">=</span><span class="st">&#39;grp&#39;</span>)) <span class="op">+</span> <span class="op">\</span></a>
-<a class="sourceLine" id="cb1072-2" title="2">    geom_point() <span class="op">+</span> <span class="op">\</span></a>
-<a class="sourceLine" id="cb1072-3" title="3">    geom_smooth(</a>
-<a class="sourceLine" id="cb1072-4" title="4">        se<span class="op">=</span><span class="va">True</span>,</a>
-<a class="sourceLine" id="cb1072-5" title="5">        color<span class="op">=</span><span class="st">&#39;red&#39;</span>,</a>
-<a class="sourceLine" id="cb1072-6" title="6">        method<span class="op">=</span><span class="st">&#39;lm&#39;</span>, </a>
-<a class="sourceLine" id="cb1072-7" title="7">        level<span class="op">=</span><span class="fl">0.75</span>)</a></code></pre></div>
-<p>&lt;ggplot: (-9223372036846067305)&gt;</p>
-<p>C:3-packages.py:93: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
-C:3-packages.py:367: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (<code>matplotlib.pyplot.figure</code>) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam <code>figure.max_open_warning</code>).
-figure = plt.figure()
-C:3-packages.py:553: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-return cbook.iterable(var) and not is_string(var)
-<img src="_main_files/figure-html/unnamed-chunk-681-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb1828"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1828-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> <span class="op">\</span></a>
+<a class="sourceLine" id="cb1828-2" title="2">    geom_point() <span class="op">+</span> <span class="op">\</span></a>
+<a class="sourceLine" id="cb1828-3" title="3">    geom_smooth()          <span class="co"># default method=&#39;loess&#39;</span></a></code></pre></div>
+<pre><code>## &lt;ggplot: (9029931)&gt;
+## 
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
+## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
+##   if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\stats\smoothers.py:146: UserWarning: Confidence intervals are not yet implementedfor lowess smoothings.
+##   warnings.warn(&quot;Confidence intervals are not yet implemented&quot;
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\ggplot.py:367: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+##   figure = plt.figure()
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\utils.py:553: MatplotlibDeprecationWarning: 
+## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
+##   return cbook.iterable(var) and not is_string(var)</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-680-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb1830"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1830-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>,fill<span class="op">=</span><span class="st">&#39;grp&#39;</span>)) <span class="op">+</span> <span class="op">\</span></a>
+<a class="sourceLine" id="cb1830-2" title="2">    geom_point() <span class="op">+</span> <span class="op">\</span></a>
+<a class="sourceLine" id="cb1830-3" title="3">    geom_smooth(</a>
+<a class="sourceLine" id="cb1830-4" title="4">        se<span class="op">=</span><span class="va">True</span>,</a>
+<a class="sourceLine" id="cb1830-5" title="5">        color<span class="op">=</span><span class="st">&#39;red&#39;</span>,</a>
+<a class="sourceLine" id="cb1830-6" title="6">        method<span class="op">=</span><span class="st">&#39;lm&#39;</span>, </a>
+<a class="sourceLine" id="cb1830-7" title="7">        level<span class="op">=</span><span class="fl">0.75</span>)</a></code></pre></div>
+<pre><code>## &lt;ggplot: (-9223372036845574624)&gt;
+## 
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
+## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
+##   if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\ggplot.py:367: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+##   figure = plt.figure()
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\utils.py:553: MatplotlibDeprecationWarning: 
+## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
+##   return cbook.iterable(var) and not is_string(var)</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-681-1.png" /><!-- --></p>
 </div>
 </div>
 <div id="line-chart" class="section level2">
 <h2><span class="header-section-number">16.3</span> Line Chart</h2>
 <div id="x-numeric-data" class="section level3">
 <h3><span class="header-section-number">16.3.1</span> 2x Numeric Data</h3>
-<div class="sourceCode" id="cb1073"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1073-1" title="1">ggplot (mydf.head(<span class="dv">15</span>), aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> geom_line()</a></code></pre></div>
-<p>&lt;ggplot: (-9223372036808984460)&gt;</p>
-<p>C:3-packages.py:93: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
-C:3-packages.py:367: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (<code>matplotlib.pyplot.figure</code>) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam <code>figure.max_open_warning</code>).
-figure = plt.figure()
-C:3-packages.py:553: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-return cbook.iterable(var) and not is_string(var)
-<img src="_main_files/figure-html/unnamed-chunk-682-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb1832"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1832-1" title="1">ggplot (mydf.head(<span class="dv">15</span>), aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> geom_line()</a></code></pre></div>
+<pre><code>## &lt;ggplot: (-9223372036847831720)&gt;
+## 
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
+## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
+##   if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\ggplot.py:367: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+##   figure = plt.figure()
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\utils.py:553: MatplotlibDeprecationWarning: 
+## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
+##   return cbook.iterable(var) and not is_string(var)</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-682-1.png" /><!-- --></p>
 </div>
 <div id="x-numeric-1x-categorical-1" class="section level3">
 <h3><span class="header-section-number">16.3.2</span> 1x Numeric, 1x Categorical</h3>
-<div class="sourceCode" id="cb1074"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1074-1" title="1">ggplot (mydf.head(<span class="dv">15</span>), aes(x<span class="op">=</span><span class="st">&#39;dept&#39;</span>, y<span class="op">=</span><span class="st">&#39;value1&#39;</span>)) <span class="op">+</span> geom_line()</a></code></pre></div>
-<p>&lt;ggplot: (-9223372036847935800)&gt;</p>
-<p>C:3-packages.py:93: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
-C:3-packages.py:367: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (<code>matplotlib.pyplot.figure</code>) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam <code>figure.max_open_warning</code>).
-figure = plt.figure()
-C:3-packages.py:553: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-return cbook.iterable(var) and not is_string(var)
-<img src="_main_files/figure-html/unnamed-chunk-683-1.png" /><!-- --></p>
-<div class="sourceCode" id="cb1075"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1075-1" title="1">ggplot (mydf.head(<span class="dv">30</span>), aes(x<span class="op">=</span><span class="st">&#39;dept&#39;</span>, y<span class="op">=</span><span class="st">&#39;value1&#39;</span>)) <span class="op">+</span> geom_line( aes(group<span class="op">=</span><span class="dv">1</span>))</a></code></pre></div>
-<p>&lt;ggplot: (46028152)&gt;</p>
-<p>C:3-packages.py:517: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-return not cbook.iterable(value) and (cbook.is_numlike(value) or
-C:3-packages.py:517: MatplotlibDeprecationWarning:
-The is_numlike function was deprecated in Matplotlib 3.0 and will be removed in 3.2. Use isinstance(…, numbers.Number) instead.
-return not cbook.iterable(value) and (cbook.is_numlike(value) or
-C:3-packages.py:93: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
-C:3-packages.py:367: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (<code>matplotlib.pyplot.figure</code>) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam <code>figure.max_open_warning</code>).
-figure = plt.figure()
-C:3-packages.py:553: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-return cbook.iterable(var) and not is_string(var)
-<img src="_main_files/figure-html/unnamed-chunk-684-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb1834"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1834-1" title="1">ggplot (mydf.head(<span class="dv">15</span>), aes(x<span class="op">=</span><span class="st">&#39;dept&#39;</span>, y<span class="op">=</span><span class="st">&#39;value1&#39;</span>)) <span class="op">+</span> geom_line()</a></code></pre></div>
+<pre><code>## &lt;ggplot: (6762195)&gt;
+## 
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
+## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
+##   if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\ggplot.py:367: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+##   figure = plt.figure()
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\utils.py:553: MatplotlibDeprecationWarning: 
+## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
+##   return cbook.iterable(var) and not is_string(var)</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-683-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb1836"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1836-1" title="1">ggplot (mydf.head(<span class="dv">30</span>), aes(x<span class="op">=</span><span class="st">&#39;dept&#39;</span>, y<span class="op">=</span><span class="st">&#39;value1&#39;</span>)) <span class="op">+</span> geom_line( aes(group<span class="op">=</span><span class="dv">1</span>))</a></code></pre></div>
+<pre><code>## &lt;ggplot: (-9223372036845696575)&gt;
+## 
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\layer.py:517: MatplotlibDeprecationWarning: 
+## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
+##   return not cbook.iterable(value) and (cbook.is_numlike(value) or
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\layer.py:517: MatplotlibDeprecationWarning: 
+## The is_numlike function was deprecated in Matplotlib 3.0 and will be removed in 3.2. Use isinstance(..., numbers.Number) instead.
+##   return not cbook.iterable(value) and (cbook.is_numlike(value) or
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
+## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
+##   if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\ggplot.py:367: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+##   figure = plt.figure()
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\utils.py:553: MatplotlibDeprecationWarning: 
+## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
+##   return cbook.iterable(var) and not is_string(var)</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-684-1.png" /><!-- --></p>
 </div>
 <div id="x-numeric-1x-categorical-2" class="section level3">
 <h3><span class="header-section-number">16.3.3</span> 2x Numeric, 1x Categorical</h3>
-<div class="sourceCode" id="cb1076"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1076-1" title="1">ggplot (mydf.head(<span class="dv">15</span>), aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> geom_line( aes(color<span class="op">=</span><span class="st">&#39;grp&#39;</span>),size<span class="op">=</span><span class="dv">2</span>)</a></code></pre></div>
-<p>&lt;ggplot: (-9223372036809018431)&gt;</p>
-<p>C:3-packages.py:93: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
-C:3-packages.py:367: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (<code>matplotlib.pyplot.figure</code>) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam <code>figure.max_open_warning</code>).
-figure = plt.figure()
-C:3-packages.py:553: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-return cbook.iterable(var) and not is_string(var)
-<img src="_main_files/figure-html/unnamed-chunk-685-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb1838"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1838-1" title="1">ggplot (mydf.head(<span class="dv">15</span>), aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> geom_line( aes(color<span class="op">=</span><span class="st">&#39;grp&#39;</span>),size<span class="op">=</span><span class="dv">2</span>)</a></code></pre></div>
+<pre><code>## &lt;ggplot: (7382115)&gt;
+## 
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
+## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
+##   if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\ggplot.py:367: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+##   figure = plt.figure()
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\utils.py:553: MatplotlibDeprecationWarning: 
+## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
+##   return cbook.iterable(var) and not is_string(var)</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-685-1.png" /><!-- --></p>
 </div>
 </div>
 <div id="bar-chart-2" class="section level2">
@@ -835,35 +851,36 @@ return cbook.iterable(var) and not is_string(var)
 <div id="x-categorical" class="section level4">
 <h4><span class="header-section-number">16.4.0.1</span> 1x Categorical</h4>
 <p>Single categorical variable produces frequency chart.</p>
-<div class="sourceCode" id="cb1077"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1077-1" title="1">tmpdf <span class="op">=</span> mydf.groupby([<span class="st">&#39;comp&#39;</span>],as_index<span class="op">=</span><span class="va">False</span>).count()</a>
-<a class="sourceLine" id="cb1077-2" title="2">tmpdf</a></code></pre></div>
-<p>comp dept grp value1 value2 value3
-0 C1 27 27 27 27 27
-1 C2 37 37 37 37 37
-2 C3 36 36 36 36 36</p>
-<div class="sourceCode" id="cb1078"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1078-1" title="1">tmpdf.info()</a></code></pre></div>
-<p>&lt;class ‘pandas.core.frame.DataFrame’&gt;
-Int64Index: 3 entries, 0 to 2
-Data columns (total 6 columns):
-comp 3 non-null object
-dept 3 non-null int64
-grp 3 non-null int64
-value1 3 non-null int64
-value2 3 non-null int64
-value3 3 non-null int64
-dtypes: int64(5), object(1)
-memory usage: 168.0+ bytes</p>
-<div class="sourceCode" id="cb1079"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1079-1" title="1">ggplot (tmpdf, aes(x<span class="op">=</span><span class="st">&#39;comp&#39;</span>, y<span class="op">=</span><span class="st">&#39;grp&#39;</span>)) <span class="op">+</span>geom_col()</a></code></pre></div>
-<p>&lt;ggplot: (-9223372036809035979)&gt;</p>
-<p>C:3-packages.py:93: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
-C:3-packages.py:367: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (<code>matplotlib.pyplot.figure</code>) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam <code>figure.max_open_warning</code>).
-figure = plt.figure()
-C:3-packages.py:553: MatplotlibDeprecationWarning:
-The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
-return cbook.iterable(var) and not is_string(var)
-<img src="_main_files/figure-html/unnamed-chunk-688-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb1840"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1840-1" title="1">tmpdf <span class="op">=</span> mydf.groupby([<span class="st">&#39;comp&#39;</span>],as_index<span class="op">=</span><span class="va">False</span>).count()</a>
+<a class="sourceLine" id="cb1840-2" title="2">tmpdf</a></code></pre></div>
+<pre><code>##   comp  dept  grp  value1  value2  value3
+## 0   C1    27   27      27      27      27
+## 1   C2    37   37      37      37      37
+## 2   C3    36   36      36      36      36</code></pre>
+<div class="sourceCode" id="cb1842"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1842-1" title="1">tmpdf.info()</a></code></pre></div>
+<pre><code>## &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+## Int64Index: 3 entries, 0 to 2
+## Data columns (total 6 columns):
+## comp      3 non-null object
+## dept      3 non-null int64
+## grp       3 non-null int64
+## value1    3 non-null int64
+## value2    3 non-null int64
+## value3    3 non-null int64
+## dtypes: int64(5), object(1)
+## memory usage: 168.0+ bytes</code></pre>
+<div class="sourceCode" id="cb1844"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1844-1" title="1">ggplot (tmpdf, aes(x<span class="op">=</span><span class="st">&#39;comp&#39;</span>, y<span class="op">=</span><span class="st">&#39;grp&#39;</span>)) <span class="op">+</span>geom_col()</a></code></pre></div>
+<pre><code>## &lt;ggplot: (-9223372036847502981)&gt;
+## 
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
+## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
+##   if cbook.iterable(self.breaks) and cbook.iterable(self.labels):
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\ggplot.py:367: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+##   figure = plt.figure()
+## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\utils.py:553: MatplotlibDeprecationWarning: 
+## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
+##   return cbook.iterable(var) and not is_string(var)</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-688-1.png" /><!-- --></p>
 
 </div>
 </div>
@@ -923,26 +940,14 @@ gitbook.start({
 "collapse": "subsection",
 "scroll_highlight": true
 },
-"toolbar": "position: fixed ",
+"toolbar": {
+"position": "fixed"
+},
 "searh": true
 });
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

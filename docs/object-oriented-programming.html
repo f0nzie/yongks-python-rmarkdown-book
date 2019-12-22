@@ -128,6 +128,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 
 <ul class="summary">
 <li><a href="./">Python Bookdown</a></li>
+
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prerequisites</a></li>
 <li class="chapter" data-level="1" data-path="environment-setup.html"><a href="environment-setup.html"><i class="fa fa-check"></i><b>1</b> Environment Setup</a><ul>
@@ -599,49 +600,49 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li>Every function within a class <strong>must have</strong> at least one parameter - <strong>self</strong>, accept it</li>
 <li>Use <strong>init</strong> as the constructor function. <strong>init</strong> is optional</li>
 </ul>
-<div class="sourceCode" id="cb228"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb228-1" title="1"><span class="kw">class</span> Person:</a>
-<a class="sourceLine" id="cb228-2" title="2">    wallet <span class="op">=</span> <span class="dv">0</span>  <span class="co"># </span></a>
-<a class="sourceLine" id="cb228-3" title="3">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, myname,money<span class="op">=</span><span class="dv">0</span>):   <span class="co"># constructor</span></a>
-<a class="sourceLine" id="cb228-4" title="4">        <span class="va">self</span>.name <span class="op">=</span> myname</a>
-<a class="sourceLine" id="cb228-5" title="5">        <span class="va">self</span>.wallet<span class="op">=</span>money</a>
-<a class="sourceLine" id="cb228-6" title="6">    <span class="kw">def</span> say_hi(<span class="va">self</span>):</a>
-<a class="sourceLine" id="cb228-7" title="7">        <span class="bu">print</span>(<span class="st">&#39;Hello, my name is : &#39;</span>, <span class="va">self</span>.name)</a>
-<a class="sourceLine" id="cb228-8" title="8">    <span class="kw">def</span> say_bye(<span class="va">self</span>):</a>
-<a class="sourceLine" id="cb228-9" title="9">        <span class="bu">print</span>(<span class="st">&#39;Goodbye&#39;</span>, Person.ID)</a>
-<a class="sourceLine" id="cb228-10" title="10">    <span class="kw">def</span> take(<span class="va">self</span>,amount):</a>
-<a class="sourceLine" id="cb228-11" title="11">        <span class="va">self</span>.wallet<span class="op">+=</span>amount</a>
-<a class="sourceLine" id="cb228-12" title="12">    <span class="kw">def</span> balance(<span class="va">self</span>):</a>
-<a class="sourceLine" id="cb228-13" title="13">        <span class="bu">print</span>(<span class="st">&#39;Wallet Balance:&#39;</span>,<span class="va">self</span>.wallet)</a></code></pre></div>
+<div class="sourceCode" id="cb424"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb424-1" title="1"><span class="kw">class</span> Person:</a>
+<a class="sourceLine" id="cb424-2" title="2">    wallet <span class="op">=</span> <span class="dv">0</span>  <span class="co"># </span></a>
+<a class="sourceLine" id="cb424-3" title="3">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, myname,money<span class="op">=</span><span class="dv">0</span>):   <span class="co"># constructor</span></a>
+<a class="sourceLine" id="cb424-4" title="4">        <span class="va">self</span>.name <span class="op">=</span> myname</a>
+<a class="sourceLine" id="cb424-5" title="5">        <span class="va">self</span>.wallet<span class="op">=</span>money</a>
+<a class="sourceLine" id="cb424-6" title="6">    <span class="kw">def</span> say_hi(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb424-7" title="7">        <span class="bu">print</span>(<span class="st">&#39;Hello, my name is : &#39;</span>, <span class="va">self</span>.name)</a>
+<a class="sourceLine" id="cb424-8" title="8">    <span class="kw">def</span> say_bye(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb424-9" title="9">        <span class="bu">print</span>(<span class="st">&#39;Goodbye&#39;</span>, Person.ID)</a>
+<a class="sourceLine" id="cb424-10" title="10">    <span class="kw">def</span> take(<span class="va">self</span>,amount):</a>
+<a class="sourceLine" id="cb424-11" title="11">        <span class="va">self</span>.wallet<span class="op">+=</span>amount</a>
+<a class="sourceLine" id="cb424-12" title="12">    <span class="kw">def</span> balance(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb424-13" title="13">        <span class="bu">print</span>(<span class="st">&#39;Wallet Balance:&#39;</span>,<span class="va">self</span>.wallet)</a></code></pre></div>
 </div>
 <div id="object-class-assignment" class="section level2">
 <h2><span class="header-section-number">7.2</span> Object Class Assignment</h2>
-<div class="sourceCode" id="cb229"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb229-1" title="1"><span class="co">#p = Person() ## this will fail, as the constructor expect a parameter</span></a>
-<a class="sourceLine" id="cb229-2" title="2">p1 <span class="op">=</span> Person(<span class="st">&#39;Yong&#39;</span>)  </a>
-<a class="sourceLine" id="cb229-3" title="3">p2 <span class="op">=</span> Person(<span class="st">&#39;Gan&#39;</span>,<span class="dv">200</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb425"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb425-1" title="1"><span class="co">#p = Person() ## this will fail, as the constructor expect a parameter</span></a>
+<a class="sourceLine" id="cb425-2" title="2">p1 <span class="op">=</span> Person(<span class="st">&#39;Yong&#39;</span>)  </a>
+<a class="sourceLine" id="cb425-3" title="3">p2 <span class="op">=</span> Person(<span class="st">&#39;Gan&#39;</span>,<span class="dv">200</span>)</a></code></pre></div>
 </div>
 <div id="calling-method" class="section level2">
 <h2><span class="header-section-number">7.3</span> Calling Method</h2>
-<div class="sourceCode" id="cb230"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb230-1" title="1">p1.say_hi()</a></code></pre></div>
-<p>Hello, my name is : Yong</p>
-<div class="sourceCode" id="cb231"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb231-1" title="1">p1.balance()</a></code></pre></div>
-<p>Wallet Balance: 0</p>
-<div class="sourceCode" id="cb232"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb232-1" title="1">p2.say_hi()</a></code></pre></div>
-<p>Hello, my name is : Gan</p>
-<div class="sourceCode" id="cb233"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb233-1" title="1">p2.balance()</a></code></pre></div>
-<p>Wallet Balance: 200</p>
+<div class="sourceCode" id="cb426"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb426-1" title="1">p1.say_hi()</a></code></pre></div>
+<pre><code>## Hello, my name is :  Yong</code></pre>
+<div class="sourceCode" id="cb428"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb428-1" title="1">p1.balance()</a></code></pre></div>
+<pre><code>## Wallet Balance: 0</code></pre>
+<div class="sourceCode" id="cb430"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb430-1" title="1">p2.say_hi()</a></code></pre></div>
+<pre><code>## Hello, my name is :  Gan</code></pre>
+<div class="sourceCode" id="cb432"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb432-1" title="1">p2.balance()</a></code></pre></div>
+<pre><code>## Wallet Balance: 200</code></pre>
 </div>
 <div id="getting-property" class="section level2">
 <h2><span class="header-section-number">7.4</span> Getting Property</h2>
-<div class="sourceCode" id="cb234"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb234-1" title="1">p1.wallet</a></code></pre></div>
-<p>0</p>
-<div class="sourceCode" id="cb235"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb235-1" title="1">p2.wallet</a></code></pre></div>
-<p>200</p>
+<div class="sourceCode" id="cb434"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb434-1" title="1">p1.wallet</a></code></pre></div>
+<pre><code>## 0</code></pre>
+<div class="sourceCode" id="cb436"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb436-1" title="1">p2.wallet</a></code></pre></div>
+<pre><code>## 200</code></pre>
 </div>
 <div id="setting-property" class="section level2">
 <h2><span class="header-section-number">7.5</span> Setting Property</h2>
-<div class="sourceCode" id="cb236"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb236-1" title="1">p1.wallet <span class="op">=</span> <span class="dv">900</span></a>
-<a class="sourceLine" id="cb236-2" title="2">p1.wallet</a></code></pre></div>
-<p>900</p>
+<div class="sourceCode" id="cb438"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb438-1" title="1">p1.wallet <span class="op">=</span> <span class="dv">900</span></a>
+<a class="sourceLine" id="cb438-2" title="2">p1.wallet</a></code></pre></div>
+<pre><code>## 900</code></pre>
 </div>
 </div>
             </section>
@@ -699,26 +700,14 @@ gitbook.start({
 "collapse": "subsection",
 "scroll_highlight": true
 },
-"toolbar": "position: fixed ",
+"toolbar": {
+"position": "fixed"
+},
 "searh": true
 });
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

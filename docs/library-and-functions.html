@@ -128,6 +128,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 
 <ul class="summary">
 <li><a href="./">Python Bookdown</a></li>
+
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prerequisites</a></li>
 <li class="chapter" data-level="1" data-path="environment-setup.html"><a href="environment-setup.html"><i class="fa fa-check"></i><b>1</b> Environment Setup</a><ul>
@@ -633,13 +634,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">6.2.1</span> Import Entire Library</h3>
 <div id="import-into-standalone-namespace" class="section level4">
 <h4><span class="header-section-number">6.2.1.1</span> Import Into Standalone Namespace</h4>
-<div class="sourceCode" id="cb201"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb201-1" title="1"><span class="im">import</span> math</a>
-<a class="sourceLine" id="cb201-2" title="2">math.sqrt(<span class="dv">9</span>)</a></code></pre></div>
-<p>3.0</p>
+<div class="sourceCode" id="cb371"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb371-1" title="1"><span class="im">import</span> math</a>
+<a class="sourceLine" id="cb371-2" title="2">math.sqrt(<span class="dv">9</span>)</a></code></pre></div>
+<pre><code>## 3.0</code></pre>
 <p>Use <strong>as</strong> for aliasing library name. This is useful if you have conflicting library name</p>
-<div class="sourceCode" id="cb202"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb202-1" title="1"><span class="im">import</span> math <span class="im">as</span> m</a>
-<a class="sourceLine" id="cb202-2" title="2">m.sqrt(<span class="dv">9</span>)</a></code></pre></div>
-<p>3.0</p>
+<div class="sourceCode" id="cb373"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb373-1" title="1"><span class="im">import</span> math <span class="im">as</span> m</a>
+<a class="sourceLine" id="cb373-2" title="2">m.sqrt(<span class="dv">9</span>)</a></code></pre></div>
+<pre><code>## 3.0</code></pre>
 </div>
 <div id="import-into-global-name-space" class="section level4">
 <h4><span class="header-section-number">6.2.1.2</span> Import Into Global Name Space</h4>
@@ -649,13 +650,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="import-specific-function" class="section level3">
 <h3><span class="header-section-number">6.2.2</span> Import Specific Function</h3>
-<div class="sourceCode" id="cb204"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb204-1" title="1"><span class="im">from</span> math <span class="im">import</span> sqrt</a>
-<a class="sourceLine" id="cb204-2" title="2"><span class="bu">print</span> (sqrt(<span class="dv">9</span>))</a></code></pre></div>
-<p>3.0</p>
+<div class="sourceCode" id="cb376"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb376-1" title="1"><span class="im">from</span> math <span class="im">import</span> sqrt</a>
+<a class="sourceLine" id="cb376-2" title="2"><span class="bu">print</span> (sqrt(<span class="dv">9</span>))</a></code></pre></div>
+<pre><code>## 3.0</code></pre>
 <p>Use <strong>as</strong> for aliasing function name</p>
-<div class="sourceCode" id="cb205"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb205-1" title="1"><span class="im">from</span> math <span class="im">import</span> sqrt <span class="im">as</span> sq</a>
-<a class="sourceLine" id="cb205-2" title="2"><span class="bu">print</span> (sq(<span class="dv">9</span>))</a></code></pre></div>
-<p>3.0</p>
+<div class="sourceCode" id="cb378"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb378-1" title="1"><span class="im">from</span> math <span class="im">import</span> sqrt <span class="im">as</span> sq</a>
+<a class="sourceLine" id="cb378-2" title="2"><span class="bu">print</span> (sq(<span class="dv">9</span>))</a></code></pre></div>
+<pre><code>## 3.0</code></pre>
 </div>
 <div id="machine-learning-packages" class="section level3">
 <h3><span class="header-section-number">6.2.3</span> Machine Learning Packages</h3>
@@ -670,82 +671,82 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="function-arguments" class="section level3">
 <h3><span class="header-section-number">6.3.1</span> Function Arguments</h3>
 <p>By default, arguments are assigned to function left to right</p>
-<div class="sourceCode" id="cb206"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb206-1" title="1"><span class="kw">def</span> myfun(x,y):</a>
-<a class="sourceLine" id="cb206-2" title="2">    <span class="bu">print</span> (<span class="st">&#39;x:&#39;</span>,x)</a>
-<a class="sourceLine" id="cb206-3" title="3">    <span class="bu">print</span> (<span class="st">&#39;y:&#39;</span>,y)</a>
-<a class="sourceLine" id="cb206-4" title="4">    </a>
-<a class="sourceLine" id="cb206-5" title="5">myfun(<span class="dv">5</span>,<span class="dv">8</span>)</a></code></pre></div>
-<p>x: 5
-y: 8</p>
+<div class="sourceCode" id="cb380"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb380-1" title="1"><span class="kw">def</span> myfun(x,y):</a>
+<a class="sourceLine" id="cb380-2" title="2">    <span class="bu">print</span> (<span class="st">&#39;x:&#39;</span>,x)</a>
+<a class="sourceLine" id="cb380-3" title="3">    <span class="bu">print</span> (<span class="st">&#39;y:&#39;</span>,y)</a>
+<a class="sourceLine" id="cb380-4" title="4">    </a>
+<a class="sourceLine" id="cb380-5" title="5">myfun(<span class="dv">5</span>,<span class="dv">8</span>)</a></code></pre></div>
+<pre><code>## x: 5
+## y: 8</code></pre>
 <p>However, you can also specify the argument assigment during function call</p>
-<div class="sourceCode" id="cb207"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb207-1" title="1">myfun (y<span class="op">=</span><span class="dv">8</span>,x<span class="op">=</span><span class="dv">5</span>)</a></code></pre></div>
-<p>x: 5
-y: 8</p>
+<div class="sourceCode" id="cb382"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb382-1" title="1">myfun (y<span class="op">=</span><span class="dv">8</span>,x<span class="op">=</span><span class="dv">5</span>)</a></code></pre></div>
+<pre><code>## x: 5
+## y: 8</code></pre>
 <p>Function can have <strong>default argement value</strong></p>
-<div class="sourceCode" id="cb208"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb208-1" title="1"><span class="kw">def</span> myfun(x<span class="op">=</span><span class="dv">1</span>,y<span class="op">=</span><span class="dv">1</span>):  <span class="co"># default argument value is 1</span></a>
-<a class="sourceLine" id="cb208-2" title="2">    <span class="bu">print</span> (<span class="st">&#39;x:&#39;</span>,x)</a>
-<a class="sourceLine" id="cb208-3" title="3">    <span class="bu">print</span> (<span class="st">&#39;y:&#39;</span>,y)</a>
-<a class="sourceLine" id="cb208-4" title="4">    </a>
-<a class="sourceLine" id="cb208-5" title="5">myfun(<span class="dv">5</span>)  <span class="co"># pass only one argument</span></a></code></pre></div>
-<p>x: 5
-y: 1</p>
+<div class="sourceCode" id="cb384"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb384-1" title="1"><span class="kw">def</span> myfun(x<span class="op">=</span><span class="dv">1</span>,y<span class="op">=</span><span class="dv">1</span>):  <span class="co"># default argument value is 1</span></a>
+<a class="sourceLine" id="cb384-2" title="2">    <span class="bu">print</span> (<span class="st">&#39;x:&#39;</span>,x)</a>
+<a class="sourceLine" id="cb384-3" title="3">    <span class="bu">print</span> (<span class="st">&#39;y:&#39;</span>,y)</a>
+<a class="sourceLine" id="cb384-4" title="4">    </a>
+<a class="sourceLine" id="cb384-5" title="5">myfun(<span class="dv">5</span>)  <span class="co"># pass only one argument</span></a></code></pre></div>
+<pre><code>## x: 5
+## y: 1</code></pre>
 </div>
 <div id="list-within-function" class="section level3">
 <h3><span class="header-section-number">6.3.2</span> List Within Function</h3>
 <p>Consider a function is an object, its variable (some_list) is immutable and hence its reference won’t change, even data changes</p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb209-1" title="1"><span class="kw">def</span> spam (elem, some_list<span class="op">=</span>[]):</a>
-<a class="sourceLine" id="cb209-2" title="2">    some_list.append(elem)</a>
-<a class="sourceLine" id="cb209-3" title="3">    <span class="cf">return</span> some_list</a>
-<a class="sourceLine" id="cb209-4" title="4"></a>
-<a class="sourceLine" id="cb209-5" title="5"><span class="bu">print</span> (spam(<span class="dv">1</span>))</a></code></pre></div>
-<p>[1]</p>
-<div class="sourceCode" id="cb210"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb210-1" title="1"><span class="bu">print</span> (spam(<span class="dv">2</span>))</a></code></pre></div>
-<p>[1, 2]</p>
-<div class="sourceCode" id="cb211"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb211-1" title="1"><span class="bu">print</span> (spam(<span class="dv">3</span>))</a></code></pre></div>
-<p>[1, 2, 3]</p>
+<div class="sourceCode" id="cb386"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb386-1" title="1"><span class="kw">def</span> spam (elem, some_list<span class="op">=</span>[]):</a>
+<a class="sourceLine" id="cb386-2" title="2">    some_list.append(elem)</a>
+<a class="sourceLine" id="cb386-3" title="3">    <span class="cf">return</span> some_list</a>
+<a class="sourceLine" id="cb386-4" title="4"></a>
+<a class="sourceLine" id="cb386-5" title="5"><span class="bu">print</span> (spam(<span class="dv">1</span>))</a></code></pre></div>
+<pre><code>## [1]</code></pre>
+<div class="sourceCode" id="cb388"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb388-1" title="1"><span class="bu">print</span> (spam(<span class="dv">2</span>))</a></code></pre></div>
+<pre><code>## [1, 2]</code></pre>
+<div class="sourceCode" id="cb390"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb390-1" title="1"><span class="bu">print</span> (spam(<span class="dv">3</span>))</a></code></pre></div>
+<pre><code>## [1, 2, 3]</code></pre>
 </div>
 <div id="return-statement" class="section level3">
 <h3><span class="header-section-number">6.3.3</span> Return Statement</h3>
-<div class="sourceCode" id="cb212"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb212-1" title="1"><span class="kw">def</span> bigger(x,y):</a>
-<a class="sourceLine" id="cb212-2" title="2">    <span class="cf">if</span> (x<span class="op">&gt;</span>y):</a>
-<a class="sourceLine" id="cb212-3" title="3">        <span class="cf">return</span> x</a>
-<a class="sourceLine" id="cb212-4" title="4">    <span class="cf">else</span>:</a>
-<a class="sourceLine" id="cb212-5" title="5">        <span class="cf">return</span> y</a>
-<a class="sourceLine" id="cb212-6" title="6">    </a>
-<a class="sourceLine" id="cb212-7" title="7"><span class="bu">print</span> (bigger(<span class="dv">5</span>,<span class="dv">8</span>))</a></code></pre></div>
-<p>8</p>
+<div class="sourceCode" id="cb392"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb392-1" title="1"><span class="kw">def</span> bigger(x,y):</a>
+<a class="sourceLine" id="cb392-2" title="2">    <span class="cf">if</span> (x<span class="op">&gt;</span>y):</a>
+<a class="sourceLine" id="cb392-3" title="3">        <span class="cf">return</span> x</a>
+<a class="sourceLine" id="cb392-4" title="4">    <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb392-5" title="5">        <span class="cf">return</span> y</a>
+<a class="sourceLine" id="cb392-6" title="6">    </a>
+<a class="sourceLine" id="cb392-7" title="7"><span class="bu">print</span> (bigger(<span class="dv">5</span>,<span class="dv">8</span>))</a></code></pre></div>
+<pre><code>## 8</code></pre>
 </div>
 <div id="no-return-statement" class="section level3">
 <h3><span class="header-section-number">6.3.4</span> No Return Statement</h3>
 <p>if no <strong>return</strong> statement, python return <strong>None</strong></p>
-<div class="sourceCode" id="cb213"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb213-1" title="1"><span class="kw">def</span> dummy():</a>
-<a class="sourceLine" id="cb213-2" title="2">    <span class="bu">print</span> (<span class="st">&#39;This is a dummy function, return no value&#39;</span>)</a>
-<a class="sourceLine" id="cb213-3" title="3"></a>
-<a class="sourceLine" id="cb213-4" title="4">dummy()</a></code></pre></div>
-<p>This is a dummy function, return no value</p>
+<div class="sourceCode" id="cb394"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb394-1" title="1"><span class="kw">def</span> dummy():</a>
+<a class="sourceLine" id="cb394-2" title="2">    <span class="bu">print</span> (<span class="st">&#39;This is a dummy function, return no value&#39;</span>)</a>
+<a class="sourceLine" id="cb394-3" title="3"></a>
+<a class="sourceLine" id="cb394-4" title="4">dummy()</a></code></pre></div>
+<pre><code>## This is a dummy function, return no value</code></pre>
 </div>
 <div id="return-multiple-value" class="section level3">
 <h3><span class="header-section-number">6.3.5</span> Return Multiple Value</h3>
 <p>Multiple value is returned as <strong>tuple</strong>. Use multiple assignment to assign to multiple variable</p>
-<div class="sourceCode" id="cb214"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb214-1" title="1"><span class="kw">def</span> minmax(x,y,z):</a>
-<a class="sourceLine" id="cb214-2" title="2">    <span class="cf">return</span> <span class="bu">min</span>(x,y,z), <span class="bu">max</span>(x,y,z)</a>
-<a class="sourceLine" id="cb214-3" title="3"></a>
-<a class="sourceLine" id="cb214-4" title="4">a,b <span class="op">=</span> minmax(<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>)     <span class="co"># multiple assignment</span></a>
-<a class="sourceLine" id="cb214-5" title="5">c   <span class="op">=</span> minmax(<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>)     <span class="co"># tuple</span></a>
-<a class="sourceLine" id="cb214-6" title="6"></a>
-<a class="sourceLine" id="cb214-7" title="7"><span class="bu">print</span> (a,b)</a></code></pre></div>
-<p>7 9</p>
-<div class="sourceCode" id="cb215"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb215-1" title="1"><span class="bu">print</span> (c)    </a></code></pre></div>
-<p>(7, 9)</p>
+<div class="sourceCode" id="cb396"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb396-1" title="1"><span class="kw">def</span> minmax(x,y,z):</a>
+<a class="sourceLine" id="cb396-2" title="2">    <span class="cf">return</span> <span class="bu">min</span>(x,y,z), <span class="bu">max</span>(x,y,z)</a>
+<a class="sourceLine" id="cb396-3" title="3"></a>
+<a class="sourceLine" id="cb396-4" title="4">a,b <span class="op">=</span> minmax(<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>)     <span class="co"># multiple assignment</span></a>
+<a class="sourceLine" id="cb396-5" title="5">c   <span class="op">=</span> minmax(<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>)     <span class="co"># tuple</span></a>
+<a class="sourceLine" id="cb396-6" title="6"></a>
+<a class="sourceLine" id="cb396-7" title="7"><span class="bu">print</span> (a,b)</a></code></pre></div>
+<pre><code>## 7 9</code></pre>
+<div class="sourceCode" id="cb398"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb398-1" title="1"><span class="bu">print</span> (c)    </a></code></pre></div>
+<pre><code>## (7, 9)</code></pre>
 </div>
 <div id="passing-function-as-argument" class="section level3">
 <h3><span class="header-section-number">6.3.6</span> Passing Function as Argument</h3>
 <p>You can pass a function name as an argument to a function</p>
-<div class="sourceCode" id="cb216"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb216-1" title="1"><span class="kw">def</span> myfun(x,y,f):</a>
-<a class="sourceLine" id="cb216-2" title="2">    f(x,y)</a>
-<a class="sourceLine" id="cb216-3" title="3"></a>
-<a class="sourceLine" id="cb216-4" title="4">myfun(<span class="st">&#39;hello&#39;</span>,<span class="dv">54</span>,<span class="bu">print</span>)</a></code></pre></div>
-<p>hello 54</p>
+<div class="sourceCode" id="cb400"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb400-1" title="1"><span class="kw">def</span> myfun(x,y,f):</a>
+<a class="sourceLine" id="cb400-2" title="2">    f(x,y)</a>
+<a class="sourceLine" id="cb400-3" title="3"></a>
+<a class="sourceLine" id="cb400-4" title="4">myfun(<span class="st">&#39;hello&#39;</span>,<span class="dv">54</span>,<span class="bu">print</span>)</a></code></pre></div>
+<pre><code>## hello 54</code></pre>
 </div>
 <div id="arguments" class="section level3">
 <h3><span class="header-section-number">6.3.7</span> Arguments</h3>
@@ -757,59 +758,59 @@ y: 1</p>
 <div id="example-2" class="section level4">
 <h4><span class="header-section-number">6.3.7.2</span> Example 2</h4>
 <p>First argument goes to x, remaining goes to args as tuple</p>
-<div class="sourceCode" id="cb217"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb217-1" title="1"><span class="kw">def</span> myfun(x,<span class="op">*</span>args):</a>
-<a class="sourceLine" id="cb217-2" title="2">    <span class="bu">print</span> (x)</a>
-<a class="sourceLine" id="cb217-3" title="3">    <span class="bu">print</span> (args)     <span class="co">#tuple</span></a>
-<a class="sourceLine" id="cb217-4" title="4">    </a>
-<a class="sourceLine" id="cb217-5" title="5">myfun(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="st">&#39;abc&#39;</span>)</a></code></pre></div>
-<p>1
-(2, 3, 4, 5, ‘abc’)</p>
+<div class="sourceCode" id="cb402"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb402-1" title="1"><span class="kw">def</span> myfun(x,<span class="op">*</span>args):</a>
+<a class="sourceLine" id="cb402-2" title="2">    <span class="bu">print</span> (x)</a>
+<a class="sourceLine" id="cb402-3" title="3">    <span class="bu">print</span> (args)     <span class="co">#tuple</span></a>
+<a class="sourceLine" id="cb402-4" title="4">    </a>
+<a class="sourceLine" id="cb402-5" title="5">myfun(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="st">&#39;abc&#39;</span>)</a></code></pre></div>
+<pre><code>## 1
+## (2, 3, 4, 5, &#39;abc&#39;)</code></pre>
 </div>
 <div id="example-3" class="section level4">
 <h4><span class="header-section-number">6.3.7.3</span> Example 3</h4>
 <p>First argument goes to x, second argument goest to y, remaining goes to args</p>
-<div class="sourceCode" id="cb218"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb218-1" title="1"><span class="kw">def</span> myfun(x,y,<span class="op">*</span>args):</a>
-<a class="sourceLine" id="cb218-2" title="2">    <span class="bu">print</span> (x)</a>
-<a class="sourceLine" id="cb218-3" title="3">    <span class="bu">print</span> (y)</a>
-<a class="sourceLine" id="cb218-4" title="4">    <span class="bu">print</span> (args)     <span class="co">#tuple</span></a>
-<a class="sourceLine" id="cb218-5" title="5">    </a>
-<a class="sourceLine" id="cb218-6" title="6">myfun(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</a></code></pre></div>
-<p>1
-2
-(3,)</p>
+<div class="sourceCode" id="cb404"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb404-1" title="1"><span class="kw">def</span> myfun(x,y,<span class="op">*</span>args):</a>
+<a class="sourceLine" id="cb404-2" title="2">    <span class="bu">print</span> (x)</a>
+<a class="sourceLine" id="cb404-3" title="3">    <span class="bu">print</span> (y)</a>
+<a class="sourceLine" id="cb404-4" title="4">    <span class="bu">print</span> (args)     <span class="co">#tuple</span></a>
+<a class="sourceLine" id="cb404-5" title="5">    </a>
+<a class="sourceLine" id="cb404-6" title="6">myfun(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</a></code></pre></div>
+<pre><code>## 1
+## 2
+## (3,)</code></pre>
 </div>
 <div id="example-4" class="section level4">
 <h4><span class="header-section-number">6.3.7.4</span> Example 4</h4>
-<div class="sourceCode" id="cb219"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb219-1" title="1"><span class="kw">def</span> myfun(x,<span class="op">*</span>args, y<span class="op">=</span><span class="dv">9</span>):</a>
-<a class="sourceLine" id="cb219-2" title="2">    <span class="bu">print</span> (x)</a>
-<a class="sourceLine" id="cb219-3" title="3">    <span class="bu">print</span> (y)</a>
-<a class="sourceLine" id="cb219-4" title="4">    <span class="bu">print</span> (args)     <span class="co">#tuple</span></a>
-<a class="sourceLine" id="cb219-5" title="5">    </a>
-<a class="sourceLine" id="cb219-6" title="6">myfun(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</a></code></pre></div>
-<p>1
-9
-(2, 3, 4, 5)</p>
+<div class="sourceCode" id="cb406"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb406-1" title="1"><span class="kw">def</span> myfun(x,<span class="op">*</span>args, y<span class="op">=</span><span class="dv">9</span>):</a>
+<a class="sourceLine" id="cb406-2" title="2">    <span class="bu">print</span> (x)</a>
+<a class="sourceLine" id="cb406-3" title="3">    <span class="bu">print</span> (y)</a>
+<a class="sourceLine" id="cb406-4" title="4">    <span class="bu">print</span> (args)     <span class="co">#tuple</span></a>
+<a class="sourceLine" id="cb406-5" title="5">    </a>
+<a class="sourceLine" id="cb406-6" title="6">myfun(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</a></code></pre></div>
+<pre><code>## 1
+## 9
+## (2, 3, 4, 5)</code></pre>
 </div>
 <div id="example-5" class="section level4">
 <h4><span class="header-section-number">6.3.7.5</span> Example 5</h4>
 <p>All goes to args</p>
-<div class="sourceCode" id="cb220"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb220-1" title="1"><span class="kw">def</span> myfun(<span class="op">*</span>args):</a>
-<a class="sourceLine" id="cb220-2" title="2">    <span class="bu">print</span> (args)     <span class="co">#tuple</span></a>
-<a class="sourceLine" id="cb220-3" title="3">    </a>
-<a class="sourceLine" id="cb220-4" title="4">myfun(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</a></code></pre></div>
-<p>(1, 2, 3, 4, 5)</p>
+<div class="sourceCode" id="cb408"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb408-1" title="1"><span class="kw">def</span> myfun(<span class="op">*</span>args):</a>
+<a class="sourceLine" id="cb408-2" title="2">    <span class="bu">print</span> (args)     <span class="co">#tuple</span></a>
+<a class="sourceLine" id="cb408-3" title="3">    </a>
+<a class="sourceLine" id="cb408-4" title="4">myfun(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</a></code></pre></div>
+<pre><code>## (1, 2, 3, 4, 5)</code></pre>
 </div>
 <div id="example-6-empty-args" class="section level4">
 <h4><span class="header-section-number">6.3.7.6</span> Example 6 Empty args</h4>
-<div class="sourceCode" id="cb221"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb221-1" title="1"><span class="kw">def</span> myfun(x,y,<span class="op">*</span>args):</a>
-<a class="sourceLine" id="cb221-2" title="2">    <span class="bu">print</span> (x)</a>
-<a class="sourceLine" id="cb221-3" title="3">    <span class="bu">print</span> (y)</a>
-<a class="sourceLine" id="cb221-4" title="4">    <span class="bu">print</span> (args)</a>
-<a class="sourceLine" id="cb221-5" title="5">    </a>
-<a class="sourceLine" id="cb221-6" title="6">myfun(<span class="dv">1</span>,<span class="dv">2</span>)</a></code></pre></div>
-<p>1
-2
-()</p>
+<div class="sourceCode" id="cb410"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb410-1" title="1"><span class="kw">def</span> myfun(x,y,<span class="op">*</span>args):</a>
+<a class="sourceLine" id="cb410-2" title="2">    <span class="bu">print</span> (x)</a>
+<a class="sourceLine" id="cb410-3" title="3">    <span class="bu">print</span> (y)</a>
+<a class="sourceLine" id="cb410-4" title="4">    <span class="bu">print</span> (args)</a>
+<a class="sourceLine" id="cb410-5" title="5">    </a>
+<a class="sourceLine" id="cb410-6" title="6">myfun(<span class="dv">1</span>,<span class="dv">2</span>)</a></code></pre></div>
+<pre><code>## 1
+## 2
+## ()</code></pre>
 </div>
 </div>
 <div id="keyword-arguments" class="section level3">
@@ -817,38 +818,38 @@ y: 1</p>
 <p>kwargs is a <strong>dictionary</strong></p>
 <div id="example-1-1" class="section level4">
 <h4><span class="header-section-number">6.3.8.1</span> Example 1</h4>
-<div class="sourceCode" id="cb222"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb222-1" title="1"><span class="kw">def</span> foo(<span class="op">**</span>kwargs):</a>
-<a class="sourceLine" id="cb222-2" title="2">    <span class="bu">print</span>(kwargs)</a>
-<a class="sourceLine" id="cb222-3" title="3">    </a>
-<a class="sourceLine" id="cb222-4" title="4">foo(a<span class="op">=</span><span class="dv">1</span>,b<span class="op">=</span><span class="dv">2</span>,c<span class="op">=</span><span class="dv">3</span>)</a></code></pre></div>
-<p>{‘a’: 1, ‘b’: 2, ‘c’: 3}</p>
+<div class="sourceCode" id="cb412"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb412-1" title="1"><span class="kw">def</span> foo(<span class="op">**</span>kwargs):</a>
+<a class="sourceLine" id="cb412-2" title="2">    <span class="bu">print</span>(kwargs)</a>
+<a class="sourceLine" id="cb412-3" title="3">    </a>
+<a class="sourceLine" id="cb412-4" title="4">foo(a<span class="op">=</span><span class="dv">1</span>,b<span class="op">=</span><span class="dv">2</span>,c<span class="op">=</span><span class="dv">3</span>)</a></code></pre></div>
+<pre><code>## {&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: 3}</code></pre>
 </div>
 <div id="example-2-1" class="section level4">
 <h4><span class="header-section-number">6.3.8.2</span> Example 2</h4>
-<div class="sourceCode" id="cb223"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb223-1" title="1"><span class="kw">def</span> foo(x,<span class="op">**</span>kwargs):</a>
-<a class="sourceLine" id="cb223-2" title="2">    <span class="bu">print</span>(x)</a>
-<a class="sourceLine" id="cb223-3" title="3">    <span class="bu">print</span>(kwargs)</a>
-<a class="sourceLine" id="cb223-4" title="4">    </a>
-<a class="sourceLine" id="cb223-5" title="5">foo(<span class="dv">9</span>,a<span class="op">=</span><span class="dv">1</span>,b<span class="op">=</span><span class="dv">2</span>,c<span class="op">=</span><span class="dv">3</span>)</a></code></pre></div>
-<p>9
-{‘a’: 1, ‘b’: 2, ‘c’: 3}</p>
-<div class="sourceCode" id="cb224"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb224-1" title="1">foo(<span class="dv">9</span>) <span class="co">#empty dictionary</span></a></code></pre></div>
-<p>9
-{}</p>
+<div class="sourceCode" id="cb414"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb414-1" title="1"><span class="kw">def</span> foo(x,<span class="op">**</span>kwargs):</a>
+<a class="sourceLine" id="cb414-2" title="2">    <span class="bu">print</span>(x)</a>
+<a class="sourceLine" id="cb414-3" title="3">    <span class="bu">print</span>(kwargs)</a>
+<a class="sourceLine" id="cb414-4" title="4">    </a>
+<a class="sourceLine" id="cb414-5" title="5">foo(<span class="dv">9</span>,a<span class="op">=</span><span class="dv">1</span>,b<span class="op">=</span><span class="dv">2</span>,c<span class="op">=</span><span class="dv">3</span>)</a></code></pre></div>
+<pre><code>## 9
+## {&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: 3}</code></pre>
+<div class="sourceCode" id="cb416"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb416-1" title="1">foo(<span class="dv">9</span>) <span class="co">#empty dictionary</span></a></code></pre></div>
+<pre><code>## 9
+## {}</code></pre>
 </div>
 <div id="example-3-1" class="section level4">
 <h4><span class="header-section-number">6.3.8.3</span> Example 3</h4>
-<div class="sourceCode" id="cb225"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb225-1" title="1"><span class="kw">def</span> foo(a,b,c,d<span class="op">=</span><span class="dv">1</span>):</a>
-<a class="sourceLine" id="cb225-2" title="2">    <span class="bu">print</span>(a)</a>
-<a class="sourceLine" id="cb225-3" title="3">    <span class="bu">print</span>(b)</a>
-<a class="sourceLine" id="cb225-4" title="4">    <span class="bu">print</span>(c)</a>
-<a class="sourceLine" id="cb225-5" title="5">    <span class="bu">print</span>(d)</a>
-<a class="sourceLine" id="cb225-6" title="6">    </a>
-<a class="sourceLine" id="cb225-7" title="7">foo(<span class="op">**</span>{<span class="st">&quot;a&quot;</span>:<span class="dv">2</span>,<span class="st">&quot;b&quot;</span>:<span class="dv">3</span>,<span class="st">&quot;c&quot;</span>:<span class="dv">4</span>})</a></code></pre></div>
-<p>2
-3
-4
-1</p>
+<div class="sourceCode" id="cb418"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb418-1" title="1"><span class="kw">def</span> foo(a,b,c,d<span class="op">=</span><span class="dv">1</span>):</a>
+<a class="sourceLine" id="cb418-2" title="2">    <span class="bu">print</span>(a)</a>
+<a class="sourceLine" id="cb418-3" title="3">    <span class="bu">print</span>(b)</a>
+<a class="sourceLine" id="cb418-4" title="4">    <span class="bu">print</span>(c)</a>
+<a class="sourceLine" id="cb418-5" title="5">    <span class="bu">print</span>(d)</a>
+<a class="sourceLine" id="cb418-6" title="6">    </a>
+<a class="sourceLine" id="cb418-7" title="7">foo(<span class="op">**</span>{<span class="st">&quot;a&quot;</span>:<span class="dv">2</span>,<span class="st">&quot;b&quot;</span>:<span class="dv">3</span>,<span class="st">&quot;c&quot;</span>:<span class="dv">4</span>})</a></code></pre></div>
+<pre><code>## 2
+## 3
+## 4
+## 1</code></pre>
 </div>
 </div>
 <div id="mixing-args-kwargs" class="section level3">
@@ -856,29 +857,29 @@ y: 1</p>
 <p>Always put args <strong>before</strong> kwargs</p>
 <div id="example-1-2" class="section level4">
 <h4><span class="header-section-number">6.3.9.1</span> Example 1</h4>
-<div class="sourceCode" id="cb226"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb226-1" title="1"><span class="kw">def</span> foo(x,y<span class="op">=</span><span class="dv">1</span>,<span class="op">**</span>kwargs):</a>
-<a class="sourceLine" id="cb226-2" title="2">    <span class="bu">print</span> (x)</a>
-<a class="sourceLine" id="cb226-3" title="3">    <span class="bu">print</span> (y)</a>
-<a class="sourceLine" id="cb226-4" title="4">    <span class="bu">print</span> (kwargs)</a>
-<a class="sourceLine" id="cb226-5" title="5">    </a>
-<a class="sourceLine" id="cb226-6" title="6">foo(<span class="dv">1</span>,<span class="dv">2</span>,c<span class="op">=</span><span class="dv">3</span>,d<span class="op">=</span><span class="dv">4</span>)</a></code></pre></div>
-<p>1
-2
-{‘c’: 3, ‘d’: 4}</p>
+<div class="sourceCode" id="cb420"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb420-1" title="1"><span class="kw">def</span> foo(x,y<span class="op">=</span><span class="dv">1</span>,<span class="op">**</span>kwargs):</a>
+<a class="sourceLine" id="cb420-2" title="2">    <span class="bu">print</span> (x)</a>
+<a class="sourceLine" id="cb420-3" title="3">    <span class="bu">print</span> (y)</a>
+<a class="sourceLine" id="cb420-4" title="4">    <span class="bu">print</span> (kwargs)</a>
+<a class="sourceLine" id="cb420-5" title="5">    </a>
+<a class="sourceLine" id="cb420-6" title="6">foo(<span class="dv">1</span>,<span class="dv">2</span>,c<span class="op">=</span><span class="dv">3</span>,d<span class="op">=</span><span class="dv">4</span>)</a></code></pre></div>
+<pre><code>## 1
+## 2
+## {&#39;c&#39;: 3, &#39;d&#39;: 4}</code></pre>
 </div>
 <div id="example-2-2" class="section level4">
 <h4><span class="header-section-number">6.3.9.2</span> Example 2</h4>
-<div class="sourceCode" id="cb227"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb227-1" title="1"><span class="kw">def</span> foo(x,y<span class="op">=</span><span class="dv">2</span>,<span class="op">*</span>args,<span class="op">**</span>kwargs):</a>
-<a class="sourceLine" id="cb227-2" title="2">    <span class="bu">print</span> (x)</a>
-<a class="sourceLine" id="cb227-3" title="3">    <span class="bu">print</span> (y)</a>
-<a class="sourceLine" id="cb227-4" title="4">    <span class="bu">print</span> (args)</a>
-<a class="sourceLine" id="cb227-5" title="5">    <span class="bu">print</span> (kwargs)</a>
-<a class="sourceLine" id="cb227-6" title="6">    </a>
-<a class="sourceLine" id="cb227-7" title="7">foo(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,c<span class="op">=</span><span class="dv">6</span>,d<span class="op">=</span><span class="dv">7</span>)</a></code></pre></div>
-<p>1
-2
-(3, 4, 5)
-{‘c’: 6, ‘d’: 7}</p>
+<div class="sourceCode" id="cb422"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb422-1" title="1"><span class="kw">def</span> foo(x,y<span class="op">=</span><span class="dv">2</span>,<span class="op">*</span>args,<span class="op">**</span>kwargs):</a>
+<a class="sourceLine" id="cb422-2" title="2">    <span class="bu">print</span> (x)</a>
+<a class="sourceLine" id="cb422-3" title="3">    <span class="bu">print</span> (y)</a>
+<a class="sourceLine" id="cb422-4" title="4">    <span class="bu">print</span> (args)</a>
+<a class="sourceLine" id="cb422-5" title="5">    <span class="bu">print</span> (kwargs)</a>
+<a class="sourceLine" id="cb422-6" title="6">    </a>
+<a class="sourceLine" id="cb422-7" title="7">foo(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,c<span class="op">=</span><span class="dv">6</span>,d<span class="op">=</span><span class="dv">7</span>)</a></code></pre></div>
+<pre><code>## 1
+## 2
+## (3, 4, 5)
+## {&#39;c&#39;: 6, &#39;d&#39;: 7}</code></pre>
 </div>
 </div>
 </div>
@@ -938,26 +939,14 @@ gitbook.start({
 "collapse": "subsection",
 "scroll_highlight": true
 },
-"toolbar": "position: fixed ",
+"toolbar": {
+"position": "fixed"
+},
 "searh": true
 });
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

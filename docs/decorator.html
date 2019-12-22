@@ -128,6 +128,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 
 <ul class="summary">
 <li><a href="./">Python Bookdown</a></li>
+
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prerequisites</a></li>
 <li class="chapter" data-level="1" data-path="environment-setup.html"><a href="environment-setup.html"><i class="fa fa-check"></i><b>1</b> Environment Setup</a><ul>
@@ -610,25 +611,25 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>register</strong> is a decarator, it accept <strong>decorated</strong> as the only argument</li>
 <li>foo() and bar() are the <strong>decorated function</strong> of <strong>register</strong></li>
 </ul>
-<div class="sourceCode" id="cb237"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb237-1" title="1">registry <span class="op">=</span> []</a>
-<a class="sourceLine" id="cb237-2" title="2"></a>
-<a class="sourceLine" id="cb237-3" title="3"><span class="kw">def</span> register(decorated):</a>
-<a class="sourceLine" id="cb237-4" title="4">    registry.append(decorated)</a>
-<a class="sourceLine" id="cb237-5" title="5">    <span class="cf">return</span> decorated</a>
-<a class="sourceLine" id="cb237-6" title="6"></a>
-<a class="sourceLine" id="cb237-7" title="7"><span class="at">@register</span></a>
-<a class="sourceLine" id="cb237-8" title="8"><span class="kw">def</span> foo():</a>
-<a class="sourceLine" id="cb237-9" title="9">    <span class="cf">return</span> <span class="dv">3</span></a>
-<a class="sourceLine" id="cb237-10" title="10"></a>
-<a class="sourceLine" id="cb237-11" title="11"><span class="at">@register</span></a>
-<a class="sourceLine" id="cb237-12" title="12"><span class="kw">def</span> bar():</a>
-<a class="sourceLine" id="cb237-13" title="13">    <span class="cf">return</span> <span class="dv">5</span></a></code></pre></div>
-<div class="sourceCode" id="cb238"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb238-1" title="1">registry</a></code></pre></div>
-<p>[&lt;function foo at 0x00000000287B9048&gt;, &lt;function bar at 0x00000000287AFAE8&gt;]</p>
-<div class="sourceCode" id="cb239"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb239-1" title="1">registry[<span class="dv">0</span>]()</a></code></pre></div>
-<p>3</p>
-<div class="sourceCode" id="cb240"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb240-1" title="1">registry[<span class="dv">1</span>]()</a></code></pre></div>
-<p>5</p>
+<div class="sourceCode" id="cb440"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb440-1" title="1">registry <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb440-2" title="2"></a>
+<a class="sourceLine" id="cb440-3" title="3"><span class="kw">def</span> register(decorated):</a>
+<a class="sourceLine" id="cb440-4" title="4">    registry.append(decorated)</a>
+<a class="sourceLine" id="cb440-5" title="5">    <span class="cf">return</span> decorated</a>
+<a class="sourceLine" id="cb440-6" title="6"></a>
+<a class="sourceLine" id="cb440-7" title="7"><span class="at">@register</span></a>
+<a class="sourceLine" id="cb440-8" title="8"><span class="kw">def</span> foo():</a>
+<a class="sourceLine" id="cb440-9" title="9">    <span class="cf">return</span> <span class="dv">3</span></a>
+<a class="sourceLine" id="cb440-10" title="10"></a>
+<a class="sourceLine" id="cb440-11" title="11"><span class="at">@register</span></a>
+<a class="sourceLine" id="cb440-12" title="12"><span class="kw">def</span> bar():</a>
+<a class="sourceLine" id="cb440-13" title="13">    <span class="cf">return</span> <span class="dv">5</span></a></code></pre></div>
+<div class="sourceCode" id="cb441"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb441-1" title="1">registry</a></code></pre></div>
+<pre><code>## [&lt;function foo at 0x00000000180B6048&gt;, &lt;function bar at 0x00000000180ADAE8&gt;]</code></pre>
+<div class="sourceCode" id="cb443"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb443-1" title="1">registry[<span class="dv">0</span>]()</a></code></pre></div>
+<pre><code>## 3</code></pre>
+<div class="sourceCode" id="cb445"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb445-1" title="1">registry[<span class="dv">1</span>]()</a></code></pre></div>
+<pre><code>## 5</code></pre>
 </div>
 <div id="example-2---decorator-with-class" class="section level3">
 <h3><span class="header-section-number">8.2.2</span> Example 2 - Decorator with Class</h3>
@@ -636,46 +637,46 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li>Extending the use case above</li>
 <li>register is the <strong>decarator</strong>, it has only one argument</li>
 </ul>
-<div class="sourceCode" id="cb241"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb241-1" title="1"><span class="kw">class</span> Registry(<span class="bu">object</span>):</a>
-<a class="sourceLine" id="cb241-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</a>
-<a class="sourceLine" id="cb241-3" title="3">        <span class="va">self</span>._functions <span class="op">=</span> []</a>
-<a class="sourceLine" id="cb241-4" title="4">    <span class="kw">def</span> register(<span class="va">self</span>,decorated):</a>
-<a class="sourceLine" id="cb241-5" title="5">        <span class="va">self</span>._functions.append(decorated)</a>
-<a class="sourceLine" id="cb241-6" title="6">        <span class="cf">return</span> decorated</a>
-<a class="sourceLine" id="cb241-7" title="7">    <span class="kw">def</span> run_all(<span class="va">self</span>,<span class="op">*</span>args,<span class="op">**</span>kwargs):</a>
-<a class="sourceLine" id="cb241-8" title="8">        return_values <span class="op">=</span> []</a>
-<a class="sourceLine" id="cb241-9" title="9">        <span class="cf">for</span> func <span class="kw">in</span> <span class="va">self</span>._functions:</a>
-<a class="sourceLine" id="cb241-10" title="10">            return_values.append(func(<span class="op">*</span>args,<span class="op">**</span>kwargs))</a>
-<a class="sourceLine" id="cb241-11" title="11">        <span class="cf">return</span> return_values</a></code></pre></div>
+<div class="sourceCode" id="cb447"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb447-1" title="1"><span class="kw">class</span> Registry(<span class="bu">object</span>):</a>
+<a class="sourceLine" id="cb447-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb447-3" title="3">        <span class="va">self</span>._functions <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb447-4" title="4">    <span class="kw">def</span> register(<span class="va">self</span>,decorated):</a>
+<a class="sourceLine" id="cb447-5" title="5">        <span class="va">self</span>._functions.append(decorated)</a>
+<a class="sourceLine" id="cb447-6" title="6">        <span class="cf">return</span> decorated</a>
+<a class="sourceLine" id="cb447-7" title="7">    <span class="kw">def</span> run_all(<span class="va">self</span>,<span class="op">*</span>args,<span class="op">**</span>kwargs):</a>
+<a class="sourceLine" id="cb447-8" title="8">        return_values <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb447-9" title="9">        <span class="cf">for</span> func <span class="kw">in</span> <span class="va">self</span>._functions:</a>
+<a class="sourceLine" id="cb447-10" title="10">            return_values.append(func(<span class="op">*</span>args,<span class="op">**</span>kwargs))</a>
+<a class="sourceLine" id="cb447-11" title="11">        <span class="cf">return</span> return_values</a></code></pre></div>
 <p>The decorator will decorate two functions, for both object <strong>a</strong> and <strong>b</strong></p>
-<div class="sourceCode" id="cb242"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb242-1" title="1">a <span class="op">=</span> Registry()</a>
-<a class="sourceLine" id="cb242-2" title="2">b <span class="op">=</span> Registry()</a>
-<a class="sourceLine" id="cb242-3" title="3"></a>
-<a class="sourceLine" id="cb242-4" title="4"><span class="at">@a.register</span></a>
-<a class="sourceLine" id="cb242-5" title="5"><span class="kw">def</span> foo(x<span class="op">=</span><span class="dv">3</span>):</a>
-<a class="sourceLine" id="cb242-6" title="6">    <span class="cf">return</span> x</a>
-<a class="sourceLine" id="cb242-7" title="7"></a>
-<a class="sourceLine" id="cb242-8" title="8"><span class="at">@b.register</span></a>
-<a class="sourceLine" id="cb242-9" title="9"><span class="kw">def</span> bar(x<span class="op">=</span><span class="dv">5</span>):</a>
-<a class="sourceLine" id="cb242-10" title="10">    <span class="cf">return</span> x</a>
-<a class="sourceLine" id="cb242-11" title="11"></a>
-<a class="sourceLine" id="cb242-12" title="12"><span class="at">@a.register</span></a>
-<a class="sourceLine" id="cb242-13" title="13"><span class="at">@b.register</span></a>
-<a class="sourceLine" id="cb242-14" title="14"><span class="kw">def</span> bax(x<span class="op">=</span><span class="dv">7</span>):</a>
-<a class="sourceLine" id="cb242-15" title="15">    <span class="cf">return</span> x</a></code></pre></div>
+<div class="sourceCode" id="cb448"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb448-1" title="1">a <span class="op">=</span> Registry()</a>
+<a class="sourceLine" id="cb448-2" title="2">b <span class="op">=</span> Registry()</a>
+<a class="sourceLine" id="cb448-3" title="3"></a>
+<a class="sourceLine" id="cb448-4" title="4"><span class="at">@a.register</span></a>
+<a class="sourceLine" id="cb448-5" title="5"><span class="kw">def</span> foo(x<span class="op">=</span><span class="dv">3</span>):</a>
+<a class="sourceLine" id="cb448-6" title="6">    <span class="cf">return</span> x</a>
+<a class="sourceLine" id="cb448-7" title="7"></a>
+<a class="sourceLine" id="cb448-8" title="8"><span class="at">@b.register</span></a>
+<a class="sourceLine" id="cb448-9" title="9"><span class="kw">def</span> bar(x<span class="op">=</span><span class="dv">5</span>):</a>
+<a class="sourceLine" id="cb448-10" title="10">    <span class="cf">return</span> x</a>
+<a class="sourceLine" id="cb448-11" title="11"></a>
+<a class="sourceLine" id="cb448-12" title="12"><span class="at">@a.register</span></a>
+<a class="sourceLine" id="cb448-13" title="13"><span class="at">@b.register</span></a>
+<a class="sourceLine" id="cb448-14" title="14"><span class="kw">def</span> bax(x<span class="op">=</span><span class="dv">7</span>):</a>
+<a class="sourceLine" id="cb448-15" title="15">    <span class="cf">return</span> x</a></code></pre></div>
 <p>Observe the result</p>
-<div class="sourceCode" id="cb243"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb243-1" title="1"><span class="bu">print</span> (a._functions)</a></code></pre></div>
-<p>[&lt;function foo at 0x00000000287B9D08&gt;, &lt;function bax at 0x00000000287B9E18&gt;]</p>
-<div class="sourceCode" id="cb244"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb244-1" title="1"><span class="bu">print</span> (b._functions)</a></code></pre></div>
-<p>[&lt;function bar at 0x00000000287B9D90&gt;, &lt;function bax at 0x00000000287B9E18&gt;]</p>
-<div class="sourceCode" id="cb245"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb245-1" title="1"><span class="bu">print</span> (a.run_all())</a></code></pre></div>
-<p>[3, 7]</p>
-<div class="sourceCode" id="cb246"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb246-1" title="1"><span class="bu">print</span> (b.run_all())</a></code></pre></div>
-<p>[5, 7]</p>
-<div class="sourceCode" id="cb247"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb247-1" title="1"><span class="bu">print</span> ( a.run_all(x<span class="op">=</span><span class="dv">9</span>) )</a></code></pre></div>
-<p>[9, 9]</p>
-<div class="sourceCode" id="cb248"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb248-1" title="1"><span class="bu">print</span> ( b.run_all(x<span class="op">=</span><span class="dv">9</span>) )</a></code></pre></div>
-<p>[9, 9]</p>
+<div class="sourceCode" id="cb449"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb449-1" title="1"><span class="bu">print</span> (a._functions)</a></code></pre></div>
+<pre><code>## [&lt;function foo at 0x00000000180B6D08&gt;, &lt;function bax at 0x00000000180B6E18&gt;]</code></pre>
+<div class="sourceCode" id="cb451"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb451-1" title="1"><span class="bu">print</span> (b._functions)</a></code></pre></div>
+<pre><code>## [&lt;function bar at 0x00000000180B6D90&gt;, &lt;function bax at 0x00000000180B6E18&gt;]</code></pre>
+<div class="sourceCode" id="cb453"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb453-1" title="1"><span class="bu">print</span> (a.run_all())</a></code></pre></div>
+<pre><code>## [3, 7]</code></pre>
+<div class="sourceCode" id="cb455"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb455-1" title="1"><span class="bu">print</span> (b.run_all())</a></code></pre></div>
+<pre><code>## [5, 7]</code></pre>
+<div class="sourceCode" id="cb457"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb457-1" title="1"><span class="bu">print</span> ( a.run_all(x<span class="op">=</span><span class="dv">9</span>) )</a></code></pre></div>
+<pre><code>## [9, 9]</code></pre>
+<div class="sourceCode" id="cb459"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb459-1" title="1"><span class="bu">print</span> ( b.run_all(x<span class="op">=</span><span class="dv">9</span>) )</a></code></pre></div>
+<pre><code>## [9, 9]</code></pre>
 </div>
 </div>
 </div>
@@ -734,26 +735,14 @@ gitbook.start({
 "collapse": "subsection",
 "scroll_highlight": true
 },
-"toolbar": "position: fixed ",
+"toolbar": {
+"position": "fixed"
+},
 "searh": true
 });
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

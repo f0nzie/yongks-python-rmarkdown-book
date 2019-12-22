@@ -128,6 +128,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 
 <ul class="summary">
 <li><a href="./">Python Bookdown</a></li>
+
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prerequisites</a></li>
 <li class="chapter" data-level="1" data-path="environment-setup.html"><a href="environment-setup.html"><i class="fa fa-check"></i><b>1</b> Environment Setup</a><ul>
@@ -608,10 +609,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="module-import" class="section level2">
 <h2><span class="header-section-number">9.2</span> Module Import</h2>
-<div class="sourceCode" id="cb249"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb249-1" title="1"><span class="im">from</span> datetime <span class="im">import</span> date     <span class="co"># module for date object</span></a>
-<a class="sourceLine" id="cb249-2" title="2"><span class="im">from</span> datetime <span class="im">import</span> time     <span class="co"># module for time object</span></a>
-<a class="sourceLine" id="cb249-3" title="3"><span class="im">from</span> datetime <span class="im">import</span> datetime <span class="co"># module for datetime object</span></a>
-<a class="sourceLine" id="cb249-4" title="4"><span class="im">from</span> datetime <span class="im">import</span> timedelta</a></code></pre></div>
+<div class="sourceCode" id="cb461"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb461-1" title="1"><span class="im">from</span> datetime <span class="im">import</span> date     <span class="co"># module for date object</span></a>
+<a class="sourceLine" id="cb461-2" title="2"><span class="im">from</span> datetime <span class="im">import</span> time     <span class="co"># module for time object</span></a>
+<a class="sourceLine" id="cb461-3" title="3"><span class="im">from</span> datetime <span class="im">import</span> datetime <span class="co"># module for datetime object</span></a>
+<a class="sourceLine" id="cb461-4" title="4"><span class="im">from</span> datetime <span class="im">import</span> timedelta</a></code></pre></div>
 </div>
 <div id="class" class="section level2">
 <h2><span class="header-section-number">9.3</span> Class</h2>
@@ -625,28 +626,28 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">9.4</span> date</h2>
 <div id="constructor-1" class="section level3">
 <h3><span class="header-section-number">9.4.1</span> Constructor</h3>
-<div class="sourceCode" id="cb250"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb250-1" title="1"><span class="bu">print</span>( date(<span class="dv">2000</span>,<span class="dv">1</span>,<span class="dv">1</span>) )</a></code></pre></div>
-<p>2000-01-01</p>
-<div class="sourceCode" id="cb251"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb251-1" title="1"><span class="bu">print</span>( date(year<span class="op">=</span><span class="dv">2000</span>,month<span class="op">=</span><span class="dv">1</span>,day<span class="op">=</span><span class="dv">1</span>) )</a></code></pre></div>
-<p>2000-01-01</p>
-<div class="sourceCode" id="cb252"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb252-1" title="1"><span class="bu">print</span>( <span class="bu">type</span>(date(year<span class="op">=</span><span class="dv">2000</span>,month<span class="op">=</span><span class="dv">1</span>,day<span class="op">=</span><span class="dv">1</span>)))</a></code></pre></div>
-<p>&lt;class ‘datetime.date’&gt;</p>
+<div class="sourceCode" id="cb462"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb462-1" title="1"><span class="bu">print</span>( date(<span class="dv">2000</span>,<span class="dv">1</span>,<span class="dv">1</span>) )</a></code></pre></div>
+<pre><code>## 2000-01-01</code></pre>
+<div class="sourceCode" id="cb464"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb464-1" title="1"><span class="bu">print</span>( date(year<span class="op">=</span><span class="dv">2000</span>,month<span class="op">=</span><span class="dv">1</span>,day<span class="op">=</span><span class="dv">1</span>) )</a></code></pre></div>
+<pre><code>## 2000-01-01</code></pre>
+<div class="sourceCode" id="cb466"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb466-1" title="1"><span class="bu">print</span>( <span class="bu">type</span>(date(year<span class="op">=</span><span class="dv">2000</span>,month<span class="op">=</span><span class="dv">1</span>,day<span class="op">=</span><span class="dv">1</span>)))</a></code></pre></div>
+<pre><code>## &lt;class &#39;datetime.date&#39;&gt;</code></pre>
 </div>
 <div id="class-method" class="section level3">
 <h3><span class="header-section-number">9.4.2</span> Class Method</h3>
 <div id="today" class="section level4">
 <h4><span class="header-section-number">9.4.2.1</span> <code>today</code></h4>
 <p>This is <strong>local date</strong> (not UTC)</p>
-<div class="sourceCode" id="cb253"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb253-1" title="1">date.today()</a></code></pre></div>
-<p>datetime.date(2019, 12, 22)</p>
-<div class="sourceCode" id="cb254"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb254-1" title="1"><span class="bu">print</span>( date.today() )</a></code></pre></div>
-<p>2019-12-22</p>
+<div class="sourceCode" id="cb468"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb468-1" title="1">date.today()</a></code></pre></div>
+<pre><code>## datetime.date(2019, 12, 22)</code></pre>
+<div class="sourceCode" id="cb470"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb470-1" title="1"><span class="bu">print</span>( date.today() )</a></code></pre></div>
+<pre><code>## 2019-12-22</code></pre>
 </div>
 <div id="convert-from-iso-fromisoformat" class="section level4">
 <h4><span class="header-section-number">9.4.2.2</span> Convert From ISO <code>fromisoformat</code></h4>
 <p><code>strptime</code> is <strong>not available for date</strong> conversion. It is only for datetime conversion</p>
-<div class="sourceCode" id="cb255"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb255-1" title="1">date.fromisoformat(<span class="st">&#39;2011-11-11&#39;</span>)</a></code></pre></div>
-<p>datetime.date(2011, 11, 11)</p>
+<div class="sourceCode" id="cb472"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb472-1" title="1">date.fromisoformat(<span class="st">&#39;2011-11-11&#39;</span>)</a></code></pre></div>
+<pre><code>## datetime.date(2011, 11, 11)</code></pre>
 <p>To convert <strong>non-iso format</strong> date string to date object, <strong>convert to datetime first</strong>, then to date</p>
 </div>
 </div>
@@ -659,95 +660,95 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </li>
 <li>Example below change only month. You can change year or day in combination</li>
 </ul>
-<div class="sourceCode" id="cb256"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb256-1" title="1"><span class="bu">print</span>( date.today() )</a></code></pre></div>
-<p>2019-12-22</p>
-<div class="sourceCode" id="cb257"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb257-1" title="1"><span class="bu">print</span>( date.today().replace(month<span class="op">=</span><span class="dv">8</span>) )</a></code></pre></div>
-<p>2019-08-22</p>
+<div class="sourceCode" id="cb474"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb474-1" title="1"><span class="bu">print</span>( date.today() )</a></code></pre></div>
+<pre><code>## 2019-12-22</code></pre>
+<div class="sourceCode" id="cb476"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb476-1" title="1"><span class="bu">print</span>( date.today().replace(month<span class="op">=</span><span class="dv">8</span>) )</a></code></pre></div>
+<pre><code>## 2019-08-22</code></pre>
 </div>
 <div id="weekday-isoweekday" class="section level4">
 <h4><span class="header-section-number">9.4.3.2</span> <code>weekday(), isoweekday()</code></h4>
 <p>For <code>weekday()</code>, Zero being Monday<br />
 For <code>isoweekday()</code>, Zero being Sunday</p>
-<div class="sourceCode" id="cb258"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb258-1" title="1"><span class="bu">print</span>( date.today().weekday() )</a></code></pre></div>
-<p>6</p>
-<div class="sourceCode" id="cb259"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb259-1" title="1"><span class="bu">print</span>( date.today().isoweekday() )</a></code></pre></div>
-<p>7</p>
-<div class="sourceCode" id="cb260"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb260-1" title="1">weekdays <span class="op">=</span> [<span class="st">&#39;Mon&#39;</span>,<span class="st">&#39;Tue&#39;</span>,<span class="st">&#39;Wed&#39;</span>,<span class="st">&#39;Thu&#39;</span>,<span class="st">&#39;Fri&#39;</span>,<span class="st">&#39;Sat&#39;</span>,<span class="st">&#39;Sun&#39;</span>]</a>
-<a class="sourceLine" id="cb260-2" title="2">wd <span class="op">=</span> date.today().weekday()</a>
-<a class="sourceLine" id="cb260-3" title="3"><span class="bu">print</span>( date.today(), <span class="st">&quot;is day&quot;</span>, wd ,<span class="st">&quot;which is&quot;</span>, weekdays[wd] )</a></code></pre></div>
-<p>2019-12-22 is day 6 which is Sun</p>
+<div class="sourceCode" id="cb478"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb478-1" title="1"><span class="bu">print</span>( date.today().weekday() )</a></code></pre></div>
+<pre><code>## 6</code></pre>
+<div class="sourceCode" id="cb480"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb480-1" title="1"><span class="bu">print</span>( date.today().isoweekday() )</a></code></pre></div>
+<pre><code>## 7</code></pre>
+<div class="sourceCode" id="cb482"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb482-1" title="1">weekdays <span class="op">=</span> [<span class="st">&#39;Mon&#39;</span>,<span class="st">&#39;Tue&#39;</span>,<span class="st">&#39;Wed&#39;</span>,<span class="st">&#39;Thu&#39;</span>,<span class="st">&#39;Fri&#39;</span>,<span class="st">&#39;Sat&#39;</span>,<span class="st">&#39;Sun&#39;</span>]</a>
+<a class="sourceLine" id="cb482-2" title="2">wd <span class="op">=</span> date.today().weekday()</a>
+<a class="sourceLine" id="cb482-3" title="3"><span class="bu">print</span>( date.today(), <span class="st">&quot;is day&quot;</span>, wd ,<span class="st">&quot;which is&quot;</span>, weekdays[wd] )</a></code></pre></div>
+<pre><code>## 2019-12-22 is day 6 which is Sun</code></pre>
 </div>
 <div id="formating-with-isoformat" class="section level4">
 <h4><span class="header-section-number">9.4.3.3</span> Formating with <code>isoformat()</code></h4>
 <p><code>isoformat()</code> return <strong>ISO 8601 String (YYYY-MM-DD)</strong></p>
-<div class="sourceCode" id="cb261"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb261-1" title="1">date.today().isoformat() <span class="co"># return string</span></a></code></pre></div>
-<p>‘2019-12-22’</p>
+<div class="sourceCode" id="cb484"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb484-1" title="1">date.today().isoformat() <span class="co"># return string</span></a></code></pre></div>
+<pre><code>## &#39;2019-12-22&#39;</code></pre>
 </div>
 <div id="formating-with-strftime" class="section level4">
 <h4><span class="header-section-number">9.4.3.4</span> Formating with <code>strftime</code></h4>
 <p>For complete directive, see below:<br />
 <a href="https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior" class="uri">https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior</a></p>
-<div class="sourceCode" id="cb262"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb262-1" title="1">date.today().strftime(<span class="st">&quot;%m/</span><span class="sc">%d</span><span class="st">&quot;</span>)</a></code></pre></div>
-<p>‘12/22’</p>
+<div class="sourceCode" id="cb486"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb486-1" title="1">date.today().strftime(<span class="st">&quot;%m/</span><span class="sc">%d</span><span class="st">&quot;</span>)</a></code></pre></div>
+<pre><code>## &#39;12/22&#39;</code></pre>
 </div>
 <div id="isocalendar" class="section level4">
 <h4><span class="header-section-number">9.4.3.5</span> <code>isocalendar()</code></h4>
 <p><code>isocalendar</code> return a 3-tuple, <strong>(ISO year, ISO week number, ISO weekday)</strong>.</p>
-<div class="sourceCode" id="cb263"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb263-1" title="1">date.today().isocalendar() <span class="co">## return tuple </span></a></code></pre></div>
-<p>(2019, 51, 7)</p>
+<div class="sourceCode" id="cb488"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb488-1" title="1">date.today().isocalendar() <span class="co">## return tuple </span></a></code></pre></div>
+<pre><code>## (2019, 51, 7)</code></pre>
 </div>
 </div>
 <div id="attributes" class="section level3">
 <h3><span class="header-section-number">9.4.4</span> Attributes</h3>
-<div class="sourceCode" id="cb264"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb264-1" title="1"><span class="bu">print</span>( date.today().year )</a></code></pre></div>
-<p>2019</p>
-<div class="sourceCode" id="cb265"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb265-1" title="1"><span class="bu">print</span>( date.today().month )</a></code></pre></div>
-<p>12</p>
-<div class="sourceCode" id="cb266"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb266-1" title="1"><span class="bu">print</span>( date.today().day )</a></code></pre></div>
-<p>22</p>
+<div class="sourceCode" id="cb490"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb490-1" title="1"><span class="bu">print</span>( date.today().year )</a></code></pre></div>
+<pre><code>## 2019</code></pre>
+<div class="sourceCode" id="cb492"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb492-1" title="1"><span class="bu">print</span>( date.today().month )</a></code></pre></div>
+<pre><code>## 12</code></pre>
+<div class="sourceCode" id="cb494"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb494-1" title="1"><span class="bu">print</span>( date.today().day )</a></code></pre></div>
+<pre><code>## 22</code></pre>
 </div>
 </div>
 <div id="date-and-datetime" class="section level2">
 <h2><span class="header-section-number">9.5</span> date and datetime</h2>
 <div id="constructor-2" class="section level3">
 <h3><span class="header-section-number">9.5.1</span> Constructor</h3>
-<div class="sourceCode" id="cb267"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb267-1" title="1"><span class="im">import</span> datetime <span class="im">as</span> dt</a>
-<a class="sourceLine" id="cb267-2" title="2"></a>
-<a class="sourceLine" id="cb267-3" title="3"><span class="bu">print</span>( </a>
-<a class="sourceLine" id="cb267-4" title="4">    dt.date(<span class="dv">2000</span>,<span class="dv">1</span>,<span class="dv">1</span>,), <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</a>
-<a class="sourceLine" id="cb267-5" title="5">    dt.datetime(<span class="dv">2000</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>), <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</a>
-<a class="sourceLine" id="cb267-6" title="6">    dt.datetime(year<span class="op">=</span><span class="dv">2000</span>,month<span class="op">=</span><span class="dv">1</span>,day<span class="op">=</span><span class="dv">1</span>,hour<span class="op">=</span><span class="dv">23</span>,minute<span class="op">=</span><span class="dv">15</span>,second<span class="op">=</span><span class="dv">55</span>),<span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</a>
-<a class="sourceLine" id="cb267-7" title="7">    <span class="bu">type</span>(dt.date(<span class="dv">2000</span>,<span class="dv">1</span>,<span class="dv">1</span>)),<span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</a>
-<a class="sourceLine" id="cb267-8" title="8">    <span class="bu">type</span>(dt.datetime(<span class="dv">2000</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>)))</a></code></pre></div>
-<p>2000-01-01
-2000-01-01 00:00:00
-2000-01-01 23:15:55
-&lt;class ‘datetime.date’&gt;
-&lt;class ‘datetime.datetime’&gt;</p>
+<div class="sourceCode" id="cb496"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb496-1" title="1"><span class="im">import</span> datetime <span class="im">as</span> dt</a>
+<a class="sourceLine" id="cb496-2" title="2"></a>
+<a class="sourceLine" id="cb496-3" title="3"><span class="bu">print</span>( </a>
+<a class="sourceLine" id="cb496-4" title="4">    dt.date(<span class="dv">2000</span>,<span class="dv">1</span>,<span class="dv">1</span>,), <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</a>
+<a class="sourceLine" id="cb496-5" title="5">    dt.datetime(<span class="dv">2000</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>), <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</a>
+<a class="sourceLine" id="cb496-6" title="6">    dt.datetime(year<span class="op">=</span><span class="dv">2000</span>,month<span class="op">=</span><span class="dv">1</span>,day<span class="op">=</span><span class="dv">1</span>,hour<span class="op">=</span><span class="dv">23</span>,minute<span class="op">=</span><span class="dv">15</span>,second<span class="op">=</span><span class="dv">55</span>),<span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</a>
+<a class="sourceLine" id="cb496-7" title="7">    <span class="bu">type</span>(dt.date(<span class="dv">2000</span>,<span class="dv">1</span>,<span class="dv">1</span>)),<span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</a>
+<a class="sourceLine" id="cb496-8" title="8">    <span class="bu">type</span>(dt.datetime(<span class="dv">2000</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>)))</a></code></pre></div>
+<pre><code>## 2000-01-01 
+##  2000-01-01 00:00:00 
+##  2000-01-01 23:15:55 
+##  &lt;class &#39;datetime.date&#39;&gt; 
+##  &lt;class &#39;datetime.datetime&#39;&gt;</code></pre>
 </div>
 <div id="class-method-1" class="section level3">
 <h3><span class="header-section-number">9.5.2</span> Class Method</h3>
 <div id="now-and-today" class="section level4">
 <h4><span class="header-section-number">9.5.2.1</span> <code>now</code> and <code>today</code></h4>
 <p>Both <code>now()</code> and <code>today()</code> return current <strong>system local</strong> datetime, no timezone</p>
-<div class="sourceCode" id="cb268"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb268-1" title="1"><span class="bu">print</span>(  dt.datetime.now(), <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</a>
-<a class="sourceLine" id="cb268-2" title="2">        dt.datetime.now().date())</a></code></pre></div>
-<p>2019-12-22 21:03:56.505919
-2019-12-22</p>
-<div class="sourceCode" id="cb269"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb269-1" title="1">dt.datetime.today()</a></code></pre></div>
-<p>datetime.datetime(2019, 12, 22, 21, 3, 56, 520923)</p>
+<div class="sourceCode" id="cb498"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb498-1" title="1"><span class="bu">print</span>(  dt.datetime.now(), <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</a>
+<a class="sourceLine" id="cb498-2" title="2">        dt.datetime.now().date())</a></code></pre></div>
+<pre><code>## 2019-12-22 23:46:37.438720 
+##  2019-12-22</code></pre>
+<div class="sourceCode" id="cb500"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb500-1" title="1">dt.datetime.today()</a></code></pre></div>
+<pre><code>## datetime.datetime(2019, 12, 22, 23, 46, 37, 459720)</code></pre>
 </div>
 <div id="utcnow" class="section level4">
 <h4><span class="header-section-number">9.5.2.2</span> <code>utcnow</code></h4>
-<div class="sourceCode" id="cb270"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb270-1" title="1">dt.datetime.utcnow()</a></code></pre></div>
-<p>datetime.datetime(2019, 12, 22, 13, 3, 56, 535920)</p>
+<div class="sourceCode" id="cb502"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb502-1" title="1">dt.datetime.utcnow()</a></code></pre></div>
+<pre><code>## datetime.datetime(2019, 12, 22, 15, 46, 37, 477718)</code></pre>
 </div>
 <div id="combine-date-and-time" class="section level4">
 <h4><span class="header-section-number">9.5.2.3</span> <code>combine()</code> date and time</h4>
 <p>Apply <code>datetime.combine()</code> module method on both <strong>date and time</strong> object to get <strong>datetime</strong></p>
-<div class="sourceCode" id="cb271"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb271-1" title="1">now <span class="op">=</span> dt.datetime.now()</a>
-<a class="sourceLine" id="cb271-2" title="2">dt.datetime.combine(now.date(), now.time())</a></code></pre></div>
-<p>datetime.datetime(2019, 12, 22, 21, 3, 56, 545919)</p>
+<div class="sourceCode" id="cb504"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb504-1" title="1">now <span class="op">=</span> dt.datetime.now()</a>
+<a class="sourceLine" id="cb504-2" title="2">dt.datetime.combine(now.date(), now.time())</a></code></pre></div>
+<pre><code>## datetime.datetime(2019, 12, 22, 23, 46, 37, 508798)</code></pre>
 </div>
 <div id="convert-from-string-strptime" class="section level4">
 <h4><span class="header-section-number">9.5.2.4</span> Convert from String <code>strptime()</code></h4>
@@ -761,14 +762,14 @@ For <code>isoweekday()</code>, Zero being Sunday</p>
 %b : Mar
 %m : month (1 to 12)
 %d : day</code></pre>
-<div class="sourceCode" id="cb273"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb273-1" title="1">datetime.strptime(<span class="st">&#39;2011-02-25&#39;</span>,<span class="st">&#39;%Y-%m-</span><span class="sc">%d</span><span class="st">&#39;</span>)</a></code></pre></div>
-<p>datetime.datetime(2011, 2, 25, 0, 0)</p>
-<div class="sourceCode" id="cb274"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb274-1" title="1">datetime.strptime(<span class="st">&#39;9-01-18&#39;</span>,<span class="st">&#39;</span><span class="sc">%d</span><span class="st">-%m-%y&#39;</span>)</a></code></pre></div>
-<p>datetime.datetime(2018, 1, 9, 0, 0)</p>
-<div class="sourceCode" id="cb275"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb275-1" title="1">datetime.strptime(<span class="st">&#39;09-Mar-2018&#39;</span>,<span class="st">&#39;</span><span class="sc">%d</span><span class="st">-%b-%Y&#39;</span>)</a></code></pre></div>
-<p>datetime.datetime(2018, 3, 9, 0, 0)</p>
-<div class="sourceCode" id="cb276"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb276-1" title="1">datetime.strptime(<span class="st">&#39;2/5/2018 4:49 PM&#39;</span>, <span class="st">&#39;%m/</span><span class="sc">%d</span><span class="st">/%Y %I:%M %p&#39;</span>)</a></code></pre></div>
-<p>datetime.datetime(2018, 2, 5, 16, 49)</p>
+<div class="sourceCode" id="cb507"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb507-1" title="1">datetime.strptime(<span class="st">&#39;2011-02-25&#39;</span>,<span class="st">&#39;%Y-%m-</span><span class="sc">%d</span><span class="st">&#39;</span>)</a></code></pre></div>
+<pre><code>## datetime.datetime(2011, 2, 25, 0, 0)</code></pre>
+<div class="sourceCode" id="cb509"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb509-1" title="1">datetime.strptime(<span class="st">&#39;9-01-18&#39;</span>,<span class="st">&#39;</span><span class="sc">%d</span><span class="st">-%m-%y&#39;</span>)</a></code></pre></div>
+<pre><code>## datetime.datetime(2018, 1, 9, 0, 0)</code></pre>
+<div class="sourceCode" id="cb511"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb511-1" title="1">datetime.strptime(<span class="st">&#39;09-Mar-2018&#39;</span>,<span class="st">&#39;</span><span class="sc">%d</span><span class="st">-%b-%Y&#39;</span>)</a></code></pre></div>
+<pre><code>## datetime.datetime(2018, 3, 9, 0, 0)</code></pre>
+<div class="sourceCode" id="cb513"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb513-1" title="1">datetime.strptime(<span class="st">&#39;2/5/2018 4:49 PM&#39;</span>, <span class="st">&#39;%m/</span><span class="sc">%d</span><span class="st">/%Y %I:%M %p&#39;</span>)</a></code></pre></div>
+<pre><code>## datetime.datetime(2018, 2, 5, 16, 49)</code></pre>
 </div>
 <div id="convert-from-iso-fromisoformat-1" class="section level4">
 <h4><span class="header-section-number">9.5.2.5</span> Convert from ISO <code>fromisoformat</code></h4>
@@ -777,90 +778,90 @@ For <code>isoweekday()</code>, Zero being Sunday</p>
 </li>
 <li>It actually <strong>not ISO compliance</strong>: when Z or +8 is included at the end of the string, error occur</li>
 </ul>
-<div class="sourceCode" id="cb277"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb277-1" title="1"><span class="co">#s = dt.datetime.now().isoformat()</span></a>
-<a class="sourceLine" id="cb277-2" title="2">dt.datetime.fromisoformat(<span class="st">&quot;2019-02-05T10:22:33&quot;</span>)</a></code></pre></div>
-<p>datetime.datetime(2019, 2, 5, 10, 22, 33)</p>
+<div class="sourceCode" id="cb515"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb515-1" title="1"><span class="co">#s = dt.datetime.now().isoformat()</span></a>
+<a class="sourceLine" id="cb515-2" title="2">dt.datetime.fromisoformat(<span class="st">&quot;2019-02-05T10:22:33&quot;</span>)</a></code></pre></div>
+<pre><code>## datetime.datetime(2019, 2, 5, 10, 22, 33)</code></pre>
 </div>
 </div>
 <div id="instance-method-1" class="section level3">
 <h3><span class="header-section-number">9.5.3</span> Instance Method</h3>
 <div id="weekday" class="section level4">
 <h4><span class="header-section-number">9.5.3.1</span> <code>weekday</code></h4>
-<div class="sourceCode" id="cb278"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb278-1" title="1">datetime.now().weekday()</a></code></pre></div>
-<p>6</p>
+<div class="sourceCode" id="cb517"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb517-1" title="1">datetime.now().weekday()</a></code></pre></div>
+<pre><code>## 6</code></pre>
 </div>
 <div id="replace-1" class="section level4">
 <h4><span class="header-section-number">9.5.3.2</span> <code>replace</code></h4>
-<div class="sourceCode" id="cb279"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb279-1" title="1">datetime.now().replace(year<span class="op">=</span><span class="dv">1999</span>)</a></code></pre></div>
-<p>datetime.datetime(1999, 12, 22, 21, 3, 56, 647921)</p>
+<div class="sourceCode" id="cb519"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb519-1" title="1">datetime.now().replace(year<span class="op">=</span><span class="dv">1999</span>)</a></code></pre></div>
+<pre><code>## datetime.datetime(1999, 12, 22, 23, 46, 37, 717720)</code></pre>
 </div>
 <div id="convert-to-.time" class="section level4">
 <h4><span class="header-section-number">9.5.3.3</span> convert to <code>.time()</code></h4>
-<div class="sourceCode" id="cb280"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb280-1" title="1">datetime.now().time()</a></code></pre></div>
-<p>datetime.time(21, 3, 56, 660918)</p>
+<div class="sourceCode" id="cb521"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb521-1" title="1">datetime.now().time()</a></code></pre></div>
+<pre><code>## datetime.time(23, 46, 37, 739961)</code></pre>
 </div>
 <div id="convert-to-.date" class="section level4">
 <h4><span class="header-section-number">9.5.3.4</span> Convert to <code>.date()</code></h4>
-<div class="sourceCode" id="cb281"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb281-1" title="1">datetime.now().date()</a></code></pre></div>
-<p>datetime.date(2019, 12, 22)</p>
+<div class="sourceCode" id="cb523"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb523-1" title="1">datetime.now().date()</a></code></pre></div>
+<pre><code>## datetime.date(2019, 12, 22)</code></pre>
 </div>
 <div id="convert-to-string" class="section level4">
 <h4><span class="header-section-number">9.5.3.5</span> Convert to String</h4>
 <p><strong><code>str</code></strong></p>
-<div class="sourceCode" id="cb282"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb282-1" title="1"><span class="bu">str</span>( datetime.now() )</a></code></pre></div>
-<p>‘2019-12-22 21:03:56.687917’</p>
+<div class="sourceCode" id="cb525"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb525-1" title="1"><span class="bu">str</span>( datetime.now() )</a></code></pre></div>
+<pre><code>## &#39;2019-12-22 23:46:37.792719&#39;</code></pre>
 <p><strong>Use <code>strftime()</code></strong></p>
-<div class="sourceCode" id="cb283"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb283-1" title="1">dt.datetime.now().strftime(<span class="st">&#39;</span><span class="sc">%d</span><span class="st">-%b-%Y&#39;</span>)</a></code></pre></div>
-<p>‘22-Dec-2019’</p>
-<div class="sourceCode" id="cb284"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb284-1" title="1">dt.datetime.utcnow().strftime(<span class="st">&#39;%Y-%m-</span><span class="sc">%d</span><span class="st">T%H:%M:%S.</span><span class="sc">%f</span><span class="st">Z&#39;</span>)  <span class="co">## ISO 8601 UTC</span></a></code></pre></div>
-<p>‘2019-12-22T13:03:56.767077Z’</p>
+<div class="sourceCode" id="cb527"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb527-1" title="1">dt.datetime.now().strftime(<span class="st">&#39;</span><span class="sc">%d</span><span class="st">-%b-%Y&#39;</span>)</a></code></pre></div>
+<pre><code>## &#39;22-Dec-2019&#39;</code></pre>
+<div class="sourceCode" id="cb529"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb529-1" title="1">dt.datetime.utcnow().strftime(<span class="st">&#39;%Y-%m-</span><span class="sc">%d</span><span class="st">T%H:%M:%S.</span><span class="sc">%f</span><span class="st">Z&#39;</span>)  <span class="co">## ISO 8601 UTC</span></a></code></pre></div>
+<pre><code>## &#39;2019-12-22T15:46:37.828722Z&#39;</code></pre>
 <p><strong>Use <code>isoformat()</code></strong></p>
-<div class="sourceCode" id="cb285"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb285-1" title="1">dt.datetime.utcnow().isoformat()</a></code></pre></div>
-<p>‘2019-12-22T13:03:56.782919’</p>
+<div class="sourceCode" id="cb531"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb531-1" title="1">dt.datetime.utcnow().isoformat()</a></code></pre></div>
+<pre><code>## &#39;2019-12-22T15:46:37.848723&#39;</code></pre>
 </div>
 </div>
 <div id="attributes-1" class="section level3">
 <h3><span class="header-section-number">9.5.4</span> Attributes</h3>
-<div class="sourceCode" id="cb286"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb286-1" title="1"><span class="bu">print</span>( datetime.now().year )</a></code></pre></div>
-<p>2019</p>
-<div class="sourceCode" id="cb287"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb287-1" title="1"><span class="bu">print</span>( datetime.now().month )</a></code></pre></div>
-<p>12</p>
-<div class="sourceCode" id="cb288"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb288-1" title="1"><span class="bu">print</span>( datetime.now().day )</a></code></pre></div>
-<p>22</p>
-<div class="sourceCode" id="cb289"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb289-1" title="1"><span class="bu">print</span>( datetime.now().hour )</a></code></pre></div>
-<p>21</p>
-<div class="sourceCode" id="cb290"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb290-1" title="1"><span class="bu">print</span>( datetime.now().minute )</a></code></pre></div>
-<p>3</p>
+<div class="sourceCode" id="cb533"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb533-1" title="1"><span class="bu">print</span>( datetime.now().year )</a></code></pre></div>
+<pre><code>## 2019</code></pre>
+<div class="sourceCode" id="cb535"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb535-1" title="1"><span class="bu">print</span>( datetime.now().month )</a></code></pre></div>
+<pre><code>## 12</code></pre>
+<div class="sourceCode" id="cb537"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb537-1" title="1"><span class="bu">print</span>( datetime.now().day )</a></code></pre></div>
+<pre><code>## 22</code></pre>
+<div class="sourceCode" id="cb539"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb539-1" title="1"><span class="bu">print</span>( datetime.now().hour )</a></code></pre></div>
+<pre><code>## 23</code></pre>
+<div class="sourceCode" id="cb541"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb541-1" title="1"><span class="bu">print</span>( datetime.now().minute )</a></code></pre></div>
+<pre><code>## 46</code></pre>
 </div>
 </div>
 <div id="time" class="section level2">
 <h2><span class="header-section-number">9.6</span> time</h2>
 <div id="constructor-3" class="section level3">
 <h3><span class="header-section-number">9.6.1</span> Constructor</h3>
-<div class="sourceCode" id="cb291"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb291-1" title="1"><span class="bu">print</span>( time(<span class="dv">2</span>) )    <span class="co">#default single arugement, hour</span></a></code></pre></div>
-<p>02:00:00</p>
-<div class="sourceCode" id="cb292"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb292-1" title="1"><span class="bu">print</span>( time(<span class="dv">2</span>,<span class="dv">15</span>) ) <span class="co">#default two arguments, hour, minute</span></a></code></pre></div>
-<p>02:15:00</p>
-<div class="sourceCode" id="cb293"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb293-1" title="1"><span class="bu">print</span>( time(hour<span class="op">=</span><span class="dv">2</span>,minute<span class="op">=</span><span class="dv">15</span>,second<span class="op">=</span><span class="dv">30</span>) )</a></code></pre></div>
-<p>02:15:30</p>
+<div class="sourceCode" id="cb543"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb543-1" title="1"><span class="bu">print</span>( time(<span class="dv">2</span>) )    <span class="co">#default single arugement, hour</span></a></code></pre></div>
+<pre><code>## 02:00:00</code></pre>
+<div class="sourceCode" id="cb545"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb545-1" title="1"><span class="bu">print</span>( time(<span class="dv">2</span>,<span class="dv">15</span>) ) <span class="co">#default two arguments, hour, minute</span></a></code></pre></div>
+<pre><code>## 02:15:00</code></pre>
+<div class="sourceCode" id="cb547"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb547-1" title="1"><span class="bu">print</span>( time(hour<span class="op">=</span><span class="dv">2</span>,minute<span class="op">=</span><span class="dv">15</span>,second<span class="op">=</span><span class="dv">30</span>) )</a></code></pre></div>
+<pre><code>## 02:15:30</code></pre>
 </div>
 <div id="class-method-2" class="section level3">
 <h3><span class="header-section-number">9.6.2</span> Class Method</h3>
 <div id="now" class="section level4">
 <h4><span class="header-section-number">9.6.2.1</span> <code>now()</code></h4>
 <p>There is unfortunately no single function to extract the current time. Use <strong>time()</strong> function of an <strong>datetime</strong> object</p>
-<div class="sourceCode" id="cb294"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb294-1" title="1">datetime.now().time()</a></code></pre></div>
-<p>datetime.time(21, 3, 56, 867924)</p>
+<div class="sourceCode" id="cb549"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb549-1" title="1">datetime.now().time()</a></code></pre></div>
+<pre><code>## datetime.time(23, 46, 37, 952720)</code></pre>
 </div>
 </div>
 <div id="attributes-2" class="section level3">
 <h3><span class="header-section-number">9.6.3</span> Attributes</h3>
-<div class="sourceCode" id="cb295"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb295-1" title="1"><span class="bu">print</span>( datetime.now().time().hour )</a></code></pre></div>
-<p>21</p>
-<div class="sourceCode" id="cb296"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb296-1" title="1"><span class="bu">print</span>( datetime.now().time().minute )</a></code></pre></div>
-<p>3</p>
-<div class="sourceCode" id="cb297"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb297-1" title="1"><span class="bu">print</span>( datetime.now().time().second )</a></code></pre></div>
-<p>56</p>
+<div class="sourceCode" id="cb551"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb551-1" title="1"><span class="bu">print</span>( datetime.now().time().hour )</a></code></pre></div>
+<pre><code>## 23</code></pre>
+<div class="sourceCode" id="cb553"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb553-1" title="1"><span class="bu">print</span>( datetime.now().time().minute )</a></code></pre></div>
+<pre><code>## 46</code></pre>
+<div class="sourceCode" id="cb555"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb555-1" title="1"><span class="bu">print</span>( datetime.now().time().second )</a></code></pre></div>
+<pre><code>## 37</code></pre>
 </div>
 </div>
 <div id="timedelta" class="section level2">
@@ -872,10 +873,10 @@ For <code>isoweekday()</code>, Zero being Sunday</p>
 </li>
 <li>timedelta <strong>cannot</strong> be applied on <strong>time object</strong> , because timedelta potentially go beyond single day (24H)</li>
 </ul>
-<div class="sourceCode" id="cb298"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb298-1" title="1">delt <span class="op">=</span> timedelta(days<span class="op">=</span><span class="dv">365</span>,minutes<span class="op">=</span><span class="dv">33</span>,seconds<span class="op">=</span><span class="dv">15</span>)</a></code></pre></div>
-<div class="sourceCode" id="cb299"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb299-1" title="1">now <span class="op">=</span> datetime.now()</a>
-<a class="sourceLine" id="cb299-2" title="2"><span class="bu">print</span> (<span class="st">&#39;delt+now : &#39;</span>, now<span class="op">+</span>delt)</a></code></pre></div>
-<p>delt+now : 2020-12-21 21:37:11.951922</p>
+<div class="sourceCode" id="cb557"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb557-1" title="1">delt <span class="op">=</span> timedelta(days<span class="op">=</span><span class="dv">365</span>,minutes<span class="op">=</span><span class="dv">33</span>,seconds<span class="op">=</span><span class="dv">15</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb558"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb558-1" title="1">now <span class="op">=</span> datetime.now()</a>
+<a class="sourceLine" id="cb558-2" title="2"><span class="bu">print</span> (<span class="st">&#39;delt+now : &#39;</span>, now<span class="op">+</span>delt)</a></code></pre></div>
+<pre><code>## delt+now :  2020-12-22 00:19:53.039720</code></pre>
 </div>
 </div>
             </section>
@@ -933,26 +934,14 @@ gitbook.start({
 "collapse": "subsection",
 "scroll_highlight": true
 },
-"toolbar": "position: fixed ",
+"toolbar": {
+"position": "fixed"
+},
 "searh": true
 });
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

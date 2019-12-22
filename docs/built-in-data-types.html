@@ -128,6 +128,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 
 <ul class="summary">
 <li><a href="./">Python Bookdown</a></li>
+
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prerequisites</a></li>
 <li class="chapter" data-level="1" data-path="environment-setup.html"><a href="environment-setup.html"><i class="fa fa-check"></i><b>1</b> Environment Setup</a><ul>
@@ -598,120 +599,122 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Two types of built-in number type, <strong>integer and float</strong>.</p>
 <div id="integer" class="section level3">
 <h3><span class="header-section-number">3.1.1</span> Integer</h3>
-<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb21-1" title="1">n <span class="op">=</span> <span class="dv">123</span></a>
-<a class="sourceLine" id="cb21-2" title="2"><span class="bu">type</span> (n)</a></code></pre></div>
-<p>&lt;class ‘int’&gt;</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb27-1" title="1">n <span class="op">=</span> <span class="dv">123</span></a>
+<a class="sourceLine" id="cb27-2" title="2"><span class="bu">type</span> (n)</a></code></pre></div>
+<pre><code>## &lt;class &#39;int&#39;&gt;</code></pre>
 </div>
 <div id="float" class="section level3">
 <h3><span class="header-section-number">3.1.2</span> Float</h3>
-<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb22-1" title="1">f <span class="op">=</span> <span class="fl">123.4</span></a>
-<a class="sourceLine" id="cb22-2" title="2"><span class="bu">type</span> (f)</a></code></pre></div>
-<p>&lt;class ‘float’&gt;</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb29-1" title="1">f <span class="op">=</span> <span class="fl">123.4</span></a>
+<a class="sourceLine" id="cb29-2" title="2"><span class="bu">type</span> (f)</a></code></pre></div>
+<pre><code>## &lt;class &#39;float&#39;&gt;</code></pre>
 </div>
 <div id="number-operators" class="section level3">
 <h3><span class="header-section-number">3.1.3</span> Number Operators</h3>
 <p>In general, when the operation potentially return <strong>float</strong>, the result is float type. Otherwise it return <strong>integer</strong>.</p>
 <p><strong>Division</strong> always return float</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb23-1" title="1"><span class="bu">print</span>(<span class="dv">4</span><span class="op">/</span><span class="dv">2</span>)  <span class="co"># return float</span></a></code></pre></div>
-<p>2.0</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb24-1" title="1"><span class="bu">type</span>(<span class="dv">4</span><span class="op">/</span><span class="dv">2</span>)</a></code></pre></div>
-<p>&lt;class ‘float’&gt;</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb31-1" title="1"><span class="bu">print</span>(<span class="dv">4</span><span class="op">/</span><span class="dv">2</span>)  <span class="co"># return float</span></a></code></pre></div>
+<pre><code>## 2.0</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb33-1" title="1"><span class="bu">type</span>(<span class="dv">4</span><span class="op">/</span><span class="dv">2</span>)</a></code></pre></div>
+<pre><code>## &lt;class &#39;float&#39;&gt;</code></pre>
 <p><strong>Integer Division</strong> by integer return inter. Integer division by float return float.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb25-1" title="1"><span class="bu">print</span> (<span class="dv">8</span><span class="op">//</span><span class="dv">3</span>,<span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,    <span class="co"># return int</span></a>
-<a class="sourceLine" id="cb25-2" title="2">       <span class="dv">8</span><span class="op">//</span><span class="fl">3.2</span>)       <span class="co"># return float</span></a></code></pre></div>
-<p>2
-2.0</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb35-1" title="1"><span class="bu">print</span> (<span class="dv">8</span><span class="op">//</span><span class="dv">3</span>,<span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,    <span class="co"># return int</span></a>
+<a class="sourceLine" id="cb35-2" title="2">       <span class="dv">8</span><span class="op">//</span><span class="fl">3.2</span>)       <span class="co"># return float</span></a></code></pre></div>
+<pre><code>## 2 
+##  2.0</code></pre>
 <p><strong>Remainder</strong> by integer return <strong>integer</strong>.<br />
 Remainder by float return <strong>float</strong></p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb26-1" title="1"><span class="bu">print</span> (<span class="dv">8</span><span class="op">%</span><span class="dv">3</span>, <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,    <span class="co"># return int</span></a>
-<a class="sourceLine" id="cb26-2" title="2">       <span class="dv">8</span><span class="op">%</span><span class="fl">3.2</span>)        <span class="co"># return float</span></a></code></pre></div>
-<p>2
-1.5999999999999996</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb37-1" title="1"><span class="bu">print</span> (<span class="dv">8</span><span class="op">%</span><span class="dv">3</span>, <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,    <span class="co"># return int</span></a>
+<a class="sourceLine" id="cb37-2" title="2">       <span class="dv">8</span><span class="op">%</span><span class="fl">3.2</span>)        <span class="co"># return float</span></a></code></pre></div>
+<pre><code>## 2 
+##  1.5999999999999996</code></pre>
 <p><strong>Power</strong> return int or float</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb27-1" title="1"><span class="bu">print</span> (<span class="dv">2</span><span class="op">**</span><span class="dv">3</span>)    <span class="co"># return int</span></a></code></pre></div>
-<p>8</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb28-1" title="1"><span class="bu">print</span> (<span class="fl">2.1</span><span class="op">**</span><span class="dv">3</span>)  <span class="co"># return float</span></a></code></pre></div>
-<p>9.261000000000001</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb29-1" title="1"><span class="bu">print</span> (<span class="dv">2</span><span class="op">**</span><span class="fl">3.1</span>)  <span class="co"># return float</span></a></code></pre></div>
-<p>8.574187700290345</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb39-1" title="1"><span class="bu">print</span> (<span class="dv">2</span><span class="op">**</span><span class="dv">3</span>)    <span class="co"># return int</span></a></code></pre></div>
+<pre><code>## 8</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb41-1" title="1"><span class="bu">print</span> (<span class="fl">2.1</span><span class="op">**</span><span class="dv">3</span>)  <span class="co"># return float</span></a></code></pre></div>
+<pre><code>## 9.261000000000001</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb43-1" title="1"><span class="bu">print</span> (<span class="dv">2</span><span class="op">**</span><span class="fl">3.1</span>)  <span class="co"># return float</span></a></code></pre></div>
+<pre><code>## 8.574187700290345</code></pre>
 </div>
 </div>
 <div id="string" class="section level2">
 <h2><span class="header-section-number">3.2</span> String</h2>
 <p>String is an object class ‘str’. It is an <strong>ordered collection of letters</strong>, an <strong>array</strong> of object type <strong>str</strong></p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb30-1" title="1"><span class="im">import</span> string</a>
-<a class="sourceLine" id="cb30-2" title="2">s <span class="op">=</span> <span class="st">&#39;abcde&#39;</span></a>
-<a class="sourceLine" id="cb30-3" title="3"><span class="bu">print</span>( <span class="st">&#39;</span><span class="ch">\n</span><span class="st">var type  = &#39;</span>, <span class="bu">type</span>(s),</a>
-<a class="sourceLine" id="cb30-4" title="4">       <span class="st">&#39;</span><span class="ch">\n</span><span class="st">elems     = &#39;</span>,s[<span class="dv">0</span>], s[<span class="dv">1</span>], s[<span class="dv">2</span>],</a>
-<a class="sourceLine" id="cb30-5" title="5">       <span class="st">&#39;</span><span class="ch">\n</span><span class="st">len       = &#39;</span>, <span class="bu">len</span>(s),</a>
-<a class="sourceLine" id="cb30-6" title="6">       <span class="st">&#39;</span><span class="ch">\n</span><span class="st">elem type = &#39;</span>,<span class="bu">type</span>(s[<span class="dv">1</span>]))</a></code></pre></div>
-<p>var type = &lt;class ‘str’&gt;
-elems = a b c
-len = 5
-elem type = &lt;class ‘str’&gt;</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb45-1" title="1"><span class="im">import</span> string</a>
+<a class="sourceLine" id="cb45-2" title="2">s <span class="op">=</span> <span class="st">&#39;abcde&#39;</span></a>
+<a class="sourceLine" id="cb45-3" title="3"><span class="bu">print</span>( <span class="st">&#39;</span><span class="ch">\n</span><span class="st">var type  = &#39;</span>, <span class="bu">type</span>(s),</a>
+<a class="sourceLine" id="cb45-4" title="4">       <span class="st">&#39;</span><span class="ch">\n</span><span class="st">elems     = &#39;</span>,s[<span class="dv">0</span>], s[<span class="dv">1</span>], s[<span class="dv">2</span>],</a>
+<a class="sourceLine" id="cb45-5" title="5">       <span class="st">&#39;</span><span class="ch">\n</span><span class="st">len       = &#39;</span>, <span class="bu">len</span>(s),</a>
+<a class="sourceLine" id="cb45-6" title="6">       <span class="st">&#39;</span><span class="ch">\n</span><span class="st">elem type = &#39;</span>,<span class="bu">type</span>(s[<span class="dv">1</span>]))</a></code></pre></div>
+<pre><code>## 
+## var type  =  &lt;class &#39;str&#39;&gt; 
+## elems     =  a b c 
+## len       =  5 
+## elem type =  &lt;class &#39;str&#39;&gt;</code></pre>
 <div id="constructor" class="section level3">
 <h3><span class="header-section-number">3.2.1</span> Constructor</h3>
 <div id="classical-method" class="section level4">
 <h4><span class="header-section-number">3.2.1.1</span> Classical Method</h4>
 <p><code>class str(object='')</code></p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb31-1" title="1">my_string <span class="op">=</span> <span class="bu">str</span>()        <span class="co">## empty string</span></a></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb47-1" title="1">my_string <span class="op">=</span> <span class="bu">str</span>()        <span class="co">## empty string</span></a></code></pre></div>
 <p><code>class str(object=b'', encoding='utf-8', errors='strict')</code></p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb32-1" title="1">my_string <span class="op">=</span> <span class="bu">str</span>(<span class="st">&#39;abc&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb48-1" title="1">my_string <span class="op">=</span> <span class="bu">str</span>(<span class="st">&#39;abc&#39;</span>)</a></code></pre></div>
 </div>
 <div id="shortcut-method" class="section level4">
 <h4><span class="header-section-number">3.2.1.2</span> Shortcut Method</h4>
-<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb33-1" title="1">my_string <span class="op">=</span> <span class="st">&#39;abc&#39;</span></a></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb49-1" title="1">my_string <span class="op">=</span> <span class="st">&#39;abc&#39;</span></a></code></pre></div>
 </div>
 <div id="multiline-method" class="section level4">
 <h4><span class="header-section-number">3.2.1.3</span> Multiline Method</h4>
-<div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb34-1" title="1">my_string <span class="op">=</span> <span class="st">&#39;&#39;&#39;</span></a>
-<a class="sourceLine" id="cb34-2" title="2"><span class="st">This is me.</span></a>
-<a class="sourceLine" id="cb34-3" title="3"><span class="st">Yong Keh Soon</span></a>
-<a class="sourceLine" id="cb34-4" title="4"><span class="st">&#39;&#39;&#39;</span></a>
-<a class="sourceLine" id="cb34-5" title="5"><span class="bu">print</span>(my_string)</a></code></pre></div>
-<p>This is me.
-Yong Keh Soon
-Note that the variable contain <strong><code>\n</code></strong> front and end of the string.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb35-1" title="1">my_string</a></code></pre></div>
-<p>‘is me.Keh Soon’</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb50-1" title="1">my_string <span class="op">=</span> <span class="st">&#39;&#39;&#39;</span></a>
+<a class="sourceLine" id="cb50-2" title="2"><span class="st">This is me.</span></a>
+<a class="sourceLine" id="cb50-3" title="3"><span class="st">Yong Keh Soon</span></a>
+<a class="sourceLine" id="cb50-4" title="4"><span class="st">&#39;&#39;&#39;</span></a>
+<a class="sourceLine" id="cb50-5" title="5"><span class="bu">print</span>(my_string)</a></code></pre></div>
+<pre><code>## 
+## This is me.
+## Yong Keh Soon</code></pre>
+<p>Note that the variable contain <strong><code>\n</code></strong> front and end of the string.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb52-1" title="1">my_string</a></code></pre></div>
+<pre><code>## &#39;\nThis is me.\nYong Keh Soon\n&#39;</code></pre>
 </div>
 <div id="immutability" class="section level4">
 <h4><span class="header-section-number">3.2.1.4</span> Immutability</h4>
 <ul>
 <li>String is <strong>immuatable</strong>. Changing its content will result in <strong>error</strong></li>
 </ul>
-<div class="sourceCode" id="cb36"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb36-1" title="1">s <span class="op">=</span> <span class="st">&#39;abcde&#39;</span></a>
-<a class="sourceLine" id="cb36-2" title="2"><span class="bu">print</span> (<span class="st">&#39;s : &#39;</span>, <span class="bu">id</span>(s))</a>
-<a class="sourceLine" id="cb36-3" title="3"><span class="co">#s[1] = &#39;z&#39;               # immutable, result in error</span></a></code></pre></div>
-<p>s : 670382320</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb54-1" title="1">s <span class="op">=</span> <span class="st">&#39;abcde&#39;</span></a>
+<a class="sourceLine" id="cb54-2" title="2"><span class="bu">print</span> (<span class="st">&#39;s : &#39;</span>, <span class="bu">id</span>(s))</a>
+<a class="sourceLine" id="cb54-3" title="3"><span class="co">#s[1] = &#39;z&#39;               # immutable, result in error</span></a></code></pre></div>
+<pre><code>## s :  686762112</code></pre>
 <ul>
 <li>Changing the variable completley change the reference (for new object)</li>
 </ul>
-<div class="sourceCode" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb37-1" title="1">s <span class="op">=</span> <span class="st">&#39;efgh&#39;</span></a>
-<a class="sourceLine" id="cb37-2" title="2"><span class="bu">print</span> (<span class="st">&#39;s : &#39;</span>, <span class="bu">id</span>(s))</a></code></pre></div>
-<p>s : 670365320</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb56-1" title="1">s <span class="op">=</span> <span class="st">&#39;efgh&#39;</span></a>
+<a class="sourceLine" id="cb56-2" title="2"><span class="bu">print</span> (<span class="st">&#39;s : &#39;</span>, <span class="bu">id</span>(s))</a></code></pre></div>
+<pre><code>## s :  686748928</code></pre>
 </div>
 </div>
 <div id="class-constants" class="section level3">
 <h3><span class="header-section-number">3.2.2</span> Class Constants</h3>
 <div id="letters" class="section level4">
 <h4><span class="header-section-number">3.2.2.1</span> Letters</h4>
-<div class="sourceCode" id="cb38"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb38-1" title="1"><span class="bu">print</span>( <span class="st">&#39;letters = &#39;</span>, string.ascii_letters,</a>
-<a class="sourceLine" id="cb38-2" title="2">        <span class="st">&#39;</span><span class="ch">\n</span><span class="st">lowercase = &#39;</span>,string.ascii_lowercase,</a>
-<a class="sourceLine" id="cb38-3" title="3">        <span class="st">&#39;</span><span class="ch">\n</span><span class="st">uppercase = &#39;</span>,string.ascii_uppercase )</a></code></pre></div>
-<p>letters = abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
-lowercase = abcdefghijklmnopqrstuvwxyz
-uppercase = ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb58-1" title="1"><span class="bu">print</span>( <span class="st">&#39;letters = &#39;</span>, string.ascii_letters,</a>
+<a class="sourceLine" id="cb58-2" title="2">        <span class="st">&#39;</span><span class="ch">\n</span><span class="st">lowercase = &#39;</span>,string.ascii_lowercase,</a>
+<a class="sourceLine" id="cb58-3" title="3">        <span class="st">&#39;</span><span class="ch">\n</span><span class="st">uppercase = &#39;</span>,string.ascii_uppercase )</a></code></pre></div>
+<pre><code>## letters =  abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 
+## lowercase =  abcdefghijklmnopqrstuvwxyz 
+## uppercase =  ABCDEFGHIJKLMNOPQRSTUVWXYZ</code></pre>
 </div>
 <div id="digits" class="section level4">
 <h4><span class="header-section-number">3.2.2.2</span> Digits</h4>
-<div class="sourceCode" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb39-1" title="1">string.digits</a></code></pre></div>
-<p>‘0123456789’</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb60-1" title="1">string.digits</a></code></pre></div>
+<pre><code>## &#39;0123456789&#39;</code></pre>
 </div>
 <div id="white-spaces" class="section level4">
 <h4><span class="header-section-number">3.2.2.3</span> White Spaces</h4>
-<div class="sourceCode" id="cb40"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb40-1" title="1">string.whitespace</a></code></pre></div>
-<p>’ 0b0c’</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb62-1" title="1">string.whitespace</a></code></pre></div>
+<pre><code>## &#39; \t\n\r\x0b\x0c&#39;</code></pre>
 </div>
 </div>
 <div id="instance-methods" class="section level3">
@@ -719,76 +722,76 @@ uppercase = ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
 <div id="substitution-format" class="section level4">
 <h4><span class="header-section-number">3.2.3.1</span> Substitution : <strong><code>format()</code></strong></h4>
 <p><strong>By Positional</strong></p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb41-1" title="1"><span class="bu">print</span>( <span class="st">&#39;</span><span class="sc">{}</span><span class="st"> + </span><span class="sc">{}</span><span class="st"> = </span><span class="sc">{}</span><span class="st">&#39;</span>.<span class="bu">format</span>(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>),         <span class="co"># auto sequence</span></a>
-<a class="sourceLine" id="cb41-2" title="2">       <span class="st">&#39;</span><span class="ch">\n</span><span class="sc">{0}</span><span class="st"> + </span><span class="sc">{1}</span><span class="st"> = </span><span class="sc">{2}</span><span class="st">&#39;</span>.<span class="bu">format</span>(<span class="st">&#39;aa&#39;</span>, <span class="st">&#39;bb&#39;</span>, <span class="st">&#39;cc&#39;</span>)) <span class="co"># manual sequence</span></a></code></pre></div>
-<p>a + b = c
-aa + bb = cc</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb64-1" title="1"><span class="bu">print</span>( <span class="st">&#39;</span><span class="sc">{}</span><span class="st"> + </span><span class="sc">{}</span><span class="st"> = </span><span class="sc">{}</span><span class="st">&#39;</span>.<span class="bu">format</span>(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>),         <span class="co"># auto sequence</span></a>
+<a class="sourceLine" id="cb64-2" title="2">       <span class="st">&#39;</span><span class="ch">\n</span><span class="sc">{0}</span><span class="st"> + </span><span class="sc">{1}</span><span class="st"> = </span><span class="sc">{2}</span><span class="st">&#39;</span>.<span class="bu">format</span>(<span class="st">&#39;aa&#39;</span>, <span class="st">&#39;bb&#39;</span>, <span class="st">&#39;cc&#39;</span>)) <span class="co"># manual sequence</span></a></code></pre></div>
+<pre><code>## a + b = c 
+## aa + bb = cc</code></pre>
 <p><strong>By Name</strong></p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb42-1" title="1"><span class="co">&#39;Coordinates: {latitude}, {longitude}&#39;</span>.<span class="bu">format</span>(latitude<span class="op">=</span><span class="st">&#39;37.24N&#39;</span>, longitude<span class="op">=</span><span class="st">&#39;-115.81W&#39;</span>) <span class="co">## constant</span></a></code></pre></div>
-<p>‘Coordinates: 37.24N, -115.81W’</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb66-1" title="1"><span class="co">&#39;Coordinates: {latitude}, {longitude}&#39;</span>.<span class="bu">format</span>(latitude<span class="op">=</span><span class="st">&#39;37.24N&#39;</span>, longitude<span class="op">=</span><span class="st">&#39;-115.81W&#39;</span>) <span class="co">## constant</span></a></code></pre></div>
+<pre><code>## &#39;Coordinates: 37.24N, -115.81W&#39;</code></pre>
 <p><strong>By Dictionary Name</strong></p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb43-1" title="1">coord <span class="op">=</span> {<span class="st">&#39;latitude&#39;</span>: <span class="st">&#39;37.24N&#39;</span>, <span class="st">&#39;longitude&#39;</span>: <span class="st">&#39;-115.81W&#39;</span>} <span class="co">## dictionary key/value</span></a>
-<a class="sourceLine" id="cb43-2" title="2"><span class="co">&#39;Coordinates: {latitude}, {longitude}&#39;</span>.<span class="bu">format</span>(<span class="op">**</span>coord)</a></code></pre></div>
-<p>‘Coordinates: 37.24N, -115.81W’</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb68-1" title="1">coord <span class="op">=</span> {<span class="st">&#39;latitude&#39;</span>: <span class="st">&#39;37.24N&#39;</span>, <span class="st">&#39;longitude&#39;</span>: <span class="st">&#39;-115.81W&#39;</span>} <span class="co">## dictionary key/value</span></a>
+<a class="sourceLine" id="cb68-2" title="2"><span class="co">&#39;Coordinates: {latitude}, {longitude}&#39;</span>.<span class="bu">format</span>(<span class="op">**</span>coord)</a></code></pre></div>
+<pre><code>## &#39;Coordinates: 37.24N, -115.81W&#39;</code></pre>
 <p><strong>Formatting Number</strong></p>
 <p>Float</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb44-1" title="1"><span class="co">&#39;{:+f}; {:+f}&#39;</span>.<span class="bu">format</span>(<span class="fl">3.14</span>, <span class="fl">-3.14</span>)  <span class="co"># show it always</span></a></code></pre></div>
-<p>‘+3.140000; -3.140000’</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb45-1" title="1"><span class="co">&#39;{: f}; {: f}&#39;</span>.<span class="bu">format</span>(<span class="fl">3.14</span>, <span class="fl">-3.14</span>)  <span class="co"># show a space for positive numbers</span></a></code></pre></div>
-<p>’ 3.140000; -3.140000’</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb46-1" title="1"><span class="co">&#39;Correct answers: {:.2f}&#39;</span>.<span class="bu">format</span>(<span class="fl">55676.345345</span>)</a></code></pre></div>
-<p>‘Correct answers: 55676.35’</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb70-1" title="1"><span class="co">&#39;{:+f}; {:+f}&#39;</span>.<span class="bu">format</span>(<span class="fl">3.14</span>, <span class="fl">-3.14</span>)  <span class="co"># show it always</span></a></code></pre></div>
+<pre><code>## &#39;+3.140000; -3.140000&#39;</code></pre>
+<div class="sourceCode" id="cb72"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb72-1" title="1"><span class="co">&#39;{: f}; {: f}&#39;</span>.<span class="bu">format</span>(<span class="fl">3.14</span>, <span class="fl">-3.14</span>)  <span class="co"># show a space for positive numbers</span></a></code></pre></div>
+<pre><code>## &#39; 3.140000; -3.140000&#39;</code></pre>
+<div class="sourceCode" id="cb74"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb74-1" title="1"><span class="co">&#39;Correct answers: {:.2f}&#39;</span>.<span class="bu">format</span>(<span class="fl">55676.345345</span>)</a></code></pre></div>
+<pre><code>## &#39;Correct answers: 55676.35&#39;</code></pre>
 <p>Integer, Percentage</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb47-1" title="1"><span class="co">&#39;{0:,}   {0:.2%}   {0:,.2%}&#39;</span>.<span class="bu">format</span>(<span class="fl">1234567890.4455</span>)</a></code></pre></div>
-<p>‘1,234,567,890.4455 123456789044.55% 123,456,789,044.55%’</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb76-1" title="1"><span class="co">&#39;{0:,}   {0:.2%}   {0:,.2%}&#39;</span>.<span class="bu">format</span>(<span class="fl">1234567890.4455</span>)</a></code></pre></div>
+<pre><code>## &#39;1,234,567,890.4455   123456789044.55%   123,456,789,044.55%&#39;</code></pre>
 <p><strong>Alignment</strong></p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb48-1" title="1"><span class="co">&#39;{0:&lt;20}   {0:&lt;&lt;20}&#39;</span>.<span class="bu">format</span>(<span class="st">&#39;left aligned&#39;</span>)</a></code></pre></div>
-<p>‘left aligned left aligned&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;’</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb49-1" title="1"><span class="co">&#39;{0:&gt;20}  {0:$&gt;20}&#39;</span>.<span class="bu">format</span>(<span class="st">&#39;right aligned&#39;</span>)</a></code></pre></div>
-<p>’ right aligned $$$$$$$right aligned’</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb50-1" title="1"><span class="co">&#39;{:^30}&#39;</span>.<span class="bu">format</span>(<span class="st">&#39;centered&#39;</span>)  <span class="co"># use &#39;*&#39; as a fill char</span></a></code></pre></div>
-<p>’ centered ’</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb78-1" title="1"><span class="co">&#39;{0:&lt;20}   {0:&lt;&lt;20}&#39;</span>.<span class="bu">format</span>(<span class="st">&#39;left aligned&#39;</span>)</a></code></pre></div>
+<pre><code>## &#39;left aligned           left aligned&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&#39;</code></pre>
+<div class="sourceCode" id="cb80"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb80-1" title="1"><span class="co">&#39;{0:&gt;20}  {0:$&gt;20}&#39;</span>.<span class="bu">format</span>(<span class="st">&#39;right aligned&#39;</span>)</a></code></pre></div>
+<pre><code>## &#39;       right aligned  $$$$$$$right aligned&#39;</code></pre>
+<div class="sourceCode" id="cb82"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb82-1" title="1"><span class="co">&#39;{:^30}&#39;</span>.<span class="bu">format</span>(<span class="st">&#39;centered&#39;</span>)  <span class="co"># use &#39;*&#39; as a fill char</span></a></code></pre></div>
+<pre><code>## &#39;           centered           &#39;</code></pre>
 </div>
 <div id="substitution-f-string" class="section level4">
 <h4><span class="header-section-number">3.2.3.2</span> Substitution : <strong><code>f-string</code></strong></h4>
-<div class="sourceCode" id="cb51"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb51-1" title="1">my_name <span class="op">=</span> <span class="st">&#39;Yong Keh Soon&#39;</span></a>
-<a class="sourceLine" id="cb51-2" title="2">salary  <span class="op">=</span> <span class="fl">11123.346</span></a>
-<a class="sourceLine" id="cb51-3" title="3"><span class="ss">f&#39;Hello, </span><span class="sc">{</span>my_name<span class="sc">}</span><span class="ss">, your salary is </span><span class="sc">{</span>salary<span class="sc">:,.2f}</span><span class="ss"> !&#39;</span></a></code></pre></div>
-<p>‘Hello, Yong Keh Soon, your salary is 11,123.35 !’</p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb84-1" title="1">my_name <span class="op">=</span> <span class="st">&#39;Yong Keh Soon&#39;</span></a>
+<a class="sourceLine" id="cb84-2" title="2">salary  <span class="op">=</span> <span class="fl">11123.346</span></a>
+<a class="sourceLine" id="cb84-3" title="3"><span class="ss">f&#39;Hello, </span><span class="sc">{</span>my_name<span class="sc">}</span><span class="ss">, your salary is </span><span class="sc">{</span>salary<span class="sc">:,.2f}</span><span class="ss"> !&#39;</span></a></code></pre></div>
+<pre><code>## &#39;Hello, Yong Keh Soon, your salary is 11,123.35 !&#39;</code></pre>
 </div>
 <div id="conversion-upper-lower" class="section level4">
 <h4><span class="header-section-number">3.2.3.3</span> Conversion: <code>upper() lower()</code></h4>
-<div class="sourceCode" id="cb52"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb52-1" title="1"><span class="co">&#39;myEXEel.xls&#39;</span>.upper()</a></code></pre></div>
-<p>‘MYEXEEL.XLS’</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb53-1" title="1"><span class="co">&#39;myEXEel.xls&#39;</span>.lower()</a></code></pre></div>
-<p>‘myexeel.xls’</p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb86-1" title="1"><span class="co">&#39;myEXEel.xls&#39;</span>.upper()</a></code></pre></div>
+<pre><code>## &#39;MYEXEEL.XLS&#39;</code></pre>
+<div class="sourceCode" id="cb88"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb88-1" title="1"><span class="co">&#39;myEXEel.xls&#39;</span>.lower()</a></code></pre></div>
+<pre><code>## &#39;myexeel.xls&#39;</code></pre>
 </div>
 <div id="find-pattern-position" class="section level4">
 <h4><span class="header-section-number">3.2.3.4</span> <code>find()</code> pattern position</h4>
 <pre><code>string.find() return position of first occurance. -1 if not found</code></pre>
-<div class="sourceCode" id="cb55"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb55-1" title="1">s<span class="op">=</span><span class="st">&#39;I love karaoke, I know you love it oo&#39;</span></a>
-<a class="sourceLine" id="cb55-2" title="2"><span class="bu">print</span> (s.find(<span class="st">&#39;lov&#39;</span>))</a></code></pre></div>
-<p>2</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb56-1" title="1"><span class="bu">print</span> (s.find(<span class="st">&#39;kemuning&#39;</span>))</a></code></pre></div>
-<p>-1</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb91-1" title="1">s<span class="op">=</span><span class="st">&#39;I love karaoke, I know you love it oo&#39;</span></a>
+<a class="sourceLine" id="cb91-2" title="2"><span class="bu">print</span> (s.find(<span class="st">&#39;lov&#39;</span>))</a></code></pre></div>
+<pre><code>## 2</code></pre>
+<div class="sourceCode" id="cb93"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb93-1" title="1"><span class="bu">print</span> (s.find(<span class="st">&#39;kemuning&#39;</span>))</a></code></pre></div>
+<pre><code>## -1</code></pre>
 </div>
 <div id="strip-off-blank-spaces" class="section level4">
 <h4><span class="header-section-number">3.2.3.5</span> <code>strip()</code> off blank spaces</h4>
-<div class="sourceCode" id="cb57"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb57-1" title="1">filename <span class="op">=</span> <span class="st">&#39;  myexce l.   xls   &#39;</span></a>
-<a class="sourceLine" id="cb57-2" title="2">filename.strip()</a></code></pre></div>
-<p>‘myexce l. xls’</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb95-1" title="1">filename <span class="op">=</span> <span class="st">&#39;  myexce l.   xls   &#39;</span></a>
+<a class="sourceLine" id="cb95-2" title="2">filename.strip()</a></code></pre></div>
+<pre><code>## &#39;myexce l.   xls&#39;</code></pre>
 </div>
 <div id="list-related-split" class="section level4">
 <h4><span class="header-section-number">3.2.3.6</span> List Related: <code>split()</code></h4>
 <p>Splitting delimeter is specified. Observe the empty spaces were conserved in result array</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb58-1" title="1">animals <span class="op">=</span> <span class="st">&#39;a1,a2 ,a3, a4&#39;</span></a>
-<a class="sourceLine" id="cb58-2" title="2">animals.split(<span class="st">&#39;,&#39;</span>)</a></code></pre></div>
-<p>[‘a1’, ‘a2’, ‘a3’, ’ a4’]</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb97-1" title="1">animals <span class="op">=</span> <span class="st">&#39;a1,a2 ,a3, a4&#39;</span></a>
+<a class="sourceLine" id="cb97-2" title="2">animals.split(<span class="st">&#39;,&#39;</span>)</a></code></pre></div>
+<pre><code>## [&#39;a1&#39;, &#39;a2 &#39;, &#39;a3&#39;, &#39; a4&#39;]</code></pre>
 </div>
 <div id="list-related-join" class="section level4">
 <h4><span class="header-section-number">3.2.3.7</span> List Related: <code>join()</code></h4>
-<div class="sourceCode" id="cb59"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb59-1" title="1"><span class="co">&#39;-&#39;</span>.join([<span class="st">&#39;1&#39;</span>, <span class="st">&#39;2&#39;</span>, <span class="st">&#39;3&#39;</span>, <span class="st">&#39;4&#39;</span>])</a></code></pre></div>
-<p>‘1-2-3-4’</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb99-1" title="1"><span class="co">&#39;-&#39;</span>.join([<span class="st">&#39;1&#39;</span>, <span class="st">&#39;2&#39;</span>, <span class="st">&#39;3&#39;</span>, <span class="st">&#39;4&#39;</span>])</a></code></pre></div>
+<pre><code>## &#39;1-2-3-4&#39;</code></pre>
 </div>
 </div>
 <div id="operator" class="section level3">
@@ -796,84 +799,84 @@ aa + bb = cc</p>
 <div id="old-style-substitution" class="section level4">
 <h4><span class="header-section-number">3.2.4.1</span> <code>%</code> Old Style Substitution</h4>
 <p><a href="https://docs.python.org/3/library/stdtypes.html#old-string-formatting" class="uri">https://docs.python.org/3/library/stdtypes.html#old-string-formatting</a></p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb60-1" title="1">my_name <span class="op">=</span> <span class="st">&#39;Yong Keh Soon&#39;</span></a>
-<a class="sourceLine" id="cb60-2" title="2">salary  <span class="op">=</span> <span class="fl">11123.346</span></a>
-<a class="sourceLine" id="cb60-3" title="3"><span class="co">&#39;Hello, %s, your salary is %.2f !&#39;</span> <span class="op">%</span>(my_name, salary)</a></code></pre></div>
-<p>‘Hello, Yong Keh Soon, your salary is 11123.35 !’</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb101-1" title="1">my_name <span class="op">=</span> <span class="st">&#39;Yong Keh Soon&#39;</span></a>
+<a class="sourceLine" id="cb101-2" title="2">salary  <span class="op">=</span> <span class="fl">11123.346</span></a>
+<a class="sourceLine" id="cb101-3" title="3"><span class="co">&#39;Hello, %s, your salary is %.2f !&#39;</span> <span class="op">%</span>(my_name, salary)</a></code></pre></div>
+<pre><code>## &#39;Hello, Yong Keh Soon, your salary is 11123.35 !&#39;</code></pre>
 </div>
 <div id="concatenation" class="section level4">
 <h4><span class="header-section-number">3.2.4.2</span> <code>+</code> Concatenation</h4>
-<div class="sourceCode" id="cb61"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb61-1" title="1"><span class="co">&#39;this is &#39;</span> <span class="op">+</span> <span class="st">&#39;awesome&#39;</span></a></code></pre></div>
-<p>‘this is awesome’</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb103-1" title="1"><span class="co">&#39;this is &#39;</span> <span class="op">+</span> <span class="st">&#39;awesome&#39;</span></a></code></pre></div>
+<pre><code>## &#39;this is awesome&#39;</code></pre>
 </div>
 <div id="in-matching" class="section level4">
 <h4><span class="header-section-number">3.2.4.3</span> <code>in</code> matching</h4>
 <p>For single string, <strong>partial match</strong></p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb62-1" title="1"><span class="bu">print</span>( <span class="st">&#39;abc&#39;</span> <span class="kw">in</span> <span class="st">&#39;123abcdefg&#39;</span> )</a></code></pre></div>
-<p>True</p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb105-1" title="1"><span class="bu">print</span>( <span class="st">&#39;abc&#39;</span> <span class="kw">in</span> <span class="st">&#39;123abcdefg&#39;</span> )</a></code></pre></div>
+<pre><code>## True</code></pre>
 <p>For list of strings, <strong>exact match</strong> (even though only one element in list).<br />
 For partial match, workaround is to <strong>convert list to single string</strong></p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb63-1" title="1"><span class="bu">print</span>( <span class="st">&#39;abc&#39;</span> <span class="kw">in</span> [<span class="st">&#39;abcdefg&#39;</span>],             <span class="co"># false</span></a>
-<a class="sourceLine" id="cb63-2" title="2">       <span class="st">&#39;abc&#39;</span> <span class="kw">in</span> [<span class="st">&#39;abcdefg&#39;</span>,<span class="st">&#39;123&#39;</span>],       <span class="co"># fakse</span></a>
-<a class="sourceLine" id="cb63-3" title="3">       <span class="st">&#39;abc&#39;</span> <span class="kw">in</span> [<span class="st">&#39;123&#39;</span>,<span class="st">&#39;abc&#39;</span>,<span class="st">&#39;def&#39;</span>],     <span class="co"># true</span></a>
-<a class="sourceLine" id="cb63-4" title="4">       <span class="st">&#39;abc&#39;</span> <span class="kw">in</span> <span class="bu">str</span>([<span class="st">&#39;123&#39;</span>,<span class="st">&#39;abcdefg&#39;</span>]))  <span class="co"># true</span></a></code></pre></div>
-<p>False False True True</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb107-1" title="1"><span class="bu">print</span>( <span class="st">&#39;abc&#39;</span> <span class="kw">in</span> [<span class="st">&#39;abcdefg&#39;</span>],             <span class="co"># false</span></a>
+<a class="sourceLine" id="cb107-2" title="2">       <span class="st">&#39;abc&#39;</span> <span class="kw">in</span> [<span class="st">&#39;abcdefg&#39;</span>,<span class="st">&#39;123&#39;</span>],       <span class="co"># fakse</span></a>
+<a class="sourceLine" id="cb107-3" title="3">       <span class="st">&#39;abc&#39;</span> <span class="kw">in</span> [<span class="st">&#39;123&#39;</span>,<span class="st">&#39;abc&#39;</span>,<span class="st">&#39;def&#39;</span>],     <span class="co"># true</span></a>
+<a class="sourceLine" id="cb107-4" title="4">       <span class="st">&#39;abc&#39;</span> <span class="kw">in</span> <span class="bu">str</span>([<span class="st">&#39;123&#39;</span>,<span class="st">&#39;abcdefg&#39;</span>]))  <span class="co"># true</span></a></code></pre></div>
+<pre><code>## False False True True</code></pre>
 </div>
 <div id="comparitor" class="section level4">
 <h4><span class="header-section-number">3.2.4.4</span> Comparitor</h4>
 <p>Comparitor compares the memory address.</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb64-1" title="1">a<span class="op">=</span><span class="st">&#39;abc&#39;</span></a>
-<a class="sourceLine" id="cb64-2" title="2">b<span class="op">=</span><span class="st">&#39;abc&#39;</span></a>
-<a class="sourceLine" id="cb64-3" title="3"><span class="bu">print</span>(<span class="st">&#39;id(a) = &#39;</span>, <span class="bu">id</span>(a), </a>
-<a class="sourceLine" id="cb64-4" title="4">      <span class="st">&#39;</span><span class="ch">\n</span><span class="st">id(b) = &#39;</span>, <span class="bu">id</span>(b),</a>
-<a class="sourceLine" id="cb64-5" title="5">      <span class="st">&#39;</span><span class="ch">\n</span><span class="st">a == b  &#39;</span>, a<span class="op">==</span>b)</a></code></pre></div>
-<p>id(a) = 403372216
-id(b) = 403372216
-a == b True</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb109-1" title="1">a<span class="op">=</span><span class="st">&#39;abc&#39;</span></a>
+<a class="sourceLine" id="cb109-2" title="2">b<span class="op">=</span><span class="st">&#39;abc&#39;</span></a>
+<a class="sourceLine" id="cb109-3" title="3"><span class="bu">print</span>(<span class="st">&#39;id(a) = &#39;</span>, <span class="bu">id</span>(a), </a>
+<a class="sourceLine" id="cb109-4" title="4">      <span class="st">&#39;</span><span class="ch">\n</span><span class="st">id(b) = &#39;</span>, <span class="bu">id</span>(b),</a>
+<a class="sourceLine" id="cb109-5" title="5">      <span class="st">&#39;</span><span class="ch">\n</span><span class="st">a == b  &#39;</span>, a<span class="op">==</span>b)</a></code></pre></div>
+<pre><code>## id(a) =  547879096 
+## id(b) =  547879096 
+## a == b   True</code></pre>
 </div>
 </div>
 <div id="iterations" class="section level3">
 <h3><span class="header-section-number">3.2.5</span> Iterations</h3>
 <pre><code>string[start:end:step]  # default start:0, end:last, step:1</code></pre>
 <p>If step is negative (reverse), end value must be lower than start value</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb66-1" title="1">s <span class="op">=</span> <span class="st">&#39;abcdefghijk&#39;</span></a>
-<a class="sourceLine" id="cb66-2" title="2"><span class="bu">print</span> (s[<span class="dv">0</span>])       <span class="co"># first later</span></a></code></pre></div>
-<p>a</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb67-1" title="1"><span class="bu">print</span> (s[:<span class="dv">3</span>])      <span class="co"># first 3 letters</span></a></code></pre></div>
-<p>abc</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb68-1" title="1"><span class="bu">print</span> (s[<span class="dv">2</span>:<span class="dv">8</span> :<span class="dv">2</span>])  <span class="co"># stepping</span></a></code></pre></div>
-<p>ceg</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb69-1" title="1"><span class="bu">print</span> (s[<span class="op">-</span><span class="dv">1</span>])      <span class="co"># last letter</span></a></code></pre></div>
-<p>k</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb70-1" title="1"><span class="bu">print</span> (s[<span class="op">-</span><span class="dv">3</span>:])     <span class="co"># last three letters</span></a></code></pre></div>
-<p>ijk</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb71-1" title="1"><span class="bu">print</span> (s[:   :<span class="op">-</span><span class="dv">1</span>]) <span class="co"># reverse everything</span></a></code></pre></div>
-<p>kjihgfedcba</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb72-1" title="1"><span class="bu">print</span> (s[<span class="dv">8</span>:<span class="dv">2</span> :<span class="op">-</span><span class="dv">1</span>])</a></code></pre></div>
-<p>ihgfed</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb73-1" title="1"><span class="bu">print</span> (s[<span class="dv">8</span>:<span class="dv">2</span>])     <span class="co"># return NOTHING</span></a></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb112-1" title="1">s <span class="op">=</span> <span class="st">&#39;abcdefghijk&#39;</span></a>
+<a class="sourceLine" id="cb112-2" title="2"><span class="bu">print</span> (s[<span class="dv">0</span>])       <span class="co"># first later</span></a></code></pre></div>
+<pre><code>## a</code></pre>
+<div class="sourceCode" id="cb114"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb114-1" title="1"><span class="bu">print</span> (s[:<span class="dv">3</span>])      <span class="co"># first 3 letters</span></a></code></pre></div>
+<pre><code>## abc</code></pre>
+<div class="sourceCode" id="cb116"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb116-1" title="1"><span class="bu">print</span> (s[<span class="dv">2</span>:<span class="dv">8</span> :<span class="dv">2</span>])  <span class="co"># stepping</span></a></code></pre></div>
+<pre><code>## ceg</code></pre>
+<div class="sourceCode" id="cb118"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb118-1" title="1"><span class="bu">print</span> (s[<span class="op">-</span><span class="dv">1</span>])      <span class="co"># last letter</span></a></code></pre></div>
+<pre><code>## k</code></pre>
+<div class="sourceCode" id="cb120"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb120-1" title="1"><span class="bu">print</span> (s[<span class="op">-</span><span class="dv">3</span>:])     <span class="co"># last three letters</span></a></code></pre></div>
+<pre><code>## ijk</code></pre>
+<div class="sourceCode" id="cb122"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb122-1" title="1"><span class="bu">print</span> (s[:   :<span class="op">-</span><span class="dv">1</span>]) <span class="co"># reverse everything</span></a></code></pre></div>
+<pre><code>## kjihgfedcba</code></pre>
+<div class="sourceCode" id="cb124"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb124-1" title="1"><span class="bu">print</span> (s[<span class="dv">8</span>:<span class="dv">2</span> :<span class="op">-</span><span class="dv">1</span>])</a></code></pre></div>
+<pre><code>## ihgfed</code></pre>
+<div class="sourceCode" id="cb126"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb126-1" title="1"><span class="bu">print</span> (s[<span class="dv">8</span>:<span class="dv">2</span>])     <span class="co"># return NOTHING</span></a></code></pre></div>
 </div>
 </div>
 <div id="boolean" class="section level2">
 <h2><span class="header-section-number">3.3</span> Boolean</h2>
-<div class="sourceCode" id="cb74"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb74-1" title="1">b <span class="op">=</span> <span class="va">False</span></a>
-<a class="sourceLine" id="cb74-2" title="2"></a>
-<a class="sourceLine" id="cb74-3" title="3"><span class="cf">if</span> (b):</a>
-<a class="sourceLine" id="cb74-4" title="4">    <span class="bu">print</span> (<span class="st">&#39;It is true&#39;</span>)</a>
-<a class="sourceLine" id="cb74-5" title="5"><span class="cf">else</span>:</a>
-<a class="sourceLine" id="cb74-6" title="6">    <span class="bu">print</span> (<span class="st">&#39;It is fake&#39;</span>)</a></code></pre></div>
-<p>It is fake</p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb127-1" title="1">b <span class="op">=</span> <span class="va">False</span></a>
+<a class="sourceLine" id="cb127-2" title="2"></a>
+<a class="sourceLine" id="cb127-3" title="3"><span class="cf">if</span> (b):</a>
+<a class="sourceLine" id="cb127-4" title="4">    <span class="bu">print</span> (<span class="st">&#39;It is true&#39;</span>)</a>
+<a class="sourceLine" id="cb127-5" title="5"><span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb127-6" title="6">    <span class="bu">print</span> (<span class="st">&#39;It is fake&#39;</span>)</a></code></pre></div>
+<pre><code>## It is fake</code></pre>
 <div id="what-is-considered-false" class="section level3">
 <h3><span class="header-section-number">3.3.1</span> What is Considered False ?</h3>
 <p>Everything below are false, <strong>anything else are true</strong></p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb75-1" title="1"><span class="bu">print</span> ( <span class="bu">bool</span>(<span class="dv">0</span>),      <span class="co"># zero</span></a>
-<a class="sourceLine" id="cb75-2" title="2">        <span class="bu">bool</span>(<span class="va">None</span>),  <span class="co"># none</span></a>
-<a class="sourceLine" id="cb75-3" title="3">        <span class="bu">bool</span>(<span class="st">&#39;&#39;</span>),    <span class="co"># empty string</span></a>
-<a class="sourceLine" id="cb75-4" title="4">        <span class="bu">bool</span>([]),    <span class="co"># empty list</span></a>
-<a class="sourceLine" id="cb75-5" title="5">        <span class="bu">bool</span>(()),    <span class="co"># empty tupple</span></a>
-<a class="sourceLine" id="cb75-6" title="6">        <span class="bu">bool</span>(<span class="va">False</span>), <span class="co"># False</span></a>
-<a class="sourceLine" id="cb75-7" title="7">        <span class="bu">bool</span>(<span class="dv">2-2</span>))    <span class="co"># expression that return any value above</span></a></code></pre></div>
-<p>False False False False False False False</p>
+<div class="sourceCode" id="cb129"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb129-1" title="1"><span class="bu">print</span> ( <span class="bu">bool</span>(<span class="dv">0</span>),      <span class="co"># zero</span></a>
+<a class="sourceLine" id="cb129-2" title="2">        <span class="bu">bool</span>(<span class="va">None</span>),  <span class="co"># none</span></a>
+<a class="sourceLine" id="cb129-3" title="3">        <span class="bu">bool</span>(<span class="st">&#39;&#39;</span>),    <span class="co"># empty string</span></a>
+<a class="sourceLine" id="cb129-4" title="4">        <span class="bu">bool</span>([]),    <span class="co"># empty list</span></a>
+<a class="sourceLine" id="cb129-5" title="5">        <span class="bu">bool</span>(()),    <span class="co"># empty tupple</span></a>
+<a class="sourceLine" id="cb129-6" title="6">        <span class="bu">bool</span>(<span class="va">False</span>), <span class="co"># False</span></a>
+<a class="sourceLine" id="cb129-7" title="7">        <span class="bu">bool</span>(<span class="dv">2-2</span>))    <span class="co"># expression that return any value above</span></a></code></pre></div>
+<pre><code>## False False False False False False False</code></pre>
 </div>
 <div id="and-operator" class="section level3">
 <h3><span class="header-section-number">3.3.2</span> <code>and</code> operator</h3>
@@ -885,22 +888,22 @@ a == b True</p>
 </li>
 <li>If evaluated result is <strong>False</strong>, the first <strong>False Value</strong> will be returned (because python return it immediately when detecting False value)</li>
 </ul>
-<div class="sourceCode" id="cb76"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb76-1" title="1"><span class="bu">print</span> (<span class="dv">123</span> <span class="kw">and</span> <span class="dv">2</span> <span class="kw">and</span> <span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb76-2" title="2">       <span class="dv">123</span> <span class="kw">and</span> [] <span class="kw">and</span> <span class="dv">2</span>)</a></code></pre></div>
-<p>1 []</p>
+<div class="sourceCode" id="cb131"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb131-1" title="1"><span class="bu">print</span> (<span class="dv">123</span> <span class="kw">and</span> <span class="dv">2</span> <span class="kw">and</span> <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb131-2" title="2">       <span class="dv">123</span> <span class="kw">and</span> [] <span class="kw">and</span> <span class="dv">2</span>)</a></code></pre></div>
+<pre><code>## 1 []</code></pre>
 </div>
 <div id="not-operator" class="section level3">
 <h3><span class="header-section-number">3.3.3</span> <code>not</code> operator</h3>
-<div class="sourceCode" id="cb77"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb77-1" title="1"><span class="kw">not</span> (<span class="va">True</span>)</a></code></pre></div>
-<p>False</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb78-1" title="1"><span class="kw">not</span> (<span class="va">True</span> <span class="kw">or</span> <span class="va">False</span>)</a></code></pre></div>
-<p>False</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb79-1" title="1"><span class="kw">not</span> (<span class="va">False</span>)</a></code></pre></div>
-<p>True</p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb80-1" title="1"><span class="kw">not</span> (<span class="va">True</span> <span class="kw">and</span> <span class="va">False</span>)</a></code></pre></div>
-<p>True</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb81-1" title="1"><span class="op">~</span>(<span class="va">False</span>)</a></code></pre></div>
-<p>-1</p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb133-1" title="1"><span class="kw">not</span> (<span class="va">True</span>)</a></code></pre></div>
+<pre><code>## False</code></pre>
+<div class="sourceCode" id="cb135"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb135-1" title="1"><span class="kw">not</span> (<span class="va">True</span> <span class="kw">or</span> <span class="va">False</span>)</a></code></pre></div>
+<pre><code>## False</code></pre>
+<div class="sourceCode" id="cb137"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb137-1" title="1"><span class="kw">not</span> (<span class="va">False</span>)</a></code></pre></div>
+<pre><code>## True</code></pre>
+<div class="sourceCode" id="cb139"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb139-1" title="1"><span class="kw">not</span> (<span class="va">True</span> <span class="kw">and</span> <span class="va">False</span>)</a></code></pre></div>
+<pre><code>## True</code></pre>
+<div class="sourceCode" id="cb141"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb141-1" title="1"><span class="op">~</span>(<span class="va">False</span>)</a></code></pre></div>
+<pre><code>## -1</code></pre>
 </div>
 <div id="or-operator" class="section level3">
 <h3><span class="header-section-number">3.3.4</span> <code>or</code> operator</h3>
@@ -911,12 +914,12 @@ a == b True</p>
 </li>
 <li>If evaluated result is False, last <strong>Fasle Value</strong> will be returned (need to evalute all items before concluding False)</li>
 </ul>
-<div class="sourceCode" id="cb82"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb82-1" title="1"><span class="bu">print</span> (<span class="dv">1</span> <span class="kw">or</span> <span class="dv">2</span>)</a></code></pre></div>
-<p>1</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb83-1" title="1"><span class="bu">print</span> (<span class="dv">0</span> <span class="kw">or</span> <span class="dv">1</span> <span class="kw">or</span> <span class="dv">1</span>)</a></code></pre></div>
-<p>1</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb84-1" title="1"><span class="bu">print</span> (<span class="dv">0</span> <span class="kw">or</span> () <span class="kw">or</span> [])</a></code></pre></div>
-<p>[]</p>
+<div class="sourceCode" id="cb143"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb143-1" title="1"><span class="bu">print</span> (<span class="dv">1</span> <span class="kw">or</span> <span class="dv">2</span>)</a></code></pre></div>
+<pre><code>## 1</code></pre>
+<div class="sourceCode" id="cb145"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb145-1" title="1"><span class="bu">print</span> (<span class="dv">0</span> <span class="kw">or</span> <span class="dv">1</span> <span class="kw">or</span> <span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## 1</code></pre>
+<div class="sourceCode" id="cb147"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb147-1" title="1"><span class="bu">print</span> (<span class="dv">0</span> <span class="kw">or</span> () <span class="kw">or</span> [])</a></code></pre></div>
+<pre><code>## []</code></pre>
 </div>
 </div>
 <div id="none" class="section level2">
@@ -930,29 +933,29 @@ a == b True</p>
 </li>
 <li>For array data with None elements, verification is required to check through iteration to determine if the item is not None. It is very computaionaly heavy</li>
 </ul>
-<div class="sourceCode" id="cb85"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb85-1" title="1"><span class="bu">type</span>(<span class="va">None</span>)</a></code></pre></div>
-<p>&lt;class ‘NoneType’&gt;</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb86-1" title="1">t <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>])</a>
-<a class="sourceLine" id="cb86-2" title="2">t.dtype  <span class="co">#  its an integer</span></a></code></pre></div>
-<p>dtype(‘int32’)</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb87-1" title="1">t1 <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</a>
-<a class="sourceLine" id="cb87-2" title="2">t <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="va">None</span>, <span class="dv">4</span>, <span class="dv">5</span>])</a>
-<a class="sourceLine" id="cb87-3" title="3">t.dtype      <span class="co"># it&#39;s an object</span></a></code></pre></div>
-<p>dtype(‘O’)</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb88-1" title="1">t1.dtype</a></code></pre></div>
-<p>dtype(‘int32’)</p>
+<div class="sourceCode" id="cb149"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb149-1" title="1"><span class="bu">type</span>(<span class="va">None</span>)</a></code></pre></div>
+<pre><code>## &lt;class &#39;NoneType&#39;&gt;</code></pre>
+<div class="sourceCode" id="cb151"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb151-1" title="1">t <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>])</a>
+<a class="sourceLine" id="cb151-2" title="2">t.dtype  <span class="co">#  its an integer</span></a></code></pre></div>
+<pre><code>## dtype(&#39;int32&#39;)</code></pre>
+<div class="sourceCode" id="cb153"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb153-1" title="1">t1 <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</a>
+<a class="sourceLine" id="cb153-2" title="2">t <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="va">None</span>, <span class="dv">4</span>, <span class="dv">5</span>])</a>
+<a class="sourceLine" id="cb153-3" title="3">t.dtype      <span class="co"># it&#39;s an object</span></a></code></pre></div>
+<pre><code>## dtype(&#39;O&#39;)</code></pre>
+<div class="sourceCode" id="cb155"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb155-1" title="1">t1.dtype</a></code></pre></div>
+<pre><code>## dtype(&#39;int32&#39;)</code></pre>
 </div>
 <div id="comparing-none" class="section level3">
 <h3><span class="header-section-number">3.4.2</span> Comparing None</h3>
 <p><strong>Not Prefered Method</strong></p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb89-1" title="1">null_variable <span class="op">=</span> <span class="va">None</span></a>
-<a class="sourceLine" id="cb89-2" title="2"><span class="bu">print</span>( null_variable <span class="op">==</span> <span class="va">None</span> )</a></code></pre></div>
-<p>True</p>
+<div class="sourceCode" id="cb157"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb157-1" title="1">null_variable <span class="op">=</span> <span class="va">None</span></a>
+<a class="sourceLine" id="cb157-2" title="2"><span class="bu">print</span>( null_variable <span class="op">==</span> <span class="va">None</span> )</a></code></pre></div>
+<pre><code>## True</code></pre>
 <p><strong>Prefered</strong></p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb90-1" title="1"><span class="bu">print</span>( null_variable <span class="kw">is</span> <span class="va">None</span> )</a></code></pre></div>
-<p>True</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb91-1" title="1"><span class="bu">print</span>( null_variable <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span> )</a></code></pre></div>
-<p>False</p>
+<div class="sourceCode" id="cb159"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb159-1" title="1"><span class="bu">print</span>( null_variable <span class="kw">is</span> <span class="va">None</span> )</a></code></pre></div>
+<pre><code>## True</code></pre>
+<div class="sourceCode" id="cb161"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb161-1" title="1"><span class="bu">print</span>( null_variable <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span> )</a></code></pre></div>
+<pre><code>## False</code></pre>
 </div>
 </div>
 </div>
@@ -1011,26 +1014,14 @@ gitbook.start({
 "collapse": "subsection",
 "scroll_highlight": true
 },
-"toolbar": "position: fixed ",
+"toolbar": {
+"position": "fixed"
+},
 "searh": true
 });
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

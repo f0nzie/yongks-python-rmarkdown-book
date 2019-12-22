@@ -128,6 +128,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 
 <ul class="summary">
 <li><a href="./">Python Bookdown</a></li>
+
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prerequisites</a></li>
 <li class="chapter" data-level="1" data-path="environment-setup.html"><a href="environment-setup.html"><i class="fa fa-check"></i><b>1</b> Environment Setup</a><ul>
@@ -596,48 +597,48 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>This is a machine learning library.</p>
 <div id="setup-hidden" class="section level2">
 <h2><span class="header-section-number">17.1</span> Setup (hidden)</h2>
-<div class="sourceCode" id="cb1080"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1080-1" title="1"><span class="im">from</span> IPython.core.display <span class="im">import</span> display, HTML</a>
-<a class="sourceLine" id="cb1080-2" title="2">display(HTML(<span class="st">&quot;&lt;style&gt;.container { width:75% !important; margin-left:350px; }&lt;/style&gt;&quot;</span>))</a>
-<a class="sourceLine" id="cb1080-3" title="3"><span class="co">#matplotlib inline</span></a></code></pre></div>
-<p>&lt;IPython.core.display.HTML object&gt;</p>
-<div class="sourceCode" id="cb1081"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1081-1" title="1"><span class="im">import</span> numpy <span class="im">as</span> np</a>
-<a class="sourceLine" id="cb1081-2" title="2"><span class="im">import</span> pandas <span class="im">as</span> pd</a>
-<a class="sourceLine" id="cb1081-3" title="3"><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</a>
-<a class="sourceLine" id="cb1081-4" title="4"><span class="im">import</span> math</a>
-<a class="sourceLine" id="cb1081-5" title="5">pd.set_option( <span class="st">&#39;display.notebook_repr_html&#39;</span>, <span class="va">False</span>)  <span class="co"># render Series and DataFrame as text, not HTML</span></a>
-<a class="sourceLine" id="cb1081-6" title="6">pd.set_option( <span class="st">&#39;display.max_column&#39;</span>, <span class="dv">10</span>)    <span class="co"># number of columns</span></a>
-<a class="sourceLine" id="cb1081-7" title="7">pd.set_option( <span class="st">&#39;display.max_rows&#39;</span>, <span class="dv">10</span>)     <span class="co"># number of rows</span></a>
-<a class="sourceLine" id="cb1081-8" title="8">pd.set_option( <span class="st">&#39;display.width&#39;</span>, <span class="dv">90</span>)        <span class="co"># number of characters per row</span></a>
-<a class="sourceLine" id="cb1081-9" title="9"></a>
-<a class="sourceLine" id="cb1081-10" title="10"><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</a></code></pre></div>
+<div class="sourceCode" id="cb1846"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1846-1" title="1"><span class="im">from</span> IPython.core.display <span class="im">import</span> display, HTML</a>
+<a class="sourceLine" id="cb1846-2" title="2">display(HTML(<span class="st">&quot;&lt;style&gt;.container { width:75% !important; margin-left:350px; }&lt;/style&gt;&quot;</span>))</a>
+<a class="sourceLine" id="cb1846-3" title="3"><span class="co">#matplotlib inline</span></a></code></pre></div>
+<pre><code>## &lt;IPython.core.display.HTML object&gt;</code></pre>
+<div class="sourceCode" id="cb1848"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1848-1" title="1"><span class="im">import</span> numpy <span class="im">as</span> np</a>
+<a class="sourceLine" id="cb1848-2" title="2"><span class="im">import</span> pandas <span class="im">as</span> pd</a>
+<a class="sourceLine" id="cb1848-3" title="3"><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</a>
+<a class="sourceLine" id="cb1848-4" title="4"><span class="im">import</span> math</a>
+<a class="sourceLine" id="cb1848-5" title="5">pd.set_option( <span class="st">&#39;display.notebook_repr_html&#39;</span>, <span class="va">False</span>)  <span class="co"># render Series and DataFrame as text, not HTML</span></a>
+<a class="sourceLine" id="cb1848-6" title="6">pd.set_option( <span class="st">&#39;display.max_column&#39;</span>, <span class="dv">10</span>)    <span class="co"># number of columns</span></a>
+<a class="sourceLine" id="cb1848-7" title="7">pd.set_option( <span class="st">&#39;display.max_rows&#39;</span>, <span class="dv">10</span>)     <span class="co"># number of rows</span></a>
+<a class="sourceLine" id="cb1848-8" title="8">pd.set_option( <span class="st">&#39;display.width&#39;</span>, <span class="dv">90</span>)        <span class="co"># number of characters per row</span></a>
+<a class="sourceLine" id="cb1848-9" title="9"></a>
+<a class="sourceLine" id="cb1848-10" title="10"><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</a></code></pre></div>
 </div>
 <div id="the-library" class="section level2">
 <h2><span class="header-section-number">17.2</span> The Library</h2>
 <p>sklearn <strong>does not automatically import its subpackages</strong>. Therefore all subpakcages must be specifically loaded before use.</p>
-<div class="sourceCode" id="cb1082"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1082-1" title="1"><span class="co"># Sample Data</span></a>
-<a class="sourceLine" id="cb1082-2" title="2"><span class="im">from</span> sklearn                 <span class="im">import</span> datasets</a>
-<a class="sourceLine" id="cb1082-3" title="3"></a>
-<a class="sourceLine" id="cb1082-4" title="4"><span class="co"># Model Selection</span></a>
-<a class="sourceLine" id="cb1082-5" title="5"><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</a>
-<a class="sourceLine" id="cb1082-6" title="6"><span class="im">from</span> sklearn.model_selection <span class="im">import</span> KFold</a>
-<a class="sourceLine" id="cb1082-7" title="7"><span class="im">from</span> sklearn.model_selection <span class="im">import</span> LeaveOneOut</a>
-<a class="sourceLine" id="cb1082-8" title="8"><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_validate</a>
-<a class="sourceLine" id="cb1082-9" title="9"></a>
-<a class="sourceLine" id="cb1082-10" title="10"><span class="co"># Preprocessing</span></a>
-<a class="sourceLine" id="cb1082-11" title="11"><span class="im">from</span> sklearn.preprocessing   <span class="im">import</span> Imputer</a>
-<a class="sourceLine" id="cb1082-12" title="12"><span class="im">from</span> sklearn.preprocessing   <span class="im">import</span> MinMaxScaler</a>
-<a class="sourceLine" id="cb1082-13" title="13"><span class="im">from</span> sklearn.preprocessing   <span class="im">import</span> StandardScaler</a>
-<a class="sourceLine" id="cb1082-14" title="14"><span class="im">from</span> sklearn.preprocessing   <span class="im">import</span> Normalizer</a>
-<a class="sourceLine" id="cb1082-15" title="15"><span class="im">from</span> sklearn.preprocessing   <span class="im">import</span> PolynomialFeatures</a>
-<a class="sourceLine" id="cb1082-16" title="16"></a>
-<a class="sourceLine" id="cb1082-17" title="17"><span class="co"># Model and Pipeline</span></a>
-<a class="sourceLine" id="cb1082-18" title="18"><span class="im">from</span> sklearn.linear_model    <span class="im">import</span> LinearRegression,Lasso</a>
-<a class="sourceLine" id="cb1082-19" title="19"><span class="im">from</span> sklearn.pipeline        <span class="im">import</span> make_pipeline</a>
-<a class="sourceLine" id="cb1082-20" title="20"></a>
-<a class="sourceLine" id="cb1082-21" title="21"><span class="co"># Measurement</span></a>
-<a class="sourceLine" id="cb1082-22" title="22"><span class="im">from</span> sklearn.metrics         <span class="im">import</span> <span class="op">*</span></a>
-<a class="sourceLine" id="cb1082-23" title="23"></a>
-<a class="sourceLine" id="cb1082-24" title="24"><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</a></code></pre></div>
+<div class="sourceCode" id="cb1849"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1849-1" title="1"><span class="co"># Sample Data</span></a>
+<a class="sourceLine" id="cb1849-2" title="2"><span class="im">from</span> sklearn                 <span class="im">import</span> datasets</a>
+<a class="sourceLine" id="cb1849-3" title="3"></a>
+<a class="sourceLine" id="cb1849-4" title="4"><span class="co"># Model Selection</span></a>
+<a class="sourceLine" id="cb1849-5" title="5"><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</a>
+<a class="sourceLine" id="cb1849-6" title="6"><span class="im">from</span> sklearn.model_selection <span class="im">import</span> KFold</a>
+<a class="sourceLine" id="cb1849-7" title="7"><span class="im">from</span> sklearn.model_selection <span class="im">import</span> LeaveOneOut</a>
+<a class="sourceLine" id="cb1849-8" title="8"><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_validate</a>
+<a class="sourceLine" id="cb1849-9" title="9"></a>
+<a class="sourceLine" id="cb1849-10" title="10"><span class="co"># Preprocessing</span></a>
+<a class="sourceLine" id="cb1849-11" title="11"><span class="im">from</span> sklearn.preprocessing   <span class="im">import</span> Imputer</a>
+<a class="sourceLine" id="cb1849-12" title="12"><span class="im">from</span> sklearn.preprocessing   <span class="im">import</span> MinMaxScaler</a>
+<a class="sourceLine" id="cb1849-13" title="13"><span class="im">from</span> sklearn.preprocessing   <span class="im">import</span> StandardScaler</a>
+<a class="sourceLine" id="cb1849-14" title="14"><span class="im">from</span> sklearn.preprocessing   <span class="im">import</span> Normalizer</a>
+<a class="sourceLine" id="cb1849-15" title="15"><span class="im">from</span> sklearn.preprocessing   <span class="im">import</span> PolynomialFeatures</a>
+<a class="sourceLine" id="cb1849-16" title="16"></a>
+<a class="sourceLine" id="cb1849-17" title="17"><span class="co"># Model and Pipeline</span></a>
+<a class="sourceLine" id="cb1849-18" title="18"><span class="im">from</span> sklearn.linear_model    <span class="im">import</span> LinearRegression,Lasso</a>
+<a class="sourceLine" id="cb1849-19" title="19"><span class="im">from</span> sklearn.pipeline        <span class="im">import</span> make_pipeline</a>
+<a class="sourceLine" id="cb1849-20" title="20"></a>
+<a class="sourceLine" id="cb1849-21" title="21"><span class="co"># Measurement</span></a>
+<a class="sourceLine" id="cb1849-22" title="22"><span class="im">from</span> sklearn.metrics         <span class="im">import</span> <span class="op">*</span></a>
+<a class="sourceLine" id="cb1849-23" title="23"></a>
+<a class="sourceLine" id="cb1849-24" title="24"><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</a></code></pre></div>
 </div>
 <div id="model-fitting" class="section level2">
 <h2><span class="header-section-number">17.3</span> Model Fitting</h2>
@@ -711,56 +712,56 @@ It has useful data (array) in the form of properties:<br />
 <h3><span class="header-section-number">17.6.1</span> diabetes (regression)</h3>
 <div id="load-dataset" class="section level4">
 <h4><span class="header-section-number">17.6.1.1</span> Load Dataset</h4>
-<div class="sourceCode" id="cb1083"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1083-1" title="1">diabetes <span class="op">=</span> datasets.load_diabetes()</a>
-<a class="sourceLine" id="cb1083-2" title="2"><span class="bu">print</span> (<span class="bu">type</span>(diabetes))</a></code></pre></div>
-<p>&lt;class ‘sklearn.utils.Bunch’&gt;</p>
+<div class="sourceCode" id="cb1850"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1850-1" title="1">diabetes <span class="op">=</span> datasets.load_diabetes()</a>
+<a class="sourceLine" id="cb1850-2" title="2"><span class="bu">print</span> (<span class="bu">type</span>(diabetes))</a></code></pre></div>
+<pre><code>## &lt;class &#39;sklearn.utils.Bunch&#39;&gt;</code></pre>
 </div>
 <div id="keys" class="section level4">
 <h4><span class="header-section-number">17.6.1.2</span> keys</h4>
-<div class="sourceCode" id="cb1084"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1084-1" title="1">diabetes.keys()</a></code></pre></div>
-<p>dict_keys([‘data’, ‘target’, ‘DESCR’, ‘feature_names’, ‘data_filename’, ‘target_filename’])</p>
+<div class="sourceCode" id="cb1852"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1852-1" title="1">diabetes.keys()</a></code></pre></div>
+<pre><code>## dict_keys([&#39;data&#39;, &#39;target&#39;, &#39;DESCR&#39;, &#39;feature_names&#39;, &#39;data_filename&#39;, &#39;target_filename&#39;])</code></pre>
 </div>
 <div id="features-and-target" class="section level4">
 <h4><span class="header-section-number">17.6.1.3</span> Features and Target</h4>
 <p>.data = features - two dimension array<br />
 .target = target - one dimension array</p>
-<div class="sourceCode" id="cb1085"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1085-1" title="1"><span class="bu">print</span> (<span class="bu">type</span>(diabetes.data))</a></code></pre></div>
-<p>&lt;class ‘numpy.ndarray’&gt;</p>
-<div class="sourceCode" id="cb1086"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1086-1" title="1"><span class="bu">print</span> (<span class="bu">type</span>(diabetes.target))</a></code></pre></div>
-<p>&lt;class ‘numpy.ndarray’&gt;</p>
-<div class="sourceCode" id="cb1087"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1087-1" title="1"><span class="bu">print</span> (diabetes.data.shape)</a></code></pre></div>
-<p>(442, 10)</p>
-<div class="sourceCode" id="cb1088"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1088-1" title="1"><span class="bu">print</span> (diabetes.target.shape)</a></code></pre></div>
-<p>(442,)</p>
+<div class="sourceCode" id="cb1854"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1854-1" title="1"><span class="bu">print</span> (<span class="bu">type</span>(diabetes.data))</a></code></pre></div>
+<pre><code>## &lt;class &#39;numpy.ndarray&#39;&gt;</code></pre>
+<div class="sourceCode" id="cb1856"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1856-1" title="1"><span class="bu">print</span> (<span class="bu">type</span>(diabetes.target))</a></code></pre></div>
+<pre><code>## &lt;class &#39;numpy.ndarray&#39;&gt;</code></pre>
+<div class="sourceCode" id="cb1858"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1858-1" title="1"><span class="bu">print</span> (diabetes.data.shape)</a></code></pre></div>
+<pre><code>## (442, 10)</code></pre>
+<div class="sourceCode" id="cb1860"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1860-1" title="1"><span class="bu">print</span> (diabetes.target.shape)</a></code></pre></div>
+<pre><code>## (442,)</code></pre>
 </div>
 <div id="load-with-xy-convenient-method" class="section level4">
 <h4><span class="header-section-number">17.6.1.4</span> Load with X,y (Convenient Method)</h4>
 <p>using return_X_y = True, data is loaded into X, target is loaded into y</p>
-<div class="sourceCode" id="cb1089"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1089-1" title="1">X,y      <span class="op">=</span> datasets.load_diabetes(return_X_y<span class="op">=</span><span class="va">True</span>)</a></code></pre></div>
-<div class="sourceCode" id="cb1090"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1090-1" title="1"><span class="bu">print</span> (X.shape)</a></code></pre></div>
-<p>(442, 10)</p>
-<div class="sourceCode" id="cb1091"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1091-1" title="1"><span class="bu">print</span> (y.shape)</a></code></pre></div>
-<p>(442,)</p>
+<div class="sourceCode" id="cb1862"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1862-1" title="1">X,y      <span class="op">=</span> datasets.load_diabetes(return_X_y<span class="op">=</span><span class="va">True</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1863"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1863-1" title="1"><span class="bu">print</span> (X.shape)</a></code></pre></div>
+<pre><code>## (442, 10)</code></pre>
+<div class="sourceCode" id="cb1865"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1865-1" title="1"><span class="bu">print</span> (y.shape)</a></code></pre></div>
+<pre><code>## (442,)</code></pre>
 </div>
 </div>
 <div id="digits-classification" class="section level3">
 <h3><span class="header-section-number">17.6.2</span> digits (Classification)</h3>
 <p>This is a copy of the test set of the UCI ML hand-written digits datasets</p>
-<div class="sourceCode" id="cb1092"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1092-1" title="1">digits <span class="op">=</span> datasets.load_digits()</a>
-<a class="sourceLine" id="cb1092-2" title="2"><span class="bu">print</span> (<span class="bu">type</span>(digits))</a></code></pre></div>
-<p>&lt;class ‘sklearn.utils.Bunch’&gt;</p>
-<div class="sourceCode" id="cb1093"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1093-1" title="1"><span class="bu">print</span> (<span class="bu">type</span>(digits.data))</a></code></pre></div>
-<p>&lt;class ‘numpy.ndarray’&gt;</p>
-<div class="sourceCode" id="cb1094"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1094-1" title="1">digits.keys()</a></code></pre></div>
-<p>dict_keys([‘data’, ‘target’, ‘target_names’, ‘images’, ‘DESCR’])</p>
-<div class="sourceCode" id="cb1095"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1095-1" title="1">digits.target_names</a></code></pre></div>
-<p>array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</p>
+<div class="sourceCode" id="cb1867"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1867-1" title="1">digits <span class="op">=</span> datasets.load_digits()</a>
+<a class="sourceLine" id="cb1867-2" title="2"><span class="bu">print</span> (<span class="bu">type</span>(digits))</a></code></pre></div>
+<pre><code>## &lt;class &#39;sklearn.utils.Bunch&#39;&gt;</code></pre>
+<div class="sourceCode" id="cb1869"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1869-1" title="1"><span class="bu">print</span> (<span class="bu">type</span>(digits.data))</a></code></pre></div>
+<pre><code>## &lt;class &#39;numpy.ndarray&#39;&gt;</code></pre>
+<div class="sourceCode" id="cb1871"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1871-1" title="1">digits.keys()</a></code></pre></div>
+<pre><code>## dict_keys([&#39;data&#39;, &#39;target&#39;, &#39;target_names&#39;, &#39;images&#39;, &#39;DESCR&#39;])</code></pre>
+<div class="sourceCode" id="cb1873"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1873-1" title="1">digits.target_names</a></code></pre></div>
+<pre><code>## array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</code></pre>
 <div id="data" class="section level4">
 <h4><span class="header-section-number">17.6.2.1</span> data</h4>
-<div class="sourceCode" id="cb1096"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1096-1" title="1">digits.data.shape  <span class="co"># features</span></a></code></pre></div>
-<p>(1797, 64)</p>
-<div class="sourceCode" id="cb1097"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1097-1" title="1">digits.target.shape <span class="co"># target</span></a></code></pre></div>
-<p>(1797,)</p>
+<div class="sourceCode" id="cb1875"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1875-1" title="1">digits.data.shape  <span class="co"># features</span></a></code></pre></div>
+<pre><code>## (1797, 64)</code></pre>
+<div class="sourceCode" id="cb1877"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1877-1" title="1">digits.target.shape <span class="co"># target</span></a></code></pre></div>
+<pre><code>## (1797,)</code></pre>
 </div>
 <div id="images" class="section level4">
 <h4><span class="header-section-number">17.6.2.2</span> Images</h4>
@@ -769,57 +770,58 @@ It has useful data (array) in the form of properties:<br />
 </li>
 <li>There are <strong>1797 samples</strong>, each sample is <strong>8x8 pixels</strong></li>
 </ul>
-<div class="sourceCode" id="cb1098"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1098-1" title="1">digits.images.shape</a></code></pre></div>
-<p>(1797, 8, 8)</p>
-<div class="sourceCode" id="cb1099"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1099-1" title="1"><span class="bu">type</span>(digits.images)</a></code></pre></div>
-<p>&lt;class ‘numpy.ndarray’&gt;</p>
+<div class="sourceCode" id="cb1879"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1879-1" title="1">digits.images.shape</a></code></pre></div>
+<pre><code>## (1797, 8, 8)</code></pre>
+<div class="sourceCode" id="cb1881"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1881-1" title="1"><span class="bu">type</span>(digits.images)</a></code></pre></div>
+<pre><code>## &lt;class &#39;numpy.ndarray&#39;&gt;</code></pre>
 <p><strong>Each element represent the data that make its target</strong></p>
-<div class="sourceCode" id="cb1100"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1100-1" title="1"><span class="bu">print</span> (digits.target[<span class="dv">100</span>])</a></code></pre></div>
-<p>4</p>
-<div class="sourceCode" id="cb1101"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1101-1" title="1"><span class="bu">print</span> (digits.images[<span class="dv">100</span>])</a></code></pre></div>
-<p>[[ 0. 0. 0. 2. 13. 0. 0. 0.]
-[ 0. 0. 0. 8. 15. 0. 0. 0.]
-[ 0. 0. 5. 16. 5. 2. 0. 0.]
-[ 0. 0. 15. 12. 1. 16. 4. 0.]
-[ 0. 4. 16. 2. 9. 16. 8. 0.]
-[ 0. 0. 10. 14. 16. 16. 4. 0.]
-[ 0. 0. 0. 0. 13. 8. 0. 0.]
-[ 0. 0. 0. 0. 13. 6. 0. 0.]]</p>
-<div class="sourceCode" id="cb1102"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1102-1" title="1">plt.matshow(digits.images[<span class="dv">100</span>]) </a></code></pre></div>
-<p>&lt;matplotlib.image.AxesImage object at 0x000000002BD679E8&gt;</p>
-<p>C:/ProgramData/Anaconda3/python.exe:1: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (<code>matplotlib.pyplot.figure</code>) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam <code>figure.max_open_warning</code>).</p>
+<div class="sourceCode" id="cb1883"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1883-1" title="1"><span class="bu">print</span> (digits.target[<span class="dv">100</span>])</a></code></pre></div>
+<pre><code>## 4</code></pre>
+<div class="sourceCode" id="cb1885"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1885-1" title="1"><span class="bu">print</span> (digits.images[<span class="dv">100</span>])</a></code></pre></div>
+<pre><code>## [[ 0.  0.  0.  2. 13.  0.  0.  0.]
+##  [ 0.  0.  0.  8. 15.  0.  0.  0.]
+##  [ 0.  0.  5. 16.  5.  2.  0.  0.]
+##  [ 0.  0. 15. 12.  1. 16.  4.  0.]
+##  [ 0.  4. 16.  2.  9. 16.  8.  0.]
+##  [ 0.  0. 10. 14. 16. 16.  4.  0.]
+##  [ 0.  0.  0.  0. 13.  8.  0.  0.]
+##  [ 0.  0.  0.  0. 13.  6.  0.  0.]]</code></pre>
+<div class="sourceCode" id="cb1887"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1887-1" title="1">plt.matshow(digits.images[<span class="dv">100</span>]) </a></code></pre></div>
+<pre><code>## &lt;matplotlib.image.AxesImage object at 0x0000000008BC8B70&gt;
+## 
+## C:/ProgramData/Anaconda3/python.exe:1: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).</code></pre>
 </div>
 <div id="loading-into-xy-convenient-method" class="section level4">
 <h4><span class="header-section-number">17.6.2.3</span> Loading Into X,y (Convenient Method)</h4>
-<div class="sourceCode" id="cb1103"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1103-1" title="1">X,y <span class="op">=</span> datasets.load_digits(return_X_y<span class="op">=</span><span class="va">True</span>)</a></code></pre></div>
-<div class="sourceCode" id="cb1104"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1104-1" title="1">X.shape</a></code></pre></div>
-<p>(1797, 64)</p>
-<div class="sourceCode" id="cb1105"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1105-1" title="1">y.shape</a></code></pre></div>
-<p>(1797,)</p>
+<div class="sourceCode" id="cb1889"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1889-1" title="1">X,y <span class="op">=</span> datasets.load_digits(return_X_y<span class="op">=</span><span class="va">True</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1890"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1890-1" title="1">X.shape</a></code></pre></div>
+<pre><code>## (1797, 64)</code></pre>
+<div class="sourceCode" id="cb1892"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1892-1" title="1">y.shape</a></code></pre></div>
+<pre><code>## (1797,)</code></pre>
 </div>
 </div>
 <div id="iris-classification" class="section level3">
 <h3><span class="header-section-number">17.6.3</span> iris (Classification)</h3>
-<div class="sourceCode" id="cb1106"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1106-1" title="1">iris <span class="op">=</span> datasets.load_iris()</a></code></pre></div>
-<div class="sourceCode" id="cb1107"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1107-1" title="1">iris.keys()</a></code></pre></div>
-<p>dict_keys([‘data’, ‘target’, ‘target_names’, ‘DESCR’, ‘feature_names’, ‘filename’])</p>
+<div class="sourceCode" id="cb1894"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1894-1" title="1">iris <span class="op">=</span> datasets.load_iris()</a></code></pre></div>
+<div class="sourceCode" id="cb1895"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1895-1" title="1">iris.keys()</a></code></pre></div>
+<pre><code>## dict_keys([&#39;data&#39;, &#39;target&#39;, &#39;target_names&#39;, &#39;DESCR&#39;, &#39;feature_names&#39;, &#39;filename&#39;])</code></pre>
 <div id="feature-names" class="section level4">
 <h4><span class="header-section-number">17.6.3.1</span> Feature Names</h4>
-<div class="sourceCode" id="cb1108"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1108-1" title="1">iris.feature_names</a></code></pre></div>
-<p>[‘sepal length (cm)’, ‘sepal width (cm)’, ‘petal length (cm)’, ‘petal width (cm)’]</p>
+<div class="sourceCode" id="cb1897"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1897-1" title="1">iris.feature_names</a></code></pre></div>
+<pre><code>## [&#39;sepal length (cm)&#39;, &#39;sepal width (cm)&#39;, &#39;petal length (cm)&#39;, &#39;petal width (cm)&#39;]</code></pre>
 </div>
 <div id="target" class="section level4">
 <h4><span class="header-section-number">17.6.3.2</span> target</h4>
-<div class="sourceCode" id="cb1109"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1109-1" title="1">iris.target_names</a></code></pre></div>
-<p>array([‘setosa’, ‘versicolor’, ‘virginica’], dtype=‘&lt;U10’)</p>
-<div class="sourceCode" id="cb1110"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1110-1" title="1">iris.target</a></code></pre></div>
-<p>array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
-2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
-2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2])</p>
+<div class="sourceCode" id="cb1899"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1899-1" title="1">iris.target_names</a></code></pre></div>
+<pre><code>## array([&#39;setosa&#39;, &#39;versicolor&#39;, &#39;virginica&#39;], dtype=&#39;&lt;U10&#39;)</code></pre>
+<div class="sourceCode" id="cb1901"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1901-1" title="1">iris.target</a></code></pre></div>
+<pre><code>## array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+##        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+##        0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+##        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+##        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+##        2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+##        2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2])</code></pre>
 </div>
 </div>
 </div>
@@ -828,34 +830,34 @@ It has useful data (array) in the form of properties:<br />
 <div id="sample-data-18" class="section level3">
 <h3><span class="header-section-number">17.7.1</span> Sample Data</h3>
 <p>Generate 100 rows of data, with 3x features (X1,X2,X3), and one dependant variable (Y)</p>
-<div class="sourceCode" id="cb1111"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1111-1" title="1">n <span class="op">=</span> <span class="dv">21</span>  <span class="co"># number of samples</span></a>
-<a class="sourceLine" id="cb1111-2" title="2">I <span class="op">=</span> <span class="dv">5</span>  <span class="co"># intercept value</span></a>
-<a class="sourceLine" id="cb1111-3" title="3">E <span class="op">=</span> np.random.randint( <span class="dv">1</span>,<span class="dv">20</span>, n)  <span class="co"># Error</span></a>
-<a class="sourceLine" id="cb1111-4" title="4">x1 <span class="op">=</span> np.random.randint( <span class="dv">1</span>,n<span class="op">+</span><span class="dv">1</span>, n)</a>
-<a class="sourceLine" id="cb1111-5" title="5">x2 <span class="op">=</span> np.random.randint( <span class="dv">1</span>,n<span class="op">+</span><span class="dv">1</span>, n)</a>
-<a class="sourceLine" id="cb1111-6" title="6">x3 <span class="op">=</span> np.random.randint( <span class="dv">1</span>,n<span class="op">+</span><span class="dv">1</span>, n)</a>
-<a class="sourceLine" id="cb1111-7" title="7">y <span class="op">=</span> <span class="fl">0.1</span><span class="op">*</span>x1 <span class="op">+</span> <span class="fl">0.2</span><span class="op">*</span>x2 <span class="op">+</span> <span class="fl">0.3</span><span class="op">*</span>x3 <span class="op">+</span> E <span class="op">+</span> I</a>
-<a class="sourceLine" id="cb1111-8" title="8">mydf <span class="op">=</span> pd.DataFrame({</a>
-<a class="sourceLine" id="cb1111-9" title="9">    <span class="st">&#39;y&#39;</span>:y,</a>
-<a class="sourceLine" id="cb1111-10" title="10">    <span class="st">&#39;x1&#39;</span>:x1,</a>
-<a class="sourceLine" id="cb1111-11" title="11">    <span class="st">&#39;x2&#39;</span>:x2,</a>
-<a class="sourceLine" id="cb1111-12" title="12">    <span class="st">&#39;x3&#39;</span>:x3</a>
-<a class="sourceLine" id="cb1111-13" title="13">})</a>
-<a class="sourceLine" id="cb1111-14" title="14">mydf.shape</a></code></pre></div>
-<p>(21, 4)</p>
+<div class="sourceCode" id="cb1903"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1903-1" title="1">n <span class="op">=</span> <span class="dv">21</span>  <span class="co"># number of samples</span></a>
+<a class="sourceLine" id="cb1903-2" title="2">I <span class="op">=</span> <span class="dv">5</span>  <span class="co"># intercept value</span></a>
+<a class="sourceLine" id="cb1903-3" title="3">E <span class="op">=</span> np.random.randint( <span class="dv">1</span>,<span class="dv">20</span>, n)  <span class="co"># Error</span></a>
+<a class="sourceLine" id="cb1903-4" title="4">x1 <span class="op">=</span> np.random.randint( <span class="dv">1</span>,n<span class="op">+</span><span class="dv">1</span>, n)</a>
+<a class="sourceLine" id="cb1903-5" title="5">x2 <span class="op">=</span> np.random.randint( <span class="dv">1</span>,n<span class="op">+</span><span class="dv">1</span>, n)</a>
+<a class="sourceLine" id="cb1903-6" title="6">x3 <span class="op">=</span> np.random.randint( <span class="dv">1</span>,n<span class="op">+</span><span class="dv">1</span>, n)</a>
+<a class="sourceLine" id="cb1903-7" title="7">y <span class="op">=</span> <span class="fl">0.1</span><span class="op">*</span>x1 <span class="op">+</span> <span class="fl">0.2</span><span class="op">*</span>x2 <span class="op">+</span> <span class="fl">0.3</span><span class="op">*</span>x3 <span class="op">+</span> E <span class="op">+</span> I</a>
+<a class="sourceLine" id="cb1903-8" title="8">mydf <span class="op">=</span> pd.DataFrame({</a>
+<a class="sourceLine" id="cb1903-9" title="9">    <span class="st">&#39;y&#39;</span>:y,</a>
+<a class="sourceLine" id="cb1903-10" title="10">    <span class="st">&#39;x1&#39;</span>:x1,</a>
+<a class="sourceLine" id="cb1903-11" title="11">    <span class="st">&#39;x2&#39;</span>:x2,</a>
+<a class="sourceLine" id="cb1903-12" title="12">    <span class="st">&#39;x3&#39;</span>:x3</a>
+<a class="sourceLine" id="cb1903-13" title="13">})</a>
+<a class="sourceLine" id="cb1903-14" title="14">mydf.shape</a></code></pre></div>
+<pre><code>## (21, 4)</code></pre>
 </div>
 <div id="one-time-split" class="section level3">
 <h3><span class="header-section-number">17.7.2</span> One Time Split</h3>
 <p>sklearn::train_test_split() has two forms:
 - Take one DF, split into 2 DF (most of sklearn modeling use this method
 - Take two DFs, split into 4 DF</p>
-<div class="sourceCode" id="cb1112"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1112-1" title="1">mydf.head()</a></code></pre></div>
-<pre><code>  y  x1  x2  x3</code></pre>
-<p>0 14.4 14 7 12
-1 14.3 18 5 5
-2 26.4 14 11 6
-3 14.8 3 21 1
-4 11.5 4 13 5</p>
+<div class="sourceCode" id="cb1905"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1905-1" title="1">mydf.head()</a></code></pre></div>
+<pre><code>##       y  x1  x2  x3
+## 0  14.4  14   7  12
+## 1  14.3  18   5   5
+## 2  26.4  14  11   6
+## 3  14.8   3  21   1
+## 4  11.5   4  13   5</code></pre>
 <div id="method-1-split-one-dataframe-into-two-train-test" class="section level4">
 <h4><span class="header-section-number">17.7.2.1</span> Method 1: Split One Dataframe Into Two (Train &amp; Test)</h4>
 <pre><code>traindf, testdf = train_test_split( df, test_size=, random_state= ) 
@@ -865,11 +867,11 @@ It has useful data (array) in the form of properties:<br />
 <img src="img/train_test_split_1.jpg" alt="split" />
 <p class="caption">split</p>
 </div>
-<div class="sourceCode" id="cb1115"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1115-1" title="1">traindf, testdf <span class="op">=</span> train_test_split(mydf,test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">25</span>)</a></code></pre></div>
-<div class="sourceCode" id="cb1116"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1116-1" title="1"><span class="bu">print</span> (<span class="bu">len</span>(traindf))</a></code></pre></div>
-<p>16</p>
-<div class="sourceCode" id="cb1117"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1117-1" title="1"><span class="bu">print</span> (<span class="bu">len</span>(testdf))</a></code></pre></div>
-<p>5</p>
+<div class="sourceCode" id="cb1908"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1908-1" title="1">traindf, testdf <span class="op">=</span> train_test_split(mydf,test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">25</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1909"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1909-1" title="1"><span class="bu">print</span> (<span class="bu">len</span>(traindf))</a></code></pre></div>
+<pre><code>## 16</code></pre>
+<div class="sourceCode" id="cb1911"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1911-1" title="1"><span class="bu">print</span> (<span class="bu">len</span>(testdf))</a></code></pre></div>
+<pre><code>## 5</code></pre>
 </div>
 <div id="method-2-split-two-dataframe-xy-into-four-x_traintest-y_traintest" class="section level4">
 <h4><span class="header-section-number">17.7.2.2</span> Method 2: Split Two DataFrame (X,Y) into Four x_train/test, y_train/test</h4>
@@ -881,15 +883,15 @@ It has useful data (array) in the form of properties:<br />
 <p class="caption">split</p>
 </div>
 <p><strong>Split DataFrame into X and Y First</strong></p>
-<div class="sourceCode" id="cb1119"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1119-1" title="1">feature_cols <span class="op">=</span> [<span class="st">&#39;x1&#39;</span>,<span class="st">&#39;x2&#39;</span>,<span class="st">&#39;x3&#39;</span>]</a>
-<a class="sourceLine" id="cb1119-2" title="2">X <span class="op">=</span> mydf[feature_cols]</a>
-<a class="sourceLine" id="cb1119-3" title="3">Y <span class="op">=</span> mydf.y</a></code></pre></div>
+<div class="sourceCode" id="cb1914"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1914-1" title="1">feature_cols <span class="op">=</span> [<span class="st">&#39;x1&#39;</span>,<span class="st">&#39;x2&#39;</span>,<span class="st">&#39;x3&#39;</span>]</a>
+<a class="sourceLine" id="cb1914-2" title="2">X <span class="op">=</span> mydf[feature_cols]</a>
+<a class="sourceLine" id="cb1914-3" title="3">Y <span class="op">=</span> mydf.y</a></code></pre></div>
 <p><strong>Then Split X/Y into x_train/test, y_train/test</strong></p>
-<div class="sourceCode" id="cb1120"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1120-1" title="1">x_train, x_test, y_train, y_test <span class="op">=</span> train_test_split( X,Y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">25</span>)</a>
-<a class="sourceLine" id="cb1120-2" title="2"><span class="bu">print</span> (<span class="bu">len</span>(x_train))</a></code></pre></div>
-<p>16</p>
-<div class="sourceCode" id="cb1121"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1121-1" title="1"><span class="bu">print</span> (<span class="bu">len</span>(x_test))</a></code></pre></div>
-<p>5</p>
+<div class="sourceCode" id="cb1915"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1915-1" title="1">x_train, x_test, y_train, y_test <span class="op">=</span> train_test_split( X,Y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">25</span>)</a>
+<a class="sourceLine" id="cb1915-2" title="2"><span class="bu">print</span> (<span class="bu">len</span>(x_train))</a></code></pre></div>
+<pre><code>## 16</code></pre>
+<div class="sourceCode" id="cb1917"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1917-1" title="1"><span class="bu">print</span> (<span class="bu">len</span>(x_test))</a></code></pre></div>
+<pre><code>## 5</code></pre>
 </div>
 </div>
 <div id="k-fold" class="section level3">
@@ -900,27 +902,27 @@ It has useful data (array) in the form of properties:<br />
 <p class="caption">split</p>
 </div>
 <p><strong>suffle=False</strong> (default), meaning index number is taken continously</p>
-<div class="sourceCode" id="cb1123"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1123-1" title="1">kf <span class="op">=</span> KFold(n_splits<span class="op">=</span><span class="dv">7</span>)</a></code></pre></div>
-<div class="sourceCode" id="cb1124"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1124-1" title="1"><span class="cf">for</span> train_index, test_index <span class="kw">in</span> kf.split(X):</a>
-<a class="sourceLine" id="cb1124-2" title="2">  <span class="bu">print</span> (train_index, test_index)</a></code></pre></div>
-<p>[ 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20] [0 1 2]
-[ 0 1 2 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20] [3 4 5]
-[ 0 1 2 3 4 5 9 10 11 12 13 14 15 16 17 18 19 20] [6 7 8]
-[ 0 1 2 3 4 5 6 7 8 12 13 14 15 16 17 18 19 20] [ 9 10 11]
-[ 0 1 2 3 4 5 6 7 8 9 10 11 15 16 17 18 19 20] [12 13 14]
-[ 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 18 19 20] [15 16 17]
-[ 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17] [18 19 20]</p>
+<div class="sourceCode" id="cb1920"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1920-1" title="1">kf <span class="op">=</span> KFold(n_splits<span class="op">=</span><span class="dv">7</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1921"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1921-1" title="1"><span class="cf">for</span> train_index, test_index <span class="kw">in</span> kf.split(X):</a>
+<a class="sourceLine" id="cb1921-2" title="2">  <span class="bu">print</span> (train_index, test_index)</a></code></pre></div>
+<pre><code>## [ 3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20] [0 1 2]
+## [ 0  1  2  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20] [3 4 5]
+## [ 0  1  2  3  4  5  9 10 11 12 13 14 15 16 17 18 19 20] [6 7 8]
+## [ 0  1  2  3  4  5  6  7  8 12 13 14 15 16 17 18 19 20] [ 9 10 11]
+## [ 0  1  2  3  4  5  6  7  8  9 10 11 15 16 17 18 19 20] [12 13 14]
+## [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 18 19 20] [15 16 17]
+## [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17] [18 19 20]</code></pre>
 <p><strong>shuffle=True</strong></p>
-<div class="sourceCode" id="cb1125"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1125-1" title="1">kf <span class="op">=</span> KFold(n_splits<span class="op">=</span><span class="dv">7</span>, shuffle<span class="op">=</span><span class="va">True</span>)</a></code></pre></div>
-<div class="sourceCode" id="cb1126"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1126-1" title="1"><span class="cf">for</span> train_index, test_index <span class="kw">in</span> kf.split(X):</a>
-<a class="sourceLine" id="cb1126-2" title="2">  <span class="bu">print</span> (train_index, test_index)</a></code></pre></div>
-<p>[ 0 1 2 3 4 6 7 8 9 10 11 12 13 14 15 16 17 19] [ 5 18 20]
-[ 0 1 3 4 5 6 7 8 10 11 12 13 15 16 17 18 19 20] [ 2 9 14]
-[ 0 1 2 3 4 5 6 7 8 9 11 12 14 15 16 17 18 20] [10 13 19]
-[ 1 2 3 5 6 7 8 9 10 11 12 13 14 15 17 18 19 20] [ 0 4 16]
-[ 0 2 4 5 6 7 8 9 10 12 13 14 15 16 17 18 19 20] [ 1 3 11]
-[ 0 1 2 3 4 5 6 9 10 11 12 13 14 15 16 18 19 20] [ 7 8 17]
-[ 0 1 2 3 4 5 7 8 9 10 11 13 14 16 17 18 19 20] [ 6 12 15]</p>
+<div class="sourceCode" id="cb1923"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1923-1" title="1">kf <span class="op">=</span> KFold(n_splits<span class="op">=</span><span class="dv">7</span>, shuffle<span class="op">=</span><span class="va">True</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1924"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1924-1" title="1"><span class="cf">for</span> train_index, test_index <span class="kw">in</span> kf.split(X):</a>
+<a class="sourceLine" id="cb1924-2" title="2">  <span class="bu">print</span> (train_index, test_index)</a></code></pre></div>
+<pre><code>## [ 0  1  2  3  4  6  7  8  9 10 11 12 13 14 15 16 17 19] [ 5 18 20]
+## [ 0  1  3  4  5  6  7  8 10 11 12 13 15 16 17 18 19 20] [ 2  9 14]
+## [ 0  1  2  3  4  5  6  7  8  9 11 12 14 15 16 17 18 20] [10 13 19]
+## [ 1  2  3  5  6  7  8  9 10 11 12 13 14 15 17 18 19 20] [ 0  4 16]
+## [ 0  2  4  5  6  7  8  9 10 12 13 14 15 16 17 18 19 20] [ 1  3 11]
+## [ 0  1  2  3  4  5  6  9 10 11 12 13 14 15 16 18 19 20] [ 7  8 17]
+## [ 0  1  2  3  4  5  7  8  9 10 11 13 14 16 17 18 19 20] [ 6 12 15]</code></pre>
 </div>
 <div id="leave-one-out" class="section level3">
 <h3><span class="header-section-number">17.7.4</span> Leave One Out</h3>
@@ -929,44 +931,45 @@ It has useful data (array) in the form of properties:<br />
 </li>
 <li>Due to the <strong>high number of test sets</strong> (which is the same as the number of samples-1) this cross-validation method can be very costly. For large datasets one should favor KFold.</li>
 </ul>
-<div class="sourceCode" id="cb1127"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1127-1" title="1">loo <span class="op">=</span> LeaveOneOut()</a></code></pre></div>
-<div class="sourceCode" id="cb1128"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1128-1" title="1"><span class="cf">for</span> train_index, test_index <span class="kw">in</span> loo.split(X):</a>
-<a class="sourceLine" id="cb1128-2" title="2">  <span class="bu">print</span> (train_index, test_index)</a></code></pre></div>
-<p>[ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20] [0]
-[ 0 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20] [1]
-[ 0 1 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20] [2]
-[ 0 1 2 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20] [3]
-[ 0 1 2 3 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20] [4]
-[ 0 1 2 3 4 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20] [5]
-[ 0 1 2 3 4 5 7 8 9 10 11 12 13 14 15 16 17 18 19 20] [6]
-[ 0 1 2 3 4 5 6 8 9 10 11 12 13 14 15 16 17 18 19 20] [7]
-[ 0 1 2 3 4 5 6 7 9 10 11 12 13 14 15 16 17 18 19 20] [8]
-[ 0 1 2 3 4 5 6 7 8 10 11 12 13 14 15 16 17 18 19 20] [9]
-[ 0 1 2 3 4 5 6 7 8 9 11 12 13 14 15 16 17 18 19 20] [10]
-[ 0 1 2 3 4 5 6 7 8 9 10 12 13 14 15 16 17 18 19 20] [11]
-[ 0 1 2 3 4 5 6 7 8 9 10 11 13 14 15 16 17 18 19 20] [12]
-[ 0 1 2 3 4 5 6 7 8 9 10 11 12 14 15 16 17 18 19 20] [13]
-[ 0 1 2 3 4 5 6 7 8 9 10 11 12 13 15 16 17 18 19 20] [14]
-[ 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 16 17 18 19 20] [15]
-[ 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 17 18 19 20] [16]
-[ 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 18 19 20] [17]
-[ 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 19 20] [18]
-[ 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 20] [19]
-[ 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19] [20]</p>
-<div class="sourceCode" id="cb1129"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1129-1" title="1">X</a></code></pre></div>
-<pre><code>x1  x2  x3</code></pre>
-<p>0 14 7 12
-1 18 5 5
-2 14 11 6
-3 3 21 1
-4 4 13 5
-.. .. .. ..
-16 1 3 13
-17 8 2 19
-18 15 14 9
-19 2 17 4
-20 5 9 7</p>
-<p>[21 rows x 3 columns]</p>
+<div class="sourceCode" id="cb1926"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1926-1" title="1">loo <span class="op">=</span> LeaveOneOut()</a></code></pre></div>
+<div class="sourceCode" id="cb1927"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1927-1" title="1"><span class="cf">for</span> train_index, test_index <span class="kw">in</span> loo.split(X):</a>
+<a class="sourceLine" id="cb1927-2" title="2">  <span class="bu">print</span> (train_index, test_index)</a></code></pre></div>
+<pre><code>## [ 1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20] [0]
+## [ 0  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20] [1]
+## [ 0  1  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20] [2]
+## [ 0  1  2  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20] [3]
+## [ 0  1  2  3  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20] [4]
+## [ 0  1  2  3  4  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20] [5]
+## [ 0  1  2  3  4  5  7  8  9 10 11 12 13 14 15 16 17 18 19 20] [6]
+## [ 0  1  2  3  4  5  6  8  9 10 11 12 13 14 15 16 17 18 19 20] [7]
+## [ 0  1  2  3  4  5  6  7  9 10 11 12 13 14 15 16 17 18 19 20] [8]
+## [ 0  1  2  3  4  5  6  7  8 10 11 12 13 14 15 16 17 18 19 20] [9]
+## [ 0  1  2  3  4  5  6  7  8  9 11 12 13 14 15 16 17 18 19 20] [10]
+## [ 0  1  2  3  4  5  6  7  8  9 10 12 13 14 15 16 17 18 19 20] [11]
+## [ 0  1  2  3  4  5  6  7  8  9 10 11 13 14 15 16 17 18 19 20] [12]
+## [ 0  1  2  3  4  5  6  7  8  9 10 11 12 14 15 16 17 18 19 20] [13]
+## [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 15 16 17 18 19 20] [14]
+## [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 16 17 18 19 20] [15]
+## [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 17 18 19 20] [16]
+## [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 18 19 20] [17]
+## [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 19 20] [18]
+## [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 20] [19]
+## [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19] [20]</code></pre>
+<div class="sourceCode" id="cb1929"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1929-1" title="1">X</a></code></pre></div>
+<pre><code>##     x1  x2  x3
+## 0   14   7  12
+## 1   18   5   5
+## 2   14  11   6
+## 3    3  21   1
+## 4    4  13   5
+## ..  ..  ..  ..
+## 16   1   3  13
+## 17   8   2  19
+## 18  15  14   9
+## 19   2  17   4
+## 20   5   9   7
+## 
+## [21 rows x 3 columns]</code></pre>
 </div>
 </div>
 <div id="polynomial-transform" class="section level2">
@@ -977,47 +980,47 @@ It has useful data (array) in the form of properties:<br />
 <div id="sample-data-19" class="section level4">
 <h4><span class="header-section-number">17.8.1.1</span> Sample Data</h4>
 <p>Data must be 2-D before polynomial features can be applied. Code below convert 1D array into 2D array.</p>
-<div class="sourceCode" id="cb1131"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1131-1" title="1">x <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</a>
-<a class="sourceLine" id="cb1131-2" title="2">X <span class="op">=</span> x[:,np.newaxis]</a>
-<a class="sourceLine" id="cb1131-3" title="3">X</a></code></pre></div>
-<p>array([[1],
-[2],
-[3],
-[4],
-[5]])</p>
+<div class="sourceCode" id="cb1931"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1931-1" title="1">x <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</a>
+<a class="sourceLine" id="cb1931-2" title="2">X <span class="op">=</span> x[:,np.newaxis]</a>
+<a class="sourceLine" id="cb1931-3" title="3">X</a></code></pre></div>
+<pre><code>## array([[1],
+##        [2],
+##        [3],
+##        [4],
+##        [5]])</code></pre>
 </div>
 <div id="degree-1" class="section level4">
 <h4><span class="header-section-number">17.8.1.2</span> Degree 1</h4>
 <p>One Degree means maintain original features. No new features is created.</p>
-<div class="sourceCode" id="cb1132"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1132-1" title="1">PolynomialFeatures(degree<span class="op">=</span><span class="dv">1</span>, include_bias<span class="op">=</span><span class="va">False</span>).fit_transform(X)</a></code></pre></div>
-<p>array([[1.],
-[2.],
-[3.],
-[4.],
-[5.]])</p>
+<div class="sourceCode" id="cb1933"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1933-1" title="1">PolynomialFeatures(degree<span class="op">=</span><span class="dv">1</span>, include_bias<span class="op">=</span><span class="va">False</span>).fit_transform(X)</a></code></pre></div>
+<pre><code>## array([[1.],
+##        [2.],
+##        [3.],
+##        [4.],
+##        [5.]])</code></pre>
 </div>
 <div id="degree-2" class="section level4">
 <h4><span class="header-section-number">17.8.1.3</span> Degree 2</h4>
 <p>Degree-1 original feature: x<br />
 Degree-2 additional features: x^2</p>
-<div class="sourceCode" id="cb1133"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1133-1" title="1">PolynomialFeatures(degree<span class="op">=</span><span class="dv">2</span>, include_bias<span class="op">=</span><span class="va">False</span>).fit_transform(X)</a></code></pre></div>
-<p>array([[ 1., 1.],
-[ 2., 4.],
-[ 3., 9.],
-[ 4., 16.],
-[ 5., 25.]])</p>
+<div class="sourceCode" id="cb1935"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1935-1" title="1">PolynomialFeatures(degree<span class="op">=</span><span class="dv">2</span>, include_bias<span class="op">=</span><span class="va">False</span>).fit_transform(X)</a></code></pre></div>
+<pre><code>## array([[ 1.,  1.],
+##        [ 2.,  4.],
+##        [ 3.,  9.],
+##        [ 4., 16.],
+##        [ 5., 25.]])</code></pre>
 </div>
 <div id="degree-3" class="section level4">
 <h4><span class="header-section-number">17.8.1.4</span> Degree 3</h4>
 <p>Degree-1 original feature: x<br />
 Degree-2 additional features: x^2<br />
 Degree-3 additional features: x^3</p>
-<div class="sourceCode" id="cb1134"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1134-1" title="1">PolynomialFeatures(degree<span class="op">=</span><span class="dv">3</span>, include_bias<span class="op">=</span><span class="va">False</span>).fit_transform(X)</a></code></pre></div>
-<p>array([[ 1., 1., 1.],
-[ 2., 4., 8.],
-[ 3., 9., 27.],
-[ 4., 16., 64.],
-[ 5., 25., 125.]])</p>
+<div class="sourceCode" id="cb1937"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1937-1" title="1">PolynomialFeatures(degree<span class="op">=</span><span class="dv">3</span>, include_bias<span class="op">=</span><span class="va">False</span>).fit_transform(X)</a></code></pre></div>
+<pre><code>## array([[  1.,   1.,   1.],
+##        [  2.,   4.,   8.],
+##        [  3.,   9.,  27.],
+##        [  4.,  16.,  64.],
+##        [  5.,  25., 125.]])</code></pre>
 </div>
 <div id="degree-4" class="section level4">
 <h4><span class="header-section-number">17.8.1.5</span> Degree 4</h4>
@@ -1025,50 +1028,50 @@ Degree-3 additional features: x^3</p>
 Degree-2 additional features: x^2<br />
 Degree-3 additional features: x^3<br />
 Degree-3 additional features: x^4</p>
-<div class="sourceCode" id="cb1135"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1135-1" title="1">PolynomialFeatures(degree<span class="op">=</span><span class="dv">4</span>, include_bias<span class="op">=</span><span class="va">False</span>).fit_transform(X)</a></code></pre></div>
-<p>array([[ 1., 1., 1., 1.],
-[ 2., 4., 8., 16.],
-[ 3., 9., 27., 81.],
-[ 4., 16., 64., 256.],
-[ 5., 25., 125., 625.]])</p>
+<div class="sourceCode" id="cb1939"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1939-1" title="1">PolynomialFeatures(degree<span class="op">=</span><span class="dv">4</span>, include_bias<span class="op">=</span><span class="va">False</span>).fit_transform(X)</a></code></pre></div>
+<pre><code>## array([[  1.,   1.,   1.,   1.],
+##        [  2.,   4.,   8.,  16.],
+##        [  3.,   9.,  27.,  81.],
+##        [  4.,  16.,  64., 256.],
+##        [  5.,  25., 125., 625.]])</code></pre>
 </div>
 </div>
 <div id="two-variables" class="section level3">
 <h3><span class="header-section-number">17.8.2</span> Two Variables</h3>
 <div id="sample-data-20" class="section level4">
 <h4><span class="header-section-number">17.8.2.1</span> Sample Data</h4>
-<div class="sourceCode" id="cb1136"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1136-1" title="1">X <span class="op">=</span> pd.DataFrame( {<span class="st">&#39;x1&#39;</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span> ],</a>
-<a class="sourceLine" id="cb1136-2" title="2">                   <span class="st">&#39;x2&#39;</span>: [<span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>]})</a>
-<a class="sourceLine" id="cb1136-3" title="3">X</a></code></pre></div>
-<p>x1 x2
-0 1 6
-1 2 7
-2 3 8
-3 4 9
-4 5 10</p>
+<div class="sourceCode" id="cb1941"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1941-1" title="1">X <span class="op">=</span> pd.DataFrame( {<span class="st">&#39;x1&#39;</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span> ],</a>
+<a class="sourceLine" id="cb1941-2" title="2">                   <span class="st">&#39;x2&#39;</span>: [<span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>]})</a>
+<a class="sourceLine" id="cb1941-3" title="3">X</a></code></pre></div>
+<pre><code>##    x1  x2
+## 0   1   6
+## 1   2   7
+## 2   3   8
+## 3   4   9
+## 4   5  10</code></pre>
 </div>
 <div id="degree-2-1" class="section level4">
 <h4><span class="header-section-number">17.8.2.2</span> Degree 2</h4>
 <pre><code>Degree-1 original   features:  x1,     x2  
 Degree-2 additional features:  x1^2,   x2^2,   x1:x2 </code></pre>
-<div class="sourceCode" id="cb1138"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1138-1" title="1">PolynomialFeatures(degree<span class="op">=</span><span class="dv">2</span>, include_bias<span class="op">=</span><span class="va">False</span>).fit_transform(X)</a></code></pre></div>
-<p>array([[ 1., 6., 1., 6., 36.],
-[ 2., 7., 4., 14., 49.],
-[ 3., 8., 9., 24., 64.],
-[ 4., 9., 16., 36., 81.],
-[ 5., 10., 25., 50., 100.]])</p>
+<div class="sourceCode" id="cb1944"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1944-1" title="1">PolynomialFeatures(degree<span class="op">=</span><span class="dv">2</span>, include_bias<span class="op">=</span><span class="va">False</span>).fit_transform(X)</a></code></pre></div>
+<pre><code>## array([[  1.,   6.,   1.,   6.,  36.],
+##        [  2.,   7.,   4.,  14.,  49.],
+##        [  3.,   8.,   9.,  24.,  64.],
+##        [  4.,   9.,  16.,  36.,  81.],
+##        [  5.,  10.,  25.,  50., 100.]])</code></pre>
 </div>
 <div id="degree-3-1" class="section level4">
 <h4><span class="header-section-number">17.8.2.3</span> Degree 3</h4>
 <pre><code>Degree-1 original   features:  x1,       x2  
 Degree-2 additional features:  x1^2,     x2^2,   x1:x2 
 Degree-3 additional features:  x1^3,     x2^3    x1:x2^2    x2:x1^2</code></pre>
-<div class="sourceCode" id="cb1140"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1140-1" title="1">PolynomialFeatures(degree<span class="op">=</span><span class="dv">3</span>, include_bias<span class="op">=</span><span class="va">False</span>).fit_transform(X)</a></code></pre></div>
-<p>array([[ 1., 6., 1., 6., 36., 1., 6., 36., 216.],
-[ 2., 7., 4., 14., 49., 8., 28., 98., 343.],
-[ 3., 8., 9., 24., 64., 27., 72., 192., 512.],
-[ 4., 9., 16., 36., 81., 64., 144., 324., 729.],
-[ 5., 10., 25., 50., 100., 125., 250., 500., 1000.]])</p>
+<div class="sourceCode" id="cb1947"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1947-1" title="1">PolynomialFeatures(degree<span class="op">=</span><span class="dv">3</span>, include_bias<span class="op">=</span><span class="va">False</span>).fit_transform(X)</a></code></pre></div>
+<pre><code>## array([[   1.,    6.,    1.,    6.,   36.,    1.,    6.,   36.,  216.],
+##        [   2.,    7.,    4.,   14.,   49.,    8.,   28.,   98.,  343.],
+##        [   3.,    8.,    9.,   24.,   64.,   27.,   72.,  192.,  512.],
+##        [   4.,    9.,   16.,   36.,   81.,   64.,  144.,  324.,  729.],
+##        [   5.,   10.,   25.,   50.,  100.,  125.,  250.,  500., 1000.]])</code></pre>
 </div>
 </div>
 </div>
@@ -1076,29 +1079,29 @@ Degree-3 additional features:  x1^3,     x2^3    x1:x2^2    x2:x1^2</code></pre>
 <h2><span class="header-section-number">17.9</span> Imputation of Missing Data</h2>
 <div id="sample-data-21" class="section level3">
 <h3><span class="header-section-number">17.9.1</span> Sample Data</h3>
-<div class="sourceCode" id="cb1141"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1141-1" title="1"><span class="im">from</span> numpy <span class="im">import</span> nan</a>
-<a class="sourceLine" id="cb1141-2" title="2">X <span class="op">=</span> np.array([[ nan, <span class="dv">0</span>,   <span class="dv">3</span>  ],</a>
-<a class="sourceLine" id="cb1141-3" title="3">              [ <span class="dv">3</span>,   <span class="dv">7</span>,   <span class="dv">9</span>  ],</a>
-<a class="sourceLine" id="cb1141-4" title="4">              [ <span class="dv">3</span>,   <span class="dv">5</span>,   <span class="dv">2</span>  ],</a>
-<a class="sourceLine" id="cb1141-5" title="5">              [ <span class="dv">4</span>,   nan, <span class="dv">6</span>  ],</a>
-<a class="sourceLine" id="cb1141-6" title="6">              [ <span class="dv">8</span>,   <span class="dv">8</span>,   <span class="dv">1</span>  ]])</a>
-<a class="sourceLine" id="cb1141-7" title="7"></a>
-<a class="sourceLine" id="cb1141-8" title="8">y <span class="op">=</span> np.array([<span class="dv">14</span>, <span class="dv">16</span>, <span class="dv">-1</span>,  <span class="dv">8</span>, <span class="dv">-5</span>])</a></code></pre></div>
+<div class="sourceCode" id="cb1949"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1949-1" title="1"><span class="im">from</span> numpy <span class="im">import</span> nan</a>
+<a class="sourceLine" id="cb1949-2" title="2">X <span class="op">=</span> np.array([[ nan, <span class="dv">0</span>,   <span class="dv">3</span>  ],</a>
+<a class="sourceLine" id="cb1949-3" title="3">              [ <span class="dv">3</span>,   <span class="dv">7</span>,   <span class="dv">9</span>  ],</a>
+<a class="sourceLine" id="cb1949-4" title="4">              [ <span class="dv">3</span>,   <span class="dv">5</span>,   <span class="dv">2</span>  ],</a>
+<a class="sourceLine" id="cb1949-5" title="5">              [ <span class="dv">4</span>,   nan, <span class="dv">6</span>  ],</a>
+<a class="sourceLine" id="cb1949-6" title="6">              [ <span class="dv">8</span>,   <span class="dv">8</span>,   <span class="dv">1</span>  ]])</a>
+<a class="sourceLine" id="cb1949-7" title="7"></a>
+<a class="sourceLine" id="cb1949-8" title="8">y <span class="op">=</span> np.array([<span class="dv">14</span>, <span class="dv">16</span>, <span class="dv">-1</span>,  <span class="dv">8</span>, <span class="dv">-5</span>])</a></code></pre></div>
 </div>
 <div id="imputer" class="section level3">
 <h3><span class="header-section-number">17.9.2</span> Imputer</h3>
 <div id="mean-strategy" class="section level4">
 <h4><span class="header-section-number">17.9.2.1</span> mean strategy</h4>
-<div class="sourceCode" id="cb1142"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1142-1" title="1">imp <span class="op">=</span> Imputer(strategy<span class="op">=</span><span class="st">&#39;mean&#39;</span>)</a></code></pre></div>
-<p>C:3-packages.py:66: DeprecationWarning: Class Imputer is deprecated; Imputer was deprecated in version 0.20 and will be removed in 0.22. Import impute.SimpleImputer from sklearn instead.
-warnings.warn(msg, category=DeprecationWarning)</p>
-<div class="sourceCode" id="cb1143"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1143-1" title="1">X2 <span class="op">=</span> imp.fit_transform(X)</a>
-<a class="sourceLine" id="cb1143-2" title="2">X2</a></code></pre></div>
-<p>array([[4.5, 0. , 3. ],
-[3. , 7. , 9. ],
-[3. , 5. , 2. ],
-[4. , 5. , 6. ],
-[8. , 8. , 1. ]])</p>
+<div class="sourceCode" id="cb1950"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1950-1" title="1">imp <span class="op">=</span> Imputer(strategy<span class="op">=</span><span class="st">&#39;mean&#39;</span>)</a></code></pre></div>
+<pre><code>## C:\ProgramData\Anaconda3\lib\site-packages\sklearn\utils\deprecation.py:66: DeprecationWarning: Class Imputer is deprecated; Imputer was deprecated in version 0.20 and will be removed in 0.22. Import impute.SimpleImputer from sklearn instead.
+##   warnings.warn(msg, category=DeprecationWarning)</code></pre>
+<div class="sourceCode" id="cb1952"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1952-1" title="1">X2 <span class="op">=</span> imp.fit_transform(X)</a>
+<a class="sourceLine" id="cb1952-2" title="2">X2</a></code></pre></div>
+<pre><code>## array([[4.5, 0. , 3. ],
+##        [3. , 7. , 9. ],
+##        [3. , 5. , 2. ],
+##        [4. , 5. , 6. ],
+##        [8. , 8. , 1. ]])</code></pre>
 </div>
 </div>
 </div>
@@ -1108,14 +1111,14 @@ warnings.warn(msg, category=DeprecationWarning)</p>
 We can remove this problem by scaling down all the features to a same range.</p>
 <div id="sample-data-22" class="section level3">
 <h3><span class="header-section-number">17.10.1</span> Sample Data</h3>
-<div class="sourceCode" id="cb1144"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1144-1" title="1">X<span class="op">=</span>mydf.<span class="bu">filter</span>(like<span class="op">=</span><span class="st">&#39;x&#39;</span>)[:<span class="dv">5</span>]</a>
-<a class="sourceLine" id="cb1144-2" title="2">X</a></code></pre></div>
-<p>x1 x2 x3
-0 14 7 12
-1 18 5 5
-2 14 11 6
-3 3 21 1
-4 4 13 5</p>
+<div class="sourceCode" id="cb1954"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1954-1" title="1">X<span class="op">=</span>mydf.<span class="bu">filter</span>(like<span class="op">=</span><span class="st">&#39;x&#39;</span>)[:<span class="dv">5</span>]</a>
+<a class="sourceLine" id="cb1954-2" title="2">X</a></code></pre></div>
+<pre><code>##    x1  x2  x3
+## 0  14   7  12
+## 1  18   5   5
+## 2  14  11   6
+## 3   3  21   1
+## 4   4  13   5</code></pre>
 </div>
 <div id="minmax-scaler" class="section level3">
 <h3><span class="header-section-number">17.10.2</span> MinMax Scaler</h3>
@@ -1123,24 +1126,24 @@ We can remove this problem by scaling down all the features to a same range.</p>
 # default feature range (output result) from 0 to 1
 # default return a copy of new array, copy=False will inplace original array</code></pre>
 <p><strong>Define Scaler Object</strong></p>
-<div class="sourceCode" id="cb1146"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1146-1" title="1">scaler <span class="op">=</span> MinMaxScaler()</a></code></pre></div>
+<div class="sourceCode" id="cb1957"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1957-1" title="1">scaler <span class="op">=</span> MinMaxScaler()</a></code></pre></div>
 <p><strong>Transform Data</strong></p>
-<div class="sourceCode" id="cb1147"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1147-1" title="1">scaler.fit_transform(X)</a></code></pre></div>
-<p>array([[0.73333333, 0.125 , 1. ],
-[1. , 0. , 0.36363636],
-[0.73333333, 0.375 , 0.45454545],
-[0. , 1. , 0. ],
-[0.06666667, 0.5 , 0.36363636]])</p>
+<div class="sourceCode" id="cb1958"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1958-1" title="1">scaler.fit_transform(X)</a></code></pre></div>
+<pre><code>## array([[0.73333333, 0.125     , 1.        ],
+##        [1.        , 0.        , 0.36363636],
+##        [0.73333333, 0.375     , 0.45454545],
+##        [0.        , 1.        , 0.        ],
+##        [0.06666667, 0.5       , 0.36363636]])</code></pre>
 <p><strong>Scaler Attributes</strong></p>
 <pre><code>data_min_: minimum value of the feature (before scaling)  
 data_max_: maximum value of the feature (before scaling)  </code></pre>
-<div class="sourceCode" id="cb1149"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1149-1" title="1">pd.DataFrame(<span class="bu">list</span>(<span class="bu">zip</span>(scaler.data_min_, scaler.data_max_)), </a>
-<a class="sourceLine" id="cb1149-2" title="2">             columns<span class="op">=</span>[<span class="st">&#39;data_min&#39;</span>,<span class="st">&#39;data_max&#39;</span>], </a>
-<a class="sourceLine" id="cb1149-3" title="3">             index<span class="op">=</span>X.columns)</a></code></pre></div>
-<pre><code>data_min  data_max</code></pre>
-<p>x1 3.0 18.0
-x2 5.0 21.0
-x3 1.0 12.0</p>
+<div class="sourceCode" id="cb1961"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1961-1" title="1">pd.DataFrame(<span class="bu">list</span>(<span class="bu">zip</span>(scaler.data_min_, scaler.data_max_)), </a>
+<a class="sourceLine" id="cb1961-2" title="2">             columns<span class="op">=</span>[<span class="st">&#39;data_min&#39;</span>,<span class="st">&#39;data_max&#39;</span>], </a>
+<a class="sourceLine" id="cb1961-3" title="3">             index<span class="op">=</span>X.columns)</a></code></pre></div>
+<pre><code>##     data_min  data_max
+## x1       3.0      18.0
+## x2       5.0      21.0
+## x3       1.0      12.0</code></pre>
 </div>
 <div id="standard-scaler" class="section level3">
 <h3><span class="header-section-number">17.10.3</span> Standard Scaler</h3>
@@ -1150,23 +1153,23 @@ x3 1.0 12.0</p>
 # with_mean=True : centre all features by substracting with its mean
 # with_std=True  : centre all features by dividing with its std</code></pre>
 <p><strong>Define Scaler Object</strong></p>
-<div class="sourceCode" id="cb1152"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1152-1" title="1">scaler <span class="op">=</span> StandardScaler()</a></code></pre></div>
+<div class="sourceCode" id="cb1964"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1964-1" title="1">scaler <span class="op">=</span> StandardScaler()</a></code></pre></div>
 <p><strong>Transform Data</strong></p>
-<div class="sourceCode" id="cb1153"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1153-1" title="1">scaler.fit_transform(X)</a></code></pre></div>
-<p>array([[ 0.56793014, -0.78975397, 1.74943121],
-[ 1.23608324, -1.14873305, -0.22573306],
-[ 0.56793014, -0.07179582, 0.05643326],
-[-1.2694909 , 1.72309958, -1.35439836],
-[-1.10245262, 0.28718326, -0.22573306]])</p>
+<div class="sourceCode" id="cb1965"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1965-1" title="1">scaler.fit_transform(X)</a></code></pre></div>
+<pre><code>## array([[ 0.56793014, -0.78975397,  1.74943121],
+##        [ 1.23608324, -1.14873305, -0.22573306],
+##        [ 0.56793014, -0.07179582,  0.05643326],
+##        [-1.2694909 ,  1.72309958, -1.35439836],
+##        [-1.10245262,  0.28718326, -0.22573306]])</code></pre>
 <p><strong>Scaler Attributes</strong><br />
 After the data transformation step above, scaler will have the mean and variance information for each feature.</p>
-<div class="sourceCode" id="cb1154"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1154-1" title="1">pd.DataFrame(<span class="bu">list</span>(<span class="bu">zip</span>(scaler.mean_, scaler.var_)), </a>
-<a class="sourceLine" id="cb1154-2" title="2">             columns<span class="op">=</span>[<span class="st">&#39;mean&#39;</span>,<span class="st">&#39;variance&#39;</span>], </a>
-<a class="sourceLine" id="cb1154-3" title="3">             index<span class="op">=</span>X.columns)</a></code></pre></div>
-<pre><code>mean  variance</code></pre>
-<p>x1 10.6 35.84
-x2 11.4 31.04
-x3 5.8 12.56</p>
+<div class="sourceCode" id="cb1967"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1967-1" title="1">pd.DataFrame(<span class="bu">list</span>(<span class="bu">zip</span>(scaler.mean_, scaler.var_)), </a>
+<a class="sourceLine" id="cb1967-2" title="2">             columns<span class="op">=</span>[<span class="st">&#39;mean&#39;</span>,<span class="st">&#39;variance&#39;</span>], </a>
+<a class="sourceLine" id="cb1967-3" title="3">             index<span class="op">=</span>X.columns)</a></code></pre></div>
+<pre><code>##     mean  variance
+## x1  10.6     35.84
+## x2  11.4     31.04
+## x3   5.8     12.56</code></pre>
 </div>
 </div>
 <div id="pipeline" class="section level2">
@@ -1187,99 +1190,99 @@ x3 5.8 12.56</p>
  )</code></pre>
 <div id="sample-data-23" class="section level3">
 <h3><span class="header-section-number">17.11.1</span> Sample Data</h3>
-<div class="sourceCode" id="cb1157"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1157-1" title="1">X</a></code></pre></div>
-<p>x1 x2 x3
-0 14 7 12
-1 18 5 5
-2 14 11 6
-3 3 21 1
-4 4 13 5</p>
-<div class="sourceCode" id="cb1158"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1158-1" title="1">y</a></code></pre></div>
-<p>array([14, 16, -1, 8, -5])</p>
+<div class="sourceCode" id="cb1970"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1970-1" title="1">X</a></code></pre></div>
+<pre><code>##    x1  x2  x3
+## 0  14   7  12
+## 1  18   5   5
+## 2  14  11   6
+## 3   3  21   1
+## 4   4  13   5</code></pre>
+<div class="sourceCode" id="cb1972"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1972-1" title="1">y</a></code></pre></div>
+<pre><code>## array([14, 16, -1,  8, -5])</code></pre>
 </div>
 <div id="create-pipeline" class="section level3">
 <h3><span class="header-section-number">17.11.2</span> Create Pipeline</h3>
-<div class="sourceCode" id="cb1159"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1159-1" title="1">my_pipe <span class="op">=</span> make_pipeline (</a>
-<a class="sourceLine" id="cb1159-2" title="2">    Imputer            (strategy<span class="op">=</span><span class="st">&#39;mean&#39;</span>),</a>
-<a class="sourceLine" id="cb1159-3" title="3">    PolynomialFeatures (degree<span class="op">=</span><span class="dv">2</span>),</a>
-<a class="sourceLine" id="cb1159-4" title="4">    LinearRegression   ()</a>
-<a class="sourceLine" id="cb1159-5" title="5">)</a></code></pre></div>
-<p>C:3-packages.py:66: DeprecationWarning: Class Imputer is deprecated; Imputer was deprecated in version 0.20 and will be removed in 0.22. Import impute.SimpleImputer from sklearn instead.
-warnings.warn(msg, category=DeprecationWarning)</p>
-<div class="sourceCode" id="cb1160"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1160-1" title="1"><span class="bu">type</span>(my_pipe)</a></code></pre></div>
-<p>&lt;class ‘sklearn.pipeline.Pipeline’&gt;</p>
-<div class="sourceCode" id="cb1161"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1161-1" title="1">my_pipe</a></code></pre></div>
-<p>Pipeline(memory=None,
-steps=[(‘imputer’,
-Imputer(axis=0, copy=True, missing_values=‘NaN’,
-strategy=‘mean’, verbose=0)),
-(‘polynomialfeatures’,
-PolynomialFeatures(degree=2, include_bias=True,
-interaction_only=False, order=‘C’)),
-(‘linearregression’,
-LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-normalize=False))],
-verbose=False)</p>
+<div class="sourceCode" id="cb1974"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1974-1" title="1">my_pipe <span class="op">=</span> make_pipeline (</a>
+<a class="sourceLine" id="cb1974-2" title="2">    Imputer            (strategy<span class="op">=</span><span class="st">&#39;mean&#39;</span>),</a>
+<a class="sourceLine" id="cb1974-3" title="3">    PolynomialFeatures (degree<span class="op">=</span><span class="dv">2</span>),</a>
+<a class="sourceLine" id="cb1974-4" title="4">    LinearRegression   ()</a>
+<a class="sourceLine" id="cb1974-5" title="5">)</a></code></pre></div>
+<pre><code>## C:\ProgramData\Anaconda3\lib\site-packages\sklearn\utils\deprecation.py:66: DeprecationWarning: Class Imputer is deprecated; Imputer was deprecated in version 0.20 and will be removed in 0.22. Import impute.SimpleImputer from sklearn instead.
+##   warnings.warn(msg, category=DeprecationWarning)</code></pre>
+<div class="sourceCode" id="cb1976"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1976-1" title="1"><span class="bu">type</span>(my_pipe)</a></code></pre></div>
+<pre><code>## &lt;class &#39;sklearn.pipeline.Pipeline&#39;&gt;</code></pre>
+<div class="sourceCode" id="cb1978"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1978-1" title="1">my_pipe</a></code></pre></div>
+<pre><code>## Pipeline(memory=None,
+##          steps=[(&#39;imputer&#39;,
+##                  Imputer(axis=0, copy=True, missing_values=&#39;NaN&#39;,
+##                          strategy=&#39;mean&#39;, verbose=0)),
+##                 (&#39;polynomialfeatures&#39;,
+##                  PolynomialFeatures(degree=2, include_bias=True,
+##                                     interaction_only=False, order=&#39;C&#39;)),
+##                 (&#39;linearregression&#39;,
+##                  LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+##                                   normalize=False))],
+##          verbose=False)</code></pre>
 </div>
 <div id="executing-pipeline" class="section level3">
 <h3><span class="header-section-number">17.11.3</span> Executing Pipeline</h3>
-<div class="sourceCode" id="cb1162"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1162-1" title="1">my_pipe.fit( X, y) <span class="co"># execute the pipeline</span></a></code></pre></div>
-<p>Pipeline(memory=None,
-steps=[(‘imputer’,
-Imputer(axis=0, copy=True, missing_values=‘NaN’,
-strategy=‘mean’, verbose=0)),
-(‘polynomialfeatures’,
-PolynomialFeatures(degree=2, include_bias=True,
-interaction_only=False, order=‘C’)),
-(‘linearregression’,
-LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
-normalize=False))],
-verbose=False)</p>
-<div class="sourceCode" id="cb1163"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1163-1" title="1"><span class="bu">print</span> (y)</a></code></pre></div>
-<p>[14 16 -1 8 -5]</p>
-<div class="sourceCode" id="cb1164"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1164-1" title="1"><span class="bu">print</span> (my_pipe.predict(X))</a></code></pre></div>
-<p>[14. 16. -1. 8. -5.]</p>
-<div class="sourceCode" id="cb1165"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1165-1" title="1"><span class="bu">type</span>(my_pipe)</a></code></pre></div>
-<p>&lt;class ‘sklearn.pipeline.Pipeline’&gt;</p>
+<div class="sourceCode" id="cb1980"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1980-1" title="1">my_pipe.fit( X, y) <span class="co"># execute the pipeline</span></a></code></pre></div>
+<pre><code>## Pipeline(memory=None,
+##          steps=[(&#39;imputer&#39;,
+##                  Imputer(axis=0, copy=True, missing_values=&#39;NaN&#39;,
+##                          strategy=&#39;mean&#39;, verbose=0)),
+##                 (&#39;polynomialfeatures&#39;,
+##                  PolynomialFeatures(degree=2, include_bias=True,
+##                                     interaction_only=False, order=&#39;C&#39;)),
+##                 (&#39;linearregression&#39;,
+##                  LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+##                                   normalize=False))],
+##          verbose=False)</code></pre>
+<div class="sourceCode" id="cb1982"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1982-1" title="1"><span class="bu">print</span> (y)</a></code></pre></div>
+<pre><code>## [14 16 -1  8 -5]</code></pre>
+<div class="sourceCode" id="cb1984"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1984-1" title="1"><span class="bu">print</span> (my_pipe.predict(X))</a></code></pre></div>
+<pre><code>## [14. 16. -1.  8. -5.]</code></pre>
+<div class="sourceCode" id="cb1986"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1986-1" title="1"><span class="bu">type</span>(my_pipe)</a></code></pre></div>
+<pre><code>## &lt;class &#39;sklearn.pipeline.Pipeline&#39;&gt;</code></pre>
 </div>
 </div>
 <div id="cross-validation" class="section level2">
 <h2><span class="header-section-number">17.12</span> Cross Validation</h2>
 <div id="load-data" class="section level3">
 <h3><span class="header-section-number">17.12.1</span> Load Data</h3>
-<div class="sourceCode" id="cb1166"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1166-1" title="1">X,y <span class="op">=</span> datasets.load_diabetes(return_X_y<span class="op">=</span><span class="va">True</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1988"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1988-1" title="1">X,y <span class="op">=</span> datasets.load_diabetes(return_X_y<span class="op">=</span><span class="va">True</span>)</a></code></pre></div>
 </div>
 <div id="choose-an-cross-validator" class="section level3">
 <h3><span class="header-section-number">17.12.2</span> Choose An Cross Validator</h3>
-<div class="sourceCode" id="cb1167"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1167-1" title="1">kf <span class="op">=</span> KFold(n_splits<span class="op">=</span><span class="dv">5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1989"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1989-1" title="1">kf <span class="op">=</span> KFold(n_splits<span class="op">=</span><span class="dv">5</span>)</a></code></pre></div>
 </div>
 <div id="run-cross-validation" class="section level3">
 <h3><span class="header-section-number">17.12.3</span> Run Cross Validation</h3>
 <p><strong>Single Scorer</strong><br />
 Use default scorer of the estimator (if available)</p>
-<div class="sourceCode" id="cb1168"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1168-1" title="1">lasso <span class="op">=</span> Lasso()</a>
-<a class="sourceLine" id="cb1168-2" title="2">cv_results1 <span class="op">=</span> cross_validate(lasso, X,y,cv<span class="op">=</span>kf,</a>
-<a class="sourceLine" id="cb1168-3" title="3">    return_train_score<span class="op">=</span><span class="va">False</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1990"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1990-1" title="1">lasso <span class="op">=</span> Lasso()</a>
+<a class="sourceLine" id="cb1990-2" title="2">cv_results1 <span class="op">=</span> cross_validate(lasso, X,y,cv<span class="op">=</span>kf,</a>
+<a class="sourceLine" id="cb1990-3" title="3">    return_train_score<span class="op">=</span><span class="va">False</span>)</a></code></pre></div>
 <p><strong>Multiple Scorer</strong><br />
 Specify the scorer
 <a href="http://scikit-learn.org/stable/modules/model_evaluation.html#scoring-parameter" class="uri">http://scikit-learn.org/stable/modules/model_evaluation.html#scoring-parameter</a></p>
-<div class="sourceCode" id="cb1169"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1169-1" title="1">cv_results2 <span class="op">=</span> cross_validate(lasso, X,y,cv<span class="op">=</span>kf,</a>
-<a class="sourceLine" id="cb1169-2" title="2">    scoring<span class="op">=</span>(<span class="st">&quot;neg_mean_absolute_error&quot;</span>,<span class="st">&quot;neg_mean_squared_error&quot;</span>,<span class="st">&quot;r2&quot;</span>),</a>
-<a class="sourceLine" id="cb1169-3" title="3">    return_train_score<span class="op">=</span><span class="va">False</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1991"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1991-1" title="1">cv_results2 <span class="op">=</span> cross_validate(lasso, X,y,cv<span class="op">=</span>kf,</a>
+<a class="sourceLine" id="cb1991-2" title="2">    scoring<span class="op">=</span>(<span class="st">&quot;neg_mean_absolute_error&quot;</span>,<span class="st">&quot;neg_mean_squared_error&quot;</span>,<span class="st">&quot;r2&quot;</span>),</a>
+<a class="sourceLine" id="cb1991-3" title="3">    return_train_score<span class="op">=</span><span class="va">False</span>)</a></code></pre></div>
 </div>
 <div id="the-result" class="section level3">
 <h3><span class="header-section-number">17.12.4</span> The Result</h3>
 <p>Result is a <strong>dictionary</strong></p>
-<div class="sourceCode" id="cb1170"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1170-1" title="1">cv_results1.keys()</a></code></pre></div>
-<p>dict_keys([‘fit_time’, ‘score_time’, ‘test_score’])</p>
-<div class="sourceCode" id="cb1171"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1171-1" title="1">cv_results2.keys()</a></code></pre></div>
-<p>dict_keys([‘fit_time’, ‘score_time’, ‘test_neg_mean_absolute_error’, ‘test_neg_mean_squared_error’, ‘test_r2’])</p>
-<div class="sourceCode" id="cb1172"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1172-1" title="1">cv_results1</a></code></pre></div>
-<p>{‘fit_time’: array([0. , 0. , 0. , 0. , 0.00099683]), ‘score_time’: array([0.0009985 , 0.00099587, 0. , 0. , 0. ]), ‘test_score’: array([0.28349047, 0.35157959, 0.3533813 , 0.33481474, 0.36453281])}</p>
-<div class="sourceCode" id="cb1173"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1173-1" title="1">cv_results2</a></code></pre></div>
-<p>{‘fit_time’: array([0.00100064, 0.00100064, 0.00099993, 0.00099921, 0.00099993]), ‘score_time’: array([0., 0., 0., 0., 0.]), ‘test_neg_mean_absolute_error’: array([-50.09003423, -52.54110842, -55.02813846, -50.81121806,
--55.60471593]), ‘test_neg_mean_squared_error’: array([-3491.74009759, -4113.86002091, -4046.91780932, -3489.74018715,
--4111.92401769]), ‘test_r2’: array([0.28349047, 0.35157959, 0.3533813 , 0.33481474, 0.36453281])}</p>
+<div class="sourceCode" id="cb1992"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1992-1" title="1">cv_results1.keys()</a></code></pre></div>
+<pre><code>## dict_keys([&#39;fit_time&#39;, &#39;score_time&#39;, &#39;test_score&#39;])</code></pre>
+<div class="sourceCode" id="cb1994"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1994-1" title="1">cv_results2.keys()</a></code></pre></div>
+<pre><code>## dict_keys([&#39;fit_time&#39;, &#39;score_time&#39;, &#39;test_neg_mean_absolute_error&#39;, &#39;test_neg_mean_squared_error&#39;, &#39;test_r2&#39;])</code></pre>
+<div class="sourceCode" id="cb1996"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1996-1" title="1">cv_results1</a></code></pre></div>
+<pre><code>## {&#39;fit_time&#39;: array([0.00100112, 0.00100398, 0.00099373, 0.        , 0.        ]), &#39;score_time&#39;: array([0.        , 0.00099802, 0.        , 0.00100207, 0.00099826]), &#39;test_score&#39;: array([0.28349047, 0.35157959, 0.3533813 , 0.33481474, 0.36453281])}</code></pre>
+<div class="sourceCode" id="cb1998"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1998-1" title="1">cv_results2</a></code></pre></div>
+<pre><code>## {&#39;fit_time&#39;: array([0.00100112, 0.        , 0.        , 0.0010767 , 0.00092363]), &#39;score_time&#39;: array([0.00099969, 0.00099754, 0.00099969, 0.        , 0.        ]), &#39;test_neg_mean_absolute_error&#39;: array([-50.09003423, -52.54110842, -55.02813846, -50.81121806,
+##        -55.60471593]), &#39;test_neg_mean_squared_error&#39;: array([-3491.74009759, -4113.86002091, -4046.91780932, -3489.74018715,
+##        -4111.92401769]), &#39;test_r2&#39;: array([0.28349047, 0.35157959, 0.3533813 , 0.33481474, 0.36453281])}</code></pre>
 
 </div>
 </div>
@@ -1339,26 +1342,14 @@ gitbook.start({
 "collapse": "subsection",
 "scroll_highlight": true
 },
-"toolbar": "position: fixed ",
+"toolbar": {
+"position": "fixed"
+},
 "searh": true
 });
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
