@@ -1,0 +1,985 @@
+--- 
+title: "Python Bookdown"
+author: "Yong Keh Soon"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: yongks/python_bookdown
+description: "This is a python cookbook, written using RMarkdown Notebook. It is made possible by using reticulate R library as the bridge between R and Python."
+---
+
+# Prerequisites {-}
+
+Placeholder
+
+
+
+<!--chapter:end:index.Rmd-->
+
+
+# Environment Setup
+
+Placeholder
+
+
+## Notebook Setup
+## Libraries
+### Built-In Libraries
+### Common External Libraries
+### numpy
+### scipy
+### Pandas
+### scikit-learn
+### matplotlib
+## Magic Functions
+### List of Magic 
+### Line Magic
+#### %timeit
+#### %matplotlib
+#### %who
+### Cell Magic
+#### %%timeit
+## Package Management
+### Conda
+#### Conda Environment
+#### Package Version
+#### Package Installation
+### PIP
+#### Package Version
+#### Package Installation
+## Everything Is Object
+## Assignment
+### Multiple Assignment
+### Augmented Assignment
+### Unpacking Assingment
+## Numbers
+### Integer
+### Float
+### Number Operators
+## String
+### Constructor
+#### Classical Method
+#### Shortcut Method
+#### Multiline Method
+#### Immutability
+### Class Constants
+#### Letters
+#### Digits
+#### White Spaces
+### Instance Methods
+#### Substitution : **```format()```**
+#### Substitution : **```f-string```**
+#### Conversion: ```upper() lower()```
+#### ```find()``` pattern position
+#### ```strip()``` off blank spaces
+#### List Related: ```split()```
+#### List Related: ```join()```
+### Operator
+#### ```%``` Old Style Substitution
+#### ```+``` Concatenation
+#### ```in```  matching
+#### Comparitor
+### Iterations
+## Boolean
+### What is Considered False ?
+### ```and``` operator
+### ```not``` operator
+### ```or``` operator
+## None
+### None is an Object
+### Comparing None
+## Tuple
+### Assignment
+#### (item1, item2, item3)
+#### item1, item2, item3
+### Accessing
+### Duplicating Tuple
+## List
+### Creating List
+#### Empty List
+#### Literal Assignment
+### Accessing Items
+### Methods
+#### Remove Item(s)
+#### Appending Item (s)
+#### Other Methods
+### Operator
+#### Concatenation
+### List is Mutable
+### Duplicate or Reference
+### List Is Iterable
+#### For Loop
+#### List Comprehension
+### Conversion
+### Built-In Functions Applicable To List
+## Dictionaries
+### Creating dict
+### Accessing dict
+### Dict are Mutable
+## Sets
+### Membership Test
+### Subset Test
+### Union using '|'
+### Intersection using '&'
+### Difference using '-'
+## range
+## If Statement
+### Multiline If.. Statements
+### Single Line If .. Statement
+## For Loops
+### Loop thorugh 'range'
+### Loop through 'list'
+#### Standard For Loop
+#### List Comprehension
+### Loop Through 'Dictionary'
+## Generators
+### Basic Generator Function
+### Useful Generator Fuction
+### Generator Expression
+### Compare to Iterator Class
+## Package Source
+### Conda
+### PIP
+## Importing Library
+### Import Entire Library
+#### Import Into Standalone Namespace
+#### Import Into Global Name Space
+### Import Specific Function
+### Machine Learning Packages
+## Define Function
+### Function Arguments
+### List Within Function
+### Return Statement
+### No Return Statement
+### Return Multiple Value
+### Passing Function as Argument 
+### Arguments
+#### Example 1
+#### Example 2
+#### Example 3
+#### Example 4
+#### Example 5
+#### Example 6 Empty args
+### keyword arguments
+#### Example 1
+#### Example 2
+#### Example 3
+### Mixing *args, **kwargs
+#### Example 1
+#### Example 2
+## Defining Class
+## Object Class Assignment
+## Calling Method
+## Getting Property
+## Setting Property
+## Definition
+## Examples
+### Example 1 - Plain decorator function
+### Example 2 - Decorator with Class
+## ISO8601
+### Date Time
+### Instance Method
+#### ```replace()```
+#### ```weekday(), isoweekday()```
+#### Formating with ```isoformat()```
+### Attributes
+## date and datetime
+### Constructor
+### Class Method
+#### ```now``` and ```today```
+#### ```utcnow```
+#### ```combine()``` date and time
+#### Convert from String ```strptime()```
+#### Convert from ISO ```fromisoformat```
+### Instance Method
+#### ```weekday```
+#### ```replace```
+#### convert to ```.time()```
+#### Convert to ```.date()```
+#### Convert to String
+### Attributes
+## time
+### Constructor
+### Class Method
+#### ```now()```
+### Attributes
+## timedelta
+## Sample Data
+## Column Manipulation
+### Copy Column
+### New Column from existing Column
+### Select Column(s)
+#### By Column Names
+#### Specify Column Range
+### Drop Column(s)
+## Sorting (arrange)
+## Grouping
+## Summarization
+### Simple Method
+### Specify Summarized Column Name
+### Number of Rows in Group
+
+<!--chapter:end:01-fundamental.Rmd-->
+
+
+# numpy
+
+Placeholder
+
+
+## Environment Setup
+## Module Import
+## other modules
+## Data Types
+### NumPy Data Types
+### int32/64
+### float32/64
+### bool
+### str
+### datetime64
+#### Constructor
+#### Instance Method
+## Numpy Array
+### Concept
+### Constructor
+#### dType: int, float
+#### dType: datetime64
+#### 2D Array
+### Dimensions
+#### Differentiating Dimensions
+#### 1-D Array
+#### 2-D Array
+#### 2-D Array - Single Row
+#### 2-D Array : Single Column
+### Class Method
+#### ```arange()```
+#### ```ones()```
+#### ```zeros()```
+#### ```where()```
+#### Logical Methods
+### Instance Method
+#### ``` astype()``` conversion
+#### ```reshape()```
+### Element Selection
+#### Sample Data
+#### 1-Dimension
+#### 2-Dimension
+### Attributes
+#### ```dtype```
+#### ```dim```
+#### ```shape```
+### Operations
+#### Arithmetic
+#### Comparison
+## Random Numbers
+### Uniform Distribution
+#### Random Integer (with Replacement)
+#### Random Integer (with or without replacement)
+#### Random Float
+### Normal Distribution
+#### Standard Normal Distribution
+#### Normal Distribution (Non-Standard)
+#### Linear Spacing
+## Sampling (Integer)
+## NaN : Missing Numerical Data
+
+<!--chapter:end:02-numpy.Rmd-->
+
+
+# pandas
+
+Placeholder
+
+
+## Environment Setup <a class="tocSkip">
+## Modules Import
+## Other Libraries
+### Display Setup
+## Pandas Objects
+### Pandas Data Types
+### Pandas Data Structure  
+## Class Method
+### Conversion: ```to_datetime()```
+#### From List to ```DateTimeIndex```
+#### From List to Series to Series
+#### From Scalar to Timestamp
+### Generate Timestamp Sequence
+#### ```date_range()```
+## Specify start, Periods, Frequency
+## Start from Date Only
+## Start from DateTime
+## Specify start, End and Frequency
+### Frequency Table (crosstab)
+#### Sample Data
+#### One DimensionTable
+#### Two Dimension Table
+#### Higher Dimension Table
+#### Getting Margin
+#### Getting Proportion
+#### Reseting Index
+## Timestamp
+### Constructor
+#### From Number
+#### From String
+#### From Standard Library ```datetime``` and ```date``` Object
+### Attributes
+### Operator
+### Instance Methods
+#### Useful Methods
+#### Convert To datetime
+#### Convert To ```numpy```
+#### Formatting with ```strftime```
+#### Add Timezone
+#### Convert Timezone
+#### Removing TImezone
+#### Formatting with ```isoformat```
+#### ```ceil```
+#### ```replace()```
+## Series
+### Constructor
+#### Empty Series
+#### From Scalar
+#### From array-like
+#### From Dictionary
+#### Specify Index
+#### Mix Element Types
+#### Specify Data Types
+### Accessing Series
+#### Sample Data
+#### by Row Number(s)
+#### by Index(es)
+#### Filtering Criteria
+### Modifying Series
+#### by Row Number(s)
+#### by Index(es)
+### Series Attributes
+#### The Data
+#### ```index```
+#### ```dtype```
+#### Dimensions
+#### ```.name```
+### Instance Methods
+#### .reset_index ()
+#### Structure Conversion
+#### DataType Conversion
+### Series Operators
+#### Arithmetic Operator
+#### Logic Operator
+### Series String Accesor ```.str```
+#### Splitting
+#### Matching
+#### Case Conversion
+#### Number of Characters
+#### String Indexing
+#### Splitting
+#### Split and Expand Into DataFrame
+#### Series Substring Extraction
+### Series DateTime Accessor ```.dt```
+#### Sample Data
+#### Convert To 
+#### Timestamp Attributes
+## DataFrame
+### Constructor
+#### From Row Oriented Data (List of Lists)
+#### From Row Oriented Data (List of Dictionary)
+#### From Column Oriented Data
+### Attributes
+#### Dimensions
+#### Index
+#### Columns
+#### Values
+### Index Manipulation
+#### Sample Data
+#### Convert Column To Index
+#### Convert Index Back To Column
+#### Updating Index ( .index= )
+#### Reordering Index (. reindex )
+### Subsetting Columns
+#### Select Single Column
+#### Select Multiple Columns
+#### Selection by Data Type
+#### Subset by ```filter()```
+### Column Manipulation
+#### Sample Data
+#### Renaming Columns
+#### Reordering Columns
+#### Duplicating or Replacing Column
+#### Dropping Columns (.drop)
+### Subsetting Rows
+#### Sample Data
+#### By Index or Boolean
+#### By Row Number
+#### ```query()```
+#### ```sample()```
+### Row Manipulation
+#### Sample Data
+#### Dropping Rows (.drop)
+### Slicing
+#### Sample Data
+#### Getting One Cell  
+#### Getting Multiple Cells
+### Chained Indexing
+### Data Structure
+#### Instance Methods - Structure
+#### Conversion To Other Format
+### Exploratory Analysis
+#### Sample Data
+#### All Stats in One  - .describe()
+#### min/max/mean/median
+### Plotting
+## Categories
+### Creating
+#### From List
+#### From Series
+#### Ordering Category
+### Properties
+#### .categories
+#### .codes
+### Rename Category
+#### Renamce To New Category Object
+#### Rename Inplace
+### Adding New Category
+### Removing Category
+#### Remove Specific Categor(ies)
+#### Remove Unused Category
+### Add and Remove Categories In One Step - Set()
+### Categorical Descriptive Analysis 
+#### At One Glance
+#### Frequency Count
+#### Least Frequent Category, Most Frequent Category, and Most Frequent Category
+### Other Methods
+#### .get_values()
+## Dummies
+### Sample Data
+### Dummies on Array-Like Data
+### Dummies on DataFrame (multiple columns)
+#### All Columns
+#### Selected Columns
+### Dummies with na
+### Specify Prefixes
+### Dropping First Column
+## Getting External Data
+### html_table parser
+### CSV Import
+#### Syntax
+#### Default Import
+#### Specify Data Types
+#### On The Fly Date Parsing and Indexing
+#### Parse Date, Then Set as Index
+## GroupBy
+### Creating Groups
+### Properties
+#### Number of Groups Created
+#### Row Numbers Associated For Each Group
+### Methods
+#### Number of Rows In Each Group
+#### Valid (not Null) Data Count For Each Fields In The Group
+### Retrieve Rows
+#### Retrieve N Rows For Each Groups
+#### Retrieve Rows In One Specific Group
+#### Retrieve n-th Row From Each Group
+### Iteration
+### Apply Aggregate Functions to Groups
+#### Apply One Function to One or More Columns
+#### Apply One or More Functions To All Columns
+#### Apply Different Functions To Different Columns
+### Transform
+## Concat
+### Sample Data
+### Column-Wise
+#### Multiple Arrays/Series
+#### DataFrame and Series
+### Row-Wise
+## Fundamental Analysis
+### Structure of the Dataframe (.info())
+### First Few Rows (.head())
+## Missing Data
+### What Is Considered Missing Data ? 
+### Sample Data
+## Pandas DateTime
+## DateTimeIndex
+### Creating 
+#### Convert From
+### Instance Method
+#### Conversion to: datetime.datetime 
+#### Converion: ```to_series```
+#### Converion: ```to_frame()```
+### Properties
+
+<!--chapter:end:03-pandas.Rmd-->
+
+
+# matplotlib
+
+Placeholder
+
+
+## Library
+## Sample Data
+## MATLAB-like API
+### Sample Data
+### Single Plot
+### Multiple Subplots
+## Object-Oriented API
+### Sample Data
+### Single Plot
+### Multiple Axes In One Plot
+### Multiple Subplots
+#### Simple Subplots - all same size 
+#### Complicated Subplots - different size
+### Figure Customization
+#### Avoid Overlap - Use tight_layout()
+#### Avoid Overlap - Change Figure Size
+#### Text Within Figure
+### Axes Customization
+#### Y-Axis Limit
+#### Text Within Axes
+#### Share Y Axis Label
+#### Create Subplot Individually
+## Histogram
+## Scatter Plot
+## Bar Chart
+## Seaborn and Matplotlib
+## Sample Data
+## Scatter Plot
+### 2x Numeric
+### 2xNumeric + 1x Categorical
+### 2xNumeric + 2x Categorical
+### 2xNumeric + 3x Categorical
+### Customization
+#### size
+#### col_wrap
+## Histogram
+### 1x Numeric
+## Bar Chart
+### 1x Categorical, 1x Numeric
+### Customization
+#### Ordering
+#### Flipping X/Y Axis
+## Faceting
+### Faceting Histogram
+### Faceting Scatter Plot
+## Pair Grid
+### Simple Pair Grid
+### Different Diag and OffDiag
+## Histogram
+### 1xNumeric
+### 1xNumeric + 1xCategorical
+## Scatter Plot
+### 2x Numeric
+### 2x Numeric + 1x Categorical
+### 2x Numeric + 1x Numeric + 1x Categorical
+### Overlay Smooth Line
+## Line Chart
+### 2x Numeric Data
+### 1x Numeric, 1x Categorical
+### 2x Numeric, 1x Categorical
+## Bar Chart
+#### 1x Categorical
+
+<!--chapter:end:04-visualization.Rmd-->
+
+
+# sklearn
+
+Placeholder
+
+
+## Setup (hidden)
+## The Library
+## Model Fitting
+### Underfitting
+### Overfitting
+### Just Right
+## Model Tuning
+## High Level ML Process
+## Built-in Datasets
+### diabetes (regression)
+#### Load Dataset
+#### keys
+#### Features and Target
+#### Load with X,y (Convenient Method)
+### digits (Classification)
+#### data
+#### Images
+#### Loading Into X,y (Convenient Method)
+### iris (Classification)
+#### Feature Names
+#### target
+## Train Test Data Splitting
+### Sample Data
+### One Time Split
+#### Method 1: Split One Dataframe Into Two (Train & Test)
+#### Method 2: Split Two DataFrame (X,Y) into Four x_train/test, y_train/test
+### K-Fold
+### Leave One Out
+## Polynomial Transform
+### Single Variable
+#### Sample Data
+#### Degree 1
+#### Degree 2
+#### Degree 3
+#### Degree 4
+### Two Variables
+#### Sample Data
+#### Degree 2
+#### Degree 3
+## Imputation of Missing Data
+### Sample Data
+### Imputer
+#### mean strategy
+## Scaling
+### Sample Data
+### MinMax Scaler
+### Standard Scaler
+## Pipeline
+### Sample Data
+### Create Pipeline
+### Executing Pipeline
+## Cross Validation
+### Load Data
+### Choose An Cross Validator
+### Run Cross Validation
+### The Result
+
+<!--chapter:end:05-sklearn.Rmd-->
+
+# NLP
+Natural Language Processing
+
+## Setup (hidden)
+
+```{r include=FALSE}
+library(reticulate)
+use_condaenv('Anaconda3')    #conda_list() - to find out the name of conda environment
+```
+
+```{python}
+import numpy as np
+import pandas as pd
+from IPython.core.display import display, HTML
+display(HTML("<style>.container { width:75% !important; margin-left:350px; }</style>"))
+pd.set_option( 'display.notebook_repr_html', False)  # render Series and DataFrame as text, not HTML
+pd.set_option( 'display.max_column', 10)    # number of columns
+pd.set_option( 'display.max_rows', 10)      # number of rows
+pd.set_option( 'display.width', 90)         # number of characters per row
+```
+
+## The Library
+
+```{python}
+from nltk.tokenize.casual     import casual_tokenize
+from nltk.tokenize.treebank   import TreebankWordTokenizer
+```
+
+## Tokenizer
+
+### Casual Tokenizer
+
+Built to deal with short, informal, emotion-laced texts from social netwtorks where grammar and spelling conventions vary widely
+
+
+```{python results='hold', collapse=FALSE}
+casual_tokenize("hi @ali-baba, you are aweeeeeesome! isn't it. Believe it.")
+```
+
+Strip off usernames and reduce number of repeated chars
+
+```{python}
+casual_tokenize("hi @ali-baba, you are aweeeeeesome! isn't it. Believe it.", 
+                reduce_len=True,     ## shorten repeated chars
+                strip_handles=True)  ## strip usernames
+```
+
+
+### Treebank Tokenizer¶
+
+```{python}
+TreebankWordTokenizer().tokenize("hi @ali-baba, you are aweeeeeesome! isn't it. Believe it.")
+```
+
+
+
+## N-Gram
+
+
+```{python}
+from nltk.util import ngrams 
+import re
+sentence = "Thomas Jefferson began building the city, at the age of 25"
+```
+
+```{python}
+
+pattern = re.compile(r"[-\s.,;!?]+")
+tokens = pattern.split(sentence)
+print(tokens)
+```
+
+
+
+Convert To 2-Gram List in two steps
+
+```{python}
+ngrams(tokens,2)
+```
+
+
+```{python}
+grammy = list( ngrams(tokens,2) )
+print(grammy)
+```
+
+
+```{python}
+[ " ".join(x) for x in grammy]
+
+```
+
+## Stopwords
+
+### Custom Stop Words
+
+
+```{python}
+stop_words = ['a','an','the','on','of','off','this','is','at']
+sentence = "The house is on fire"
+tokens = TreebankWordTokenizer().tokenize(sentence)
+print(tokens)
+```
+
+
+```{python}
+tokens_without_stopwords = [ x for x in tokens if x not in stop_words ]
+print(tokens_without_stopwords)
+```
+
+### NLTK Stop Words
+
+Contain 179 words, in a list form
+
+```{python}
+import nltk
+#nltk.download('stopwords')
+```
+
+
+```{python}
+nltk_stop_words = nltk.corpus.stopwords.words('english')
+print(nltk_stop_words)
+print(len(nltk_stop_words))
+```
+
+### SKLearn Stop Words¶
+
+Contain 318 stop words, in frozenset form
+
+
+```{python}
+from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS as sklearn_stop_words
+print(len( sklearn_stop_words))
+print( sklearn_stop_words)
+```
+
+
+```{python}
+combined_stop_words = list( set(nltk_stop_words) | set(sklearn_stop_words) )
+```
+
+### Combined NLTK and SKLearn Stop Words¶
+
+
+```{python}
+combined_stop_words = list( set(nltk_stop_words) | set(sklearn_stop_words) )
+len( combined_stop_words )
+```
+
+**Intersection, agreeing only 119 out of 378 words**
+
+```{python}
+len( list( set(nltk_stop_words) & set(sklearn_stop_words)) )
+```
+
+
+## Normalizing
+
+Similar things are combined into single normalized form. This will reduced the vocabulary.
+
+### Case Folding
+
+If tokens aren't cap normalized, you will end up with large word list.
+However, some information is often communicated by capitalization of word, such as name of places. If names are important, consider using proper noun.
+
+
+```{python}
+tokens = ['House','Visitor','Center']
+[ x.lower() for x in tokens]
+```
+
+
+### Stemming
+
+Output of a stemmer is not necessary a proper word.
+**Porter stemmer** is a lifetime refinement with 300 lines of python code, it automatically convert words to lower cap.
+Stemming is faster then Lemmatization
+
+```{python}
+from nltk.stem.porter import PorterStemmer
+stemmer = PorterStemmer()
+tokens = ('house','Housing','hOuses', 'Malicious','goodness')
+[stemmer.stem(x) for x in tokens ]
+```
+
+### Lemmatization
+
+NLTK uses connections within princeton WordNet graph for word meanings.
+
+```{python}
+#nltk.download('wordnet')
+from nltk.stem import WordNetLemmatizer
+lemmatizer = WordNetLemmatizer()
+```
+```{python}
+print( lemmatizer.lemmatize("better", pos ='a') )
+print( lemmatizer.lemmatize("better", pos ='n') )
+```
+
+```{python}
+print( lemmatizer.lemmatize("good", pos ='a') )
+print( lemmatizer.lemmatize("good", pos ='n') )
+```
+
+### Comparing Stemming and Lemmatization
+
+- Lemmatization is slower than stemming
+= Lemmatization is better at retaining meanings
+- Lemmatization produce valid english word
+- Stemming not necessary produce valid english word
+- Both reduce vocabulary size, but increase ambiguity
+- For search engine application, stemming and lemmatization will improve recall as it associate more documents with the same query words, however with the cost of reducing precision and accuracy.
+
+For search-based chatbot where accuracy is more important, it should first search with unnormalzied words.
+
+## Sentiment
+
+### Vader
+
+- It is a rule based sentiment analyzer, contain 7503 lexicons.
+- It is good for social media because lexicon contain emoji text.
+- Contain only 3 n-gram
+
+
+#### Vader Lexicon
+
+```{python}
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+vadersa = SentimentIntensityAnalyzer()
+print( len(vadersa.lexicon))
+```
+
+```{python}
+vadersa.lexicon  ## this is a dictionary
+```
+
+**Only three N-Gram in the lexicon**
+
+```{python}
+[ (tok,score) for tok, score in vadersa.lexicon.items() if " " in tok]
+```
+
+If stemming or lemmatization is used, stem/lemmatize the vader lexicon too
+
+```{python}
+[ (tok,score) for tok, score in vadersa.lexicon.items() if "lov" in tok]
+```
+
+#### Polarity Scoring
+
+Scoring result is a dictionary of:
+
+- neg
+- neu
+- pos
+- compound
+**neg, neu, pos adds up to 1.0**
+
+```{python}
+corpus = ["Python is a very useful but hell difficult to learn",
+        ":) :) :("]
+        
+for doc in corpus:
+  print(doc, "-->", vadersa.polarity_scores(doc) )
+```
+
+## Naive Bayes
+
+### Libraries
+
+```{python}
+from nlpia.data.loaders import get_data
+from nltk.tokenize.casual     import casual_tokenize
+from collections import Counter
+```
+
+### The Data
+
+```{python}
+movies = get_data('hutto_movies')   # download data
+print(movies.head(), '\n\n',
+      movies.describe())
+```
+
+### Bag of Words
+
+- Tokenize each record, remove single character token, then convert into list of counters (words-frequency pair).  
+- Each item in the list is a counter, which represent word frequency within the record
+
+```{python}
+bag_of_words = []
+for text in movies.text:
+    tokens = casual_tokenize(text, reduce_len=True, strip_handles=True)  # tokenize
+    tokens = [x for x in tokens if len(x)>1]                  ## remove single char token
+    bag_of_words.append( Counter(tokens, strip_handles=True)  ## add to our BoW
+    )
+
+unique_words =  list( set([ y  for x in bag_of_words  for y in x.keys()]) )
+
+print("Total Rows: ", len(bag_of_words),'\n\n',
+      'Row 1 BoW: ',bag_of_words[:1],'\n\n',    # see the first two records
+      'Row 2 BoW: ', bag_of_words[:2], '\n\n',
+      'Total Unique Words: ', len(unique_words))
+```
+
+**Convert NaN into 0 then all features into integer**
+
+```{python}
+bows_df = pd.DataFrame.from_records(bag_of_words)
+bows_df = bows_df.fillna(0).astype(int)  # replace NaN with 0, change to integer
+bows_df.head()
+```
+
+### Build The Model
+
+```{python}
+from sklearn.naive_bayes import MultinomialNB
+train_y  = movies.sentiment>0   # label
+train_X  = bows_df              # features
+nb_model = MultinomialNB().fit( train_X, train_y)
+```
+
+### Train Set Prediction
+
+First, make a prediction on training data, then compare to ground truth. 
+
+```{python}
+train_predicted = nb_model.predict(bows_df)
+print("Accuracy: ", np.mean(train_predicted==train_y).round(4))
+```
+
+
+<!--chapter:end:06-nlp.Rmd-->
+

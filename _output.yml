@@ -1,28 +1,29 @@
-bookdown::html_book:
-  toc: true
-  toc_dept: 2
-  toc_float: false
-  css: toc.css
-  theme: united
-
 bookdown::gitbook:
-  css: style.css
-  toc_dept: 4
-
+  #css: style.css
+  css: custom.css
   config:
     toc:
-      collapse: section
-      before: |
-        <li><a href="./">Python Book</a></li>
-      after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-    edit: https://github.com/rstudio/bookdown-demo/edit/master/%s
-    download: ["pdf", "epub"]
-
-bookdown::pdf_book:
-  includes:
-    in_header: preamble.tex
-  latex_engine: xelatex
-  citation_package: natbib
-  keep_tex: yes
-bookdown::epub_book: default
+      collapse: subsection
+      scroll_highlight: yes
+      before:
+        <li><a href="./">Python Bookdown</a></li>
+      after: null
+    toolbar: |
+      position: fixed
+    edit: https://github.com/yongks/biz_tech_analytics_r/edit/master/%s
+    download: null
+    searh: yes
+    fontsettings:
+      theme: white
+      family: sans
+      size: 2
+    sharing:
+      facebook: yes
+      twitter: yes
+      google: no
+      weibo: no
+      instapper: no
+      vk: no
+      all: ['facebook', 'google', 'twitter', 'weibo', 'instapaper']
+  split_by: chapter
+  highlight: tango

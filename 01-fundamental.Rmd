@@ -4,7 +4,7 @@
 
 ```{r include=FALSE}
 library(reticulate)
-use_condaenv('base')
+use_condaenv('Anaconda3')
 ```
 
 ```{python include=FALSE}
@@ -12,7 +12,16 @@ from IPython.core.display import display, HTML
 display(HTML("<style>.container { width:75% !important; margin-left:350px; }</style>"))
 ```
 
-## Most Common Libraries
+## Libraries
+
+### Built-In Libraries
+
+```{python}
+import string
+import datetime as dt
+```
+
+### Common External Libraries
 
 ```{python}
 import numpy as np
@@ -32,7 +41,6 @@ from plotnine import *
 - High level mathematical funcitons to operate on them 
 - Efficient array computation, modeled after matlab  
 - Support vectorized array math functions (built on C, hence faster than python for loop and list)  
-
 
 ### scipy
 - Collection of mathematical algorithms and convenience functions built on the numpy extension  
@@ -181,23 +189,28 @@ pip install plydata
 
 # Python Fundamental
 
-## Variable and Values
+## Everything Is Object
 - Every varibales in python are **objects**  
 - Every variable assginment is **reference based**, that is, each object value is the reference to memory block of data 
 
-In the below exmaple, **a and b** refer to the **same memory location**.
+In the below exmaple, **a, b and c ** refer to the **same memory location**:  
+- Notice when an object assigned to another object, they refer to the same memory location  
+- When two variable refers to the same value, they refer to the same memory location
 
 ```{python}
 a = 123
-b = a  
+b = 123  
+c = a
 print ('Data of a =',  a,
        '\nData of b =',b,
+       '\nData of c =',c,
        '\nID of a = ', id(a),
-       '\nID of b = ', id(b)
+       '\nID of b = ', id(b),
+       '\nID of c = ', id(c)
 )
 ```
 
-Changing data value (using assignment) actually changed **the reference value**
+Changing data value (using assignment) changes **the reference**
 
 ```{python}
 a = 123
@@ -215,7 +228,7 @@ print ('Data of a =',a,
 
 ### Multiple Assignment
 
-Note that all object created using this method refer to the **same memory location**.
+Assign multiple variable at the same time with same value.  Note that all object created using this method refer to the **same memory location**.
 
 ```{python }
 x = y = 'same mem loc'
@@ -235,8 +248,9 @@ y += 1
 print ('y = ', y)
 ```
 
-
 ### Unpacking Assingment
+
+Assign multiple value to multiple variabels at the same time.
 
 ```{python, }
 x,y = 1,3
@@ -246,49 +260,47 @@ print (x,y)
 
 # Built-in Data Types
 
-
 ## Numbers
-
+Two types of built-in number type, **integer and float**.
 
 ### Integer
 
-```{python, }
+```{python}
 n = 123
 type (n)
 ```
 
-
 ### Float
 
-```{python, }
+```{python}
 f = 123.4
 type (f)
 ```
 
-
 ### Number Operators
 
+In general, when the operation potentially return **float**, the result is float type. Otherwise it return **integer**.
 
 **Division** always return float
 
 ```{python, }
-print(4/2)  # return int
+print(4/2)  # return float
 type(4/2)
 ```
 
-
-**Integer Division** return truncated int or float
+**Integer Division** by integer return inter. Integer division by float return float.
 
 ```{python, }
-print (8//3)    # return int
-print (8//3.2)  # return float
+print (8//3,'\n',    # return int
+       8//3.2)       # return float
 ```
 
-**Remainder** return either float or integer
+**Remainder** by integer return **integer**.  
+Remainder by float return **float**
 
 ```{python, }
-print (8%3)    # return int
-print (8%3.2)  # return float
+print (8%3, '\n',    # return int
+       8%3.2)        # return float
 ```
 
 **Power** return int or float
@@ -299,34 +311,34 @@ print (2.1**3)  # return float
 print (2**3.1)  # return float
 ```
 
-
 ## String
-### A List of Characters
-String is an object class 'str'. It is an **ordered collection of letters**, an array of object type **str**
 
-
-### Load Library
+String is an object class 'str'. It is an **ordered collection of letters**, an **array** of object type **str**
 
 ```{python}
 import string
+s = 'abcde'
+print( '\nvar type  = ', type(s),
+       '\nelems     = ',s[0], s[1], s[2],
+       '\nlen       = ', len(s),
+       '\nelem type = ',type(s[1]))
 ```
 
-
 ### Constructor
+
 #### Classical Method
+
 ```class str(object='')```
 
 ```{python}
 my_string = str()        ## empty string
 ```
 
-
 ```class str(object=b'', encoding='utf-8', errors='strict')```
 
 ```{python}
 my_string = str('abc')
 ```
-
 
 #### Shortcut Method
 
@@ -342,61 +354,48 @@ This is me.
 Yong Keh Soon
 '''
 print(my_string)
-my_string
 ```
+Note that the variable contain **```\n```** front and end of the string.
 
 ```{python}
-my_string = '''
-This is me.
-Yong Keh Soon
-'''
-print(my_string)
 my_string
-```
-
-```{python}
-s='abcde'
-print( type(s) )
-print( s[0], s[1], s[2] )
-print( len(s) )
-print(type(s[1]))
 ```
 
 
 #### Immutability
+
 - String is **immuatable**. Changing its content will result in **error** 
-- Changing the variable completley change the reference (for new object)
 
 ```{python}
 s = 'abcde'
 print ('s : ', id(s))
+#s[1] = 'z'               # immutable, result in error
+```
+
+- Changing the variable completley change the reference (for new object)
+
+```{python}
 s = 'efgh'
 print ('s : ', id(s))
 ```
 
-```{python}
-## s[1] = 'z' # error
-```
-
 ### Class Constants
 
-**Letters**
+#### Letters
 
 ```{python}
-print( string.ascii_letters )
-print( string.ascii_lowercase )
-print( string.ascii_uppercase )
+print( 'letters = ', string.ascii_letters,
+        '\nlowercase = ',string.ascii_lowercase,
+        '\nuppercase = ',string.ascii_uppercase )
 ```
 
-
-**Digits**
+#### Digits
 
 ```{python}
 string.digits
 ```
 
-
-**White Spaces**
+#### White Spaces
 
 ```{python}
 string.whitespace
@@ -405,18 +404,12 @@ string.whitespace
 ### Instance Methods
 
 #### Substitution : **```format()```**
+
 **By Positional**
 
 ```{python}
-'{} + {} + {}'.format('a', 'b', 'c')  # auto sequence
-```
-
-```{python}
-'{0} + {1} = {2}'.format('aa', 'bb', 'cc') # manual sequence
-```
-
-```{python}
-'{2} + {1} = {2}'.format('a', 'b', 'c') # manual sequence
+print( '{} + {} = {}'.format('a', 'b', 'c'),         # auto sequence
+       '\n{0} + {1} = {2}'.format('aa', 'bb', 'cc')) # manual sequence
 ```
 
 **By Name**
@@ -425,12 +418,15 @@ string.whitespace
 'Coordinates: {latitude}, {longitude}'.format(latitude='37.24N', longitude='-115.81W') ## constant
 ```
 
+**By Dictionary Name**
+
 ```{python}
 coord = {'latitude': '37.24N', 'longitude': '-115.81W'} ## dictionary key/value
 'Coordinates: {latitude}, {longitude}'.format(**coord)
 ```
 
-**Formatting Number**  
+**Formatting Number** 
+
 Float
 
 ```{python}
@@ -448,33 +444,28 @@ Float
 Integer, Percentage
 
 ```{python}
-'{:,}  {:,.2%}'.format(1234567890, 55676.345345)
+'{0:,}   {0:.2%}   {0:,.2%}'.format(1234567890.4455)
 ```
 
 **Alignment**
 
 ```{python}
-'{:<30}'.format('left aligned')
+'{0:<20}   {0:<<20}'.format('left aligned')
 ```
 
 ```{python}
-'{:>30}'.format('right aligned')
+'{0:>20}  {0:$>20}'.format('right aligned')
 ```
 
 ```{python}
 '{:^30}'.format('centered')  # use '*' as a fill char
 ```
 
-```{python}
-'{:*^30}'.format('centered')  # use '*' as a fill char
-```
-
-
 #### Substitution : **```f-string```**
 
 ```{python}
 my_name = 'Yong Keh Soon'
-salary = 11123.346
+salary  = 11123.346
 f'Hello, {my_name}, your salary is {salary:,.2f} !'
 ```
 
@@ -510,7 +501,6 @@ filename.strip()
 
 #### List Related: ```split()```
 
-
 Splitting delimeter is specified. Observe the empty spaces were conserved in result array
 
 ```{python}
@@ -518,31 +508,23 @@ animals = 'a1,a2 ,a3, a4'
 animals.split(',')
 ```
 
-
 #### List Related: ```join()```
 
 ```{python}
 '-'.join(['1', '2', '3', '4'])
 ```
 
-
 ### Operator
-#### ```%``` Old Style Substitution
 
+#### ```%``` Old Style Substitution
 
 https://docs.python.org/3/library/stdtypes.html#old-string-formatting
 
-```{python, jupyter_meta = list(scrolled = TRUE)}
-name = 'Yong'
-'Hey %s, how are you !' % name
-```
-
 ```{python}
-name = 'Yong'
-errno = 123
-'Hey %s, there is a %d error!' % (name, errno)
+my_name = 'Yong Keh Soon'
+salary  = 11123.346
+'Hello, %s, your salary is %.2f !' %(my_name, salary)
 ```
-
 
 #### ```+``` Concatenation
 
@@ -558,86 +540,93 @@ For single string, **partial match**
 print( 'abc' in '123abcdefg' )
 ```
 
-For list of strings, **exact match**. Workaround for partial match in list of strings, **convert list to single string**
+For list of strings, **exact match** (even though only one element in list).  
+For partial match, workaround is to **convert list to single string**
 
 ```{python}
-print( 'abc' in ['123','abcdefg'] )
-print( 'abc' in ['abcdefg','123'] )
-print( 'abc' in ['123','abc','def'] )
-print( 'abc' in str(['123','abcdefg']) )
+print( 'abc' in ['abcdefg'],             # false
+       'abc' in ['abcdefg','123'],       # fakse
+       'abc' in ['123','abc','def'],     # true
+       'abc' in str(['123','abcdefg']))  # true
 ```
 
-
 #### Comparitor
+
+Comparitor compares the memory address.
 
 ```{python}
 a='abc'
 b='abc'
-print(a==b)
-print(a!=b)
+print('id(a) = ', id(a), 
+      '\nid(b) = ', id(b),
+      '\na == b  ', a==b)
 ```
-
 
 ### Iterations
 ```
-string[start:end:step]  # default step:1, start:0, end:last
+string[start:end:step]  # default start:0, end:last, step:1
 ```
-If step is negative, end value must be lower than start value
+If step is negative (reverse), end value must be lower than start value
 
 ```{python}
 s = 'abcdefghijk'
-print (s[0])      # first later
-print (s[:3])     # first 3 letters
-print (s[2:8:2])  # stepping
-print (s[-1])     # last letter
-print (s[-3:])    # last three letters
-print (s[::-1])   # reverse everything
-print (s[8:2:-1])
+print (s[0])       # first later
+print (s[:3])      # first 3 letters
+print (s[2:8 :2])  # stepping
+print (s[-1])      # last letter
+print (s[-3:])     # last three letters
+print (s[:   :-1]) # reverse everything
+print (s[8:2 :-1])
+print (s[8:2])     # return NOTHING
 ```
 
 
 ## Boolean
 
-```{python, jupyter_meta = list(code_folding = list())}
+```{python}
 b = False
 
 if (b):
     print ('It is true')
 else:
     print ('It is fake')
-    
 ```
 
-
 ### What is Considered False ?
+
 Everything below are false, **anything else are true**
 
 ```{python}
-print (bool(0))      # zero
-print (bool(None))   # none
-print (bool(''))     # empty string
-print (bool([]))     # empty list
-print (bool(()))     # empty tupple
-print (bool(False))  # False
-print (bool(2-2))    # expression that return any value above
+print ( bool(0),      # zero
+        bool(None),  # none
+        bool(''),    # empty string
+        bool([]),    # empty list
+        bool(()),    # empty tupple
+        bool(False), # False
+        bool(2-2))    # expression that return any value above
 ```
 
-
 ### ```and``` operator
+
+BEWARE !  
+
 - **and** can return different data types  
 - If evaluated result is **True**, the last **True Value** is returned (because python need to evaluate up to the last value)  
 - If evaluated result is **False**, the first **False Value** will be returned (because python return it immediately when detecting False value)
 
 ```{python}
-print (123 and 2 and 1)
-print (123 and () and 2)
+print (123 and 2 and 1,
+       123 and [] and 2)
 ```
-
 
 ### ```not``` operator
 
 ```{python}
+not (True)
 not (True or False)
+not (False)
+not (True and False)
+~(False)
 ```
 
 ### ```or``` operator
@@ -653,7 +642,9 @@ print (0 or () or [])
 
 
 ## None
-### None is Object
+
+### None is an Object
+
 - None is a Python **object NonType**  
 - Any operation to None object will result in **error**  
 - For array data with None elements, verification is required to check through iteration to determine if the item is not None. It is very computaionaly heavy 
@@ -667,20 +658,21 @@ t = np.array([1,2,3,4,5])
 t.dtype  #  its an integer
 ```
 
-```{python, jupyter_meta = list(scrolled = FALSE)}
+```{python}
+t1 = np.array([1, 2, 3, 4, 5])
 t = np.array([1, 2, 3, None, 4, 5])
-t.dtype  # it's an object
+t.dtype      # it's an object
+t1.dtype
 ```
 
-
 ### Comparing None
+
 **Not Prefered Method**
 
 ```{python}
 null_variable = None
 print( null_variable == None )
 ```
-
 
 **Prefered**
 
@@ -689,9 +681,7 @@ print( null_variable is None )
 print( null_variable is not None )
 ```
 
-
 # Built-In Data Structure
-
 
 ## Tuple
 Tuple is an **immutable list**. Any attempt to change/update tuple will return error. It can contain **different types** of object.
@@ -759,17 +749,7 @@ print('Copy ID:     ', id(copy_test))
 - You can pack list of items by placing them into []  
 - List is mutable
 
-
 ### Creating List
-
-
-#### List is An Object
-
-```{python}
-test = [1,2,34,5]
-type(test)
-```
-
 
 #### Empty List
 
@@ -777,41 +757,25 @@ type(test)
 empty = []      # literal assignment method
 empty = list()  # constructor method
 print (empty)
-type(empty)
 ```
 
+#### Literal Assignment
 
-#### Literal Assignment Method
 - **Multiple data types** is allowed in a list
 
 ```{python}
-mylist = [123,'abc',456]
+[123,'abc',456, None]
 ```
 
+**Constructor**  
 
-**Creating List using Constructor Method**  
 - Note that **list(string)** will split the string into letters
 
 ```{python}
 list('hello')
 ```
 
-**Creating List using split() method**  
-- Split base on spaces (by default) to create a list item
-
-```{python}
-'a bunch of words'.split()
-```
-
-- Split can also break into items base on specified delimter
-
-```{python}
-'a1,a2,a3, a4'.split(',')
-```
-
-
 ### Accessing Items
-
 
 **Access specific index number**
 
@@ -832,8 +796,10 @@ print (food[5:2:-1]) # item 3 to 5, reverse order
 print (food[::-1])   # reverse order
 ```
 
+### Methods
 
-### Remove Item(s)
+#### Remove Item(s)
+
 Removal of non-existance item will result in error
 
 **Search and remove first occurance** of an item
@@ -844,14 +810,12 @@ food.remove('noodle')
 print (food)
 ```
 
-
 **Remove last item**
 
 ```{python}
 food.pop()
 print (food)
 ```
-
 
 **Remove item at specific position**
 
@@ -865,9 +829,7 @@ food.remove('jelly')
 print(food)
 ```
 
-
-### Appending Item (s)
-
+#### Appending Item (s)
 
 **Append One Item**
 
@@ -875,7 +837,6 @@ print(food)
 food.append('jelly')
 print (food)
 ```
-
 
 **Append Multiple Items**  **```extend()```** will expand the list/tupple argument and append as multiple items
 
@@ -885,19 +846,8 @@ print (food)
 ```
 
 
-### Concateneting Multiple Lists
 
-
-**Concatenating Lists**
-Although you can use '+' operator, however '-' operator is not supported
-
-```{python}
-['dog','cat','horse'] + ['elephant','tiger'] + ['sheep']
-```
-
-
-### Other Methods ###
-
+#### Other Methods
 
 **Reversing the order of the items**
 
@@ -906,13 +856,11 @@ food.reverse()
 food
 ```
 
-
 **Locating the Index Number of An Item**
 
 ```{python}
 food.index('biscuit')
 ```
-
 
 **Count occurance**
 
@@ -921,7 +869,6 @@ test = ['a','a','a','b','c']
 test.count('a')
 ```
 
-
 **Sorting The Order of Items**
 
 ```{python}
@@ -929,9 +876,21 @@ food.sort()
 print (food)
 ```
 
+### Operator
+
+#### Concatenation
+
+**Concatenating Lists**
+
+Two lists can be concatenanted using '+' operator.
+
+```{python}
+['dog','cat','horse'] + ['elephant','tiger'] + ['sheep']
+```
 
 ### List is Mutable
-The reference list variable won't change after adding/removing its item
+
+The reference of list variable won't change after adding/removing its item
 
 ```{python}
 food = ['cake','jelly','roti','noodle']
@@ -939,15 +898,6 @@ print ('food : ',id(food))
 food += ['salad','chicken']
 print ('food : ',id(food))
 ```
-
-```{python}
-x = [1,2,3]
-y = [x,'abc']
-print (y)
-x[2] = 'k'
-print (y)
-```
-
 
 A function is actually an **object**, which reference never change, hence **mutable**
 
@@ -1018,7 +968,6 @@ print(my_list) ## content was altered
 
 ### List Is Iterable
 
-
 #### For Loop
 
 ```{python}
@@ -1027,6 +976,16 @@ for x in s:
     if 'abc' in x:
         print (x)
 ```
+#### List Comprehension
+
+This code below is a shorform method of **for loop and if**.
+
+```{python}
+old_list = ['abc','abcd','bcde','bcdee','cdefg']
+[x for x in old_list if 'abc' in x]
+```
+
+Compare to traditional version of code below:
 
 ```{python}
 new_list = []
@@ -1038,23 +997,19 @@ for x in old_list:
 print( new_list )
 ```
 
-```{python}
-new_list = [x for x in old_list if 'abc' in x]
-print( new_list)
-```
-
-
 ### Conversion
+
 Convert mutable list to immutable **tuple** with **```tuple()```**
 
 ```{python}
+original = [1,2,3]
 original_tuple = tuple(original)
-print( id(original) )
-print(id(original_tuple))
+print( id(original),
+       id(original_tuple))
 ```
 
-
 ### Built-In Functions Applicable To List
+
 **Number of Elements**
 
 ```{python}
@@ -1070,9 +1025,11 @@ test.index(m)  ## only first occurance is found
 ```
 
 ## Dictionaries
+
 Dictionary is a list of index-value items.
 
 ### Creating dict
+
 **Creating dict with literals**
 
 Simple Dictionary
@@ -1082,7 +1039,6 @@ animal_counts = { 'cats' : 2, 'dogs' : 5, 'horses':4}
 print (animal_counts)
 print( type(animal_counts) )
 ```
-
 
 Dictionary with list
 
@@ -1094,8 +1050,7 @@ animal_names = {'cats':   ['Walter','Ra'],
 animal_names
 ```
 
-
-**Creating dict with variables**
+**Creating dict From variables**
 
 ```{python}
 cat_names = ['Walter','Ra','Jim']
@@ -1106,6 +1061,7 @@ animal_names
 ```
 
 ### Accessing dict
+
 Find out the list of keys using **keys()**  
 
 ```{python}
@@ -2064,43 +2020,53 @@ print( date.today().month )
 print( date.today().day )
 ```
 
-## datetime
+
+## date and datetime
+
 ### Constructor
 
 ```{python}
-print( datetime(2000,1,1,0,0,0))
-print( datetime(year=2000,month=1,day=1,hour=23,minute=15,second=55))
-print(type(datetime(2000,1,1,0,0,0)))
+import datetime as dt
+
+print( 
+    dt.date(2000,1,1,), '\n',
+    dt.datetime(2000,1,1,0,0,0), '\n',
+    dt.datetime(year=2000,month=1,day=1,hour=23,minute=15,second=55),'\n',
+    type(dt.date(2000,1,1)),'\n',
+    type(dt.datetime(2000,1,1,0,0,0)))
 ```
 
 ### Class Method
 
 #### ```now``` and ```today```
-Both ```now()``` and ```today()``` return current **local**  datetime
+Both ```now()``` and ```today()``` return current **system local**  datetime, no timezone
 
 ```{python}
-datetime.now()
+print(  dt.datetime.now(), '\n',
+        dt.datetime.now().date())
 ```
 
 ```{python}
-datetime.today()
+dt.datetime.today()
 ```
 
 #### ```utcnow```
 
 ```{python}
-datetime.utcnow()
+dt.datetime.utcnow()
 ```
 
 #### ```combine()``` date and time
+
 Apply ```datetime.combine()``` module method on both **date and time**  object to get **datetime**
 
 ```{python}
-now = datetime.now()
-datetime.combine(now.date(), now.time())
+now = dt.datetime.now()
+dt.datetime.combine(now.date(), now.time())
 ```
 
 #### Convert from String ```strptime()```
+
 Use **```strptime```** to convert string into **datetime** object
 
 ```
@@ -2132,15 +2098,17 @@ datetime.strptime('2/5/2018 4:49 PM', '%m/%d/%Y %I:%M %p')
 ```
 
 #### Convert from ISO ```fromisoformat```
+
 - ```fromisoformat()``` is intend to be reverse of ```isoformat()```  
--  It actually **not ISO compliance**: when Z or +8 is included at the nd of the string, error occur
+-  It actually **not ISO compliance**: when Z or +8 is included at the end of the string, error occur
 
 ```{python}
-s = datetime.now().isoformat()
-datetime.fromisoformat("2019-02-05T10:22:33")
+#s = dt.datetime.now().isoformat()
+dt.datetime.fromisoformat("2019-02-05T10:22:33")
 ```
 
 ### Instance Method
+
 #### ```weekday```
 
 ```{python}
@@ -2166,6 +2134,7 @@ datetime.now().date()
 ```
 
 #### Convert to String
+
 **```str```**
 
 ```{python}
@@ -2175,17 +2144,17 @@ str( datetime.now() )
 **Use ```strftime()```**
 
 ```{python, jupyter_meta = list(scrolled = TRUE)}
-datetime.now().strftime('%d-%b-%Y')
+dt.datetime.now().strftime('%d-%b-%Y')
 ```
 
 ```{python}
-datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%S.%fZ')  ## ISO 8601 UTC
+dt.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%S.%fZ')  ## ISO 8601 UTC
 ```
 
 **Use ```isoformat()```**
 
 ```{python}
-datetime.utcnow().isoformat()
+dt.datetime.utcnow().isoformat()
 ```
 
 ### Attributes

@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="14.4 Object-Oriented API | Python Bookdown" />
+<meta property="og:type" content="book" />
+
+
+<meta property="og:description" content="This is a python cookbook, written using RMarkdown Notebook. It is made possible by using reticulate R library as the bridge between R and Python." />
+<meta name="github-repo" content="yongks/python_bookdown" />
+
+<meta name="author" content="Yong Keh Soon" />
+
+<meta name="date" content="2019-12-22" />
+
+
+<meta name="description" content="This is a python cookbook, written using RMarkdown Notebook. It is made possible by using reticulate R library as the bridge between R and Python.">
+
+<title>14.4 Object-Oriented API | Python Bookdown</title>
+
+<script src="libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container-fluid main-container">
+
+
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul>
+<li><a href="index.html#prerequisites">Prerequisites</a></li>
+<li class="has-sub"><a href="1-environment-setup.html#environment-setup"><span class="toc-section-number">1</span> Environment Setup</a><ul>
+<li><a href="1-1-notebook-setup.html#notebook-setup"><span class="toc-section-number">1.1</span> Notebook Setup</a></li>
+<li class="has-sub"><a href="1-2-libraries.html#libraries"><span class="toc-section-number">1.2</span> Libraries</a><ul>
+<li><a href="1-2-libraries.html#built-in-libraries"><span class="toc-section-number">1.2.1</span> Built-In Libraries</a></li>
+<li><a href="1-2-libraries.html#common-external-libraries"><span class="toc-section-number">1.2.2</span> Common External Libraries</a></li>
+<li><a href="1-2-libraries.html#numpy"><span class="toc-section-number">1.2.3</span> numpy</a></li>
+<li><a href="1-2-libraries.html#scipy"><span class="toc-section-number">1.2.4</span> scipy</a></li>
+<li><a href="1-2-libraries.html#pandas"><span class="toc-section-number">1.2.5</span> Pandas</a></li>
+<li><a href="1-2-libraries.html#scikit-learn"><span class="toc-section-number">1.2.6</span> scikit-learn</a></li>
+<li><a href="1-2-libraries.html#matplotlib"><span class="toc-section-number">1.2.7</span> matplotlib</a></li>
+</ul></li>
+<li class="has-sub"><a href="1-3-magic-functions.html#magic-functions"><span class="toc-section-number">1.3</span> Magic Functions</a><ul>
+<li><a href="1-3-magic-functions.html#list-of-magic"><span class="toc-section-number">1.3.1</span> List of Magic</a></li>
+<li><a href="1-3-magic-functions.html#line-magic"><span class="toc-section-number">1.3.2</span> Line Magic</a></li>
+<li><a href="1-3-magic-functions.html#cell-magic"><span class="toc-section-number">1.3.3</span> Cell Magic</a></li>
+</ul></li>
+<li class="has-sub"><a href="1-4-package-management.html#package-management"><span class="toc-section-number">1.4</span> Package Management</a><ul>
+<li><a href="1-4-package-management.html#conda"><span class="toc-section-number">1.4.1</span> Conda</a></li>
+<li><a href="1-4-package-management.html#pip"><span class="toc-section-number">1.4.2</span> PIP</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="2-python-fundamental.html#python-fundamental"><span class="toc-section-number">2</span> Python Fundamental</a><ul>
+<li><a href="2-1-everything-is-object.html#everything-is-object"><span class="toc-section-number">2.1</span> Everything Is Object</a></li>
+<li class="has-sub"><a href="2-2-assignment.html#assignment"><span class="toc-section-number">2.2</span> Assignment</a><ul>
+<li><a href="2-2-assignment.html#multiple-assignment"><span class="toc-section-number">2.2.1</span> Multiple Assignment</a></li>
+<li><a href="2-2-assignment.html#augmented-assignment"><span class="toc-section-number">2.2.2</span> Augmented Assignment</a></li>
+<li><a href="2-2-assignment.html#unpacking-assingment"><span class="toc-section-number">2.2.3</span> Unpacking Assingment</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="3-built-in-data-types.html#built-in-data-types"><span class="toc-section-number">3</span> Built-in Data Types</a><ul>
+<li class="has-sub"><a href="3-1-numbers.html#numbers"><span class="toc-section-number">3.1</span> Numbers</a><ul>
+<li><a href="3-1-numbers.html#integer"><span class="toc-section-number">3.1.1</span> Integer</a></li>
+<li><a href="3-1-numbers.html#float"><span class="toc-section-number">3.1.2</span> Float</a></li>
+<li><a href="3-1-numbers.html#number-operators"><span class="toc-section-number">3.1.3</span> Number Operators</a></li>
+</ul></li>
+<li class="has-sub"><a href="3-2-string.html#string"><span class="toc-section-number">3.2</span> String</a><ul>
+<li><a href="3-2-string.html#constructor"><span class="toc-section-number">3.2.1</span> Constructor</a></li>
+<li><a href="3-2-string.html#class-constants"><span class="toc-section-number">3.2.2</span> Class Constants</a></li>
+<li><a href="3-2-string.html#instance-methods"><span class="toc-section-number">3.2.3</span> Instance Methods</a></li>
+<li><a href="3-2-string.html#operator"><span class="toc-section-number">3.2.4</span> Operator</a></li>
+<li><a href="3-2-string.html#iterations"><span class="toc-section-number">3.2.5</span> Iterations</a></li>
+</ul></li>
+<li class="has-sub"><a href="3-3-boolean.html#boolean"><span class="toc-section-number">3.3</span> Boolean</a><ul>
+<li><a href="3-3-boolean.html#what-is-considered-false"><span class="toc-section-number">3.3.1</span> What is Considered False ?</a></li>
+<li><a href="3-3-boolean.html#and-operator"><span class="toc-section-number">3.3.2</span> <code>and</code> operator</a></li>
+<li><a href="3-3-boolean.html#not-operator"><span class="toc-section-number">3.3.3</span> <code>not</code> operator</a></li>
+<li><a href="3-3-boolean.html#or-operator"><span class="toc-section-number">3.3.4</span> <code>or</code> operator</a></li>
+</ul></li>
+<li class="has-sub"><a href="3-4-none.html#none"><span class="toc-section-number">3.4</span> None</a><ul>
+<li><a href="3-4-none.html#none-is-an-object"><span class="toc-section-number">3.4.1</span> None is an Object</a></li>
+<li><a href="3-4-none.html#comparing-none"><span class="toc-section-number">3.4.2</span> Comparing None</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="4-built-in-data-structure.html#built-in-data-structure"><span class="toc-section-number">4</span> Built-In Data Structure</a><ul>
+<li class="has-sub"><a href="4-1-tuple.html#tuple"><span class="toc-section-number">4.1</span> Tuple</a><ul>
+<li><a href="4-1-tuple.html#assignment-1"><span class="toc-section-number">4.1.1</span> Assignment</a></li>
+<li><a href="4-1-tuple.html#accessing"><span class="toc-section-number">4.1.2</span> Accessing</a></li>
+<li><a href="4-1-tuple.html#duplicating-tuple"><span class="toc-section-number">4.1.3</span> Duplicating Tuple</a></li>
+</ul></li>
+<li class="has-sub"><a href="4-2-list.html#list"><span class="toc-section-number">4.2</span> List</a><ul>
+<li><a href="4-2-list.html#creating-list"><span class="toc-section-number">4.2.1</span> Creating List</a></li>
+<li><a href="4-2-list.html#accessing-items"><span class="toc-section-number">4.2.2</span> Accessing Items</a></li>
+<li><a href="4-2-list.html#methods"><span class="toc-section-number">4.2.3</span> Methods</a></li>
+<li><a href="4-2-list.html#operator-1"><span class="toc-section-number">4.2.4</span> Operator</a></li>
+<li><a href="4-2-list.html#list-is-mutable"><span class="toc-section-number">4.2.5</span> List is Mutable</a></li>
+<li><a href="4-2-list.html#duplicate-or-reference"><span class="toc-section-number">4.2.6</span> Duplicate or Reference</a></li>
+<li><a href="4-2-list.html#list-is-iterable"><span class="toc-section-number">4.2.7</span> List Is Iterable</a></li>
+<li><a href="4-2-list.html#conversion"><span class="toc-section-number">4.2.8</span> Conversion</a></li>
+<li><a href="4-2-list.html#built-in-functions-applicable-to-list"><span class="toc-section-number">4.2.9</span> Built-In Functions Applicable To List</a></li>
+</ul></li>
+<li class="has-sub"><a href="4-3-dictionaries.html#dictionaries"><span class="toc-section-number">4.3</span> Dictionaries</a><ul>
+<li><a href="4-3-dictionaries.html#creating-dict"><span class="toc-section-number">4.3.1</span> Creating dict</a></li>
+<li><a href="4-3-dictionaries.html#accessing-dict"><span class="toc-section-number">4.3.2</span> Accessing dict</a></li>
+<li><a href="4-3-dictionaries.html#dict-are-mutable"><span class="toc-section-number">4.3.3</span> Dict are Mutable</a></li>
+</ul></li>
+<li class="has-sub"><a href="4-4-sets.html#sets"><span class="toc-section-number">4.4</span> Sets</a><ul>
+<li><a href="4-4-sets.html#membership-test"><span class="toc-section-number">4.4.1</span> Membership Test</a></li>
+<li><a href="4-4-sets.html#subset-test"><span class="toc-section-number">4.4.2</span> Subset Test</a></li>
+<li><a href="4-4-sets.html#union-using"><span class="toc-section-number">4.4.3</span> Union using ‘|’</a></li>
+<li><a href="4-4-sets.html#intersection-using"><span class="toc-section-number">4.4.4</span> Intersection using ‘&amp;’</a></li>
+<li><a href="4-4-sets.html#difference-using--"><span class="toc-section-number">4.4.5</span> Difference using ‘-’</a></li>
+</ul></li>
+<li><a href="4-5-range.html#range"><span class="toc-section-number">4.5</span> range</a></li>
+</ul></li>
+<li class="has-sub"><a href="5-control-and-loops.html#control-and-loops"><span class="toc-section-number">5</span> Control and Loops</a><ul>
+<li class="has-sub"><a href="5-1-if-statement.html#if-statement"><span class="toc-section-number">5.1</span> If Statement</a><ul>
+<li><a href="5-1-if-statement.html#multiline-if..-statements"><span class="toc-section-number">5.1.1</span> Multiline If.. Statements</a></li>
+<li><a href="5-1-if-statement.html#single-line-if-..-statement"><span class="toc-section-number">5.1.2</span> Single Line If .. Statement</a></li>
+</ul></li>
+<li class="has-sub"><a href="5-2-for-loops.html#for-loops"><span class="toc-section-number">5.2</span> For Loops</a><ul>
+<li><a href="5-2-for-loops.html#loop-thorugh-range"><span class="toc-section-number">5.2.1</span> Loop thorugh ‘range’</a></li>
+<li><a href="5-2-for-loops.html#loop-through-list"><span class="toc-section-number">5.2.2</span> Loop through ‘list’</a></li>
+<li><a href="5-2-for-loops.html#loop-through-dictionary"><span class="toc-section-number">5.2.3</span> Loop Through ‘Dictionary’</a></li>
+</ul></li>
+<li class="has-sub"><a href="5-3-generators.html#generators"><span class="toc-section-number">5.3</span> Generators</a><ul>
+<li><a href="5-3-generators.html#basic-generator-function"><span class="toc-section-number">5.3.1</span> Basic Generator Function</a></li>
+<li><a href="5-3-generators.html#useful-generator-fuction"><span class="toc-section-number">5.3.2</span> Useful Generator Fuction</a></li>
+<li><a href="5-3-generators.html#generator-expression"><span class="toc-section-number">5.3.3</span> Generator Expression</a></li>
+<li><a href="5-3-generators.html#compare-to-iterator-class"><span class="toc-section-number">5.3.4</span> Compare to Iterator Class</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="6-library-and-functions.html#library-and-functions"><span class="toc-section-number">6</span> Library and Functions</a><ul>
+<li class="has-sub"><a href="6-1-package-source.html#package-source"><span class="toc-section-number">6.1</span> Package Source</a><ul>
+<li><a href="6-1-package-source.html#conda-1"><span class="toc-section-number">6.1.1</span> Conda</a></li>
+<li><a href="6-1-package-source.html#pip-1"><span class="toc-section-number">6.1.2</span> PIP</a></li>
+</ul></li>
+<li class="has-sub"><a href="6-2-importing-library.html#importing-library"><span class="toc-section-number">6.2</span> Importing Library</a><ul>
+<li><a href="6-2-importing-library.html#import-entire-library"><span class="toc-section-number">6.2.1</span> Import Entire Library</a></li>
+<li><a href="6-2-importing-library.html#import-specific-function"><span class="toc-section-number">6.2.2</span> Import Specific Function</a></li>
+<li><a href="6-2-importing-library.html#machine-learning-packages"><span class="toc-section-number">6.2.3</span> Machine Learning Packages</a></li>
+</ul></li>
+<li class="has-sub"><a href="6-3-define-function.html#define-function"><span class="toc-section-number">6.3</span> Define Function</a><ul>
+<li><a href="6-3-define-function.html#function-arguments"><span class="toc-section-number">6.3.1</span> Function Arguments</a></li>
+<li><a href="6-3-define-function.html#list-within-function"><span class="toc-section-number">6.3.2</span> List Within Function</a></li>
+<li><a href="6-3-define-function.html#return-statement"><span class="toc-section-number">6.3.3</span> Return Statement</a></li>
+<li><a href="6-3-define-function.html#no-return-statement"><span class="toc-section-number">6.3.4</span> No Return Statement</a></li>
+<li><a href="6-3-define-function.html#return-multiple-value"><span class="toc-section-number">6.3.5</span> Return Multiple Value</a></li>
+<li><a href="6-3-define-function.html#passing-function-as-argument"><span class="toc-section-number">6.3.6</span> Passing Function as Argument</a></li>
+<li><a href="6-3-define-function.html#arguments"><span class="toc-section-number">6.3.7</span> Arguments</a></li>
+<li><a href="6-3-define-function.html#keyword-arguments"><span class="toc-section-number">6.3.8</span> keyword arguments</a></li>
+<li><a href="6-3-define-function.html#mixing-args-kwargs"><span class="toc-section-number">6.3.9</span> Mixing *args, **kwargs</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="7-object-oriented-programming.html#object-oriented-programming"><span class="toc-section-number">7</span> Object Oriented Programming</a><ul>
+<li><a href="7-1-defining-class.html#defining-class"><span class="toc-section-number">7.1</span> Defining Class</a></li>
+<li><a href="7-2-object-class-assignment.html#object-class-assignment"><span class="toc-section-number">7.2</span> Object Class Assignment</a></li>
+<li><a href="7-3-calling-method.html#calling-method"><span class="toc-section-number">7.3</span> Calling Method</a></li>
+<li><a href="7-4-getting-property.html#getting-property"><span class="toc-section-number">7.4</span> Getting Property</a></li>
+<li><a href="7-5-setting-property.html#setting-property"><span class="toc-section-number">7.5</span> Setting Property</a></li>
+</ul></li>
+<li class="has-sub"><a href="8-decorator.html#decorator"><span class="toc-section-number">8</span> Decorator</a><ul>
+<li><a href="8-1-definition.html#definition"><span class="toc-section-number">8.1</span> Definition</a></li>
+<li class="has-sub"><a href="8-2-examples.html#examples"><span class="toc-section-number">8.2</span> Examples</a><ul>
+<li><a href="8-2-examples.html#example-1---plain-decorator-function"><span class="toc-section-number">8.2.1</span> Example 1 - Plain decorator function</a></li>
+<li><a href="8-2-examples.html#example-2---decorator-with-class"><span class="toc-section-number">8.2.2</span> Example 2 - Decorator with Class</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="9-datetime-standard-library.html#datetime-standard-library"><span class="toc-section-number">9</span> datetime Standard Library</a><ul>
+<li class="has-sub"><a href="9-1-iso8601.html#iso8601"><span class="toc-section-number">9.1</span> ISO8601</a><ul>
+<li><a href="9-1-iso8601.html#date-time"><span class="toc-section-number">9.1.1</span> Date Time</a></li>
+<li><a href="9-1-iso8601.html#date"><span class="toc-section-number">9.1.2</span> Date</a></li>
+</ul></li>
+<li><a href="9-2-module-import.html#module-import"><span class="toc-section-number">9.2</span> Module Import</a></li>
+<li><a href="9-3-class.html#class"><span class="toc-section-number">9.3</span> Class</a></li>
+<li class="has-sub"><a href="9-4-date-1.html#date-1"><span class="toc-section-number">9.4</span> date</a><ul>
+<li><a href="9-4-date-1.html#constructor-1"><span class="toc-section-number">9.4.1</span> Constructor</a></li>
+<li><a href="9-4-date-1.html#class-method"><span class="toc-section-number">9.4.2</span> Class Method</a></li>
+<li><a href="9-4-date-1.html#instance-method"><span class="toc-section-number">9.4.3</span> Instance Method</a></li>
+<li><a href="9-4-date-1.html#attributes"><span class="toc-section-number">9.4.4</span> Attributes</a></li>
+</ul></li>
+<li class="has-sub"><a href="9-5-date-and-datetime.html#date-and-datetime"><span class="toc-section-number">9.5</span> date and datetime</a><ul>
+<li><a href="9-5-date-and-datetime.html#constructor-2"><span class="toc-section-number">9.5.1</span> Constructor</a></li>
+<li><a href="9-5-date-and-datetime.html#class-method-1"><span class="toc-section-number">9.5.2</span> Class Method</a></li>
+<li><a href="9-5-date-and-datetime.html#instance-method-1"><span class="toc-section-number">9.5.3</span> Instance Method</a></li>
+<li><a href="9-5-date-and-datetime.html#attributes-1"><span class="toc-section-number">9.5.4</span> Attributes</a></li>
+</ul></li>
+<li class="has-sub"><a href="9-6-time.html#time"><span class="toc-section-number">9.6</span> time</a><ul>
+<li><a href="9-6-time.html#constructor-3"><span class="toc-section-number">9.6.1</span> Constructor</a></li>
+<li><a href="9-6-time.html#class-method-2"><span class="toc-section-number">9.6.2</span> Class Method</a></li>
+<li><a href="9-6-time.html#attributes-2"><span class="toc-section-number">9.6.3</span> Attributes</a></li>
+</ul></li>
+<li><a href="9-7-timedelta.html#timedelta"><span class="toc-section-number">9.7</span> timedelta</a></li>
+</ul></li>
+<li><a href="10-getting-external-data.html#getting-external-data"><span class="toc-section-number">10</span> Getting External Data</a></li>
+<li class="has-sub"><a href="11-plydata-dplyr-for-python.html#plydata-dplyr-for-python"><span class="toc-section-number">11</span> Plydata (dplyr for Python)</a><ul>
+<li><a href="11-1-sample-data.html#sample-data"><span class="toc-section-number">11.1</span> Sample Data</a></li>
+<li class="has-sub"><a href="11-2-column-manipulation.html#column-manipulation"><span class="toc-section-number">11.2</span> Column Manipulation</a><ul>
+<li><a href="11-2-column-manipulation.html#copy-column"><span class="toc-section-number">11.2.1</span> Copy Column</a></li>
+<li><a href="11-2-column-manipulation.html#new-column-from-existing-column"><span class="toc-section-number">11.2.2</span> New Column from existing Column</a></li>
+<li><a href="11-2-column-manipulation.html#select-columns"><span class="toc-section-number">11.2.3</span> Select Column(s)</a></li>
+<li><a href="11-2-column-manipulation.html#drop-columns"><span class="toc-section-number">11.2.4</span> Drop Column(s)</a></li>
+</ul></li>
+<li><a href="11-3-sorting-arrange.html#sorting-arrange"><span class="toc-section-number">11.3</span> Sorting (arrange)</a></li>
+<li><a href="11-4-grouping.html#grouping"><span class="toc-section-number">11.4</span> Grouping</a></li>
+<li class="has-sub"><a href="11-5-summarization.html#summarization"><span class="toc-section-number">11.5</span> Summarization</a><ul>
+<li><a href="11-5-summarization.html#simple-method"><span class="toc-section-number">11.5.1</span> Simple Method</a></li>
+<li><a href="11-5-summarization.html#specify-summarized-column-name"><span class="toc-section-number">11.5.2</span> Specify Summarized Column Name</a></li>
+<li><a href="11-5-summarization.html#number-of-rows-in-group"><span class="toc-section-number">11.5.3</span> Number of Rows in Group</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="12-numpy-1.html#numpy-1"><span class="toc-section-number">12</span> numpy</a><ul>
+<li><a href="12-1-environment-setup-1.html#environment-setup-1"><span class="toc-section-number">12.1</span> Environment Setup</a></li>
+<li><a href="12-2-module-import-1.html#module-import-1"><span class="toc-section-number">12.2</span> Module Import</a></li>
+<li class="has-sub"><a href="12-3-data-types.html#data-types"><span class="toc-section-number">12.3</span> Data Types</a><ul>
+<li><a href="12-3-data-types.html#numpy-data-types"><span class="toc-section-number">12.3.1</span> NumPy Data Types</a></li>
+<li><a href="12-3-data-types.html#int3264"><span class="toc-section-number">12.3.2</span> int32/64</a></li>
+<li><a href="12-3-data-types.html#float3264"><span class="toc-section-number">12.3.3</span> float32/64</a></li>
+<li><a href="12-3-data-types.html#bool"><span class="toc-section-number">12.3.4</span> bool</a></li>
+<li><a href="12-3-data-types.html#str"><span class="toc-section-number">12.3.5</span> str</a></li>
+<li><a href="12-3-data-types.html#datetime64"><span class="toc-section-number">12.3.6</span> datetime64</a></li>
+</ul></li>
+<li class="has-sub"><a href="12-4-numpy-array.html#numpy-array"><span class="toc-section-number">12.4</span> Numpy Array</a><ul>
+<li><a href="12-4-numpy-array.html#concept"><span class="toc-section-number">12.4.1</span> Concept</a></li>
+<li><a href="12-4-numpy-array.html#constructor-5"><span class="toc-section-number">12.4.2</span> Constructor</a></li>
+<li><a href="12-4-numpy-array.html#dimensions"><span class="toc-section-number">12.4.3</span> Dimensions</a></li>
+<li><a href="12-4-numpy-array.html#class-method-3"><span class="toc-section-number">12.4.4</span> Class Method</a></li>
+<li><a href="12-4-numpy-array.html#instance-method-3"><span class="toc-section-number">12.4.5</span> Instance Method</a></li>
+<li><a href="12-4-numpy-array.html#element-selection"><span class="toc-section-number">12.4.6</span> Element Selection</a></li>
+<li><a href="12-4-numpy-array.html#attributes-3"><span class="toc-section-number">12.4.7</span> Attributes</a></li>
+<li><a href="12-4-numpy-array.html#operations"><span class="toc-section-number">12.4.8</span> Operations</a></li>
+</ul></li>
+<li class="has-sub"><a href="12-5-random-numbers.html#random-numbers"><span class="toc-section-number">12.5</span> Random Numbers</a><ul>
+<li><a href="12-5-random-numbers.html#uniform-distribution"><span class="toc-section-number">12.5.1</span> Uniform Distribution</a></li>
+<li><a href="12-5-random-numbers.html#normal-distribution"><span class="toc-section-number">12.5.2</span> Normal Distribution</a></li>
+</ul></li>
+<li><a href="12-6-sampling-integer.html#sampling-integer"><span class="toc-section-number">12.6</span> Sampling (Integer)</a></li>
+<li><a href="12-7-nan-missing-numerical-data.html#nan-missing-numerical-data"><span class="toc-section-number">12.7</span> NaN : Missing Numerical Data</a></li>
+</ul></li>
+<li class="has-sub"><a href="13-pandas-1.html#pandas-1"><span class="toc-section-number">13</span> pandas</a><ul>
+<li><a href="13-1-environment-setup-2.html#environment-setup-2"><span class="toc-section-number">13.1</span> Environment Setup <a class="tocSkip"></a></li>
+<li class="has-sub"><a href="13-2-modules-import.html#modules-import"><span class="toc-section-number">13.2</span> Modules Import</a><ul>
+<li><a href="13-2-modules-import.html#display-setup"><span class="toc-section-number">13.2.1</span> Display Setup</a></li>
+</ul></li>
+<li class="has-sub"><a href="13-3-pandas-objects.html#pandas-objects"><span class="toc-section-number">13.3</span> Pandas Objects</a><ul>
+<li><a href="13-3-pandas-objects.html#pandas-data-types"><span class="toc-section-number">13.3.1</span> Pandas Data Types</a></li>
+<li><a href="13-3-pandas-objects.html#pandas-data-structure"><span class="toc-section-number">13.3.2</span> Pandas Data Structure</a></li>
+</ul></li>
+<li class="has-sub"><a href="13-4-class-method-4.html#class-method-4"><span class="toc-section-number">13.4</span> Class Method</a><ul>
+<li><a href="13-4-class-method-4.html#conversion-to_datetime"><span class="toc-section-number">13.4.1</span> Conversion: <code>to_datetime()</code></a></li>
+<li><a href="13-4-class-method-4.html#generate-timestamp-sequence"><span class="toc-section-number">13.4.2</span> Generate Timestamp Sequence</a></li>
+<li><a href="13-4-class-method-4.html#frequency-table-crosstab"><span class="toc-section-number">13.4.3</span> Frequency Table (crosstab)</a></li>
+</ul></li>
+<li class="has-sub"><a href="13-5-timestamp.html#timestamp"><span class="toc-section-number">13.5</span> Timestamp</a><ul>
+<li><a href="13-5-timestamp.html#constructor-6"><span class="toc-section-number">13.5.1</span> Constructor</a></li>
+<li><a href="13-5-timestamp.html#attributes-4"><span class="toc-section-number">13.5.2</span> Attributes</a></li>
+<li><a href="13-5-timestamp.html#operator-2"><span class="toc-section-number">13.5.3</span> Operator</a></li>
+<li><a href="13-5-timestamp.html#instance-methods-1"><span class="toc-section-number">13.5.4</span> Instance Methods</a></li>
+</ul></li>
+<li class="has-sub"><a href="13-6-series.html#series"><span class="toc-section-number">13.6</span> Series</a><ul>
+<li><a href="13-6-series.html#constructor-7"><span class="toc-section-number">13.6.1</span> Constructor</a></li>
+<li><a href="13-6-series.html#accessing-series"><span class="toc-section-number">13.6.2</span> Accessing Series</a></li>
+<li><a href="13-6-series.html#modifying-series"><span class="toc-section-number">13.6.3</span> Modifying Series</a></li>
+<li><a href="13-6-series.html#series-attributes"><span class="toc-section-number">13.6.4</span> Series Attributes</a></li>
+<li><a href="13-6-series.html#instance-methods-2"><span class="toc-section-number">13.6.5</span> Instance Methods</a></li>
+<li><a href="13-6-series.html#series-operators"><span class="toc-section-number">13.6.6</span> Series Operators</a></li>
+<li><a href="13-6-series.html#series-string-accesor-.str"><span class="toc-section-number">13.6.7</span> Series String Accesor <code>.str</code></a></li>
+<li><a href="13-6-series.html#series-datetime-accessor-.dt"><span class="toc-section-number">13.6.8</span> Series DateTime Accessor <code>.dt</code></a></li>
+</ul></li>
+<li class="has-sub"><a href="13-7-dataframe.html#dataframe"><span class="toc-section-number">13.7</span> DataFrame</a><ul>
+<li><a href="13-7-dataframe.html#constructor-8"><span class="toc-section-number">13.7.1</span> Constructor</a></li>
+<li><a href="13-7-dataframe.html#attributes-5"><span class="toc-section-number">13.7.2</span> Attributes</a></li>
+<li><a href="13-7-dataframe.html#index-manipulation"><span class="toc-section-number">13.7.3</span> Index Manipulation</a></li>
+<li><a href="13-7-dataframe.html#subsetting-columns"><span class="toc-section-number">13.7.4</span> Subsetting Columns</a></li>
+<li><a href="13-7-dataframe.html#column-manipulation-1"><span class="toc-section-number">13.7.5</span> Column Manipulation</a></li>
+<li><a href="13-7-dataframe.html#subsetting-rows"><span class="toc-section-number">13.7.6</span> Subsetting Rows</a></li>
+<li><a href="13-7-dataframe.html#row-manipulation"><span class="toc-section-number">13.7.7</span> Row Manipulation</a></li>
+<li><a href="13-7-dataframe.html#slicing"><span class="toc-section-number">13.7.8</span> Slicing</a></li>
+<li><a href="13-7-dataframe.html#chained-indexing"><span class="toc-section-number">13.7.9</span> Chained Indexing</a></li>
+<li><a href="13-7-dataframe.html#data-structure"><span class="toc-section-number">13.7.10</span> Data Structure</a></li>
+<li><a href="13-7-dataframe.html#exploratory-analysis"><span class="toc-section-number">13.7.11</span> Exploratory Analysis</a></li>
+<li><a href="13-7-dataframe.html#plotting"><span class="toc-section-number">13.7.12</span> Plotting</a></li>
+</ul></li>
+<li class="has-sub"><a href="13-8-categories.html#categories"><span class="toc-section-number">13.8</span> Categories</a><ul>
+<li><a href="13-8-categories.html#creating"><span class="toc-section-number">13.8.1</span> Creating</a></li>
+<li><a href="13-8-categories.html#properties"><span class="toc-section-number">13.8.2</span> Properties</a></li>
+<li><a href="13-8-categories.html#rename-category"><span class="toc-section-number">13.8.3</span> Rename Category</a></li>
+<li><a href="13-8-categories.html#adding-new-category"><span class="toc-section-number">13.8.4</span> Adding New Category</a></li>
+<li><a href="13-8-categories.html#removing-category"><span class="toc-section-number">13.8.5</span> Removing Category</a></li>
+<li><a href="13-8-categories.html#add-and-remove-categories-in-one-step---set"><span class="toc-section-number">13.8.6</span> Add and Remove Categories In One Step - Set()</a></li>
+<li><a href="13-8-categories.html#categorical-descriptive-analysis"><span class="toc-section-number">13.8.7</span> Categorical Descriptive Analysis</a></li>
+<li><a href="13-8-categories.html#other-methods-1"><span class="toc-section-number">13.8.8</span> Other Methods</a></li>
+</ul></li>
+<li class="has-sub"><a href="13-9-dummies.html#dummies"><span class="toc-section-number">13.9</span> Dummies</a><ul>
+<li><a href="13-9-dummies.html#sample-data-11"><span class="toc-section-number">13.9.1</span> Sample Data</a></li>
+<li><a href="13-9-dummies.html#dummies-on-array-like-data"><span class="toc-section-number">13.9.2</span> Dummies on Array-Like Data</a></li>
+<li><a href="13-9-dummies.html#dummies-on-dataframe-multiple-columns"><span class="toc-section-number">13.9.3</span> Dummies on DataFrame (multiple columns)</a></li>
+<li><a href="13-9-dummies.html#dummies-with-na"><span class="toc-section-number">13.9.4</span> Dummies with na</a></li>
+<li><a href="13-9-dummies.html#specify-prefixes"><span class="toc-section-number">13.9.5</span> Specify Prefixes</a></li>
+<li><a href="13-9-dummies.html#dropping-first-column"><span class="toc-section-number">13.9.6</span> Dropping First Column</a></li>
+</ul></li>
+<li class="has-sub"><a href="13-10-getting-external-data-1.html#getting-external-data-1"><span class="toc-section-number">13.10</span> Getting External Data</a><ul>
+<li><a href="13-10-getting-external-data-1.html#html_table-parser"><span class="toc-section-number">13.10.1</span> html_table parser</a></li>
+<li><a href="13-10-getting-external-data-1.html#csv-import"><span class="toc-section-number">13.10.2</span> CSV Import</a></li>
+</ul></li>
+<li class="has-sub"><a href="13-11-groupby.html#groupby"><span class="toc-section-number">13.11</span> GroupBy</a><ul>
+<li><a href="13-11-groupby.html#creating-groups"><span class="toc-section-number">13.11.1</span> Creating Groups</a></li>
+<li><a href="13-11-groupby.html#properties-1"><span class="toc-section-number">13.11.2</span> Properties</a></li>
+<li><a href="13-11-groupby.html#methods-1"><span class="toc-section-number">13.11.3</span> Methods</a></li>
+<li><a href="13-11-groupby.html#retrieve-rows"><span class="toc-section-number">13.11.4</span> Retrieve Rows</a></li>
+<li><a href="13-11-groupby.html#iteration"><span class="toc-section-number">13.11.5</span> Iteration</a></li>
+<li><a href="13-11-groupby.html#apply-aggregate-functions-to-groups"><span class="toc-section-number">13.11.6</span> Apply Aggregate Functions to Groups</a></li>
+<li><a href="13-11-groupby.html#transform"><span class="toc-section-number">13.11.7</span> Transform</a></li>
+</ul></li>
+<li class="has-sub"><a href="13-12-concat.html#concat"><span class="toc-section-number">13.12</span> Concat</a><ul>
+<li><a href="13-12-concat.html#sample-data-12"><span class="toc-section-number">13.12.1</span> Sample Data</a></li>
+<li><a href="13-12-concat.html#column-wise"><span class="toc-section-number">13.12.2</span> Column-Wise</a></li>
+<li><a href="13-12-concat.html#row-wise"><span class="toc-section-number">13.12.3</span> Row-Wise</a></li>
+</ul></li>
+<li class="has-sub"><a href="13-13-fundamental-analysis.html#fundamental-analysis"><span class="toc-section-number">13.13</span> Fundamental Analysis</a><ul>
+<li><a href="13-13-fundamental-analysis.html#structure-of-the-dataframe-.info"><span class="toc-section-number">13.13.1</span> Structure of the Dataframe (.info())</a></li>
+<li><a href="13-13-fundamental-analysis.html#first-few-rows-.head"><span class="toc-section-number">13.13.2</span> First Few Rows (.head())</a></li>
+</ul></li>
+<li class="has-sub"><a href="13-14-missing-data.html#missing-data"><span class="toc-section-number">13.14</span> Missing Data</a><ul>
+<li><a href="13-14-missing-data.html#what-is-considered-missing-data"><span class="toc-section-number">13.14.1</span> What Is Considered Missing Data ?</a></li>
+<li><a href="13-14-missing-data.html#sample-data-13"><span class="toc-section-number">13.14.2</span> Sample Data</a></li>
+</ul></li>
+<li><a href="13-15-pandas-datetime.html#pandas-datetime"><span class="toc-section-number">13.15</span> Pandas DateTime</a></li>
+<li class="has-sub"><a href="13-16-datetimeindex.html#datetimeindex"><span class="toc-section-number">13.16</span> DateTimeIndex</a><ul>
+<li><a href="13-16-datetimeindex.html#creating-1"><span class="toc-section-number">13.16.1</span> Creating</a></li>
+<li><a href="13-16-datetimeindex.html#instance-method-4"><span class="toc-section-number">13.16.2</span> Instance Method</a></li>
+<li><a href="13-16-datetimeindex.html#properties-2"><span class="toc-section-number">13.16.3</span> Properties</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="14-matplotlib-2.html#matplotlib-2"><span class="toc-section-number">14</span> matplotlib</a><ul>
+<li><a href="14-1-library.html#library"><span class="toc-section-number">14.1</span> Library</a></li>
+<li><a href="14-2-sample-data-14.html#sample-data-14"><span class="toc-section-number">14.2</span> Sample Data</a></li>
+<li class="has-sub"><a href="14-3-matlab-like-api.html#matlab-like-api"><span class="toc-section-number">14.3</span> MATLAB-like API</a><ul>
+<li><a href="14-3-matlab-like-api.html#sample-data-15"><span class="toc-section-number">14.3.1</span> Sample Data</a></li>
+<li><a href="14-3-matlab-like-api.html#single-plot"><span class="toc-section-number">14.3.2</span> Single Plot</a></li>
+<li><a href="14-3-matlab-like-api.html#multiple-subplots"><span class="toc-section-number">14.3.3</span> Multiple Subplots</a></li>
+</ul></li>
+<li class="has-sub"><a href="14-4-object-oriented-api.html#object-oriented-api"><span class="toc-section-number">14.4</span> Object-Oriented API</a><ul>
+<li><a href="14-4-object-oriented-api.html#sample-data-16"><span class="toc-section-number">14.4.1</span> Sample Data</a></li>
+<li><a href="14-4-object-oriented-api.html#single-plot-1"><span class="toc-section-number">14.4.2</span> Single Plot</a></li>
+<li><a href="14-4-object-oriented-api.html#multiple-axes-in-one-plot"><span class="toc-section-number">14.4.3</span> Multiple Axes In One Plot</a></li>
+<li><a href="14-4-object-oriented-api.html#multiple-subplots-1"><span class="toc-section-number">14.4.4</span> Multiple Subplots</a></li>
+<li><a href="14-4-object-oriented-api.html#figure-customization"><span class="toc-section-number">14.4.5</span> Figure Customization</a></li>
+<li><a href="14-4-object-oriented-api.html#axes-customization"><span class="toc-section-number">14.4.6</span> Axes Customization</a></li>
+</ul></li>
+<li><a href="14-5-histogram.html#histogram"><span class="toc-section-number">14.5</span> Histogram</a></li>
+<li><a href="14-6-scatter-plot.html#scatter-plot"><span class="toc-section-number">14.6</span> Scatter Plot</a></li>
+<li><a href="14-7-bar-chart.html#bar-chart"><span class="toc-section-number">14.7</span> Bar Chart</a></li>
+</ul></li>
+<li class="has-sub"><a href="15-seaborn.html#seaborn"><span class="toc-section-number">15</span> seaborn</a><ul>
+<li><a href="15-1-seaborn-and-matplotlib.html#seaborn-and-matplotlib"><span class="toc-section-number">15.1</span> Seaborn and Matplotlib</a></li>
+<li><a href="15-2-sample-data-17.html#sample-data-17"><span class="toc-section-number">15.2</span> Sample Data</a></li>
+<li class="has-sub"><a href="15-3-scatter-plot-1.html#scatter-plot-1"><span class="toc-section-number">15.3</span> Scatter Plot</a><ul>
+<li><a href="15-3-scatter-plot-1.html#x-numeric"><span class="toc-section-number">15.3.1</span> 2x Numeric</a></li>
+<li><a href="15-3-scatter-plot-1.html#xnumeric-1x-categorical"><span class="toc-section-number">15.3.2</span> 2xNumeric + 1x Categorical</a></li>
+<li><a href="15-3-scatter-plot-1.html#xnumeric-2x-categorical"><span class="toc-section-number">15.3.3</span> 2xNumeric + 2x Categorical</a></li>
+<li><a href="15-3-scatter-plot-1.html#xnumeric-3x-categorical"><span class="toc-section-number">15.3.4</span> 2xNumeric + 3x Categorical</a></li>
+<li><a href="15-3-scatter-plot-1.html#customization"><span class="toc-section-number">15.3.5</span> Customization</a></li>
+</ul></li>
+<li class="has-sub"><a href="15-4-histogram-1.html#histogram-1"><span class="toc-section-number">15.4</span> Histogram</a><ul>
+<li><a href="15-4-histogram-1.html#x-numeric-1"><span class="toc-section-number">15.4.1</span> 1x Numeric</a></li>
+</ul></li>
+<li class="has-sub"><a href="15-5-bar-chart-1.html#bar-chart-1"><span class="toc-section-number">15.5</span> Bar Chart</a><ul>
+<li><a href="15-5-bar-chart-1.html#x-categorical-1x-numeric"><span class="toc-section-number">15.5.1</span> 1x Categorical, 1x Numeric</a></li>
+<li><a href="15-5-bar-chart-1.html#customization-1"><span class="toc-section-number">15.5.2</span> Customization</a></li>
+</ul></li>
+<li class="has-sub"><a href="15-6-faceting.html#faceting"><span class="toc-section-number">15.6</span> Faceting</a><ul>
+<li><a href="15-6-faceting.html#faceting-histogram"><span class="toc-section-number">15.6.1</span> Faceting Histogram</a></li>
+<li><a href="15-6-faceting.html#faceting-scatter-plot"><span class="toc-section-number">15.6.2</span> Faceting Scatter Plot</a></li>
+</ul></li>
+<li class="has-sub"><a href="15-7-pair-grid.html#pair-grid"><span class="toc-section-number">15.7</span> Pair Grid</a><ul>
+<li><a href="15-7-pair-grid.html#simple-pair-grid"><span class="toc-section-number">15.7.1</span> Simple Pair Grid</a></li>
+<li><a href="15-7-pair-grid.html#different-diag-and-offdiag"><span class="toc-section-number">15.7.2</span> Different Diag and OffDiag</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="16-plotnine.html#plotnine"><span class="toc-section-number">16</span> plotnine</a><ul>
+<li class="has-sub"><a href="16-1-histogram-2.html#histogram-2"><span class="toc-section-number">16.1</span> Histogram</a><ul>
+<li><a href="16-1-histogram-2.html#xnumeric"><span class="toc-section-number">16.1.1</span> 1xNumeric</a></li>
+<li><a href="16-1-histogram-2.html#xnumeric-1xcategorical"><span class="toc-section-number">16.1.2</span> 1xNumeric + 1xCategorical</a></li>
+</ul></li>
+<li class="has-sub"><a href="16-2-scatter-plot-2.html#scatter-plot-2"><span class="toc-section-number">16.2</span> Scatter Plot</a><ul>
+<li><a href="16-2-scatter-plot-2.html#x-numeric-2"><span class="toc-section-number">16.2.1</span> 2x Numeric</a></li>
+<li><a href="16-2-scatter-plot-2.html#x-numeric-1x-categorical"><span class="toc-section-number">16.2.2</span> 2x Numeric + 1x Categorical</a></li>
+<li><a href="16-2-scatter-plot-2.html#x-numeric-1x-numeric-1x-categorical"><span class="toc-section-number">16.2.3</span> 2x Numeric + 1x Numeric + 1x Categorical</a></li>
+<li><a href="16-2-scatter-plot-2.html#overlay-smooth-line"><span class="toc-section-number">16.2.4</span> Overlay Smooth Line</a></li>
+</ul></li>
+<li class="has-sub"><a href="16-3-line-chart.html#line-chart"><span class="toc-section-number">16.3</span> Line Chart</a><ul>
+<li><a href="16-3-line-chart.html#x-numeric-data"><span class="toc-section-number">16.3.1</span> 2x Numeric Data</a></li>
+<li><a href="16-3-line-chart.html#x-numeric-1x-categorical-1"><span class="toc-section-number">16.3.2</span> 1x Numeric, 1x Categorical</a></li>
+<li><a href="16-3-line-chart.html#x-numeric-1x-categorical-2"><span class="toc-section-number">16.3.3</span> 2x Numeric, 1x Categorical</a></li>
+</ul></li>
+<li><a href="16-4-bar-chart-2.html#bar-chart-2"><span class="toc-section-number">16.4</span> Bar Chart</a></li>
+</ul></li>
+<li class="has-sub"><a href="17-sklearn.html#sklearn"><span class="toc-section-number">17</span> sklearn</a><ul>
+<li><a href="17-1-setup-hidden.html#setup-hidden"><span class="toc-section-number">17.1</span> Setup (hidden)</a></li>
+<li><a href="17-2-the-library.html#the-library"><span class="toc-section-number">17.2</span> The Library</a></li>
+<li class="has-sub"><a href="17-3-model-fitting.html#model-fitting"><span class="toc-section-number">17.3</span> Model Fitting</a><ul>
+<li><a href="17-3-model-fitting.html#underfitting"><span class="toc-section-number">17.3.1</span> Underfitting</a></li>
+<li><a href="17-3-model-fitting.html#overfitting"><span class="toc-section-number">17.3.2</span> Overfitting</a></li>
+<li><a href="17-3-model-fitting.html#just-right"><span class="toc-section-number">17.3.3</span> Just Right</a></li>
+</ul></li>
+<li><a href="17-4-model-tuning.html#model-tuning"><span class="toc-section-number">17.4</span> Model Tuning</a></li>
+<li><a href="17-5-high-level-ml-process.html#high-level-ml-process"><span class="toc-section-number">17.5</span> High Level ML Process</a></li>
+<li class="has-sub"><a href="17-6-built-in-datasets.html#built-in-datasets"><span class="toc-section-number">17.6</span> Built-in Datasets</a><ul>
+<li><a href="17-6-built-in-datasets.html#diabetes-regression"><span class="toc-section-number">17.6.1</span> diabetes (regression)</a></li>
+<li><a href="17-6-built-in-datasets.html#digits-classification"><span class="toc-section-number">17.6.2</span> digits (Classification)</a></li>
+<li><a href="17-6-built-in-datasets.html#iris-classification"><span class="toc-section-number">17.6.3</span> iris (Classification)</a></li>
+</ul></li>
+<li class="has-sub"><a href="17-7-train-test-data-splitting.html#train-test-data-splitting"><span class="toc-section-number">17.7</span> Train Test Data Splitting</a><ul>
+<li><a href="17-7-train-test-data-splitting.html#sample-data-18"><span class="toc-section-number">17.7.1</span> Sample Data</a></li>
+<li><a href="17-7-train-test-data-splitting.html#one-time-split"><span class="toc-section-number">17.7.2</span> One Time Split</a></li>
+<li><a href="17-7-train-test-data-splitting.html#k-fold"><span class="toc-section-number">17.7.3</span> K-Fold</a></li>
+<li><a href="17-7-train-test-data-splitting.html#leave-one-out"><span class="toc-section-number">17.7.4</span> Leave One Out</a></li>
+</ul></li>
+<li class="has-sub"><a href="17-8-polynomial-transform.html#polynomial-transform"><span class="toc-section-number">17.8</span> Polynomial Transform</a><ul>
+<li><a href="17-8-polynomial-transform.html#single-variable"><span class="toc-section-number">17.8.1</span> Single Variable</a></li>
+<li><a href="17-8-polynomial-transform.html#two-variables"><span class="toc-section-number">17.8.2</span> Two Variables</a></li>
+</ul></li>
+<li class="has-sub"><a href="17-9-imputation-of-missing-data.html#imputation-of-missing-data"><span class="toc-section-number">17.9</span> Imputation of Missing Data</a><ul>
+<li><a href="17-9-imputation-of-missing-data.html#sample-data-21"><span class="toc-section-number">17.9.1</span> Sample Data</a></li>
+<li><a href="17-9-imputation-of-missing-data.html#imputer"><span class="toc-section-number">17.9.2</span> Imputer</a></li>
+</ul></li>
+<li class="has-sub"><a href="17-10-scaling.html#scaling"><span class="toc-section-number">17.10</span> Scaling</a><ul>
+<li><a href="17-10-scaling.html#sample-data-22"><span class="toc-section-number">17.10.1</span> Sample Data</a></li>
+<li><a href="17-10-scaling.html#minmax-scaler"><span class="toc-section-number">17.10.2</span> MinMax Scaler</a></li>
+<li><a href="17-10-scaling.html#standard-scaler"><span class="toc-section-number">17.10.3</span> Standard Scaler</a></li>
+</ul></li>
+<li class="has-sub"><a href="17-11-pipeline.html#pipeline"><span class="toc-section-number">17.11</span> Pipeline</a><ul>
+<li><a href="17-11-pipeline.html#sample-data-23"><span class="toc-section-number">17.11.1</span> Sample Data</a></li>
+<li><a href="17-11-pipeline.html#create-pipeline"><span class="toc-section-number">17.11.2</span> Create Pipeline</a></li>
+<li><a href="17-11-pipeline.html#executing-pipeline"><span class="toc-section-number">17.11.3</span> Executing Pipeline</a></li>
+</ul></li>
+<li class="has-sub"><a href="17-12-cross-validation.html#cross-validation"><span class="toc-section-number">17.12</span> Cross Validation</a><ul>
+<li><a href="17-12-cross-validation.html#load-data"><span class="toc-section-number">17.12.1</span> Load Data</a></li>
+<li><a href="17-12-cross-validation.html#choose-an-cross-validator"><span class="toc-section-number">17.12.2</span> Choose An Cross Validator</a></li>
+<li><a href="17-12-cross-validation.html#run-cross-validation"><span class="toc-section-number">17.12.3</span> Run Cross Validation</a></li>
+<li><a href="17-12-cross-validation.html#the-result"><span class="toc-section-number">17.12.4</span> The Result</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="18-nlp.html#nlp"><span class="toc-section-number">18</span> NLP</a><ul>
+<li><a href="18-1-setup-hidden-1.html#setup-hidden-1"><span class="toc-section-number">18.1</span> Setup (hidden)</a></li>
+<li><a href="18-2-the-library-1.html#the-library-1"><span class="toc-section-number">18.2</span> The Library</a></li>
+<li class="has-sub"><a href="18-3-tokenizer.html#tokenizer"><span class="toc-section-number">18.3</span> Tokenizer</a><ul>
+<li><a href="18-3-tokenizer.html#casual-tokenizer"><span class="toc-section-number">18.3.1</span> Casual Tokenizer</a></li>
+<li><a href="18-3-tokenizer.html#treebank-tokenizer"><span class="toc-section-number">18.3.2</span> Treebank Tokenizer¶</a></li>
+</ul></li>
+<li><a href="18-4-n-gram.html#n-gram"><span class="toc-section-number">18.4</span> N-Gram</a></li>
+<li class="has-sub"><a href="18-5-stopwords.html#stopwords"><span class="toc-section-number">18.5</span> Stopwords</a><ul>
+<li><a href="18-5-stopwords.html#custom-stop-words"><span class="toc-section-number">18.5.1</span> Custom Stop Words</a></li>
+<li><a href="18-5-stopwords.html#nltk-stop-words"><span class="toc-section-number">18.5.2</span> NLTK Stop Words</a></li>
+<li><a href="18-5-stopwords.html#sklearn-stop-words"><span class="toc-section-number">18.5.3</span> SKLearn Stop Words¶</a></li>
+<li><a href="18-5-stopwords.html#combined-nltk-and-sklearn-stop-words"><span class="toc-section-number">18.5.4</span> Combined NLTK and SKLearn Stop Words¶</a></li>
+</ul></li>
+<li class="has-sub"><a href="18-6-normalizing.html#normalizing"><span class="toc-section-number">18.6</span> Normalizing</a><ul>
+<li><a href="18-6-normalizing.html#case-folding"><span class="toc-section-number">18.6.1</span> Case Folding</a></li>
+<li><a href="18-6-normalizing.html#stemming"><span class="toc-section-number">18.6.2</span> Stemming</a></li>
+<li><a href="18-6-normalizing.html#lemmatization"><span class="toc-section-number">18.6.3</span> Lemmatization</a></li>
+<li><a href="18-6-normalizing.html#comparing-stemming-and-lemmatization"><span class="toc-section-number">18.6.4</span> Comparing Stemming and Lemmatization</a></li>
+</ul></li>
+<li class="has-sub"><a href="18-7-sentiment.html#sentiment"><span class="toc-section-number">18.7</span> Sentiment</a><ul>
+<li><a href="18-7-sentiment.html#vader"><span class="toc-section-number">18.7.1</span> Vader</a></li>
+</ul></li>
+<li class="has-sub"><a href="18-8-naive-bayes.html#naive-bayes"><span class="toc-section-number">18.8</span> Naive Bayes</a><ul>
+<li><a href="18-8-naive-bayes.html#libraries-1"><span class="toc-section-number">18.8.1</span> Libraries</a></li>
+<li><a href="18-8-naive-bayes.html#the-data-1"><span class="toc-section-number">18.8.2</span> The Data</a></li>
+<li><a href="18-8-naive-bayes.html#bag-of-words"><span class="toc-section-number">18.8.3</span> Bag of Words</a></li>
+<li><a href="18-8-naive-bayes.html#build-the-model"><span class="toc-section-number">18.8.4</span> Build The Model</a></li>
+<li><a href="18-8-naive-bayes.html#train-set-prediction"><span class="toc-section-number">18.8.5</span> Train Set Prediction</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="object-oriented-api" class="section level2">
+<h2><span class="header-section-number">14.4</span> Object-Oriented API</h2>
+<div id="sample-data-16" class="section level3">
+<h3><span class="header-section-number">14.4.1</span> Sample Data</h3>
+<div class="sourceCode" id="cb1627"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1627-1"><a href="14-4-object-oriented-api.html#cb1627-1"></a><span class="co"># Sample Data</span></span>
+<span id="cb1627-2"><a href="14-4-object-oriented-api.html#cb1627-2"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">5</span>,<span class="dv">10</span>)</span>
+<span id="cb1627-3"><a href="14-4-object-oriented-api.html#cb1627-3"></a>y <span class="op">=</span> x <span class="op">**</span> <span class="dv">2</span></span></code></pre></div>
+</div>
+<div id="single-plot-1" class="section level3">
+<h3><span class="header-section-number">14.4.2</span> Single Plot</h3>
+<p><strong>One figure, one axes</strong></p>
+<div class="sourceCode" id="cb1628"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1628-1"><a href="14-4-object-oriented-api.html#cb1628-1"></a>fig <span class="op">=</span> plt.figure()</span>
+<span id="cb1628-2"><a href="14-4-object-oriented-api.html#cb1628-2"></a>axes <span class="op">=</span> fig.add_axes([<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>]) <span class="co"># left, bottom, width, height (range 0 to 1)</span></span>
+<span id="cb1628-3"><a href="14-4-object-oriented-api.html#cb1628-3"></a>axes.plot(x, y, <span class="st">&#39;r&#39;</span>)</span></code></pre></div>
+<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000002154D43A4E0&gt;]</code></pre>
+<div class="sourceCode" id="cb1630"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1630-1"><a href="14-4-object-oriented-api.html#cb1630-1"></a>axes.set_xlabel(<span class="st">&#39;x&#39;</span>)</span></code></pre></div>
+<pre><code>## Text(0.5, 0, &#39;x&#39;)</code></pre>
+<div class="sourceCode" id="cb1632"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1632-1"><a href="14-4-object-oriented-api.html#cb1632-1"></a>axes.set_ylabel(<span class="st">&#39;y&#39;</span>)</span></code></pre></div>
+<pre><code>## Text(0, 0.5, &#39;y&#39;)</code></pre>
+<div class="sourceCode" id="cb1634"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1634-1"><a href="14-4-object-oriented-api.html#cb1634-1"></a>axes.set_title(<span class="st">&#39;title&#39;</span>)</span></code></pre></div>
+<pre><code>## Text(0.5, 1.0, &#39;title&#39;)</code></pre>
+<div class="sourceCode" id="cb1636"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1636-1"><a href="14-4-object-oriented-api.html#cb1636-1"></a>plt.show()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-631-1.png" /><!-- --></p>
+</div>
+<div id="multiple-axes-in-one-plot" class="section level3">
+<h3><span class="header-section-number">14.4.3</span> Multiple Axes In One Plot</h3>
+<ul>
+<li>This is still considered a <strong>single plot</strong>, but with <strong>multiple axes</strong></li>
+</ul>
+<div class="sourceCode" id="cb1637"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1637-1"><a href="14-4-object-oriented-api.html#cb1637-1"></a>fig <span class="op">=</span> plt.figure()</span>
+<span id="cb1637-2"><a href="14-4-object-oriented-api.html#cb1637-2"></a>ax1 <span class="op">=</span> fig.add_axes([<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>])         <span class="co"># main axes</span></span>
+<span id="cb1637-3"><a href="14-4-object-oriented-api.html#cb1637-3"></a>ax2 <span class="op">=</span> fig.add_axes([<span class="fl">0.2</span>, <span class="fl">0.5</span>, <span class="fl">0.4</span>, <span class="fl">0.3</span>]) <span class="co"># inset axes</span></span>
+<span id="cb1637-4"><a href="14-4-object-oriented-api.html#cb1637-4"></a></span>
+<span id="cb1637-5"><a href="14-4-object-oriented-api.html#cb1637-5"></a>ax1.plot(x,y,<span class="st">&#39;r&#39;</span>)</span></code></pre></div>
+<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000002154DCAB2B0&gt;]</code></pre>
+<div class="sourceCode" id="cb1639"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1639-1"><a href="14-4-object-oriented-api.html#cb1639-1"></a>ax1.set_xlabel(<span class="st">&#39;x&#39;</span>)</span></code></pre></div>
+<pre><code>## Text(0.5, 0, &#39;x&#39;)</code></pre>
+<div class="sourceCode" id="cb1641"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1641-1"><a href="14-4-object-oriented-api.html#cb1641-1"></a>ax1.set_ylabel(<span class="st">&#39;y&#39;</span>)</span></code></pre></div>
+<pre><code>## Text(0, 0.5, &#39;y&#39;)</code></pre>
+<div class="sourceCode" id="cb1643"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1643-1"><a href="14-4-object-oriented-api.html#cb1643-1"></a>ax2.plot(y, x, <span class="st">&#39;g&#39;</span>)</span></code></pre></div>
+<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000002154D8A99E8&gt;]</code></pre>
+<div class="sourceCode" id="cb1645"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1645-1"><a href="14-4-object-oriented-api.html#cb1645-1"></a>ax2.set_xlabel(<span class="st">&#39;y&#39;</span>)</span></code></pre></div>
+<pre><code>## Text(0.5, 0, &#39;y&#39;)</code></pre>
+<div class="sourceCode" id="cb1647"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1647-1"><a href="14-4-object-oriented-api.html#cb1647-1"></a>ax2.set_ylabel(<span class="st">&#39;x&#39;</span>)</span></code></pre></div>
+<pre><code>## Text(0, 0.5, &#39;x&#39;)</code></pre>
+<div class="sourceCode" id="cb1649"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1649-1"><a href="14-4-object-oriented-api.html#cb1649-1"></a>ax2.set_title(<span class="st">&#39;insert title&#39;</span>)</span></code></pre></div>
+<pre><code>## Text(0.5, 1.0, &#39;insert title&#39;)</code></pre>
+<div class="sourceCode" id="cb1651"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1651-1"><a href="14-4-object-oriented-api.html#cb1651-1"></a>plt.show()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-632-1.png" /><!-- --></p>
+</div>
+<div id="multiple-subplots-1" class="section level3">
+<h3><span class="header-section-number">14.4.4</span> Multiple Subplots</h3>
+<ul>
+<li>One <strong>figure</strong> can contain multiple <strong>subplots</strong><br />
+</li>
+<li>Each subplot has <strong>one axes</strong></li>
+</ul>
+<div id="simple-subplots---all-same-size" class="section level4">
+<h4><span class="header-section-number">14.4.4.1</span> Simple Subplots - all same size</h4>
+<ul>
+<li>subplots() function return axes object that is iterable.</li>
+</ul>
+<p><strong>Single Row Grid</strong><br />
+Single row grid means axes is an 1-D array. Hence can use <strong>for</strong> to iterate through axes</p>
+<div class="sourceCode" id="cb1652"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1652-1"><a href="14-4-object-oriented-api.html#cb1652-1"></a>fig, axes <span class="op">=</span> plt.subplots( nrows<span class="op">=</span><span class="dv">1</span>,ncols<span class="op">=</span><span class="dv">3</span> )</span>
+<span id="cb1652-2"><a href="14-4-object-oriented-api.html#cb1652-2"></a><span class="bu">print</span> (axes.shape)</span></code></pre></div>
+<pre><code>## (3,)</code></pre>
+<div class="sourceCode" id="cb1654"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1654-1"><a href="14-4-object-oriented-api.html#cb1654-1"></a><span class="cf">for</span> ax <span class="kw">in</span> axes:</span>
+<span id="cb1654-2"><a href="14-4-object-oriented-api.html#cb1654-2"></a>    ax.plot(x, y, <span class="st">&#39;r&#39;</span>)</span>
+<span id="cb1654-3"><a href="14-4-object-oriented-api.html#cb1654-3"></a>    ax.set_xlabel(<span class="st">&#39;x&#39;</span>)</span>
+<span id="cb1654-4"><a href="14-4-object-oriented-api.html#cb1654-4"></a>    ax.set_ylabel(<span class="st">&#39;y&#39;</span>)</span>
+<span id="cb1654-5"><a href="14-4-object-oriented-api.html#cb1654-5"></a>    ax.set_title(<span class="st">&#39;title&#39;</span>)</span>
+<span id="cb1654-6"><a href="14-4-object-oriented-api.html#cb1654-6"></a>    ax.text(<span class="fl">0.2</span>,<span class="fl">0.5</span>,<span class="st">&#39;One&#39;</span>)</span></code></pre></div>
+<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000002154DDFA668&gt;]
+## Text(0.5, 0, &#39;x&#39;)
+## Text(0, 0.5, &#39;y&#39;)
+## Text(0.5, 1.0, &#39;title&#39;)
+## Text(0.2, 0.5, &#39;One&#39;)
+## [&lt;matplotlib.lines.Line2D object at 0x000002154D67E860&gt;]
+## Text(0.5, 0, &#39;x&#39;)
+## Text(0, 0.5, &#39;y&#39;)
+## Text(0.5, 1.0, &#39;title&#39;)
+## Text(0.2, 0.5, &#39;One&#39;)
+## [&lt;matplotlib.lines.Line2D object at 0x000002154D70FD68&gt;]
+## Text(0.5, 0, &#39;x&#39;)
+## Text(0, 0.5, &#39;y&#39;)
+## Text(0.5, 1.0, &#39;title&#39;)
+## Text(0.2, 0.5, &#39;One&#39;)</code></pre>
+<div class="sourceCode" id="cb1656"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1656-1"><a href="14-4-object-oriented-api.html#cb1656-1"></a>plt.show()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-633-1.png" /><!-- --></p>
+<p><strong>Multiple Row Grid</strong><br />
+Multile row grid means axes is an 2-D array. Hence can use two levels of <strong>for</strong> loop to iterate through each row and column</p>
+<div class="sourceCode" id="cb1657"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1657-1"><a href="14-4-object-oriented-api.html#cb1657-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, sharex<span class="op">=</span><span class="st">&#39;col&#39;</span>, sharey<span class="op">=</span><span class="st">&#39;row&#39;</span>)</span>
+<span id="cb1657-2"><a href="14-4-object-oriented-api.html#cb1657-2"></a><span class="bu">print</span> (axes.shape)</span></code></pre></div>
+<pre><code>## (2, 3)</code></pre>
+<div class="sourceCode" id="cb1659"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1659-1"><a href="14-4-object-oriented-api.html#cb1659-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(axes.shape[<span class="dv">0</span>]):</span>
+<span id="cb1659-2"><a href="14-4-object-oriented-api.html#cb1659-2"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(axes.shape[<span class="dv">1</span>]):</span>
+<span id="cb1659-3"><a href="14-4-object-oriented-api.html#cb1659-3"></a>        axes[i, j].text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="bu">str</span>((i, j)),</span>
+<span id="cb1659-4"><a href="14-4-object-oriented-api.html#cb1659-4"></a>                      fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)</span></code></pre></div>
+<pre><code>## Text(0.5, 0.5, &#39;(0, 0)&#39;)
+## Text(0.5, 0.5, &#39;(0, 1)&#39;)
+## Text(0.5, 0.5, &#39;(0, 2)&#39;)
+## Text(0.5, 0.5, &#39;(1, 0)&#39;)
+## Text(0.5, 0.5, &#39;(1, 1)&#39;)
+## Text(0.5, 0.5, &#39;(1, 2)&#39;)</code></pre>
+<div class="sourceCode" id="cb1661"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1661-1"><a href="14-4-object-oriented-api.html#cb1661-1"></a>plt.show()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-634-1.png" /><!-- --></p>
+</div>
+<div id="complicated-subplots---different-size" class="section level4">
+<h4><span class="header-section-number">14.4.4.2</span> Complicated Subplots - different size</h4>
+<ul>
+<li><strong>GridSpec</strong> specify grid size of the figure<br />
+</li>
+<li>Manually specify each subplot and their relevant grid position and size</li>
+</ul>
+<div class="sourceCode" id="cb1662"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1662-1"><a href="14-4-object-oriented-api.html#cb1662-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))</span></code></pre></div>
+<pre><code>## &lt;Figure size 500x500 with 0 Axes&gt;</code></pre>
+<div class="sourceCode" id="cb1664"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1664-1"><a href="14-4-object-oriented-api.html#cb1664-1"></a>grid <span class="op">=</span> plt.GridSpec(<span class="dv">2</span>, <span class="dv">3</span>, hspace<span class="op">=</span><span class="fl">0.4</span>, wspace<span class="op">=</span><span class="fl">0.4</span>)</span>
+<span id="cb1664-2"><a href="14-4-object-oriented-api.html#cb1664-2"></a>plt.subplot(grid[<span class="dv">0</span>, <span class="dv">0</span>])  <span class="co">#row 0, col 0</span></span></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000002154D740470&gt;</code></pre>
+<div class="sourceCode" id="cb1666"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1666-1"><a href="14-4-object-oriented-api.html#cb1666-1"></a>plt.subplot(grid[<span class="dv">0</span>, <span class="dv">1</span>:]) <span class="co">#row 0, col 1 to :</span></span></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000002154D7D5400&gt;</code></pre>
+<div class="sourceCode" id="cb1668"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1668-1"><a href="14-4-object-oriented-api.html#cb1668-1"></a>plt.subplot(grid[<span class="dv">1</span>, :<span class="dv">2</span>]) <span class="co">#row 1, col 0:2 </span></span></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000002154DA12160&gt;</code></pre>
+<div class="sourceCode" id="cb1670"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1670-1"><a href="14-4-object-oriented-api.html#cb1670-1"></a>plt.subplot(grid[<span class="dv">1</span>, <span class="dv">2</span>])<span class="op">;</span> <span class="co">#row 1, col 2</span></span></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000002154DB0F668&gt;</code></pre>
+<div class="sourceCode" id="cb1672"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1672-1"><a href="14-4-object-oriented-api.html#cb1672-1"></a>plt.show()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-635-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb1673"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1673-1"><a href="14-4-object-oriented-api.html#cb1673-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))</span></code></pre></div>
+<pre><code>## &lt;Figure size 500x500 with 0 Axes&gt;</code></pre>
+<div class="sourceCode" id="cb1675"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1675-1"><a href="14-4-object-oriented-api.html#cb1675-1"></a>grid <span class="op">=</span> plt.GridSpec(<span class="dv">4</span>, <span class="dv">4</span>, hspace<span class="op">=</span><span class="fl">0.8</span>, wspace<span class="op">=</span><span class="fl">0.4</span>)</span>
+<span id="cb1675-2"><a href="14-4-object-oriented-api.html#cb1675-2"></a>plt.subplot(grid[:<span class="dv">3</span>, <span class="dv">0</span>])    <span class="co"># row 0:3, col 0</span></span></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000002154D684320&gt;</code></pre>
+<div class="sourceCode" id="cb1677"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1677-1"><a href="14-4-object-oriented-api.html#cb1677-1"></a>plt.subplot(grid[:<span class="dv">3</span>, <span class="dv">1</span>: ])  <span class="co"># row 0:3, col 1:</span></span></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000002154D84CDD8&gt;</code></pre>
+<div class="sourceCode" id="cb1679"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1679-1"><a href="14-4-object-oriented-api.html#cb1679-1"></a>plt.subplot(grid[<span class="dv">3</span>, <span class="dv">1</span>: ])<span class="op">;</span>  <span class="co"># row 3,   col 1:</span></span></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000002154DBE37B8&gt;</code></pre>
+<div class="sourceCode" id="cb1681"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1681-1"><a href="14-4-object-oriented-api.html#cb1681-1"></a>plt.show()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-636-1.png" /><!-- --></p>
+<p><strong>-1 means last row or column</strong></p>
+<div class="sourceCode" id="cb1682"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1682-1"><a href="14-4-object-oriented-api.html#cb1682-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">6</span>))</span></code></pre></div>
+<pre><code>## &lt;Figure size 600x600 with 0 Axes&gt;</code></pre>
+<div class="sourceCode" id="cb1684"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1684-1"><a href="14-4-object-oriented-api.html#cb1684-1"></a>grid <span class="op">=</span> plt.GridSpec(<span class="dv">4</span>, <span class="dv">4</span>, hspace<span class="op">=</span><span class="fl">0.4</span>, wspace<span class="op">=</span><span class="fl">1.2</span>)</span>
+<span id="cb1684-2"><a href="14-4-object-oriented-api.html#cb1684-2"></a>plt.subplot(grid[:<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span> ])  <span class="co"># row 0 till last row (not including last row), col 0</span></span></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000002154D95E550&gt;</code></pre>
+<div class="sourceCode" id="cb1686"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1686-1"><a href="14-4-object-oriented-api.html#cb1686-1"></a>plt.subplot(grid[:<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>:])  <span class="co"># row 0 till last row (not including last row), col 1 till end</span></span></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000002154D6B9278&gt;</code></pre>
+<div class="sourceCode" id="cb1688"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1688-1"><a href="14-4-object-oriented-api.html#cb1688-1"></a>plt.subplot(grid[<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>: ])<span class="op">;</span> <span class="co"># row last row, col 1 till end</span></span></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000002154D66C048&gt;</code></pre>
+<div class="sourceCode" id="cb1690"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1690-1"><a href="14-4-object-oriented-api.html#cb1690-1"></a>plt.show()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-637-1.png" /><!-- --></p>
+</div>
+</div>
+<div id="figure-customization" class="section level3">
+<h3><span class="header-section-number">14.4.5</span> Figure Customization</h3>
+<div id="avoid-overlap---use-tight_layout" class="section level4">
+<h4><span class="header-section-number">14.4.5.1</span> Avoid Overlap - Use tight_layout()</h4>
+<p>Sometimes when the figure size is too small, plots will overlap each other.
+- <strong>tight_layout()</strong> will introduce extra white space in between the subplots to avoid overlap.<br />
+- The figure became wider.</p>
+<div class="sourceCode" id="cb1691"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1691-1"><a href="14-4-object-oriented-api.html#cb1691-1"></a>fig, axes <span class="op">=</span> plt.subplots( nrows<span class="op">=</span><span class="dv">1</span>,ncols<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb1691-2"><a href="14-4-object-oriented-api.html#cb1691-2"></a><span class="cf">for</span> ax <span class="kw">in</span> axes:</span>
+<span id="cb1691-3"><a href="14-4-object-oriented-api.html#cb1691-3"></a>    ax.plot(x, y, <span class="st">&#39;r&#39;</span>)</span>
+<span id="cb1691-4"><a href="14-4-object-oriented-api.html#cb1691-4"></a>    ax.set_xlabel(<span class="st">&#39;x&#39;</span>)</span>
+<span id="cb1691-5"><a href="14-4-object-oriented-api.html#cb1691-5"></a>    ax.set_ylabel(<span class="st">&#39;y&#39;</span>)</span>
+<span id="cb1691-6"><a href="14-4-object-oriented-api.html#cb1691-6"></a>    ax.set_title(<span class="st">&#39;title&#39;</span>)</span></code></pre></div>
+<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000002154DFE9780&gt;]
+## Text(0.5, 0, &#39;x&#39;)
+## Text(0, 0.5, &#39;y&#39;)
+## Text(0.5, 1.0, &#39;title&#39;)
+## [&lt;matplotlib.lines.Line2D object at 0x000002154D95D4E0&gt;]
+## Text(0.5, 0, &#39;x&#39;)
+## Text(0, 0.5, &#39;y&#39;)
+## Text(0.5, 1.0, &#39;title&#39;)</code></pre>
+<div class="sourceCode" id="cb1693"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1693-1"><a href="14-4-object-oriented-api.html#cb1693-1"></a>fig.tight_layout() <span class="co"># adjust the positions of axes so that there is no overlap</span></span>
+<span id="cb1693-2"><a href="14-4-object-oriented-api.html#cb1693-2"></a>plt.show()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-638-1.png" /><!-- --></p>
+</div>
+<div id="avoid-overlap---change-figure-size" class="section level4">
+<h4><span class="header-section-number">14.4.5.2</span> Avoid Overlap - Change Figure Size</h4>
+<div class="sourceCode" id="cb1694"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1694-1"><a href="14-4-object-oriented-api.html#cb1694-1"></a>fig, axes <span class="op">=</span> plt.subplots( nrows<span class="op">=</span><span class="dv">1</span>,ncols<span class="op">=</span><span class="dv">2</span>,figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">3</span>))</span>
+<span id="cb1694-2"><a href="14-4-object-oriented-api.html#cb1694-2"></a><span class="cf">for</span> ax <span class="kw">in</span> axes:</span>
+<span id="cb1694-3"><a href="14-4-object-oriented-api.html#cb1694-3"></a>    ax.plot(x, y, <span class="st">&#39;r&#39;</span>)</span>
+<span id="cb1694-4"><a href="14-4-object-oriented-api.html#cb1694-4"></a>    ax.set_xlabel(<span class="st">&#39;x&#39;</span>)</span>
+<span id="cb1694-5"><a href="14-4-object-oriented-api.html#cb1694-5"></a>    ax.set_ylabel(<span class="st">&#39;y&#39;</span>)</span>
+<span id="cb1694-6"><a href="14-4-object-oriented-api.html#cb1694-6"></a>    ax.set_title(<span class="st">&#39;title&#39;</span>)</span></code></pre></div>
+<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x0000021527084358&gt;]
+## Text(0.5, 0, &#39;x&#39;)
+## Text(0, 0.5, &#39;y&#39;)
+## Text(0.5, 1.0, &#39;title&#39;)
+## [&lt;matplotlib.lines.Line2D object at 0x000002154DDB2F98&gt;]
+## Text(0.5, 0, &#39;x&#39;)
+## Text(0, 0.5, &#39;y&#39;)
+## Text(0.5, 1.0, &#39;title&#39;)</code></pre>
+<div class="sourceCode" id="cb1696"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1696-1"><a href="14-4-object-oriented-api.html#cb1696-1"></a>plt.show()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-639-1.png" /><!-- --></p>
+</div>
+<div id="text-within-figure" class="section level4">
+<h4><span class="header-section-number">14.4.5.3</span> Text Within Figure</h4>
+<div class="sourceCode" id="cb1697"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1697-1"><a href="14-4-object-oriented-api.html#cb1697-1"></a>fig <span class="op">=</span> plt.figure()</span>
+<span id="cb1697-2"><a href="14-4-object-oriented-api.html#cb1697-2"></a>fig.text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="st">&#39;This Is A Sample&#39;</span>,fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<pre><code>## Text(0.5, 0.5, &#39;This Is A Sample&#39;)</code></pre>
+<div class="sourceCode" id="cb1699"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1699-1"><a href="14-4-object-oriented-api.html#cb1699-1"></a>axes <span class="op">=</span> fig.add_axes([<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>]) <span class="co"># left, bottom, width, height (range 0 to 1)</span></span>
+<span id="cb1699-2"><a href="14-4-object-oriented-api.html#cb1699-2"></a>plt.show()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-640-1.png" /><!-- --></p>
+</div>
+</div>
+<div id="axes-customization" class="section level3">
+<h3><span class="header-section-number">14.4.6</span> Axes Customization</h3>
+<div id="y-axis-limit" class="section level4">
+<h4><span class="header-section-number">14.4.6.1</span> Y-Axis Limit</h4>
+<div class="sourceCode" id="cb1700"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1700-1"><a href="14-4-object-oriented-api.html#cb1700-1"></a>fig <span class="op">=</span> plt.figure()</span>
+<span id="cb1700-2"><a href="14-4-object-oriented-api.html#cb1700-2"></a>fig.add_axes([<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>], ylim<span class="op">=</span>(<span class="op">-</span><span class="dv">2</span>,<span class="dv">5</span>))<span class="op">;</span></span></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._axes.Axes object at 0x00000215277F1400&gt;</code></pre>
+<div class="sourceCode" id="cb1702"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1702-1"><a href="14-4-object-oriented-api.html#cb1702-1"></a>plt.show()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-641-1.png" /><!-- --></p>
+</div>
+<div id="text-within-axes" class="section level4">
+<h4><span class="header-section-number">14.4.6.2</span> Text Within Axes</h4>
+<div class="sourceCode" id="cb1703"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1703-1"><a href="14-4-object-oriented-api.html#cb1703-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, sharex<span class="op">=</span><span class="st">&#39;col&#39;</span>, sharey<span class="op">=</span><span class="st">&#39;row&#39;</span>)</span>
+<span id="cb1703-2"><a href="14-4-object-oriented-api.html#cb1703-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
+<span id="cb1703-3"><a href="14-4-object-oriented-api.html#cb1703-3"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>):</span>
+<span id="cb1703-4"><a href="14-4-object-oriented-api.html#cb1703-4"></a>        ax[i, j].text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="bu">str</span>((i, j)),</span>
+<span id="cb1703-5"><a href="14-4-object-oriented-api.html#cb1703-5"></a>                      fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)</span></code></pre></div>
+<pre><code>## Text(0.5, 0.5, &#39;(0, 0)&#39;)
+## Text(0.5, 0.5, &#39;(0, 1)&#39;)
+## Text(0.5, 0.5, &#39;(0, 2)&#39;)
+## Text(0.5, 0.5, &#39;(1, 0)&#39;)
+## Text(0.5, 0.5, &#39;(1, 1)&#39;)
+## Text(0.5, 0.5, &#39;(1, 2)&#39;)</code></pre>
+<div class="sourceCode" id="cb1705"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1705-1"><a href="14-4-object-oriented-api.html#cb1705-1"></a>plt.show()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-642-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb1706"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1706-1"><a href="14-4-object-oriented-api.html#cb1706-1"></a>plt.text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="st">&#39;one&#39;</span>,fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)</span></code></pre></div>
+<pre><code>## Text(0.5, 0.5, &#39;one&#39;)</code></pre>
+<div class="sourceCode" id="cb1708"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1708-1"><a href="14-4-object-oriented-api.html#cb1708-1"></a>plt.show()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-643-1.png" /><!-- --></p>
+</div>
+<div id="share-y-axis-label" class="section level4">
+<h4><span class="header-section-number">14.4.6.3</span> Share Y Axis Label</h4>
+<div class="sourceCode" id="cb1709"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1709-1"><a href="14-4-object-oriented-api.html#cb1709-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, sharex<span class="op">=</span><span class="st">&#39;col&#39;</span>, sharey<span class="op">=</span><span class="st">&#39;row&#39;</span>) <span class="co"># removed inner label</span></span>
+<span id="cb1709-2"><a href="14-4-object-oriented-api.html#cb1709-2"></a>plt.show()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-644-1.png" /><!-- --></p>
+</div>
+<div id="create-subplot-individually" class="section level4">
+<h4><span class="header-section-number">14.4.6.4</span> Create Subplot Individually</h4>
+<p>Each call lto <strong>subplot()</strong> will create a new container for subsequent plot command</p>
+<div class="sourceCode" id="cb1710"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1710-1"><a href="14-4-object-oriented-api.html#cb1710-1"></a>plt.subplot(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x00000215273A49E8&gt;</code></pre>
+<div class="sourceCode" id="cb1712"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1712-1"><a href="14-4-object-oriented-api.html#cb1712-1"></a>plt.text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="st">&#39;one&#39;</span>,fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)</span></code></pre></div>
+<pre><code>## Text(0.5, 0.5, &#39;one&#39;)</code></pre>
+<div class="sourceCode" id="cb1714"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1714-1"><a href="14-4-object-oriented-api.html#cb1714-1"></a>plt.subplot(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">8</span>)</span></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000002154D7951D0&gt;</code></pre>
+<div class="sourceCode" id="cb1716"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1716-1"><a href="14-4-object-oriented-api.html#cb1716-1"></a>plt.text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="st">&#39;eight&#39;</span>,fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)</span></code></pre></div>
+<pre><code>## Text(0.5, 0.5, &#39;eight&#39;)</code></pre>
+<div class="sourceCode" id="cb1718"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1718-1"><a href="14-4-object-oriented-api.html#cb1718-1"></a>plt.show()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-645-1.png" /><!-- --></p>
+<p><strong>Iterate through subplots (ax) to populate them</strong></p>
+<div class="sourceCode" id="cb1719"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1719-1"><a href="14-4-object-oriented-api.html#cb1719-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, sharex<span class="op">=</span><span class="st">&#39;col&#39;</span>, sharey<span class="op">=</span><span class="st">&#39;row&#39;</span>)</span>
+<span id="cb1719-2"><a href="14-4-object-oriented-api.html#cb1719-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
+<span id="cb1719-3"><a href="14-4-object-oriented-api.html#cb1719-3"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>):</span>
+<span id="cb1719-4"><a href="14-4-object-oriented-api.html#cb1719-4"></a>        ax[i, j].text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="bu">str</span>((i, j)),</span>
+<span id="cb1719-5"><a href="14-4-object-oriented-api.html#cb1719-5"></a>                      fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)</span></code></pre></div>
+<pre><code>## Text(0.5, 0.5, &#39;(0, 0)&#39;)
+## Text(0.5, 0.5, &#39;(0, 1)&#39;)
+## Text(0.5, 0.5, &#39;(0, 2)&#39;)
+## Text(0.5, 0.5, &#39;(1, 0)&#39;)
+## Text(0.5, 0.5, &#39;(1, 1)&#39;)
+## Text(0.5, 0.5, &#39;(1, 2)&#39;)</code></pre>
+<div class="sourceCode" id="cb1721"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1721-1"><a href="14-4-object-oriented-api.html#cb1721-1"></a>plt.show()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-646-1.png" /><!-- --></p>
+</div>
+</div>
+</div>
+<p style="text-align: center;">
+<a href="14-3-matlab-like-api.html"><button class="btn btn-default">Previous</button></a>
+<a href="14-5-histogram.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+</script>
+
+</body>
+</html>

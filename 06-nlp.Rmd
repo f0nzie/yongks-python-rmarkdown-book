@@ -1,0 +1,332 @@
+# NLP
+Natural Language Processing
+
+## Setup (hidden)
+
+```{r include=FALSE}
+library(reticulate)
+use_condaenv('Anaconda3')    #conda_list() - to find out the name of conda environment
+```
+
+```{python}
+import numpy as np
+import pandas as pd
+from IPython.core.display import display, HTML
+display(HTML("<style>.container { width:75% !important; margin-left:350px; }</style>"))
+pd.set_option( 'display.notebook_repr_html', False)  # render Series and DataFrame as text, not HTML
+pd.set_option( 'display.max_column', 10)    # number of columns
+pd.set_option( 'display.max_rows', 10)      # number of rows
+pd.set_option( 'display.width', 90)         # number of characters per row
+```
+
+## The Library
+
+```{python}
+from nltk.tokenize.casual     import casual_tokenize
+from nltk.tokenize.treebank   import TreebankWordTokenizer
+```
+
+## Tokenizer
+
+### Casual Tokenizer
+
+Built to deal with short, informal, emotion-laced texts from social netwtorks where grammar and spelling conventions vary widely
+
+
+```{python results='hold', collapse=FALSE}
+casual_tokenize("hi @ali-baba, you are aweeeeeesome! isn't it. Believe it.")
+```
+
+Strip off usernames and reduce number of repeated chars
+
+```{python}
+casual_tokenize("hi @ali-baba, you are aweeeeeesome! isn't it. Believe it.", 
+                reduce_len=True,     ## shorten repeated chars
+                strip_handles=True)  ## strip usernames
+```
+
+
+### Treebank Tokenizer¶
+
+```{python}
+TreebankWordTokenizer().tokenize("hi @ali-baba, you are aweeeeeesome! isn't it. Believe it.")
+```
+
+
+
+## N-Gram
+
+
+```{python}
+from nltk.util import ngrams 
+import re
+sentence = "Thomas Jefferson began building the city, at the age of 25"
+```
+
+```{python}
+
+pattern = re.compile(r"[-\s.,;!?]+")
+tokens = pattern.split(sentence)
+print(tokens)
+```
+
+
+
+Convert To 2-Gram List in two steps
+
+```{python}
+ngrams(tokens,2)
+```
+
+
+```{python}
+grammy = list( ngrams(tokens,2) )
+print(grammy)
+```
+
+
+```{python}
+[ " ".join(x) for x in grammy]
+
+```
+
+## Stopwords
+
+### Custom Stop Words
+
+
+```{python}
+stop_words = ['a','an','the','on','of','off','this','is','at']
+sentence = "The house is on fire"
+tokens = TreebankWordTokenizer().tokenize(sentence)
+print(tokens)
+```
+
+
+```{python}
+tokens_without_stopwords = [ x for x in tokens if x not in stop_words ]
+print(tokens_without_stopwords)
+```
+
+### NLTK Stop Words
+
+Contain 179 words, in a list form
+
+```{python}
+import nltk
+#nltk.download('stopwords')
+```
+
+
+```{python}
+nltk_stop_words = nltk.corpus.stopwords.words('english')
+print(nltk_stop_words)
+print(len(nltk_stop_words))
+```
+
+### SKLearn Stop Words¶
+
+Contain 318 stop words, in frozenset form
+
+
+```{python}
+from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS as sklearn_stop_words
+print(len( sklearn_stop_words))
+print( sklearn_stop_words)
+```
+
+
+```{python}
+combined_stop_words = list( set(nltk_stop_words) | set(sklearn_stop_words) )
+```
+
+### Combined NLTK and SKLearn Stop Words¶
+
+
+```{python}
+combined_stop_words = list( set(nltk_stop_words) | set(sklearn_stop_words) )
+len( combined_stop_words )
+```
+
+**Intersection, agreeing only 119 out of 378 words**
+
+```{python}
+len( list( set(nltk_stop_words) & set(sklearn_stop_words)) )
+```
+
+
+## Normalizing
+
+Similar things are combined into single normalized form. This will reduced the vocabulary.
+
+### Case Folding
+
+If tokens aren't cap normalized, you will end up with large word list.
+However, some information is often communicated by capitalization of word, such as name of places. If names are important, consider using proper noun.
+
+
+```{python}
+tokens = ['House','Visitor','Center']
+[ x.lower() for x in tokens]
+```
+
+
+### Stemming
+
+Output of a stemmer is not necessary a proper word.
+**Porter stemmer** is a lifetime refinement with 300 lines of python code, it automatically convert words to lower cap.
+Stemming is faster then Lemmatization
+
+```{python}
+from nltk.stem.porter import PorterStemmer
+stemmer = PorterStemmer()
+tokens = ('house','Housing','hOuses', 'Malicious','goodness')
+[stemmer.stem(x) for x in tokens ]
+```
+
+### Lemmatization
+
+NLTK uses connections within princeton WordNet graph for word meanings.
+
+```{python}
+#nltk.download('wordnet')
+from nltk.stem import WordNetLemmatizer
+lemmatizer = WordNetLemmatizer()
+```
+```{python}
+print( lemmatizer.lemmatize("better", pos ='a') )
+print( lemmatizer.lemmatize("better", pos ='n') )
+```
+
+```{python}
+print( lemmatizer.lemmatize("good", pos ='a') )
+print( lemmatizer.lemmatize("good", pos ='n') )
+```
+
+### Comparing Stemming and Lemmatization
+
+- Lemmatization is slower than stemming
+= Lemmatization is better at retaining meanings
+- Lemmatization produce valid english word
+- Stemming not necessary produce valid english word
+- Both reduce vocabulary size, but increase ambiguity
+- For search engine application, stemming and lemmatization will improve recall as it associate more documents with the same query words, however with the cost of reducing precision and accuracy.
+
+For search-based chatbot where accuracy is more important, it should first search with unnormalzied words.
+
+## Sentiment
+
+### Vader
+
+- It is a rule based sentiment analyzer, contain 7503 lexicons.
+- It is good for social media because lexicon contain emoji text.
+- Contain only 3 n-gram
+
+
+#### Vader Lexicon
+
+```{python}
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+vadersa = SentimentIntensityAnalyzer()
+print( len(vadersa.lexicon))
+```
+
+```{python}
+vadersa.lexicon  ## this is a dictionary
+```
+
+**Only three N-Gram in the lexicon**
+
+```{python}
+[ (tok,score) for tok, score in vadersa.lexicon.items() if " " in tok]
+```
+
+If stemming or lemmatization is used, stem/lemmatize the vader lexicon too
+
+```{python}
+[ (tok,score) for tok, score in vadersa.lexicon.items() if "lov" in tok]
+```
+
+#### Polarity Scoring
+
+Scoring result is a dictionary of:
+
+- neg
+- neu
+- pos
+- compound
+**neg, neu, pos adds up to 1.0**
+
+```{python}
+corpus = ["Python is a very useful but hell difficult to learn",
+        ":) :) :("]
+        
+for doc in corpus:
+  print(doc, "-->", vadersa.polarity_scores(doc) )
+```
+
+## Naive Bayes
+
+### Libraries
+
+```{python}
+from nlpia.data.loaders import get_data
+from nltk.tokenize.casual     import casual_tokenize
+from collections import Counter
+```
+
+### The Data
+
+```{python}
+movies = get_data('hutto_movies')   # download data
+print(movies.head(), '\n\n',
+      movies.describe())
+```
+
+### Bag of Words
+
+- Tokenize each record, remove single character token, then convert into list of counters (words-frequency pair).  
+- Each item in the list is a counter, which represent word frequency within the record
+
+```{python}
+bag_of_words = []
+for text in movies.text:
+    tokens = casual_tokenize(text, reduce_len=True, strip_handles=True)  # tokenize
+    tokens = [x for x in tokens if len(x)>1]                  ## remove single char token
+    bag_of_words.append( Counter(tokens, strip_handles=True)  ## add to our BoW
+    )
+
+unique_words =  list( set([ y  for x in bag_of_words  for y in x.keys()]) )
+
+print("Total Rows: ", len(bag_of_words),'\n\n',
+      'Row 1 BoW: ',bag_of_words[:1],'\n\n',    # see the first two records
+      'Row 2 BoW: ', bag_of_words[:2], '\n\n',
+      'Total Unique Words: ', len(unique_words))
+```
+
+**Convert NaN into 0 then all features into integer**
+
+```{python}
+bows_df = pd.DataFrame.from_records(bag_of_words)
+bows_df = bows_df.fillna(0).astype(int)  # replace NaN with 0, change to integer
+bows_df.head()
+```
+
+### Build The Model
+
+```{python}
+from sklearn.naive_bayes import MultinomialNB
+train_y  = movies.sentiment>0   # label
+train_X  = bows_df              # features
+nb_model = MultinomialNB().fit( train_X, train_y)
+```
+
+### Train Set Prediction
+
+First, make a prediction on training data, then compare to ground truth. 
+
+```{python}
+train_predicted = nb_model.predict(bows_df)
+print("Accuracy: ", np.mean(train_predicted==train_y).round(4))
+```
+

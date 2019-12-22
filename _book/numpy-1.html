@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>12 numpy | Python Bookdown</title>
+  <meta name="description" content="This is a python cookbook, written using RMarkdown Notebook. It is made possible by using reticulate R library as the bridge between R and Python." />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="12 numpy | Python Bookdown" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a python cookbook, written using RMarkdown Notebook. It is made possible by using reticulate R library as the bridge between R and Python." />
+  <meta name="github-repo" content="yongks/python_bookdown" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="12 numpy | Python Bookdown" />
+  
+  <meta name="twitter:description" content="This is a python cookbook, written using RMarkdown Notebook. It is made possible by using reticulate R library as the bridge between R and Python." />
+  
+
+<meta name="author" content="Yong Keh Soon" />
+
+
+<meta name="date" content="2019-12-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="plydata-dplyr-for-python.html"/>
+<link rel="next" href="pandas-1.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Python Bookdown</a></li>
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prerequisites</a></li>
+<li class="chapter" data-level="1" data-path="environment-setup.html"><a href="environment-setup.html"><i class="fa fa-check"></i><b>1</b> Environment Setup</a><ul>
+<li class="chapter" data-level="1.1" data-path="environment-setup.html"><a href="environment-setup.html#notebook-setup"><i class="fa fa-check"></i><b>1.1</b> Notebook Setup</a></li>
+<li class="chapter" data-level="1.2" data-path="environment-setup.html"><a href="environment-setup.html#libraries"><i class="fa fa-check"></i><b>1.2</b> Libraries</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="environment-setup.html"><a href="environment-setup.html#built-in-libraries"><i class="fa fa-check"></i><b>1.2.1</b> Built-In Libraries</a></li>
+<li class="chapter" data-level="1.2.2" data-path="environment-setup.html"><a href="environment-setup.html#common-external-libraries"><i class="fa fa-check"></i><b>1.2.2</b> Common External Libraries</a></li>
+<li class="chapter" data-level="1.2.3" data-path="environment-setup.html"><a href="environment-setup.html#numpy"><i class="fa fa-check"></i><b>1.2.3</b> numpy</a></li>
+<li class="chapter" data-level="1.2.4" data-path="environment-setup.html"><a href="environment-setup.html#scipy"><i class="fa fa-check"></i><b>1.2.4</b> scipy</a></li>
+<li class="chapter" data-level="1.2.5" data-path="environment-setup.html"><a href="environment-setup.html#pandas"><i class="fa fa-check"></i><b>1.2.5</b> Pandas</a></li>
+<li class="chapter" data-level="1.2.6" data-path="environment-setup.html"><a href="environment-setup.html#scikit-learn"><i class="fa fa-check"></i><b>1.2.6</b> scikit-learn</a></li>
+<li class="chapter" data-level="1.2.7" data-path="environment-setup.html"><a href="environment-setup.html#matplotlib"><i class="fa fa-check"></i><b>1.2.7</b> matplotlib</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="environment-setup.html"><a href="environment-setup.html#magic-functions"><i class="fa fa-check"></i><b>1.3</b> Magic Functions</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="environment-setup.html"><a href="environment-setup.html#list-of-magic"><i class="fa fa-check"></i><b>1.3.1</b> List of Magic</a></li>
+<li class="chapter" data-level="1.3.2" data-path="environment-setup.html"><a href="environment-setup.html#line-magic"><i class="fa fa-check"></i><b>1.3.2</b> Line Magic</a></li>
+<li class="chapter" data-level="1.3.3" data-path="environment-setup.html"><a href="environment-setup.html#cell-magic"><i class="fa fa-check"></i><b>1.3.3</b> Cell Magic</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="environment-setup.html"><a href="environment-setup.html#package-management"><i class="fa fa-check"></i><b>1.4</b> Package Management</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="environment-setup.html"><a href="environment-setup.html#conda"><i class="fa fa-check"></i><b>1.4.1</b> Conda</a></li>
+<li class="chapter" data-level="1.4.2" data-path="environment-setup.html"><a href="environment-setup.html#pip"><i class="fa fa-check"></i><b>1.4.2</b> PIP</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="python-fundamental.html"><a href="python-fundamental.html"><i class="fa fa-check"></i><b>2</b> Python Fundamental</a><ul>
+<li class="chapter" data-level="2.1" data-path="python-fundamental.html"><a href="python-fundamental.html#everything-is-object"><i class="fa fa-check"></i><b>2.1</b> Everything Is Object</a></li>
+<li class="chapter" data-level="2.2" data-path="python-fundamental.html"><a href="python-fundamental.html#assignment"><i class="fa fa-check"></i><b>2.2</b> Assignment</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="python-fundamental.html"><a href="python-fundamental.html#multiple-assignment"><i class="fa fa-check"></i><b>2.2.1</b> Multiple Assignment</a></li>
+<li class="chapter" data-level="2.2.2" data-path="python-fundamental.html"><a href="python-fundamental.html#augmented-assignment"><i class="fa fa-check"></i><b>2.2.2</b> Augmented Assignment</a></li>
+<li class="chapter" data-level="2.2.3" data-path="python-fundamental.html"><a href="python-fundamental.html#unpacking-assingment"><i class="fa fa-check"></i><b>2.2.3</b> Unpacking Assingment</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="built-in-data-types.html"><a href="built-in-data-types.html"><i class="fa fa-check"></i><b>3</b> Built-in Data Types</a><ul>
+<li class="chapter" data-level="3.1" data-path="built-in-data-types.html"><a href="built-in-data-types.html#numbers"><i class="fa fa-check"></i><b>3.1</b> Numbers</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="built-in-data-types.html"><a href="built-in-data-types.html#integer"><i class="fa fa-check"></i><b>3.1.1</b> Integer</a></li>
+<li class="chapter" data-level="3.1.2" data-path="built-in-data-types.html"><a href="built-in-data-types.html#float"><i class="fa fa-check"></i><b>3.1.2</b> Float</a></li>
+<li class="chapter" data-level="3.1.3" data-path="built-in-data-types.html"><a href="built-in-data-types.html#number-operators"><i class="fa fa-check"></i><b>3.1.3</b> Number Operators</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="built-in-data-types.html"><a href="built-in-data-types.html#string"><i class="fa fa-check"></i><b>3.2</b> String</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="built-in-data-types.html"><a href="built-in-data-types.html#constructor"><i class="fa fa-check"></i><b>3.2.1</b> Constructor</a></li>
+<li class="chapter" data-level="3.2.2" data-path="built-in-data-types.html"><a href="built-in-data-types.html#class-constants"><i class="fa fa-check"></i><b>3.2.2</b> Class Constants</a></li>
+<li class="chapter" data-level="3.2.3" data-path="built-in-data-types.html"><a href="built-in-data-types.html#instance-methods"><i class="fa fa-check"></i><b>3.2.3</b> Instance Methods</a></li>
+<li class="chapter" data-level="3.2.4" data-path="built-in-data-types.html"><a href="built-in-data-types.html#operator"><i class="fa fa-check"></i><b>3.2.4</b> Operator</a></li>
+<li class="chapter" data-level="3.2.5" data-path="built-in-data-types.html"><a href="built-in-data-types.html#iterations"><i class="fa fa-check"></i><b>3.2.5</b> Iterations</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="built-in-data-types.html"><a href="built-in-data-types.html#boolean"><i class="fa fa-check"></i><b>3.3</b> Boolean</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="built-in-data-types.html"><a href="built-in-data-types.html#what-is-considered-false"><i class="fa fa-check"></i><b>3.3.1</b> What is Considered False ?</a></li>
+<li class="chapter" data-level="3.3.2" data-path="built-in-data-types.html"><a href="built-in-data-types.html#and-operator"><i class="fa fa-check"></i><b>3.3.2</b> <code>and</code> operator</a></li>
+<li class="chapter" data-level="3.3.3" data-path="built-in-data-types.html"><a href="built-in-data-types.html#not-operator"><i class="fa fa-check"></i><b>3.3.3</b> <code>not</code> operator</a></li>
+<li class="chapter" data-level="3.3.4" data-path="built-in-data-types.html"><a href="built-in-data-types.html#or-operator"><i class="fa fa-check"></i><b>3.3.4</b> <code>or</code> operator</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="built-in-data-types.html"><a href="built-in-data-types.html#none"><i class="fa fa-check"></i><b>3.4</b> None</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="built-in-data-types.html"><a href="built-in-data-types.html#none-is-an-object"><i class="fa fa-check"></i><b>3.4.1</b> None is an Object</a></li>
+<li class="chapter" data-level="3.4.2" data-path="built-in-data-types.html"><a href="built-in-data-types.html#comparing-none"><i class="fa fa-check"></i><b>3.4.2</b> Comparing None</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html"><i class="fa fa-check"></i><b>4</b> Built-In Data Structure</a><ul>
+<li class="chapter" data-level="4.1" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#tuple"><i class="fa fa-check"></i><b>4.1</b> Tuple</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#assignment-1"><i class="fa fa-check"></i><b>4.1.1</b> Assignment</a></li>
+<li class="chapter" data-level="4.1.2" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#accessing"><i class="fa fa-check"></i><b>4.1.2</b> Accessing</a></li>
+<li class="chapter" data-level="4.1.3" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#duplicating-tuple"><i class="fa fa-check"></i><b>4.1.3</b> Duplicating Tuple</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#list"><i class="fa fa-check"></i><b>4.2</b> List</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#creating-list"><i class="fa fa-check"></i><b>4.2.1</b> Creating List</a></li>
+<li class="chapter" data-level="4.2.2" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#accessing-items"><i class="fa fa-check"></i><b>4.2.2</b> Accessing Items</a></li>
+<li class="chapter" data-level="4.2.3" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#methods"><i class="fa fa-check"></i><b>4.2.3</b> Methods</a></li>
+<li class="chapter" data-level="4.2.4" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#operator-1"><i class="fa fa-check"></i><b>4.2.4</b> Operator</a></li>
+<li class="chapter" data-level="4.2.5" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#list-is-mutable"><i class="fa fa-check"></i><b>4.2.5</b> List is Mutable</a></li>
+<li class="chapter" data-level="4.2.6" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#duplicate-or-reference"><i class="fa fa-check"></i><b>4.2.6</b> Duplicate or Reference</a></li>
+<li class="chapter" data-level="4.2.7" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#list-is-iterable"><i class="fa fa-check"></i><b>4.2.7</b> List Is Iterable</a></li>
+<li class="chapter" data-level="4.2.8" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#conversion"><i class="fa fa-check"></i><b>4.2.8</b> Conversion</a></li>
+<li class="chapter" data-level="4.2.9" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#built-in-functions-applicable-to-list"><i class="fa fa-check"></i><b>4.2.9</b> Built-In Functions Applicable To List</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#dictionaries"><i class="fa fa-check"></i><b>4.3</b> Dictionaries</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#creating-dict"><i class="fa fa-check"></i><b>4.3.1</b> Creating dict</a></li>
+<li class="chapter" data-level="4.3.2" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#accessing-dict"><i class="fa fa-check"></i><b>4.3.2</b> Accessing dict</a></li>
+<li class="chapter" data-level="4.3.3" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#dict-are-mutable"><i class="fa fa-check"></i><b>4.3.3</b> Dict are Mutable</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#sets"><i class="fa fa-check"></i><b>4.4</b> Sets</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#membership-test"><i class="fa fa-check"></i><b>4.4.1</b> Membership Test</a></li>
+<li class="chapter" data-level="4.4.2" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#subset-test"><i class="fa fa-check"></i><b>4.4.2</b> Subset Test</a></li>
+<li class="chapter" data-level="4.4.3" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#union-using"><i class="fa fa-check"></i><b>4.4.3</b> Union using ‘|’</a></li>
+<li class="chapter" data-level="4.4.4" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#intersection-using"><i class="fa fa-check"></i><b>4.4.4</b> Intersection using ‘&amp;’</a></li>
+<li class="chapter" data-level="4.4.5" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#difference-using--"><i class="fa fa-check"></i><b>4.4.5</b> Difference using ‘-’</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#range"><i class="fa fa-check"></i><b>4.5</b> range</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="control-and-loops.html"><a href="control-and-loops.html"><i class="fa fa-check"></i><b>5</b> Control and Loops</a><ul>
+<li class="chapter" data-level="5.1" data-path="control-and-loops.html"><a href="control-and-loops.html#if-statement"><i class="fa fa-check"></i><b>5.1</b> If Statement</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="control-and-loops.html"><a href="control-and-loops.html#multiline-if..-statements"><i class="fa fa-check"></i><b>5.1.1</b> Multiline If.. Statements</a></li>
+<li class="chapter" data-level="5.1.2" data-path="control-and-loops.html"><a href="control-and-loops.html#single-line-if-..-statement"><i class="fa fa-check"></i><b>5.1.2</b> Single Line If .. Statement</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="control-and-loops.html"><a href="control-and-loops.html#for-loops"><i class="fa fa-check"></i><b>5.2</b> For Loops</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="control-and-loops.html"><a href="control-and-loops.html#loop-thorugh-range"><i class="fa fa-check"></i><b>5.2.1</b> Loop thorugh ‘range’</a></li>
+<li class="chapter" data-level="5.2.2" data-path="control-and-loops.html"><a href="control-and-loops.html#loop-through-list"><i class="fa fa-check"></i><b>5.2.2</b> Loop through ‘list’</a></li>
+<li class="chapter" data-level="5.2.3" data-path="control-and-loops.html"><a href="control-and-loops.html#loop-through-dictionary"><i class="fa fa-check"></i><b>5.2.3</b> Loop Through ‘Dictionary’</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="control-and-loops.html"><a href="control-and-loops.html#generators"><i class="fa fa-check"></i><b>5.3</b> Generators</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="control-and-loops.html"><a href="control-and-loops.html#basic-generator-function"><i class="fa fa-check"></i><b>5.3.1</b> Basic Generator Function</a></li>
+<li class="chapter" data-level="5.3.2" data-path="control-and-loops.html"><a href="control-and-loops.html#useful-generator-fuction"><i class="fa fa-check"></i><b>5.3.2</b> Useful Generator Fuction</a></li>
+<li class="chapter" data-level="5.3.3" data-path="control-and-loops.html"><a href="control-and-loops.html#generator-expression"><i class="fa fa-check"></i><b>5.3.3</b> Generator Expression</a></li>
+<li class="chapter" data-level="5.3.4" data-path="control-and-loops.html"><a href="control-and-loops.html#compare-to-iterator-class"><i class="fa fa-check"></i><b>5.3.4</b> Compare to Iterator Class</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="library-and-functions.html"><a href="library-and-functions.html"><i class="fa fa-check"></i><b>6</b> Library and Functions</a><ul>
+<li class="chapter" data-level="6.1" data-path="library-and-functions.html"><a href="library-and-functions.html#package-source"><i class="fa fa-check"></i><b>6.1</b> Package Source</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="library-and-functions.html"><a href="library-and-functions.html#conda-1"><i class="fa fa-check"></i><b>6.1.1</b> Conda</a></li>
+<li class="chapter" data-level="6.1.2" data-path="library-and-functions.html"><a href="library-and-functions.html#pip-1"><i class="fa fa-check"></i><b>6.1.2</b> PIP</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="library-and-functions.html"><a href="library-and-functions.html#importing-library"><i class="fa fa-check"></i><b>6.2</b> Importing Library</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="library-and-functions.html"><a href="library-and-functions.html#import-entire-library"><i class="fa fa-check"></i><b>6.2.1</b> Import Entire Library</a></li>
+<li class="chapter" data-level="6.2.2" data-path="library-and-functions.html"><a href="library-and-functions.html#import-specific-function"><i class="fa fa-check"></i><b>6.2.2</b> Import Specific Function</a></li>
+<li class="chapter" data-level="6.2.3" data-path="library-and-functions.html"><a href="library-and-functions.html#machine-learning-packages"><i class="fa fa-check"></i><b>6.2.3</b> Machine Learning Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="library-and-functions.html"><a href="library-and-functions.html#define-function"><i class="fa fa-check"></i><b>6.3</b> Define Function</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="library-and-functions.html"><a href="library-and-functions.html#function-arguments"><i class="fa fa-check"></i><b>6.3.1</b> Function Arguments</a></li>
+<li class="chapter" data-level="6.3.2" data-path="library-and-functions.html"><a href="library-and-functions.html#list-within-function"><i class="fa fa-check"></i><b>6.3.2</b> List Within Function</a></li>
+<li class="chapter" data-level="6.3.3" data-path="library-and-functions.html"><a href="library-and-functions.html#return-statement"><i class="fa fa-check"></i><b>6.3.3</b> Return Statement</a></li>
+<li class="chapter" data-level="6.3.4" data-path="library-and-functions.html"><a href="library-and-functions.html#no-return-statement"><i class="fa fa-check"></i><b>6.3.4</b> No Return Statement</a></li>
+<li class="chapter" data-level="6.3.5" data-path="library-and-functions.html"><a href="library-and-functions.html#return-multiple-value"><i class="fa fa-check"></i><b>6.3.5</b> Return Multiple Value</a></li>
+<li class="chapter" data-level="6.3.6" data-path="library-and-functions.html"><a href="library-and-functions.html#passing-function-as-argument"><i class="fa fa-check"></i><b>6.3.6</b> Passing Function as Argument</a></li>
+<li class="chapter" data-level="6.3.7" data-path="library-and-functions.html"><a href="library-and-functions.html#arguments"><i class="fa fa-check"></i><b>6.3.7</b> Arguments</a></li>
+<li class="chapter" data-level="6.3.8" data-path="library-and-functions.html"><a href="library-and-functions.html#keyword-arguments"><i class="fa fa-check"></i><b>6.3.8</b> keyword arguments</a></li>
+<li class="chapter" data-level="6.3.9" data-path="library-and-functions.html"><a href="library-and-functions.html#mixing-args-kwargs"><i class="fa fa-check"></i><b>6.3.9</b> Mixing *args, **kwargs</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="object-oriented-programming.html"><a href="object-oriented-programming.html"><i class="fa fa-check"></i><b>7</b> Object Oriented Programming</a><ul>
+<li class="chapter" data-level="7.1" data-path="object-oriented-programming.html"><a href="object-oriented-programming.html#defining-class"><i class="fa fa-check"></i><b>7.1</b> Defining Class</a></li>
+<li class="chapter" data-level="7.2" data-path="object-oriented-programming.html"><a href="object-oriented-programming.html#object-class-assignment"><i class="fa fa-check"></i><b>7.2</b> Object Class Assignment</a></li>
+<li class="chapter" data-level="7.3" data-path="object-oriented-programming.html"><a href="object-oriented-programming.html#calling-method"><i class="fa fa-check"></i><b>7.3</b> Calling Method</a></li>
+<li class="chapter" data-level="7.4" data-path="object-oriented-programming.html"><a href="object-oriented-programming.html#getting-property"><i class="fa fa-check"></i><b>7.4</b> Getting Property</a></li>
+<li class="chapter" data-level="7.5" data-path="object-oriented-programming.html"><a href="object-oriented-programming.html#setting-property"><i class="fa fa-check"></i><b>7.5</b> Setting Property</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="decorator.html"><a href="decorator.html"><i class="fa fa-check"></i><b>8</b> Decorator</a><ul>
+<li class="chapter" data-level="8.1" data-path="decorator.html"><a href="decorator.html#definition"><i class="fa fa-check"></i><b>8.1</b> Definition</a></li>
+<li class="chapter" data-level="8.2" data-path="decorator.html"><a href="decorator.html#examples"><i class="fa fa-check"></i><b>8.2</b> Examples</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="decorator.html"><a href="decorator.html#example-1---plain-decorator-function"><i class="fa fa-check"></i><b>8.2.1</b> Example 1 - Plain decorator function</a></li>
+<li class="chapter" data-level="8.2.2" data-path="decorator.html"><a href="decorator.html#example-2---decorator-with-class"><i class="fa fa-check"></i><b>8.2.2</b> Example 2 - Decorator with Class</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html"><i class="fa fa-check"></i><b>9</b> datetime Standard Library</a><ul>
+<li class="chapter" data-level="9.1" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#iso8601"><i class="fa fa-check"></i><b>9.1</b> ISO8601</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#date-time"><i class="fa fa-check"></i><b>9.1.1</b> Date Time</a></li>
+<li class="chapter" data-level="9.1.2" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#date"><i class="fa fa-check"></i><b>9.1.2</b> Date</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#module-import"><i class="fa fa-check"></i><b>9.2</b> Module Import</a></li>
+<li class="chapter" data-level="9.3" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#class"><i class="fa fa-check"></i><b>9.3</b> Class</a></li>
+<li class="chapter" data-level="9.4" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#date-1"><i class="fa fa-check"></i><b>9.4</b> date</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#constructor-1"><i class="fa fa-check"></i><b>9.4.1</b> Constructor</a></li>
+<li class="chapter" data-level="9.4.2" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#class-method"><i class="fa fa-check"></i><b>9.4.2</b> Class Method</a></li>
+<li class="chapter" data-level="9.4.3" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#instance-method"><i class="fa fa-check"></i><b>9.4.3</b> Instance Method</a></li>
+<li class="chapter" data-level="9.4.4" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#attributes"><i class="fa fa-check"></i><b>9.4.4</b> Attributes</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#date-and-datetime"><i class="fa fa-check"></i><b>9.5</b> date and datetime</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#constructor-2"><i class="fa fa-check"></i><b>9.5.1</b> Constructor</a></li>
+<li class="chapter" data-level="9.5.2" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#class-method-1"><i class="fa fa-check"></i><b>9.5.2</b> Class Method</a></li>
+<li class="chapter" data-level="9.5.3" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#instance-method-1"><i class="fa fa-check"></i><b>9.5.3</b> Instance Method</a></li>
+<li class="chapter" data-level="9.5.4" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#attributes-1"><i class="fa fa-check"></i><b>9.5.4</b> Attributes</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#time"><i class="fa fa-check"></i><b>9.6</b> time</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#constructor-3"><i class="fa fa-check"></i><b>9.6.1</b> Constructor</a></li>
+<li class="chapter" data-level="9.6.2" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#class-method-2"><i class="fa fa-check"></i><b>9.6.2</b> Class Method</a></li>
+<li class="chapter" data-level="9.6.3" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#attributes-2"><i class="fa fa-check"></i><b>9.6.3</b> Attributes</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#timedelta"><i class="fa fa-check"></i><b>9.7</b> timedelta</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="getting-external-data.html"><a href="getting-external-data.html"><i class="fa fa-check"></i><b>10</b> Getting External Data</a></li>
+<li class="chapter" data-level="11" data-path="plydata-dplyr-for-python.html"><a href="plydata-dplyr-for-python.html"><i class="fa fa-check"></i><b>11</b> Plydata (dplyr for Python)</a><ul>
+<li class="chapter" data-level="11.1" data-path="plydata-dplyr-for-python.html"><a href="plydata-dplyr-for-python.html#sample-data"><i class="fa fa-check"></i><b>11.1</b> Sample Data</a></li>
+<li class="chapter" data-level="11.2" data-path="plydata-dplyr-for-python.html"><a href="plydata-dplyr-for-python.html#column-manipulation"><i class="fa fa-check"></i><b>11.2</b> Column Manipulation</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="plydata-dplyr-for-python.html"><a href="plydata-dplyr-for-python.html#copy-column"><i class="fa fa-check"></i><b>11.2.1</b> Copy Column</a></li>
+<li class="chapter" data-level="11.2.2" data-path="plydata-dplyr-for-python.html"><a href="plydata-dplyr-for-python.html#new-column-from-existing-column"><i class="fa fa-check"></i><b>11.2.2</b> New Column from existing Column</a></li>
+<li class="chapter" data-level="11.2.3" data-path="plydata-dplyr-for-python.html"><a href="plydata-dplyr-for-python.html#select-columns"><i class="fa fa-check"></i><b>11.2.3</b> Select Column(s)</a></li>
+<li class="chapter" data-level="11.2.4" data-path="plydata-dplyr-for-python.html"><a href="plydata-dplyr-for-python.html#drop-columns"><i class="fa fa-check"></i><b>11.2.4</b> Drop Column(s)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="plydata-dplyr-for-python.html"><a href="plydata-dplyr-for-python.html#sorting-arrange"><i class="fa fa-check"></i><b>11.3</b> Sorting (arrange)</a></li>
+<li class="chapter" data-level="11.4" data-path="plydata-dplyr-for-python.html"><a href="plydata-dplyr-for-python.html#grouping"><i class="fa fa-check"></i><b>11.4</b> Grouping</a></li>
+<li class="chapter" data-level="11.5" data-path="plydata-dplyr-for-python.html"><a href="plydata-dplyr-for-python.html#summarization"><i class="fa fa-check"></i><b>11.5</b> Summarization</a><ul>
+<li class="chapter" data-level="11.5.1" data-path="plydata-dplyr-for-python.html"><a href="plydata-dplyr-for-python.html#simple-method"><i class="fa fa-check"></i><b>11.5.1</b> Simple Method</a></li>
+<li class="chapter" data-level="11.5.2" data-path="plydata-dplyr-for-python.html"><a href="plydata-dplyr-for-python.html#specify-summarized-column-name"><i class="fa fa-check"></i><b>11.5.2</b> Specify Summarized Column Name</a></li>
+<li class="chapter" data-level="11.5.3" data-path="plydata-dplyr-for-python.html"><a href="plydata-dplyr-for-python.html#number-of-rows-in-group"><i class="fa fa-check"></i><b>11.5.3</b> Number of Rows in Group</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="numpy-1.html"><a href="numpy-1.html"><i class="fa fa-check"></i><b>12</b> numpy</a><ul>
+<li class="chapter" data-level="12.1" data-path="numpy-1.html"><a href="numpy-1.html#environment-setup-1"><i class="fa fa-check"></i><b>12.1</b> Environment Setup</a></li>
+<li class="chapter" data-level="12.2" data-path="numpy-1.html"><a href="numpy-1.html#module-import-1"><i class="fa fa-check"></i><b>12.2</b> Module Import</a></li>
+<li class="chapter" data-level="12.3" data-path="numpy-1.html"><a href="numpy-1.html#data-types"><i class="fa fa-check"></i><b>12.3</b> Data Types</a><ul>
+<li class="chapter" data-level="12.3.1" data-path="numpy-1.html"><a href="numpy-1.html#numpy-data-types"><i class="fa fa-check"></i><b>12.3.1</b> NumPy Data Types</a></li>
+<li class="chapter" data-level="12.3.2" data-path="numpy-1.html"><a href="numpy-1.html#int3264"><i class="fa fa-check"></i><b>12.3.2</b> int32/64</a></li>
+<li class="chapter" data-level="12.3.3" data-path="numpy-1.html"><a href="numpy-1.html#float3264"><i class="fa fa-check"></i><b>12.3.3</b> float32/64</a></li>
+<li class="chapter" data-level="12.3.4" data-path="numpy-1.html"><a href="numpy-1.html#bool"><i class="fa fa-check"></i><b>12.3.4</b> bool</a></li>
+<li class="chapter" data-level="12.3.5" data-path="numpy-1.html"><a href="numpy-1.html#str"><i class="fa fa-check"></i><b>12.3.5</b> str</a></li>
+<li class="chapter" data-level="12.3.6" data-path="numpy-1.html"><a href="numpy-1.html#datetime64"><i class="fa fa-check"></i><b>12.3.6</b> datetime64</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="numpy-1.html"><a href="numpy-1.html#numpy-array"><i class="fa fa-check"></i><b>12.4</b> Numpy Array</a><ul>
+<li class="chapter" data-level="12.4.1" data-path="numpy-1.html"><a href="numpy-1.html#concept"><i class="fa fa-check"></i><b>12.4.1</b> Concept</a></li>
+<li class="chapter" data-level="12.4.2" data-path="numpy-1.html"><a href="numpy-1.html#constructor-5"><i class="fa fa-check"></i><b>12.4.2</b> Constructor</a></li>
+<li class="chapter" data-level="12.4.3" data-path="numpy-1.html"><a href="numpy-1.html#dimensions"><i class="fa fa-check"></i><b>12.4.3</b> Dimensions</a></li>
+<li class="chapter" data-level="12.4.4" data-path="numpy-1.html"><a href="numpy-1.html#class-method-3"><i class="fa fa-check"></i><b>12.4.4</b> Class Method</a></li>
+<li class="chapter" data-level="12.4.5" data-path="numpy-1.html"><a href="numpy-1.html#instance-method-3"><i class="fa fa-check"></i><b>12.4.5</b> Instance Method</a></li>
+<li class="chapter" data-level="12.4.6" data-path="numpy-1.html"><a href="numpy-1.html#element-selection"><i class="fa fa-check"></i><b>12.4.6</b> Element Selection</a></li>
+<li class="chapter" data-level="12.4.7" data-path="numpy-1.html"><a href="numpy-1.html#attributes-3"><i class="fa fa-check"></i><b>12.4.7</b> Attributes</a></li>
+<li class="chapter" data-level="12.4.8" data-path="numpy-1.html"><a href="numpy-1.html#operations"><i class="fa fa-check"></i><b>12.4.8</b> Operations</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="numpy-1.html"><a href="numpy-1.html#random-numbers"><i class="fa fa-check"></i><b>12.5</b> Random Numbers</a><ul>
+<li class="chapter" data-level="12.5.1" data-path="numpy-1.html"><a href="numpy-1.html#uniform-distribution"><i class="fa fa-check"></i><b>12.5.1</b> Uniform Distribution</a></li>
+<li class="chapter" data-level="12.5.2" data-path="numpy-1.html"><a href="numpy-1.html#normal-distribution"><i class="fa fa-check"></i><b>12.5.2</b> Normal Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="12.6" data-path="numpy-1.html"><a href="numpy-1.html#sampling-integer"><i class="fa fa-check"></i><b>12.6</b> Sampling (Integer)</a></li>
+<li class="chapter" data-level="12.7" data-path="numpy-1.html"><a href="numpy-1.html#nan-missing-numerical-data"><i class="fa fa-check"></i><b>12.7</b> NaN : Missing Numerical Data</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="pandas-1.html"><a href="pandas-1.html"><i class="fa fa-check"></i><b>13</b> pandas</a><ul>
+<li class="chapter" data-level="13.1" data-path="pandas-1.html"><a href="pandas-1.html#environment-setup-2"><i class="fa fa-check"></i><b>13.1</b> Environment Setup <a class="tocSkip"></a></li>
+<li class="chapter" data-level="13.2" data-path="pandas-1.html"><a href="pandas-1.html#modules-import"><i class="fa fa-check"></i><b>13.2</b> Modules Import</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="pandas-1.html"><a href="pandas-1.html#display-setup"><i class="fa fa-check"></i><b>13.2.1</b> Display Setup</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="pandas-1.html"><a href="pandas-1.html#pandas-objects"><i class="fa fa-check"></i><b>13.3</b> Pandas Objects</a><ul>
+<li class="chapter" data-level="13.3.1" data-path="pandas-1.html"><a href="pandas-1.html#pandas-data-types"><i class="fa fa-check"></i><b>13.3.1</b> Pandas Data Types</a></li>
+<li class="chapter" data-level="13.3.2" data-path="pandas-1.html"><a href="pandas-1.html#pandas-data-structure"><i class="fa fa-check"></i><b>13.3.2</b> Pandas Data Structure</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="pandas-1.html"><a href="pandas-1.html#class-method-4"><i class="fa fa-check"></i><b>13.4</b> Class Method</a><ul>
+<li class="chapter" data-level="13.4.1" data-path="pandas-1.html"><a href="pandas-1.html#conversion-to_datetime"><i class="fa fa-check"></i><b>13.4.1</b> Conversion: <code>to_datetime()</code></a></li>
+<li class="chapter" data-level="13.4.2" data-path="pandas-1.html"><a href="pandas-1.html#generate-timestamp-sequence"><i class="fa fa-check"></i><b>13.4.2</b> Generate Timestamp Sequence</a></li>
+<li class="chapter" data-level="13.4.3" data-path="pandas-1.html"><a href="pandas-1.html#frequency-table-crosstab"><i class="fa fa-check"></i><b>13.4.3</b> Frequency Table (crosstab)</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="pandas-1.html"><a href="pandas-1.html#timestamp"><i class="fa fa-check"></i><b>13.5</b> Timestamp</a><ul>
+<li class="chapter" data-level="13.5.1" data-path="pandas-1.html"><a href="pandas-1.html#constructor-6"><i class="fa fa-check"></i><b>13.5.1</b> Constructor</a></li>
+<li class="chapter" data-level="13.5.2" data-path="pandas-1.html"><a href="pandas-1.html#attributes-4"><i class="fa fa-check"></i><b>13.5.2</b> Attributes</a></li>
+<li class="chapter" data-level="13.5.3" data-path="pandas-1.html"><a href="pandas-1.html#operator-2"><i class="fa fa-check"></i><b>13.5.3</b> Operator</a></li>
+<li class="chapter" data-level="13.5.4" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods-1"><i class="fa fa-check"></i><b>13.5.4</b> Instance Methods</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="pandas-1.html"><a href="pandas-1.html#series"><i class="fa fa-check"></i><b>13.6</b> Series</a><ul>
+<li class="chapter" data-level="13.6.1" data-path="pandas-1.html"><a href="pandas-1.html#constructor-7"><i class="fa fa-check"></i><b>13.6.1</b> Constructor</a></li>
+<li class="chapter" data-level="13.6.2" data-path="pandas-1.html"><a href="pandas-1.html#accessing-series"><i class="fa fa-check"></i><b>13.6.2</b> Accessing Series</a></li>
+<li class="chapter" data-level="13.6.3" data-path="pandas-1.html"><a href="pandas-1.html#modifying-series"><i class="fa fa-check"></i><b>13.6.3</b> Modifying Series</a></li>
+<li class="chapter" data-level="13.6.4" data-path="pandas-1.html"><a href="pandas-1.html#series-attributes"><i class="fa fa-check"></i><b>13.6.4</b> Series Attributes</a></li>
+<li class="chapter" data-level="13.6.5" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods-2"><i class="fa fa-check"></i><b>13.6.5</b> Instance Methods</a></li>
+<li class="chapter" data-level="13.6.6" data-path="pandas-1.html"><a href="pandas-1.html#series-operators"><i class="fa fa-check"></i><b>13.6.6</b> Series Operators</a></li>
+<li class="chapter" data-level="13.6.7" data-path="pandas-1.html"><a href="pandas-1.html#series-string-accesor-.str"><i class="fa fa-check"></i><b>13.6.7</b> Series String Accesor <code>.str</code></a></li>
+<li class="chapter" data-level="13.6.8" data-path="pandas-1.html"><a href="pandas-1.html#series-datetime-accessor-.dt"><i class="fa fa-check"></i><b>13.6.8</b> Series DateTime Accessor <code>.dt</code></a></li>
+</ul></li>
+<li class="chapter" data-level="13.7" data-path="pandas-1.html"><a href="pandas-1.html#dataframe"><i class="fa fa-check"></i><b>13.7</b> DataFrame</a><ul>
+<li class="chapter" data-level="13.7.1" data-path="pandas-1.html"><a href="pandas-1.html#constructor-8"><i class="fa fa-check"></i><b>13.7.1</b> Constructor</a></li>
+<li class="chapter" data-level="13.7.2" data-path="pandas-1.html"><a href="pandas-1.html#attributes-5"><i class="fa fa-check"></i><b>13.7.2</b> Attributes</a></li>
+<li class="chapter" data-level="13.7.3" data-path="pandas-1.html"><a href="pandas-1.html#index-manipulation"><i class="fa fa-check"></i><b>13.7.3</b> Index Manipulation</a></li>
+<li class="chapter" data-level="13.7.4" data-path="pandas-1.html"><a href="pandas-1.html#subsetting-columns"><i class="fa fa-check"></i><b>13.7.4</b> Subsetting Columns</a></li>
+<li class="chapter" data-level="13.7.5" data-path="pandas-1.html"><a href="pandas-1.html#column-manipulation-1"><i class="fa fa-check"></i><b>13.7.5</b> Column Manipulation</a></li>
+<li class="chapter" data-level="13.7.6" data-path="pandas-1.html"><a href="pandas-1.html#subsetting-rows"><i class="fa fa-check"></i><b>13.7.6</b> Subsetting Rows</a></li>
+<li class="chapter" data-level="13.7.7" data-path="pandas-1.html"><a href="pandas-1.html#row-manipulation"><i class="fa fa-check"></i><b>13.7.7</b> Row Manipulation</a></li>
+<li class="chapter" data-level="13.7.8" data-path="pandas-1.html"><a href="pandas-1.html#slicing"><i class="fa fa-check"></i><b>13.7.8</b> Slicing</a></li>
+<li class="chapter" data-level="13.7.9" data-path="pandas-1.html"><a href="pandas-1.html#chained-indexing"><i class="fa fa-check"></i><b>13.7.9</b> Chained Indexing</a></li>
+<li class="chapter" data-level="13.7.10" data-path="pandas-1.html"><a href="pandas-1.html#data-structure"><i class="fa fa-check"></i><b>13.7.10</b> Data Structure</a></li>
+<li class="chapter" data-level="13.7.11" data-path="pandas-1.html"><a href="pandas-1.html#exploratory-analysis"><i class="fa fa-check"></i><b>13.7.11</b> Exploratory Analysis</a></li>
+<li class="chapter" data-level="13.7.12" data-path="pandas-1.html"><a href="pandas-1.html#plotting"><i class="fa fa-check"></i><b>13.7.12</b> Plotting</a></li>
+</ul></li>
+<li class="chapter" data-level="13.8" data-path="pandas-1.html"><a href="pandas-1.html#categories"><i class="fa fa-check"></i><b>13.8</b> Categories</a><ul>
+<li class="chapter" data-level="13.8.1" data-path="pandas-1.html"><a href="pandas-1.html#creating"><i class="fa fa-check"></i><b>13.8.1</b> Creating</a></li>
+<li class="chapter" data-level="13.8.2" data-path="pandas-1.html"><a href="pandas-1.html#properties"><i class="fa fa-check"></i><b>13.8.2</b> Properties</a></li>
+<li class="chapter" data-level="13.8.3" data-path="pandas-1.html"><a href="pandas-1.html#rename-category"><i class="fa fa-check"></i><b>13.8.3</b> Rename Category</a></li>
+<li class="chapter" data-level="13.8.4" data-path="pandas-1.html"><a href="pandas-1.html#adding-new-category"><i class="fa fa-check"></i><b>13.8.4</b> Adding New Category</a></li>
+<li class="chapter" data-level="13.8.5" data-path="pandas-1.html"><a href="pandas-1.html#removing-category"><i class="fa fa-check"></i><b>13.8.5</b> Removing Category</a></li>
+<li class="chapter" data-level="13.8.6" data-path="pandas-1.html"><a href="pandas-1.html#add-and-remove-categories-in-one-step---set"><i class="fa fa-check"></i><b>13.8.6</b> Add and Remove Categories In One Step - Set()</a></li>
+<li class="chapter" data-level="13.8.7" data-path="pandas-1.html"><a href="pandas-1.html#categorical-descriptive-analysis"><i class="fa fa-check"></i><b>13.8.7</b> Categorical Descriptive Analysis</a></li>
+<li class="chapter" data-level="13.8.8" data-path="pandas-1.html"><a href="pandas-1.html#other-methods-1"><i class="fa fa-check"></i><b>13.8.8</b> Other Methods</a></li>
+</ul></li>
+<li class="chapter" data-level="13.9" data-path="pandas-1.html"><a href="pandas-1.html#dummies"><i class="fa fa-check"></i><b>13.9</b> Dummies</a><ul>
+<li class="chapter" data-level="13.9.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-11"><i class="fa fa-check"></i><b>13.9.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.9.2" data-path="pandas-1.html"><a href="pandas-1.html#dummies-on-array-like-data"><i class="fa fa-check"></i><b>13.9.2</b> Dummies on Array-Like Data</a></li>
+<li class="chapter" data-level="13.9.3" data-path="pandas-1.html"><a href="pandas-1.html#dummies-on-dataframe-multiple-columns"><i class="fa fa-check"></i><b>13.9.3</b> Dummies on DataFrame (multiple columns)</a></li>
+<li class="chapter" data-level="13.9.4" data-path="pandas-1.html"><a href="pandas-1.html#dummies-with-na"><i class="fa fa-check"></i><b>13.9.4</b> Dummies with na</a></li>
+<li class="chapter" data-level="13.9.5" data-path="pandas-1.html"><a href="pandas-1.html#specify-prefixes"><i class="fa fa-check"></i><b>13.9.5</b> Specify Prefixes</a></li>
+<li class="chapter" data-level="13.9.6" data-path="pandas-1.html"><a href="pandas-1.html#dropping-first-column"><i class="fa fa-check"></i><b>13.9.6</b> Dropping First Column</a></li>
+</ul></li>
+<li class="chapter" data-level="13.10" data-path="pandas-1.html"><a href="pandas-1.html#getting-external-data-1"><i class="fa fa-check"></i><b>13.10</b> Getting External Data</a><ul>
+<li class="chapter" data-level="13.10.1" data-path="pandas-1.html"><a href="pandas-1.html#html_table-parser"><i class="fa fa-check"></i><b>13.10.1</b> html_table parser</a></li>
+<li class="chapter" data-level="13.10.2" data-path="pandas-1.html"><a href="pandas-1.html#csv-import"><i class="fa fa-check"></i><b>13.10.2</b> CSV Import</a></li>
+</ul></li>
+<li class="chapter" data-level="13.11" data-path="pandas-1.html"><a href="pandas-1.html#groupby"><i class="fa fa-check"></i><b>13.11</b> GroupBy</a><ul>
+<li class="chapter" data-level="13.11.1" data-path="pandas-1.html"><a href="pandas-1.html#creating-groups"><i class="fa fa-check"></i><b>13.11.1</b> Creating Groups</a></li>
+<li class="chapter" data-level="13.11.2" data-path="pandas-1.html"><a href="pandas-1.html#properties-1"><i class="fa fa-check"></i><b>13.11.2</b> Properties</a></li>
+<li class="chapter" data-level="13.11.3" data-path="pandas-1.html"><a href="pandas-1.html#methods-1"><i class="fa fa-check"></i><b>13.11.3</b> Methods</a></li>
+<li class="chapter" data-level="13.11.4" data-path="pandas-1.html"><a href="pandas-1.html#retrieve-rows"><i class="fa fa-check"></i><b>13.11.4</b> Retrieve Rows</a></li>
+<li class="chapter" data-level="13.11.5" data-path="pandas-1.html"><a href="pandas-1.html#iteration"><i class="fa fa-check"></i><b>13.11.5</b> Iteration</a></li>
+<li class="chapter" data-level="13.11.6" data-path="pandas-1.html"><a href="pandas-1.html#apply-aggregate-functions-to-groups"><i class="fa fa-check"></i><b>13.11.6</b> Apply Aggregate Functions to Groups</a></li>
+<li class="chapter" data-level="13.11.7" data-path="pandas-1.html"><a href="pandas-1.html#transform"><i class="fa fa-check"></i><b>13.11.7</b> Transform</a></li>
+</ul></li>
+<li class="chapter" data-level="13.12" data-path="pandas-1.html"><a href="pandas-1.html#concat"><i class="fa fa-check"></i><b>13.12</b> Concat</a><ul>
+<li class="chapter" data-level="13.12.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-12"><i class="fa fa-check"></i><b>13.12.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.12.2" data-path="pandas-1.html"><a href="pandas-1.html#column-wise"><i class="fa fa-check"></i><b>13.12.2</b> Column-Wise</a></li>
+<li class="chapter" data-level="13.12.3" data-path="pandas-1.html"><a href="pandas-1.html#row-wise"><i class="fa fa-check"></i><b>13.12.3</b> Row-Wise</a></li>
+</ul></li>
+<li class="chapter" data-level="13.13" data-path="pandas-1.html"><a href="pandas-1.html#fundamental-analysis"><i class="fa fa-check"></i><b>13.13</b> Fundamental Analysis</a><ul>
+<li class="chapter" data-level="13.13.1" data-path="pandas-1.html"><a href="pandas-1.html#structure-of-the-dataframe-.info"><i class="fa fa-check"></i><b>13.13.1</b> Structure of the Dataframe (.info())</a></li>
+<li class="chapter" data-level="13.13.2" data-path="pandas-1.html"><a href="pandas-1.html#first-few-rows-.head"><i class="fa fa-check"></i><b>13.13.2</b> First Few Rows (.head())</a></li>
+</ul></li>
+<li class="chapter" data-level="13.14" data-path="pandas-1.html"><a href="pandas-1.html#missing-data"><i class="fa fa-check"></i><b>13.14</b> Missing Data</a><ul>
+<li class="chapter" data-level="13.14.1" data-path="pandas-1.html"><a href="pandas-1.html#what-is-considered-missing-data"><i class="fa fa-check"></i><b>13.14.1</b> What Is Considered Missing Data ?</a></li>
+<li class="chapter" data-level="13.14.2" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-13"><i class="fa fa-check"></i><b>13.14.2</b> Sample Data</a></li>
+</ul></li>
+<li class="chapter" data-level="13.15" data-path="pandas-1.html"><a href="pandas-1.html#pandas-datetime"><i class="fa fa-check"></i><b>13.15</b> Pandas DateTime</a></li>
+<li class="chapter" data-level="13.16" data-path="pandas-1.html"><a href="pandas-1.html#datetimeindex"><i class="fa fa-check"></i><b>13.16</b> DateTimeIndex</a><ul>
+<li class="chapter" data-level="13.16.1" data-path="pandas-1.html"><a href="pandas-1.html#creating-1"><i class="fa fa-check"></i><b>13.16.1</b> Creating</a></li>
+<li class="chapter" data-level="13.16.2" data-path="pandas-1.html"><a href="pandas-1.html#instance-method-4"><i class="fa fa-check"></i><b>13.16.2</b> Instance Method</a></li>
+<li class="chapter" data-level="13.16.3" data-path="pandas-1.html"><a href="pandas-1.html#properties-2"><i class="fa fa-check"></i><b>13.16.3</b> Properties</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="matplotlib-2.html"><a href="matplotlib-2.html"><i class="fa fa-check"></i><b>14</b> matplotlib</a><ul>
+<li class="chapter" data-level="14.1" data-path="matplotlib-2.html"><a href="matplotlib-2.html#library"><i class="fa fa-check"></i><b>14.1</b> Library</a></li>
+<li class="chapter" data-level="14.2" data-path="matplotlib-2.html"><a href="matplotlib-2.html#sample-data-14"><i class="fa fa-check"></i><b>14.2</b> Sample Data</a></li>
+<li class="chapter" data-level="14.3" data-path="matplotlib-2.html"><a href="matplotlib-2.html#matlab-like-api"><i class="fa fa-check"></i><b>14.3</b> MATLAB-like API</a><ul>
+<li class="chapter" data-level="14.3.1" data-path="matplotlib-2.html"><a href="matplotlib-2.html#sample-data-15"><i class="fa fa-check"></i><b>14.3.1</b> Sample Data</a></li>
+<li class="chapter" data-level="14.3.2" data-path="matplotlib-2.html"><a href="matplotlib-2.html#single-plot"><i class="fa fa-check"></i><b>14.3.2</b> Single Plot</a></li>
+<li class="chapter" data-level="14.3.3" data-path="matplotlib-2.html"><a href="matplotlib-2.html#multiple-subplots"><i class="fa fa-check"></i><b>14.3.3</b> Multiple Subplots</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="matplotlib-2.html"><a href="matplotlib-2.html#object-oriented-api"><i class="fa fa-check"></i><b>14.4</b> Object-Oriented API</a><ul>
+<li class="chapter" data-level="14.4.1" data-path="matplotlib-2.html"><a href="matplotlib-2.html#sample-data-16"><i class="fa fa-check"></i><b>14.4.1</b> Sample Data</a></li>
+<li class="chapter" data-level="14.4.2" data-path="matplotlib-2.html"><a href="matplotlib-2.html#single-plot-1"><i class="fa fa-check"></i><b>14.4.2</b> Single Plot</a></li>
+<li class="chapter" data-level="14.4.3" data-path="matplotlib-2.html"><a href="matplotlib-2.html#multiple-axes-in-one-plot"><i class="fa fa-check"></i><b>14.4.3</b> Multiple Axes In One Plot</a></li>
+<li class="chapter" data-level="14.4.4" data-path="matplotlib-2.html"><a href="matplotlib-2.html#multiple-subplots-1"><i class="fa fa-check"></i><b>14.4.4</b> Multiple Subplots</a></li>
+<li class="chapter" data-level="14.4.5" data-path="matplotlib-2.html"><a href="matplotlib-2.html#figure-customization"><i class="fa fa-check"></i><b>14.4.5</b> Figure Customization</a></li>
+<li class="chapter" data-level="14.4.6" data-path="matplotlib-2.html"><a href="matplotlib-2.html#axes-customization"><i class="fa fa-check"></i><b>14.4.6</b> Axes Customization</a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="matplotlib-2.html"><a href="matplotlib-2.html#histogram"><i class="fa fa-check"></i><b>14.5</b> Histogram</a></li>
+<li class="chapter" data-level="14.6" data-path="matplotlib-2.html"><a href="matplotlib-2.html#scatter-plot"><i class="fa fa-check"></i><b>14.6</b> Scatter Plot</a></li>
+<li class="chapter" data-level="14.7" data-path="matplotlib-2.html"><a href="matplotlib-2.html#bar-chart"><i class="fa fa-check"></i><b>14.7</b> Bar Chart</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="seaborn.html"><a href="seaborn.html"><i class="fa fa-check"></i><b>15</b> seaborn</a><ul>
+<li class="chapter" data-level="15.1" data-path="seaborn.html"><a href="seaborn.html#seaborn-and-matplotlib"><i class="fa fa-check"></i><b>15.1</b> Seaborn and Matplotlib</a></li>
+<li class="chapter" data-level="15.2" data-path="seaborn.html"><a href="seaborn.html#sample-data-17"><i class="fa fa-check"></i><b>15.2</b> Sample Data</a></li>
+<li class="chapter" data-level="15.3" data-path="seaborn.html"><a href="seaborn.html#scatter-plot-1"><i class="fa fa-check"></i><b>15.3</b> Scatter Plot</a><ul>
+<li class="chapter" data-level="15.3.1" data-path="seaborn.html"><a href="seaborn.html#x-numeric"><i class="fa fa-check"></i><b>15.3.1</b> 2x Numeric</a></li>
+<li class="chapter" data-level="15.3.2" data-path="seaborn.html"><a href="seaborn.html#xnumeric-1x-categorical"><i class="fa fa-check"></i><b>15.3.2</b> 2xNumeric + 1x Categorical</a></li>
+<li class="chapter" data-level="15.3.3" data-path="seaborn.html"><a href="seaborn.html#xnumeric-2x-categorical"><i class="fa fa-check"></i><b>15.3.3</b> 2xNumeric + 2x Categorical</a></li>
+<li class="chapter" data-level="15.3.4" data-path="seaborn.html"><a href="seaborn.html#xnumeric-3x-categorical"><i class="fa fa-check"></i><b>15.3.4</b> 2xNumeric + 3x Categorical</a></li>
+<li class="chapter" data-level="15.3.5" data-path="seaborn.html"><a href="seaborn.html#customization"><i class="fa fa-check"></i><b>15.3.5</b> Customization</a></li>
+</ul></li>
+<li class="chapter" data-level="15.4" data-path="seaborn.html"><a href="seaborn.html#histogram-1"><i class="fa fa-check"></i><b>15.4</b> Histogram</a><ul>
+<li class="chapter" data-level="15.4.1" data-path="seaborn.html"><a href="seaborn.html#x-numeric-1"><i class="fa fa-check"></i><b>15.4.1</b> 1x Numeric</a></li>
+</ul></li>
+<li class="chapter" data-level="15.5" data-path="seaborn.html"><a href="seaborn.html#bar-chart-1"><i class="fa fa-check"></i><b>15.5</b> Bar Chart</a><ul>
+<li class="chapter" data-level="15.5.1" data-path="seaborn.html"><a href="seaborn.html#x-categorical-1x-numeric"><i class="fa fa-check"></i><b>15.5.1</b> 1x Categorical, 1x Numeric</a></li>
+<li class="chapter" data-level="15.5.2" data-path="seaborn.html"><a href="seaborn.html#customization-1"><i class="fa fa-check"></i><b>15.5.2</b> Customization</a></li>
+</ul></li>
+<li class="chapter" data-level="15.6" data-path="seaborn.html"><a href="seaborn.html#faceting"><i class="fa fa-check"></i><b>15.6</b> Faceting</a><ul>
+<li class="chapter" data-level="15.6.1" data-path="seaborn.html"><a href="seaborn.html#faceting-histogram"><i class="fa fa-check"></i><b>15.6.1</b> Faceting Histogram</a></li>
+<li class="chapter" data-level="15.6.2" data-path="seaborn.html"><a href="seaborn.html#faceting-scatter-plot"><i class="fa fa-check"></i><b>15.6.2</b> Faceting Scatter Plot</a></li>
+</ul></li>
+<li class="chapter" data-level="15.7" data-path="seaborn.html"><a href="seaborn.html#pair-grid"><i class="fa fa-check"></i><b>15.7</b> Pair Grid</a><ul>
+<li class="chapter" data-level="15.7.1" data-path="seaborn.html"><a href="seaborn.html#simple-pair-grid"><i class="fa fa-check"></i><b>15.7.1</b> Simple Pair Grid</a></li>
+<li class="chapter" data-level="15.7.2" data-path="seaborn.html"><a href="seaborn.html#different-diag-and-offdiag"><i class="fa fa-check"></i><b>15.7.2</b> Different Diag and OffDiag</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="plotnine.html"><a href="plotnine.html"><i class="fa fa-check"></i><b>16</b> plotnine</a><ul>
+<li class="chapter" data-level="16.1" data-path="plotnine.html"><a href="plotnine.html#histogram-2"><i class="fa fa-check"></i><b>16.1</b> Histogram</a><ul>
+<li class="chapter" data-level="16.1.1" data-path="plotnine.html"><a href="plotnine.html#xnumeric"><i class="fa fa-check"></i><b>16.1.1</b> 1xNumeric</a></li>
+<li class="chapter" data-level="16.1.2" data-path="plotnine.html"><a href="plotnine.html#xnumeric-1xcategorical"><i class="fa fa-check"></i><b>16.1.2</b> 1xNumeric + 1xCategorical</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="plotnine.html"><a href="plotnine.html#scatter-plot-2"><i class="fa fa-check"></i><b>16.2</b> Scatter Plot</a><ul>
+<li class="chapter" data-level="16.2.1" data-path="plotnine.html"><a href="plotnine.html#x-numeric-2"><i class="fa fa-check"></i><b>16.2.1</b> 2x Numeric</a></li>
+<li class="chapter" data-level="16.2.2" data-path="plotnine.html"><a href="plotnine.html#x-numeric-1x-categorical"><i class="fa fa-check"></i><b>16.2.2</b> 2x Numeric + 1x Categorical</a></li>
+<li class="chapter" data-level="16.2.3" data-path="plotnine.html"><a href="plotnine.html#x-numeric-1x-numeric-1x-categorical"><i class="fa fa-check"></i><b>16.2.3</b> 2x Numeric + 1x Numeric + 1x Categorical</a></li>
+<li class="chapter" data-level="16.2.4" data-path="plotnine.html"><a href="plotnine.html#overlay-smooth-line"><i class="fa fa-check"></i><b>16.2.4</b> Overlay Smooth Line</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="plotnine.html"><a href="plotnine.html#line-chart"><i class="fa fa-check"></i><b>16.3</b> Line Chart</a><ul>
+<li class="chapter" data-level="16.3.1" data-path="plotnine.html"><a href="plotnine.html#x-numeric-data"><i class="fa fa-check"></i><b>16.3.1</b> 2x Numeric Data</a></li>
+<li class="chapter" data-level="16.3.2" data-path="plotnine.html"><a href="plotnine.html#x-numeric-1x-categorical-1"><i class="fa fa-check"></i><b>16.3.2</b> 1x Numeric, 1x Categorical</a></li>
+<li class="chapter" data-level="16.3.3" data-path="plotnine.html"><a href="plotnine.html#x-numeric-1x-categorical-2"><i class="fa fa-check"></i><b>16.3.3</b> 2x Numeric, 1x Categorical</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="plotnine.html"><a href="plotnine.html#bar-chart-2"><i class="fa fa-check"></i><b>16.4</b> Bar Chart</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="sklearn.html"><a href="sklearn.html"><i class="fa fa-check"></i><b>17</b> sklearn</a><ul>
+<li class="chapter" data-level="17.1" data-path="sklearn.html"><a href="sklearn.html#setup-hidden"><i class="fa fa-check"></i><b>17.1</b> Setup (hidden)</a></li>
+<li class="chapter" data-level="17.2" data-path="sklearn.html"><a href="sklearn.html#the-library"><i class="fa fa-check"></i><b>17.2</b> The Library</a></li>
+<li class="chapter" data-level="17.3" data-path="sklearn.html"><a href="sklearn.html#model-fitting"><i class="fa fa-check"></i><b>17.3</b> Model Fitting</a><ul>
+<li class="chapter" data-level="17.3.1" data-path="sklearn.html"><a href="sklearn.html#underfitting"><i class="fa fa-check"></i><b>17.3.1</b> Underfitting</a></li>
+<li class="chapter" data-level="17.3.2" data-path="sklearn.html"><a href="sklearn.html#overfitting"><i class="fa fa-check"></i><b>17.3.2</b> Overfitting</a></li>
+<li class="chapter" data-level="17.3.3" data-path="sklearn.html"><a href="sklearn.html#just-right"><i class="fa fa-check"></i><b>17.3.3</b> Just Right</a></li>
+</ul></li>
+<li class="chapter" data-level="17.4" data-path="sklearn.html"><a href="sklearn.html#model-tuning"><i class="fa fa-check"></i><b>17.4</b> Model Tuning</a></li>
+<li class="chapter" data-level="17.5" data-path="sklearn.html"><a href="sklearn.html#high-level-ml-process"><i class="fa fa-check"></i><b>17.5</b> High Level ML Process</a></li>
+<li class="chapter" data-level="17.6" data-path="sklearn.html"><a href="sklearn.html#built-in-datasets"><i class="fa fa-check"></i><b>17.6</b> Built-in Datasets</a><ul>
+<li class="chapter" data-level="17.6.1" data-path="sklearn.html"><a href="sklearn.html#diabetes-regression"><i class="fa fa-check"></i><b>17.6.1</b> diabetes (regression)</a></li>
+<li class="chapter" data-level="17.6.2" data-path="sklearn.html"><a href="sklearn.html#digits-classification"><i class="fa fa-check"></i><b>17.6.2</b> digits (Classification)</a></li>
+<li class="chapter" data-level="17.6.3" data-path="sklearn.html"><a href="sklearn.html#iris-classification"><i class="fa fa-check"></i><b>17.6.3</b> iris (Classification)</a></li>
+</ul></li>
+<li class="chapter" data-level="17.7" data-path="sklearn.html"><a href="sklearn.html#train-test-data-splitting"><i class="fa fa-check"></i><b>17.7</b> Train Test Data Splitting</a><ul>
+<li class="chapter" data-level="17.7.1" data-path="sklearn.html"><a href="sklearn.html#sample-data-18"><i class="fa fa-check"></i><b>17.7.1</b> Sample Data</a></li>
+<li class="chapter" data-level="17.7.2" data-path="sklearn.html"><a href="sklearn.html#one-time-split"><i class="fa fa-check"></i><b>17.7.2</b> One Time Split</a></li>
+<li class="chapter" data-level="17.7.3" data-path="sklearn.html"><a href="sklearn.html#k-fold"><i class="fa fa-check"></i><b>17.7.3</b> K-Fold</a></li>
+<li class="chapter" data-level="17.7.4" data-path="sklearn.html"><a href="sklearn.html#leave-one-out"><i class="fa fa-check"></i><b>17.7.4</b> Leave One Out</a></li>
+</ul></li>
+<li class="chapter" data-level="17.8" data-path="sklearn.html"><a href="sklearn.html#polynomial-transform"><i class="fa fa-check"></i><b>17.8</b> Polynomial Transform</a><ul>
+<li class="chapter" data-level="17.8.1" data-path="sklearn.html"><a href="sklearn.html#single-variable"><i class="fa fa-check"></i><b>17.8.1</b> Single Variable</a></li>
+<li class="chapter" data-level="17.8.2" data-path="sklearn.html"><a href="sklearn.html#two-variables"><i class="fa fa-check"></i><b>17.8.2</b> Two Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="17.9" data-path="sklearn.html"><a href="sklearn.html#imputation-of-missing-data"><i class="fa fa-check"></i><b>17.9</b> Imputation of Missing Data</a><ul>
+<li class="chapter" data-level="17.9.1" data-path="sklearn.html"><a href="sklearn.html#sample-data-21"><i class="fa fa-check"></i><b>17.9.1</b> Sample Data</a></li>
+<li class="chapter" data-level="17.9.2" data-path="sklearn.html"><a href="sklearn.html#imputer"><i class="fa fa-check"></i><b>17.9.2</b> Imputer</a></li>
+</ul></li>
+<li class="chapter" data-level="17.10" data-path="sklearn.html"><a href="sklearn.html#scaling"><i class="fa fa-check"></i><b>17.10</b> Scaling</a><ul>
+<li class="chapter" data-level="17.10.1" data-path="sklearn.html"><a href="sklearn.html#sample-data-22"><i class="fa fa-check"></i><b>17.10.1</b> Sample Data</a></li>
+<li class="chapter" data-level="17.10.2" data-path="sklearn.html"><a href="sklearn.html#minmax-scaler"><i class="fa fa-check"></i><b>17.10.2</b> MinMax Scaler</a></li>
+<li class="chapter" data-level="17.10.3" data-path="sklearn.html"><a href="sklearn.html#standard-scaler"><i class="fa fa-check"></i><b>17.10.3</b> Standard Scaler</a></li>
+</ul></li>
+<li class="chapter" data-level="17.11" data-path="sklearn.html"><a href="sklearn.html#pipeline"><i class="fa fa-check"></i><b>17.11</b> Pipeline</a><ul>
+<li class="chapter" data-level="17.11.1" data-path="sklearn.html"><a href="sklearn.html#sample-data-23"><i class="fa fa-check"></i><b>17.11.1</b> Sample Data</a></li>
+<li class="chapter" data-level="17.11.2" data-path="sklearn.html"><a href="sklearn.html#create-pipeline"><i class="fa fa-check"></i><b>17.11.2</b> Create Pipeline</a></li>
+<li class="chapter" data-level="17.11.3" data-path="sklearn.html"><a href="sklearn.html#executing-pipeline"><i class="fa fa-check"></i><b>17.11.3</b> Executing Pipeline</a></li>
+</ul></li>
+<li class="chapter" data-level="17.12" data-path="sklearn.html"><a href="sklearn.html#cross-validation"><i class="fa fa-check"></i><b>17.12</b> Cross Validation</a><ul>
+<li class="chapter" data-level="17.12.1" data-path="sklearn.html"><a href="sklearn.html#load-data"><i class="fa fa-check"></i><b>17.12.1</b> Load Data</a></li>
+<li class="chapter" data-level="17.12.2" data-path="sklearn.html"><a href="sklearn.html#choose-an-cross-validator"><i class="fa fa-check"></i><b>17.12.2</b> Choose An Cross Validator</a></li>
+<li class="chapter" data-level="17.12.3" data-path="sklearn.html"><a href="sklearn.html#run-cross-validation"><i class="fa fa-check"></i><b>17.12.3</b> Run Cross Validation</a></li>
+<li class="chapter" data-level="17.12.4" data-path="sklearn.html"><a href="sklearn.html#the-result"><i class="fa fa-check"></i><b>17.12.4</b> The Result</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="nlp.html"><a href="nlp.html"><i class="fa fa-check"></i><b>18</b> NLP</a><ul>
+<li class="chapter" data-level="18.1" data-path="nlp.html"><a href="nlp.html#setup-hidden-1"><i class="fa fa-check"></i><b>18.1</b> Setup (hidden)</a></li>
+<li class="chapter" data-level="18.2" data-path="nlp.html"><a href="nlp.html#the-library-1"><i class="fa fa-check"></i><b>18.2</b> The Library</a></li>
+<li class="chapter" data-level="18.3" data-path="nlp.html"><a href="nlp.html#tokenizer"><i class="fa fa-check"></i><b>18.3</b> Tokenizer</a><ul>
+<li class="chapter" data-level="18.3.1" data-path="nlp.html"><a href="nlp.html#casual-tokenizer"><i class="fa fa-check"></i><b>18.3.1</b> Casual Tokenizer</a></li>
+<li class="chapter" data-level="18.3.2" data-path="nlp.html"><a href="nlp.html#treebank-tokenizer"><i class="fa fa-check"></i><b>18.3.2</b> Treebank Tokenizer¶</a></li>
+</ul></li>
+<li class="chapter" data-level="18.4" data-path="nlp.html"><a href="nlp.html#n-gram"><i class="fa fa-check"></i><b>18.4</b> N-Gram</a></li>
+<li class="chapter" data-level="18.5" data-path="nlp.html"><a href="nlp.html#stopwords"><i class="fa fa-check"></i><b>18.5</b> Stopwords</a><ul>
+<li class="chapter" data-level="18.5.1" data-path="nlp.html"><a href="nlp.html#custom-stop-words"><i class="fa fa-check"></i><b>18.5.1</b> Custom Stop Words</a></li>
+<li class="chapter" data-level="18.5.2" data-path="nlp.html"><a href="nlp.html#nltk-stop-words"><i class="fa fa-check"></i><b>18.5.2</b> NLTK Stop Words</a></li>
+<li class="chapter" data-level="18.5.3" data-path="nlp.html"><a href="nlp.html#sklearn-stop-words"><i class="fa fa-check"></i><b>18.5.3</b> SKLearn Stop Words¶</a></li>
+<li class="chapter" data-level="18.5.4" data-path="nlp.html"><a href="nlp.html#combined-nltk-and-sklearn-stop-words"><i class="fa fa-check"></i><b>18.5.4</b> Combined NLTK and SKLearn Stop Words¶</a></li>
+</ul></li>
+<li class="chapter" data-level="18.6" data-path="nlp.html"><a href="nlp.html#normalizing"><i class="fa fa-check"></i><b>18.6</b> Normalizing</a><ul>
+<li class="chapter" data-level="18.6.1" data-path="nlp.html"><a href="nlp.html#case-folding"><i class="fa fa-check"></i><b>18.6.1</b> Case Folding</a></li>
+<li class="chapter" data-level="18.6.2" data-path="nlp.html"><a href="nlp.html#stemming"><i class="fa fa-check"></i><b>18.6.2</b> Stemming</a></li>
+<li class="chapter" data-level="18.6.3" data-path="nlp.html"><a href="nlp.html#lemmatization"><i class="fa fa-check"></i><b>18.6.3</b> Lemmatization</a></li>
+<li class="chapter" data-level="18.6.4" data-path="nlp.html"><a href="nlp.html#comparing-stemming-and-lemmatization"><i class="fa fa-check"></i><b>18.6.4</b> Comparing Stemming and Lemmatization</a></li>
+</ul></li>
+<li class="chapter" data-level="18.7" data-path="nlp.html"><a href="nlp.html#sentiment"><i class="fa fa-check"></i><b>18.7</b> Sentiment</a><ul>
+<li class="chapter" data-level="18.7.1" data-path="nlp.html"><a href="nlp.html#vader"><i class="fa fa-check"></i><b>18.7.1</b> Vader</a></li>
+</ul></li>
+<li class="chapter" data-level="18.8" data-path="nlp.html"><a href="nlp.html#naive-bayes"><i class="fa fa-check"></i><b>18.8</b> Naive Bayes</a><ul>
+<li class="chapter" data-level="18.8.1" data-path="nlp.html"><a href="nlp.html#libraries-1"><i class="fa fa-check"></i><b>18.8.1</b> Libraries</a></li>
+<li class="chapter" data-level="18.8.2" data-path="nlp.html"><a href="nlp.html#the-data-1"><i class="fa fa-check"></i><b>18.8.2</b> The Data</a></li>
+<li class="chapter" data-level="18.8.3" data-path="nlp.html"><a href="nlp.html#bag-of-words"><i class="fa fa-check"></i><b>18.8.3</b> Bag of Words</a></li>
+<li class="chapter" data-level="18.8.4" data-path="nlp.html"><a href="nlp.html#build-the-model"><i class="fa fa-check"></i><b>18.8.4</b> Build The Model</a></li>
+<li class="chapter" data-level="18.8.5" data-path="nlp.html"><a href="nlp.html#train-set-prediction"><i class="fa fa-check"></i><b>18.8.5</b> Train Set Prediction</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Python Bookdown</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="numpy-1" class="section level1">
+<h1><span class="header-section-number">12</span> numpy</h1>
+<ul>
+<li>Best array data manipulation, fast<br />
+</li>
+<li>numpy array allows only single data type, unlike list<br />
+</li>
+<li>Support matrix operation</li>
+</ul>
+<!-- jupyter_markdown, jupyter_meta = list(tags = "remove_cell") -->
+<div id="environment-setup-1" class="section level2">
+<h2><span class="header-section-number">12.1</span> Environment Setup</h2>
+<div class="sourceCode" id="cb604"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb604-1" title="1"><span class="im">from</span> IPython.core.display <span class="im">import</span> display, HTML</a>
+<a class="sourceLine" id="cb604-2" title="2">display(HTML(<span class="st">&quot;&lt;style&gt;.container { width:75% !important; margin-left:350px; }&lt;/style&gt;&quot;</span>))</a>
+<a class="sourceLine" id="cb604-3" title="3"><span class="co">#%matplotlib inline</span></a></code></pre></div>
+<pre><code>## &lt;IPython.core.display.HTML object&gt;</code></pre>
+<div class="sourceCode" id="cb606"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb606-1" title="1"><span class="im">import</span> pandas <span class="im">as</span> pd</a>
+<a class="sourceLine" id="cb606-2" title="2"><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</a>
+<a class="sourceLine" id="cb606-3" title="3"><span class="im">import</span> math</a>
+<a class="sourceLine" id="cb606-4" title="4">pd.set_option( <span class="st">&#39;display.notebook_repr_html&#39;</span>, <span class="va">False</span>)  <span class="co"># render Series and DataFrame as text, not HTML</span></a>
+<a class="sourceLine" id="cb606-5" title="5">pd.set_option( <span class="st">&#39;display.max_column&#39;</span>, <span class="dv">10</span>)    <span class="co"># number of columns</span></a>
+<a class="sourceLine" id="cb606-6" title="6">pd.set_option( <span class="st">&#39;display.max_rows&#39;</span>, <span class="dv">10</span>)     <span class="co"># number of rows</span></a>
+<a class="sourceLine" id="cb606-7" title="7">pd.set_option( <span class="st">&#39;display.width&#39;</span>, <span class="dv">90</span>)        <span class="co"># number of characters per row</span></a></code></pre></div>
+<!-- jupyter_markdown -->
+</div>
+<div id="module-import-1" class="section level2">
+<h2><span class="header-section-number">12.2</span> Module Import</h2>
+<div class="sourceCode" id="cb607"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb607-1" title="1"><span class="im">import</span> numpy <span class="im">as</span> np</a>
+<a class="sourceLine" id="cb607-2" title="2">np.__version__</a>
+<a class="sourceLine" id="cb607-3" title="3"></a>
+<a class="sourceLine" id="cb607-4" title="4"><span class="co">## other modules</span></a></code></pre></div>
+<pre><code>## &#39;1.17.1&#39;</code></pre>
+<div class="sourceCode" id="cb609"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb609-1" title="1"><span class="im">from</span> datetime <span class="im">import</span> datetime</a>
+<a class="sourceLine" id="cb609-2" title="2"><span class="im">from</span> datetime <span class="im">import</span> date</a>
+<a class="sourceLine" id="cb609-3" title="3"><span class="im">from</span> datetime <span class="im">import</span> time</a></code></pre></div>
+<!-- jupyter_markdown, jupyter_meta = list(`toc-hr-collapsed` = TRUE) -->
+</div>
+<div id="data-types" class="section level2">
+<h2><span class="header-section-number">12.3</span> Data Types</h2>
+<!-- jupyter_markdown -->
+<div id="numpy-data-types" class="section level3">
+<h3><span class="header-section-number">12.3.1</span> NumPy Data Types</h3>
+<p>NumPy supports a much greater variety of numerical types than Python does. This makes numpy <strong>much more powerful</strong>
+<a href="https://www.numpy.org/devdocs/user/basics.types.html" class="uri">https://www.numpy.org/devdocs/user/basics.types.html</a></p>
+<p>Integer: np.int8, np.int16, np.int32, np.uint8, np.uint16, np.uint32<br />
+Float: np.float32, np.float64</p>
+<!-- jupyter_markdown -->
+</div>
+<div id="int3264" class="section level3">
+<h3><span class="header-section-number">12.3.2</span> int32/64</h3>
+<p><code>np.int</code> is actually <strong>python standard int</strong></p>
+<div class="sourceCode" id="cb610"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb610-1" title="1">x <span class="op">=</span> np.<span class="bu">int</span>(<span class="dv">13</span>)</a>
+<a class="sourceLine" id="cb610-2" title="2">y <span class="op">=</span> <span class="bu">int</span>(<span class="dv">13</span>)</a>
+<a class="sourceLine" id="cb610-3" title="3"><span class="bu">print</span>( <span class="bu">type</span>(x) )</a></code></pre></div>
+<pre><code>## &lt;class &#39;int&#39;&gt;</code></pre>
+<div class="sourceCode" id="cb612"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb612-1" title="1"><span class="bu">print</span>( <span class="bu">type</span>(y) )</a></code></pre></div>
+<pre><code>## &lt;class &#39;int&#39;&gt;</code></pre>
+<!-- jupyter_markdown -->
+<p><code>np.int32/64</code> are NumPy specific</p>
+<div class="sourceCode" id="cb614"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb614-1" title="1">x <span class="op">=</span> np.int32(<span class="dv">13</span>)</a>
+<a class="sourceLine" id="cb614-2" title="2">y <span class="op">=</span> np.int64(<span class="dv">13</span>)</a>
+<a class="sourceLine" id="cb614-3" title="3"><span class="bu">print</span>( <span class="bu">type</span>(x) )</a></code></pre></div>
+<pre><code>## &lt;class &#39;numpy.int32&#39;&gt;</code></pre>
+<div class="sourceCode" id="cb616"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb616-1" title="1"><span class="bu">print</span>( <span class="bu">type</span>(y) )</a></code></pre></div>
+<pre><code>## &lt;class &#39;numpy.int64&#39;&gt;</code></pre>
+<!-- jupyter_markdown -->
+</div>
+<div id="float3264" class="section level3">
+<h3><span class="header-section-number">12.3.3</span> float32/64</h3>
+<div class="sourceCode" id="cb618"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb618-1" title="1">x <span class="op">=</span> np.<span class="bu">float</span>(<span class="dv">13</span>)</a>
+<a class="sourceLine" id="cb618-2" title="2">y <span class="op">=</span> <span class="bu">float</span>(<span class="dv">13</span>)</a>
+<a class="sourceLine" id="cb618-3" title="3"><span class="bu">print</span>( <span class="bu">type</span>(x) )</a></code></pre></div>
+<pre><code>## &lt;class &#39;float&#39;&gt;</code></pre>
+<div class="sourceCode" id="cb620"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb620-1" title="1"><span class="bu">print</span>( <span class="bu">type</span>(y) )</a></code></pre></div>
+<pre><code>## &lt;class &#39;float&#39;&gt;</code></pre>
+<div class="sourceCode" id="cb622"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb622-1" title="1">x <span class="op">=</span> np.float32(<span class="dv">13</span>)</a>
+<a class="sourceLine" id="cb622-2" title="2">y <span class="op">=</span> np.float64(<span class="dv">13</span>)</a>
+<a class="sourceLine" id="cb622-3" title="3"><span class="bu">print</span>( <span class="bu">type</span>(x) )</a></code></pre></div>
+<pre><code>## &lt;class &#39;numpy.float32&#39;&gt;</code></pre>
+<div class="sourceCode" id="cb624"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb624-1" title="1"><span class="bu">print</span>( <span class="bu">type</span>(y) )</a></code></pre></div>
+<pre><code>## &lt;class &#39;numpy.float64&#39;&gt;</code></pre>
+<!-- jupyter_markdown -->
+</div>
+<div id="bool" class="section level3">
+<h3><span class="header-section-number">12.3.4</span> bool</h3>
+<p><code>np.bool</code> is actually <strong>python standard bool</strong></p>
+<div class="sourceCode" id="cb626"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb626-1" title="1">x <span class="op">=</span> np.<span class="bu">bool</span>(<span class="va">True</span>)</a>
+<a class="sourceLine" id="cb626-2" title="2"><span class="bu">print</span>( <span class="bu">type</span>(x) )</a></code></pre></div>
+<pre><code>## &lt;class &#39;bool&#39;&gt;</code></pre>
+<div class="sourceCode" id="cb628"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb628-1" title="1"><span class="bu">print</span>( <span class="bu">type</span>(<span class="va">True</span>) )</a></code></pre></div>
+<pre><code>## &lt;class &#39;bool&#39;&gt;</code></pre>
+<!-- jupyter_markdown -->
+</div>
+<div id="str" class="section level3">
+<h3><span class="header-section-number">12.3.5</span> str</h3>
+<p><code>np.str</code> is actually <strong>python standard str</strong></p>
+<div class="sourceCode" id="cb630"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb630-1" title="1">x <span class="op">=</span> np.<span class="bu">str</span>(<span class="st">&quot;ali&quot;</span>)</a>
+<a class="sourceLine" id="cb630-2" title="2"><span class="bu">print</span>( <span class="bu">type</span>(x) )</a></code></pre></div>
+<pre><code>## &lt;class &#39;str&#39;&gt;</code></pre>
+<div class="sourceCode" id="cb632"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb632-1" title="1">x <span class="op">=</span> np.str_(<span class="st">&quot;ali&quot;</span>)</a>
+<a class="sourceLine" id="cb632-2" title="2"><span class="bu">print</span>( <span class="bu">type</span>(x) )</a></code></pre></div>
+<pre><code>## &lt;class &#39;numpy.str_&#39;&gt;</code></pre>
+<!-- jupyter_markdown -->
+</div>
+<div id="datetime64" class="section level3">
+<h3><span class="header-section-number">12.3.6</span> datetime64</h3>
+<p>Unlike python standard datetime library, there is <strong>no seperation</strong> of date, datetime and time.<br />
+There is <strong>no time equivalent object</strong><br />
+NumPy only has one object: <strong>datetime64</strong> object .</p>
+<!-- jupyter_markdown -->
+<div id="constructor-4" class="section level4">
+<h4><span class="header-section-number">12.3.6.1</span> Constructor</h4>
+<p><strong>From String</strong><br />
+Note that the input string <strong>cannot be ISO8601 compliance</strong>, meaning any timezone related information at the end of the string (such as Z or +8) will result in <strong>error</strong>.</p>
+<div class="sourceCode" id="cb634"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb634-1" title="1">np.datetime64(<span class="st">&#39;2005-02&#39;</span>)</a></code></pre></div>
+<pre><code>## numpy.datetime64(&#39;2005-02&#39;)</code></pre>
+<div class="sourceCode" id="cb636"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb636-1" title="1">np.datetime64(<span class="st">&#39;2005-02-25&#39;</span>)</a></code></pre></div>
+<pre><code>## numpy.datetime64(&#39;2005-02-25&#39;)</code></pre>
+<div class="sourceCode" id="cb638"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb638-1" title="1">np.datetime64(<span class="st">&#39;2005-02-25T03:30&#39;</span>)</a></code></pre></div>
+<pre><code>## numpy.datetime64(&#39;2005-02-25T03:30&#39;)</code></pre>
+<!-- jupyter_markdown -->
+<p><strong>From datetime</strong></p>
+<div class="sourceCode" id="cb640"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb640-1" title="1">np.datetime64( date.today() )</a></code></pre></div>
+<pre><code>## numpy.datetime64(&#39;2019-12-22&#39;)</code></pre>
+<div class="sourceCode" id="cb642"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb642-1" title="1">np.datetime64( datetime.now() )</a></code></pre></div>
+<pre><code>## numpy.datetime64(&#39;2019-12-22T18:54:30.018882&#39;)</code></pre>
+<!-- jupyter_markdown -->
+</div>
+<div id="instance-method-2" class="section level4">
+<h4><span class="header-section-number">12.3.6.2</span> Instance Method</h4>
+<p>Convert to <strong>datetime</strong> using <strong><code>astype()</code></strong></p>
+<div class="sourceCode" id="cb644"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb644-1" title="1">dt64 <span class="op">=</span> np.datetime64(<span class="st">&quot;2019-01-31&quot;</span> )</a>
+<a class="sourceLine" id="cb644-2" title="2">dt64.astype(datetime)</a></code></pre></div>
+<pre><code>## datetime.date(2019, 1, 31)</code></pre>
+<!-- jupyter_markdown -->
+</div>
+</div>
+</div>
+<div id="numpy-array" class="section level2">
+<h2><span class="header-section-number">12.4</span> Numpy Array</h2>
+<!-- jupyter_markdown -->
+<div id="concept" class="section level3">
+<h3><span class="header-section-number">12.4.1</span> Concept</h3>
+<p>Structure
+- NumPy provides an N-dimensional array type, the <strong>ndarray</strong>
+- <strong>ndarray</strong> is <strong>homogenous</strong>: every item takes up the same size block of memory, and all blocks
+- For each ndarray, there is a seperate <strong>dtype object</strong>, which describe ndarray data type<br />
+- An item extracted from an array, e.g., by indexing, is represented by a Python object whose type is one of the array scalar types built in NumPy. The array scalars allow easy manipulation of also more complicated arrangements of data.
+<img src="img/numpy.png" alt="numpy_concept" /></p>
+<!-- jupyter_markdown -->
+</div>
+<div id="constructor-5" class="section level3">
+<h3><span class="header-section-number">12.4.2</span> Constructor</h3>
+<p>By default, numpy.array autodetect its data types based on most common denominator</p>
+<div id="dtype-int-float" class="section level4">
+<h4><span class="header-section-number">12.4.2.1</span> dType: int, float</h4>
+<!-- jupyter_markdown -->
+<p>Notice example below <strong>auto detected</strong> as int32 data type</p>
+<div class="sourceCode" id="cb646"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb646-1" title="1">x <span class="op">=</span> np.array( (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>) )</a>
+<a class="sourceLine" id="cb646-2" title="2"><span class="bu">print</span>(x)</a></code></pre></div>
+<pre><code>## [1 2 3 4 5]</code></pre>
+<div class="sourceCode" id="cb648"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb648-1" title="1"><span class="bu">print</span>(<span class="st">&#39;Type: &#39;</span>, <span class="bu">type</span>(x))</a></code></pre></div>
+<pre><code>## Type:  &lt;class &#39;numpy.ndarray&#39;&gt;</code></pre>
+<div class="sourceCode" id="cb650"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb650-1" title="1"><span class="bu">print</span>(<span class="st">&#39;dType:&#39;</span>, x.dtype)</a></code></pre></div>
+<pre><code>## dType: int32</code></pre>
+<!-- jupyter_markdown -->
+<p>Notice example below <strong>auto detected</strong> as float64 data type</p>
+<div class="sourceCode" id="cb652"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb652-1" title="1">x <span class="op">=</span> np.array( (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="fl">4.5</span>,<span class="dv">5</span>) )</a>
+<a class="sourceLine" id="cb652-2" title="2"><span class="bu">print</span>(x)</a></code></pre></div>
+<pre><code>## [1.  2.  3.  4.5 5. ]</code></pre>
+<div class="sourceCode" id="cb654"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb654-1" title="1"><span class="bu">print</span>(<span class="st">&#39;Type: &#39;</span>, <span class="bu">type</span>(x))</a></code></pre></div>
+<pre><code>## Type:  &lt;class &#39;numpy.ndarray&#39;&gt;</code></pre>
+<div class="sourceCode" id="cb656"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb656-1" title="1"><span class="bu">print</span>(<span class="st">&#39;dType:&#39;</span>, x.dtype)</a></code></pre></div>
+<pre><code>## dType: float64</code></pre>
+<!-- jupyter_markdown -->
+<p>You can specify dtype to specify desired data types.<br />
+NumPy will <strong>auto convert</strong> the data into specifeid types. Observe below that we convert float into integer</p>
+<div class="sourceCode" id="cb658"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb658-1" title="1">x <span class="op">=</span> np.array( (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="fl">4.5</span>,<span class="dv">5</span>), dtype<span class="op">=</span><span class="st">&#39;int&#39;</span> )</a>
+<a class="sourceLine" id="cb658-2" title="2"><span class="bu">print</span>(x)</a></code></pre></div>
+<pre><code>## [1 2 3 4 5]</code></pre>
+<div class="sourceCode" id="cb660"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb660-1" title="1"><span class="bu">print</span>(<span class="st">&#39;Type: &#39;</span>, <span class="bu">type</span>(x))</a></code></pre></div>
+<pre><code>## Type:  &lt;class &#39;numpy.ndarray&#39;&gt;</code></pre>
+<div class="sourceCode" id="cb662"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb662-1" title="1"><span class="bu">print</span>(<span class="st">&#39;dType:&#39;</span>, x.dtype)</a></code></pre></div>
+<pre><code>## dType: int32</code></pre>
+<!-- jupyter_markdown -->
+</div>
+<div id="dtype-datetime64" class="section level4">
+<h4><span class="header-section-number">12.4.2.2</span> dType: datetime64</h4>
+<p>Specify <code>dtype</code> is necessary to ensure output is datetime type. If not, output is generic <strong>object</strong> type.</p>
+<p>From <code>str</code></p>
+<div class="sourceCode" id="cb664"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb664-1" title="1">x <span class="op">=</span> np.array([<span class="st">&#39;2007-07-13&#39;</span>, <span class="st">&#39;2006-01-13&#39;</span>, <span class="st">&#39;2010-08-13&#39;</span>], dtype<span class="op">=</span><span class="st">&#39;datetime64&#39;</span>)</a>
+<a class="sourceLine" id="cb664-2" title="2"><span class="bu">print</span>(x)</a></code></pre></div>
+<pre><code>## [&#39;2007-07-13&#39; &#39;2006-01-13&#39; &#39;2010-08-13&#39;]</code></pre>
+<div class="sourceCode" id="cb666"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb666-1" title="1"><span class="bu">print</span>(<span class="st">&#39;Type: &#39;</span>, <span class="bu">type</span>(x))</a></code></pre></div>
+<pre><code>## Type:  &lt;class &#39;numpy.ndarray&#39;&gt;</code></pre>
+<div class="sourceCode" id="cb668"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb668-1" title="1"><span class="bu">print</span>(<span class="st">&#39;dType:&#39;</span>, x.dtype)</a></code></pre></div>
+<pre><code>## dType: datetime64[D]</code></pre>
+<!-- jupyter_markdown -->
+<p>From <code>datetime</code></p>
+<div class="sourceCode" id="cb670"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb670-1" title="1">x <span class="op">=</span> np.array([datetime(<span class="dv">2019</span>,<span class="dv">1</span>,<span class="dv">12</span>), datetime(<span class="dv">2019</span>,<span class="dv">1</span>,<span class="dv">14</span>),datetime(<span class="dv">2019</span>,<span class="dv">3</span>,<span class="dv">3</span>)], dtype<span class="op">=</span><span class="st">&#39;datetime64&#39;</span>)</a>
+<a class="sourceLine" id="cb670-2" title="2"><span class="bu">print</span>(x)</a></code></pre></div>
+<pre><code>## [&#39;2019-01-12T00:00:00.000000&#39; &#39;2019-01-14T00:00:00.000000&#39;
+##  &#39;2019-03-03T00:00:00.000000&#39;]</code></pre>
+<div class="sourceCode" id="cb672"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb672-1" title="1"><span class="bu">print</span>(<span class="st">&#39;Type: &#39;</span>, <span class="bu">type</span>(x))</a></code></pre></div>
+<pre><code>## Type:  &lt;class &#39;numpy.ndarray&#39;&gt;</code></pre>
+<div class="sourceCode" id="cb674"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb674-1" title="1"><span class="bu">print</span>(<span class="st">&#39;dType:&#39;</span>, x.dtype)</a></code></pre></div>
+<pre><code>## dType: datetime64[us]</code></pre>
+<div class="sourceCode" id="cb676"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb676-1" title="1"><span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">Element Type:&#39;</span>,<span class="bu">type</span>(x[<span class="dv">1</span>]))</a></code></pre></div>
+<pre><code>## 
+## Element Type: &lt;class &#39;numpy.datetime64&#39;&gt;</code></pre>
+<!-- jupyter_markdown -->
+</div>
+<div id="d-array" class="section level4">
+<h4><span class="header-section-number">12.4.2.3</span> 2D Array</h4>
+<div class="sourceCode" id="cb678"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb678-1" title="1">x <span class="op">=</span> np.array([<span class="bu">range</span>(<span class="dv">10</span>),np.arange(<span class="dv">10</span>)])</a>
+<a class="sourceLine" id="cb678-2" title="2">x</a></code></pre></div>
+<pre><code>## array([[0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+##        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]])</code></pre>
+<!-- jupyter_markdown -->
+</div>
+</div>
+<div id="dimensions" class="section level3">
+<h3><span class="header-section-number">12.4.3</span> Dimensions</h3>
+<!-- jupyter_markdown -->
+<div id="differentiating-dimensions" class="section level4">
+<h4><span class="header-section-number">12.4.3.1</span> Differentiating Dimensions</h4>
+<p>1-D array is array of single list<br />
+2-D array is array made of list containing lists (each row is a list)<br />
+2-D single row array is array with list containing just one list</p>
+<!-- jupyter_markdown -->
+</div>
+<div id="d-array-1" class="section level4">
+<h4><span class="header-section-number">12.4.3.2</span> 1-D Array</h4>
+<p>Observe that the <strong>shape of the array</strong> is (5,). It seems like an array with 5 rows, <strong>empty columns</strong> !<br />
+What it really means is 5 items <strong>single dimension</strong>.</p>
+<div class="sourceCode" id="cb680"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb680-1" title="1">arr <span class="op">=</span> np.array(<span class="bu">range</span>(<span class="dv">5</span>))</a>
+<a class="sourceLine" id="cb680-2" title="2"><span class="bu">print</span> (arr)</a></code></pre></div>
+<pre><code>## [0 1 2 3 4]</code></pre>
+<div class="sourceCode" id="cb682"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb682-1" title="1"><span class="bu">print</span> (arr.shape)</a></code></pre></div>
+<pre><code>## (5,)</code></pre>
+<div class="sourceCode" id="cb684"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb684-1" title="1"><span class="bu">print</span> (arr.ndim)</a></code></pre></div>
+<pre><code>## 1</code></pre>
+<!-- jupyter_markdown -->
+</div>
+<div id="d-array-2" class="section level4">
+<h4><span class="header-section-number">12.4.3.3</span> 2-D Array</h4>
+<div class="sourceCode" id="cb686"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb686-1" title="1">arr <span class="op">=</span> np.array([<span class="bu">range</span>(<span class="dv">5</span>),<span class="bu">range</span>(<span class="dv">5</span>,<span class="dv">10</span>),<span class="bu">range</span>(<span class="dv">10</span>,<span class="dv">15</span>)])</a>
+<a class="sourceLine" id="cb686-2" title="2"><span class="bu">print</span> (arr)</a></code></pre></div>
+<pre><code>## [[ 0  1  2  3  4]
+##  [ 5  6  7  8  9]
+##  [10 11 12 13 14]]</code></pre>
+<div class="sourceCode" id="cb688"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb688-1" title="1"><span class="bu">print</span> (arr.shape)</a></code></pre></div>
+<pre><code>## (3, 5)</code></pre>
+<div class="sourceCode" id="cb690"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb690-1" title="1"><span class="bu">print</span> (arr.ndim)</a></code></pre></div>
+<pre><code>## 2</code></pre>
+<!-- jupyter_markdown -->
+</div>
+<div id="d-array---single-row" class="section level4">
+<h4><span class="header-section-number">12.4.3.4</span> 2-D Array - Single Row</h4>
+<div class="sourceCode" id="cb692"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb692-1" title="1">arr <span class="op">=</span> np.array([<span class="bu">range</span>(<span class="dv">5</span>)])</a>
+<a class="sourceLine" id="cb692-2" title="2"><span class="bu">print</span> (arr)</a></code></pre></div>
+<pre><code>## [[0 1 2 3 4]]</code></pre>
+<div class="sourceCode" id="cb694"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb694-1" title="1"><span class="bu">print</span> (arr.shape)</a></code></pre></div>
+<pre><code>## (1, 5)</code></pre>
+<div class="sourceCode" id="cb696"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb696-1" title="1"><span class="bu">print</span> (arr.ndim)</a></code></pre></div>
+<pre><code>## 2</code></pre>
+<!-- jupyter_markdown -->
+</div>
+<div id="d-array-single-column" class="section level4">
+<h4><span class="header-section-number">12.4.3.5</span> 2-D Array : Single Column</h4>
+<p>Using array slicing method with <strong>newaxis</strong> at <strong>COLUMN</strong>, will turn 1D array into 2D of <strong>single column</strong></p>
+<div class="sourceCode" id="cb698"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb698-1" title="1">arr <span class="op">=</span> np.arange(<span class="dv">5</span>)[:, np.newaxis]</a>
+<a class="sourceLine" id="cb698-2" title="2"><span class="bu">print</span> (arr)</a></code></pre></div>
+<pre><code>## [[0]
+##  [1]
+##  [2]
+##  [3]
+##  [4]]</code></pre>
+<div class="sourceCode" id="cb700"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb700-1" title="1"><span class="bu">print</span> (arr.shape)</a></code></pre></div>
+<pre><code>## (5, 1)</code></pre>
+<div class="sourceCode" id="cb702"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb702-1" title="1"><span class="bu">print</span> (arr.ndim)</a></code></pre></div>
+<pre><code>## 2</code></pre>
+<!-- jupyter_markdown -->
+<p>Using array slicing method with <strong>newaxis</strong> at <strong>ROW</strong>, will turn 1D array into 2D of <strong>single row</strong></p>
+<div class="sourceCode" id="cb704"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb704-1" title="1">arr <span class="op">=</span> np.arange(<span class="dv">5</span>)[np.newaxis,:]</a>
+<a class="sourceLine" id="cb704-2" title="2"><span class="bu">print</span> (arr)</a></code></pre></div>
+<pre><code>## [[0 1 2 3 4]]</code></pre>
+<div class="sourceCode" id="cb706"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb706-1" title="1"><span class="bu">print</span> (arr.shape)</a></code></pre></div>
+<pre><code>## (1, 5)</code></pre>
+<div class="sourceCode" id="cb708"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb708-1" title="1"><span class="bu">print</span> (arr.ndim)</a></code></pre></div>
+<pre><code>## 2</code></pre>
+<!-- jupyter_markdown -->
+</div>
+</div>
+<div id="class-method-3" class="section level3">
+<h3><span class="header-section-number">12.4.4</span> Class Method</h3>
+<!-- jupyter_markdown -->
+<div id="arange" class="section level4">
+<h4><span class="header-section-number">12.4.4.1</span> <code>arange()</code></h4>
+<p>Generate array with a sequence of numbers</p>
+<div class="sourceCode" id="cb710"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb710-1" title="1">np.arange(<span class="dv">10</span>)</a></code></pre></div>
+<pre><code>## array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</code></pre>
+<!-- jupyter_markdown -->
+</div>
+<div id="ones" class="section level4">
+<h4><span class="header-section-number">12.4.4.2</span> <code>ones()</code></h4>
+<div class="sourceCode" id="cb712"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb712-1" title="1">np.ones(<span class="dv">10</span>)  <span class="co"># One dimension, default is float</span></a></code></pre></div>
+<pre><code>## array([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])</code></pre>
+<div class="sourceCode" id="cb714"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb714-1" title="1">np.ones((<span class="dv">2</span>,<span class="dv">5</span>),<span class="st">&#39;int&#39;</span>)  <span class="co">#Two dimensions</span></a></code></pre></div>
+<pre><code>## array([[1, 1, 1, 1, 1],
+##        [1, 1, 1, 1, 1]])</code></pre>
+<!-- jupyter_markdown -->
+</div>
+<div id="zeros" class="section level4">
+<h4><span class="header-section-number">12.4.4.3</span> <code>zeros()</code></h4>
+<div class="sourceCode" id="cb716"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb716-1" title="1">np.zeros( <span class="dv">10</span> )    <span class="co"># One dimension, default is float</span></a></code></pre></div>
+<pre><code>## array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])</code></pre>
+<div class="sourceCode" id="cb718"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb718-1" title="1">np.zeros((<span class="dv">2</span>,<span class="dv">5</span>),<span class="st">&#39;int&#39;</span>)   <span class="co"># 2 rows, 5 columns of ZERO</span></a></code></pre></div>
+<pre><code>## array([[0, 0, 0, 0, 0],
+##        [0, 0, 0, 0, 0]])</code></pre>
+<!-- jupyter_markdown -->
+</div>
+<div id="where" class="section level4">
+<h4><span class="header-section-number">12.4.4.4</span> <code>where()</code></h4>
+<p>On <strong>1D array</strong> <code>numpy.where()</code> returns the items matching the criteria</p>
+<div class="sourceCode" id="cb720"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb720-1" title="1">ar1 <span class="op">=</span> np.array(<span class="bu">range</span>(<span class="dv">10</span>))</a>
+<a class="sourceLine" id="cb720-2" title="2"><span class="bu">print</span>( ar1 )</a></code></pre></div>
+<pre><code>## [0 1 2 3 4 5 6 7 8 9]</code></pre>
+<div class="sourceCode" id="cb722"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb722-1" title="1"><span class="bu">print</span>( np.where(ar1<span class="op">&gt;</span><span class="dv">5</span>) )</a></code></pre></div>
+<pre><code>## (array([6, 7, 8, 9], dtype=int64),)</code></pre>
+<!-- jupyter_markdown -->
+<p>On <strong>2D array</strong>, <code>where()</code> return array of <strong>row index and col index</strong> for matching elements</p>
+<div class="sourceCode" id="cb724"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb724-1" title="1">ar <span class="op">=</span> np.array([(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),(<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>),(<span class="dv">21</span>,<span class="dv">22</span>,<span class="dv">23</span>,<span class="dv">24</span>,<span class="dv">25</span>)])</a>
+<a class="sourceLine" id="cb724-2" title="2"><span class="bu">print</span> (<span class="st">&#39;Data : </span><span class="ch">\n</span><span class="st">&#39;</span>, ar)</a></code></pre></div>
+<pre><code>## Data : 
+##  [[ 1  2  3  4  5]
+##  [11 12 13 14 15]
+##  [21 22 23 24 25]]</code></pre>
+<div class="sourceCode" id="cb726"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb726-1" title="1">np.where(ar<span class="op">&gt;</span><span class="dv">13</span>)</a></code></pre></div>
+<pre><code>## (array([1, 1, 2, 2, 2, 2, 2], dtype=int64), array([3, 4, 0, 1, 2, 3, 4], dtype=int64))</code></pre>
+<!-- jupyter_markdown -->
+</div>
+<div id="logical-methods" class="section level4">
+<h4><span class="header-section-number">12.4.4.5</span> Logical Methods</h4>
+<p><strong><code>numpy.logical_or</code></strong><br />
+Perform <strong>or</strong> operation on two boolean array, generate new resulting <strong>boolean arrays</strong></p>
+<div class="sourceCode" id="cb728"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb728-1" title="1">ar <span class="op">=</span> np.arange(<span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb728-2" title="2"><span class="bu">print</span>( ar<span class="op">==</span><span class="dv">3</span> )  <span class="co"># boolean array 1</span></a></code></pre></div>
+<pre><code>## [False False False  True False False False False False False]</code></pre>
+<div class="sourceCode" id="cb730"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb730-1" title="1"><span class="bu">print</span>( ar<span class="op">==</span><span class="dv">6</span> )  <span class="co"># boolean array 2</span></a></code></pre></div>
+<pre><code>## [False False False False False False  True False False False]</code></pre>
+<div class="sourceCode" id="cb732"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb732-1" title="1"><span class="bu">print</span>( np.logical_or(ar<span class="op">==</span><span class="dv">3</span>,ar<span class="op">==</span><span class="dv">6</span> ) ) <span class="co"># resulting boolean</span></a></code></pre></div>
+<pre><code>## [False False False  True False False  True False False False]</code></pre>
+<!-- jupyter_markdown -->
+<p><strong><code>numpy.logical_and</code></strong><br />
+Perform <strong>and</strong> operation on two boolean array, generate new resulting <strong>boolean arrays</strong></p>
+<div class="sourceCode" id="cb734"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb734-1" title="1">ar <span class="op">=</span> np.arange(<span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb734-2" title="2"><span class="bu">print</span>( ar<span class="op">==</span><span class="dv">3</span> ) <span class="co"># boolean array 1</span></a></code></pre></div>
+<pre><code>## [False False False  True False False False False False False]</code></pre>
+<div class="sourceCode" id="cb736"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb736-1" title="1"><span class="bu">print</span>( ar<span class="op">==</span><span class="dv">6</span> ) <span class="co"># boolean array 2</span></a></code></pre></div>
+<pre><code>## [False False False False False False  True False False False]</code></pre>
+<div class="sourceCode" id="cb738"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb738-1" title="1"><span class="bu">print</span>( np.logical_and(ar<span class="op">==</span><span class="dv">3</span>,ar<span class="op">==</span><span class="dv">6</span> ) )  <span class="co"># resulting boolean</span></a></code></pre></div>
+<pre><code>## [False False False False False False False False False False]</code></pre>
+<!-- jupyter_markdown -->
+</div>
+</div>
+<div id="instance-method-3" class="section level3">
+<h3><span class="header-section-number">12.4.5</span> Instance Method</h3>
+<!-- jupyter_markdown -->
+<div id="astype-conversion" class="section level4">
+<h4><span class="header-section-number">12.4.5.1</span> <code>astype()</code> conversion</h4>
+<p><strong>Convert to from datetime64 to datetime</strong></p>
+<div class="sourceCode" id="cb740"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb740-1" title="1">ar1 <span class="op">=</span> np.array([<span class="st">&#39;2007-07-13&#39;</span>, <span class="st">&#39;2006-01-13&#39;</span>, <span class="st">&#39;2010-08-13&#39;</span>], dtype<span class="op">=</span><span class="st">&#39;datetime64&#39;</span>)</a>
+<a class="sourceLine" id="cb740-2" title="2"><span class="bu">print</span>( <span class="bu">type</span>(ar1) )  <span class="co">## a numpy array</span></a></code></pre></div>
+<pre><code>## &lt;class &#39;numpy.ndarray&#39;&gt;</code></pre>
+<div class="sourceCode" id="cb742"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb742-1" title="1"><span class="bu">print</span>( ar1.dtype )  <span class="co">## dtype is a numpy data type</span></a></code></pre></div>
+<pre><code>## datetime64[D]</code></pre>
+<!-- jupyter_markdown -->
+<p>After convert to datetime (non-numpy object, the dtype becomes <strong>generic ‘object’</strong>.</p>
+<div class="sourceCode" id="cb744"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb744-1" title="1">ar2 <span class="op">=</span> ar1.astype(datetime)</a>
+<a class="sourceLine" id="cb744-2" title="2"><span class="bu">print</span>( <span class="bu">type</span>(ar2) )  <span class="co">## still a numpy array</span></a></code></pre></div>
+<pre><code>## &lt;class &#39;numpy.ndarray&#39;&gt;</code></pre>
+<div class="sourceCode" id="cb746"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb746-1" title="1"><span class="bu">print</span>( ar2.dtype )  <span class="co">## dtype becomes generic &#39;object&#39;</span></a></code></pre></div>
+<pre><code>## object</code></pre>
+<!-- jupyter_markdown -->
+</div>
+<div id="reshape" class="section level4">
+<h4><span class="header-section-number">12.4.5.2</span> <code>reshape()</code></h4>
+<pre><code>reshape ( row numbers, col numbers )</code></pre>
+<!-- jupyter_markdown -->
+<p><strong>Sample Data</strong></p>
+<div class="sourceCode" id="cb749"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb749-1" title="1">a <span class="op">=</span> np.array([<span class="bu">range</span>(<span class="dv">5</span>), <span class="bu">range</span>(<span class="dv">10</span>,<span class="dv">15</span>), <span class="bu">range</span>(<span class="dv">20</span>,<span class="dv">25</span>), <span class="bu">range</span>(<span class="dv">30</span>,<span class="dv">35</span>)])</a>
+<a class="sourceLine" id="cb749-2" title="2">a</a></code></pre></div>
+<pre><code>## array([[ 0,  1,  2,  3,  4],
+##        [10, 11, 12, 13, 14],
+##        [20, 21, 22, 23, 24],
+##        [30, 31, 32, 33, 34]])</code></pre>
+<!-- jupyter_markdown -->
+<p><strong>Resphepe 1-Dim to 2-Dim</strong></p>
+<div class="sourceCode" id="cb751"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb751-1" title="1">np.arange(<span class="dv">12</span>) <span class="co"># 1-D Array</span></a></code></pre></div>
+<pre><code>## array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11])</code></pre>
+<div class="sourceCode" id="cb753"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb753-1" title="1">np.arange(<span class="dv">12</span>).reshape(<span class="dv">3</span>,<span class="dv">4</span>)  <span class="co"># 2-D Array</span></a></code></pre></div>
+<pre><code>## array([[ 0,  1,  2,  3],
+##        [ 4,  5,  6,  7],
+##        [ 8,  9, 10, 11]])</code></pre>
+<!-- jupyter_markdown -->
+<p><strong>Respahe 2-Dim to 2-Dim</strong></p>
+<div class="sourceCode" id="cb755"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb755-1" title="1">np.array([<span class="bu">range</span>(<span class="dv">5</span>), <span class="bu">range</span>(<span class="dv">10</span>,<span class="dv">15</span>)])  <span class="co"># 2-D Array</span></a></code></pre></div>
+<pre><code>## array([[ 0,  1,  2,  3,  4],
+##        [10, 11, 12, 13, 14]])</code></pre>
+<div class="sourceCode" id="cb757"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb757-1" title="1">np.array([<span class="bu">range</span>(<span class="dv">5</span>), <span class="bu">range</span>(<span class="dv">10</span>,<span class="dv">15</span>)]).reshape(<span class="dv">5</span>,<span class="dv">2</span>) <span class="co"># 2-D Array</span></a></code></pre></div>
+<pre><code>## array([[ 0,  1],
+##        [ 2,  3],
+##        [ 4, 10],
+##        [11, 12],
+##        [13, 14]])</code></pre>
+<!-- jupyter_markdown -->
+<p><strong>Reshape 2-Dimension to 2-Dim (of single row)</strong>
+- Change 2x10 to 1x10<br />
+- Observe [[ ]], and the number of dimension is stll 2, don’t be fooled</p>
+<div class="sourceCode" id="cb759"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb759-1" title="1">np.array( [<span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">5</span>), <span class="bu">range</span>(<span class="dv">5</span>,<span class="dv">10</span>)])  <span class="co"># 2-D Array</span></a></code></pre></div>
+<pre><code>## array([[0, 1, 2, 3, 4],
+##        [5, 6, 7, 8, 9]])</code></pre>
+<div class="sourceCode" id="cb761"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb761-1" title="1">np.array( [<span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">5</span>), <span class="bu">range</span>(<span class="dv">5</span>,<span class="dv">10</span>)]).reshape(<span class="dv">1</span>,<span class="dv">10</span>) <span class="co"># 2-D Array</span></a></code></pre></div>
+<pre><code>## array([[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]])</code></pre>
+<!-- jupyter_markdown -->
+<p><strong>Reshape 1-Dim Array to 2-Dim Array (single column)</strong></p>
+<div class="sourceCode" id="cb763"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb763-1" title="1">np.arange(<span class="dv">8</span>)</a></code></pre></div>
+<pre><code>## array([0, 1, 2, 3, 4, 5, 6, 7])</code></pre>
+<div class="sourceCode" id="cb765"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb765-1" title="1">np.arange(<span class="dv">8</span>).reshape(<span class="dv">8</span>,<span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## array([[0],
+##        [1],
+##        [2],
+##        [3],
+##        [4],
+##        [5],
+##        [6],
+##        [7]])</code></pre>
+<!-- jupyter_markdown -->
+<p>A better method, use <strong>newaxis</strong>, easier because no need to input row number as parameter</p>
+<div class="sourceCode" id="cb767"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb767-1" title="1">np.arange(<span class="dv">8</span>)[:,np.newaxis]</a></code></pre></div>
+<pre><code>## array([[0],
+##        [1],
+##        [2],
+##        [3],
+##        [4],
+##        [5],
+##        [6],
+##        [7]])</code></pre>
+<!-- jupyter_markdown -->
+<p><strong>Reshape 1-Dim Array to 2-Dim Array (single row)</strong></p>
+<div class="sourceCode" id="cb769"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb769-1" title="1">np.arange(<span class="dv">8</span>)</a></code></pre></div>
+<pre><code>## array([0, 1, 2, 3, 4, 5, 6, 7])</code></pre>
+<div class="sourceCode" id="cb771"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb771-1" title="1">np.arange(<span class="dv">8</span>)[np.newaxis,:]</a></code></pre></div>
+<pre><code>## array([[0, 1, 2, 3, 4, 5, 6, 7]])</code></pre>
+<!-- jupyter_markdown -->
+</div>
+</div>
+<div id="element-selection" class="section level3">
+<h3><span class="header-section-number">12.4.6</span> Element Selection</h3>
+<div id="sample-data-1" class="section level4">
+<h4><span class="header-section-number">12.4.6.1</span> Sample Data</h4>
+<div class="sourceCode" id="cb773"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb773-1" title="1">x1 <span class="op">=</span> np.array( (<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>))</a>
+<a class="sourceLine" id="cb773-2" title="2">x2 <span class="op">=</span> np.array(( (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>), </a>
+<a class="sourceLine" id="cb773-3" title="3">      (<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>),</a>
+<a class="sourceLine" id="cb773-4" title="4">      (<span class="dv">21</span>,<span class="dv">22</span>,<span class="dv">23</span>,<span class="dv">24</span>,<span class="dv">25</span>)))</a>
+<a class="sourceLine" id="cb773-5" title="5"><span class="bu">print</span>(x1)</a></code></pre></div>
+<pre><code>## [0 1 2 3 4 5 6 7 8]</code></pre>
+<div class="sourceCode" id="cb775"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb775-1" title="1"><span class="bu">print</span>(x2)</a></code></pre></div>
+<pre><code>## [[ 1  2  3  4  5]
+##  [11 12 13 14 15]
+##  [21 22 23 24 25]]</code></pre>
+<!-- jupyter_markdown -->
+</div>
+<div id="dimension" class="section level4">
+<h4><span class="header-section-number">12.4.6.2</span> 1-Dimension</h4>
+<p>All indexing starts from 0 (not 1)</p>
+<!-- jupyter_markdown -->
+<p>Choosing <strong>Single Element</strong> does not return array</p>
+<div class="sourceCode" id="cb777"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb777-1" title="1"><span class="bu">print</span>( x1[<span class="dv">0</span>]   )  <span class="co">## first element</span></a></code></pre></div>
+<pre><code>## 0</code></pre>
+<div class="sourceCode" id="cb779"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb779-1" title="1"><span class="bu">print</span>( x1[<span class="op">-</span><span class="dv">1</span>]  )  <span class="co">## last element</span></a></code></pre></div>
+<pre><code>## 8</code></pre>
+<div class="sourceCode" id="cb781"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb781-1" title="1"><span class="bu">print</span>( x1[<span class="dv">3</span>]   )  <span class="co">## third element from start 3</span></a></code></pre></div>
+<pre><code>## 3</code></pre>
+<div class="sourceCode" id="cb783"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb783-1" title="1"><span class="bu">print</span>( x1[<span class="op">-</span><span class="dv">3</span>]  )  <span class="co">## third element from end</span></a></code></pre></div>
+<pre><code>## 6</code></pre>
+<!-- jupyter_markdown -->
+<p>Selecting <strong>multiple elments</strong> return <strong>ndarray</strong></p>
+<div class="sourceCode" id="cb785"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb785-1" title="1"><span class="bu">print</span>( x1[:<span class="dv">3</span>]  )  <span class="co">## first 3 elements</span></a></code></pre></div>
+<pre><code>## [0 1 2]</code></pre>
+<div class="sourceCode" id="cb787"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb787-1" title="1"><span class="bu">print</span>( x1[<span class="op">-</span><span class="dv">3</span>:])   <span class="co">## last 3 elements</span></a></code></pre></div>
+<pre><code>## [6 7 8]</code></pre>
+<div class="sourceCode" id="cb789"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb789-1" title="1"><span class="bu">print</span>( x1[<span class="dv">3</span>:]  )  <span class="co">## all except first 3 elements</span></a></code></pre></div>
+<pre><code>## [3 4 5 6 7 8]</code></pre>
+<div class="sourceCode" id="cb791"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb791-1" title="1"><span class="bu">print</span>( x1[:<span class="op">-</span><span class="dv">3</span>] )  <span class="co">## all except last 3 elements</span></a></code></pre></div>
+<pre><code>## [0 1 2 3 4 5]</code></pre>
+<div class="sourceCode" id="cb793"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb793-1" title="1"><span class="bu">print</span>( x1[<span class="dv">1</span>:<span class="dv">4</span>] )  <span class="co">## elemnt 1 to 4 (not including 4)</span></a></code></pre></div>
+<pre><code>## [1 2 3]</code></pre>
+<!-- jupyter_markdown -->
+</div>
+<div id="dimension-1" class="section level4">
+<h4><span class="header-section-number">12.4.6.3</span> 2-Dimension</h4>
+<p>Indexing with <strong>[ row_positoins, row_positions ]</strong>, index starts with 0</p>
+<div class="sourceCode" id="cb795"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb795-1" title="1">x[<span class="dv">1</span>:<span class="dv">3</span>, <span class="dv">1</span>:<span class="dv">4</span>] <span class="co"># row 1 to 2 column 1 to 3</span></a></code></pre></div>
+<pre><code>## array([[1, 2, 3]])</code></pre>
+<!-- jupyter_markdown -->
+</div>
+</div>
+<div id="attributes-3" class="section level3">
+<h3><span class="header-section-number">12.4.7</span> Attributes</h3>
+<div id="dtype" class="section level4">
+<h4><span class="header-section-number">12.4.7.1</span> <code>dtype</code></h4>
+<p>ndarray contain a property called <strong>dtype</strong>, whcih tell us the type of underlying items</p>
+<div class="sourceCode" id="cb797"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb797-1" title="1">a <span class="op">=</span> np.array( (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>), dtype<span class="op">=</span><span class="st">&#39;float&#39;</span> )</a>
+<a class="sourceLine" id="cb797-2" title="2">a.dtype</a></code></pre></div>
+<pre><code>## dtype(&#39;float64&#39;)</code></pre>
+<div class="sourceCode" id="cb799"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb799-1" title="1"><span class="bu">print</span>(a.dtype)</a></code></pre></div>
+<pre><code>## float64</code></pre>
+<div class="sourceCode" id="cb801"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb801-1" title="1"><span class="bu">print</span>( <span class="bu">type</span>(a[<span class="dv">1</span>]))</a></code></pre></div>
+<pre><code>## &lt;class &#39;numpy.float64&#39;&gt;</code></pre>
+<!-- jupyter_markdown -->
+</div>
+<div id="dim" class="section level4">
+<h4><span class="header-section-number">12.4.7.2</span> <code>dim</code></h4>
+<p><strong><code>dim</code></strong> returns the number of dimensions of the NumPy array. Example below shows 2-D array</p>
+<div class="sourceCode" id="cb803"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb803-1" title="1">x <span class="op">=</span> np.array(( (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>), </a>
+<a class="sourceLine" id="cb803-2" title="2">      (<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>),</a>
+<a class="sourceLine" id="cb803-3" title="3">      (<span class="dv">21</span>,<span class="dv">22</span>,<span class="dv">23</span>,<span class="dv">24</span>,<span class="dv">25</span>)))</a>
+<a class="sourceLine" id="cb803-4" title="4">x.ndim  </a></code></pre></div>
+<pre><code>## 2</code></pre>
+<!-- jupyter_markdown -->
+</div>
+<div id="shape" class="section level4">
+<h4><span class="header-section-number">12.4.7.3</span> <code>shape</code></h4>
+<p><strong><code>shape</code></strong> return a type of <strong>(rows, cols)</strong></p>
+<div class="sourceCode" id="cb805"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb805-1" title="1">x <span class="op">=</span> np.array(( (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>), </a>
+<a class="sourceLine" id="cb805-2" title="2">      (<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>),</a>
+<a class="sourceLine" id="cb805-3" title="3">      (<span class="dv">21</span>,<span class="dv">22</span>,<span class="dv">23</span>,<span class="dv">24</span>,<span class="dv">25</span>)))</a>
+<a class="sourceLine" id="cb805-4" title="4">x.shape  </a></code></pre></div>
+<pre><code>## (3, 5)</code></pre>
+<div class="sourceCode" id="cb807"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb807-1" title="1">np.identity(<span class="dv">5</span>)</a></code></pre></div>
+<pre><code>## array([[1., 0., 0., 0., 0.],
+##        [0., 1., 0., 0., 0.],
+##        [0., 0., 1., 0., 0.],
+##        [0., 0., 0., 1., 0.],
+##        [0., 0., 0., 0., 1.]])</code></pre>
+<!-- jupyter_markdown -->
+</div>
+</div>
+<div id="operations" class="section level3">
+<h3><span class="header-section-number">12.4.8</span> Operations</h3>
+<!-- jupyter_markdown -->
+<div id="arithmetic" class="section level4">
+<h4><span class="header-section-number">12.4.8.1</span> Arithmetic</h4>
+<p><strong>Sample Date</strong></p>
+<div class="sourceCode" id="cb809"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb809-1" title="1">ar <span class="op">=</span> np.arange(<span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb809-2" title="2"><span class="bu">print</span>( ar )</a></code></pre></div>
+<pre><code>## [0 1 2 3 4 5 6 7 8 9]</code></pre>
+<!-- jupyter_markdown -->
+<p><strong><code>*</code></strong></p>
+<div class="sourceCode" id="cb811"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb811-1" title="1">ar <span class="op">=</span> np.arange(<span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb811-2" title="2"><span class="bu">print</span> (ar)</a></code></pre></div>
+<pre><code>## [0 1 2 3 4 5 6 7 8 9]</code></pre>
+<div class="sourceCode" id="cb813"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb813-1" title="1"><span class="bu">print</span> (ar<span class="op">*</span><span class="dv">2</span>)</a></code></pre></div>
+<pre><code>## [ 0  2  4  6  8 10 12 14 16 18]</code></pre>
+<!-- jupyter_markdown -->
+<p><code>**+ and -**</code></p>
+<div class="sourceCode" id="cb815"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb815-1" title="1">ar <span class="op">=</span> np.arange(<span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb815-2" title="2"><span class="bu">print</span> (ar<span class="op">+</span><span class="dv">2</span>)</a></code></pre></div>
+<pre><code>## [ 2  3  4  5  6  7  8  9 10 11]</code></pre>
+<div class="sourceCode" id="cb817"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb817-1" title="1"><span class="bu">print</span> (ar<span class="dv">-2</span>)</a></code></pre></div>
+<pre><code>## [-2 -1  0  1  2  3  4  5  6  7]</code></pre>
+<!-- jupyter_markdown -->
+</div>
+<div id="comparison" class="section level4">
+<h4><span class="header-section-number">12.4.8.2</span> Comparison</h4>
+<p><strong>Sample Data</strong></p>
+<div class="sourceCode" id="cb819"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb819-1" title="1">ar <span class="op">=</span> np.arange(<span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb819-2" title="2"><span class="bu">print</span>( ar )</a></code></pre></div>
+<pre><code>## [0 1 2 3 4 5 6 7 8 9]</code></pre>
+<!-- jupyter_markdown -->
+<p><strong><code>==</code></strong></p>
+<div class="sourceCode" id="cb821"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb821-1" title="1"><span class="bu">print</span>( ar<span class="op">==</span><span class="dv">3</span> )</a></code></pre></div>
+<pre><code>## [False False False  True False False False False False False]</code></pre>
+<!-- jupyter_markdown -->
+<p><strong><code>&gt;, &gt;=, &lt;, &lt;=</code></strong></p>
+<div class="sourceCode" id="cb823"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb823-1" title="1"><span class="bu">print</span>( ar<span class="op">&gt;</span><span class="dv">3</span> )</a></code></pre></div>
+<pre><code>## [False False False False  True  True  True  True  True  True]</code></pre>
+<div class="sourceCode" id="cb825"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb825-1" title="1"><span class="bu">print</span>( ar<span class="op">&lt;=</span><span class="dv">3</span> )</a></code></pre></div>
+<pre><code>## [ True  True  True  True False False False False False False]</code></pre>
+<!-- jupyter_markdown -->
+</div>
+</div>
+</div>
+<div id="random-numbers" class="section level2">
+<h2><span class="header-section-number">12.5</span> Random Numbers</h2>
+<!-- jupyter_markdown -->
+<div id="uniform-distribution" class="section level3">
+<h3><span class="header-section-number">12.5.1</span> Uniform Distribution</h3>
+<!-- jupyter_markdown, jupyter_meta = list(heading_collapsed = TRUE) -->
+<div id="random-integer-with-replacement" class="section level4">
+<h4><span class="header-section-number">12.5.1.1</span> Random Integer (with Replacement)</h4>
+<p><strong>randint()</strong> Return random integers from <strong>low (inclusive) to high (exclusive)</strong></p>
+<pre><code>np.random.randint( low )                  # generate an integer, i, which         i &lt; low
+np.random.randint( low, high )            # generate an integer, i, which  low &lt;= i &lt; high
+np.random.randint( low, high, size=1)     # generate an ndarray of integer, single dimension
+np.random.randint( low, high, size=(r,c)) # generate an ndarray of integer, two dimensions </code></pre>
+<div class="sourceCode" id="cb828"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb828-1" title="1">np.random.randint( <span class="dv">10</span> )</a></code></pre></div>
+<pre><code>## 3</code></pre>
+<div class="sourceCode" id="cb830"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb830-1" title="1">np.random.randint( <span class="dv">10</span>, <span class="dv">20</span> )</a></code></pre></div>
+<pre><code>## 16</code></pre>
+<div class="sourceCode" id="cb832"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb832-1" title="1">np.random.randint( <span class="dv">10</span>, high<span class="op">=</span><span class="dv">20</span>, size<span class="op">=</span><span class="dv">5</span>)   <span class="co"># single dimension</span></a></code></pre></div>
+<pre><code>## array([14, 14, 17, 13, 13])</code></pre>
+<div class="sourceCode" id="cb834"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb834-1" title="1">np.random.randint( <span class="dv">10</span>, <span class="dv">20</span>, (<span class="dv">3</span>,<span class="dv">5</span>) )        <span class="co"># two dimensions</span></a></code></pre></div>
+<pre><code>## array([[17, 19, 12, 12, 17],
+##        [13, 11, 12, 16, 17],
+##        [15, 14, 10, 13, 16]])</code></pre>
+<!-- jupyter_markdown -->
+</div>
+<div id="random-integer-with-or-without-replacement" class="section level4">
+<h4><span class="header-section-number">12.5.1.2</span> Random Integer (with or without replacement)</h4>
+<pre><code>numpy.random .choice( a, size, replace=True)
+ # sampling from a, 
+ #   if a is integer, then it is assumed sampling from arange(a)
+ #   if a is an 1-D array, then sampling from this array</code></pre>
+<div class="sourceCode" id="cb837"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb837-1" title="1">np.random.choice(<span class="dv">10</span>,<span class="dv">5</span>, replace<span class="op">=</span><span class="va">False</span>) <span class="co"># take 5 samples from 0:19, without replacement</span></a></code></pre></div>
+<pre><code>## array([3, 9, 6, 1, 2])</code></pre>
+<div class="sourceCode" id="cb839"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb839-1" title="1">np.random.choice( np.arange(<span class="dv">10</span>,<span class="dv">20</span>), <span class="dv">5</span>, replace<span class="op">=</span><span class="va">False</span>)</a></code></pre></div>
+<pre><code>## array([12, 18, 17, 19, 16])</code></pre>
+<!-- jupyter_markdown -->
+</div>
+<div id="random-float" class="section level4">
+<h4><span class="header-section-number">12.5.1.3</span> Random Float</h4>
+<p><strong>randf()</strong> Generate float numbers in <strong>between 0.0 and 1.0</strong></p>
+<pre><code>np.random.ranf(size=None)</code></pre>
+<div class="sourceCode" id="cb842"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb842-1" title="1">np.random.ranf(<span class="dv">4</span>)</a></code></pre></div>
+<pre><code>## array([0.48184373, 0.84580654, 0.00982113, 0.77464196])</code></pre>
+<!-- jupyter_markdown -->
+<p><strong>uniform()</strong> Return random float from <strong>low (inclusive) to high (exclusive)</strong></p>
+<pre><code>np.random.uniform( low )                  # generate an float, i, which         f &lt; low
+np.random.uniform( low, high )            # generate an float, i, which  low &lt;= f &lt; high
+np.random.uniform( low, high, size=1)     # generate an array of float, single dimension
+np.random.uniform( low, high, size=(r,c)) # generate an array of float, two dimensions </code></pre>
+<div class="sourceCode" id="cb845"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb845-1" title="1">np.random.uniform( <span class="dv">2</span> )</a></code></pre></div>
+<pre><code>## 1.559642941286694</code></pre>
+<div class="sourceCode" id="cb847"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb847-1" title="1">np.random.uniform( <span class="dv">2</span>,<span class="dv">5</span>, size<span class="op">=</span>(<span class="dv">4</span>,<span class="dv">4</span>) )</a></code></pre></div>
+<pre><code>## array([[3.56784093, 2.85086345, 4.83558328, 4.648662  ],
+##        [4.32149386, 4.01565117, 4.66374498, 3.34239879],
+##        [4.97538006, 4.09373106, 4.56732761, 4.47825275],
+##        [2.88706486, 2.36547073, 2.64798404, 4.84546763]])</code></pre>
+<!-- jupyter_markdown -->
+</div>
+</div>
+<div id="normal-distribution" class="section level3">
+<h3><span class="header-section-number">12.5.2</span> Normal Distribution</h3>
+<pre><code>numpy. random.randn (n_items)       # 1-D standard normal (mean=0, stdev=1)
+numpy. random.randn (nrows, ncols)  # 2-D standard normal (mean=0, stdev=1)
+numpy. random.standard_normal( size=None )                # default to mean = 0, stdev = 1, non-configurable
+numpy. random.normal         ( loc=0, scale=1, size=None) # loc = mean, scale = stdev, size = dimension</code></pre>
+<!-- jupyter_markdown -->
+<div id="standard-normal-distribution" class="section level4">
+<h4><span class="header-section-number">12.5.2.1</span> Standard Normal Distribution</h4>
+<p>Generate random normal numbers with gaussion distribution (mean=0, stdev=1)</p>
+<!-- jupyter_markdown -->
+<p><strong>One Dimension</strong></p>
+<div class="sourceCode" id="cb850"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb850-1" title="1">np.random.standard_normal(<span class="dv">3</span>)</a></code></pre></div>
+<pre><code>## array([-1.39945672,  0.68910471, -0.44192704])</code></pre>
+<div class="sourceCode" id="cb852"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb852-1" title="1">np.random.randn(<span class="dv">3</span>)</a></code></pre></div>
+<pre><code>## array([1.13774791, 1.41340718, 1.63258593])</code></pre>
+<!-- jupyter_markdown -->
+<p><strong>Two Dimensions</strong></p>
+<div class="sourceCode" id="cb854"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb854-1" title="1">np.random.randn(<span class="dv">2</span>,<span class="dv">4</span>)</a></code></pre></div>
+<pre><code>## array([[ 0.26171403,  1.69948372, -1.63551086,  0.56456082],
+##        [ 0.90710712,  0.38714953, -0.0750727 ,  0.73851227]])</code></pre>
+<div class="sourceCode" id="cb856"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb856-1" title="1">np.random.standard_normal((<span class="dv">2</span>,<span class="dv">4</span>))</a></code></pre></div>
+<pre><code>## array([[-0.58558684, -1.39131537,  0.73795095,  0.20483055],
+##        [ 0.56569358,  1.36375405, -1.28640727, -1.60536867]])</code></pre>
+<!-- jupyter_markdown -->
+<p><strong>Observe:</strong> randn(), standard_normal() and normal() are able to generate standard normal numbers</p>
+<div class="sourceCode" id="cb858"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb858-1" title="1">np.random.seed(<span class="dv">15</span>)</a>
+<a class="sourceLine" id="cb858-2" title="2"><span class="bu">print</span> (np.random.randn(<span class="dv">5</span>))</a></code></pre></div>
+<pre><code>## [-0.31232848  0.33928471 -0.15590853 -0.50178967  0.23556889]</code></pre>
+<div class="sourceCode" id="cb860"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb860-1" title="1">np.random.seed(<span class="dv">15</span>)</a>
+<a class="sourceLine" id="cb860-2" title="2"><span class="bu">print</span> (np.random.normal ( size <span class="op">=</span> <span class="dv">5</span> )) <span class="co"># stdev and mean not specified, default to standard normal</span></a></code></pre></div>
+<pre><code>## [-0.31232848  0.33928471 -0.15590853 -0.50178967  0.23556889]</code></pre>
+<div class="sourceCode" id="cb862"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb862-1" title="1">np.random.seed(<span class="dv">15</span>)</a>
+<a class="sourceLine" id="cb862-2" title="2"><span class="bu">print</span> (np.random.standard_normal (size<span class="op">=</span><span class="dv">5</span>))</a></code></pre></div>
+<pre><code>## [-0.31232848  0.33928471 -0.15590853 -0.50178967  0.23556889]</code></pre>
+<!-- jupyter_markdown -->
+</div>
+<div id="normal-distribution-non-standard" class="section level4">
+<h4><span class="header-section-number">12.5.2.2</span> Normal Distribution (Non-Standard)</h4>
+<div class="sourceCode" id="cb864"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb864-1" title="1">np.random.seed(<span class="dv">125</span>)</a>
+<a class="sourceLine" id="cb864-2" title="2">np.random.normal( loc <span class="op">=</span> <span class="dv">12</span>, scale<span class="op">=</span><span class="fl">1.25</span>, size<span class="op">=</span>(<span class="dv">3</span>,<span class="dv">3</span>))</a></code></pre></div>
+<pre><code>## array([[11.12645382, 12.01327885, 10.81651695],
+##        [12.41091248, 12.39383072, 11.49647195],
+##        [ 8.70837035, 12.25246312, 11.49084235]])</code></pre>
+<!-- jupyter_markdown -->
+</div>
+<div id="linear-spacing" class="section level4">
+<h4><span class="header-section-number">12.5.2.3</span> Linear Spacing</h4>
+<pre><code>numpy.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None)
+# endpoint: If True, stop is the last sample, otherwise it is not included</code></pre>
+<!-- jupyter_markdown -->
+<p><strong>Include Endpoint</strong><br />
+Step = Gap divide by (number of elements minus 1) (2/(10-1))</p>
+<div class="sourceCode" id="cb867"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb867-1" title="1">np.linspace(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">10</span>) <span class="co">#default endpont=True</span></a></code></pre></div>
+<pre><code>## array([1.        , 1.22222222, 1.44444444, 1.66666667, 1.88888889,
+##        2.11111111, 2.33333333, 2.55555556, 2.77777778, 3.        ])</code></pre>
+<!-- jupyter_markdown -->
+<p><strong>Does Not Include Endpoint</strong><br />
+Step = Gap divide by (number of elements minus 1) (2/(101))</p>
+<div class="sourceCode" id="cb869"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb869-1" title="1">np.linspace(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">10</span>,endpoint<span class="op">=</span><span class="va">False</span>)</a></code></pre></div>
+<pre><code>## array([1. , 1.2, 1.4, 1.6, 1.8, 2. , 2.2, 2.4, 2.6, 2.8])</code></pre>
+<!-- jupyter_markdown, jupyter_meta = list(heading_collapsed = TRUE) -->
+</div>
+</div>
+</div>
+<div id="sampling-integer" class="section level2">
+<h2><span class="header-section-number">12.6</span> Sampling (Integer)</h2>
+<pre><code>random.choice( a, size=None, replace=True, p=None)  # a=integer, return &lt;size&gt; integers &lt; a
+random.choice( a, size=None, replace=True, p=None)  # a=array-like, return &lt;size&gt; integers picked from list a</code></pre>
+<div class="sourceCode" id="cb872"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb872-1" title="1">np.random.choice (<span class="dv">100</span>, size<span class="op">=</span><span class="dv">10</span>)</a></code></pre></div>
+<pre><code>## array([58,  0, 84, 50, 89, 32, 87, 30, 66, 92])</code></pre>
+<div class="sourceCode" id="cb874"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb874-1" title="1">np.random.choice( [<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">11</span>,<span class="dv">13</span>,<span class="dv">15</span>,<span class="dv">17</span>,<span class="dv">19</span>,<span class="dv">21</span>,<span class="dv">23</span>], size<span class="op">=</span><span class="dv">10</span>, replace<span class="op">=</span><span class="va">False</span>)</a></code></pre></div>
+<pre><code>## array([ 5,  1, 23, 17,  3, 13, 15,  9, 21,  7])</code></pre>
+<!-- jupyter_markdown -->
+</div>
+<div id="nan-missing-numerical-data" class="section level2">
+<h2><span class="header-section-number">12.7</span> NaN : Missing Numerical Data</h2>
+<ul>
+<li>You should be aware that NaN is a bit like a data virus?it infects any other object it touches</li>
+</ul>
+<div class="sourceCode" id="cb876"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb876-1" title="1">t <span class="op">=</span> np.array([<span class="dv">1</span>, np.nan, <span class="dv">3</span>, <span class="dv">4</span>]) </a>
+<a class="sourceLine" id="cb876-2" title="2">t.dtype</a></code></pre></div>
+<pre><code>## dtype(&#39;float64&#39;)</code></pre>
+<!-- jupyter_markdown -->
+<p>Regardless of the operation, the result of arithmetic with NaN will be another NaN</p>
+<div class="sourceCode" id="cb878"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb878-1" title="1"><span class="dv">1</span> <span class="op">+</span> np.nan</a></code></pre></div>
+<pre><code>## nan</code></pre>
+<div class="sourceCode" id="cb880"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb880-1" title="1">t.<span class="bu">sum</span>(), t.mean(), t.<span class="bu">max</span>()</a></code></pre></div>
+<pre><code>## (nan, nan, nan)</code></pre>
+<div class="sourceCode" id="cb882"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb882-1" title="1">np.nansum(t), np.nanmean(t), np.nanmax(t)</a></code></pre></div>
+<pre><code>## (8.0, 2.6666666666666665, 4.0)</code></pre>
+
+<!-- jupyter_markdown, jupyter_meta = list(`toc-hr-collapsed` = FALSE) -->
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="plydata-dplyr-for-python.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="pandas-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"],
+"google": false,
+"instapper": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/yongks/biz_tech_analytics_r/edit/master/02-numpy.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": "position: fixed ",
+"searh": true
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,1763 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>11 Plydata (dplyr for Python) | Python Bookdown</title>
+  <meta name="description" content="This is a python cookbook, written using RMarkdown Notebook. It is made possible by using reticulate R library as the bridge between R and Python." />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="11 Plydata (dplyr for Python) | Python Bookdown" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a python cookbook, written using RMarkdown Notebook. It is made possible by using reticulate R library as the bridge between R and Python." />
+  <meta name="github-repo" content="yongks/python_bookdown" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="11 Plydata (dplyr for Python) | Python Bookdown" />
+  
+  <meta name="twitter:description" content="This is a python cookbook, written using RMarkdown Notebook. It is made possible by using reticulate R library as the bridge between R and Python." />
+  
+
+<meta name="author" content="Yong Keh Soon" />
+
+
+<meta name="date" content="2019-12-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="getting-external-data.html"/>
+<link rel="next" href="numpy-1.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Python Bookdown</a></li>
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prerequisites</a></li>
+<li class="chapter" data-level="1" data-path="environment-setup.html"><a href="environment-setup.html"><i class="fa fa-check"></i><b>1</b> Environment Setup</a><ul>
+<li class="chapter" data-level="1.1" data-path="environment-setup.html"><a href="environment-setup.html#notebook-setup"><i class="fa fa-check"></i><b>1.1</b> Notebook Setup</a></li>
+<li class="chapter" data-level="1.2" data-path="environment-setup.html"><a href="environment-setup.html#libraries"><i class="fa fa-check"></i><b>1.2</b> Libraries</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="environment-setup.html"><a href="environment-setup.html#built-in-libraries"><i class="fa fa-check"></i><b>1.2.1</b> Built-In Libraries</a></li>
+<li class="chapter" data-level="1.2.2" data-path="environment-setup.html"><a href="environment-setup.html#common-external-libraries"><i class="fa fa-check"></i><b>1.2.2</b> Common External Libraries</a></li>
+<li class="chapter" data-level="1.2.3" data-path="environment-setup.html"><a href="environment-setup.html#numpy"><i class="fa fa-check"></i><b>1.2.3</b> numpy</a></li>
+<li class="chapter" data-level="1.2.4" data-path="environment-setup.html"><a href="environment-setup.html#scipy"><i class="fa fa-check"></i><b>1.2.4</b> scipy</a></li>
+<li class="chapter" data-level="1.2.5" data-path="environment-setup.html"><a href="environment-setup.html#pandas"><i class="fa fa-check"></i><b>1.2.5</b> Pandas</a></li>
+<li class="chapter" data-level="1.2.6" data-path="environment-setup.html"><a href="environment-setup.html#scikit-learn"><i class="fa fa-check"></i><b>1.2.6</b> scikit-learn</a></li>
+<li class="chapter" data-level="1.2.7" data-path="environment-setup.html"><a href="environment-setup.html#matplotlib"><i class="fa fa-check"></i><b>1.2.7</b> matplotlib</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="environment-setup.html"><a href="environment-setup.html#magic-functions"><i class="fa fa-check"></i><b>1.3</b> Magic Functions</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="environment-setup.html"><a href="environment-setup.html#list-of-magic"><i class="fa fa-check"></i><b>1.3.1</b> List of Magic</a></li>
+<li class="chapter" data-level="1.3.2" data-path="environment-setup.html"><a href="environment-setup.html#line-magic"><i class="fa fa-check"></i><b>1.3.2</b> Line Magic</a></li>
+<li class="chapter" data-level="1.3.3" data-path="environment-setup.html"><a href="environment-setup.html#cell-magic"><i class="fa fa-check"></i><b>1.3.3</b> Cell Magic</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="environment-setup.html"><a href="environment-setup.html#package-management"><i class="fa fa-check"></i><b>1.4</b> Package Management</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="environment-setup.html"><a href="environment-setup.html#conda"><i class="fa fa-check"></i><b>1.4.1</b> Conda</a></li>
+<li class="chapter" data-level="1.4.2" data-path="environment-setup.html"><a href="environment-setup.html#pip"><i class="fa fa-check"></i><b>1.4.2</b> PIP</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="python-fundamental.html"><a href="python-fundamental.html"><i class="fa fa-check"></i><b>2</b> Python Fundamental</a><ul>
+<li class="chapter" data-level="2.1" data-path="python-fundamental.html"><a href="python-fundamental.html#everything-is-object"><i class="fa fa-check"></i><b>2.1</b> Everything Is Object</a></li>
+<li class="chapter" data-level="2.2" data-path="python-fundamental.html"><a href="python-fundamental.html#assignment"><i class="fa fa-check"></i><b>2.2</b> Assignment</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="python-fundamental.html"><a href="python-fundamental.html#multiple-assignment"><i class="fa fa-check"></i><b>2.2.1</b> Multiple Assignment</a></li>
+<li class="chapter" data-level="2.2.2" data-path="python-fundamental.html"><a href="python-fundamental.html#augmented-assignment"><i class="fa fa-check"></i><b>2.2.2</b> Augmented Assignment</a></li>
+<li class="chapter" data-level="2.2.3" data-path="python-fundamental.html"><a href="python-fundamental.html#unpacking-assingment"><i class="fa fa-check"></i><b>2.2.3</b> Unpacking Assingment</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="built-in-data-types.html"><a href="built-in-data-types.html"><i class="fa fa-check"></i><b>3</b> Built-in Data Types</a><ul>
+<li class="chapter" data-level="3.1" data-path="built-in-data-types.html"><a href="built-in-data-types.html#numbers"><i class="fa fa-check"></i><b>3.1</b> Numbers</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="built-in-data-types.html"><a href="built-in-data-types.html#integer"><i class="fa fa-check"></i><b>3.1.1</b> Integer</a></li>
+<li class="chapter" data-level="3.1.2" data-path="built-in-data-types.html"><a href="built-in-data-types.html#float"><i class="fa fa-check"></i><b>3.1.2</b> Float</a></li>
+<li class="chapter" data-level="3.1.3" data-path="built-in-data-types.html"><a href="built-in-data-types.html#number-operators"><i class="fa fa-check"></i><b>3.1.3</b> Number Operators</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="built-in-data-types.html"><a href="built-in-data-types.html#string"><i class="fa fa-check"></i><b>3.2</b> String</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="built-in-data-types.html"><a href="built-in-data-types.html#constructor"><i class="fa fa-check"></i><b>3.2.1</b> Constructor</a></li>
+<li class="chapter" data-level="3.2.2" data-path="built-in-data-types.html"><a href="built-in-data-types.html#class-constants"><i class="fa fa-check"></i><b>3.2.2</b> Class Constants</a></li>
+<li class="chapter" data-level="3.2.3" data-path="built-in-data-types.html"><a href="built-in-data-types.html#instance-methods"><i class="fa fa-check"></i><b>3.2.3</b> Instance Methods</a></li>
+<li class="chapter" data-level="3.2.4" data-path="built-in-data-types.html"><a href="built-in-data-types.html#operator"><i class="fa fa-check"></i><b>3.2.4</b> Operator</a></li>
+<li class="chapter" data-level="3.2.5" data-path="built-in-data-types.html"><a href="built-in-data-types.html#iterations"><i class="fa fa-check"></i><b>3.2.5</b> Iterations</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="built-in-data-types.html"><a href="built-in-data-types.html#boolean"><i class="fa fa-check"></i><b>3.3</b> Boolean</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="built-in-data-types.html"><a href="built-in-data-types.html#what-is-considered-false"><i class="fa fa-check"></i><b>3.3.1</b> What is Considered False ?</a></li>
+<li class="chapter" data-level="3.3.2" data-path="built-in-data-types.html"><a href="built-in-data-types.html#and-operator"><i class="fa fa-check"></i><b>3.3.2</b> <code>and</code> operator</a></li>
+<li class="chapter" data-level="3.3.3" data-path="built-in-data-types.html"><a href="built-in-data-types.html#not-operator"><i class="fa fa-check"></i><b>3.3.3</b> <code>not</code> operator</a></li>
+<li class="chapter" data-level="3.3.4" data-path="built-in-data-types.html"><a href="built-in-data-types.html#or-operator"><i class="fa fa-check"></i><b>3.3.4</b> <code>or</code> operator</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="built-in-data-types.html"><a href="built-in-data-types.html#none"><i class="fa fa-check"></i><b>3.4</b> None</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="built-in-data-types.html"><a href="built-in-data-types.html#none-is-an-object"><i class="fa fa-check"></i><b>3.4.1</b> None is an Object</a></li>
+<li class="chapter" data-level="3.4.2" data-path="built-in-data-types.html"><a href="built-in-data-types.html#comparing-none"><i class="fa fa-check"></i><b>3.4.2</b> Comparing None</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html"><i class="fa fa-check"></i><b>4</b> Built-In Data Structure</a><ul>
+<li class="chapter" data-level="4.1" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#tuple"><i class="fa fa-check"></i><b>4.1</b> Tuple</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#assignment-1"><i class="fa fa-check"></i><b>4.1.1</b> Assignment</a></li>
+<li class="chapter" data-level="4.1.2" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#accessing"><i class="fa fa-check"></i><b>4.1.2</b> Accessing</a></li>
+<li class="chapter" data-level="4.1.3" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#duplicating-tuple"><i class="fa fa-check"></i><b>4.1.3</b> Duplicating Tuple</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#list"><i class="fa fa-check"></i><b>4.2</b> List</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#creating-list"><i class="fa fa-check"></i><b>4.2.1</b> Creating List</a></li>
+<li class="chapter" data-level="4.2.2" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#accessing-items"><i class="fa fa-check"></i><b>4.2.2</b> Accessing Items</a></li>
+<li class="chapter" data-level="4.2.3" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#methods"><i class="fa fa-check"></i><b>4.2.3</b> Methods</a></li>
+<li class="chapter" data-level="4.2.4" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#operator-1"><i class="fa fa-check"></i><b>4.2.4</b> Operator</a></li>
+<li class="chapter" data-level="4.2.5" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#list-is-mutable"><i class="fa fa-check"></i><b>4.2.5</b> List is Mutable</a></li>
+<li class="chapter" data-level="4.2.6" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#duplicate-or-reference"><i class="fa fa-check"></i><b>4.2.6</b> Duplicate or Reference</a></li>
+<li class="chapter" data-level="4.2.7" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#list-is-iterable"><i class="fa fa-check"></i><b>4.2.7</b> List Is Iterable</a></li>
+<li class="chapter" data-level="4.2.8" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#conversion"><i class="fa fa-check"></i><b>4.2.8</b> Conversion</a></li>
+<li class="chapter" data-level="4.2.9" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#built-in-functions-applicable-to-list"><i class="fa fa-check"></i><b>4.2.9</b> Built-In Functions Applicable To List</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#dictionaries"><i class="fa fa-check"></i><b>4.3</b> Dictionaries</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#creating-dict"><i class="fa fa-check"></i><b>4.3.1</b> Creating dict</a></li>
+<li class="chapter" data-level="4.3.2" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#accessing-dict"><i class="fa fa-check"></i><b>4.3.2</b> Accessing dict</a></li>
+<li class="chapter" data-level="4.3.3" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#dict-are-mutable"><i class="fa fa-check"></i><b>4.3.3</b> Dict are Mutable</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#sets"><i class="fa fa-check"></i><b>4.4</b> Sets</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#membership-test"><i class="fa fa-check"></i><b>4.4.1</b> Membership Test</a></li>
+<li class="chapter" data-level="4.4.2" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#subset-test"><i class="fa fa-check"></i><b>4.4.2</b> Subset Test</a></li>
+<li class="chapter" data-level="4.4.3" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#union-using"><i class="fa fa-check"></i><b>4.4.3</b> Union using ‘|’</a></li>
+<li class="chapter" data-level="4.4.4" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#intersection-using"><i class="fa fa-check"></i><b>4.4.4</b> Intersection using ‘&amp;’</a></li>
+<li class="chapter" data-level="4.4.5" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#difference-using--"><i class="fa fa-check"></i><b>4.4.5</b> Difference using ‘-’</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#range"><i class="fa fa-check"></i><b>4.5</b> range</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="control-and-loops.html"><a href="control-and-loops.html"><i class="fa fa-check"></i><b>5</b> Control and Loops</a><ul>
+<li class="chapter" data-level="5.1" data-path="control-and-loops.html"><a href="control-and-loops.html#if-statement"><i class="fa fa-check"></i><b>5.1</b> If Statement</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="control-and-loops.html"><a href="control-and-loops.html#multiline-if..-statements"><i class="fa fa-check"></i><b>5.1.1</b> Multiline If.. Statements</a></li>
+<li class="chapter" data-level="5.1.2" data-path="control-and-loops.html"><a href="control-and-loops.html#single-line-if-..-statement"><i class="fa fa-check"></i><b>5.1.2</b> Single Line If .. Statement</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="control-and-loops.html"><a href="control-and-loops.html#for-loops"><i class="fa fa-check"></i><b>5.2</b> For Loops</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="control-and-loops.html"><a href="control-and-loops.html#loop-thorugh-range"><i class="fa fa-check"></i><b>5.2.1</b> Loop thorugh ‘range’</a></li>
+<li class="chapter" data-level="5.2.2" data-path="control-and-loops.html"><a href="control-and-loops.html#loop-through-list"><i class="fa fa-check"></i><b>5.2.2</b> Loop through ‘list’</a></li>
+<li class="chapter" data-level="5.2.3" data-path="control-and-loops.html"><a href="control-and-loops.html#loop-through-dictionary"><i class="fa fa-check"></i><b>5.2.3</b> Loop Through ‘Dictionary’</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="control-and-loops.html"><a href="control-and-loops.html#generators"><i class="fa fa-check"></i><b>5.3</b> Generators</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="control-and-loops.html"><a href="control-and-loops.html#basic-generator-function"><i class="fa fa-check"></i><b>5.3.1</b> Basic Generator Function</a></li>
+<li class="chapter" data-level="5.3.2" data-path="control-and-loops.html"><a href="control-and-loops.html#useful-generator-fuction"><i class="fa fa-check"></i><b>5.3.2</b> Useful Generator Fuction</a></li>
+<li class="chapter" data-level="5.3.3" data-path="control-and-loops.html"><a href="control-and-loops.html#generator-expression"><i class="fa fa-check"></i><b>5.3.3</b> Generator Expression</a></li>
+<li class="chapter" data-level="5.3.4" data-path="control-and-loops.html"><a href="control-and-loops.html#compare-to-iterator-class"><i class="fa fa-check"></i><b>5.3.4</b> Compare to Iterator Class</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="library-and-functions.html"><a href="library-and-functions.html"><i class="fa fa-check"></i><b>6</b> Library and Functions</a><ul>
+<li class="chapter" data-level="6.1" data-path="library-and-functions.html"><a href="library-and-functions.html#package-source"><i class="fa fa-check"></i><b>6.1</b> Package Source</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="library-and-functions.html"><a href="library-and-functions.html#conda-1"><i class="fa fa-check"></i><b>6.1.1</b> Conda</a></li>
+<li class="chapter" data-level="6.1.2" data-path="library-and-functions.html"><a href="library-and-functions.html#pip-1"><i class="fa fa-check"></i><b>6.1.2</b> PIP</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="library-and-functions.html"><a href="library-and-functions.html#importing-library"><i class="fa fa-check"></i><b>6.2</b> Importing Library</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="library-and-functions.html"><a href="library-and-functions.html#import-entire-library"><i class="fa fa-check"></i><b>6.2.1</b> Import Entire Library</a></li>
+<li class="chapter" data-level="6.2.2" data-path="library-and-functions.html"><a href="library-and-functions.html#import-specific-function"><i class="fa fa-check"></i><b>6.2.2</b> Import Specific Function</a></li>
+<li class="chapter" data-level="6.2.3" data-path="library-and-functions.html"><a href="library-and-functions.html#machine-learning-packages"><i class="fa fa-check"></i><b>6.2.3</b> Machine Learning Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="library-and-functions.html"><a href="library-and-functions.html#define-function"><i class="fa fa-check"></i><b>6.3</b> Define Function</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="library-and-functions.html"><a href="library-and-functions.html#function-arguments"><i class="fa fa-check"></i><b>6.3.1</b> Function Arguments</a></li>
+<li class="chapter" data-level="6.3.2" data-path="library-and-functions.html"><a href="library-and-functions.html#list-within-function"><i class="fa fa-check"></i><b>6.3.2</b> List Within Function</a></li>
+<li class="chapter" data-level="6.3.3" data-path="library-and-functions.html"><a href="library-and-functions.html#return-statement"><i class="fa fa-check"></i><b>6.3.3</b> Return Statement</a></li>
+<li class="chapter" data-level="6.3.4" data-path="library-and-functions.html"><a href="library-and-functions.html#no-return-statement"><i class="fa fa-check"></i><b>6.3.4</b> No Return Statement</a></li>
+<li class="chapter" data-level="6.3.5" data-path="library-and-functions.html"><a href="library-and-functions.html#return-multiple-value"><i class="fa fa-check"></i><b>6.3.5</b> Return Multiple Value</a></li>
+<li class="chapter" data-level="6.3.6" data-path="library-and-functions.html"><a href="library-and-functions.html#passing-function-as-argument"><i class="fa fa-check"></i><b>6.3.6</b> Passing Function as Argument</a></li>
+<li class="chapter" data-level="6.3.7" data-path="library-and-functions.html"><a href="library-and-functions.html#arguments"><i class="fa fa-check"></i><b>6.3.7</b> Arguments</a></li>
+<li class="chapter" data-level="6.3.8" data-path="library-and-functions.html"><a href="library-and-functions.html#keyword-arguments"><i class="fa fa-check"></i><b>6.3.8</b> keyword arguments</a></li>
+<li class="chapter" data-level="6.3.9" data-path="library-and-functions.html"><a href="library-and-functions.html#mixing-args-kwargs"><i class="fa fa-check"></i><b>6.3.9</b> Mixing *args, **kwargs</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="object-oriented-programming.html"><a href="object-oriented-programming.html"><i class="fa fa-check"></i><b>7</b> Object Oriented Programming</a><ul>
+<li class="chapter" data-level="7.1" data-path="object-oriented-programming.html"><a href="object-oriented-programming.html#defining-class"><i class="fa fa-check"></i><b>7.1</b> Defining Class</a></li>
+<li class="chapter" data-level="7.2" data-path="object-oriented-programming.html"><a href="object-oriented-programming.html#object-class-assignment"><i class="fa fa-check"></i><b>7.2</b> Object Class Assignment</a></li>
+<li class="chapter" data-level="7.3" data-path="object-oriented-programming.html"><a href="object-oriented-programming.html#calling-method"><i class="fa fa-check"></i><b>7.3</b> Calling Method</a></li>
+<li class="chapter" data-level="7.4" data-path="object-oriented-programming.html"><a href="object-oriented-programming.html#getting-property"><i class="fa fa-check"></i><b>7.4</b> Getting Property</a></li>
+<li class="chapter" data-level="7.5" data-path="object-oriented-programming.html"><a href="object-oriented-programming.html#setting-property"><i class="fa fa-check"></i><b>7.5</b> Setting Property</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="decorator.html"><a href="decorator.html"><i class="fa fa-check"></i><b>8</b> Decorator</a><ul>
+<li class="chapter" data-level="8.1" data-path="decorator.html"><a href="decorator.html#definition"><i class="fa fa-check"></i><b>8.1</b> Definition</a></li>
+<li class="chapter" data-level="8.2" data-path="decorator.html"><a href="decorator.html#examples"><i class="fa fa-check"></i><b>8.2</b> Examples</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="decorator.html"><a href="decorator.html#example-1---plain-decorator-function"><i class="fa fa-check"></i><b>8.2.1</b> Example 1 - Plain decorator function</a></li>
+<li class="chapter" data-level="8.2.2" data-path="decorator.html"><a href="decorator.html#example-2---decorator-with-class"><i class="fa fa-check"></i><b>8.2.2</b> Example 2 - Decorator with Class</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html"><i class="fa fa-check"></i><b>9</b> datetime Standard Library</a><ul>
+<li class="chapter" data-level="9.1" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#iso8601"><i class="fa fa-check"></i><b>9.1</b> ISO8601</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#date-time"><i class="fa fa-check"></i><b>9.1.1</b> Date Time</a></li>
+<li class="chapter" data-level="9.1.2" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#date"><i class="fa fa-check"></i><b>9.1.2</b> Date</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#module-import"><i class="fa fa-check"></i><b>9.2</b> Module Import</a></li>
+<li class="chapter" data-level="9.3" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#class"><i class="fa fa-check"></i><b>9.3</b> Class</a></li>
+<li class="chapter" data-level="9.4" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#date-1"><i class="fa fa-check"></i><b>9.4</b> date</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#constructor-1"><i class="fa fa-check"></i><b>9.4.1</b> Constructor</a></li>
+<li class="chapter" data-level="9.4.2" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#class-method"><i class="fa fa-check"></i><b>9.4.2</b> Class Method</a></li>
+<li class="chapter" data-level="9.4.3" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#instance-method"><i class="fa fa-check"></i><b>9.4.3</b> Instance Method</a></li>
+<li class="chapter" data-level="9.4.4" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#attributes"><i class="fa fa-check"></i><b>9.4.4</b> Attributes</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#date-and-datetime"><i class="fa fa-check"></i><b>9.5</b> date and datetime</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#constructor-2"><i class="fa fa-check"></i><b>9.5.1</b> Constructor</a></li>
+<li class="chapter" data-level="9.5.2" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#class-method-1"><i class="fa fa-check"></i><b>9.5.2</b> Class Method</a></li>
+<li class="chapter" data-level="9.5.3" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#instance-method-1"><i class="fa fa-check"></i><b>9.5.3</b> Instance Method</a></li>
+<li class="chapter" data-level="9.5.4" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#attributes-1"><i class="fa fa-check"></i><b>9.5.4</b> Attributes</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#time"><i class="fa fa-check"></i><b>9.6</b> time</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#constructor-3"><i class="fa fa-check"></i><b>9.6.1</b> Constructor</a></li>
+<li class="chapter" data-level="9.6.2" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#class-method-2"><i class="fa fa-check"></i><b>9.6.2</b> Class Method</a></li>
+<li class="chapter" data-level="9.6.3" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#attributes-2"><i class="fa fa-check"></i><b>9.6.3</b> Attributes</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="datetime-standard-library.html"><a href="datetime-standard-library.html#timedelta"><i class="fa fa-check"></i><b>9.7</b> timedelta</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="getting-external-data.html"><a href="getting-external-data.html"><i class="fa fa-check"></i><b>10</b> Getting External Data</a></li>
+<li class="chapter" data-level="11" data-path="plydata-dplyr-for-python.html"><a href="plydata-dplyr-for-python.html"><i class="fa fa-check"></i><b>11</b> Plydata (dplyr for Python)</a><ul>
+<li class="chapter" data-level="11.1" data-path="plydata-dplyr-for-python.html"><a href="plydata-dplyr-for-python.html#sample-data"><i class="fa fa-check"></i><b>11.1</b> Sample Data</a></li>
+<li class="chapter" data-level="11.2" data-path="plydata-dplyr-for-python.html"><a href="plydata-dplyr-for-python.html#column-manipulation"><i class="fa fa-check"></i><b>11.2</b> Column Manipulation</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="plydata-dplyr-for-python.html"><a href="plydata-dplyr-for-python.html#copy-column"><i class="fa fa-check"></i><b>11.2.1</b> Copy Column</a></li>
+<li class="chapter" data-level="11.2.2" data-path="plydata-dplyr-for-python.html"><a href="plydata-dplyr-for-python.html#new-column-from-existing-column"><i class="fa fa-check"></i><b>11.2.2</b> New Column from existing Column</a></li>
+<li class="chapter" data-level="11.2.3" data-path="plydata-dplyr-for-python.html"><a href="plydata-dplyr-for-python.html#select-columns"><i class="fa fa-check"></i><b>11.2.3</b> Select Column(s)</a></li>
+<li class="chapter" data-level="11.2.4" data-path="plydata-dplyr-for-python.html"><a href="plydata-dplyr-for-python.html#drop-columns"><i class="fa fa-check"></i><b>11.2.4</b> Drop Column(s)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="plydata-dplyr-for-python.html"><a href="plydata-dplyr-for-python.html#sorting-arrange"><i class="fa fa-check"></i><b>11.3</b> Sorting (arrange)</a></li>
+<li class="chapter" data-level="11.4" data-path="plydata-dplyr-for-python.html"><a href="plydata-dplyr-for-python.html#grouping"><i class="fa fa-check"></i><b>11.4</b> Grouping</a></li>
+<li class="chapter" data-level="11.5" data-path="plydata-dplyr-for-python.html"><a href="plydata-dplyr-for-python.html#summarization"><i class="fa fa-check"></i><b>11.5</b> Summarization</a><ul>
+<li class="chapter" data-level="11.5.1" data-path="plydata-dplyr-for-python.html"><a href="plydata-dplyr-for-python.html#simple-method"><i class="fa fa-check"></i><b>11.5.1</b> Simple Method</a></li>
+<li class="chapter" data-level="11.5.2" data-path="plydata-dplyr-for-python.html"><a href="plydata-dplyr-for-python.html#specify-summarized-column-name"><i class="fa fa-check"></i><b>11.5.2</b> Specify Summarized Column Name</a></li>
+<li class="chapter" data-level="11.5.3" data-path="plydata-dplyr-for-python.html"><a href="plydata-dplyr-for-python.html#number-of-rows-in-group"><i class="fa fa-check"></i><b>11.5.3</b> Number of Rows in Group</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="numpy-1.html"><a href="numpy-1.html"><i class="fa fa-check"></i><b>12</b> numpy</a><ul>
+<li class="chapter" data-level="12.1" data-path="numpy-1.html"><a href="numpy-1.html#environment-setup-1"><i class="fa fa-check"></i><b>12.1</b> Environment Setup</a></li>
+<li class="chapter" data-level="12.2" data-path="numpy-1.html"><a href="numpy-1.html#module-import-1"><i class="fa fa-check"></i><b>12.2</b> Module Import</a></li>
+<li class="chapter" data-level="12.3" data-path="numpy-1.html"><a href="numpy-1.html#data-types"><i class="fa fa-check"></i><b>12.3</b> Data Types</a><ul>
+<li class="chapter" data-level="12.3.1" data-path="numpy-1.html"><a href="numpy-1.html#numpy-data-types"><i class="fa fa-check"></i><b>12.3.1</b> NumPy Data Types</a></li>
+<li class="chapter" data-level="12.3.2" data-path="numpy-1.html"><a href="numpy-1.html#int3264"><i class="fa fa-check"></i><b>12.3.2</b> int32/64</a></li>
+<li class="chapter" data-level="12.3.3" data-path="numpy-1.html"><a href="numpy-1.html#float3264"><i class="fa fa-check"></i><b>12.3.3</b> float32/64</a></li>
+<li class="chapter" data-level="12.3.4" data-path="numpy-1.html"><a href="numpy-1.html#bool"><i class="fa fa-check"></i><b>12.3.4</b> bool</a></li>
+<li class="chapter" data-level="12.3.5" data-path="numpy-1.html"><a href="numpy-1.html#str"><i class="fa fa-check"></i><b>12.3.5</b> str</a></li>
+<li class="chapter" data-level="12.3.6" data-path="numpy-1.html"><a href="numpy-1.html#datetime64"><i class="fa fa-check"></i><b>12.3.6</b> datetime64</a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="numpy-1.html"><a href="numpy-1.html#numpy-array"><i class="fa fa-check"></i><b>12.4</b> Numpy Array</a><ul>
+<li class="chapter" data-level="12.4.1" data-path="numpy-1.html"><a href="numpy-1.html#concept"><i class="fa fa-check"></i><b>12.4.1</b> Concept</a></li>
+<li class="chapter" data-level="12.4.2" data-path="numpy-1.html"><a href="numpy-1.html#constructor-5"><i class="fa fa-check"></i><b>12.4.2</b> Constructor</a></li>
+<li class="chapter" data-level="12.4.3" data-path="numpy-1.html"><a href="numpy-1.html#dimensions"><i class="fa fa-check"></i><b>12.4.3</b> Dimensions</a></li>
+<li class="chapter" data-level="12.4.4" data-path="numpy-1.html"><a href="numpy-1.html#class-method-3"><i class="fa fa-check"></i><b>12.4.4</b> Class Method</a></li>
+<li class="chapter" data-level="12.4.5" data-path="numpy-1.html"><a href="numpy-1.html#instance-method-3"><i class="fa fa-check"></i><b>12.4.5</b> Instance Method</a></li>
+<li class="chapter" data-level="12.4.6" data-path="numpy-1.html"><a href="numpy-1.html#element-selection"><i class="fa fa-check"></i><b>12.4.6</b> Element Selection</a></li>
+<li class="chapter" data-level="12.4.7" data-path="numpy-1.html"><a href="numpy-1.html#attributes-3"><i class="fa fa-check"></i><b>12.4.7</b> Attributes</a></li>
+<li class="chapter" data-level="12.4.8" data-path="numpy-1.html"><a href="numpy-1.html#operations"><i class="fa fa-check"></i><b>12.4.8</b> Operations</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="numpy-1.html"><a href="numpy-1.html#random-numbers"><i class="fa fa-check"></i><b>12.5</b> Random Numbers</a><ul>
+<li class="chapter" data-level="12.5.1" data-path="numpy-1.html"><a href="numpy-1.html#uniform-distribution"><i class="fa fa-check"></i><b>12.5.1</b> Uniform Distribution</a></li>
+<li class="chapter" data-level="12.5.2" data-path="numpy-1.html"><a href="numpy-1.html#normal-distribution"><i class="fa fa-check"></i><b>12.5.2</b> Normal Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="12.6" data-path="numpy-1.html"><a href="numpy-1.html#sampling-integer"><i class="fa fa-check"></i><b>12.6</b> Sampling (Integer)</a></li>
+<li class="chapter" data-level="12.7" data-path="numpy-1.html"><a href="numpy-1.html#nan-missing-numerical-data"><i class="fa fa-check"></i><b>12.7</b> NaN : Missing Numerical Data</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="pandas-1.html"><a href="pandas-1.html"><i class="fa fa-check"></i><b>13</b> pandas</a><ul>
+<li class="chapter" data-level="13.1" data-path="pandas-1.html"><a href="pandas-1.html#environment-setup-2"><i class="fa fa-check"></i><b>13.1</b> Environment Setup <a class="tocSkip"></a></li>
+<li class="chapter" data-level="13.2" data-path="pandas-1.html"><a href="pandas-1.html#modules-import"><i class="fa fa-check"></i><b>13.2</b> Modules Import</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="pandas-1.html"><a href="pandas-1.html#display-setup"><i class="fa fa-check"></i><b>13.2.1</b> Display Setup</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="pandas-1.html"><a href="pandas-1.html#pandas-objects"><i class="fa fa-check"></i><b>13.3</b> Pandas Objects</a><ul>
+<li class="chapter" data-level="13.3.1" data-path="pandas-1.html"><a href="pandas-1.html#pandas-data-types"><i class="fa fa-check"></i><b>13.3.1</b> Pandas Data Types</a></li>
+<li class="chapter" data-level="13.3.2" data-path="pandas-1.html"><a href="pandas-1.html#pandas-data-structure"><i class="fa fa-check"></i><b>13.3.2</b> Pandas Data Structure</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="pandas-1.html"><a href="pandas-1.html#class-method-4"><i class="fa fa-check"></i><b>13.4</b> Class Method</a><ul>
+<li class="chapter" data-level="13.4.1" data-path="pandas-1.html"><a href="pandas-1.html#conversion-to_datetime"><i class="fa fa-check"></i><b>13.4.1</b> Conversion: <code>to_datetime()</code></a></li>
+<li class="chapter" data-level="13.4.2" data-path="pandas-1.html"><a href="pandas-1.html#generate-timestamp-sequence"><i class="fa fa-check"></i><b>13.4.2</b> Generate Timestamp Sequence</a></li>
+<li class="chapter" data-level="13.4.3" data-path="pandas-1.html"><a href="pandas-1.html#frequency-table-crosstab"><i class="fa fa-check"></i><b>13.4.3</b> Frequency Table (crosstab)</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="pandas-1.html"><a href="pandas-1.html#timestamp"><i class="fa fa-check"></i><b>13.5</b> Timestamp</a><ul>
+<li class="chapter" data-level="13.5.1" data-path="pandas-1.html"><a href="pandas-1.html#constructor-6"><i class="fa fa-check"></i><b>13.5.1</b> Constructor</a></li>
+<li class="chapter" data-level="13.5.2" data-path="pandas-1.html"><a href="pandas-1.html#attributes-4"><i class="fa fa-check"></i><b>13.5.2</b> Attributes</a></li>
+<li class="chapter" data-level="13.5.3" data-path="pandas-1.html"><a href="pandas-1.html#operator-2"><i class="fa fa-check"></i><b>13.5.3</b> Operator</a></li>
+<li class="chapter" data-level="13.5.4" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods-1"><i class="fa fa-check"></i><b>13.5.4</b> Instance Methods</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="pandas-1.html"><a href="pandas-1.html#series"><i class="fa fa-check"></i><b>13.6</b> Series</a><ul>
+<li class="chapter" data-level="13.6.1" data-path="pandas-1.html"><a href="pandas-1.html#constructor-7"><i class="fa fa-check"></i><b>13.6.1</b> Constructor</a></li>
+<li class="chapter" data-level="13.6.2" data-path="pandas-1.html"><a href="pandas-1.html#accessing-series"><i class="fa fa-check"></i><b>13.6.2</b> Accessing Series</a></li>
+<li class="chapter" data-level="13.6.3" data-path="pandas-1.html"><a href="pandas-1.html#modifying-series"><i class="fa fa-check"></i><b>13.6.3</b> Modifying Series</a></li>
+<li class="chapter" data-level="13.6.4" data-path="pandas-1.html"><a href="pandas-1.html#series-attributes"><i class="fa fa-check"></i><b>13.6.4</b> Series Attributes</a></li>
+<li class="chapter" data-level="13.6.5" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods-2"><i class="fa fa-check"></i><b>13.6.5</b> Instance Methods</a></li>
+<li class="chapter" data-level="13.6.6" data-path="pandas-1.html"><a href="pandas-1.html#series-operators"><i class="fa fa-check"></i><b>13.6.6</b> Series Operators</a></li>
+<li class="chapter" data-level="13.6.7" data-path="pandas-1.html"><a href="pandas-1.html#series-string-accesor-.str"><i class="fa fa-check"></i><b>13.6.7</b> Series String Accesor <code>.str</code></a></li>
+<li class="chapter" data-level="13.6.8" data-path="pandas-1.html"><a href="pandas-1.html#series-datetime-accessor-.dt"><i class="fa fa-check"></i><b>13.6.8</b> Series DateTime Accessor <code>.dt</code></a></li>
+</ul></li>
+<li class="chapter" data-level="13.7" data-path="pandas-1.html"><a href="pandas-1.html#dataframe"><i class="fa fa-check"></i><b>13.7</b> DataFrame</a><ul>
+<li class="chapter" data-level="13.7.1" data-path="pandas-1.html"><a href="pandas-1.html#constructor-8"><i class="fa fa-check"></i><b>13.7.1</b> Constructor</a></li>
+<li class="chapter" data-level="13.7.2" data-path="pandas-1.html"><a href="pandas-1.html#attributes-5"><i class="fa fa-check"></i><b>13.7.2</b> Attributes</a></li>
+<li class="chapter" data-level="13.7.3" data-path="pandas-1.html"><a href="pandas-1.html#index-manipulation"><i class="fa fa-check"></i><b>13.7.3</b> Index Manipulation</a></li>
+<li class="chapter" data-level="13.7.4" data-path="pandas-1.html"><a href="pandas-1.html#subsetting-columns"><i class="fa fa-check"></i><b>13.7.4</b> Subsetting Columns</a></li>
+<li class="chapter" data-level="13.7.5" data-path="pandas-1.html"><a href="pandas-1.html#column-manipulation-1"><i class="fa fa-check"></i><b>13.7.5</b> Column Manipulation</a></li>
+<li class="chapter" data-level="13.7.6" data-path="pandas-1.html"><a href="pandas-1.html#subsetting-rows"><i class="fa fa-check"></i><b>13.7.6</b> Subsetting Rows</a></li>
+<li class="chapter" data-level="13.7.7" data-path="pandas-1.html"><a href="pandas-1.html#row-manipulation"><i class="fa fa-check"></i><b>13.7.7</b> Row Manipulation</a></li>
+<li class="chapter" data-level="13.7.8" data-path="pandas-1.html"><a href="pandas-1.html#slicing"><i class="fa fa-check"></i><b>13.7.8</b> Slicing</a></li>
+<li class="chapter" data-level="13.7.9" data-path="pandas-1.html"><a href="pandas-1.html#chained-indexing"><i class="fa fa-check"></i><b>13.7.9</b> Chained Indexing</a></li>
+<li class="chapter" data-level="13.7.10" data-path="pandas-1.html"><a href="pandas-1.html#data-structure"><i class="fa fa-check"></i><b>13.7.10</b> Data Structure</a></li>
+<li class="chapter" data-level="13.7.11" data-path="pandas-1.html"><a href="pandas-1.html#exploratory-analysis"><i class="fa fa-check"></i><b>13.7.11</b> Exploratory Analysis</a></li>
+<li class="chapter" data-level="13.7.12" data-path="pandas-1.html"><a href="pandas-1.html#plotting"><i class="fa fa-check"></i><b>13.7.12</b> Plotting</a></li>
+</ul></li>
+<li class="chapter" data-level="13.8" data-path="pandas-1.html"><a href="pandas-1.html#categories"><i class="fa fa-check"></i><b>13.8</b> Categories</a><ul>
+<li class="chapter" data-level="13.8.1" data-path="pandas-1.html"><a href="pandas-1.html#creating"><i class="fa fa-check"></i><b>13.8.1</b> Creating</a></li>
+<li class="chapter" data-level="13.8.2" data-path="pandas-1.html"><a href="pandas-1.html#properties"><i class="fa fa-check"></i><b>13.8.2</b> Properties</a></li>
+<li class="chapter" data-level="13.8.3" data-path="pandas-1.html"><a href="pandas-1.html#rename-category"><i class="fa fa-check"></i><b>13.8.3</b> Rename Category</a></li>
+<li class="chapter" data-level="13.8.4" data-path="pandas-1.html"><a href="pandas-1.html#adding-new-category"><i class="fa fa-check"></i><b>13.8.4</b> Adding New Category</a></li>
+<li class="chapter" data-level="13.8.5" data-path="pandas-1.html"><a href="pandas-1.html#removing-category"><i class="fa fa-check"></i><b>13.8.5</b> Removing Category</a></li>
+<li class="chapter" data-level="13.8.6" data-path="pandas-1.html"><a href="pandas-1.html#add-and-remove-categories-in-one-step---set"><i class="fa fa-check"></i><b>13.8.6</b> Add and Remove Categories In One Step - Set()</a></li>
+<li class="chapter" data-level="13.8.7" data-path="pandas-1.html"><a href="pandas-1.html#categorical-descriptive-analysis"><i class="fa fa-check"></i><b>13.8.7</b> Categorical Descriptive Analysis</a></li>
+<li class="chapter" data-level="13.8.8" data-path="pandas-1.html"><a href="pandas-1.html#other-methods-1"><i class="fa fa-check"></i><b>13.8.8</b> Other Methods</a></li>
+</ul></li>
+<li class="chapter" data-level="13.9" data-path="pandas-1.html"><a href="pandas-1.html#dummies"><i class="fa fa-check"></i><b>13.9</b> Dummies</a><ul>
+<li class="chapter" data-level="13.9.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-11"><i class="fa fa-check"></i><b>13.9.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.9.2" data-path="pandas-1.html"><a href="pandas-1.html#dummies-on-array-like-data"><i class="fa fa-check"></i><b>13.9.2</b> Dummies on Array-Like Data</a></li>
+<li class="chapter" data-level="13.9.3" data-path="pandas-1.html"><a href="pandas-1.html#dummies-on-dataframe-multiple-columns"><i class="fa fa-check"></i><b>13.9.3</b> Dummies on DataFrame (multiple columns)</a></li>
+<li class="chapter" data-level="13.9.4" data-path="pandas-1.html"><a href="pandas-1.html#dummies-with-na"><i class="fa fa-check"></i><b>13.9.4</b> Dummies with na</a></li>
+<li class="chapter" data-level="13.9.5" data-path="pandas-1.html"><a href="pandas-1.html#specify-prefixes"><i class="fa fa-check"></i><b>13.9.5</b> Specify Prefixes</a></li>
+<li class="chapter" data-level="13.9.6" data-path="pandas-1.html"><a href="pandas-1.html#dropping-first-column"><i class="fa fa-check"></i><b>13.9.6</b> Dropping First Column</a></li>
+</ul></li>
+<li class="chapter" data-level="13.10" data-path="pandas-1.html"><a href="pandas-1.html#getting-external-data-1"><i class="fa fa-check"></i><b>13.10</b> Getting External Data</a><ul>
+<li class="chapter" data-level="13.10.1" data-path="pandas-1.html"><a href="pandas-1.html#html_table-parser"><i class="fa fa-check"></i><b>13.10.1</b> html_table parser</a></li>
+<li class="chapter" data-level="13.10.2" data-path="pandas-1.html"><a href="pandas-1.html#csv-import"><i class="fa fa-check"></i><b>13.10.2</b> CSV Import</a></li>
+</ul></li>
+<li class="chapter" data-level="13.11" data-path="pandas-1.html"><a href="pandas-1.html#groupby"><i class="fa fa-check"></i><b>13.11</b> GroupBy</a><ul>
+<li class="chapter" data-level="13.11.1" data-path="pandas-1.html"><a href="pandas-1.html#creating-groups"><i class="fa fa-check"></i><b>13.11.1</b> Creating Groups</a></li>
+<li class="chapter" data-level="13.11.2" data-path="pandas-1.html"><a href="pandas-1.html#properties-1"><i class="fa fa-check"></i><b>13.11.2</b> Properties</a></li>
+<li class="chapter" data-level="13.11.3" data-path="pandas-1.html"><a href="pandas-1.html#methods-1"><i class="fa fa-check"></i><b>13.11.3</b> Methods</a></li>
+<li class="chapter" data-level="13.11.4" data-path="pandas-1.html"><a href="pandas-1.html#retrieve-rows"><i class="fa fa-check"></i><b>13.11.4</b> Retrieve Rows</a></li>
+<li class="chapter" data-level="13.11.5" data-path="pandas-1.html"><a href="pandas-1.html#iteration"><i class="fa fa-check"></i><b>13.11.5</b> Iteration</a></li>
+<li class="chapter" data-level="13.11.6" data-path="pandas-1.html"><a href="pandas-1.html#apply-aggregate-functions-to-groups"><i class="fa fa-check"></i><b>13.11.6</b> Apply Aggregate Functions to Groups</a></li>
+<li class="chapter" data-level="13.11.7" data-path="pandas-1.html"><a href="pandas-1.html#transform"><i class="fa fa-check"></i><b>13.11.7</b> Transform</a></li>
+</ul></li>
+<li class="chapter" data-level="13.12" data-path="pandas-1.html"><a href="pandas-1.html#concat"><i class="fa fa-check"></i><b>13.12</b> Concat</a><ul>
+<li class="chapter" data-level="13.12.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-12"><i class="fa fa-check"></i><b>13.12.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.12.2" data-path="pandas-1.html"><a href="pandas-1.html#column-wise"><i class="fa fa-check"></i><b>13.12.2</b> Column-Wise</a></li>
+<li class="chapter" data-level="13.12.3" data-path="pandas-1.html"><a href="pandas-1.html#row-wise"><i class="fa fa-check"></i><b>13.12.3</b> Row-Wise</a></li>
+</ul></li>
+<li class="chapter" data-level="13.13" data-path="pandas-1.html"><a href="pandas-1.html#fundamental-analysis"><i class="fa fa-check"></i><b>13.13</b> Fundamental Analysis</a><ul>
+<li class="chapter" data-level="13.13.1" data-path="pandas-1.html"><a href="pandas-1.html#structure-of-the-dataframe-.info"><i class="fa fa-check"></i><b>13.13.1</b> Structure of the Dataframe (.info())</a></li>
+<li class="chapter" data-level="13.13.2" data-path="pandas-1.html"><a href="pandas-1.html#first-few-rows-.head"><i class="fa fa-check"></i><b>13.13.2</b> First Few Rows (.head())</a></li>
+</ul></li>
+<li class="chapter" data-level="13.14" data-path="pandas-1.html"><a href="pandas-1.html#missing-data"><i class="fa fa-check"></i><b>13.14</b> Missing Data</a><ul>
+<li class="chapter" data-level="13.14.1" data-path="pandas-1.html"><a href="pandas-1.html#what-is-considered-missing-data"><i class="fa fa-check"></i><b>13.14.1</b> What Is Considered Missing Data ?</a></li>
+<li class="chapter" data-level="13.14.2" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-13"><i class="fa fa-check"></i><b>13.14.2</b> Sample Data</a></li>
+</ul></li>
+<li class="chapter" data-level="13.15" data-path="pandas-1.html"><a href="pandas-1.html#pandas-datetime"><i class="fa fa-check"></i><b>13.15</b> Pandas DateTime</a></li>
+<li class="chapter" data-level="13.16" data-path="pandas-1.html"><a href="pandas-1.html#datetimeindex"><i class="fa fa-check"></i><b>13.16</b> DateTimeIndex</a><ul>
+<li class="chapter" data-level="13.16.1" data-path="pandas-1.html"><a href="pandas-1.html#creating-1"><i class="fa fa-check"></i><b>13.16.1</b> Creating</a></li>
+<li class="chapter" data-level="13.16.2" data-path="pandas-1.html"><a href="pandas-1.html#instance-method-4"><i class="fa fa-check"></i><b>13.16.2</b> Instance Method</a></li>
+<li class="chapter" data-level="13.16.3" data-path="pandas-1.html"><a href="pandas-1.html#properties-2"><i class="fa fa-check"></i><b>13.16.3</b> Properties</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="matplotlib-2.html"><a href="matplotlib-2.html"><i class="fa fa-check"></i><b>14</b> matplotlib</a><ul>
+<li class="chapter" data-level="14.1" data-path="matplotlib-2.html"><a href="matplotlib-2.html#library"><i class="fa fa-check"></i><b>14.1</b> Library</a></li>
+<li class="chapter" data-level="14.2" data-path="matplotlib-2.html"><a href="matplotlib-2.html#sample-data-14"><i class="fa fa-check"></i><b>14.2</b> Sample Data</a></li>
+<li class="chapter" data-level="14.3" data-path="matplotlib-2.html"><a href="matplotlib-2.html#matlab-like-api"><i class="fa fa-check"></i><b>14.3</b> MATLAB-like API</a><ul>
+<li class="chapter" data-level="14.3.1" data-path="matplotlib-2.html"><a href="matplotlib-2.html#sample-data-15"><i class="fa fa-check"></i><b>14.3.1</b> Sample Data</a></li>
+<li class="chapter" data-level="14.3.2" data-path="matplotlib-2.html"><a href="matplotlib-2.html#single-plot"><i class="fa fa-check"></i><b>14.3.2</b> Single Plot</a></li>
+<li class="chapter" data-level="14.3.3" data-path="matplotlib-2.html"><a href="matplotlib-2.html#multiple-subplots"><i class="fa fa-check"></i><b>14.3.3</b> Multiple Subplots</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="matplotlib-2.html"><a href="matplotlib-2.html#object-oriented-api"><i class="fa fa-check"></i><b>14.4</b> Object-Oriented API</a><ul>
+<li class="chapter" data-level="14.4.1" data-path="matplotlib-2.html"><a href="matplotlib-2.html#sample-data-16"><i class="fa fa-check"></i><b>14.4.1</b> Sample Data</a></li>
+<li class="chapter" data-level="14.4.2" data-path="matplotlib-2.html"><a href="matplotlib-2.html#single-plot-1"><i class="fa fa-check"></i><b>14.4.2</b> Single Plot</a></li>
+<li class="chapter" data-level="14.4.3" data-path="matplotlib-2.html"><a href="matplotlib-2.html#multiple-axes-in-one-plot"><i class="fa fa-check"></i><b>14.4.3</b> Multiple Axes In One Plot</a></li>
+<li class="chapter" data-level="14.4.4" data-path="matplotlib-2.html"><a href="matplotlib-2.html#multiple-subplots-1"><i class="fa fa-check"></i><b>14.4.4</b> Multiple Subplots</a></li>
+<li class="chapter" data-level="14.4.5" data-path="matplotlib-2.html"><a href="matplotlib-2.html#figure-customization"><i class="fa fa-check"></i><b>14.4.5</b> Figure Customization</a></li>
+<li class="chapter" data-level="14.4.6" data-path="matplotlib-2.html"><a href="matplotlib-2.html#axes-customization"><i class="fa fa-check"></i><b>14.4.6</b> Axes Customization</a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="matplotlib-2.html"><a href="matplotlib-2.html#histogram"><i class="fa fa-check"></i><b>14.5</b> Histogram</a></li>
+<li class="chapter" data-level="14.6" data-path="matplotlib-2.html"><a href="matplotlib-2.html#scatter-plot"><i class="fa fa-check"></i><b>14.6</b> Scatter Plot</a></li>
+<li class="chapter" data-level="14.7" data-path="matplotlib-2.html"><a href="matplotlib-2.html#bar-chart"><i class="fa fa-check"></i><b>14.7</b> Bar Chart</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="seaborn.html"><a href="seaborn.html"><i class="fa fa-check"></i><b>15</b> seaborn</a><ul>
+<li class="chapter" data-level="15.1" data-path="seaborn.html"><a href="seaborn.html#seaborn-and-matplotlib"><i class="fa fa-check"></i><b>15.1</b> Seaborn and Matplotlib</a></li>
+<li class="chapter" data-level="15.2" data-path="seaborn.html"><a href="seaborn.html#sample-data-17"><i class="fa fa-check"></i><b>15.2</b> Sample Data</a></li>
+<li class="chapter" data-level="15.3" data-path="seaborn.html"><a href="seaborn.html#scatter-plot-1"><i class="fa fa-check"></i><b>15.3</b> Scatter Plot</a><ul>
+<li class="chapter" data-level="15.3.1" data-path="seaborn.html"><a href="seaborn.html#x-numeric"><i class="fa fa-check"></i><b>15.3.1</b> 2x Numeric</a></li>
+<li class="chapter" data-level="15.3.2" data-path="seaborn.html"><a href="seaborn.html#xnumeric-1x-categorical"><i class="fa fa-check"></i><b>15.3.2</b> 2xNumeric + 1x Categorical</a></li>
+<li class="chapter" data-level="15.3.3" data-path="seaborn.html"><a href="seaborn.html#xnumeric-2x-categorical"><i class="fa fa-check"></i><b>15.3.3</b> 2xNumeric + 2x Categorical</a></li>
+<li class="chapter" data-level="15.3.4" data-path="seaborn.html"><a href="seaborn.html#xnumeric-3x-categorical"><i class="fa fa-check"></i><b>15.3.4</b> 2xNumeric + 3x Categorical</a></li>
+<li class="chapter" data-level="15.3.5" data-path="seaborn.html"><a href="seaborn.html#customization"><i class="fa fa-check"></i><b>15.3.5</b> Customization</a></li>
+</ul></li>
+<li class="chapter" data-level="15.4" data-path="seaborn.html"><a href="seaborn.html#histogram-1"><i class="fa fa-check"></i><b>15.4</b> Histogram</a><ul>
+<li class="chapter" data-level="15.4.1" data-path="seaborn.html"><a href="seaborn.html#x-numeric-1"><i class="fa fa-check"></i><b>15.4.1</b> 1x Numeric</a></li>
+</ul></li>
+<li class="chapter" data-level="15.5" data-path="seaborn.html"><a href="seaborn.html#bar-chart-1"><i class="fa fa-check"></i><b>15.5</b> Bar Chart</a><ul>
+<li class="chapter" data-level="15.5.1" data-path="seaborn.html"><a href="seaborn.html#x-categorical-1x-numeric"><i class="fa fa-check"></i><b>15.5.1</b> 1x Categorical, 1x Numeric</a></li>
+<li class="chapter" data-level="15.5.2" data-path="seaborn.html"><a href="seaborn.html#customization-1"><i class="fa fa-check"></i><b>15.5.2</b> Customization</a></li>
+</ul></li>
+<li class="chapter" data-level="15.6" data-path="seaborn.html"><a href="seaborn.html#faceting"><i class="fa fa-check"></i><b>15.6</b> Faceting</a><ul>
+<li class="chapter" data-level="15.6.1" data-path="seaborn.html"><a href="seaborn.html#faceting-histogram"><i class="fa fa-check"></i><b>15.6.1</b> Faceting Histogram</a></li>
+<li class="chapter" data-level="15.6.2" data-path="seaborn.html"><a href="seaborn.html#faceting-scatter-plot"><i class="fa fa-check"></i><b>15.6.2</b> Faceting Scatter Plot</a></li>
+</ul></li>
+<li class="chapter" data-level="15.7" data-path="seaborn.html"><a href="seaborn.html#pair-grid"><i class="fa fa-check"></i><b>15.7</b> Pair Grid</a><ul>
+<li class="chapter" data-level="15.7.1" data-path="seaborn.html"><a href="seaborn.html#simple-pair-grid"><i class="fa fa-check"></i><b>15.7.1</b> Simple Pair Grid</a></li>
+<li class="chapter" data-level="15.7.2" data-path="seaborn.html"><a href="seaborn.html#different-diag-and-offdiag"><i class="fa fa-check"></i><b>15.7.2</b> Different Diag and OffDiag</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="plotnine.html"><a href="plotnine.html"><i class="fa fa-check"></i><b>16</b> plotnine</a><ul>
+<li class="chapter" data-level="16.1" data-path="plotnine.html"><a href="plotnine.html#histogram-2"><i class="fa fa-check"></i><b>16.1</b> Histogram</a><ul>
+<li class="chapter" data-level="16.1.1" data-path="plotnine.html"><a href="plotnine.html#xnumeric"><i class="fa fa-check"></i><b>16.1.1</b> 1xNumeric</a></li>
+<li class="chapter" data-level="16.1.2" data-path="plotnine.html"><a href="plotnine.html#xnumeric-1xcategorical"><i class="fa fa-check"></i><b>16.1.2</b> 1xNumeric + 1xCategorical</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="plotnine.html"><a href="plotnine.html#scatter-plot-2"><i class="fa fa-check"></i><b>16.2</b> Scatter Plot</a><ul>
+<li class="chapter" data-level="16.2.1" data-path="plotnine.html"><a href="plotnine.html#x-numeric-2"><i class="fa fa-check"></i><b>16.2.1</b> 2x Numeric</a></li>
+<li class="chapter" data-level="16.2.2" data-path="plotnine.html"><a href="plotnine.html#x-numeric-1x-categorical"><i class="fa fa-check"></i><b>16.2.2</b> 2x Numeric + 1x Categorical</a></li>
+<li class="chapter" data-level="16.2.3" data-path="plotnine.html"><a href="plotnine.html#x-numeric-1x-numeric-1x-categorical"><i class="fa fa-check"></i><b>16.2.3</b> 2x Numeric + 1x Numeric + 1x Categorical</a></li>
+<li class="chapter" data-level="16.2.4" data-path="plotnine.html"><a href="plotnine.html#overlay-smooth-line"><i class="fa fa-check"></i><b>16.2.4</b> Overlay Smooth Line</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="plotnine.html"><a href="plotnine.html#line-chart"><i class="fa fa-check"></i><b>16.3</b> Line Chart</a><ul>
+<li class="chapter" data-level="16.3.1" data-path="plotnine.html"><a href="plotnine.html#x-numeric-data"><i class="fa fa-check"></i><b>16.3.1</b> 2x Numeric Data</a></li>
+<li class="chapter" data-level="16.3.2" data-path="plotnine.html"><a href="plotnine.html#x-numeric-1x-categorical-1"><i class="fa fa-check"></i><b>16.3.2</b> 1x Numeric, 1x Categorical</a></li>
+<li class="chapter" data-level="16.3.3" data-path="plotnine.html"><a href="plotnine.html#x-numeric-1x-categorical-2"><i class="fa fa-check"></i><b>16.3.3</b> 2x Numeric, 1x Categorical</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="plotnine.html"><a href="plotnine.html#bar-chart-2"><i class="fa fa-check"></i><b>16.4</b> Bar Chart</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="sklearn.html"><a href="sklearn.html"><i class="fa fa-check"></i><b>17</b> sklearn</a><ul>
+<li class="chapter" data-level="17.1" data-path="sklearn.html"><a href="sklearn.html#setup-hidden"><i class="fa fa-check"></i><b>17.1</b> Setup (hidden)</a></li>
+<li class="chapter" data-level="17.2" data-path="sklearn.html"><a href="sklearn.html#the-library"><i class="fa fa-check"></i><b>17.2</b> The Library</a></li>
+<li class="chapter" data-level="17.3" data-path="sklearn.html"><a href="sklearn.html#model-fitting"><i class="fa fa-check"></i><b>17.3</b> Model Fitting</a><ul>
+<li class="chapter" data-level="17.3.1" data-path="sklearn.html"><a href="sklearn.html#underfitting"><i class="fa fa-check"></i><b>17.3.1</b> Underfitting</a></li>
+<li class="chapter" data-level="17.3.2" data-path="sklearn.html"><a href="sklearn.html#overfitting"><i class="fa fa-check"></i><b>17.3.2</b> Overfitting</a></li>
+<li class="chapter" data-level="17.3.3" data-path="sklearn.html"><a href="sklearn.html#just-right"><i class="fa fa-check"></i><b>17.3.3</b> Just Right</a></li>
+</ul></li>
+<li class="chapter" data-level="17.4" data-path="sklearn.html"><a href="sklearn.html#model-tuning"><i class="fa fa-check"></i><b>17.4</b> Model Tuning</a></li>
+<li class="chapter" data-level="17.5" data-path="sklearn.html"><a href="sklearn.html#high-level-ml-process"><i class="fa fa-check"></i><b>17.5</b> High Level ML Process</a></li>
+<li class="chapter" data-level="17.6" data-path="sklearn.html"><a href="sklearn.html#built-in-datasets"><i class="fa fa-check"></i><b>17.6</b> Built-in Datasets</a><ul>
+<li class="chapter" data-level="17.6.1" data-path="sklearn.html"><a href="sklearn.html#diabetes-regression"><i class="fa fa-check"></i><b>17.6.1</b> diabetes (regression)</a></li>
+<li class="chapter" data-level="17.6.2" data-path="sklearn.html"><a href="sklearn.html#digits-classification"><i class="fa fa-check"></i><b>17.6.2</b> digits (Classification)</a></li>
+<li class="chapter" data-level="17.6.3" data-path="sklearn.html"><a href="sklearn.html#iris-classification"><i class="fa fa-check"></i><b>17.6.3</b> iris (Classification)</a></li>
+</ul></li>
+<li class="chapter" data-level="17.7" data-path="sklearn.html"><a href="sklearn.html#train-test-data-splitting"><i class="fa fa-check"></i><b>17.7</b> Train Test Data Splitting</a><ul>
+<li class="chapter" data-level="17.7.1" data-path="sklearn.html"><a href="sklearn.html#sample-data-18"><i class="fa fa-check"></i><b>17.7.1</b> Sample Data</a></li>
+<li class="chapter" data-level="17.7.2" data-path="sklearn.html"><a href="sklearn.html#one-time-split"><i class="fa fa-check"></i><b>17.7.2</b> One Time Split</a></li>
+<li class="chapter" data-level="17.7.3" data-path="sklearn.html"><a href="sklearn.html#k-fold"><i class="fa fa-check"></i><b>17.7.3</b> K-Fold</a></li>
+<li class="chapter" data-level="17.7.4" data-path="sklearn.html"><a href="sklearn.html#leave-one-out"><i class="fa fa-check"></i><b>17.7.4</b> Leave One Out</a></li>
+</ul></li>
+<li class="chapter" data-level="17.8" data-path="sklearn.html"><a href="sklearn.html#polynomial-transform"><i class="fa fa-check"></i><b>17.8</b> Polynomial Transform</a><ul>
+<li class="chapter" data-level="17.8.1" data-path="sklearn.html"><a href="sklearn.html#single-variable"><i class="fa fa-check"></i><b>17.8.1</b> Single Variable</a></li>
+<li class="chapter" data-level="17.8.2" data-path="sklearn.html"><a href="sklearn.html#two-variables"><i class="fa fa-check"></i><b>17.8.2</b> Two Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="17.9" data-path="sklearn.html"><a href="sklearn.html#imputation-of-missing-data"><i class="fa fa-check"></i><b>17.9</b> Imputation of Missing Data</a><ul>
+<li class="chapter" data-level="17.9.1" data-path="sklearn.html"><a href="sklearn.html#sample-data-21"><i class="fa fa-check"></i><b>17.9.1</b> Sample Data</a></li>
+<li class="chapter" data-level="17.9.2" data-path="sklearn.html"><a href="sklearn.html#imputer"><i class="fa fa-check"></i><b>17.9.2</b> Imputer</a></li>
+</ul></li>
+<li class="chapter" data-level="17.10" data-path="sklearn.html"><a href="sklearn.html#scaling"><i class="fa fa-check"></i><b>17.10</b> Scaling</a><ul>
+<li class="chapter" data-level="17.10.1" data-path="sklearn.html"><a href="sklearn.html#sample-data-22"><i class="fa fa-check"></i><b>17.10.1</b> Sample Data</a></li>
+<li class="chapter" data-level="17.10.2" data-path="sklearn.html"><a href="sklearn.html#minmax-scaler"><i class="fa fa-check"></i><b>17.10.2</b> MinMax Scaler</a></li>
+<li class="chapter" data-level="17.10.3" data-path="sklearn.html"><a href="sklearn.html#standard-scaler"><i class="fa fa-check"></i><b>17.10.3</b> Standard Scaler</a></li>
+</ul></li>
+<li class="chapter" data-level="17.11" data-path="sklearn.html"><a href="sklearn.html#pipeline"><i class="fa fa-check"></i><b>17.11</b> Pipeline</a><ul>
+<li class="chapter" data-level="17.11.1" data-path="sklearn.html"><a href="sklearn.html#sample-data-23"><i class="fa fa-check"></i><b>17.11.1</b> Sample Data</a></li>
+<li class="chapter" data-level="17.11.2" data-path="sklearn.html"><a href="sklearn.html#create-pipeline"><i class="fa fa-check"></i><b>17.11.2</b> Create Pipeline</a></li>
+<li class="chapter" data-level="17.11.3" data-path="sklearn.html"><a href="sklearn.html#executing-pipeline"><i class="fa fa-check"></i><b>17.11.3</b> Executing Pipeline</a></li>
+</ul></li>
+<li class="chapter" data-level="17.12" data-path="sklearn.html"><a href="sklearn.html#cross-validation"><i class="fa fa-check"></i><b>17.12</b> Cross Validation</a><ul>
+<li class="chapter" data-level="17.12.1" data-path="sklearn.html"><a href="sklearn.html#load-data"><i class="fa fa-check"></i><b>17.12.1</b> Load Data</a></li>
+<li class="chapter" data-level="17.12.2" data-path="sklearn.html"><a href="sklearn.html#choose-an-cross-validator"><i class="fa fa-check"></i><b>17.12.2</b> Choose An Cross Validator</a></li>
+<li class="chapter" data-level="17.12.3" data-path="sklearn.html"><a href="sklearn.html#run-cross-validation"><i class="fa fa-check"></i><b>17.12.3</b> Run Cross Validation</a></li>
+<li class="chapter" data-level="17.12.4" data-path="sklearn.html"><a href="sklearn.html#the-result"><i class="fa fa-check"></i><b>17.12.4</b> The Result</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="nlp.html"><a href="nlp.html"><i class="fa fa-check"></i><b>18</b> NLP</a><ul>
+<li class="chapter" data-level="18.1" data-path="nlp.html"><a href="nlp.html#setup-hidden-1"><i class="fa fa-check"></i><b>18.1</b> Setup (hidden)</a></li>
+<li class="chapter" data-level="18.2" data-path="nlp.html"><a href="nlp.html#the-library-1"><i class="fa fa-check"></i><b>18.2</b> The Library</a></li>
+<li class="chapter" data-level="18.3" data-path="nlp.html"><a href="nlp.html#tokenizer"><i class="fa fa-check"></i><b>18.3</b> Tokenizer</a><ul>
+<li class="chapter" data-level="18.3.1" data-path="nlp.html"><a href="nlp.html#casual-tokenizer"><i class="fa fa-check"></i><b>18.3.1</b> Casual Tokenizer</a></li>
+<li class="chapter" data-level="18.3.2" data-path="nlp.html"><a href="nlp.html#treebank-tokenizer"><i class="fa fa-check"></i><b>18.3.2</b> Treebank Tokenizer¶</a></li>
+</ul></li>
+<li class="chapter" data-level="18.4" data-path="nlp.html"><a href="nlp.html#n-gram"><i class="fa fa-check"></i><b>18.4</b> N-Gram</a></li>
+<li class="chapter" data-level="18.5" data-path="nlp.html"><a href="nlp.html#stopwords"><i class="fa fa-check"></i><b>18.5</b> Stopwords</a><ul>
+<li class="chapter" data-level="18.5.1" data-path="nlp.html"><a href="nlp.html#custom-stop-words"><i class="fa fa-check"></i><b>18.5.1</b> Custom Stop Words</a></li>
+<li class="chapter" data-level="18.5.2" data-path="nlp.html"><a href="nlp.html#nltk-stop-words"><i class="fa fa-check"></i><b>18.5.2</b> NLTK Stop Words</a></li>
+<li class="chapter" data-level="18.5.3" data-path="nlp.html"><a href="nlp.html#sklearn-stop-words"><i class="fa fa-check"></i><b>18.5.3</b> SKLearn Stop Words¶</a></li>
+<li class="chapter" data-level="18.5.4" data-path="nlp.html"><a href="nlp.html#combined-nltk-and-sklearn-stop-words"><i class="fa fa-check"></i><b>18.5.4</b> Combined NLTK and SKLearn Stop Words¶</a></li>
+</ul></li>
+<li class="chapter" data-level="18.6" data-path="nlp.html"><a href="nlp.html#normalizing"><i class="fa fa-check"></i><b>18.6</b> Normalizing</a><ul>
+<li class="chapter" data-level="18.6.1" data-path="nlp.html"><a href="nlp.html#case-folding"><i class="fa fa-check"></i><b>18.6.1</b> Case Folding</a></li>
+<li class="chapter" data-level="18.6.2" data-path="nlp.html"><a href="nlp.html#stemming"><i class="fa fa-check"></i><b>18.6.2</b> Stemming</a></li>
+<li class="chapter" data-level="18.6.3" data-path="nlp.html"><a href="nlp.html#lemmatization"><i class="fa fa-check"></i><b>18.6.3</b> Lemmatization</a></li>
+<li class="chapter" data-level="18.6.4" data-path="nlp.html"><a href="nlp.html#comparing-stemming-and-lemmatization"><i class="fa fa-check"></i><b>18.6.4</b> Comparing Stemming and Lemmatization</a></li>
+</ul></li>
+<li class="chapter" data-level="18.7" data-path="nlp.html"><a href="nlp.html#sentiment"><i class="fa fa-check"></i><b>18.7</b> Sentiment</a><ul>
+<li class="chapter" data-level="18.7.1" data-path="nlp.html"><a href="nlp.html#vader"><i class="fa fa-check"></i><b>18.7.1</b> Vader</a></li>
+</ul></li>
+<li class="chapter" data-level="18.8" data-path="nlp.html"><a href="nlp.html#naive-bayes"><i class="fa fa-check"></i><b>18.8</b> Naive Bayes</a><ul>
+<li class="chapter" data-level="18.8.1" data-path="nlp.html"><a href="nlp.html#libraries-1"><i class="fa fa-check"></i><b>18.8.1</b> Libraries</a></li>
+<li class="chapter" data-level="18.8.2" data-path="nlp.html"><a href="nlp.html#the-data-1"><i class="fa fa-check"></i><b>18.8.2</b> The Data</a></li>
+<li class="chapter" data-level="18.8.3" data-path="nlp.html"><a href="nlp.html#bag-of-words"><i class="fa fa-check"></i><b>18.8.3</b> Bag of Words</a></li>
+<li class="chapter" data-level="18.8.4" data-path="nlp.html"><a href="nlp.html#build-the-model"><i class="fa fa-check"></i><b>18.8.4</b> Build The Model</a></li>
+<li class="chapter" data-level="18.8.5" data-path="nlp.html"><a href="nlp.html#train-set-prediction"><i class="fa fa-check"></i><b>18.8.5</b> Train Set Prediction</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Python Bookdown</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="plydata-dplyr-for-python" class="section level1">
+<h1><span class="header-section-number">11</span> Plydata (dplyr for Python)</h1>
+<div id="sample-data" class="section level2">
+<h2><span class="header-section-number">11.1</span> Sample Data</h2>
+<div class="sourceCode" id="cb560"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb560-1" title="1">n <span class="op">=</span> <span class="dv">200</span></a>
+<a class="sourceLine" id="cb560-2" title="2">comp <span class="op">=</span> [<span class="st">&#39;C&#39;</span> <span class="op">+</span> i <span class="cf">for</span> i <span class="kw">in</span> np.random.randint( <span class="dv">1</span>,<span class="dv">4</span>, size  <span class="op">=</span> n).astype(<span class="bu">str</span>)] <span class="co"># 3x Company</span></a>
+<a class="sourceLine" id="cb560-3" title="3">dept <span class="op">=</span> [<span class="st">&#39;D&#39;</span> <span class="op">+</span> i <span class="cf">for</span> i <span class="kw">in</span> np.random.randint( <span class="dv">1</span>,<span class="dv">6</span>, size  <span class="op">=</span> n).astype(<span class="bu">str</span>)] <span class="co"># 5x Department</span></a>
+<a class="sourceLine" id="cb560-4" title="4">grp <span class="op">=</span>  [<span class="st">&#39;G&#39;</span> <span class="op">+</span> i <span class="cf">for</span> i <span class="kw">in</span> np.random.randint( <span class="dv">1</span>,<span class="dv">3</span>, size  <span class="op">=</span> n).astype(<span class="bu">str</span>)] <span class="co"># 2x Groups</span></a>
+<a class="sourceLine" id="cb560-5" title="5">value1 <span class="op">=</span> np.random.normal( loc<span class="op">=</span><span class="dv">50</span> , scale<span class="op">=</span><span class="dv">5</span> , size <span class="op">=</span> n)</a>
+<a class="sourceLine" id="cb560-6" title="6">value2 <span class="op">=</span> np.random.normal( loc<span class="op">=</span><span class="dv">20</span> , scale<span class="op">=</span><span class="dv">3</span> , size <span class="op">=</span> n)</a>
+<a class="sourceLine" id="cb560-7" title="7"><span class="co">#value3 = np.random.normal( loc=5 , scale=30 , size = n)</span></a>
+<a class="sourceLine" id="cb560-8" title="8"></a>
+<a class="sourceLine" id="cb560-9" title="9">mydf <span class="op">=</span> pd.DataFrame({</a>
+<a class="sourceLine" id="cb560-10" title="10">    <span class="st">&#39;comp&#39;</span>:comp, </a>
+<a class="sourceLine" id="cb560-11" title="11">    <span class="st">&#39;dept&#39;</span>:dept, </a>
+<a class="sourceLine" id="cb560-12" title="12">    <span class="st">&#39;grp&#39;</span>: grp,</a>
+<a class="sourceLine" id="cb560-13" title="13">    <span class="st">&#39;value1&#39;</span>:value1, </a>
+<a class="sourceLine" id="cb560-14" title="14">    <span class="st">&#39;value2&#39;</span>:value2</a>
+<a class="sourceLine" id="cb560-15" title="15">    <span class="co">#&#39;value3&#39;:value3 </span></a>
+<a class="sourceLine" id="cb560-16" title="16">})</a>
+<a class="sourceLine" id="cb560-17" title="17">mydf.head()</a></code></pre></div>
+<pre><code>##   comp dept grp     value1     value2
+## 0   C2   D3  G1  56.376960  20.191714
+## 1   C2   D3  G1  48.613865  17.276899
+## 2   C1   D3  G1  52.573480  19.778167
+## 3   C2   D2  G1  43.329241  15.594772
+## 4   C1   D3  G1  54.465794  17.829961</code></pre>
+</div>
+<div id="column-manipulation" class="section level2">
+<h2><span class="header-section-number">11.2</span> Column Manipulation</h2>
+<div id="copy-column" class="section level3">
+<h3><span class="header-section-number">11.2.1</span> Copy Column</h3>
+<div class="sourceCode" id="cb562"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb562-1" title="1">mydf <span class="op">&gt;&gt;</span> define(newcol <span class="op">=</span> <span class="st">&#39;value1&#39;</span>)                 <span class="co"># simple method for one column</span></a></code></pre></div>
+<pre><code>##     comp dept grp     value1     value2     newcol
+## 0     C2   D3  G1  56.376960  20.191714  56.376960
+## 1     C2   D3  G1  48.613865  17.276899  48.613865
+## 2     C1   D3  G1  52.573480  19.778167  52.573480
+## 3     C2   D2  G1  43.329241  15.594772  43.329241
+## 4     C1   D3  G1  54.465794  17.829961  54.465794
+## 5     C3   D1  G2  48.342256  18.635805  48.342256
+## 6     C1   D4  G2  42.431745  21.623076  42.431745
+## 7     C2   D2  G2  47.011476  20.632616  47.011476
+## 8     C1   D4  G1  46.794588  24.599861  46.794588
+## 9     C2   D3  G1  43.714687  21.372508  43.714687
+## 10    C1   D1  G1  66.169320  21.811055  66.169320
+## 11    C2   D5  G2  56.724550  18.933822  56.724550
+## 12    C1   D2  G2  39.795236  20.264894  39.795236
+## 13    C1   D1  G1  48.970839  21.653155  48.970839
+## 14    C1   D2  G2  49.866881  19.304739  49.866881
+## 15    C1   D1  G1  53.753980  24.768700  53.753980
+## 16    C1   D4  G1  43.317201  14.744928  43.317201
+## 17    C1   D5  G2  43.329303  22.455532  43.329303
+## 18    C1   D2  G2  52.331681  18.127690  52.331681
+## 19    C1   D1  G2  49.824730  26.188181  49.824730
+## 20    C3   D1  G1  50.051767  16.025397  50.051767
+## 21    C3   D5  G1  50.875362  22.556914  50.875362
+## 22    C1   D5  G2  49.366648  19.949318  49.366648
+## 23    C3   D1  G1  56.799509  20.442391  56.799509
+## 24    C3   D1  G1  57.213599  19.854413  57.213599
+## 25    C1   D4  G1  53.002787  19.740763  53.002787
+## 26    C3   D3  G1  43.419025  19.383658  43.419025
+## 27    C2   D3  G1  58.530506  23.360418  58.530506
+## 28    C3   D1  G2  49.042171  17.084615  49.042171
+## 29    C3   D1  G2  43.861745  21.413169  43.861745
+## ..   ...  ...  ..        ...        ...        ...
+## 170   C1   D2  G2  40.696378  22.412892  40.696378
+## 171   C1   D5  G1  52.557042  18.101228  52.557042
+## 172   C3   D2  G1  47.745664  18.556751  47.745664
+## 173   C1   D1  G2  47.953935  19.948805  47.953935
+## 174   C1   D3  G2  42.944483  19.247189  42.944483
+## 175   C1   D2  G1  56.847750  19.346353  56.847750
+## 176   C3   D4  G1  35.919532  22.617063  35.919532
+## 177   C3   D4  G2  45.543873  19.838737  45.543873
+## 178   C3   D4  G1  48.029045  22.718576  48.029045
+## 179   C3   D5  G2  41.616064  18.427322  41.616064
+## 180   C1   D4  G2  49.355320  17.912869  49.355320
+## 181   C3   D4  G2  52.768737  21.637201  52.768737
+## 182   C1   D5  G2  46.259058  23.736377  46.259058
+## 183   C2   D2  G2  58.971843  21.598045  58.971843
+## 184   C3   D4  G2  48.397158  15.692974  48.397158
+## 185   C2   D2  G1  45.616300  20.251323  45.616300
+## 186   C3   D5  G1  50.256226  24.645544  50.256226
+## 187   C3   D2  G2  48.216882  21.177510  48.216882
+## 188   C1   D5  G1  45.156180  18.944898  45.156180
+## 189   C3   D2  G2  53.126991  20.340931  53.126991
+## 190   C3   D3  G2  57.972262  14.019590  57.972262
+## 191   C2   D2  G1  53.178784  15.792712  53.178784
+## 192   C3   D3  G1  41.783278  17.309701  41.783278
+## 193   C3   D3  G2  55.154837  21.576280  55.154837
+## 194   C1   D1  G2  41.173115  22.540202  41.173115
+## 195   C1   D4  G1  45.464887  24.847457  45.464887
+## 196   C2   D4  G2  50.704322  25.444639  50.704322
+## 197   C3   D5  G1  50.967429  17.677304  50.967429
+## 198   C3   D2  G2  48.211626  20.639662  48.211626
+## 199   C3   D2  G1  42.565579  15.713437  42.565579
+## 
+## [200 rows x 6 columns]</code></pre>
+<div class="sourceCode" id="cb564"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb564-1" title="1">mydf <span class="op">&gt;&gt;</span> define ((<span class="st">&#39;newcol1&#39;</span>, <span class="st">&#39;value1&#39;</span>), newcol2<span class="op">=</span><span class="st">&#39;value2&#39;</span>)  <span class="co"># method for muiltiple new columns</span></a></code></pre></div>
+<pre><code>##     comp dept grp     value1     value2    newcol1    newcol2
+## 0     C2   D3  G1  56.376960  20.191714  56.376960  20.191714
+## 1     C2   D3  G1  48.613865  17.276899  48.613865  17.276899
+## 2     C1   D3  G1  52.573480  19.778167  52.573480  19.778167
+## 3     C2   D2  G1  43.329241  15.594772  43.329241  15.594772
+## 4     C1   D3  G1  54.465794  17.829961  54.465794  17.829961
+## 5     C3   D1  G2  48.342256  18.635805  48.342256  18.635805
+## 6     C1   D4  G2  42.431745  21.623076  42.431745  21.623076
+## 7     C2   D2  G2  47.011476  20.632616  47.011476  20.632616
+## 8     C1   D4  G1  46.794588  24.599861  46.794588  24.599861
+## 9     C2   D3  G1  43.714687  21.372508  43.714687  21.372508
+## 10    C1   D1  G1  66.169320  21.811055  66.169320  21.811055
+## 11    C2   D5  G2  56.724550  18.933822  56.724550  18.933822
+## 12    C1   D2  G2  39.795236  20.264894  39.795236  20.264894
+## 13    C1   D1  G1  48.970839  21.653155  48.970839  21.653155
+## 14    C1   D2  G2  49.866881  19.304739  49.866881  19.304739
+## 15    C1   D1  G1  53.753980  24.768700  53.753980  24.768700
+## 16    C1   D4  G1  43.317201  14.744928  43.317201  14.744928
+## 17    C1   D5  G2  43.329303  22.455532  43.329303  22.455532
+## 18    C1   D2  G2  52.331681  18.127690  52.331681  18.127690
+## 19    C1   D1  G2  49.824730  26.188181  49.824730  26.188181
+## 20    C3   D1  G1  50.051767  16.025397  50.051767  16.025397
+## 21    C3   D5  G1  50.875362  22.556914  50.875362  22.556914
+## 22    C1   D5  G2  49.366648  19.949318  49.366648  19.949318
+## 23    C3   D1  G1  56.799509  20.442391  56.799509  20.442391
+## 24    C3   D1  G1  57.213599  19.854413  57.213599  19.854413
+## 25    C1   D4  G1  53.002787  19.740763  53.002787  19.740763
+## 26    C3   D3  G1  43.419025  19.383658  43.419025  19.383658
+## 27    C2   D3  G1  58.530506  23.360418  58.530506  23.360418
+## 28    C3   D1  G2  49.042171  17.084615  49.042171  17.084615
+## 29    C3   D1  G2  43.861745  21.413169  43.861745  21.413169
+## ..   ...  ...  ..        ...        ...        ...        ...
+## 170   C1   D2  G2  40.696378  22.412892  40.696378  22.412892
+## 171   C1   D5  G1  52.557042  18.101228  52.557042  18.101228
+## 172   C3   D2  G1  47.745664  18.556751  47.745664  18.556751
+## 173   C1   D1  G2  47.953935  19.948805  47.953935  19.948805
+## 174   C1   D3  G2  42.944483  19.247189  42.944483  19.247189
+## 175   C1   D2  G1  56.847750  19.346353  56.847750  19.346353
+## 176   C3   D4  G1  35.919532  22.617063  35.919532  22.617063
+## 177   C3   D4  G2  45.543873  19.838737  45.543873  19.838737
+## 178   C3   D4  G1  48.029045  22.718576  48.029045  22.718576
+## 179   C3   D5  G2  41.616064  18.427322  41.616064  18.427322
+## 180   C1   D4  G2  49.355320  17.912869  49.355320  17.912869
+## 181   C3   D4  G2  52.768737  21.637201  52.768737  21.637201
+## 182   C1   D5  G2  46.259058  23.736377  46.259058  23.736377
+## 183   C2   D2  G2  58.971843  21.598045  58.971843  21.598045
+## 184   C3   D4  G2  48.397158  15.692974  48.397158  15.692974
+## 185   C2   D2  G1  45.616300  20.251323  45.616300  20.251323
+## 186   C3   D5  G1  50.256226  24.645544  50.256226  24.645544
+## 187   C3   D2  G2  48.216882  21.177510  48.216882  21.177510
+## 188   C1   D5  G1  45.156180  18.944898  45.156180  18.944898
+## 189   C3   D2  G2  53.126991  20.340931  53.126991  20.340931
+## 190   C3   D3  G2  57.972262  14.019590  57.972262  14.019590
+## 191   C2   D2  G1  53.178784  15.792712  53.178784  15.792712
+## 192   C3   D3  G1  41.783278  17.309701  41.783278  17.309701
+## 193   C3   D3  G2  55.154837  21.576280  55.154837  21.576280
+## 194   C1   D1  G2  41.173115  22.540202  41.173115  22.540202
+## 195   C1   D4  G1  45.464887  24.847457  45.464887  24.847457
+## 196   C2   D4  G2  50.704322  25.444639  50.704322  25.444639
+## 197   C3   D5  G1  50.967429  17.677304  50.967429  17.677304
+## 198   C3   D2  G2  48.211626  20.639662  48.211626  20.639662
+## 199   C3   D2  G1  42.565579  15.713437  42.565579  15.713437
+## 
+## [200 rows x 7 columns]</code></pre>
+<!-- jupyter_markdown,  -->
+</div>
+<div id="new-column-from-existing-column" class="section level3">
+<h3><span class="header-section-number">11.2.2</span> New Column from existing Column</h3>
+<!-- jupyter_markdown,  -->
+<p><strong>Without specify the new column name</strong>, it will be derived from expression</p>
+<div class="sourceCode" id="cb566"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb566-1" title="1">mydf <span class="op">&gt;&gt;</span> define (<span class="st">&#39;value1*2&#39;</span>)</a></code></pre></div>
+<pre><code>##     comp dept grp     value1     value2    value1*2
+## 0     C2   D3  G1  56.376960  20.191714  112.753920
+## 1     C2   D3  G1  48.613865  17.276899   97.227731
+## 2     C1   D3  G1  52.573480  19.778167  105.146960
+## 3     C2   D2  G1  43.329241  15.594772   86.658482
+## 4     C1   D3  G1  54.465794  17.829961  108.931587
+## 5     C3   D1  G2  48.342256  18.635805   96.684513
+## 6     C1   D4  G2  42.431745  21.623076   84.863490
+## 7     C2   D2  G2  47.011476  20.632616   94.022952
+## 8     C1   D4  G1  46.794588  24.599861   93.589177
+## 9     C2   D3  G1  43.714687  21.372508   87.429373
+## 10    C1   D1  G1  66.169320  21.811055  132.338640
+## 11    C2   D5  G2  56.724550  18.933822  113.449099
+## 12    C1   D2  G2  39.795236  20.264894   79.590472
+## 13    C1   D1  G1  48.970839  21.653155   97.941678
+## 14    C1   D2  G2  49.866881  19.304739   99.733762
+## 15    C1   D1  G1  53.753980  24.768700  107.507961
+## 16    C1   D4  G1  43.317201  14.744928   86.634401
+## 17    C1   D5  G2  43.329303  22.455532   86.658606
+## 18    C1   D2  G2  52.331681  18.127690  104.663363
+## 19    C1   D1  G2  49.824730  26.188181   99.649460
+## 20    C3   D1  G1  50.051767  16.025397  100.103535
+## 21    C3   D5  G1  50.875362  22.556914  101.750725
+## 22    C1   D5  G2  49.366648  19.949318   98.733297
+## 23    C3   D1  G1  56.799509  20.442391  113.599018
+## 24    C3   D1  G1  57.213599  19.854413  114.427197
+## 25    C1   D4  G1  53.002787  19.740763  106.005573
+## 26    C3   D3  G1  43.419025  19.383658   86.838049
+## 27    C2   D3  G1  58.530506  23.360418  117.061012
+## 28    C3   D1  G2  49.042171  17.084615   98.084342
+## 29    C3   D1  G2  43.861745  21.413169   87.723491
+## ..   ...  ...  ..        ...        ...         ...
+## 170   C1   D2  G2  40.696378  22.412892   81.392756
+## 171   C1   D5  G1  52.557042  18.101228  105.114085
+## 172   C3   D2  G1  47.745664  18.556751   95.491328
+## 173   C1   D1  G2  47.953935  19.948805   95.907870
+## 174   C1   D3  G2  42.944483  19.247189   85.888966
+## 175   C1   D2  G1  56.847750  19.346353  113.695499
+## 176   C3   D4  G1  35.919532  22.617063   71.839064
+## 177   C3   D4  G2  45.543873  19.838737   91.087747
+## 178   C3   D4  G1  48.029045  22.718576   96.058091
+## 179   C3   D5  G2  41.616064  18.427322   83.232127
+## 180   C1   D4  G2  49.355320  17.912869   98.710640
+## 181   C3   D4  G2  52.768737  21.637201  105.537475
+## 182   C1   D5  G2  46.259058  23.736377   92.518115
+## 183   C2   D2  G2  58.971843  21.598045  117.943686
+## 184   C3   D4  G2  48.397158  15.692974   96.794315
+## 185   C2   D2  G1  45.616300  20.251323   91.232599
+## 186   C3   D5  G1  50.256226  24.645544  100.512452
+## 187   C3   D2  G2  48.216882  21.177510   96.433765
+## 188   C1   D5  G1  45.156180  18.944898   90.312361
+## 189   C3   D2  G2  53.126991  20.340931  106.253982
+## 190   C3   D3  G2  57.972262  14.019590  115.944524
+## 191   C2   D2  G1  53.178784  15.792712  106.357568
+## 192   C3   D3  G1  41.783278  17.309701   83.566557
+## 193   C3   D3  G2  55.154837  21.576280  110.309675
+## 194   C1   D1  G2  41.173115  22.540202   82.346230
+## 195   C1   D4  G1  45.464887  24.847457   90.929775
+## 196   C2   D4  G2  50.704322  25.444639  101.408644
+## 197   C3   D5  G1  50.967429  17.677304  101.934858
+## 198   C3   D2  G2  48.211626  20.639662   96.423251
+## 199   C3   D2  G1  42.565579  15.713437   85.131157
+## 
+## [200 rows x 6 columns]</code></pre>
+<!-- jupyter_markdown,  -->
+<p><strong>Specify the new column name</strong></p>
+<div class="sourceCode" id="cb568"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb568-1" title="1">mydf <span class="op">&gt;&gt;</span> define(value3 <span class="op">=</span> <span class="st">&#39;value1*2&#39;</span>)</a></code></pre></div>
+<pre><code>##     comp dept grp     value1     value2      value3
+## 0     C2   D3  G1  56.376960  20.191714  112.753920
+## 1     C2   D3  G1  48.613865  17.276899   97.227731
+## 2     C1   D3  G1  52.573480  19.778167  105.146960
+## 3     C2   D2  G1  43.329241  15.594772   86.658482
+## 4     C1   D3  G1  54.465794  17.829961  108.931587
+## 5     C3   D1  G2  48.342256  18.635805   96.684513
+## 6     C1   D4  G2  42.431745  21.623076   84.863490
+## 7     C2   D2  G2  47.011476  20.632616   94.022952
+## 8     C1   D4  G1  46.794588  24.599861   93.589177
+## 9     C2   D3  G1  43.714687  21.372508   87.429373
+## 10    C1   D1  G1  66.169320  21.811055  132.338640
+## 11    C2   D5  G2  56.724550  18.933822  113.449099
+## 12    C1   D2  G2  39.795236  20.264894   79.590472
+## 13    C1   D1  G1  48.970839  21.653155   97.941678
+## 14    C1   D2  G2  49.866881  19.304739   99.733762
+## 15    C1   D1  G1  53.753980  24.768700  107.507961
+## 16    C1   D4  G1  43.317201  14.744928   86.634401
+## 17    C1   D5  G2  43.329303  22.455532   86.658606
+## 18    C1   D2  G2  52.331681  18.127690  104.663363
+## 19    C1   D1  G2  49.824730  26.188181   99.649460
+## 20    C3   D1  G1  50.051767  16.025397  100.103535
+## 21    C3   D5  G1  50.875362  22.556914  101.750725
+## 22    C1   D5  G2  49.366648  19.949318   98.733297
+## 23    C3   D1  G1  56.799509  20.442391  113.599018
+## 24    C3   D1  G1  57.213599  19.854413  114.427197
+## 25    C1   D4  G1  53.002787  19.740763  106.005573
+## 26    C3   D3  G1  43.419025  19.383658   86.838049
+## 27    C2   D3  G1  58.530506  23.360418  117.061012
+## 28    C3   D1  G2  49.042171  17.084615   98.084342
+## 29    C3   D1  G2  43.861745  21.413169   87.723491
+## ..   ...  ...  ..        ...        ...         ...
+## 170   C1   D2  G2  40.696378  22.412892   81.392756
+## 171   C1   D5  G1  52.557042  18.101228  105.114085
+## 172   C3   D2  G1  47.745664  18.556751   95.491328
+## 173   C1   D1  G2  47.953935  19.948805   95.907870
+## 174   C1   D3  G2  42.944483  19.247189   85.888966
+## 175   C1   D2  G1  56.847750  19.346353  113.695499
+## 176   C3   D4  G1  35.919532  22.617063   71.839064
+## 177   C3   D4  G2  45.543873  19.838737   91.087747
+## 178   C3   D4  G1  48.029045  22.718576   96.058091
+## 179   C3   D5  G2  41.616064  18.427322   83.232127
+## 180   C1   D4  G2  49.355320  17.912869   98.710640
+## 181   C3   D4  G2  52.768737  21.637201  105.537475
+## 182   C1   D5  G2  46.259058  23.736377   92.518115
+## 183   C2   D2  G2  58.971843  21.598045  117.943686
+## 184   C3   D4  G2  48.397158  15.692974   96.794315
+## 185   C2   D2  G1  45.616300  20.251323   91.232599
+## 186   C3   D5  G1  50.256226  24.645544  100.512452
+## 187   C3   D2  G2  48.216882  21.177510   96.433765
+## 188   C1   D5  G1  45.156180  18.944898   90.312361
+## 189   C3   D2  G2  53.126991  20.340931  106.253982
+## 190   C3   D3  G2  57.972262  14.019590  115.944524
+## 191   C2   D2  G1  53.178784  15.792712  106.357568
+## 192   C3   D3  G1  41.783278  17.309701   83.566557
+## 193   C3   D3  G2  55.154837  21.576280  110.309675
+## 194   C1   D1  G2  41.173115  22.540202   82.346230
+## 195   C1   D4  G1  45.464887  24.847457   90.929775
+## 196   C2   D4  G2  50.704322  25.444639  101.408644
+## 197   C3   D5  G1  50.967429  17.677304  101.934858
+## 198   C3   D2  G2  48.211626  20.639662   96.423251
+## 199   C3   D2  G1  42.565579  15.713437   85.131157
+## 
+## [200 rows x 6 columns]</code></pre>
+<!-- jupyter_markdown,  -->
+<p>Define <strong>multiple</strong> new columns in one go. Observe there are three ways to specify the new columns</p>
+<div class="sourceCode" id="cb570"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb570-1" title="1">mydf <span class="op">&gt;&gt;</span> define(<span class="st">&#39;value1*2&#39;</span>,(<span class="st">&#39;newcol2&#39;</span>,<span class="st">&#39;value2*2&#39;</span>),newcol3<span class="op">=</span><span class="st">&#39;value2*3&#39;</span>)</a></code></pre></div>
+<pre><code>##     comp dept grp    ...        value1*2    newcol2    newcol3
+## 0     C2   D3  G1    ...      112.753920  40.383427  60.575141
+## 1     C2   D3  G1    ...       97.227731  34.553797  51.830696
+## 2     C1   D3  G1    ...      105.146960  39.556333  59.334500
+## 3     C2   D2  G1    ...       86.658482  31.189545  46.784317
+## 4     C1   D3  G1    ...      108.931587  35.659921  53.489882
+## 5     C3   D1  G2    ...       96.684513  37.271610  55.907415
+## 6     C1   D4  G2    ...       84.863490  43.246153  64.869229
+## 7     C2   D2  G2    ...       94.022952  41.265232  61.897849
+## 8     C1   D4  G1    ...       93.589177  49.199723  73.799584
+## 9     C2   D3  G1    ...       87.429373  42.745016  64.117524
+## 10    C1   D1  G1    ...      132.338640  43.622109  65.433164
+## 11    C2   D5  G2    ...      113.449099  37.867644  56.801466
+## 12    C1   D2  G2    ...       79.590472  40.529788  60.794683
+## 13    C1   D1  G1    ...       97.941678  43.306311  64.959466
+## 14    C1   D2  G2    ...       99.733762  38.609478  57.914217
+## 15    C1   D1  G1    ...      107.507961  49.537400  74.306100
+## 16    C1   D4  G1    ...       86.634401  29.489856  44.234785
+## 17    C1   D5  G2    ...       86.658606  44.911063  67.366595
+## 18    C1   D2  G2    ...      104.663363  36.255381  54.383071
+## 19    C1   D1  G2    ...       99.649460  52.376362  78.564543
+## 20    C3   D1  G1    ...      100.103535  32.050793  48.076190
+## 21    C3   D5  G1    ...      101.750725  45.113829  67.670743
+## 22    C1   D5  G2    ...       98.733297  39.898636  59.847955
+## 23    C3   D1  G1    ...      113.599018  40.884783  61.327174
+## 24    C3   D1  G1    ...      114.427197  39.708826  59.563239
+## 25    C1   D4  G1    ...      106.005573  39.481526  59.222289
+## 26    C3   D3  G1    ...       86.838049  38.767315  58.150973
+## 27    C2   D3  G1    ...      117.061012  46.720837  70.081255
+## 28    C3   D1  G2    ...       98.084342  34.169231  51.253846
+## 29    C3   D1  G2    ...       87.723491  42.826337  64.239506
+## ..   ...  ...  ..    ...             ...        ...        ...
+## 170   C1   D2  G2    ...       81.392756  44.825784  67.238676
+## 171   C1   D5  G1    ...      105.114085  36.202456  54.303685
+## 172   C3   D2  G1    ...       95.491328  37.113502  55.670253
+## 173   C1   D1  G2    ...       95.907870  39.897611  59.846416
+## 174   C1   D3  G2    ...       85.888966  38.494378  57.741567
+## 175   C1   D2  G1    ...      113.695499  38.692706  58.039059
+## 176   C3   D4  G1    ...       71.839064  45.234126  67.851190
+## 177   C3   D4  G2    ...       91.087747  39.677473  59.516210
+## 178   C3   D4  G1    ...       96.058091  45.437151  68.155727
+## 179   C3   D5  G2    ...       83.232127  36.854644  55.281966
+## 180   C1   D4  G2    ...       98.710640  35.825738  53.738606
+## 181   C3   D4  G2    ...      105.537475  43.274402  64.911604
+## 182   C1   D5  G2    ...       92.518115  47.472754  71.209131
+## 183   C2   D2  G2    ...      117.943686  43.196090  64.794134
+## 184   C3   D4  G2    ...       96.794315  31.385949  47.078923
+## 185   C2   D2  G1    ...       91.232599  40.502647  60.753970
+## 186   C3   D5  G1    ...      100.512452  49.291088  73.936633
+## 187   C3   D2  G2    ...       96.433765  42.355019  63.532529
+## 188   C1   D5  G1    ...       90.312361  37.889796  56.834694
+## 189   C3   D2  G2    ...      106.253982  40.681863  61.022794
+## 190   C3   D3  G2    ...      115.944524  28.039179  42.058769
+## 191   C2   D2  G1    ...      106.357568  31.585424  47.378136
+## 192   C3   D3  G1    ...       83.566557  34.619401  51.929102
+## 193   C3   D3  G2    ...      110.309675  43.152560  64.728840
+## 194   C1   D1  G2    ...       82.346230  45.080404  67.620605
+## 195   C1   D4  G1    ...       90.929775  49.694913  74.542370
+## 196   C2   D4  G2    ...      101.408644  50.889279  76.333918
+## 197   C3   D5  G1    ...      101.934858  35.354608  53.031912
+## 198   C3   D2  G2    ...       96.423251  41.279323  61.918985
+## 199   C3   D2  G1    ...       85.131157  31.426874  47.140311
+## 
+## [200 rows x 8 columns]</code></pre>
+<!-- jupyter_markdown,  -->
+</div>
+<div id="select-columns" class="section level3">
+<h3><span class="header-section-number">11.2.3</span> Select Column(s)</h3>
+<div class="sourceCode" id="cb572"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb572-1" title="1">mydf2 <span class="op">=</span> mydf <span class="op">&gt;&gt;</span> define(newcol1<span class="op">=</span><span class="st">&#39;value1&#39;</span>,newcol2<span class="op">=</span><span class="st">&#39;value2&#39;</span>)</a>
+<a class="sourceLine" id="cb572-2" title="2">mydf2.info()</a></code></pre></div>
+<pre><code>## &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+## RangeIndex: 200 entries, 0 to 199
+## Data columns (total 7 columns):
+## comp       200 non-null object
+## dept       200 non-null object
+## grp        200 non-null object
+## value1     200 non-null float64
+## value2     200 non-null float64
+## newcol1    200 non-null float64
+## newcol2    200 non-null float64
+## dtypes: float64(4), object(3)
+## memory usage: 11.0+ KB</code></pre>
+<!-- jupyter_markdown,  -->
+<div id="by-column-names" class="section level4">
+<h4><span class="header-section-number">11.2.3.1</span> By Column Names</h4>
+<p><strong>Exact Coumn Name</strong></p>
+<div class="sourceCode" id="cb574"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb574-1" title="1">mydf2 <span class="op">&gt;&gt;</span> select (<span class="st">&#39;comp&#39;</span>,<span class="st">&#39;dept&#39;</span>,<span class="st">&#39;value1&#39;</span>)</a></code></pre></div>
+<pre><code>##     comp dept     value1
+## 0     C2   D3  56.376960
+## 1     C2   D3  48.613865
+## 2     C1   D3  52.573480
+## 3     C2   D2  43.329241
+## 4     C1   D3  54.465794
+## 5     C3   D1  48.342256
+## 6     C1   D4  42.431745
+## 7     C2   D2  47.011476
+## 8     C1   D4  46.794588
+## 9     C2   D3  43.714687
+## 10    C1   D1  66.169320
+## 11    C2   D5  56.724550
+## 12    C1   D2  39.795236
+## 13    C1   D1  48.970839
+## 14    C1   D2  49.866881
+## 15    C1   D1  53.753980
+## 16    C1   D4  43.317201
+## 17    C1   D5  43.329303
+## 18    C1   D2  52.331681
+## 19    C1   D1  49.824730
+## 20    C3   D1  50.051767
+## 21    C3   D5  50.875362
+## 22    C1   D5  49.366648
+## 23    C3   D1  56.799509
+## 24    C3   D1  57.213599
+## 25    C1   D4  53.002787
+## 26    C3   D3  43.419025
+## 27    C2   D3  58.530506
+## 28    C3   D1  49.042171
+## 29    C3   D1  43.861745
+## ..   ...  ...        ...
+## 170   C1   D2  40.696378
+## 171   C1   D5  52.557042
+## 172   C3   D2  47.745664
+## 173   C1   D1  47.953935
+## 174   C1   D3  42.944483
+## 175   C1   D2  56.847750
+## 176   C3   D4  35.919532
+## 177   C3   D4  45.543873
+## 178   C3   D4  48.029045
+## 179   C3   D5  41.616064
+## 180   C1   D4  49.355320
+## 181   C3   D4  52.768737
+## 182   C1   D5  46.259058
+## 183   C2   D2  58.971843
+## 184   C3   D4  48.397158
+## 185   C2   D2  45.616300
+## 186   C3   D5  50.256226
+## 187   C3   D2  48.216882
+## 188   C1   D5  45.156180
+## 189   C3   D2  53.126991
+## 190   C3   D3  57.972262
+## 191   C2   D2  53.178784
+## 192   C3   D3  41.783278
+## 193   C3   D3  55.154837
+## 194   C1   D1  41.173115
+## 195   C1   D4  45.464887
+## 196   C2   D4  50.704322
+## 197   C3   D5  50.967429
+## 198   C3   D2  48.211626
+## 199   C3   D2  42.565579
+## 
+## [200 rows x 3 columns]</code></pre>
+<p><strong>Column Name Starts With</strong> …</p>
+<div class="sourceCode" id="cb576"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb576-1" title="1">mydf2 <span class="op">&gt;&gt;</span> select (<span class="st">&#39;comp&#39;</span>, startswith<span class="op">=</span><span class="st">&#39;val&#39;</span>)</a></code></pre></div>
+<pre><code>##     comp     value1     value2
+## 0     C2  56.376960  20.191714
+## 1     C2  48.613865  17.276899
+## 2     C1  52.573480  19.778167
+## 3     C2  43.329241  15.594772
+## 4     C1  54.465794  17.829961
+## 5     C3  48.342256  18.635805
+## 6     C1  42.431745  21.623076
+## 7     C2  47.011476  20.632616
+## 8     C1  46.794588  24.599861
+## 9     C2  43.714687  21.372508
+## 10    C1  66.169320  21.811055
+## 11    C2  56.724550  18.933822
+## 12    C1  39.795236  20.264894
+## 13    C1  48.970839  21.653155
+## 14    C1  49.866881  19.304739
+## 15    C1  53.753980  24.768700
+## 16    C1  43.317201  14.744928
+## 17    C1  43.329303  22.455532
+## 18    C1  52.331681  18.127690
+## 19    C1  49.824730  26.188181
+## 20    C3  50.051767  16.025397
+## 21    C3  50.875362  22.556914
+## 22    C1  49.366648  19.949318
+## 23    C3  56.799509  20.442391
+## 24    C3  57.213599  19.854413
+## 25    C1  53.002787  19.740763
+## 26    C3  43.419025  19.383658
+## 27    C2  58.530506  23.360418
+## 28    C3  49.042171  17.084615
+## 29    C3  43.861745  21.413169
+## ..   ...        ...        ...
+## 170   C1  40.696378  22.412892
+## 171   C1  52.557042  18.101228
+## 172   C3  47.745664  18.556751
+## 173   C1  47.953935  19.948805
+## 174   C1  42.944483  19.247189
+## 175   C1  56.847750  19.346353
+## 176   C3  35.919532  22.617063
+## 177   C3  45.543873  19.838737
+## 178   C3  48.029045  22.718576
+## 179   C3  41.616064  18.427322
+## 180   C1  49.355320  17.912869
+## 181   C3  52.768737  21.637201
+## 182   C1  46.259058  23.736377
+## 183   C2  58.971843  21.598045
+## 184   C3  48.397158  15.692974
+## 185   C2  45.616300  20.251323
+## 186   C3  50.256226  24.645544
+## 187   C3  48.216882  21.177510
+## 188   C1  45.156180  18.944898
+## 189   C3  53.126991  20.340931
+## 190   C3  57.972262  14.019590
+## 191   C2  53.178784  15.792712
+## 192   C3  41.783278  17.309701
+## 193   C3  55.154837  21.576280
+## 194   C1  41.173115  22.540202
+## 195   C1  45.464887  24.847457
+## 196   C2  50.704322  25.444639
+## 197   C3  50.967429  17.677304
+## 198   C3  48.211626  20.639662
+## 199   C3  42.565579  15.713437
+## 
+## [200 rows x 3 columns]</code></pre>
+<p><strong>Column Name Ends With …</strong></p>
+<div class="sourceCode" id="cb578"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb578-1" title="1">mydf2 <span class="op">&gt;&gt;</span> select (<span class="st">&#39;comp&#39;</span>,endswith<span class="op">=</span>(<span class="st">&#39;1&#39;</span>,<span class="st">&#39;2&#39;</span>,<span class="st">&#39;3&#39;</span>))</a></code></pre></div>
+<pre><code>##     comp     value1     value2    newcol1    newcol2
+## 0     C2  56.376960  20.191714  56.376960  20.191714
+## 1     C2  48.613865  17.276899  48.613865  17.276899
+## 2     C1  52.573480  19.778167  52.573480  19.778167
+## 3     C2  43.329241  15.594772  43.329241  15.594772
+## 4     C1  54.465794  17.829961  54.465794  17.829961
+## 5     C3  48.342256  18.635805  48.342256  18.635805
+## 6     C1  42.431745  21.623076  42.431745  21.623076
+## 7     C2  47.011476  20.632616  47.011476  20.632616
+## 8     C1  46.794588  24.599861  46.794588  24.599861
+## 9     C2  43.714687  21.372508  43.714687  21.372508
+## 10    C1  66.169320  21.811055  66.169320  21.811055
+## 11    C2  56.724550  18.933822  56.724550  18.933822
+## 12    C1  39.795236  20.264894  39.795236  20.264894
+## 13    C1  48.970839  21.653155  48.970839  21.653155
+## 14    C1  49.866881  19.304739  49.866881  19.304739
+## 15    C1  53.753980  24.768700  53.753980  24.768700
+## 16    C1  43.317201  14.744928  43.317201  14.744928
+## 17    C1  43.329303  22.455532  43.329303  22.455532
+## 18    C1  52.331681  18.127690  52.331681  18.127690
+## 19    C1  49.824730  26.188181  49.824730  26.188181
+## 20    C3  50.051767  16.025397  50.051767  16.025397
+## 21    C3  50.875362  22.556914  50.875362  22.556914
+## 22    C1  49.366648  19.949318  49.366648  19.949318
+## 23    C3  56.799509  20.442391  56.799509  20.442391
+## 24    C3  57.213599  19.854413  57.213599  19.854413
+## 25    C1  53.002787  19.740763  53.002787  19.740763
+## 26    C3  43.419025  19.383658  43.419025  19.383658
+## 27    C2  58.530506  23.360418  58.530506  23.360418
+## 28    C3  49.042171  17.084615  49.042171  17.084615
+## 29    C3  43.861745  21.413169  43.861745  21.413169
+## ..   ...        ...        ...        ...        ...
+## 170   C1  40.696378  22.412892  40.696378  22.412892
+## 171   C1  52.557042  18.101228  52.557042  18.101228
+## 172   C3  47.745664  18.556751  47.745664  18.556751
+## 173   C1  47.953935  19.948805  47.953935  19.948805
+## 174   C1  42.944483  19.247189  42.944483  19.247189
+## 175   C1  56.847750  19.346353  56.847750  19.346353
+## 176   C3  35.919532  22.617063  35.919532  22.617063
+## 177   C3  45.543873  19.838737  45.543873  19.838737
+## 178   C3  48.029045  22.718576  48.029045  22.718576
+## 179   C3  41.616064  18.427322  41.616064  18.427322
+## 180   C1  49.355320  17.912869  49.355320  17.912869
+## 181   C3  52.768737  21.637201  52.768737  21.637201
+## 182   C1  46.259058  23.736377  46.259058  23.736377
+## 183   C2  58.971843  21.598045  58.971843  21.598045
+## 184   C3  48.397158  15.692974  48.397158  15.692974
+## 185   C2  45.616300  20.251323  45.616300  20.251323
+## 186   C3  50.256226  24.645544  50.256226  24.645544
+## 187   C3  48.216882  21.177510  48.216882  21.177510
+## 188   C1  45.156180  18.944898  45.156180  18.944898
+## 189   C3  53.126991  20.340931  53.126991  20.340931
+## 190   C3  57.972262  14.019590  57.972262  14.019590
+## 191   C2  53.178784  15.792712  53.178784  15.792712
+## 192   C3  41.783278  17.309701  41.783278  17.309701
+## 193   C3  55.154837  21.576280  55.154837  21.576280
+## 194   C1  41.173115  22.540202  41.173115  22.540202
+## 195   C1  45.464887  24.847457  45.464887  24.847457
+## 196   C2  50.704322  25.444639  50.704322  25.444639
+## 197   C3  50.967429  17.677304  50.967429  17.677304
+## 198   C3  48.211626  20.639662  48.211626  20.639662
+## 199   C3  42.565579  15.713437  42.565579  15.713437
+## 
+## [200 rows x 5 columns]</code></pre>
+<p><strong>Column Name Contains …</strong></p>
+<div class="sourceCode" id="cb580"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb580-1" title="1">mydf2 <span class="op">&gt;&gt;</span> select(<span class="st">&#39;comp&#39;</span>, contains<span class="op">=</span>(<span class="st">&#39;col&#39;</span>,<span class="st">&#39;val&#39;</span>))</a></code></pre></div>
+<pre><code>##     comp     value1     value2    newcol1    newcol2
+## 0     C2  56.376960  20.191714  56.376960  20.191714
+## 1     C2  48.613865  17.276899  48.613865  17.276899
+## 2     C1  52.573480  19.778167  52.573480  19.778167
+## 3     C2  43.329241  15.594772  43.329241  15.594772
+## 4     C1  54.465794  17.829961  54.465794  17.829961
+## 5     C3  48.342256  18.635805  48.342256  18.635805
+## 6     C1  42.431745  21.623076  42.431745  21.623076
+## 7     C2  47.011476  20.632616  47.011476  20.632616
+## 8     C1  46.794588  24.599861  46.794588  24.599861
+## 9     C2  43.714687  21.372508  43.714687  21.372508
+## 10    C1  66.169320  21.811055  66.169320  21.811055
+## 11    C2  56.724550  18.933822  56.724550  18.933822
+## 12    C1  39.795236  20.264894  39.795236  20.264894
+## 13    C1  48.970839  21.653155  48.970839  21.653155
+## 14    C1  49.866881  19.304739  49.866881  19.304739
+## 15    C1  53.753980  24.768700  53.753980  24.768700
+## 16    C1  43.317201  14.744928  43.317201  14.744928
+## 17    C1  43.329303  22.455532  43.329303  22.455532
+## 18    C1  52.331681  18.127690  52.331681  18.127690
+## 19    C1  49.824730  26.188181  49.824730  26.188181
+## 20    C3  50.051767  16.025397  50.051767  16.025397
+## 21    C3  50.875362  22.556914  50.875362  22.556914
+## 22    C1  49.366648  19.949318  49.366648  19.949318
+## 23    C3  56.799509  20.442391  56.799509  20.442391
+## 24    C3  57.213599  19.854413  57.213599  19.854413
+## 25    C1  53.002787  19.740763  53.002787  19.740763
+## 26    C3  43.419025  19.383658  43.419025  19.383658
+## 27    C2  58.530506  23.360418  58.530506  23.360418
+## 28    C3  49.042171  17.084615  49.042171  17.084615
+## 29    C3  43.861745  21.413169  43.861745  21.413169
+## ..   ...        ...        ...        ...        ...
+## 170   C1  40.696378  22.412892  40.696378  22.412892
+## 171   C1  52.557042  18.101228  52.557042  18.101228
+## 172   C3  47.745664  18.556751  47.745664  18.556751
+## 173   C1  47.953935  19.948805  47.953935  19.948805
+## 174   C1  42.944483  19.247189  42.944483  19.247189
+## 175   C1  56.847750  19.346353  56.847750  19.346353
+## 176   C3  35.919532  22.617063  35.919532  22.617063
+## 177   C3  45.543873  19.838737  45.543873  19.838737
+## 178   C3  48.029045  22.718576  48.029045  22.718576
+## 179   C3  41.616064  18.427322  41.616064  18.427322
+## 180   C1  49.355320  17.912869  49.355320  17.912869
+## 181   C3  52.768737  21.637201  52.768737  21.637201
+## 182   C1  46.259058  23.736377  46.259058  23.736377
+## 183   C2  58.971843  21.598045  58.971843  21.598045
+## 184   C3  48.397158  15.692974  48.397158  15.692974
+## 185   C2  45.616300  20.251323  45.616300  20.251323
+## 186   C3  50.256226  24.645544  50.256226  24.645544
+## 187   C3  48.216882  21.177510  48.216882  21.177510
+## 188   C1  45.156180  18.944898  45.156180  18.944898
+## 189   C3  53.126991  20.340931  53.126991  20.340931
+## 190   C3  57.972262  14.019590  57.972262  14.019590
+## 191   C2  53.178784  15.792712  53.178784  15.792712
+## 192   C3  41.783278  17.309701  41.783278  17.309701
+## 193   C3  55.154837  21.576280  55.154837  21.576280
+## 194   C1  41.173115  22.540202  41.173115  22.540202
+## 195   C1  45.464887  24.847457  45.464887  24.847457
+## 196   C2  50.704322  25.444639  50.704322  25.444639
+## 197   C3  50.967429  17.677304  50.967429  17.677304
+## 198   C3  48.211626  20.639662  48.211626  20.639662
+## 199   C3  42.565579  15.713437  42.565579  15.713437
+## 
+## [200 rows x 5 columns]</code></pre>
+</div>
+<div id="specify-column-range" class="section level4">
+<h4><span class="header-section-number">11.2.3.2</span> Specify Column Range</h4>
+<div class="sourceCode" id="cb582"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb582-1" title="1">mydf2 <span class="op">&gt;&gt;</span> select (<span class="st">&#39;comp&#39;</span>, <span class="bu">slice</span>(<span class="st">&#39;value1&#39;</span>,<span class="st">&#39;newcol2&#39;</span>))</a></code></pre></div>
+<pre><code>##     comp     value1     value2    newcol1    newcol2
+## 0     C2  56.376960  20.191714  56.376960  20.191714
+## 1     C2  48.613865  17.276899  48.613865  17.276899
+## 2     C1  52.573480  19.778167  52.573480  19.778167
+## 3     C2  43.329241  15.594772  43.329241  15.594772
+## 4     C1  54.465794  17.829961  54.465794  17.829961
+## 5     C3  48.342256  18.635805  48.342256  18.635805
+## 6     C1  42.431745  21.623076  42.431745  21.623076
+## 7     C2  47.011476  20.632616  47.011476  20.632616
+## 8     C1  46.794588  24.599861  46.794588  24.599861
+## 9     C2  43.714687  21.372508  43.714687  21.372508
+## 10    C1  66.169320  21.811055  66.169320  21.811055
+## 11    C2  56.724550  18.933822  56.724550  18.933822
+## 12    C1  39.795236  20.264894  39.795236  20.264894
+## 13    C1  48.970839  21.653155  48.970839  21.653155
+## 14    C1  49.866881  19.304739  49.866881  19.304739
+## 15    C1  53.753980  24.768700  53.753980  24.768700
+## 16    C1  43.317201  14.744928  43.317201  14.744928
+## 17    C1  43.329303  22.455532  43.329303  22.455532
+## 18    C1  52.331681  18.127690  52.331681  18.127690
+## 19    C1  49.824730  26.188181  49.824730  26.188181
+## 20    C3  50.051767  16.025397  50.051767  16.025397
+## 21    C3  50.875362  22.556914  50.875362  22.556914
+## 22    C1  49.366648  19.949318  49.366648  19.949318
+## 23    C3  56.799509  20.442391  56.799509  20.442391
+## 24    C3  57.213599  19.854413  57.213599  19.854413
+## 25    C1  53.002787  19.740763  53.002787  19.740763
+## 26    C3  43.419025  19.383658  43.419025  19.383658
+## 27    C2  58.530506  23.360418  58.530506  23.360418
+## 28    C3  49.042171  17.084615  49.042171  17.084615
+## 29    C3  43.861745  21.413169  43.861745  21.413169
+## ..   ...        ...        ...        ...        ...
+## 170   C1  40.696378  22.412892  40.696378  22.412892
+## 171   C1  52.557042  18.101228  52.557042  18.101228
+## 172   C3  47.745664  18.556751  47.745664  18.556751
+## 173   C1  47.953935  19.948805  47.953935  19.948805
+## 174   C1  42.944483  19.247189  42.944483  19.247189
+## 175   C1  56.847750  19.346353  56.847750  19.346353
+## 176   C3  35.919532  22.617063  35.919532  22.617063
+## 177   C3  45.543873  19.838737  45.543873  19.838737
+## 178   C3  48.029045  22.718576  48.029045  22.718576
+## 179   C3  41.616064  18.427322  41.616064  18.427322
+## 180   C1  49.355320  17.912869  49.355320  17.912869
+## 181   C3  52.768737  21.637201  52.768737  21.637201
+## 182   C1  46.259058  23.736377  46.259058  23.736377
+## 183   C2  58.971843  21.598045  58.971843  21.598045
+## 184   C3  48.397158  15.692974  48.397158  15.692974
+## 185   C2  45.616300  20.251323  45.616300  20.251323
+## 186   C3  50.256226  24.645544  50.256226  24.645544
+## 187   C3  48.216882  21.177510  48.216882  21.177510
+## 188   C1  45.156180  18.944898  45.156180  18.944898
+## 189   C3  53.126991  20.340931  53.126991  20.340931
+## 190   C3  57.972262  14.019590  57.972262  14.019590
+## 191   C2  53.178784  15.792712  53.178784  15.792712
+## 192   C3  41.783278  17.309701  41.783278  17.309701
+## 193   C3  55.154837  21.576280  55.154837  21.576280
+## 194   C1  41.173115  22.540202  41.173115  22.540202
+## 195   C1  45.464887  24.847457  45.464887  24.847457
+## 196   C2  50.704322  25.444639  50.704322  25.444639
+## 197   C3  50.967429  17.677304  50.967429  17.677304
+## 198   C3  48.211626  20.639662  48.211626  20.639662
+## 199   C3  42.565579  15.713437  42.565579  15.713437
+## 
+## [200 rows x 5 columns]</code></pre>
+</div>
+</div>
+<div id="drop-columns" class="section level3">
+<h3><span class="header-section-number">11.2.4</span> Drop Column(s)</h3>
+<div class="sourceCode" id="cb584"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb584-1" title="1">mydf2 <span class="op">&gt;&gt;</span> select(<span class="st">&#39;newcol1&#39;</span>,<span class="st">&#39;newcol2&#39;</span>,drop<span class="op">=</span><span class="va">True</span>)</a></code></pre></div>
+<pre><code>##     comp dept grp     value1     value2
+## 0     C2   D3  G1  56.376960  20.191714
+## 1     C2   D3  G1  48.613865  17.276899
+## 2     C1   D3  G1  52.573480  19.778167
+## 3     C2   D2  G1  43.329241  15.594772
+## 4     C1   D3  G1  54.465794  17.829961
+## 5     C3   D1  G2  48.342256  18.635805
+## 6     C1   D4  G2  42.431745  21.623076
+## 7     C2   D2  G2  47.011476  20.632616
+## 8     C1   D4  G1  46.794588  24.599861
+## 9     C2   D3  G1  43.714687  21.372508
+## 10    C1   D1  G1  66.169320  21.811055
+## 11    C2   D5  G2  56.724550  18.933822
+## 12    C1   D2  G2  39.795236  20.264894
+## 13    C1   D1  G1  48.970839  21.653155
+## 14    C1   D2  G2  49.866881  19.304739
+## 15    C1   D1  G1  53.753980  24.768700
+## 16    C1   D4  G1  43.317201  14.744928
+## 17    C1   D5  G2  43.329303  22.455532
+## 18    C1   D2  G2  52.331681  18.127690
+## 19    C1   D1  G2  49.824730  26.188181
+## 20    C3   D1  G1  50.051767  16.025397
+## 21    C3   D5  G1  50.875362  22.556914
+## 22    C1   D5  G2  49.366648  19.949318
+## 23    C3   D1  G1  56.799509  20.442391
+## 24    C3   D1  G1  57.213599  19.854413
+## 25    C1   D4  G1  53.002787  19.740763
+## 26    C3   D3  G1  43.419025  19.383658
+## 27    C2   D3  G1  58.530506  23.360418
+## 28    C3   D1  G2  49.042171  17.084615
+## 29    C3   D1  G2  43.861745  21.413169
+## ..   ...  ...  ..        ...        ...
+## 170   C1   D2  G2  40.696378  22.412892
+## 171   C1   D5  G1  52.557042  18.101228
+## 172   C3   D2  G1  47.745664  18.556751
+## 173   C1   D1  G2  47.953935  19.948805
+## 174   C1   D3  G2  42.944483  19.247189
+## 175   C1   D2  G1  56.847750  19.346353
+## 176   C3   D4  G1  35.919532  22.617063
+## 177   C3   D4  G2  45.543873  19.838737
+## 178   C3   D4  G1  48.029045  22.718576
+## 179   C3   D5  G2  41.616064  18.427322
+## 180   C1   D4  G2  49.355320  17.912869
+## 181   C3   D4  G2  52.768737  21.637201
+## 182   C1   D5  G2  46.259058  23.736377
+## 183   C2   D2  G2  58.971843  21.598045
+## 184   C3   D4  G2  48.397158  15.692974
+## 185   C2   D2  G1  45.616300  20.251323
+## 186   C3   D5  G1  50.256226  24.645544
+## 187   C3   D2  G2  48.216882  21.177510
+## 188   C1   D5  G1  45.156180  18.944898
+## 189   C3   D2  G2  53.126991  20.340931
+## 190   C3   D3  G2  57.972262  14.019590
+## 191   C2   D2  G1  53.178784  15.792712
+## 192   C3   D3  G1  41.783278  17.309701
+## 193   C3   D3  G2  55.154837  21.576280
+## 194   C1   D1  G2  41.173115  22.540202
+## 195   C1   D4  G1  45.464887  24.847457
+## 196   C2   D4  G2  50.704322  25.444639
+## 197   C3   D5  G1  50.967429  17.677304
+## 198   C3   D2  G2  48.211626  20.639662
+## 199   C3   D2  G1  42.565579  15.713437
+## 
+## [200 rows x 5 columns]</code></pre>
+<div class="sourceCode" id="cb586"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb586-1" title="1">mydf <span class="op">&gt;&gt;</span> rename( {<span class="st">&#39;val.1&#39;</span> : <span class="st">&#39;value1&#39;</span>,</a>
+<a class="sourceLine" id="cb586-2" title="2">                 <span class="st">&#39;val.2&#39;</span> : <span class="st">&#39;value2&#39;</span> })</a></code></pre></div>
+<pre><code>##     comp dept grp      val.1      val.2
+## 0     C2   D3  G1  56.376960  20.191714
+## 1     C2   D3  G1  48.613865  17.276899
+## 2     C1   D3  G1  52.573480  19.778167
+## 3     C2   D2  G1  43.329241  15.594772
+## 4     C1   D3  G1  54.465794  17.829961
+## 5     C3   D1  G2  48.342256  18.635805
+## 6     C1   D4  G2  42.431745  21.623076
+## 7     C2   D2  G2  47.011476  20.632616
+## 8     C1   D4  G1  46.794588  24.599861
+## 9     C2   D3  G1  43.714687  21.372508
+## 10    C1   D1  G1  66.169320  21.811055
+## 11    C2   D5  G2  56.724550  18.933822
+## 12    C1   D2  G2  39.795236  20.264894
+## 13    C1   D1  G1  48.970839  21.653155
+## 14    C1   D2  G2  49.866881  19.304739
+## 15    C1   D1  G1  53.753980  24.768700
+## 16    C1   D4  G1  43.317201  14.744928
+## 17    C1   D5  G2  43.329303  22.455532
+## 18    C1   D2  G2  52.331681  18.127690
+## 19    C1   D1  G2  49.824730  26.188181
+## 20    C3   D1  G1  50.051767  16.025397
+## 21    C3   D5  G1  50.875362  22.556914
+## 22    C1   D5  G2  49.366648  19.949318
+## 23    C3   D1  G1  56.799509  20.442391
+## 24    C3   D1  G1  57.213599  19.854413
+## 25    C1   D4  G1  53.002787  19.740763
+## 26    C3   D3  G1  43.419025  19.383658
+## 27    C2   D3  G1  58.530506  23.360418
+## 28    C3   D1  G2  49.042171  17.084615
+## 29    C3   D1  G2  43.861745  21.413169
+## ..   ...  ...  ..        ...        ...
+## 170   C1   D2  G2  40.696378  22.412892
+## 171   C1   D5  G1  52.557042  18.101228
+## 172   C3   D2  G1  47.745664  18.556751
+## 173   C1   D1  G2  47.953935  19.948805
+## 174   C1   D3  G2  42.944483  19.247189
+## 175   C1   D2  G1  56.847750  19.346353
+## 176   C3   D4  G1  35.919532  22.617063
+## 177   C3   D4  G2  45.543873  19.838737
+## 178   C3   D4  G1  48.029045  22.718576
+## 179   C3   D5  G2  41.616064  18.427322
+## 180   C1   D4  G2  49.355320  17.912869
+## 181   C3   D4  G2  52.768737  21.637201
+## 182   C1   D5  G2  46.259058  23.736377
+## 183   C2   D2  G2  58.971843  21.598045
+## 184   C3   D4  G2  48.397158  15.692974
+## 185   C2   D2  G1  45.616300  20.251323
+## 186   C3   D5  G1  50.256226  24.645544
+## 187   C3   D2  G2  48.216882  21.177510
+## 188   C1   D5  G1  45.156180  18.944898
+## 189   C3   D2  G2  53.126991  20.340931
+## 190   C3   D3  G2  57.972262  14.019590
+## 191   C2   D2  G1  53.178784  15.792712
+## 192   C3   D3  G1  41.783278  17.309701
+## 193   C3   D3  G2  55.154837  21.576280
+## 194   C1   D1  G2  41.173115  22.540202
+## 195   C1   D4  G1  45.464887  24.847457
+## 196   C2   D4  G2  50.704322  25.444639
+## 197   C3   D5  G1  50.967429  17.677304
+## 198   C3   D2  G2  48.211626  20.639662
+## 199   C3   D2  G1  42.565579  15.713437
+## 
+## [200 rows x 5 columns]</code></pre>
+<p><strong>Combined Method</strong><br />
+Combine both assignment and dictionary method</p>
+<div class="sourceCode" id="cb588"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb588-1" title="1">mydf <span class="op">&gt;&gt;</span> rename( {<span class="st">&#39;val.1&#39;</span> : <span class="st">&#39;value1&#39;</span>,</a>
+<a class="sourceLine" id="cb588-2" title="2">                 <span class="st">&#39;val.2&#39;</span> : <span class="st">&#39;value2&#39;</span></a>
+<a class="sourceLine" id="cb588-3" title="3">              }, group <span class="op">=</span> <span class="st">&#39;grp&#39;</span> )</a></code></pre></div>
+<pre><code>##     comp dept group      val.1      val.2
+## 0     C2   D3    G1  56.376960  20.191714
+## 1     C2   D3    G1  48.613865  17.276899
+## 2     C1   D3    G1  52.573480  19.778167
+## 3     C2   D2    G1  43.329241  15.594772
+## 4     C1   D3    G1  54.465794  17.829961
+## 5     C3   D1    G2  48.342256  18.635805
+## 6     C1   D4    G2  42.431745  21.623076
+## 7     C2   D2    G2  47.011476  20.632616
+## 8     C1   D4    G1  46.794588  24.599861
+## 9     C2   D3    G1  43.714687  21.372508
+## 10    C1   D1    G1  66.169320  21.811055
+## 11    C2   D5    G2  56.724550  18.933822
+## 12    C1   D2    G2  39.795236  20.264894
+## 13    C1   D1    G1  48.970839  21.653155
+## 14    C1   D2    G2  49.866881  19.304739
+## 15    C1   D1    G1  53.753980  24.768700
+## 16    C1   D4    G1  43.317201  14.744928
+## 17    C1   D5    G2  43.329303  22.455532
+## 18    C1   D2    G2  52.331681  18.127690
+## 19    C1   D1    G2  49.824730  26.188181
+## 20    C3   D1    G1  50.051767  16.025397
+## 21    C3   D5    G1  50.875362  22.556914
+## 22    C1   D5    G2  49.366648  19.949318
+## 23    C3   D1    G1  56.799509  20.442391
+## 24    C3   D1    G1  57.213599  19.854413
+## 25    C1   D4    G1  53.002787  19.740763
+## 26    C3   D3    G1  43.419025  19.383658
+## 27    C2   D3    G1  58.530506  23.360418
+## 28    C3   D1    G2  49.042171  17.084615
+## 29    C3   D1    G2  43.861745  21.413169
+## ..   ...  ...   ...        ...        ...
+## 170   C1   D2    G2  40.696378  22.412892
+## 171   C1   D5    G1  52.557042  18.101228
+## 172   C3   D2    G1  47.745664  18.556751
+## 173   C1   D1    G2  47.953935  19.948805
+## 174   C1   D3    G2  42.944483  19.247189
+## 175   C1   D2    G1  56.847750  19.346353
+## 176   C3   D4    G1  35.919532  22.617063
+## 177   C3   D4    G2  45.543873  19.838737
+## 178   C3   D4    G1  48.029045  22.718576
+## 179   C3   D5    G2  41.616064  18.427322
+## 180   C1   D4    G2  49.355320  17.912869
+## 181   C3   D4    G2  52.768737  21.637201
+## 182   C1   D5    G2  46.259058  23.736377
+## 183   C2   D2    G2  58.971843  21.598045
+## 184   C3   D4    G2  48.397158  15.692974
+## 185   C2   D2    G1  45.616300  20.251323
+## 186   C3   D5    G1  50.256226  24.645544
+## 187   C3   D2    G2  48.216882  21.177510
+## 188   C1   D5    G1  45.156180  18.944898
+## 189   C3   D2    G2  53.126991  20.340931
+## 190   C3   D3    G2  57.972262  14.019590
+## 191   C2   D2    G1  53.178784  15.792712
+## 192   C3   D3    G1  41.783278  17.309701
+## 193   C3   D3    G2  55.154837  21.576280
+## 194   C1   D1    G2  41.173115  22.540202
+## 195   C1   D4    G1  45.464887  24.847457
+## 196   C2   D4    G2  50.704322  25.444639
+## 197   C3   D5    G1  50.967429  17.677304
+## 198   C3   D2    G2  48.211626  20.639662
+## 199   C3   D2    G1  42.565579  15.713437
+## 
+## [200 rows x 5 columns]</code></pre>
+</div>
+</div>
+<div id="sorting-arrange" class="section level2">
+<h2><span class="header-section-number">11.3</span> Sorting (arrange)</h2>
+<p>Use <strong>‘-colName’</strong> for decending</p>
+<div class="sourceCode" id="cb590"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb590-1" title="1">mydf <span class="op">&gt;&gt;</span> arrange(<span class="st">&#39;comp&#39;</span>, <span class="st">&#39;-value1&#39;</span>)</a></code></pre></div>
+<pre><code>##     comp dept grp     value1     value2
+## 10    C1   D1  G1  66.169320  21.811055
+## 62    C1   D5  G2  58.992855  18.884348
+## 49    C1   D2  G2  58.919878  23.755321
+## 103   C1   D3  G1  58.847088  19.636095
+## 175   C1   D2  G1  56.847750  19.346353
+## 70    C1   D2  G2  55.146511  23.134230
+## 4     C1   D3  G1  54.465794  17.829961
+## 113   C1   D2  G1  53.968232  15.267008
+## 15    C1   D1  G1  53.753980  24.768700
+## 25    C1   D4  G1  53.002787  19.740763
+## 118   C1   D2  G1  52.892438  18.832906
+## 120   C1   D1  G2  52.617302  22.553781
+## 2     C1   D3  G1  52.573480  19.778167
+## 171   C1   D5  G1  52.557042  18.101228
+## 141   C1   D1  G2  52.432558  23.848907
+## 18    C1   D2  G2  52.331681  18.127690
+## 83    C1   D3  G1  51.361857  12.765681
+## 124   C1   D5  G1  51.243524  17.909722
+## 138   C1   D1  G1  51.078210  26.095160
+## 155   C1   D3  G1  51.071506  24.844542
+## 166   C1   D1  G2  51.053592  20.518043
+## 32    C1   D4  G2  51.027892  25.951576
+## 92    C1   D4  G1  50.821310  18.175309
+## 94    C1   D5  G2  50.696692  18.393252
+## 116   C1   D4  G1  50.335182  17.094317
+## 14    C1   D2  G2  49.866881  19.304739
+## 50    C1   D5  G2  49.827072  21.298229
+## 19    C1   D1  G2  49.824730  26.188181
+## 22    C1   D5  G2  49.366648  19.949318
+## 180   C1   D4  G2  49.355320  17.912869
+## ..   ...  ...  ..        ...        ...
+## 112   C3   D4  G2  47.756523  20.820437
+## 172   C3   D2  G1  47.745664  18.556751
+## 117   C3   D5  G2  47.054698  20.650144
+## 39    C3   D3  G1  46.779739  18.408815
+## 156   C3   D3  G2  46.214187  22.515841
+## 78    C3   D3  G1  46.158605  18.071442
+## 85    C3   D4  G2  45.933472  18.845412
+## 63    C3   D5  G2  45.928381  18.523440
+## 160   C3   D4  G2  45.767292  17.277811
+## 131   C3   D3  G2  45.753983  19.203798
+## 177   C3   D4  G2  45.543873  19.838737
+## 80    C3   D2  G2  45.448224  22.820098
+## 109   C3   D5  G2  45.086193  22.772458
+## 57    C3   D5  G1  44.864995  20.522182
+## 150   C3   D2  G1  44.246291  16.403029
+## 165   C3   D3  G2  44.194951  18.429942
+## 29    C3   D1  G2  43.861745  21.413169
+## 115   C3   D5  G2  43.760136  12.802460
+## 126   C3   D5  G1  43.622279  19.065082
+## 68    C3   D4  G2  43.600491  17.595545
+## 101   C3   D1  G2  43.564299  20.684074
+## 26    C3   D3  G1  43.419025  19.383658
+## 161   C3   D4  G2  43.392748  22.110507
+## 105   C3   D5  G1  43.053133  21.872741
+## 199   C3   D2  G1  42.565579  15.713437
+## 192   C3   D3  G1  41.783278  17.309701
+## 179   C3   D5  G2  41.616064  18.427322
+## 136   C3   D2  G2  40.450880  18.472978
+## 148   C3   D4  G2  40.377031  23.250939
+## 176   C3   D4  G1  35.919532  22.617063
+## 
+## [200 rows x 5 columns]</code></pre>
+</div>
+<div id="grouping" class="section level2">
+<h2><span class="header-section-number">11.4</span> Grouping</h2>
+<div class="sourceCode" id="cb592"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb592-1" title="1">mydf.info()</a></code></pre></div>
+<pre><code>## &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+## RangeIndex: 200 entries, 0 to 199
+## Data columns (total 5 columns):
+## comp      200 non-null object
+## dept      200 non-null object
+## grp       200 non-null object
+## value1    200 non-null float64
+## value2    200 non-null float64
+## dtypes: float64(2), object(3)
+## memory usage: 7.9+ KB</code></pre>
+<div class="sourceCode" id="cb594"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb594-1" title="1">gdf <span class="op">=</span> mydf <span class="op">&gt;&gt;</span> group_by(<span class="st">&#39;comp&#39;</span>,<span class="st">&#39;dept&#39;</span>)</a>
+<a class="sourceLine" id="cb594-2" title="2"><span class="bu">type</span>(gdf)</a></code></pre></div>
+<pre><code>## &lt;class &#39;plydata.types.GroupedDataFrame&#39;&gt;</code></pre>
+</div>
+<div id="summarization" class="section level2">
+<h2><span class="header-section-number">11.5</span> Summarization</h2>
+<div id="simple-method" class="section level3">
+<h3><span class="header-section-number">11.5.1</span> Simple Method</h3>
+<p><strong>Passing Multiple Expressions</strong></p>
+<div class="sourceCode" id="cb596"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb596-1" title="1">gdf <span class="op">&gt;&gt;</span> summarize(<span class="st">&#39;n()&#39;</span>,<span class="st">&#39;sum(value1)&#39;</span>,<span class="st">&#39;mean(value2)&#39;</span>)</a></code></pre></div>
+<pre><code>##    comp dept  n()  sum(value1)  mean(value2)
+## 0    C2   D3   15   758.415421     20.510712
+## 1    C1   D3   10   484.011540     18.779567
+## 2    C2   D2   17   840.130039     19.846801
+## 3    C3   D1   15   771.425022     19.055051
+## 4    C1   D4   15   716.914538     20.328215
+## 5    C1   D1   15   754.370521     21.500441
+## 6    C2   D5    7   358.990263     18.724469
+## 7    C1   D2   14   695.256171     20.707586
+## 8    C1   D5   11   539.681801     20.275717
+## 9    C3   D5   16   775.215593     20.115403
+## 10   C3   D3   15   733.783412     18.759766
+## 11   C2   D1   14   716.304000     19.436681
+## 12   C3   D4   15   698.895054     19.457261
+## 13   C2   D4   11   537.595204     20.466561
+## 14   C3   D2   10   476.028622     18.983427</code></pre>
+</div>
+<div id="specify-summarized-column-name" class="section level3">
+<h3><span class="header-section-number">11.5.2</span> Specify Summarized Column Name</h3>
+<p><strong>Assignment Method</strong><br />
+- Passing colName=‘expression’**<br />
+- Column name cannot contain special character</p>
+<div class="sourceCode" id="cb598"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb598-1" title="1">gdf <span class="op">&gt;&gt;</span> summarize(count<span class="op">=</span><span class="st">&#39;n()&#39;</span>,v1sum<span class="op">=</span><span class="st">&#39;sum(value1)&#39;</span>,v2_mean<span class="op">=</span><span class="st">&#39;mean(value2)&#39;</span>)</a></code></pre></div>
+<pre><code>##    comp dept  count       v1sum    v2_mean
+## 0    C2   D3     15  758.415421  20.510712
+## 1    C1   D3     10  484.011540  18.779567
+## 2    C2   D2     17  840.130039  19.846801
+## 3    C3   D1     15  771.425022  19.055051
+## 4    C1   D4     15  716.914538  20.328215
+## 5    C1   D1     15  754.370521  21.500441
+## 6    C2   D5      7  358.990263  18.724469
+## 7    C1   D2     14  695.256171  20.707586
+## 8    C1   D5     11  539.681801  20.275717
+## 9    C3   D5     16  775.215593  20.115403
+## 10   C3   D3     15  733.783412  18.759766
+## 11   C2   D1     14  716.304000  19.436681
+## 12   C3   D4     15  698.895054  19.457261
+## 13   C2   D4     11  537.595204  20.466561
+## 14   C3   D2     10  476.028622  18.983427</code></pre>
+<p><strong>Tuple Method (‘colName’,‘expression’)</strong><br />
+Use when the column name contain special character</p>
+<div class="sourceCode" id="cb600"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb600-1" title="1">gdf <span class="op">&gt;&gt;</span> summarize((<span class="st">&#39;count&#39;</span>,<span class="st">&#39;n()&#39;</span>),(<span class="st">&#39;v1.sum&#39;</span>,<span class="st">&#39;sum(value1)&#39;</span>),(<span class="st">&#39;s2.sum&#39;</span>,<span class="st">&#39;sum(value2)&#39;</span>),v2mean<span class="op">=</span>np.mean(value2))</a></code></pre></div>
+<pre><code>##    comp dept  count      v1.sum      s2.sum     v2mean
+## 0    C2   D3     15  758.415421  307.660674  19.861499
+## 1    C1   D3     10  484.011540  187.795671  19.861499
+## 2    C2   D2     17  840.130039  337.395617  19.861499
+## 3    C3   D1     15  771.425022  285.825763  19.861499
+## 4    C1   D4     15  716.914538  304.923222  19.861499
+## 5    C1   D1     15  754.370521  322.506615  19.861499
+## 6    C2   D5      7  358.990263  131.071280  19.861499
+## 7    C1   D2     14  695.256171  289.906200  19.861499
+## 8    C1   D5     11  539.681801  223.032886  19.861499
+## 9    C3   D5     16  775.215593  321.846440  19.861499
+## 10   C3   D3     15  733.783412  281.396484  19.861499
+## 11   C2   D1     14  716.304000  272.113539  19.861499
+## 12   C3   D4     15  698.895054  291.858913  19.861499
+## 13   C2   D4     11  537.595204  225.132171  19.861499
+## 14   C3   D2     10  476.028622  189.834272  19.861499</code></pre>
+</div>
+<div id="number-of-rows-in-group" class="section level3">
+<h3><span class="header-section-number">11.5.3</span> Number of Rows in Group</h3>
+<ul>
+<li>n() : total rows in group<br />
+</li>
+<li>n_unique() : total of rows with unique value</li>
+</ul>
+<div class="sourceCode" id="cb602"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb602-1" title="1">gdf <span class="op">&gt;&gt;</span> summarize(count<span class="op">=</span><span class="st">&#39;n()&#39;</span>, va11_unique<span class="op">=</span><span class="st">&#39;n_unique(value1)&#39;</span>)</a></code></pre></div>
+<pre><code>##    comp dept  count  va11_unique
+## 0    C2   D3     15           15
+## 1    C1   D3     10           10
+## 2    C2   D2     17           17
+## 3    C3   D1     15           15
+## 4    C1   D4     15           15
+## 5    C1   D1     15           15
+## 6    C2   D5      7            7
+## 7    C1   D2     14           14
+## 8    C1   D5     11           11
+## 9    C3   D5     16           16
+## 10   C3   D3     15           15
+## 11   C2   D1     14           14
+## 12   C3   D4     15           15
+## 13   C2   D4     11           11
+## 14   C3   D2     10           10</code></pre>
+
+<!-- jupyter_markdown -->
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="getting-external-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="numpy-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"],
+"google": false,
+"instapper": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/yongks/biz_tech_analytics_r/edit/master/01-fundamental.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": "position: fixed ",
+"searh": true
+});
+});
+</script>
+
+</body>
+
+</html>
