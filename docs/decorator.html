@@ -625,7 +625,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb440-12" title="12"><span class="kw">def</span> bar():</a>
 <a class="sourceLine" id="cb440-13" title="13">    <span class="cf">return</span> <span class="dv">5</span></a></code></pre></div>
 <div class="sourceCode" id="cb441"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb441-1" title="1">registry</a></code></pre></div>
-<pre><code>## [&lt;function foo at 0x00000000180B6048&gt;, &lt;function bar at 0x00000000180ADAE8&gt;]</code></pre>
+<pre><code>## [&lt;function foo at 0x00000000287C6048&gt;, &lt;function bar at 0x00000000187AEAE8&gt;]</code></pre>
 <div class="sourceCode" id="cb443"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb443-1" title="1">registry[<span class="dv">0</span>]()</a></code></pre></div>
 <pre><code>## 3</code></pre>
 <div class="sourceCode" id="cb445"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb445-1" title="1">registry[<span class="dv">1</span>]()</a></code></pre></div>
@@ -666,9 +666,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb448-15" title="15">    <span class="cf">return</span> x</a></code></pre></div>
 <p>Observe the result</p>
 <div class="sourceCode" id="cb449"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb449-1" title="1"><span class="bu">print</span> (a._functions)</a></code></pre></div>
-<pre><code>## [&lt;function foo at 0x00000000180B6D08&gt;, &lt;function bax at 0x00000000180B6E18&gt;]</code></pre>
+<pre><code>## [&lt;function foo at 0x00000000287C6D08&gt;, &lt;function bax at 0x00000000287C6E18&gt;]</code></pre>
 <div class="sourceCode" id="cb451"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb451-1" title="1"><span class="bu">print</span> (b._functions)</a></code></pre></div>
-<pre><code>## [&lt;function bar at 0x00000000180B6D90&gt;, &lt;function bax at 0x00000000180B6E18&gt;]</code></pre>
+<pre><code>## [&lt;function bar at 0x00000000287C6D90&gt;, &lt;function bax at 0x00000000287C6E18&gt;]</code></pre>
 <div class="sourceCode" id="cb453"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb453-1" title="1"><span class="bu">print</span> (a.run_all())</a></code></pre></div>
 <pre><code>## [3, 7]</code></pre>
 <div class="sourceCode" id="cb455"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb455-1" title="1"><span class="bu">print</span> (b.run_all())</a></code></pre></div>
