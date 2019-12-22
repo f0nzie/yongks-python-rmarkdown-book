@@ -231,11 +231,15 @@ vadersa = SentimentIntensityAnalyzer()
 print( len(vadersa.lexicon))
 ```
 
+The lexicon is a dictionary. Converting dictionary to list require few steps:  
+- Convert dict to dict_items, which is a list containing items, each item is one dict). 
+- Convert to dict_items to list
+
 ```{python}
-vadersa.lexicon  ## this is a dictionary
+list(vadersa.lexicon.items())[:20]  ## convert dict to list of dict
 ```
 
-**Only three N-Gram in the lexicon**
+**There is only three N-Gram in the lexicon**
 
 ```{python}
 [ (tok,score) for tok, score in vadersa.lexicon.items() if " " in tok]

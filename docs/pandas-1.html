@@ -24,7 +24,7 @@
 <meta name="author" content="Yong Keh Soon" />
 
 
-<meta name="date" content="2019-12-22" />
+<meta name="date" content="2019-12-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -2711,18 +2711,18 @@ You can <strong>customize the percentiles requred</strong>. Notice 0.5 percentil
 ## max    2018.000000  40000.000000  2011.000000</code></pre>
 <p><strong>For both Numeric and Object</strong></p>
 <div class="sourceCode" id="cb1418"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1418-1" title="1">df.describe(include<span class="op">=</span><span class="st">&#39;all&#39;</span>)</a></code></pre></div>
-<pre><code>##          year1   salary   year2     name
-## count      5.0      5.0     5.0        5
-## unique     NaN      NaN     NaN        5
-## top        NaN      NaN     NaN  Charles
-## freq       NaN      NaN     NaN        1
-## mean    2017.4  29000.0  1984.0      NaN
-## ...        ...      ...     ...      ...
-## min     2017.0  20000.0  1907.0      NaN
-## 25%     2017.0  24000.0  1998.0      NaN
-## 50%     2017.0  30000.0  2001.0      NaN
-## 75%     2018.0  31000.0  2003.0      NaN
-## max     2018.0  40000.0  2011.0      NaN
+<pre><code>##          year1   salary   year2 name
+## count      5.0      5.0     5.0    5
+## unique     NaN      NaN     NaN    5
+## top        NaN      NaN     NaN  Bob
+## freq       NaN      NaN     NaN    1
+## mean    2017.4  29000.0  1984.0  NaN
+## ...        ...      ...     ...  ...
+## min     2017.0  20000.0  1907.0  NaN
+## 25%     2017.0  24000.0  1998.0  NaN
+## 50%     2017.0  30000.0  2001.0  NaN
+## 75%     2018.0  31000.0  2003.0  NaN
+## max     2018.0  40000.0  2011.0  NaN
 ## 
 ## [11 rows x 4 columns]</code></pre>
 </div>
@@ -3235,7 +3235,7 @@ To customize the data type, use <strong><code>dtype</code></strong> parameter wi
 <h3><span class="header-section-number">13.11.1</span> Creating Groups</h3>
 <div class="sourceCode" id="cb1525"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1525-1" title="1">com_grp <span class="op">=</span> company.groupby([<span class="st">&#39;Company&#39;</span>,<span class="st">&#39;Department&#39;</span>])</a>
 <a class="sourceLine" id="cb1525-2" title="2">com_grp</a></code></pre></div>
-<pre><code>## &lt;pandas.core.groupby.groupby.DataFrameGroupBy object at 0x00000000289F5BE0&gt;</code></pre>
+<pre><code>## &lt;pandas.core.groupby.groupby.DataFrameGroupBy object at 0x00000000291528D0&gt;</code></pre>
 </div>
 <div id="properties-1" class="section level3">
 <h3><span class="header-section-number">13.11.2</span> Properties</h3>
@@ -3372,7 +3372,7 @@ To customize the data type, use <strong><code>dtype</code></strong> parameter wi
 ## 13      C3         D3  Chang   32    7900  7/26/1973
 ## 16      C3         D3  Sally   54   21000  7/19/1968</code></pre>
 <div class="sourceCode" id="cb1543"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1543-1" title="1">com_grp</a></code></pre></div>
-<pre><code>## &lt;pandas.core.groupby.groupby.DataFrameGroupBy object at 0x00000000289F5BE0&gt;</code></pre>
+<pre><code>## &lt;pandas.core.groupby.groupby.DataFrameGroupBy object at 0x00000000291528D0&gt;</code></pre>
 </div>
 <div id="apply-aggregate-functions-to-groups" class="section level3">
 <h3><span class="header-section-number">13.11.6</span> Apply Aggregate Functions to Groups</h3>

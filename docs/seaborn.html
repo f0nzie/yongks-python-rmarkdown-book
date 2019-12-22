@@ -24,7 +24,7 @@
 <meta name="author" content="Yong Keh Soon" />
 
 
-<meta name="date" content="2019-12-22" />
+<meta name="date" content="2019-12-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -633,11 +633,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="x-numeric" class="section level3">
 <h3><span class="header-section-number">15.3.1</span> 2x Numeric</h3>
 <div class="sourceCode" id="cb1739"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1739-1" title="1">sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, data<span class="op">=</span>mydf)</a></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000006AB9668&gt;</code></pre>
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000006CF34A8&gt;</code></pre>
 <div class="sourceCode" id="cb1741"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1741-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-652-1.png" /><!-- --></p>
 <div class="sourceCode" id="cb1742"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1742-1" title="1">sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)<span class="op">;</span>  <span class="co">#hide regresion line</span></a></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000006CDCB38&gt;</code></pre>
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x000000002BD2E470&gt;</code></pre>
 <div class="sourceCode" id="cb1744"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1744-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-653-1.png" /><!-- --></p>
 </div>
@@ -645,7 +645,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">15.3.2</span> 2xNumeric + 1x Categorical</h3>
 <p>Use <strong>hue</strong> to represent additional categorical feature</p>
 <div class="sourceCode" id="cb1745"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1745-1" title="1">sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, data<span class="op">=</span>mydf, hue<span class="op">=</span><span class="st">&#39;comp&#39;</span>, fit_reg<span class="op">=</span><span class="va">False</span>)<span class="op">;</span></a></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000006BA6780&gt;</code></pre>
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x000000002B998978&gt;</code></pre>
 <div class="sourceCode" id="cb1747"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1747-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-654-1.png" /><!-- --></p>
 </div>
@@ -653,7 +653,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">15.3.3</span> 2xNumeric + 2x Categorical</h3>
 <p>Use <strong>col</strong> and <strong>hue</strong> to represent two categorical features</p>
 <div class="sourceCode" id="cb1748"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1748-1" title="1">sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, col<span class="op">=</span><span class="st">&#39;comp&#39;</span>,hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>, fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)<span class="op">;</span></a></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000006B896D8&gt;</code></pre>
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x000000002B9D95F8&gt;</code></pre>
 <div class="sourceCode" id="cb1750"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1750-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-655-1.png" /><!-- --></p>
 </div>
@@ -661,7 +661,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">15.3.4</span> 2xNumeric + 3x Categorical</h3>
 <p>Use <strong>row, col</strong> and <strong>hue</strong> to represent three categorical features</p>
 <div class="sourceCode" id="cb1751"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1751-1" title="1">sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, row<span class="op">=</span><span class="st">&#39;dept&#39;</span>,col<span class="op">=</span><span class="st">&#39;comp&#39;</span>, hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>, fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)<span class="op">;</span></a></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x000000002BCCC4E0&gt;</code></pre>
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x00000000066FD278&gt;</code></pre>
 <div class="sourceCode" id="cb1753"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1753-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-656-1.png" /><!-- --></p>
 </div>
@@ -671,7 +671,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">15.3.5.1</span> size</h4>
 <p>size: <strong>height</strong> in inch for each facet</p>
 <div class="sourceCode" id="cb1754"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1754-1" title="1">sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, col<span class="op">=</span><span class="st">&#39;comp&#39;</span>,hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>, size<span class="op">=</span><span class="dv">3</span>,fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)</a></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x000000002BCBF358&gt;
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000006AC8C50&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\seaborn\regression.py:546: UserWarning: The `size` paramter has been renamed to `height`; please update your code.
 ##   warnings.warn(msg, UserWarning)
@@ -681,7 +681,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="_main_files/figure-html/unnamed-chunk-657-1.png" /><!-- --></p>
 <p>Observe that even <strong>size is very large</strong>, lmplot will <strong>fit (shrink) everything into one row</strong> by deafult. See example below.</p>
 <div class="sourceCode" id="cb1757"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1757-1" title="1">sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, col<span class="op">=</span><span class="st">&#39;comp&#39;</span>,hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>, size<span class="op">=</span><span class="dv">5</span>,fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)</a></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000006A7E9B0&gt;</code></pre>
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x000000002BA47898&gt;</code></pre>
 <div class="sourceCode" id="cb1759"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1759-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-658-1.png" /><!-- --></p>
 </div>
@@ -690,7 +690,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>To avoid lmplot from shrinking the chart, we use <strong>col_wrap=&lt;col_number</strong> to wrap the output.<br />
 Compare the size (height of each facet) with the above <strong>without</strong> col_wrap. Below chart is larger.</p>
 <div class="sourceCode" id="cb1760"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1760-1" title="1">sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, col<span class="op">=</span><span class="st">&#39;comp&#39;</span>,hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>, size<span class="op">=</span><span class="dv">5</span>, col_wrap<span class="op">=</span><span class="dv">2</span>, fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)</a></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x00000000066D2278&gt;
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000006AC0A90&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\seaborn\axisgrid.py:320: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
 ##   fig = plt.figure(figsize=figsize)</code></pre>
@@ -711,11 +711,11 @@ Compare the size (height of each facet) with the above <strong>without</strong> 
 <div id="x-numeric-1" class="section level3">
 <h3><span class="header-section-number">15.4.1</span> 1x Numeric</h3>
 <div class="sourceCode" id="cb1764"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1764-1" title="1">sns.distplot(mydf.value1)</a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000000006A7E9B0&gt;</code></pre>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000000006DD9588&gt;</code></pre>
 <div class="sourceCode" id="cb1766"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1766-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-660-1.png" /><!-- --></p>
 <div class="sourceCode" id="cb1767"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1767-1" title="1">sns.distplot(mydf.value1,hist<span class="op">=</span><span class="va">True</span>,rug<span class="op">=</span><span class="va">True</span>,vertical<span class="op">=</span><span class="va">True</span>, bins<span class="op">=</span><span class="dv">30</span>,color<span class="op">=</span><span class="st">&#39;g&#39;</span>)</a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x00000000066D2278&gt;</code></pre>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002BC0CC18&gt;</code></pre>
 <div class="sourceCode" id="cb1769"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1769-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-661-1.png" /><!-- --></p>
 </div>
@@ -732,7 +732,7 @@ Compare the size (height of each facet) with the above <strong>without</strong> 
 <div id="x-categorical-1x-numeric" class="section level3">
 <h3><span class="header-section-number">15.5.1</span> 1x Categorical, 1x Numeric</h3>
 <div class="sourceCode" id="cb1772"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1772-1" title="1">sns.barplot(x<span class="op">=</span><span class="st">&#39;comp&#39;</span>,y<span class="op">=</span><span class="st">&#39;value1&#39;</span>,data<span class="op">=</span>grpdf)</a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002BBF94A8&gt;</code></pre>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000000006DFB9B0&gt;</code></pre>
 <div class="sourceCode" id="cb1774"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1774-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-663-1.png" /><!-- --></p>
 </div>
@@ -745,14 +745,14 @@ Compare the size (height of each facet) with the above <strong>without</strong> 
 <a class="sourceLine" id="cb1775-3" title="3">            hue_order<span class="op">=</span>[<span class="st">&#39;G1&#39;</span>,<span class="st">&#39;G2&#39;</span>,<span class="st">&#39;G3&#39;</span>],</a>
 <a class="sourceLine" id="cb1775-4" title="4">            data<span class="op">=</span>mydf</a>
 <a class="sourceLine" id="cb1775-5" title="5">)</a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002BC01128&gt;</code></pre>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002B9C94A8&gt;</code></pre>
 <div class="sourceCode" id="cb1777"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1777-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-664-1.png" /><!-- --></p>
 </div>
 <div id="flipping-xy-axis" class="section level4">
 <h4><span class="header-section-number">15.5.2.2</span> Flipping X/Y Axis</h4>
 <div class="sourceCode" id="cb1778"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1778-1" title="1">sns.barplot(x<span class="op">=</span><span class="st">&#39;value2&#39;</span>,y<span class="op">=</span><span class="st">&#39;comp&#39;</span>, hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>,data<span class="op">=</span>mydf)</a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002BC01208&gt;</code></pre>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000000006B9FBA8&gt;</code></pre>
 <div class="sourceCode" id="cb1780"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1780-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-665-1.png" /><!-- --></p>
 </div>
@@ -766,23 +766,45 @@ It support matplotlib as well as seaborn plotting utility.</p>
 <h3><span class="header-section-number">15.6.1</span> Faceting Histogram</h3>
 <div class="sourceCode" id="cb1781"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1781-1" title="1">g <span class="op">=</span> sns.FacetGrid(mydf, col<span class="op">=</span><span class="st">&quot;comp&quot;</span>, row<span class="op">=</span><span class="st">&#39;dept&#39;</span>)</a>
 <a class="sourceLine" id="cb1781-2" title="2">g.<span class="bu">map</span>(plt.hist, <span class="st">&quot;value1&quot;</span>)</a></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000006F6E6A0&gt;</code></pre>
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000006A34390&gt;</code></pre>
 <div class="sourceCode" id="cb1783"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1783-1" title="1">plt.show()</a></code></pre></div>
+<pre><code>## Traceback (most recent call last):
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\backends\backend_qt5.py&quot;, line 505, in _draw_idle
+##     self.draw()
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\backends\backend_agg.py&quot;, line 388, in draw
+##     self.figure.draw(self.renderer)
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\artist.py&quot;, line 38, in draw_wrapper
+##     return draw(artist, renderer, *args, **kwargs)
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\figure.py&quot;, line 1709, in draw
+##     renderer, self, artists, self.suppressComposite)
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\image.py&quot;, line 135, in _draw_list_compositing_images
+##     a.draw(renderer)
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\artist.py&quot;, line 38, in draw_wrapper
+##     return draw(artist, renderer, *args, **kwargs)
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\axes\_base.py&quot;, line 2607, in draw
+##     self._update_title_position(renderer)
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\axes\_base.py&quot;, line 2548, in _update_title_position
+##     ax.xaxis.get_ticks_position() in choices):
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\axis.py&quot;, line 2146, in get_ticks_position
+##     self._get_ticks_position()]
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\axis.py&quot;, line 1833, in _get_ticks_position
+##     minor = self.minorTicks[0]
+## IndexError: list index out of range</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-666-1.png" /><!-- --></p>
-<div class="sourceCode" id="cb1784"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1784-1" title="1">g <span class="op">=</span> sns.FacetGrid(mydf, col<span class="op">=</span><span class="st">&quot;comp&quot;</span>, row<span class="op">=</span><span class="st">&#39;dept&#39;</span>)</a>
-<a class="sourceLine" id="cb1784-2" title="2">g.<span class="bu">map</span>(plt.hist, <span class="st">&quot;value1&quot;</span>)</a></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000007592438&gt;</code></pre>
-<div class="sourceCode" id="cb1786"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1786-1" title="1">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb1785"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1785-1" title="1">g <span class="op">=</span> sns.FacetGrid(mydf, col<span class="op">=</span><span class="st">&quot;comp&quot;</span>, row<span class="op">=</span><span class="st">&#39;dept&#39;</span>)</a>
+<a class="sourceLine" id="cb1785-2" title="2">g.<span class="bu">map</span>(plt.hist, <span class="st">&quot;value1&quot;</span>)</a></code></pre></div>
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x000000000754CF60&gt;</code></pre>
+<div class="sourceCode" id="cb1787"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1787-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-667-1.png" /><!-- --></p>
 </div>
 <div id="faceting-scatter-plot" class="section level3">
 <h3><span class="header-section-number">15.6.2</span> Faceting Scatter Plot</h3>
-<div class="sourceCode" id="cb1787"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1787-1" title="1">g <span class="op">=</span> sns.FacetGrid(mydf, col<span class="op">=</span><span class="st">&quot;comp&quot;</span>, row<span class="op">=</span><span class="st">&#39;dept&#39;</span>,hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>)</a>
-<a class="sourceLine" id="cb1787-2" title="2">g.<span class="bu">map</span>(plt.scatter, <span class="st">&quot;value1&quot;</span>,<span class="st">&quot;value2&quot;</span>,alpha<span class="op">=</span><span class="fl">0.7</span>)<span class="op">;</span></a></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000007592518&gt;</code></pre>
-<div class="sourceCode" id="cb1789"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1789-1" title="1">g.add_legend()</a></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000007592518&gt;</code></pre>
-<div class="sourceCode" id="cb1791"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1791-1" title="1">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb1788"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1788-1" title="1">g <span class="op">=</span> sns.FacetGrid(mydf, col<span class="op">=</span><span class="st">&quot;comp&quot;</span>, row<span class="op">=</span><span class="st">&#39;dept&#39;</span>,hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>)</a>
+<a class="sourceLine" id="cb1788-2" title="2">g.<span class="bu">map</span>(plt.scatter, <span class="st">&quot;value1&quot;</span>,<span class="st">&quot;value2&quot;</span>,alpha<span class="op">=</span><span class="fl">0.7</span>)<span class="op">;</span></a></code></pre></div>
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x000000002BD3F748&gt;</code></pre>
+<div class="sourceCode" id="cb1790"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1790-1" title="1">g.add_legend()</a></code></pre></div>
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x000000002BD3F748&gt;</code></pre>
+<div class="sourceCode" id="cb1792"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1792-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-668-1.png" /><!-- --></p>
 </div>
 </div>
@@ -790,26 +812,26 @@ It support matplotlib as well as seaborn plotting utility.</p>
 <h2><span class="header-section-number">15.7</span> Pair Grid</h2>
 <div id="simple-pair-grid" class="section level3">
 <h3><span class="header-section-number">15.7.1</span> Simple Pair Grid</h3>
-<div class="sourceCode" id="cb1792"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1792-1" title="1">g <span class="op">=</span> sns.PairGrid(mydf, hue<span class="op">=</span><span class="st">&#39;comp&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1793"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1793-1" title="1">g <span class="op">=</span> sns.PairGrid(mydf, hue<span class="op">=</span><span class="st">&#39;comp&#39;</span>)</a></code></pre></div>
 <pre><code>## C:\ProgramData\Anaconda3\lib\site-packages\seaborn\axisgrid.py:1270: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
 ##   squeeze=False)</code></pre>
-<div class="sourceCode" id="cb1794"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1794-1" title="1">g.<span class="bu">map</span>(plt.scatter)<span class="op">;</span></a></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.PairGrid object at 0x000000002BB75320&gt;</code></pre>
-<div class="sourceCode" id="cb1796"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1796-1" title="1">g.add_legend()</a></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.PairGrid object at 0x000000002BB75320&gt;</code></pre>
-<div class="sourceCode" id="cb1798"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1798-1" title="1">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb1795"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1795-1" title="1">g.<span class="bu">map</span>(plt.scatter)<span class="op">;</span></a></code></pre></div>
+<pre><code>## &lt;seaborn.axisgrid.PairGrid object at 0x000000002BB20358&gt;</code></pre>
+<div class="sourceCode" id="cb1797"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1797-1" title="1">g.add_legend()</a></code></pre></div>
+<pre><code>## &lt;seaborn.axisgrid.PairGrid object at 0x000000002BB20358&gt;</code></pre>
+<div class="sourceCode" id="cb1799"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1799-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-669-1.png" /><!-- --></p>
 </div>
 <div id="different-diag-and-offdiag" class="section level3">
 <h3><span class="header-section-number">15.7.2</span> Different Diag and OffDiag</h3>
-<div class="sourceCode" id="cb1799"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1799-1" title="1">g <span class="op">=</span> sns.PairGrid(mydf, hue<span class="op">=</span><span class="st">&#39;comp&#39;</span>)</a>
-<a class="sourceLine" id="cb1799-2" title="2">g.map_diag(plt.hist, bins<span class="op">=</span><span class="dv">15</span>)</a></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.PairGrid object at 0x000000002BB13828&gt;</code></pre>
-<div class="sourceCode" id="cb1801"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1801-1" title="1">g.map_offdiag(plt.scatter)</a></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.PairGrid object at 0x000000002BB13828&gt;</code></pre>
-<div class="sourceCode" id="cb1803"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1803-1" title="1">g.add_legend()</a></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.PairGrid object at 0x000000002BB13828&gt;</code></pre>
-<div class="sourceCode" id="cb1805"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1805-1" title="1">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb1800"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1800-1" title="1">g <span class="op">=</span> sns.PairGrid(mydf, hue<span class="op">=</span><span class="st">&#39;comp&#39;</span>)</a>
+<a class="sourceLine" id="cb1800-2" title="2">g.map_diag(plt.hist, bins<span class="op">=</span><span class="dv">15</span>)</a></code></pre></div>
+<pre><code>## &lt;seaborn.axisgrid.PairGrid object at 0x000000002BB30358&gt;</code></pre>
+<div class="sourceCode" id="cb1802"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1802-1" title="1">g.map_offdiag(plt.scatter)</a></code></pre></div>
+<pre><code>## &lt;seaborn.axisgrid.PairGrid object at 0x000000002BB30358&gt;</code></pre>
+<div class="sourceCode" id="cb1804"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1804-1" title="1">g.add_legend()</a></code></pre></div>
+<pre><code>## &lt;seaborn.axisgrid.PairGrid object at 0x000000002BB30358&gt;</code></pre>
+<div class="sourceCode" id="cb1806"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1806-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-670-1.png" /><!-- --></p>
 </div>
 </div>

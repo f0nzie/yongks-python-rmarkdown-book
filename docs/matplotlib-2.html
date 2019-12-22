@@ -24,7 +24,7 @@
 <meta name="author" content="Yong Keh Soon" />
 
 
-<meta name="date" content="2019-12-22" />
+<meta name="date" content="2019-12-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -698,13 +698,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb1616"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1616-1" title="1">plt.figure()</a></code></pre></div>
 <pre><code>## &lt;Figure size 267.36x250 with 0 Axes&gt;</code></pre>
 <div class="sourceCode" id="cb1618"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1618-1" title="1">plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>) <span class="co"># 1 row, 2 cols, at first box</span></a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x00000000288E67F0&gt;</code></pre>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002912A748&gt;</code></pre>
 <div class="sourceCode" id="cb1620"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1620-1" title="1">plt.plot(x,y,<span class="st">&#39;r--&#39;</span>)</a></code></pre></div>
-<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x00000000288E6C50&gt;]</code></pre>
+<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002B8DBDA0&gt;]</code></pre>
 <div class="sourceCode" id="cb1622"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1622-1" title="1">plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>) <span class="co"># 1 row, 2 cols, at second box</span></a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x00000000288E6358&gt;</code></pre>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002B8DBBE0&gt;</code></pre>
 <div class="sourceCode" id="cb1624"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1624-1" title="1">plt.plot(y,x,<span class="st">&#39;g*-&#39;</span>)</a></code></pre></div>
-<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002A982908&gt;]</code></pre>
+<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002B923748&gt;]</code></pre>
 <div class="sourceCode" id="cb1626"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1626-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-629-1.png" /><!-- --></p>
 </div>
@@ -723,7 +723,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb1628"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1628-1" title="1">fig <span class="op">=</span> plt.figure()</a>
 <a class="sourceLine" id="cb1628-2" title="2">axes <span class="op">=</span> fig.add_axes([<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>]) <span class="co"># left, bottom, width, height (range 0 to 1)</span></a>
 <a class="sourceLine" id="cb1628-3" title="3">axes.plot(x, y, <span class="st">&#39;r&#39;</span>)</a></code></pre></div>
-<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002B9D4BE0&gt;]</code></pre>
+<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002B8DBCC0&gt;]</code></pre>
 <div class="sourceCode" id="cb1630"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1630-1" title="1">axes.set_xlabel(<span class="st">&#39;x&#39;</span>)</a></code></pre></div>
 <pre><code>## Text(0.5, 0, &#39;x&#39;)</code></pre>
 <div class="sourceCode" id="cb1632"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1632-1" title="1">axes.set_ylabel(<span class="st">&#39;y&#39;</span>)</a></code></pre></div>
@@ -743,13 +743,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb1637-3" title="3">ax2 <span class="op">=</span> fig.add_axes([<span class="fl">0.2</span>, <span class="fl">0.5</span>, <span class="fl">0.4</span>, <span class="fl">0.3</span>]) <span class="co"># inset axes</span></a>
 <a class="sourceLine" id="cb1637-4" title="4"></a>
 <a class="sourceLine" id="cb1637-5" title="5">ax1.plot(x,y,<span class="st">&#39;r&#39;</span>)</a></code></pre></div>
-<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002BA349E8&gt;]</code></pre>
+<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002BA06780&gt;]</code></pre>
 <div class="sourceCode" id="cb1639"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1639-1" title="1">ax1.set_xlabel(<span class="st">&#39;x&#39;</span>)</a></code></pre></div>
 <pre><code>## Text(0.5, 0, &#39;x&#39;)</code></pre>
 <div class="sourceCode" id="cb1641"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1641-1" title="1">ax1.set_ylabel(<span class="st">&#39;y&#39;</span>)</a></code></pre></div>
 <pre><code>## Text(0, 0.5, &#39;y&#39;)</code></pre>
 <div class="sourceCode" id="cb1643"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1643-1" title="1">ax2.plot(y, x, <span class="st">&#39;g&#39;</span>)</a></code></pre></div>
-<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002A976748&gt;]</code></pre>
+<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002B9C96D8&gt;]</code></pre>
 <div class="sourceCode" id="cb1645"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1645-1" title="1">ax2.set_xlabel(<span class="st">&#39;y&#39;</span>)</a></code></pre></div>
 <pre><code>## Text(0.5, 0, &#39;y&#39;)</code></pre>
 <div class="sourceCode" id="cb1647"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1647-1" title="1">ax2.set_ylabel(<span class="st">&#39;x&#39;</span>)</a></code></pre></div>
@@ -782,17 +782,17 @@ Single row grid means axes is an 1-D array. Hence can use <strong>for</strong> t
 <a class="sourceLine" id="cb1654-4" title="4">    ax.set_ylabel(<span class="st">&#39;y&#39;</span>)</a>
 <a class="sourceLine" id="cb1654-5" title="5">    ax.set_title(<span class="st">&#39;title&#39;</span>)</a>
 <a class="sourceLine" id="cb1654-6" title="6">    ax.text(<span class="fl">0.2</span>,<span class="fl">0.5</span>,<span class="st">&#39;One&#39;</span>)</a></code></pre></div>
-<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002BB1F0B8&gt;]
+<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002BAE5E10&gt;]
 ## Text(0.5, 0, &#39;x&#39;)
 ## Text(0, 0.5, &#39;y&#39;)
 ## Text(0.5, 1.0, &#39;title&#39;)
 ## Text(0.2, 0.5, &#39;One&#39;)
-## [&lt;matplotlib.lines.Line2D object at 0x000000002BB1F668&gt;]
+## [&lt;matplotlib.lines.Line2D object at 0x000000002BAF3438&gt;]
 ## Text(0.5, 0, &#39;x&#39;)
 ## Text(0, 0.5, &#39;y&#39;)
 ## Text(0.5, 1.0, &#39;title&#39;)
 ## Text(0.2, 0.5, &#39;One&#39;)
-## [&lt;matplotlib.lines.Line2D object at 0x000000002BB1FBE0&gt;]
+## [&lt;matplotlib.lines.Line2D object at 0x000000002BAF39B0&gt;]
 ## Text(0.5, 0, &#39;x&#39;)
 ## Text(0, 0.5, &#39;y&#39;)
 ## Text(0.5, 1.0, &#39;title&#39;)
@@ -828,24 +828,24 @@ Multile row grid means axes is an 2-D array. Hence can use two levels of <strong
 <pre><code>## &lt;Figure size 500x500 with 0 Axes&gt;</code></pre>
 <div class="sourceCode" id="cb1664"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1664-1" title="1">grid <span class="op">=</span> plt.GridSpec(<span class="dv">2</span>, <span class="dv">3</span>, hspace<span class="op">=</span><span class="fl">0.4</span>, wspace<span class="op">=</span><span class="fl">0.4</span>)</a>
 <a class="sourceLine" id="cb1664-2" title="2">plt.subplot(grid[<span class="dv">0</span>, <span class="dv">0</span>])  <span class="co">#row 0, col 0</span></a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002BCAD390&gt;</code></pre>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002BC77E48&gt;</code></pre>
 <div class="sourceCode" id="cb1666"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1666-1" title="1">plt.subplot(grid[<span class="dv">0</span>, <span class="dv">1</span>:]) <span class="co">#row 0, col 1 to :</span></a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002BCEBC18&gt;</code></pre>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002BCBC940&gt;</code></pre>
 <div class="sourceCode" id="cb1668"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1668-1" title="1">plt.subplot(grid[<span class="dv">1</span>, :<span class="dv">2</span>]) <span class="co">#row 1, col 0:2 </span></a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000000662FF28&gt;</code></pre>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002BCEEC50&gt;</code></pre>
 <div class="sourceCode" id="cb1670"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1670-1" title="1">plt.subplot(grid[<span class="dv">1</span>, <span class="dv">2</span>])<span class="op">;</span> <span class="co">#row 1, col 2</span></a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000000666B518&gt;</code></pre>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002BD2E278&gt;</code></pre>
 <div class="sourceCode" id="cb1672"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1672-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-635-1.png" /><!-- --></p>
 <div class="sourceCode" id="cb1673"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1673-1" title="1">plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))</a></code></pre></div>
 <pre><code>## &lt;Figure size 500x500 with 0 Axes&gt;</code></pre>
 <div class="sourceCode" id="cb1675"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1675-1" title="1">grid <span class="op">=</span> plt.GridSpec(<span class="dv">4</span>, <span class="dv">4</span>, hspace<span class="op">=</span><span class="fl">0.8</span>, wspace<span class="op">=</span><span class="fl">0.4</span>)</a>
 <a class="sourceLine" id="cb1675-2" title="2">plt.subplot(grid[:<span class="dv">3</span>, <span class="dv">0</span>])    <span class="co"># row 0:3, col 0</span></a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x00000000289F5B00&gt;</code></pre>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002BC607B8&gt;</code></pre>
 <div class="sourceCode" id="cb1677"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1677-1" title="1">plt.subplot(grid[:<span class="dv">3</span>, <span class="dv">1</span>: ])  <span class="co"># row 0:3, col 1:</span></a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002A95E4E0&gt;</code></pre>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002BD9FC18&gt;</code></pre>
 <div class="sourceCode" id="cb1679"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1679-1" title="1">plt.subplot(grid[<span class="dv">3</span>, <span class="dv">1</span>: ])<span class="op">;</span>  <span class="co"># row 3,   col 1:</span></a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000000006A73CF8&gt;</code></pre>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002C159C50&gt;</code></pre>
 <div class="sourceCode" id="cb1681"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1681-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-636-1.png" /><!-- --></p>
 <p><strong>-1 means last row or column</strong></p>
@@ -853,11 +853,11 @@ Multile row grid means axes is an 2-D array. Hence can use two levels of <strong
 <pre><code>## &lt;Figure size 600x600 with 0 Axes&gt;</code></pre>
 <div class="sourceCode" id="cb1684"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1684-1" title="1">grid <span class="op">=</span> plt.GridSpec(<span class="dv">4</span>, <span class="dv">4</span>, hspace<span class="op">=</span><span class="fl">0.4</span>, wspace<span class="op">=</span><span class="fl">1.2</span>)</a>
 <a class="sourceLine" id="cb1684-2" title="2">plt.subplot(grid[:<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span> ])  <span class="co"># row 0 till last row (not including last row), col 0</span></a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000000006A8F550&gt;</code></pre>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x00000000067182B0&gt;</code></pre>
 <div class="sourceCode" id="cb1686"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1686-1" title="1">plt.subplot(grid[:<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>:])  <span class="co"># row 0 till last row (not including last row), col 1 till end</span></a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000000664DAC8&gt;</code></pre>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002BD52208&gt;</code></pre>
 <div class="sourceCode" id="cb1688"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1688-1" title="1">plt.subplot(grid[<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>: ])<span class="op">;</span> <span class="co"># row last row, col 1 till end</span></a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002897DC18&gt;</code></pre>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002BCDAB00&gt;</code></pre>
 <div class="sourceCode" id="cb1690"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1690-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-637-1.png" /><!-- --></p>
 </div>
@@ -875,11 +875,11 @@ Multile row grid means axes is an 2-D array. Hence can use two levels of <strong
 <a class="sourceLine" id="cb1691-4" title="4">    ax.set_xlabel(<span class="st">&#39;x&#39;</span>)</a>
 <a class="sourceLine" id="cb1691-5" title="5">    ax.set_ylabel(<span class="st">&#39;y&#39;</span>)</a>
 <a class="sourceLine" id="cb1691-6" title="6">    ax.set_title(<span class="st">&#39;title&#39;</span>)</a></code></pre></div>
-<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002A993198&gt;]
+<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002B9D98D0&gt;]
 ## Text(0.5, 0, &#39;x&#39;)
 ## Text(0, 0.5, &#39;y&#39;)
 ## Text(0.5, 1.0, &#39;title&#39;)
-## [&lt;matplotlib.lines.Line2D object at 0x000000002BA7F5C0&gt;]
+## [&lt;matplotlib.lines.Line2D object at 0x000000002BA152B0&gt;]
 ## Text(0.5, 0, &#39;x&#39;)
 ## Text(0, 0.5, &#39;y&#39;)
 ## Text(0.5, 1.0, &#39;title&#39;)</code></pre>
@@ -895,11 +895,11 @@ Multile row grid means axes is an 2-D array. Hence can use two levels of <strong
 <a class="sourceLine" id="cb1694-4" title="4">    ax.set_xlabel(<span class="st">&#39;x&#39;</span>)</a>
 <a class="sourceLine" id="cb1694-5" title="5">    ax.set_ylabel(<span class="st">&#39;y&#39;</span>)</a>
 <a class="sourceLine" id="cb1694-6" title="6">    ax.set_title(<span class="st">&#39;title&#39;</span>)</a></code></pre></div>
-<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002B9E7390&gt;]
+<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002BC88FD0&gt;]
 ## Text(0.5, 0, &#39;x&#39;)
 ## Text(0, 0.5, &#39;y&#39;)
 ## Text(0.5, 1.0, &#39;title&#39;)
-## [&lt;matplotlib.lines.Line2D object at 0x000000002BADE128&gt;]
+## [&lt;matplotlib.lines.Line2D object at 0x000000002B9D9F28&gt;]
 ## Text(0.5, 0, &#39;x&#39;)
 ## Text(0, 0.5, &#39;y&#39;)
 ## Text(0.5, 1.0, &#39;title&#39;)</code></pre>
@@ -922,7 +922,7 @@ Multile row grid means axes is an 2-D array. Hence can use two levels of <strong
 <h4><span class="header-section-number">14.4.6.1</span> Y-Axis Limit</h4>
 <div class="sourceCode" id="cb1700"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1700-1" title="1">fig <span class="op">=</span> plt.figure()</a>
 <a class="sourceLine" id="cb1700-2" title="2">fig.add_axes([<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>], ylim<span class="op">=</span>(<span class="op">-</span><span class="dv">2</span>,<span class="dv">5</span>))<span class="op">;</span></a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._axes.Axes object at 0x000000002BC05160&gt;</code></pre>
+<pre><code>## &lt;matplotlib.axes._axes.Axes object at 0x000000002B97ABA8&gt;</code></pre>
 <div class="sourceCode" id="cb1702"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1702-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-641-1.png" /><!-- --></p>
 </div>
@@ -956,11 +956,11 @@ Multile row grid means axes is an 2-D array. Hence can use two levels of <strong
 <h4><span class="header-section-number">14.4.6.4</span> Create Subplot Individually</h4>
 <p>Each call lto <strong>subplot()</strong> will create a new container for subsequent plot command</p>
 <div class="sourceCode" id="cb1710"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1710-1" title="1">plt.subplot(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">1</span>)</a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000000006D50E48&gt;</code></pre>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000000006B5C320&gt;</code></pre>
 <div class="sourceCode" id="cb1712"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1712-1" title="1">plt.text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="st">&#39;one&#39;</span>,fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)</a></code></pre></div>
 <pre><code>## Text(0.5, 0.5, &#39;one&#39;)</code></pre>
 <div class="sourceCode" id="cb1714"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1714-1" title="1">plt.subplot(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">8</span>)</a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000000006B6C860&gt;</code></pre>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002BD23550&gt;</code></pre>
 <div class="sourceCode" id="cb1716"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1716-1" title="1">plt.text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="st">&#39;eight&#39;</span>,fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)</a></code></pre></div>
 <pre><code>## Text(0.5, 0.5, &#39;eight&#39;)</code></pre>
 <div class="sourceCode" id="cb1718"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1718-1" title="1">plt.show()</a></code></pre></div>
@@ -994,7 +994,7 @@ Multile row grid means axes is an 2-D array. Hence can use two levels of <strong
 <div id="scatter-plot" class="section level2">
 <h2><span class="header-section-number">14.6</span> Scatter Plot</h2>
 <div class="sourceCode" id="cb1725"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1725-1" title="1">plt.scatter(mydf.value1, mydf.value2)</a></code></pre></div>
-<pre><code>## &lt;matplotlib.collections.PathCollection object at 0x0000000006CA9A90&gt;</code></pre>
+<pre><code>## &lt;matplotlib.collections.PathCollection object at 0x0000000006B7AB70&gt;</code></pre>
 <div class="sourceCode" id="cb1727"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1727-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-648-1.png" /><!-- --></p>
 </div>
