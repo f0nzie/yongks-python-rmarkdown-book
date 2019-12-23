@@ -548,17 +548,21 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="18" data-path="nlp.html"><a href="nlp.html"><i class="fa fa-check"></i><b>18</b> NLP</a><ul>
 <li class="chapter" data-level="18.1" data-path="nlp.html"><a href="nlp.html#setup-hidden-1"><i class="fa fa-check"></i><b>18.1</b> Setup (hidden)</a></li>
-<li class="chapter" data-level="18.2" data-path="nlp.html"><a href="nlp.html#the-library-1"><i class="fa fa-check"></i><b>18.2</b> The Library</a></li>
-<li class="chapter" data-level="18.3" data-path="nlp.html"><a href="nlp.html#tokenizer"><i class="fa fa-check"></i><b>18.3</b> Tokenizer</a><ul>
-<li class="chapter" data-level="18.3.1" data-path="nlp.html"><a href="nlp.html#casual-tokenizer"><i class="fa fa-check"></i><b>18.3.1</b> Casual Tokenizer</a></li>
-<li class="chapter" data-level="18.3.2" data-path="nlp.html"><a href="nlp.html#treebank-tokenizer"><i class="fa fa-check"></i><b>18.3.2</b> Treebank Tokenizer¶</a></li>
+<li class="chapter" data-level="18.2" data-path="nlp.html"><a href="nlp.html#word-tokenizer"><i class="fa fa-check"></i><b>18.2</b> Word Tokenizer</a><ul>
+<li class="chapter" data-level="18.2.1" data-path="nlp.html"><a href="nlp.html#custom-tokenizer"><i class="fa fa-check"></i><b>18.2.1</b> Custom Tokenizer</a></li>
+<li class="chapter" data-level="18.2.2" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.word_tokenize"><i class="fa fa-check"></i><b>18.2.2</b> <code>nltk.tokenize.word_tokenize()</code></a></li>
+<li class="chapter" data-level="18.2.3" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.casual.casual_tokenize"><i class="fa fa-check"></i><b>18.2.3</b> <code>nltk.tokenize.casual.casual_tokenize()</code></a></li>
+<li class="chapter" data-level="18.2.4" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.treebank.treebankwordtokenizer.tokenize"><i class="fa fa-check"></i><b>18.2.4</b> <code>nltk.tokenize.treebank.TreebankWordTokenizer().tokenize()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="18.3" data-path="nlp.html"><a href="nlp.html#sentence-tokenizer"><i class="fa fa-check"></i><b>18.3</b> Sentence Tokenizer</a><ul>
+<li class="chapter" data-level="18.3.1" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.sent_tokenize"><i class="fa fa-check"></i><b>18.3.1</b> <code>nltk.tokenize.sent_tokenize()</code></a></li>
 </ul></li>
 <li class="chapter" data-level="18.4" data-path="nlp.html"><a href="nlp.html#n-gram"><i class="fa fa-check"></i><b>18.4</b> N-Gram</a></li>
 <li class="chapter" data-level="18.5" data-path="nlp.html"><a href="nlp.html#stopwords"><i class="fa fa-check"></i><b>18.5</b> Stopwords</a><ul>
 <li class="chapter" data-level="18.5.1" data-path="nlp.html"><a href="nlp.html#custom-stop-words"><i class="fa fa-check"></i><b>18.5.1</b> Custom Stop Words</a></li>
 <li class="chapter" data-level="18.5.2" data-path="nlp.html"><a href="nlp.html#nltk-stop-words"><i class="fa fa-check"></i><b>18.5.2</b> NLTK Stop Words</a></li>
-<li class="chapter" data-level="18.5.3" data-path="nlp.html"><a href="nlp.html#sklearn-stop-words"><i class="fa fa-check"></i><b>18.5.3</b> SKLearn Stop Words¶</a></li>
-<li class="chapter" data-level="18.5.4" data-path="nlp.html"><a href="nlp.html#combined-nltk-and-sklearn-stop-words"><i class="fa fa-check"></i><b>18.5.4</b> Combined NLTK and SKLearn Stop Words¶</a></li>
+<li class="chapter" data-level="18.5.3" data-path="nlp.html"><a href="nlp.html#sklearn-stop-words"><i class="fa fa-check"></i><b>18.5.3</b> SKLearn Stop Words</a></li>
+<li class="chapter" data-level="18.5.4" data-path="nlp.html"><a href="nlp.html#combined-nltk-and-sklearn-stop-words"><i class="fa fa-check"></i><b>18.5.4</b> Combined NLTK and SKLearn Stop Words</a></li>
 </ul></li>
 <li class="chapter" data-level="18.6" data-path="nlp.html"><a href="nlp.html#normalizing"><i class="fa fa-check"></i><b>18.6</b> Normalizing</a><ul>
 <li class="chapter" data-level="18.6.1" data-path="nlp.html"><a href="nlp.html#case-folding"><i class="fa fa-check"></i><b>18.6.1</b> Case Folding</a></li>
@@ -566,15 +570,16 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.6.3" data-path="nlp.html"><a href="nlp.html#lemmatization"><i class="fa fa-check"></i><b>18.6.3</b> Lemmatization</a></li>
 <li class="chapter" data-level="18.6.4" data-path="nlp.html"><a href="nlp.html#comparing-stemming-and-lemmatization"><i class="fa fa-check"></i><b>18.6.4</b> Comparing Stemming and Lemmatization</a></li>
 </ul></li>
-<li class="chapter" data-level="18.7" data-path="nlp.html"><a href="nlp.html#sentiment"><i class="fa fa-check"></i><b>18.7</b> Sentiment</a><ul>
-<li class="chapter" data-level="18.7.1" data-path="nlp.html"><a href="nlp.html#vader"><i class="fa fa-check"></i><b>18.7.1</b> Vader</a></li>
+<li class="chapter" data-level="18.7" data-path="nlp.html"><a href="nlp.html#pos-tagging"><i class="fa fa-check"></i><b>18.7</b> POS Tagging</a></li>
+<li class="chapter" data-level="18.8" data-path="nlp.html"><a href="nlp.html#sentiment"><i class="fa fa-check"></i><b>18.8</b> Sentiment</a><ul>
+<li class="chapter" data-level="18.8.1" data-path="nlp.html"><a href="nlp.html#vader"><i class="fa fa-check"></i><b>18.8.1</b> Vader</a></li>
 </ul></li>
-<li class="chapter" data-level="18.8" data-path="nlp.html"><a href="nlp.html#naive-bayes"><i class="fa fa-check"></i><b>18.8</b> Naive Bayes</a><ul>
-<li class="chapter" data-level="18.8.1" data-path="nlp.html"><a href="nlp.html#libraries-1"><i class="fa fa-check"></i><b>18.8.1</b> Libraries</a></li>
-<li class="chapter" data-level="18.8.2" data-path="nlp.html"><a href="nlp.html#the-data-1"><i class="fa fa-check"></i><b>18.8.2</b> The Data</a></li>
-<li class="chapter" data-level="18.8.3" data-path="nlp.html"><a href="nlp.html#bag-of-words"><i class="fa fa-check"></i><b>18.8.3</b> Bag of Words</a></li>
-<li class="chapter" data-level="18.8.4" data-path="nlp.html"><a href="nlp.html#build-the-model"><i class="fa fa-check"></i><b>18.8.4</b> Build The Model</a></li>
-<li class="chapter" data-level="18.8.5" data-path="nlp.html"><a href="nlp.html#train-set-prediction"><i class="fa fa-check"></i><b>18.8.5</b> Train Set Prediction</a></li>
+<li class="chapter" data-level="18.9" data-path="nlp.html"><a href="nlp.html#naive-bayes"><i class="fa fa-check"></i><b>18.9</b> Naive Bayes</a><ul>
+<li class="chapter" data-level="18.9.1" data-path="nlp.html"><a href="nlp.html#libraries-1"><i class="fa fa-check"></i><b>18.9.1</b> Libraries</a></li>
+<li class="chapter" data-level="18.9.2" data-path="nlp.html"><a href="nlp.html#the-data-1"><i class="fa fa-check"></i><b>18.9.2</b> The Data</a></li>
+<li class="chapter" data-level="18.9.3" data-path="nlp.html"><a href="nlp.html#bag-of-words"><i class="fa fa-check"></i><b>18.9.3</b> Bag of Words</a></li>
+<li class="chapter" data-level="18.9.4" data-path="nlp.html"><a href="nlp.html#build-the-model"><i class="fa fa-check"></i><b>18.9.4</b> Build The Model</a></li>
+<li class="chapter" data-level="18.9.5" data-path="nlp.html"><a href="nlp.html#train-set-prediction"><i class="fa fa-check"></i><b>18.9.5</b> Train Set Prediction</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -599,103 +604,147 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Natural Language Processing</p>
 <div id="setup-hidden-1" class="section level2">
 <h2><span class="header-section-number">18.1</span> Setup (hidden)</h2>
-<div class="sourceCode" id="cb2000"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2000-1"><a href="nlp.html#cb2000-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb2000-2"><a href="nlp.html#cb2000-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb2000-3"><a href="nlp.html#cb2000-3"></a><span class="im">from</span> IPython.core.display <span class="im">import</span> display, HTML</span>
-<span id="cb2000-4"><a href="nlp.html#cb2000-4"></a>display(HTML(<span class="st">&quot;&lt;style&gt;.container { width:75% !important; margin-left:350px; }&lt;/style&gt;&quot;</span>))</span></code></pre></div>
-<pre><code>## &lt;IPython.core.display.HTML object&gt;</code></pre>
-<div class="sourceCode" id="cb2002"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2002-1"><a href="nlp.html#cb2002-1"></a>pd.set_option( <span class="st">&#39;display.notebook_repr_html&#39;</span>, <span class="va">False</span>)  <span class="co"># render Series and DataFrame as text, not HTML</span></span>
-<span id="cb2002-2"><a href="nlp.html#cb2002-2"></a>pd.set_option( <span class="st">&#39;display.max_column&#39;</span>, <span class="dv">10</span>)    <span class="co"># number of columns</span></span>
-<span id="cb2002-3"><a href="nlp.html#cb2002-3"></a>pd.set_option( <span class="st">&#39;display.max_rows&#39;</span>, <span class="dv">10</span>)      <span class="co"># number of rows</span></span>
-<span id="cb2002-4"><a href="nlp.html#cb2002-4"></a>pd.set_option( <span class="st">&#39;display.width&#39;</span>, <span class="dv">90</span>)         <span class="co"># number of characters per row</span></span></code></pre></div>
+<div class="sourceCode" id="cb1999"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1999-1"><a href="nlp.html#cb1999-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1999-2"><a href="nlp.html#cb1999-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1999-3"><a href="nlp.html#cb1999-3"></a><span class="im">from</span> IPython.core.display <span class="im">import</span> display, HTML</span>
+<span id="cb1999-4"><a href="nlp.html#cb1999-4"></a>display(HTML(<span class="st">&quot;&lt;style&gt;.container { width:75% !important; margin-left:350px; }&lt;/style&gt;&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb2000"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2000-1"><a href="nlp.html#cb2000-1"></a>pd.set_option( <span class="st">&#39;display.notebook_repr_html&#39;</span>, <span class="va">False</span>)  <span class="co"># render Series and DataFrame as text, not HTML</span></span>
+<span id="cb2000-2"><a href="nlp.html#cb2000-2"></a>pd.set_option( <span class="st">&#39;display.max_column&#39;</span>, <span class="dv">10</span>)    <span class="co"># number of columns</span></span>
+<span id="cb2000-3"><a href="nlp.html#cb2000-3"></a>pd.set_option( <span class="st">&#39;display.max_rows&#39;</span>, <span class="dv">10</span>)      <span class="co"># number of rows</span></span>
+<span id="cb2000-4"><a href="nlp.html#cb2000-4"></a>pd.set_option( <span class="st">&#39;display.width&#39;</span>, <span class="dv">90</span>)         <span class="co"># number of characters per row</span></span></code></pre></div>
 </div>
-<div id="the-library-1" class="section level2">
-<h2><span class="header-section-number">18.2</span> The Library</h2>
-<div class="sourceCode" id="cb2003"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2003-1"><a href="nlp.html#cb2003-1"></a><span class="im">from</span> nltk.tokenize.casual     <span class="im">import</span> casual_tokenize</span>
-<span id="cb2003-2"><a href="nlp.html#cb2003-2"></a><span class="im">from</span> nltk.tokenize.treebank   <span class="im">import</span> TreebankWordTokenizer</span></code></pre></div>
+<div id="word-tokenizer" class="section level2">
+<h2><span class="header-section-number">18.2</span> Word Tokenizer</h2>
+<div id="custom-tokenizer" class="section level3">
+<h3><span class="header-section-number">18.2.1</span> Custom Tokenizer</h3>
+<p>Use <strong>regex</strong> to split words based on <strong>specific punctuation as delimeter</strong>.<br />
+The rule is: split input text when any one or more continuous occurances of specified character.</p>
+<div class="sourceCode" id="cb2001"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2001-1"><a href="nlp.html#cb2001-1"></a><span class="im">from</span> nltk.util <span class="im">import</span> ngrams </span>
+<span id="cb2001-2"><a href="nlp.html#cb2001-2"></a><span class="im">import</span> re</span>
+<span id="cb2001-3"><a href="nlp.html#cb2001-3"></a>pattern <span class="op">=</span> re.<span class="bu">compile</span>(<span class="vs">r&quot;[-\s.,;!?]+&quot;</span>)</span>
+<span id="cb2001-4"><a href="nlp.html#cb2001-4"></a>pattern.split(<span class="st">&quot;hi @ali--baba, you are aweeeeeesome! isn&#39;t it. Believe it.:)&quot;</span>)</span></code></pre></div>
+<pre><code>## [&#39;hi&#39;, &#39;@ali&#39;, &#39;baba&#39;, &#39;you&#39;, &#39;are&#39;, &#39;aweeeeeesome&#39;, &quot;isn&#39;t&quot;, &#39;it&#39;, &#39;Believe&#39;, &#39;it&#39;, &#39;:)&#39;]</code></pre>
 </div>
-<div id="tokenizer" class="section level2">
-<h2><span class="header-section-number">18.3</span> Tokenizer</h2>
-<div id="casual-tokenizer" class="section level3">
-<h3><span class="header-section-number">18.3.1</span> Casual Tokenizer</h3>
-<p>Built to deal with short, informal, emotion-laced texts from social netwtorks where grammar and spelling conventions vary widely</p>
-<div class="sourceCode" id="cb2004"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2004-1"><a href="nlp.html#cb2004-1"></a>casual_tokenize(<span class="st">&quot;hi @ali-baba, you are aweeeeeesome! isn&#39;t it. Believe it.&quot;</span>)</span></code></pre></div>
-<pre><code>## [&#39;hi&#39;, &#39;@ali&#39;, &#39;-&#39;, &#39;baba&#39;, &#39;,&#39;, &#39;you&#39;, &#39;are&#39;, &#39;aweeeeeesome&#39;, &#39;!&#39;, &quot;isn&#39;t&quot;, &#39;it&#39;, &#39;.&#39;, &#39;Believe&#39;, &#39;it&#39;, &#39;.&#39;]</code></pre>
-<p>Strip off usernames and reduce number of repeated chars</p>
-<div class="sourceCode" id="cb2006"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2006-1"><a href="nlp.html#cb2006-1"></a>casual_tokenize(<span class="st">&quot;hi @ali-baba, you are aweeeeeesome! isn&#39;t it. Believe it.&quot;</span>, </span>
-<span id="cb2006-2"><a href="nlp.html#cb2006-2"></a>                reduce_len<span class="op">=</span><span class="va">True</span>,     <span class="co">## shorten repeated chars</span></span>
-<span id="cb2006-3"><a href="nlp.html#cb2006-3"></a>                strip_handles<span class="op">=</span><span class="va">True</span>)  <span class="co">## strip usernames</span></span></code></pre></div>
-<pre><code>## [&#39;hi&#39;, &#39;-&#39;, &#39;baba&#39;, &#39;,&#39;, &#39;you&#39;, &#39;are&#39;, &#39;aweeesome&#39;, &#39;!&#39;, &quot;isn&#39;t&quot;, &#39;it&#39;, &#39;.&#39;, &#39;Believe&#39;, &#39;it&#39;, &#39;.&#39;]</code></pre>
+<div id="nltk.tokenize.word_tokenize" class="section level3">
+<h3><span class="header-section-number">18.2.2</span> <code>nltk.tokenize.word_tokenize()</code></h3>
+<p>Words and punctuations are splitted into tokens</p>
+<div class="sourceCode" id="cb2003"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2003-1"><a href="nlp.html#cb2003-1"></a><span class="im">from</span> nltk.tokenize <span class="im">import</span> word_tokenize</span>
+<span id="cb2003-2"><a href="nlp.html#cb2003-2"></a><span class="bu">print</span>( word_tokenize(<span class="st">&quot;hi @ali-baba, you are aweeeeeesome! isn&#39;t it. Believe it.:)&quot;</span>) )</span></code></pre></div>
+<pre><code>## [&#39;hi&#39;, &#39;@&#39;, &#39;ali-baba&#39;, &#39;,&#39;, &#39;you&#39;, &#39;are&#39;, &#39;aweeeeeesome&#39;, &#39;!&#39;, &#39;is&#39;, &quot;n&#39;t&quot;, &#39;it&#39;, &#39;.&#39;, &#39;Believe&#39;, &#39;it&#39;, &#39;.&#39;, &#39;:&#39;, &#39;)&#39;]</code></pre>
 </div>
-<div id="treebank-tokenizer" class="section level3">
-<h3><span class="header-section-number">18.3.2</span> Treebank Tokenizer¶</h3>
-<div class="sourceCode" id="cb2008"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2008-1"><a href="nlp.html#cb2008-1"></a>TreebankWordTokenizer().tokenize(<span class="st">&quot;hi @ali-baba, you are aweeeeeesome! isn&#39;t it. Believe it.&quot;</span>)</span></code></pre></div>
-<pre><code>## [&#39;hi&#39;, &#39;@&#39;, &#39;ali-baba&#39;, &#39;,&#39;, &#39;you&#39;, &#39;are&#39;, &#39;aweeeeeesome&#39;, &#39;!&#39;, &#39;is&#39;, &quot;n&#39;t&quot;, &#39;it.&#39;, &#39;Believe&#39;, &#39;it&#39;, &#39;.&#39;]</code></pre>
+<div id="nltk.tokenize.casual.casual_tokenize" class="section level3">
+<h3><span class="header-section-number">18.2.3</span> <code>nltk.tokenize.casual.casual_tokenize()</code></h3>
+<ul>
+<li>Support emoji</li>
+<li>Support reduction of repetition chars</li>
+<li>Support removing userid (<span class="citation">(<span class="citeproc-not-found" data-reference-id="someone"><strong>???</strong></span>)</span>)</li>
+<li>Good for social media text</li>
+</ul>
+<div class="sourceCode" id="cb2005"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2005-1"><a href="nlp.html#cb2005-1"></a><span class="im">from</span> nltk.tokenize.casual     <span class="im">import</span> casual_tokenize</span>
+<span id="cb2005-2"><a href="nlp.html#cb2005-2"></a><span class="co">## default</span></span>
+<span id="cb2005-3"><a href="nlp.html#cb2005-3"></a><span class="bu">print</span>( casual_tokenize(<span class="st">&quot;hi @ali-baba, you are aweeeeeesome! isn&#39;t it. Believe it. :)&quot;</span>) )  </span>
+<span id="cb2005-4"><a href="nlp.html#cb2005-4"></a><span class="co">## shorten repeated chars</span></span></code></pre></div>
+<pre><code>## [&#39;hi&#39;, &#39;@ali&#39;, &#39;-&#39;, &#39;baba&#39;, &#39;,&#39;, &#39;you&#39;, &#39;are&#39;, &#39;aweeeeeesome&#39;, &#39;!&#39;, &quot;isn&#39;t&quot;, &#39;it&#39;, &#39;.&#39;, &#39;Believe&#39;, &#39;it&#39;, &#39;.&#39;, &#39;:)&#39;]</code></pre>
+<div class="sourceCode" id="cb2007"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2007-1"><a href="nlp.html#cb2007-1"></a><span class="bu">print</span>( casual_tokenize(<span class="st">&quot;hi @ali-baba, you are aweeeeeesome! isn&#39;t it. Believe it.:)&quot;</span>, </span>
+<span id="cb2007-2"><a href="nlp.html#cb2007-2"></a>          reduce_len<span class="op">=</span><span class="va">True</span>))     </span>
+<span id="cb2007-3"><a href="nlp.html#cb2007-3"></a><span class="co">## shorten repeated chars, stirp usernames</span></span></code></pre></div>
+<pre><code>## [&#39;hi&#39;, &#39;@ali&#39;, &#39;-&#39;, &#39;baba&#39;, &#39;,&#39;, &#39;you&#39;, &#39;are&#39;, &#39;aweeesome&#39;, &#39;!&#39;, &quot;isn&#39;t&quot;, &#39;it&#39;, &#39;.&#39;, &#39;Believe&#39;, &#39;it&#39;, &#39;.&#39;, &#39;:)&#39;]</code></pre>
+<div class="sourceCode" id="cb2009"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2009-1"><a href="nlp.html#cb2009-1"></a><span class="bu">print</span>( casual_tokenize(<span class="st">&quot;hi @ali-baba, you are aweeeeeesome! isn&#39;t it. Believe it.:)&quot;</span>, </span>
+<span id="cb2009-2"><a href="nlp.html#cb2009-2"></a>          reduce_len<span class="op">=</span><span class="va">True</span>,      </span>
+<span id="cb2009-3"><a href="nlp.html#cb2009-3"></a>          strip_handles<span class="op">=</span><span class="va">True</span>))  </span></code></pre></div>
+<pre><code>## [&#39;hi&#39;, &#39;-&#39;, &#39;baba&#39;, &#39;,&#39;, &#39;you&#39;, &#39;are&#39;, &#39;aweeesome&#39;, &#39;!&#39;, &quot;isn&#39;t&quot;, &#39;it&#39;, &#39;.&#39;, &#39;Believe&#39;, &#39;it&#39;, &#39;.&#39;, &#39;:)&#39;]</code></pre>
+</div>
+<div id="nltk.tokenize.treebank.treebankwordtokenizer.tokenize" class="section level3">
+<h3><span class="header-section-number">18.2.4</span> <code>nltk.tokenize.treebank.TreebankWordTokenizer().tokenize()</code></h3>
+<p>Treebank assume input text is <strong>A sentence</strong>, hence any period combined with word is treated as token.</p>
+<div class="sourceCode" id="cb2011"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2011-1"><a href="nlp.html#cb2011-1"></a><span class="im">from</span> nltk.tokenize.treebank   <span class="im">import</span> TreebankWordTokenizer</span>
+<span id="cb2011-2"><a href="nlp.html#cb2011-2"></a>TreebankWordTokenizer().tokenize(<span class="st">&quot;hi @ali-baba, you are aweeeeeesome! isn&#39;t it. Believe it.:)&quot;</span>)</span></code></pre></div>
+<pre><code>## [&#39;hi&#39;, &#39;@&#39;, &#39;ali-baba&#39;, &#39;,&#39;, &#39;you&#39;, &#39;are&#39;, &#39;aweeeeeesome&#39;, &#39;!&#39;, &#39;is&#39;, &quot;n&#39;t&quot;, &#39;it.&#39;, &#39;Believe&#39;, &#39;it.&#39;, &#39;:&#39;, &#39;)&#39;]</code></pre>
+</div>
+</div>
+<div id="sentence-tokenizer" class="section level2">
+<h2><span class="header-section-number">18.3</span> Sentence Tokenizer</h2>
+<div id="nltk.tokenize.sent_tokenize" class="section level3">
+<h3><span class="header-section-number">18.3.1</span> <code>nltk.tokenize.sent_tokenize()</code></h3>
+<div class="sourceCode" id="cb2013"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2013-1"><a href="nlp.html#cb2013-1"></a><span class="co">#nltk.download(&#39;punkt&#39;)</span></span>
+<span id="cb2013-2"><a href="nlp.html#cb2013-2"></a><span class="im">from</span> nltk.tokenize <span class="im">import</span> sent_tokenize</span>
+<span id="cb2013-3"><a href="nlp.html#cb2013-3"></a>text<span class="op">=</span><span class="st">&quot;&quot;&quot;\</span></span>
+<span id="cb2013-4"><a href="nlp.html#cb2013-4"></a><span class="st">Hello Mr. Smith, how are you doing today? The weather is great, and city is awesome.</span></span>
+<span id="cb2013-5"><a href="nlp.html#cb2013-5"></a><span class="st">The sky is pinkish-blue. You shouldn&#39;t eat cardboard</span></span>
+<span id="cb2013-6"><a href="nlp.html#cb2013-6"></a><span class="st">&quot;&quot;&quot;</span></span>
+<span id="cb2013-7"><a href="nlp.html#cb2013-7"></a>tokenized_text<span class="op">=</span>sent_tokenize(text)</span>
+<span id="cb2013-8"><a href="nlp.html#cb2013-8"></a><span class="cf">for</span> x <span class="kw">in</span> tokenized_text:</span>
+<span id="cb2013-9"><a href="nlp.html#cb2013-9"></a>  <span class="bu">print</span>(x) </span></code></pre></div>
+<pre><code>## Hello Mr. Smith, how are you doing today?
+## The weather is great, and city is awesome.
+## The sky is pinkish-blue.
+## You shouldn&#39;t eat cardboard</code></pre>
 </div>
 </div>
 <div id="n-gram" class="section level2">
 <h2><span class="header-section-number">18.4</span> N-Gram</h2>
 <p>To create n-gram, first create 1-gram token</p>
-<div class="sourceCode" id="cb2010"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2010-1"><a href="nlp.html#cb2010-1"></a><span class="im">from</span> nltk.util <span class="im">import</span> ngrams </span>
-<span id="cb2010-2"><a href="nlp.html#cb2010-2"></a><span class="im">import</span> re</span>
-<span id="cb2010-3"><a href="nlp.html#cb2010-3"></a>sentence <span class="op">=</span> <span class="st">&quot;Thomas Jefferson began building the city, at the age of 25&quot;</span></span>
-<span id="cb2010-4"><a href="nlp.html#cb2010-4"></a>pattern <span class="op">=</span> re.<span class="bu">compile</span>(<span class="vs">r&quot;[-\s.,;!?]+&quot;</span>)</span>
-<span id="cb2010-5"><a href="nlp.html#cb2010-5"></a>tokens <span class="op">=</span> pattern.split(sentence)</span>
-<span id="cb2010-6"><a href="nlp.html#cb2010-6"></a><span class="bu">print</span>(tokens)</span></code></pre></div>
+<div class="sourceCode" id="cb2015"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2015-1"><a href="nlp.html#cb2015-1"></a><span class="im">from</span> nltk.util <span class="im">import</span> ngrams </span>
+<span id="cb2015-2"><a href="nlp.html#cb2015-2"></a><span class="im">import</span> re</span>
+<span id="cb2015-3"><a href="nlp.html#cb2015-3"></a>sentence <span class="op">=</span> <span class="st">&quot;Thomas Jefferson began building the city, at the age of 25&quot;</span></span>
+<span id="cb2015-4"><a href="nlp.html#cb2015-4"></a>pattern <span class="op">=</span> re.<span class="bu">compile</span>(<span class="vs">r&quot;[-\s.,;!?]+&quot;</span>)</span>
+<span id="cb2015-5"><a href="nlp.html#cb2015-5"></a>tokens <span class="op">=</span> pattern.split(sentence)</span>
+<span id="cb2015-6"><a href="nlp.html#cb2015-6"></a><span class="bu">print</span>(tokens)</span></code></pre></div>
 <pre><code>## [&#39;Thomas&#39;, &#39;Jefferson&#39;, &#39;began&#39;, &#39;building&#39;, &#39;the&#39;, &#39;city&#39;, &#39;at&#39;, &#39;the&#39;, &#39;age&#39;, &#39;of&#39;, &#39;25&#39;]</code></pre>
 <p><strong>ngrams()</strong> is a generator, therefore, use <strong>list()</strong> to convert into full list</p>
-<div class="sourceCode" id="cb2012"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2012-1"><a href="nlp.html#cb2012-1"></a>ngrams(tokens,<span class="dv">2</span>)</span></code></pre></div>
-<pre><code>## &lt;generator object ngrams at 0x000000000BA0B6D8&gt;</code></pre>
+<div class="sourceCode" id="cb2017"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2017-1"><a href="nlp.html#cb2017-1"></a>ngrams(tokens,<span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## &lt;generator object ngrams at 0x0000000006AF37C8&gt;</code></pre>
 <p>Convert 1-gram to 2-Gram, wrap into list</p>
-<div class="sourceCode" id="cb2014"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2014-1"><a href="nlp.html#cb2014-1"></a>grammy <span class="op">=</span> <span class="bu">list</span>( ngrams(tokens,<span class="dv">2</span>) )</span>
-<span id="cb2014-2"><a href="nlp.html#cb2014-2"></a><span class="bu">print</span>(grammy)</span></code></pre></div>
+<div class="sourceCode" id="cb2019"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2019-1"><a href="nlp.html#cb2019-1"></a>grammy <span class="op">=</span> <span class="bu">list</span>( ngrams(tokens,<span class="dv">2</span>) )</span>
+<span id="cb2019-2"><a href="nlp.html#cb2019-2"></a><span class="bu">print</span>(grammy)</span></code></pre></div>
 <pre><code>## [(&#39;Thomas&#39;, &#39;Jefferson&#39;), (&#39;Jefferson&#39;, &#39;began&#39;), (&#39;began&#39;, &#39;building&#39;), (&#39;building&#39;, &#39;the&#39;), (&#39;the&#39;, &#39;city&#39;), (&#39;city&#39;, &#39;at&#39;), (&#39;at&#39;, &#39;the&#39;), (&#39;the&#39;, &#39;age&#39;), (&#39;age&#39;, &#39;of&#39;), (&#39;of&#39;, &#39;25&#39;)]</code></pre>
 <p>Combine each 2-gram into a string object</p>
-<div class="sourceCode" id="cb2016"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2016-1"><a href="nlp.html#cb2016-1"></a>[ <span class="st">&quot; &quot;</span>.join(x) <span class="cf">for</span> x <span class="kw">in</span> grammy]</span></code></pre></div>
+<div class="sourceCode" id="cb2021"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2021-1"><a href="nlp.html#cb2021-1"></a>[ <span class="st">&quot; &quot;</span>.join(x) <span class="cf">for</span> x <span class="kw">in</span> grammy]</span></code></pre></div>
 <pre><code>## [&#39;Thomas Jefferson&#39;, &#39;Jefferson began&#39;, &#39;began building&#39;, &#39;building the&#39;, &#39;the city&#39;, &#39;city at&#39;, &#39;at the&#39;, &#39;the age&#39;, &#39;age of&#39;, &#39;of 25&#39;]</code></pre>
 </div>
 <div id="stopwords" class="section level2">
 <h2><span class="header-section-number">18.5</span> Stopwords</h2>
 <div id="custom-stop-words" class="section level3">
 <h3><span class="header-section-number">18.5.1</span> Custom Stop Words</h3>
-<div class="sourceCode" id="cb2018"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2018-1"><a href="nlp.html#cb2018-1"></a>stop_words <span class="op">=</span> [<span class="st">&#39;a&#39;</span>,<span class="st">&#39;an&#39;</span>,<span class="st">&#39;the&#39;</span>,<span class="st">&#39;on&#39;</span>,<span class="st">&#39;of&#39;</span>,<span class="st">&#39;off&#39;</span>,<span class="st">&#39;this&#39;</span>,<span class="st">&#39;is&#39;</span>,<span class="st">&#39;at&#39;</span>]</span>
-<span id="cb2018-2"><a href="nlp.html#cb2018-2"></a>sentence <span class="op">=</span> <span class="st">&quot;The house is on fire&quot;</span></span>
-<span id="cb2018-3"><a href="nlp.html#cb2018-3"></a>tokens <span class="op">=</span> TreebankWordTokenizer().tokenize(sentence)</span>
-<span id="cb2018-4"><a href="nlp.html#cb2018-4"></a><span class="bu">print</span>(tokens)</span></code></pre></div>
-<pre><code>## [&#39;The&#39;, &#39;house&#39;, &#39;is&#39;, &#39;on&#39;, &#39;fire&#39;]</code></pre>
-<div class="sourceCode" id="cb2020"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2020-1"><a href="nlp.html#cb2020-1"></a>tokens_without_stopwords <span class="op">=</span> [ x <span class="cf">for</span> x <span class="kw">in</span> tokens <span class="cf">if</span> x <span class="kw">not</span> <span class="kw">in</span> stop_words ]</span>
-<span id="cb2020-2"><a href="nlp.html#cb2020-2"></a><span class="bu">print</span>(tokens_without_stopwords)</span></code></pre></div>
-<pre><code>## [&#39;The&#39;, &#39;house&#39;, &#39;fire&#39;]</code></pre>
+<p>Build the custom stop words dictionary.</p>
+<div class="sourceCode" id="cb2023"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2023-1"><a href="nlp.html#cb2023-1"></a>stop_words <span class="op">=</span> [<span class="st">&#39;a&#39;</span>,<span class="st">&#39;an&#39;</span>,<span class="st">&#39;the&#39;</span>,<span class="st">&#39;on&#39;</span>,<span class="st">&#39;of&#39;</span>,<span class="st">&#39;off&#39;</span>,<span class="st">&#39;this&#39;</span>,<span class="st">&#39;is&#39;</span>,<span class="st">&#39;at&#39;</span>]</span></code></pre></div>
+<p>Tokenize text and remove stop words</p>
+<div class="sourceCode" id="cb2024"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2024-1"><a href="nlp.html#cb2024-1"></a>sentence <span class="op">=</span> <span class="st">&quot;The house is on fire&quot;</span></span>
+<span id="cb2024-2"><a href="nlp.html#cb2024-2"></a>tokens   <span class="op">=</span> word_tokenize(sentence)</span>
+<span id="cb2024-3"><a href="nlp.html#cb2024-3"></a>tokens_without_stopwords <span class="op">=</span> [ x <span class="cf">for</span> x <span class="kw">in</span> tokens <span class="cf">if</span> x <span class="kw">not</span> <span class="kw">in</span> stop_words ]</span>
+<span id="cb2024-4"><a href="nlp.html#cb2024-4"></a></span>
+<span id="cb2024-5"><a href="nlp.html#cb2024-5"></a><span class="bu">print</span>(<span class="st">&#39;Original Tokens  : &#39;</span>, tokens)</span></code></pre></div>
+<pre><code>## Original Tokens  :  [&#39;The&#39;, &#39;house&#39;, &#39;is&#39;, &#39;on&#39;, &#39;fire&#39;]</code></pre>
+<div class="sourceCode" id="cb2026"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2026-1"><a href="nlp.html#cb2026-1"></a><span class="bu">print</span>(<span class="st">&#39;Removed Stopwords: &#39;</span>,tokens_without_stopwords)</span></code></pre></div>
+<pre><code>## Removed Stopwords:  [&#39;The&#39;, &#39;house&#39;, &#39;fire&#39;]</code></pre>
 </div>
 <div id="nltk-stop-words" class="section level3">
 <h3><span class="header-section-number">18.5.2</span> NLTK Stop Words</h3>
 <p>Contain 179 words, in a list form</p>
-<div class="sourceCode" id="cb2022"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2022-1"><a href="nlp.html#cb2022-1"></a><span class="im">import</span> nltk</span>
-<span id="cb2022-2"><a href="nlp.html#cb2022-2"></a><span class="co">#nltk.download(&#39;stopwords&#39;)</span></span></code></pre></div>
-<div class="sourceCode" id="cb2023"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2023-1"><a href="nlp.html#cb2023-1"></a>nltk_stop_words <span class="op">=</span> nltk.corpus.stopwords.words(<span class="st">&#39;english&#39;</span>)</span>
-<span id="cb2023-2"><a href="nlp.html#cb2023-2"></a><span class="bu">print</span>(nltk_stop_words)</span></code></pre></div>
+<div class="sourceCode" id="cb2028"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2028-1"><a href="nlp.html#cb2028-1"></a><span class="im">import</span> nltk</span>
+<span id="cb2028-2"><a href="nlp.html#cb2028-2"></a><span class="co">#nltk.download(&#39;stopwords&#39;)</span></span>
+<span id="cb2028-3"><a href="nlp.html#cb2028-3"></a>nltk_stop_words <span class="op">=</span> nltk.corpus.stopwords.words(<span class="st">&#39;english&#39;</span>)</span>
+<span id="cb2028-4"><a href="nlp.html#cb2028-4"></a><span class="bu">print</span>(<span class="st">&#39;Total NLTK Stopwords: &#39;</span>, <span class="bu">len</span>(nltk_stop_words),<span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>)</span></code></pre></div>
+<pre><code>## Total NLTK Stopwords:  179</code></pre>
+<div class="sourceCode" id="cb2030"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2030-1"><a href="nlp.html#cb2030-1"></a><span class="bu">print</span>(nltk_stop_words)</span></code></pre></div>
 <pre><code>## [&#39;i&#39;, &#39;me&#39;, &#39;my&#39;, &#39;myself&#39;, &#39;we&#39;, &#39;our&#39;, &#39;ours&#39;, &#39;ourselves&#39;, &#39;you&#39;, &quot;you&#39;re&quot;, &quot;you&#39;ve&quot;, &quot;you&#39;ll&quot;, &quot;you&#39;d&quot;, &#39;your&#39;, &#39;yours&#39;, &#39;yourself&#39;, &#39;yourselves&#39;, &#39;he&#39;, &#39;him&#39;, &#39;his&#39;, &#39;himself&#39;, &#39;she&#39;, &quot;she&#39;s&quot;, &#39;her&#39;, &#39;hers&#39;, &#39;herself&#39;, &#39;it&#39;, &quot;it&#39;s&quot;, &#39;its&#39;, &#39;itself&#39;, &#39;they&#39;, &#39;them&#39;, &#39;their&#39;, &#39;theirs&#39;, &#39;themselves&#39;, &#39;what&#39;, &#39;which&#39;, &#39;who&#39;, &#39;whom&#39;, &#39;this&#39;, &#39;that&#39;, &quot;that&#39;ll&quot;, &#39;these&#39;, &#39;those&#39;, &#39;am&#39;, &#39;is&#39;, &#39;are&#39;, &#39;was&#39;, &#39;were&#39;, &#39;be&#39;, &#39;been&#39;, &#39;being&#39;, &#39;have&#39;, &#39;has&#39;, &#39;had&#39;, &#39;having&#39;, &#39;do&#39;, &#39;does&#39;, &#39;did&#39;, &#39;doing&#39;, &#39;a&#39;, &#39;an&#39;, &#39;the&#39;, &#39;and&#39;, &#39;but&#39;, &#39;if&#39;, &#39;or&#39;, &#39;because&#39;, &#39;as&#39;, &#39;until&#39;, &#39;while&#39;, &#39;of&#39;, &#39;at&#39;, &#39;by&#39;, &#39;for&#39;, &#39;with&#39;, &#39;about&#39;, &#39;against&#39;, &#39;between&#39;, &#39;into&#39;, &#39;through&#39;, &#39;during&#39;, &#39;before&#39;, &#39;after&#39;, &#39;above&#39;, &#39;below&#39;, &#39;to&#39;, &#39;from&#39;, &#39;up&#39;, &#39;down&#39;, &#39;in&#39;, &#39;out&#39;, &#39;on&#39;, &#39;off&#39;, &#39;over&#39;, &#39;under&#39;, &#39;again&#39;, &#39;further&#39;, &#39;then&#39;, &#39;once&#39;, &#39;here&#39;, &#39;there&#39;, &#39;when&#39;, &#39;where&#39;, &#39;why&#39;, &#39;how&#39;, &#39;all&#39;, &#39;any&#39;, &#39;both&#39;, &#39;each&#39;, &#39;few&#39;, &#39;more&#39;, &#39;most&#39;, &#39;other&#39;, &#39;some&#39;, &#39;such&#39;, &#39;no&#39;, &#39;nor&#39;, &#39;not&#39;, &#39;only&#39;, &#39;own&#39;, &#39;same&#39;, &#39;so&#39;, &#39;than&#39;, &#39;too&#39;, &#39;very&#39;, &#39;s&#39;, &#39;t&#39;, &#39;can&#39;, &#39;will&#39;, &#39;just&#39;, &#39;don&#39;, &quot;don&#39;t&quot;, &#39;should&#39;, &quot;should&#39;ve&quot;, &#39;now&#39;, &#39;d&#39;, &#39;ll&#39;, &#39;m&#39;, &#39;o&#39;, &#39;re&#39;, &#39;ve&#39;, &#39;y&#39;, &#39;ain&#39;, &#39;aren&#39;, &quot;aren&#39;t&quot;, &#39;couldn&#39;, &quot;couldn&#39;t&quot;, &#39;didn&#39;, &quot;didn&#39;t&quot;, &#39;doesn&#39;, &quot;doesn&#39;t&quot;, &#39;hadn&#39;, &quot;hadn&#39;t&quot;, &#39;hasn&#39;, &quot;hasn&#39;t&quot;, &#39;haven&#39;, &quot;haven&#39;t&quot;, &#39;isn&#39;, &quot;isn&#39;t&quot;, &#39;ma&#39;, &#39;mightn&#39;, &quot;mightn&#39;t&quot;, &#39;mustn&#39;, &quot;mustn&#39;t&quot;, &#39;needn&#39;, &quot;needn&#39;t&quot;, &#39;shan&#39;, &quot;shan&#39;t&quot;, &#39;shouldn&#39;, &quot;shouldn&#39;t&quot;, &#39;wasn&#39;, &quot;wasn&#39;t&quot;, &#39;weren&#39;, &quot;weren&#39;t&quot;, &#39;won&#39;, &quot;won&#39;t&quot;, &#39;wouldn&#39;, &quot;wouldn&#39;t&quot;]</code></pre>
-<div class="sourceCode" id="cb2025"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2025-1"><a href="nlp.html#cb2025-1"></a><span class="bu">print</span>(<span class="bu">len</span>(nltk_stop_words))</span></code></pre></div>
-<pre><code>## 179</code></pre>
 </div>
 <div id="sklearn-stop-words" class="section level3">
-<h3><span class="header-section-number">18.5.3</span> SKLearn Stop Words¶</h3>
+<h3><span class="header-section-number">18.5.3</span> SKLearn Stop Words</h3>
 <p>Contain 318 stop words, in frozenset form</p>
-<div class="sourceCode" id="cb2027"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2027-1"><a href="nlp.html#cb2027-1"></a><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> ENGLISH_STOP_WORDS <span class="im">as</span> sklearn_stop_words</span>
-<span id="cb2027-2"><a href="nlp.html#cb2027-2"></a><span class="bu">print</span>(<span class="bu">len</span>( sklearn_stop_words))</span></code></pre></div>
-<pre><code>## 318</code></pre>
-<div class="sourceCode" id="cb2029"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2029-1"><a href="nlp.html#cb2029-1"></a><span class="bu">print</span>( sklearn_stop_words)</span></code></pre></div>
-<pre><code>## frozenset({&#39;re&#39;, &#39;find&#39;, &#39;under&#39;, &#39;hence&#39;, &#39;among&#39;, &#39;out&#39;, &#39;either&#39;, &#39;may&#39;, &#39;fill&#39;, &#39;where&#39;, &#39;neither&#39;, &#39;fifty&#39;, &#39;eleven&#39;, &#39;amount&#39;, &#39;top&#39;, &#39;thence&#39;, &#39;ltd&#39;, &#39;no&#39;, &#39;elsewhere&#39;, &#39;de&#39;, &#39;bill&#39;, &#39;ten&#39;, &#39;thick&#39;, &#39;since&#39;, &#39;found&#39;, &#39;not&#39;, &#39;ever&#39;, &#39;if&#39;, &#39;being&#39;, &#39;while&#39;, &#39;had&#39;, &#39;why&#39;, &#39;something&#39;, &#39;hasnt&#39;, &#39;each&#39;, &#39;thereupon&#39;, &#39;whereupon&#39;, &#39;five&#39;, &#39;at&#39;, &#39;to&#39;, &#39;still&#39;, &#39;across&#39;, &#39;down&#39;, &#39;mostly&#39;, &#39;over&#39;, &#39;thin&#39;, &#39;for&#39;, &#39;next&#39;, &#39;other&#39;, &#39;nevertheless&#39;, &#39;alone&#39;, &#39;amoungst&#39;, &#39;already&#39;, &#39;himself&#39;, &#39;nobody&#39;, &#39;name&#39;, &#39;made&#39;, &#39;your&#39;, &#39;enough&#39;, &#39;none&#39;, &#39;empty&#39;, &#39;least&#39;, &#39;again&#39;, &#39;during&#39;, &#39;third&#39;, &#39;between&#39;, &#39;beyond&#39;, &#39;thereby&#39;, &#39;get&#39;, &#39;full&#39;, &#39;whatever&#39;, &#39;noone&#39;, &#39;my&#39;, &#39;system&#39;, &#39;from&#39;, &#39;themselves&#39;, &#39;ours&#39;, &#39;forty&#39;, &#39;then&#39;, &#39;own&#39;, &#39;who&#39;, &#39;toward&#39;, &#39;be&#39;, &#39;another&#39;, &#39;part&#39;, &#39;con&#39;, &#39;becomes&#39;, &#39;serious&#39;, &#39;below&#39;, &#39;might&#39;, &#39;together&#39;, &#39;when&#39;, &#39;i&#39;, &#39;on&#39;, &#39;meanwhile&#39;, &#39;sixty&#39;, &#39;sometimes&#39;, &#39;anything&#39;, &#39;couldnt&#39;, &#39;latter&#39;, &#39;with&#39;, &#39;nor&#39;, &#39;she&#39;, &#39;else&#39;, &#39;us&#39;, &#39;co&#39;, &#39;any&#39;, &#39;seems&#39;, &#39;too&#39;, &#39;well&#39;, &#39;see&#39;, &#39;more&#39;, &#39;eg&#39;, &#39;same&#39;, &#39;detail&#39;, &#39;move&#39;, &#39;became&#39;, &#39;take&#39;, &#39;wherever&#39;, &#39;the&#39;, &#39;whole&#39;, &#39;you&#39;, &#39;an&#39;, &#39;almost&#39;, &#39;cant&#39;, &#39;yourselves&#39;, &#39;others&#39;, &#39;though&#39;, &#39;can&#39;, &#39;six&#39;, &#39;against&#39;, &#39;become&#39;, &#39;here&#39;, &#39;un&#39;, &#39;thru&#39;, &#39;whither&#39;, &#39;otherwise&#39;, &#39;itself&#39;, &#39;myself&#39;, &#39;always&#39;, &#39;anywhere&#39;, &#39;first&#39;, &#39;twelve&#39;, &#39;anyhow&#39;, &#39;whether&#39;, &#39;within&#39;, &#39;fifteen&#39;, &#39;eight&#39;, &#39;hereupon&#39;, &#39;because&#39;, &#39;keep&#39;, &#39;towards&#39;, &#39;latterly&#39;, &#39;along&#39;, &#39;therein&#39;, &#39;cry&#39;, &#39;one&#39;, &#39;whose&#39;, &#39;also&#39;, &#39;mine&#39;, &#39;beforehand&#39;, &#39;whereafter&#39;, &#39;inc&#39;, &#39;he&#39;, &#39;by&#39;, &#39;of&#39;, &#39;been&#39;, &#39;wherein&#39;, &#39;amongst&#39;, &#39;his&#39;, &#39;do&#39;, &#39;sometime&#39;, &#39;whereas&#39;, &#39;their&#39;, &#39;go&#39;, &#39;further&#39;, &#39;it&#39;, &#39;several&#39;, &#39;four&#39;, &#39;into&#39;, &#39;everywhere&#39;, &#39;ourselves&#39;, &#39;somehow&#39;, &#39;him&#39;, &#39;most&#39;, &#39;these&#39;, &#39;however&#39;, &#39;behind&#39;, &#39;whenever&#39;, &#39;cannot&#39;, &#39;its&#39;, &#39;how&#39;, &#39;few&#39;, &#39;done&#39;, &#39;we&#39;, &#39;seemed&#39;, &#39;through&#39;, &#39;around&#39;, &#39;last&#39;, &#39;becoming&#39;, &#39;please&#39;, &#39;fire&#39;, &#39;yourself&#39;, &#39;less&#39;, &#39;per&#39;, &#39;back&#39;, &#39;have&#39;, &#39;even&#39;, &#39;whom&#39;, &#39;etc&#39;, &#39;was&#39;, &#39;interest&#39;, &#39;afterwards&#39;, &#39;therefore&#39;, &#39;two&#39;, &#39;except&#39;, &#39;without&#39;, &#39;someone&#39;, &#39;about&#39;, &#39;could&#39;, &#39;whereby&#39;, &#39;moreover&#39;, &#39;now&#39;, &#39;herself&#39;, &#39;beside&#39;, &#39;such&#39;, &#39;everyone&#39;, &#39;three&#39;, &#39;hereafter&#39;, &#39;anyway&#39;, &#39;but&#39;, &#39;both&#39;, &#39;very&#39;, &#39;off&#39;, &#39;anyone&#39;, &#39;although&#39;, &#39;were&#39;, &#39;up&#39;, &#39;side&#39;, &#39;often&#39;, &#39;me&#39;, &#39;rather&#39;, &#39;put&#39;, &#39;yet&#39;, &#39;than&#39;, &#39;in&#39;, &#39;before&#39;, &#39;formerly&#39;, &#39;is&#39;, &#39;or&#39;, &#39;only&#39;, &#39;seeming&#39;, &#39;am&#39;, &#39;namely&#39;, &#39;upon&#39;, &#39;those&#39;, &#39;every&#39;, &#39;thereafter&#39;, &#39;indeed&#39;, &#39;due&#39;, &#39;show&#39;, &#39;nothing&#39;, &#39;thus&#39;, &#39;so&#39;, &#39;this&#39;, &#39;many&#39;, &#39;former&#39;, &#39;ie&#39;, &#39;all&#39;, &#39;sincere&#39;, &#39;hundred&#39;, &#39;which&#39;, &#39;and&#39;, &#39;after&#39;, &#39;are&#39;, &#39;will&#39;, &#39;some&#39;, &#39;perhaps&#39;, &#39;as&#39;, &#39;much&#39;, &#39;they&#39;, &#39;mill&#39;, &#39;until&#39;, &#39;nowhere&#39;, &#39;them&#39;, &#39;her&#39;, &#39;never&#39;, &#39;call&#39;, &#39;describe&#39;, &#39;herein&#39;, &#39;twenty&#39;, &#39;yours&#39;, &#39;must&#39;, &#39;hereby&#39;, &#39;our&#39;, &#39;throughout&#39;, &#39;somewhere&#39;, &#39;what&#39;, &#39;bottom&#39;, &#39;there&#39;, &#39;hers&#39;, &#39;give&#39;, &#39;would&#39;, &#39;should&#39;, &#39;besides&#39;, &#39;whence&#39;, &#39;front&#39;, &#39;that&#39;, &#39;via&#39;, &#39;above&#39;, &#39;a&#39;, &#39;nine&#39;, &#39;onto&#39;, &#39;once&#39;, &#39;everything&#39;, &#39;has&#39;, &#39;seem&#39;, &#39;whoever&#39;})</code></pre>
-<div class="sourceCode" id="cb2031"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2031-1"><a href="nlp.html#cb2031-1"></a>combined_stop_words <span class="op">=</span> <span class="bu">list</span>( <span class="bu">set</span>(nltk_stop_words) <span class="op">|</span> <span class="bu">set</span>(sklearn_stop_words) )</span></code></pre></div>
+<div class="sourceCode" id="cb2032"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2032-1"><a href="nlp.html#cb2032-1"></a><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> ENGLISH_STOP_WORDS <span class="im">as</span> sklearn_stop_words</span>
+<span id="cb2032-2"><a href="nlp.html#cb2032-2"></a><span class="bu">print</span>(<span class="st">&#39;Total Sklearn Stopwords: &#39;</span>, <span class="bu">len</span>(sklearn_stop_words),<span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>)</span></code></pre></div>
+<pre><code>## Total Sklearn Stopwords:  318</code></pre>
+<div class="sourceCode" id="cb2034"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2034-1"><a href="nlp.html#cb2034-1"></a><span class="bu">print</span>(sklearn_stop_words)</span></code></pre></div>
+<pre><code>## frozenset({&#39;afterwards&#39;, &#39;almost&#39;, &#39;besides&#39;, &#39;was&#39;, &#39;others&#39;, &#39;towards&#39;, &#39;my&#39;, &#39;sincere&#39;, &#39;his&#39;, &#39;upon&#39;, &#39;amount&#39;, &#39;whenever&#39;, &#39;although&#39;, &#39;between&#39;, &#39;noone&#39;, &#39;with&#39;, &#39;becoming&#39;, &#39;beside&#39;, &#39;might&#39;, &#39;off&#39;, &#39;cannot&#39;, &#39;see&#39;, &#39;six&#39;, &#39;where&#39;, &#39;cry&#39;, &#39;well&#39;, &#39;bottom&#39;, &#39;ltd&#39;, &#39;eleven&#39;, &#39;once&#39;, &#39;then&#39;, &#39;made&#39;, &#39;fire&#39;, &#39;we&#39;, &#39;everyone&#39;, &#39;or&#39;, &#39;still&#39;, &#39;found&#39;, &#39;nothing&#39;, &#39;until&#39;, &#39;these&#39;, &#39;yours&#39;, &#39;several&#39;, &#39;me&#39;, &#39;only&#39;, &#39;up&#39;, &#39;nowhere&#39;, &#39;else&#39;, &#39;enough&#39;, &#39;never&#39;, &#39;perhaps&#39;, &#39;therefore&#39;, &#39;call&#39;, &#39;been&#39;, &#39;anything&#39;, &#39;moreover&#39;, &#39;become&#39;, &#39;when&#39;, &#39;would&#39;, &#39;there&#39;, &#39;give&#39;, &#39;will&#39;, &#39;can&#39;, &#39;ten&#39;, &#39;do&#39;, &#39;system&#39;, &#39;thence&#39;, &#39;but&#39;, &#39;top&#39;, &#39;am&#39;, &#39;have&#39;, &#39;nobody&#39;, &#39;now&#39;, &#39;under&#39;, &#39;whereupon&#39;, &#39;whereas&#39;, &#39;beforehand&#39;, &#39;so&#39;, &#39;whose&#39;, &#39;front&#39;, &#39;more&#39;, &#39;has&#39;, &#39;thereby&#39;, &#39;thick&#39;, &#39;across&#39;, &#39;should&#39;, &#39;yet&#39;, &#39;someone&#39;, &#39;three&#39;, &#39;thereupon&#39;, &#39;though&#39;, &#39;whither&#39;, &#39;your&#39;, &#39;a&#39;, &#39;put&#39;, &#39;could&#39;, &#39;together&#39;, &#39;somewhere&#39;, &#39;its&#39;, &#39;meanwhile&#39;, &#39;five&#39;, &#39;take&#39;, &#39;before&#39;, &#39;formerly&#39;, &#39;on&#39;, &#39;hereupon&#39;, &#39;being&#39;, &#39;him&#39;, &#39;latter&#39;, &#39;be&#39;, &#39;namely&#39;, &#39;describe&#39;, &#39;anyway&#39;, &#39;anyone&#39;, &#39;whom&#39;, &#39;even&#39;, &#39;itself&#39;, &#39;through&#39;, &#39;name&#39;, &#39;third&#39;, &#39;seems&#39;, &#39;except&#39;, &#39;from&#39;, &#39;those&#39;, &#39;this&#39;, &#39;two&#39;, &#39;by&#39;, &#39;mine&#39;, &#39;twenty&#39;, &#39;re&#39;, &#39;already&#39;, &#39;and&#39;, &#39;along&#39;, &#39;himself&#39;, &#39;onto&#39;, &#39;side&#39;, &#39;co&#39;, &#39;down&#39;, &#39;fill&#39;, &#39;find&#39;, &#39;whole&#39;, &#39;inc&#39;, &#39;both&#39;, &#39;many&#39;, &#39;detail&#39;, &#39;de&#39;, &#39;no&#39;, &#39;alone&#39;, &#39;other&#39;, &#39;otherwise&#39;, &#39;why&#39;, &#39;done&#39;, &#39;sixty&#39;, &#39;among&#39;, &#39;twelve&#39;, &#39;get&#39;, &#39;interest&#39;, &#39;same&#39;, &#39;behind&#39;, &#39;again&#39;, &#39;none&#39;, &#39;back&#39;, &#39;against&#39;, &#39;ours&#39;, &#39;therein&#39;, &#39;seemed&#39;, &#39;whatever&#39;, &#39;not&#39;, &#39;neither&#39;, &#39;to&#39;, &#39;she&#39;, &#39;myself&#39;, &#39;serious&#39;, &#39;over&#39;, &#39;latterly&#39;, &#39;per&#39;, &#39;an&#39;, &#39;hasnt&#39;, &#39;anyhow&#39;, &#39;ourselves&#39;, &#39;few&#39;, &#39;at&#39;, &#39;anywhere&#39;, &#39;empty&#39;, &#39;them&#39;, &#39;may&#39;, &#39;because&#39;, &#39;beyond&#39;, &#39;fifty&#39;, &#39;less&#39;, &#39;became&#39;, &#39;eg&#39;, &#39;forty&#39;, &#39;via&#39;, &#39;also&#39;, &#39;often&#39;, &#39;fifteen&#39;, &#39;whoever&#39;, &#39;what&#39;, &#39;very&#39;, &#39;full&#39;, &#39;wherein&#39;, &#39;above&#39;, &#39;seeming&#39;, &#39;us&#39;, &#39;everything&#39;, &#39;sometimes&#39;, &#39;such&#39;, &#39;un&#39;, &#39;next&#39;, &#39;hereby&#39;, &#39;couldnt&#39;, &#39;since&#39;, &#39;least&#39;, &#39;were&#39;, &#39;however&#39;, &#39;during&#39;, &#39;any&#39;, &#39;without&#39;, &#39;into&#39;, &#39;the&#39;, &#39;either&#39;, &#39;whether&#39;, &#39;our&#39;, &#39;always&#39;, &#39;every&#39;, &#39;rather&#39;, &#39;here&#39;, &#39;about&#39;, &#39;first&#39;, &#39;while&#39;, &#39;amongst&#39;, &#39;of&#39;, &#39;for&#39;, &#39;throughout&#39;, &#39;whence&#39;, &#39;go&#39;, &#39;own&#39;, &#39;hundred&#39;, &#39;part&#39;, &#39;they&#39;, &#39;must&#39;, &#39;in&#39;, &#39;if&#39;, &#39;something&#39;, &#39;keep&#39;, &#39;nor&#39;, &#39;thus&#39;, &#39;four&#39;, &#39;her&#39;, &#39;themselves&#39;, &#39;is&#39;, &#39;below&#39;, &#39;amoungst&#39;, &#39;who&#39;, &#39;toward&#39;, &#39;each&#39;, &#39;hereafter&#39;, &#39;how&#39;, &#39;ie&#39;, &#39;elsewhere&#39;, &#39;please&#39;, &#39;out&#39;, &#39;much&#39;, &#39;indeed&#39;, &#39;mostly&#39;, &#39;their&#39;, &#39;former&#39;, &#39;as&#39;, &#39;hers&#39;, &#39;thereafter&#39;, &#39;due&#39;, &#39;whereby&#39;, &#39;one&#39;, &#39;after&#39;, &#39;everywhere&#39;, &#39;mill&#39;, &#39;yourselves&#39;, &#39;thru&#39;, &#39;whereafter&#39;, &#39;some&#39;, &#39;ever&#39;, &#39;show&#39;, &#39;becomes&#39;, &#39;con&#39;, &#39;wherever&#39;, &#39;are&#39;, &#39;too&#39;, &#39;eight&#39;, &#39;yourself&#39;, &#39;cant&#39;, &#39;herein&#39;, &#39;herself&#39;, &#39;bill&#39;, &#39;last&#39;, &#39;all&#39;, &#39;another&#39;, &#39;hence&#39;, &#39;than&#39;, &#39;etc&#39;, &#39;he&#39;, &#39;around&#39;, &#39;i&#39;, &#39;sometime&#39;, &#39;thin&#39;, &#39;nevertheless&#39;, &#39;that&#39;, &#39;somehow&#39;, &#39;seem&#39;, &#39;move&#39;, &#39;had&#39;, &#39;within&#39;, &#39;you&#39;, &#39;it&#39;, &#39;most&#39;, &#39;further&#39;, &#39;nine&#39;, &#39;which&#39;})</code></pre>
 </div>
 <div id="combined-nltk-and-sklearn-stop-words" class="section level3">
-<h3><span class="header-section-number">18.5.4</span> Combined NLTK and SKLearn Stop Words¶</h3>
-<div class="sourceCode" id="cb2032"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2032-1"><a href="nlp.html#cb2032-1"></a>combined_stop_words <span class="op">=</span> <span class="bu">list</span>( <span class="bu">set</span>(nltk_stop_words) <span class="op">|</span> <span class="bu">set</span>(sklearn_stop_words) )</span>
-<span id="cb2032-2"><a href="nlp.html#cb2032-2"></a><span class="bu">len</span>( combined_stop_words )</span></code></pre></div>
-<pre><code>## 378</code></pre>
-<p><strong>Intersection, agreeing only 119 out of 378 words</strong></p>
-<div class="sourceCode" id="cb2034"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2034-1"><a href="nlp.html#cb2034-1"></a><span class="bu">len</span>( <span class="bu">list</span>( <span class="bu">set</span>(nltk_stop_words) <span class="op">&amp;</span> <span class="bu">set</span>(sklearn_stop_words)) )</span></code></pre></div>
-<pre><code>## 119</code></pre>
+<h3><span class="header-section-number">18.5.4</span> Combined NLTK and SKLearn Stop Words</h3>
+<div class="sourceCode" id="cb2036"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2036-1"><a href="nlp.html#cb2036-1"></a>combined_stop_words <span class="op">=</span> <span class="bu">list</span>( <span class="bu">set</span>(nltk_stop_words) <span class="op">|</span> <span class="bu">set</span>(sklearn_stop_words) )</span>
+<span id="cb2036-2"><a href="nlp.html#cb2036-2"></a><span class="bu">print</span>(<span class="st">&#39;Total combined NLTK and SKLearn Stopwords:&#39;</span>, <span class="bu">len</span>( combined_stop_words ))</span></code></pre></div>
+<pre><code>## Total combined NLTK and SKLearn Stopwords: 378</code></pre>
+<div class="sourceCode" id="cb2038"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2038-1"><a href="nlp.html#cb2038-1"></a><span class="bu">print</span>(<span class="st">&#39;Stopwords shared among NLTK and SKlearn  :&#39;</span>, <span class="bu">len</span>( <span class="bu">list</span>( <span class="bu">set</span>(nltk_stop_words) <span class="op">&amp;</span> <span class="bu">set</span>(sklearn_stop_words)) ))</span></code></pre></div>
+<pre><code>## Stopwords shared among NLTK and SKlearn  : 119</code></pre>
 </div>
 </div>
 <div id="normalizing" class="section level2">
@@ -705,34 +754,39 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">18.6.1</span> Case Folding</h3>
 <p>If tokens aren’t cap normalized, you will end up with large word list.
 However, some information is often communicated by capitalization of word, such as name of places. If names are important, consider using proper noun.</p>
-<div class="sourceCode" id="cb2036"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2036-1"><a href="nlp.html#cb2036-1"></a>tokens <span class="op">=</span> [<span class="st">&#39;House&#39;</span>,<span class="st">&#39;Visitor&#39;</span>,<span class="st">&#39;Center&#39;</span>]</span>
-<span id="cb2036-2"><a href="nlp.html#cb2036-2"></a>[ x.lower() <span class="cf">for</span> x <span class="kw">in</span> tokens]</span></code></pre></div>
+<div class="sourceCode" id="cb2040"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2040-1"><a href="nlp.html#cb2040-1"></a>tokens <span class="op">=</span> [<span class="st">&#39;House&#39;</span>,<span class="st">&#39;Visitor&#39;</span>,<span class="st">&#39;Center&#39;</span>]</span>
+<span id="cb2040-2"><a href="nlp.html#cb2040-2"></a>[ x.lower() <span class="cf">for</span> x <span class="kw">in</span> tokens]</span></code></pre></div>
 <pre><code>## [&#39;house&#39;, &#39;visitor&#39;, &#39;center&#39;]</code></pre>
 </div>
 <div id="stemming" class="section level3">
 <h3><span class="header-section-number">18.6.2</span> Stemming</h3>
-<p>Output of a stemmer is not necessary a proper word.
-<strong>Porter stemmer</strong> is a lifetime refinement with 300 lines of python code, it automatically convert words to lower cap.
-Stemming is faster then Lemmatization</p>
-<div class="sourceCode" id="cb2038"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2038-1"><a href="nlp.html#cb2038-1"></a><span class="im">from</span> nltk.stem.porter <span class="im">import</span> PorterStemmer</span>
-<span id="cb2038-2"><a href="nlp.html#cb2038-2"></a>stemmer <span class="op">=</span> PorterStemmer()</span>
-<span id="cb2038-3"><a href="nlp.html#cb2038-3"></a>tokens <span class="op">=</span> (<span class="st">&#39;house&#39;</span>,<span class="st">&#39;Housing&#39;</span>,<span class="st">&#39;hOuses&#39;</span>, <span class="st">&#39;Malicious&#39;</span>,<span class="st">&#39;goodness&#39;</span>)</span>
-<span id="cb2038-4"><a href="nlp.html#cb2038-4"></a>[stemmer.stem(x) <span class="cf">for</span> x <span class="kw">in</span> tokens ]</span></code></pre></div>
+<ul>
+<li>Output of a stemmer is <strong>not necessary a proper word</strong></li>
+<li>Automatically convert words to <strong>lower cap</strong></li>
+<li><strong>Porter stemmer</strong> is a lifetime refinement with 300 lines of python code<br />
+</li>
+<li>Stemming is faster then Lemmatization</li>
+</ul>
+<div class="sourceCode" id="cb2042"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2042-1"><a href="nlp.html#cb2042-1"></a><span class="im">from</span> nltk.stem.porter <span class="im">import</span> PorterStemmer</span>
+<span id="cb2042-2"><a href="nlp.html#cb2042-2"></a>stemmer <span class="op">=</span> PorterStemmer()</span>
+<span id="cb2042-3"><a href="nlp.html#cb2042-3"></a>tokens <span class="op">=</span> (<span class="st">&#39;house&#39;</span>,<span class="st">&#39;Housing&#39;</span>,<span class="st">&#39;hOuses&#39;</span>, <span class="st">&#39;Malicious&#39;</span>,<span class="st">&#39;goodness&#39;</span>)</span>
+<span id="cb2042-4"><a href="nlp.html#cb2042-4"></a>[stemmer.stem(x) <span class="cf">for</span> x <span class="kw">in</span> tokens ]</span></code></pre></div>
 <pre><code>## [&#39;hous&#39;, &#39;hous&#39;, &#39;hous&#39;, &#39;malici&#39;, &#39;good&#39;]</code></pre>
 </div>
 <div id="lemmatization" class="section level3">
 <h3><span class="header-section-number">18.6.3</span> Lemmatization</h3>
-<p>NLTK uses connections within princeton WordNet graph for word meanings.</p>
-<div class="sourceCode" id="cb2040"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2040-1"><a href="nlp.html#cb2040-1"></a><span class="co">#nltk.download(&#39;wordnet&#39;)</span></span>
-<span id="cb2040-2"><a href="nlp.html#cb2040-2"></a><span class="im">from</span> nltk.stem <span class="im">import</span> WordNetLemmatizer</span>
-<span id="cb2040-3"><a href="nlp.html#cb2040-3"></a>lemmatizer <span class="op">=</span> WordNetLemmatizer()</span></code></pre></div>
-<div class="sourceCode" id="cb2041"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2041-1"><a href="nlp.html#cb2041-1"></a><span class="bu">print</span>( lemmatizer.lemmatize(<span class="st">&quot;better&quot;</span>, pos <span class="op">=</span><span class="st">&#39;a&#39;</span>) )</span></code></pre></div>
+<p>NLTK uses connections within <strong>princeton WordNet</strong> graph for word meanings.</p>
+<div class="sourceCode" id="cb2044"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2044-1"><a href="nlp.html#cb2044-1"></a><span class="co">#nltk.download(&#39;wordnet&#39;)</span></span>
+<span id="cb2044-2"><a href="nlp.html#cb2044-2"></a><span class="im">from</span> nltk.stem <span class="im">import</span> WordNetLemmatizer</span>
+<span id="cb2044-3"><a href="nlp.html#cb2044-3"></a>lemmatizer <span class="op">=</span> WordNetLemmatizer()</span>
+<span id="cb2044-4"><a href="nlp.html#cb2044-4"></a></span>
+<span id="cb2044-5"><a href="nlp.html#cb2044-5"></a><span class="bu">print</span>( lemmatizer.lemmatize(<span class="st">&quot;better&quot;</span>, pos <span class="op">=</span><span class="st">&#39;a&#39;</span>) )</span></code></pre></div>
 <pre><code>## good</code></pre>
-<div class="sourceCode" id="cb2043"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2043-1"><a href="nlp.html#cb2043-1"></a><span class="bu">print</span>( lemmatizer.lemmatize(<span class="st">&quot;better&quot;</span>, pos <span class="op">=</span><span class="st">&#39;n&#39;</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb2046"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2046-1"><a href="nlp.html#cb2046-1"></a><span class="bu">print</span>( lemmatizer.lemmatize(<span class="st">&quot;better&quot;</span>, pos <span class="op">=</span><span class="st">&#39;n&#39;</span>) )</span></code></pre></div>
 <pre><code>## better</code></pre>
-<div class="sourceCode" id="cb2045"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2045-1"><a href="nlp.html#cb2045-1"></a><span class="bu">print</span>( lemmatizer.lemmatize(<span class="st">&quot;good&quot;</span>, pos <span class="op">=</span><span class="st">&#39;a&#39;</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb2048"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2048-1"><a href="nlp.html#cb2048-1"></a><span class="bu">print</span>( lemmatizer.lemmatize(<span class="st">&quot;good&quot;</span>, pos <span class="op">=</span><span class="st">&#39;a&#39;</span>) )</span></code></pre></div>
 <pre><code>## good</code></pre>
-<div class="sourceCode" id="cb2047"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2047-1"><a href="nlp.html#cb2047-1"></a><span class="bu">print</span>( lemmatizer.lemmatize(<span class="st">&quot;good&quot;</span>, pos <span class="op">=</span><span class="st">&#39;n&#39;</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb2050"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2050-1"><a href="nlp.html#cb2050-1"></a><span class="bu">print</span>( lemmatizer.lemmatize(<span class="st">&quot;good&quot;</span>, pos <span class="op">=</span><span class="st">&#39;n&#39;</span>) )</span></code></pre></div>
 <pre><code>## good</code></pre>
 </div>
 <div id="comparing-stemming-and-lemmatization" class="section level3">
@@ -748,35 +802,61 @@ Stemming is faster then Lemmatization</p>
 <p>For search-based chatbot where accuracy is more important, it should first search with unnormalzied words.</p>
 </div>
 </div>
+<div id="pos-tagging" class="section level2">
+<h2><span class="header-section-number">18.7</span> POS Tagging</h2>
+<p>The primary target of Part-of-Speech(POS) tagging is to identify the grammatical group of a given word. Whether it is a NOUN, PRONOUN, ADJECTIVE, VERB, ADVERBS, etc. based on the context.</p>
+<p>Tagging works sentence by sentence.
+- Document fist must be splitted into sentences
+- Each sentence need to be tokenized into words</p>
+<div class="sourceCode" id="cb2052"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2052-1"><a href="nlp.html#cb2052-1"></a><span class="co">#nltk.download(&#39;averaged_perceptron_tagger&#39;)</span></span>
+<span id="cb2052-2"><a href="nlp.html#cb2052-2"></a>sentence <span class="op">=</span> <span class="st">&quot;Albert Einstein was born in Ulm, Germany in 1879.&quot;</span></span>
+<span id="cb2052-3"><a href="nlp.html#cb2052-3"></a>tokens <span class="op">=</span> nltk.word_tokenize(sentence)</span>
+<span id="cb2052-4"><a href="nlp.html#cb2052-4"></a>tags   <span class="op">=</span> nltk.pos_tag(tokens)</span>
+<span id="cb2052-5"><a href="nlp.html#cb2052-5"></a><span class="bu">print</span>(<span class="st">&#39;Tokens:</span><span class="ch">\n</span><span class="st">&#39;</span>, tokens, <span class="st">&#39;</span><span class="ch">\n\n</span><span class="st">&#39;</span>, <span class="st">&#39;Tags:</span><span class="ch">\n</span><span class="st">&#39;</span>, tags)</span></code></pre></div>
+<pre><code>## Tokens:
+##  [&#39;Albert&#39;, &#39;Einstein&#39;, &#39;was&#39;, &#39;born&#39;, &#39;in&#39;, &#39;Ulm&#39;, &#39;,&#39;, &#39;Germany&#39;, &#39;in&#39;, &#39;1879&#39;, &#39;.&#39;] 
+## 
+##  Tags:
+##  [(&#39;Albert&#39;, &#39;NNP&#39;), (&#39;Einstein&#39;, &#39;NNP&#39;), (&#39;was&#39;, &#39;VBD&#39;), (&#39;born&#39;, &#39;VBN&#39;), (&#39;in&#39;, &#39;IN&#39;), (&#39;Ulm&#39;, &#39;NNP&#39;), (&#39;,&#39;, &#39;,&#39;), (&#39;Germany&#39;, &#39;NNP&#39;), (&#39;in&#39;, &#39;IN&#39;), (&#39;1879&#39;, &#39;CD&#39;), (&#39;.&#39;, &#39;.&#39;)]</code></pre>
+</div>
 <div id="sentiment" class="section level2">
-<h2><span class="header-section-number">18.7</span> Sentiment</h2>
+<h2><span class="header-section-number">18.8</span> Sentiment</h2>
 <div id="vader" class="section level3">
-<h3><span class="header-section-number">18.7.1</span> Vader</h3>
+<h3><span class="header-section-number">18.8.1</span> Vader</h3>
 <ul>
-<li>It is a rule based sentiment analyzer, contain 7503 lexicons.</li>
-<li>It is good for social media because lexicon contain emoji text.</li>
+<li>It is a rule based sentiment analyzer, contain 7503 lexicons</li>
+<li>It is good for social media because lexicon contain emoji and short form text</li>
 <li>Contain only 3 n-gram</li>
 </ul>
 <div id="vader-lexicon" class="section level4">
-<h4><span class="header-section-number">18.7.1.1</span> Vader Lexicon</h4>
-<div class="sourceCode" id="cb2049"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2049-1"><a href="nlp.html#cb2049-1"></a><span class="im">from</span> vaderSentiment.vaderSentiment <span class="im">import</span> SentimentIntensityAnalyzer</span>
-<span id="cb2049-2"><a href="nlp.html#cb2049-2"></a>vadersa <span class="op">=</span> SentimentIntensityAnalyzer()</span>
-<span id="cb2049-3"><a href="nlp.html#cb2049-3"></a><span class="bu">print</span>( <span class="bu">len</span>(vadersa.lexicon))</span></code></pre></div>
-<pre><code>## 7503</code></pre>
-<p>The lexicon is a dictionary. Converting dictionary to list require few steps:<br />
-- Convert dict to dict_items, which is a list containing items, each item is one dict).
-- Convert to dict_items to list</p>
-<div class="sourceCode" id="cb2051"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2051-1"><a href="nlp.html#cb2051-1"></a><span class="bu">list</span>(vadersa.lexicon.items())[:<span class="dv">20</span>]  <span class="co">## convert dict to list of dict</span></span></code></pre></div>
-<pre><code>## [(&#39;$:&#39;, -1.5), (&#39;%)&#39;, -0.4), (&#39;%-)&#39;, -1.5), (&#39;&amp;-:&#39;, -0.4), (&#39;&amp;:&#39;, -0.7), (&quot;( &#39;}{&#39; )&quot;, 1.6), (&#39;(%&#39;, -0.9), (&quot;(&#39;-:&quot;, 2.2), (&quot;(&#39;:&quot;, 2.3), (&#39;((-:&#39;, 2.1), (&#39;(*&#39;, 1.1), (&#39;(-%&#39;, -0.7), (&#39;(-*&#39;, 1.3), (&#39;(-:&#39;, 1.6), (&#39;(-:0&#39;, 2.8), (&#39;(-:&lt;&#39;, -0.4), (&#39;(-:o&#39;, 1.5), (&#39;(-:O&#39;, 1.5), (&#39;(-:{&#39;, -0.1), (&#39;(-:|&gt;*&#39;, 1.9)]</code></pre>
+<h4><span class="header-section-number">18.8.1.1</span> Vader Lexicon</h4>
+<p>The lexicon is a dictionary. To make it iterable, need to convert into list:<br />
+- Step 1: Convert <code>dict</code> to <code>dict_items</code>, which is a list containing items, each item is one dict.
+- Step 2: Convert to <code>dict_items</code> to <code>list</code></p>
+<div class="sourceCode" id="cb2054"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2054-1"><a href="nlp.html#cb2054-1"></a><span class="im">from</span> vaderSentiment.vaderSentiment <span class="im">import</span> SentimentIntensityAnalyzer</span>
+<span id="cb2054-2"><a href="nlp.html#cb2054-2"></a>vader_lex <span class="op">=</span> SentimentIntensityAnalyzer().lexicon  <span class="co"># get the lexicon dictionary</span></span>
+<span id="cb2054-3"><a href="nlp.html#cb2054-3"></a>vader_list <span class="op">=</span> <span class="bu">list</span>(vader_lex.items())              <span class="co"># convert to items then list</span></span>
+<span id="cb2054-4"><a href="nlp.html#cb2054-4"></a><span class="bu">print</span>( <span class="st">&#39;Total Vader Lexicon:&#39;</span>, <span class="bu">len</span>(vader_lex),<span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</span>
+<span id="cb2054-5"><a href="nlp.html#cb2054-5"></a>        vader_list[<span class="dv">1</span>:<span class="dv">10</span>], vader_list[<span class="dv">220</span>:<span class="dv">240</span>] )</span></code></pre></div>
+<pre><code>## Total Vader Lexicon: 7503 
+##  [(&#39;%)&#39;, -0.4), (&#39;%-)&#39;, -1.5), (&#39;&amp;-:&#39;, -0.4), (&#39;&amp;:&#39;, -0.7), (&quot;( &#39;}{&#39; )&quot;, 1.6), (&#39;(%&#39;, -0.9), (&quot;(&#39;-:&quot;, 2.2), (&quot;(&#39;:&quot;, 2.3), (&#39;((-:&#39;, 2.1)] [(&#39;bz&#39;, 0.4), (&#39;b^d&#39;, 2.6), (&#39;cwot&#39;, -2.3), (&quot;d-&#39;:&quot;, -2.5), (&#39;d8&#39;, -3.2), (&#39;d:&#39;, 1.2), (&#39;d:&lt;&#39;, -3.2), (&#39;d;&#39;, -2.9), (&#39;d=&#39;, 1.5), (&#39;doa&#39;, -2.3), (&#39;dx&#39;, -3.0), (&#39;ez&#39;, 1.5), (&#39;fav&#39;, 2.0), (&#39;fcol&#39;, -1.8), (&#39;ff&#39;, 1.8), (&#39;ffs&#39;, -2.8), (&#39;fkm&#39;, -2.4), (&#39;foaf&#39;, 1.8), (&#39;ftw&#39;, 2.0), (&#39;fu&#39;, -3.7)]</code></pre>
 <p><strong>There is only three N-Gram in the lexicon</strong></p>
-<div class="sourceCode" id="cb2053"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2053-1"><a href="nlp.html#cb2053-1"></a>[ (tok,score) <span class="cf">for</span> tok, score <span class="kw">in</span> vadersa.lexicon.items() <span class="cf">if</span> <span class="st">&quot; &quot;</span> <span class="kw">in</span> tok]</span></code></pre></div>
-<pre><code>## [(&quot;( &#39;}{&#39; )&quot;, 1.6), (&quot;can&#39;t stand&quot;, -2.0), (&#39;fed up&#39;, -1.8), (&#39;screwed up&#39;, -1.5)]</code></pre>
+<div class="sourceCode" id="cb2056"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2056-1"><a href="nlp.html#cb2056-1"></a><span class="bu">print</span>(<span class="st">&#39;List of N-grams: &#39;</span>)</span></code></pre></div>
+<pre><code>## List of N-grams:</code></pre>
+<div class="sourceCode" id="cb2058"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2058-1"><a href="nlp.html#cb2058-1"></a>[ (tok,score) <span class="cf">for</span> tok, score <span class="kw">in</span> vadersa.lexicon.items() <span class="cf">if</span> <span class="st">&quot; &quot;</span> <span class="kw">in</span> tok]</span></code></pre></div>
+<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;vadersa&#39; is not defined
+## 
+## Detailed traceback: 
+##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
 <p>If stemming or lemmatization is used, stem/lemmatize the vader lexicon too</p>
-<div class="sourceCode" id="cb2055"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2055-1"><a href="nlp.html#cb2055-1"></a>[ (tok,score) <span class="cf">for</span> tok, score <span class="kw">in</span> vadersa.lexicon.items() <span class="cf">if</span> <span class="st">&quot;lov&quot;</span> <span class="kw">in</span> tok]</span></code></pre></div>
-<pre><code>## [(&#39;beloved&#39;, 2.3), (&#39;lovable&#39;, 3.0), (&#39;love&#39;, 3.2), (&#39;loved&#39;, 2.9), (&#39;lovelies&#39;, 2.2), (&#39;lovely&#39;, 2.8), (&#39;lover&#39;, 2.8), (&#39;loverly&#39;, 2.8), (&#39;lovers&#39;, 2.4), (&#39;loves&#39;, 2.7), (&#39;loving&#39;, 2.9), (&#39;lovingly&#39;, 3.2), (&#39;lovingness&#39;, 2.7), (&#39;unlovable&#39;, -2.7), (&#39;unloved&#39;, -1.9), (&#39;unlovelier&#39;, -1.9), (&#39;unloveliest&#39;, -1.9), (&#39;unloveliness&#39;, -2.0), (&#39;unlovely&#39;, -2.1), (&#39;unloving&#39;, -2.3)]</code></pre>
+<div class="sourceCode" id="cb2060"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2060-1"><a href="nlp.html#cb2060-1"></a>[ (tok,score) <span class="cf">for</span> tok, score <span class="kw">in</span> vadersa.lexicon.items() <span class="cf">if</span> <span class="st">&quot;lov&quot;</span> <span class="kw">in</span> tok]</span></code></pre></div>
+<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;vadersa&#39; is not defined
+## 
+## Detailed traceback: 
+##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
 </div>
 <div id="polarity-scoring" class="section level4">
-<h4><span class="header-section-number">18.7.1.2</span> Polarity Scoring</h4>
+<h4><span class="header-section-number">18.8.1.2</span> Polarity Scoring</h4>
 <p>Scoring result is a dictionary of:</p>
 <ul>
 <li>neg</li>
@@ -785,34 +865,32 @@ Stemming is faster then Lemmatization</p>
 <li>compound
 <strong>neg, neu, pos adds up to 1.0</strong></li>
 </ul>
-<div class="sourceCode" id="cb2057"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2057-1"><a href="nlp.html#cb2057-1"></a>corpus <span class="op">=</span> [<span class="st">&quot;Python is a very useful but hell difficult to learn&quot;</span>,</span>
-<span id="cb2057-2"><a href="nlp.html#cb2057-2"></a>        <span class="st">&quot;:) :) :(&quot;</span>]</span>
-<span id="cb2057-3"><a href="nlp.html#cb2057-3"></a>        </span>
-<span id="cb2057-4"><a href="nlp.html#cb2057-4"></a><span class="cf">for</span> doc <span class="kw">in</span> corpus:</span>
-<span id="cb2057-5"><a href="nlp.html#cb2057-5"></a>  <span class="bu">print</span>(doc, <span class="st">&quot;--&gt;&quot;</span>, vadersa.polarity_scores(doc) )</span></code></pre></div>
-<pre><code>## Python is a very useful but hell difficult to learn --&gt; {&#39;neg&#39;: 0.554, &#39;neu&#39;: 0.331, &#39;pos&#39;: 0.116, &#39;compound&#39;: -0.8735}
-## :) :) :( --&gt; {&#39;neg&#39;: 0.326, &#39;neu&#39;: 0.0, &#39;pos&#39;: 0.674, &#39;compound&#39;: 0.4767}</code></pre>
+<div class="sourceCode" id="cb2062"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2062-1"><a href="nlp.html#cb2062-1"></a>corpus <span class="op">=</span> [<span class="st">&quot;Python is a very useful but hell difficult to learn&quot;</span>,</span>
+<span id="cb2062-2"><a href="nlp.html#cb2062-2"></a>        <span class="st">&quot;:) :) :(&quot;</span>]</span>
+<span id="cb2062-3"><a href="nlp.html#cb2062-3"></a>        </span>
+<span id="cb2062-4"><a href="nlp.html#cb2062-4"></a><span class="cf">for</span> doc <span class="kw">in</span> corpus:</span>
+<span id="cb2062-5"><a href="nlp.html#cb2062-5"></a>  <span class="bu">print</span>(doc, <span class="st">&quot;--&gt;&quot;</span>, vadersa.polarity_scores(doc) )</span></code></pre></div>
+<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;vadersa&#39; is not defined
+## 
+## Detailed traceback: 
+##   File &quot;&lt;string&gt;&quot;, line 2, in &lt;module&gt;</code></pre>
 </div>
 </div>
 </div>
 <div id="naive-bayes" class="section level2">
-<h2><span class="header-section-number">18.8</span> Naive Bayes</h2>
+<h2><span class="header-section-number">18.9</span> Naive Bayes</h2>
 <div id="libraries-1" class="section level3">
-<h3><span class="header-section-number">18.8.1</span> Libraries</h3>
-<div class="sourceCode" id="cb2059"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2059-1"><a href="nlp.html#cb2059-1"></a><span class="im">from</span> nlpia.data.loaders <span class="im">import</span> get_data</span></code></pre></div>
-<pre><code>## INFO:nlpia.constants:Starting logger in nlpia.constants...
-## INFO:nlpia.loaders:No BIGDATA index found in C:\ProgramData\Anaconda3\lib\site-packages\nlpia\data\bigdata_info.csv so copy C:\ProgramData\Anaconda3\lib\site-packages\nlpia\data\bigdata_info.latest.csv to C:\ProgramData\Anaconda3\lib\site-packages\nlpia\data\bigdata_info.csv if you want to &quot;freeze&quot; it.
-## INFO:nlpia.futil:Reading CSV with `read_csv(*(&#39;C:\\ProgramData\\Anaconda3\\lib\\site-packages\\nlpia\\data\\mavis-batey-greetings.csv&#39;,), **{&#39;low_memory&#39;: False})`...
-## INFO:nlpia.futil:Reading CSV with `read_csv(*(&#39;C:\\ProgramData\\Anaconda3\\lib\\site-packages\\nlpia\\data\\sms-spam.csv&#39;,), **{&#39;low_memory&#39;: False})`...</code></pre>
-<div class="sourceCode" id="cb2061"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2061-1"><a href="nlp.html#cb2061-1"></a><span class="im">from</span> nltk.tokenize.casual     <span class="im">import</span> casual_tokenize</span>
-<span id="cb2061-2"><a href="nlp.html#cb2061-2"></a><span class="im">from</span> collections <span class="im">import</span> Counter</span></code></pre></div>
+<h3><span class="header-section-number">18.9.1</span> Libraries</h3>
+<div class="sourceCode" id="cb2064"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2064-1"><a href="nlp.html#cb2064-1"></a><span class="im">from</span> nlpia.data.loaders <span class="im">import</span> get_data</span></code></pre></div>
+<div class="sourceCode" id="cb2065"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2065-1"><a href="nlp.html#cb2065-1"></a><span class="im">from</span> nltk.tokenize.casual     <span class="im">import</span> casual_tokenize</span>
+<span id="cb2065-2"><a href="nlp.html#cb2065-2"></a><span class="im">from</span> collections <span class="im">import</span> Counter</span></code></pre></div>
 </div>
 <div id="the-data-1" class="section level3">
-<h3><span class="header-section-number">18.8.2</span> The Data</h3>
-<div class="sourceCode" id="cb2062"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2062-1"><a href="nlp.html#cb2062-1"></a>movies <span class="op">=</span> get_data(<span class="st">&#39;hutto_movies&#39;</span>)   <span class="co"># download data</span></span></code></pre></div>
+<h3><span class="header-section-number">18.9.2</span> The Data</h3>
+<div class="sourceCode" id="cb2066"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2066-1"><a href="nlp.html#cb2066-1"></a>movies <span class="op">=</span> get_data(<span class="st">&#39;hutto_movies&#39;</span>)   <span class="co"># download data</span></span></code></pre></div>
 <pre><code>## INFO:nlpia.futil:Reading CSV with `read_csv(*(&#39;C:\\ProgramData\\Anaconda3\\lib\\site-packages\\nlpia\\data\\hutto_ICWSM_2014/movieReviewSnippets_GroundTruth.csv.gz&#39;,), **{&#39;nrows&#39;: None, &#39;low_memory&#39;: False})`...</code></pre>
-<div class="sourceCode" id="cb2064"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2064-1"><a href="nlp.html#cb2064-1"></a><span class="bu">print</span>(movies.head(), <span class="st">&#39;</span><span class="ch">\n\n</span><span class="st">&#39;</span>,</span>
-<span id="cb2064-2"><a href="nlp.html#cb2064-2"></a>      movies.describe())</span></code></pre></div>
+<div class="sourceCode" id="cb2068"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2068-1"><a href="nlp.html#cb2068-1"></a><span class="bu">print</span>(movies.head(), <span class="st">&#39;</span><span class="ch">\n\n</span><span class="st">&#39;</span>,</span>
+<span id="cb2068-2"><a href="nlp.html#cb2068-2"></a>      movies.describe())</span></code></pre></div>
 <pre><code>##     sentiment                                               text
 ## id                                                              
 ## 1    2.266667  The Rock is destined to be the 21st Century&#39;s ...
@@ -832,25 +910,25 @@ Stemming is faster then Lemmatization</p>
 ## max        3.941176</code></pre>
 </div>
 <div id="bag-of-words" class="section level3">
-<h3><span class="header-section-number">18.8.3</span> Bag of Words</h3>
+<h3><span class="header-section-number">18.9.3</span> Bag of Words</h3>
 <ul>
 <li>Tokenize each record, remove single character token, then convert into list of counters (words-frequency pair).<br />
 </li>
 <li>Each item in the list is a counter, which represent word frequency within the record</li>
 </ul>
-<div class="sourceCode" id="cb2066"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2066-1"><a href="nlp.html#cb2066-1"></a>bag_of_words <span class="op">=</span> []</span>
-<span id="cb2066-2"><a href="nlp.html#cb2066-2"></a><span class="cf">for</span> text <span class="kw">in</span> movies.text:</span>
-<span id="cb2066-3"><a href="nlp.html#cb2066-3"></a>    tokens <span class="op">=</span> casual_tokenize(text, reduce_len<span class="op">=</span><span class="va">True</span>, strip_handles<span class="op">=</span><span class="va">True</span>)  <span class="co"># tokenize</span></span>
-<span id="cb2066-4"><a href="nlp.html#cb2066-4"></a>    tokens <span class="op">=</span> [x <span class="cf">for</span> x <span class="kw">in</span> tokens <span class="cf">if</span> <span class="bu">len</span>(x)<span class="op">&gt;</span><span class="dv">1</span>]                  <span class="co">## remove single char token</span></span>
-<span id="cb2066-5"><a href="nlp.html#cb2066-5"></a>    bag_of_words.append( Counter(tokens, strip_handles<span class="op">=</span><span class="va">True</span>)  <span class="co">## add to our BoW</span></span>
-<span id="cb2066-6"><a href="nlp.html#cb2066-6"></a>    )</span>
-<span id="cb2066-7"><a href="nlp.html#cb2066-7"></a></span>
-<span id="cb2066-8"><a href="nlp.html#cb2066-8"></a>unique_words <span class="op">=</span>  <span class="bu">list</span>( <span class="bu">set</span>([ y  <span class="cf">for</span> x <span class="kw">in</span> bag_of_words  <span class="cf">for</span> y <span class="kw">in</span> x.keys()]) )</span>
-<span id="cb2066-9"><a href="nlp.html#cb2066-9"></a></span>
-<span id="cb2066-10"><a href="nlp.html#cb2066-10"></a><span class="bu">print</span>(<span class="st">&quot;Total Rows: &quot;</span>, <span class="bu">len</span>(bag_of_words),<span class="st">&#39;</span><span class="ch">\n\n</span><span class="st">&#39;</span>,</span>
-<span id="cb2066-11"><a href="nlp.html#cb2066-11"></a>      <span class="st">&#39;Row 1 BoW: &#39;</span>,bag_of_words[:<span class="dv">1</span>],<span class="st">&#39;</span><span class="ch">\n\n</span><span class="st">&#39;</span>,    <span class="co"># see the first two records</span></span>
-<span id="cb2066-12"><a href="nlp.html#cb2066-12"></a>      <span class="st">&#39;Row 2 BoW: &#39;</span>, bag_of_words[:<span class="dv">2</span>], <span class="st">&#39;</span><span class="ch">\n\n</span><span class="st">&#39;</span>,</span>
-<span id="cb2066-13"><a href="nlp.html#cb2066-13"></a>      <span class="st">&#39;Total Unique Words: &#39;</span>, <span class="bu">len</span>(unique_words))</span></code></pre></div>
+<div class="sourceCode" id="cb2070"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2070-1"><a href="nlp.html#cb2070-1"></a>bag_of_words <span class="op">=</span> []</span>
+<span id="cb2070-2"><a href="nlp.html#cb2070-2"></a><span class="cf">for</span> text <span class="kw">in</span> movies.text:</span>
+<span id="cb2070-3"><a href="nlp.html#cb2070-3"></a>    tokens <span class="op">=</span> casual_tokenize(text, reduce_len<span class="op">=</span><span class="va">True</span>, strip_handles<span class="op">=</span><span class="va">True</span>)  <span class="co"># tokenize</span></span>
+<span id="cb2070-4"><a href="nlp.html#cb2070-4"></a>    tokens <span class="op">=</span> [x <span class="cf">for</span> x <span class="kw">in</span> tokens <span class="cf">if</span> <span class="bu">len</span>(x)<span class="op">&gt;</span><span class="dv">1</span>]                  <span class="co">## remove single char token</span></span>
+<span id="cb2070-5"><a href="nlp.html#cb2070-5"></a>    bag_of_words.append( Counter(tokens, strip_handles<span class="op">=</span><span class="va">True</span>)  <span class="co">## add to our BoW</span></span>
+<span id="cb2070-6"><a href="nlp.html#cb2070-6"></a>    )</span>
+<span id="cb2070-7"><a href="nlp.html#cb2070-7"></a></span>
+<span id="cb2070-8"><a href="nlp.html#cb2070-8"></a>unique_words <span class="op">=</span>  <span class="bu">list</span>( <span class="bu">set</span>([ y  <span class="cf">for</span> x <span class="kw">in</span> bag_of_words  <span class="cf">for</span> y <span class="kw">in</span> x.keys()]) )</span>
+<span id="cb2070-9"><a href="nlp.html#cb2070-9"></a></span>
+<span id="cb2070-10"><a href="nlp.html#cb2070-10"></a><span class="bu">print</span>(<span class="st">&quot;Total Rows: &quot;</span>, <span class="bu">len</span>(bag_of_words),<span class="st">&#39;</span><span class="ch">\n\n</span><span class="st">&#39;</span>,</span>
+<span id="cb2070-11"><a href="nlp.html#cb2070-11"></a>      <span class="st">&#39;Row 1 BoW: &#39;</span>,bag_of_words[:<span class="dv">1</span>],<span class="st">&#39;</span><span class="ch">\n\n</span><span class="st">&#39;</span>,    <span class="co"># see the first two records</span></span>
+<span id="cb2070-12"><a href="nlp.html#cb2070-12"></a>      <span class="st">&#39;Row 2 BoW: &#39;</span>, bag_of_words[:<span class="dv">2</span>], <span class="st">&#39;</span><span class="ch">\n\n</span><span class="st">&#39;</span>,</span>
+<span id="cb2070-13"><a href="nlp.html#cb2070-13"></a>      <span class="st">&#39;Total Unique Words: &#39;</span>, <span class="bu">len</span>(unique_words))</span></code></pre></div>
 <pre><code>## Total Rows:  10605 
 ## 
 ##  Row 1 BoW:  [Counter({&#39;to&#39;: 2, &#39;The&#39;: 1, &#39;Rock&#39;: 1, &#39;is&#39;: 1, &#39;destined&#39;: 1, &#39;be&#39;: 1, &#39;the&#39;: 1, &#39;21st&#39;: 1, &quot;Century&#39;s&quot;: 1, &#39;new&#39;: 1, &#39;Conan&#39;: 1, &#39;and&#39;: 1, &#39;that&#39;: 1, &quot;he&#39;s&quot;: 1, &#39;going&#39;: 1, &#39;make&#39;: 1, &#39;splash&#39;: 1, &#39;even&#39;: 1, &#39;greater&#39;: 1, &#39;than&#39;: 1, &#39;Arnold&#39;: 1, &#39;Schwarzenegger&#39;: 1, &#39;Jean&#39;: 1, &#39;Claud&#39;: 1, &#39;Van&#39;: 1, &#39;Damme&#39;: 1, &#39;or&#39;: 1, &#39;Steven&#39;: 1, &#39;Segal&#39;: 1, &#39;strip_handles&#39;: 1})] 
@@ -859,9 +937,9 @@ Stemming is faster then Lemmatization</p>
 ## 
 ##  Total Unique Words:  20686</code></pre>
 <p><strong>Convert NaN into 0 then all features into integer</strong></p>
-<div class="sourceCode" id="cb2068"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2068-1"><a href="nlp.html#cb2068-1"></a>bows_df <span class="op">=</span> pd.DataFrame.from_records(bag_of_words)</span>
-<span id="cb2068-2"><a href="nlp.html#cb2068-2"></a>bows_df <span class="op">=</span> bows_df.fillna(<span class="dv">0</span>).astype(<span class="bu">int</span>)  <span class="co"># replace NaN with 0, change to integer</span></span>
-<span id="cb2068-3"><a href="nlp.html#cb2068-3"></a>bows_df.head()</span></code></pre></div>
+<div class="sourceCode" id="cb2072"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2072-1"><a href="nlp.html#cb2072-1"></a>bows_df <span class="op">=</span> pd.DataFrame.from_records(bag_of_words)</span>
+<span id="cb2072-2"><a href="nlp.html#cb2072-2"></a>bows_df <span class="op">=</span> bows_df.fillna(<span class="dv">0</span>).astype(<span class="bu">int</span>)  <span class="co"># replace NaN with 0, change to integer</span></span>
+<span id="cb2072-3"><a href="nlp.html#cb2072-3"></a>bows_df.head()</span></code></pre></div>
 <pre><code>##    . ...  ..  ...  007  1.2  ...   zombies  zone  zoning  zzz  élan
 ## 0      0   0    0    0    0  ...         0     0       0    0     0
 ## 1      0   0    0    0    0  ...         0     0       0    0     0
@@ -872,17 +950,17 @@ Stemming is faster then Lemmatization</p>
 ## [5 rows x 20686 columns]</code></pre>
 </div>
 <div id="build-the-model" class="section level3">
-<h3><span class="header-section-number">18.8.4</span> Build The Model</h3>
-<div class="sourceCode" id="cb2070"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2070-1"><a href="nlp.html#cb2070-1"></a><span class="im">from</span> sklearn.naive_bayes <span class="im">import</span> MultinomialNB</span>
-<span id="cb2070-2"><a href="nlp.html#cb2070-2"></a>train_y  <span class="op">=</span> movies.sentiment<span class="op">&gt;</span><span class="dv">0</span>   <span class="co"># label</span></span>
-<span id="cb2070-3"><a href="nlp.html#cb2070-3"></a>train_X  <span class="op">=</span> bows_df              <span class="co"># features</span></span>
-<span id="cb2070-4"><a href="nlp.html#cb2070-4"></a>nb_model <span class="op">=</span> MultinomialNB().fit( train_X, train_y)</span></code></pre></div>
+<h3><span class="header-section-number">18.9.4</span> Build The Model</h3>
+<div class="sourceCode" id="cb2074"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2074-1"><a href="nlp.html#cb2074-1"></a><span class="im">from</span> sklearn.naive_bayes <span class="im">import</span> MultinomialNB</span>
+<span id="cb2074-2"><a href="nlp.html#cb2074-2"></a>train_y  <span class="op">=</span> movies.sentiment<span class="op">&gt;</span><span class="dv">0</span>   <span class="co"># label</span></span>
+<span id="cb2074-3"><a href="nlp.html#cb2074-3"></a>train_X  <span class="op">=</span> bows_df              <span class="co"># features</span></span>
+<span id="cb2074-4"><a href="nlp.html#cb2074-4"></a>nb_model <span class="op">=</span> MultinomialNB().fit( train_X, train_y)</span></code></pre></div>
 </div>
 <div id="train-set-prediction" class="section level3">
-<h3><span class="header-section-number">18.8.5</span> Train Set Prediction</h3>
+<h3><span class="header-section-number">18.9.5</span> Train Set Prediction</h3>
 <p>First, make a prediction on training data, then compare to ground truth.</p>
-<div class="sourceCode" id="cb2071"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2071-1"><a href="nlp.html#cb2071-1"></a>train_predicted <span class="op">=</span> nb_model.predict(bows_df)</span>
-<span id="cb2071-2"><a href="nlp.html#cb2071-2"></a><span class="bu">print</span>(<span class="st">&quot;Accuracy: &quot;</span>, np.mean(train_predicted<span class="op">==</span>train_y).<span class="bu">round</span>(<span class="dv">4</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb2075"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2075-1"><a href="nlp.html#cb2075-1"></a>train_predicted <span class="op">=</span> nb_model.predict(bows_df)</span>
+<span id="cb2075-2"><a href="nlp.html#cb2075-2"></a><span class="bu">print</span>(<span class="st">&quot;Accuracy: &quot;</span>, np.mean(train_predicted<span class="op">==</span>train_y).<span class="bu">round</span>(<span class="dv">4</span>))</span></code></pre></div>
 <pre><code>## Accuracy:  0.9357</code></pre>
 
 </div>

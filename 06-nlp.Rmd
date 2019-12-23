@@ -1,14 +1,12 @@
 # NLP
 Natural Language Processing
 
-## Setup (hidden)
-
 ```{r include=FALSE}
 library(reticulate)
 use_condaenv('Anaconda3')    #conda_list() - to find out the name of conda environment
 ```
 
-```{python}
+```{python include=FALSE, results='hide'}
 import numpy as np
 import pandas as pd
 from IPython.core.display import display, HTML
@@ -19,39 +17,84 @@ pd.set_option( 'display.max_rows', 10)      # number of rows
 pd.set_option( 'display.width', 90)         # number of characters per row
 ```
 
-## The Library
+## Word Tokenizer
+
+
+### Custom Tokenizer
+
+#### Split By Regex Pattern
+
+Use **regex** to split words based on **specific punctuation as delimeter**.  
+The rule is: split input text when any one or more continuous occurances of specified character.
 
 ```{python}
-from nltk.tokenize.casual     import casual_tokenize
-from nltk.tokenize.treebank   import TreebankWordTokenizer
+import re
+pattern = re.compile(r"[-\s.,;!?]+")
+pattern.split("hi @ali--baba, you are aweeeeeesome! isn't it. Believe it.:)")
 ```
 
-## Tokenizer
+#### Pick By Regex Pattern `nltk.tokenize.RegexpTokenizer`
 
-### Casual Tokenizer
+```{python}
+from nltk.tokenize import RegexpTokenizer
+my_tokenizer = RegexpTokenizer(r'[a-zA-Z0-9]+')
+my_tokenizer.tokenize("hi @ali--baba, you are aweeeeeesome! isn't it. Believe it.:")
+```
 
-Built to deal with short, informal, emotion-laced texts from social netwtorks where grammar and spelling conventions vary widely
+### `nltk.tokenize.word_tokenize()`
 
+Words and punctuations are splitted into tokens
+
+```{python}
+from nltk.tokenize import word_tokenize
+print( word_tokenize("hi @ali-baba, you are aweeeeeesome! isn't it. Believe it.:)") )
+```
+
+### `nltk.tokenize.casual.casual_tokenize()`
+
+- Support emoji
+- Support reduction of repetition chars
+- Support removing userid (@someone)
+- Good for social media text
 
 ```{python results='hold', collapse=FALSE}
-casual_tokenize("hi @ali-baba, you are aweeeeeesome! isn't it. Believe it.")
+from nltk.tokenize.casual     import casual_tokenize
+## default
+print( casual_tokenize("hi @ali-baba, you are aweeeeeesome! isn't it. Believe it. :)") )  
+## shorten repeated chars
+print( casual_tokenize("hi @ali-baba, you are aweeeeeesome! isn't it. Believe it.:)", 
+          reduce_len=True))     
+## shorten repeated chars, stirp usernames
+print( casual_tokenize("hi @ali-baba, you are aweeeeeesome! isn't it. Believe it.:)", 
+          reduce_len=True,      
+          strip_handles=True))  
 ```
 
-Strip off usernames and reduce number of repeated chars
+
+### `nltk.tokenize.treebank.TreebankWordTokenizer().tokenize()`
+
+Treebank assume input text is **A sentence**, hence any period combined with word is treated as token.
 
 ```{python}
-casual_tokenize("hi @ali-baba, you are aweeeeeesome! isn't it. Believe it.", 
-                reduce_len=True,     ## shorten repeated chars
-                strip_handles=True)  ## strip usernames
+from nltk.tokenize.treebank   import TreebankWordTokenizer
+TreebankWordTokenizer().tokenize("hi @ali-baba, you are aweeeeeesome! isn't it. Believe it.:)")
 ```
 
+## Sentence Tokenizer
 
-### Treebank Tokenizer¶
+### `nltk.tokenize.sent_tokenize()`
 
 ```{python}
-TreebankWordTokenizer().tokenize("hi @ali-baba, you are aweeeeeesome! isn't it. Believe it.")
+#nltk.download('punkt')
+from nltk.tokenize import sent_tokenize
+text="""\
+Hello Mr. Smith, how are you doing today? The weather is great, and city is awesome.
+The sky is pinkish-blue. You shouldn't eat cardboard
+"""
+tokenized_text=sent_tokenize(text)
+for x in tokenized_text:
+  print(x) 
 ```
-
 
 
 ## N-Gram
@@ -90,17 +133,21 @@ Combine each 2-gram into a string object
 
 ### Custom Stop Words
 
+Build the custom stop words dictionary.
+
 ```{python}
 stop_words = ['a','an','the','on','of','off','this','is','at']
-sentence = "The house is on fire"
-tokens = TreebankWordTokenizer().tokenize(sentence)
-print(tokens)
 ```
 
+Tokenize text and remove stop words
 
 ```{python}
+sentence = "The house is on fire"
+tokens   = word_tokenize(sentence)
 tokens_without_stopwords = [ x for x in tokens if x not in stop_words ]
-print(tokens_without_stopwords)
+
+print(' Original Tokens  : ', tokens, '\n',
+      'Removed Stopwords: ',tokens_without_stopwords)
 ```
 
 ### NLTK Stop Words
@@ -110,45 +157,28 @@ Contain 179 words, in a list form
 ```{python}
 import nltk
 #nltk.download('stopwords')
-```
-
-
-```{python}
 nltk_stop_words = nltk.corpus.stopwords.words('english')
-print(nltk_stop_words)
-print(len(nltk_stop_words))
+print('Total NLTK Stopwords: ', len(nltk_stop_words),'\n',
+      nltk_stop_words)
 ```
 
-### SKLearn Stop Words¶
+### SKLearn Stop Words
 
 Contain 318 stop words, in frozenset form
 
-
 ```{python}
 from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS as sklearn_stop_words
-print(len( sklearn_stop_words))
-print( sklearn_stop_words)
+print(' Total Sklearn Stopwords: ', len(sklearn_stop_words),'\n\n',
+       sklearn_stop_words)
 ```
 
+### Combined NLTK and SKLearn Stop Words
 
 ```{python}
 combined_stop_words = list( set(nltk_stop_words) | set(sklearn_stop_words) )
+print('Total combined NLTK and SKLearn Stopwords:', len( combined_stop_words ),'\n'
+      'Stopwords shared among NLTK and SKlearn  :', len( list( set(nltk_stop_words) & set(sklearn_stop_words)) ))
 ```
-
-### Combined NLTK and SKLearn Stop Words¶
-
-
-```{python}
-combined_stop_words = list( set(nltk_stop_words) | set(sklearn_stop_words) )
-len( combined_stop_words )
-```
-
-**Intersection, agreeing only 119 out of 378 words**
-
-```{python}
-len( list( set(nltk_stop_words) & set(sklearn_stop_words)) )
-```
-
 
 ## Normalizing
 
@@ -168,9 +198,10 @@ tokens = ['House','Visitor','Center']
 
 ### Stemming
 
-Output of a stemmer is not necessary a proper word.
-**Porter stemmer** is a lifetime refinement with 300 lines of python code, it automatically convert words to lower cap.
-Stemming is faster then Lemmatization
+- Output of a stemmer is **not necessary a proper word**
+- Automatically convert words to **lower cap**
+- **Porter stemmer** is a lifetime refinement with 300 lines of python code  
+- Stemming is faster then Lemmatization
 
 ```{python}
 from nltk.stem.porter import PorterStemmer
@@ -181,21 +212,20 @@ tokens = ('house','Housing','hOuses', 'Malicious','goodness')
 
 ### Lemmatization
 
-NLTK uses connections within princeton WordNet graph for word meanings.
+NLTK uses connections within **princeton WordNet** graph for word meanings.
 
 ```{python}
 #nltk.download('wordnet')
 from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
-```
-```{python}
-print( lemmatizer.lemmatize("better", pos ='a') )
-print( lemmatizer.lemmatize("better", pos ='n') )
+
+print( lemmatizer.lemmatize("better", pos ='a'), '\n',
+       lemmatizer.lemmatize("better", pos ='n') )
 ```
 
 ```{python}
-print( lemmatizer.lemmatize("good", pos ='a') )
-print( lemmatizer.lemmatize("good", pos ='n') )
+print( lemmatizer.lemmatize("good", pos ='a'), '\n',
+       lemmatizer.lemmatize("good", pos ='n') )
 ```
 
 ### Comparing Stemming and Lemmatization
@@ -209,34 +239,48 @@ print( lemmatizer.lemmatize("good", pos ='n') )
 
 For search-based chatbot where accuracy is more important, it should first search with unnormalzied words.
 
+## POS Tagging
+
+The primary target of Part-of-Speech(POS) tagging is to identify the grammatical group of a given word. Whether it is a NOUN, PRONOUN, ADJECTIVE, VERB, ADVERBS, etc. based on the context. 
+
+Tagging works sentence by sentence. 
+- Document fist must be splitted into sentences
+- Each sentence need to be tokenized into words
+
+```{python}
+#nltk.download('averaged_perceptron_tagger')
+sentence = "Albert Einstein was born in Ulm, Germany in 1879."
+tokens = nltk.word_tokenize(sentence)
+tags   = nltk.pos_tag(tokens)
+print('Tokens:\n', tokens, '\n\n', 'Tags:\n', tags)
+```
+
 ## Sentiment
 
 ### Vader
 
-- It is a rule based sentiment analyzer, contain 7503 lexicons.
-- It is good for social media because lexicon contain emoji text.
+- It is a rule based sentiment analyzer, contain 7503 lexicons
+- It is good for social media because lexicon contain emoji and short form text
 - Contain only 3 n-gram
-
 
 #### Vader Lexicon
 
+The lexicon is a dictionary. To make it iterable, need to convert into list:  
+- Step 1: Convert `dict` to `dict_items`, which is a list containing items, each item is one dict. 
+- Step 2: Convert to `dict_items` to `list`
+
 ```{python}
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-vadersa = SentimentIntensityAnalyzer()
-print( len(vadersa.lexicon))
-```
-
-The lexicon is a dictionary. Converting dictionary to list require few steps:  
-- Convert dict to dict_items, which is a list containing items, each item is one dict). 
-- Convert to dict_items to list
-
-```{python}
-list(vadersa.lexicon.items())[:20]  ## convert dict to list of dict
+vader_lex = SentimentIntensityAnalyzer().lexicon  # get the lexicon dictionary
+vader_list = list(vader_lex.items())              # convert to items then list
+print( 'Total Vader Lexicon:', len(vader_lex),'\n',
+        vader_list[1:10], vader_list[220:240] )
 ```
 
 **There is only three N-Gram in the lexicon**
 
 ```{python}
+print('List of N-grams: ')
 [ (tok,score) for tok, score in vadersa.lexicon.items() if " " in tok]
 ```
 
@@ -264,11 +308,22 @@ for doc in corpus:
   print(doc, "-->", vadersa.polarity_scores(doc) )
 ```
 
+## Bag Of Words
+
+
+### Word Count Frequency
+
+
+
+### TFIDF
+
+
+
 ## Naive Bayes
 
 ### Libraries
 
-```{python}
+```{python results='hide'}
 from nlpia.data.loaders import get_data
 from nltk.tokenize.casual     import casual_tokenize
 from collections import Counter

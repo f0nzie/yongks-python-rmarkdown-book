@@ -548,17 +548,21 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="18" data-path="nlp.html"><a href="nlp.html"><i class="fa fa-check"></i><b>18</b> NLP</a><ul>
 <li class="chapter" data-level="18.1" data-path="nlp.html"><a href="nlp.html#setup-hidden-1"><i class="fa fa-check"></i><b>18.1</b> Setup (hidden)</a></li>
-<li class="chapter" data-level="18.2" data-path="nlp.html"><a href="nlp.html#the-library-1"><i class="fa fa-check"></i><b>18.2</b> The Library</a></li>
-<li class="chapter" data-level="18.3" data-path="nlp.html"><a href="nlp.html#tokenizer"><i class="fa fa-check"></i><b>18.3</b> Tokenizer</a><ul>
-<li class="chapter" data-level="18.3.1" data-path="nlp.html"><a href="nlp.html#casual-tokenizer"><i class="fa fa-check"></i><b>18.3.1</b> Casual Tokenizer</a></li>
-<li class="chapter" data-level="18.3.2" data-path="nlp.html"><a href="nlp.html#treebank-tokenizer"><i class="fa fa-check"></i><b>18.3.2</b> Treebank Tokenizer¶</a></li>
+<li class="chapter" data-level="18.2" data-path="nlp.html"><a href="nlp.html#word-tokenizer"><i class="fa fa-check"></i><b>18.2</b> Word Tokenizer</a><ul>
+<li class="chapter" data-level="18.2.1" data-path="nlp.html"><a href="nlp.html#custom-tokenizer"><i class="fa fa-check"></i><b>18.2.1</b> Custom Tokenizer</a></li>
+<li class="chapter" data-level="18.2.2" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.word_tokenize"><i class="fa fa-check"></i><b>18.2.2</b> <code>nltk.tokenize.word_tokenize()</code></a></li>
+<li class="chapter" data-level="18.2.3" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.casual.casual_tokenize"><i class="fa fa-check"></i><b>18.2.3</b> <code>nltk.tokenize.casual.casual_tokenize()</code></a></li>
+<li class="chapter" data-level="18.2.4" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.treebank.treebankwordtokenizer.tokenize"><i class="fa fa-check"></i><b>18.2.4</b> <code>nltk.tokenize.treebank.TreebankWordTokenizer().tokenize()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="18.3" data-path="nlp.html"><a href="nlp.html#sentence-tokenizer"><i class="fa fa-check"></i><b>18.3</b> Sentence Tokenizer</a><ul>
+<li class="chapter" data-level="18.3.1" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.sent_tokenize"><i class="fa fa-check"></i><b>18.3.1</b> <code>nltk.tokenize.sent_tokenize()</code></a></li>
 </ul></li>
 <li class="chapter" data-level="18.4" data-path="nlp.html"><a href="nlp.html#n-gram"><i class="fa fa-check"></i><b>18.4</b> N-Gram</a></li>
 <li class="chapter" data-level="18.5" data-path="nlp.html"><a href="nlp.html#stopwords"><i class="fa fa-check"></i><b>18.5</b> Stopwords</a><ul>
 <li class="chapter" data-level="18.5.1" data-path="nlp.html"><a href="nlp.html#custom-stop-words"><i class="fa fa-check"></i><b>18.5.1</b> Custom Stop Words</a></li>
 <li class="chapter" data-level="18.5.2" data-path="nlp.html"><a href="nlp.html#nltk-stop-words"><i class="fa fa-check"></i><b>18.5.2</b> NLTK Stop Words</a></li>
-<li class="chapter" data-level="18.5.3" data-path="nlp.html"><a href="nlp.html#sklearn-stop-words"><i class="fa fa-check"></i><b>18.5.3</b> SKLearn Stop Words¶</a></li>
-<li class="chapter" data-level="18.5.4" data-path="nlp.html"><a href="nlp.html#combined-nltk-and-sklearn-stop-words"><i class="fa fa-check"></i><b>18.5.4</b> Combined NLTK and SKLearn Stop Words¶</a></li>
+<li class="chapter" data-level="18.5.3" data-path="nlp.html"><a href="nlp.html#sklearn-stop-words"><i class="fa fa-check"></i><b>18.5.3</b> SKLearn Stop Words</a></li>
+<li class="chapter" data-level="18.5.4" data-path="nlp.html"><a href="nlp.html#combined-nltk-and-sklearn-stop-words"><i class="fa fa-check"></i><b>18.5.4</b> Combined NLTK and SKLearn Stop Words</a></li>
 </ul></li>
 <li class="chapter" data-level="18.6" data-path="nlp.html"><a href="nlp.html#normalizing"><i class="fa fa-check"></i><b>18.6</b> Normalizing</a><ul>
 <li class="chapter" data-level="18.6.1" data-path="nlp.html"><a href="nlp.html#case-folding"><i class="fa fa-check"></i><b>18.6.1</b> Case Folding</a></li>
@@ -566,15 +570,16 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.6.3" data-path="nlp.html"><a href="nlp.html#lemmatization"><i class="fa fa-check"></i><b>18.6.3</b> Lemmatization</a></li>
 <li class="chapter" data-level="18.6.4" data-path="nlp.html"><a href="nlp.html#comparing-stemming-and-lemmatization"><i class="fa fa-check"></i><b>18.6.4</b> Comparing Stemming and Lemmatization</a></li>
 </ul></li>
-<li class="chapter" data-level="18.7" data-path="nlp.html"><a href="nlp.html#sentiment"><i class="fa fa-check"></i><b>18.7</b> Sentiment</a><ul>
-<li class="chapter" data-level="18.7.1" data-path="nlp.html"><a href="nlp.html#vader"><i class="fa fa-check"></i><b>18.7.1</b> Vader</a></li>
+<li class="chapter" data-level="18.7" data-path="nlp.html"><a href="nlp.html#pos-tagging"><i class="fa fa-check"></i><b>18.7</b> POS Tagging</a></li>
+<li class="chapter" data-level="18.8" data-path="nlp.html"><a href="nlp.html#sentiment"><i class="fa fa-check"></i><b>18.8</b> Sentiment</a><ul>
+<li class="chapter" data-level="18.8.1" data-path="nlp.html"><a href="nlp.html#vader"><i class="fa fa-check"></i><b>18.8.1</b> Vader</a></li>
 </ul></li>
-<li class="chapter" data-level="18.8" data-path="nlp.html"><a href="nlp.html#naive-bayes"><i class="fa fa-check"></i><b>18.8</b> Naive Bayes</a><ul>
-<li class="chapter" data-level="18.8.1" data-path="nlp.html"><a href="nlp.html#libraries-1"><i class="fa fa-check"></i><b>18.8.1</b> Libraries</a></li>
-<li class="chapter" data-level="18.8.2" data-path="nlp.html"><a href="nlp.html#the-data-1"><i class="fa fa-check"></i><b>18.8.2</b> The Data</a></li>
-<li class="chapter" data-level="18.8.3" data-path="nlp.html"><a href="nlp.html#bag-of-words"><i class="fa fa-check"></i><b>18.8.3</b> Bag of Words</a></li>
-<li class="chapter" data-level="18.8.4" data-path="nlp.html"><a href="nlp.html#build-the-model"><i class="fa fa-check"></i><b>18.8.4</b> Build The Model</a></li>
-<li class="chapter" data-level="18.8.5" data-path="nlp.html"><a href="nlp.html#train-set-prediction"><i class="fa fa-check"></i><b>18.8.5</b> Train Set Prediction</a></li>
+<li class="chapter" data-level="18.9" data-path="nlp.html"><a href="nlp.html#naive-bayes"><i class="fa fa-check"></i><b>18.9</b> Naive Bayes</a><ul>
+<li class="chapter" data-level="18.9.1" data-path="nlp.html"><a href="nlp.html#libraries-1"><i class="fa fa-check"></i><b>18.9.1</b> Libraries</a></li>
+<li class="chapter" data-level="18.9.2" data-path="nlp.html"><a href="nlp.html#the-data-1"><i class="fa fa-check"></i><b>18.9.2</b> The Data</a></li>
+<li class="chapter" data-level="18.9.3" data-path="nlp.html"><a href="nlp.html#bag-of-words"><i class="fa fa-check"></i><b>18.9.3</b> Bag of Words</a></li>
+<li class="chapter" data-level="18.9.4" data-path="nlp.html"><a href="nlp.html#build-the-model"><i class="fa fa-check"></i><b>18.9.4</b> Build The Model</a></li>
+<li class="chapter" data-level="18.9.5" data-path="nlp.html"><a href="nlp.html#train-set-prediction"><i class="fa fa-check"></i><b>18.9.5</b> Train Set Prediction</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -2713,18 +2718,18 @@ You can <strong>customize the percentiles requred</strong>. Notice 0.5 percentil
 ## max    2018.000000  40000.000000  2011.000000</code></pre>
 <p><strong>For both Numeric and Object</strong></p>
 <div class="sourceCode" id="cb1418"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1418-1"><a href="pandas-1.html#cb1418-1"></a>df.describe(include<span class="op">=</span><span class="st">&#39;all&#39;</span>)</span></code></pre></div>
-<pre><code>##          year1   salary   year2  name
-## count      5.0      5.0     5.0     5
-## unique     NaN      NaN     NaN     5
-## top        NaN      NaN     NaN  Eric
-## freq       NaN      NaN     NaN     1
-## mean    2017.4  29000.0  1984.0   NaN
-## ...        ...      ...     ...   ...
-## min     2017.0  20000.0  1907.0   NaN
-## 25%     2017.0  24000.0  1998.0   NaN
-## 50%     2017.0  30000.0  2001.0   NaN
-## 75%     2018.0  31000.0  2003.0   NaN
-## max     2018.0  40000.0  2011.0   NaN
+<pre><code>##          year1   salary   year2   name
+## count      5.0      5.0     5.0      5
+## unique     NaN      NaN     NaN      5
+## top        NaN      NaN     NaN  David
+## freq       NaN      NaN     NaN      1
+## mean    2017.4  29000.0  1984.0    NaN
+## ...        ...      ...     ...    ...
+## min     2017.0  20000.0  1907.0    NaN
+## 25%     2017.0  24000.0  1998.0    NaN
+## 50%     2017.0  30000.0  2001.0    NaN
+## 75%     2018.0  31000.0  2003.0    NaN
+## max     2018.0  40000.0  2011.0    NaN
 ## 
 ## [11 rows x 4 columns]</code></pre>
 </div>
@@ -3237,7 +3242,7 @@ To customize the data type, use <strong><code>dtype</code></strong> parameter wi
 <h3><span class="header-section-number">13.11.1</span> Creating Groups</h3>
 <div class="sourceCode" id="cb1525"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1525-1"><a href="pandas-1.html#cb1525-1"></a>com_grp <span class="op">=</span> company.groupby([<span class="st">&#39;Company&#39;</span>,<span class="st">&#39;Department&#39;</span>])</span>
 <span id="cb1525-2"><a href="pandas-1.html#cb1525-2"></a>com_grp</span></code></pre></div>
-<pre><code>## &lt;pandas.core.groupby.groupby.DataFrameGroupBy object at 0x00000000288F5390&gt;</code></pre>
+<pre><code>## &lt;pandas.core.groupby.groupby.DataFrameGroupBy object at 0x00000000289242B0&gt;</code></pre>
 </div>
 <div id="properties-1" class="section level3">
 <h3><span class="header-section-number">13.11.2</span> Properties</h3>
@@ -3374,7 +3379,7 @@ To customize the data type, use <strong><code>dtype</code></strong> parameter wi
 ## 13      C3         D3  Chang   32    7900  7/26/1973
 ## 16      C3         D3  Sally   54   21000  7/19/1968</code></pre>
 <div class="sourceCode" id="cb1543"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1543-1"><a href="pandas-1.html#cb1543-1"></a>com_grp</span></code></pre></div>
-<pre><code>## &lt;pandas.core.groupby.groupby.DataFrameGroupBy object at 0x00000000288F5390&gt;</code></pre>
+<pre><code>## &lt;pandas.core.groupby.groupby.DataFrameGroupBy object at 0x00000000289242B0&gt;</code></pre>
 </div>
 <div id="apply-aggregate-functions-to-groups" class="section level3">
 <h3><span class="header-section-number">13.11.6</span> Apply Aggregate Functions to Groups</h3>
