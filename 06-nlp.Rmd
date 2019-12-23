@@ -35,9 +35,11 @@ pattern.split("hi @ali--baba, you are aweeeeeesome! isn't it. Believe it.:)")
 
 #### Pick By Regex Pattern `nltk.tokenize.RegexpTokenizer`
 
+Any sequence of chars fall within the bracker is considered tokens
+
 ```{python}
 from nltk.tokenize import RegexpTokenizer
-my_tokenizer = RegexpTokenizer(r'[a-zA-Z0-9]+')
+my_tokenizer = RegexpTokenizer(r'[a-zA-Z0-9\']+')
 my_tokenizer.tokenize("hi @ali--baba, you are aweeeeeesome! isn't it. Believe it.:")
 ```
 
@@ -266,8 +268,8 @@ print('Tokens:\n', tokens, '\n\n', 'Tags:\n', tags)
 #### Vader Lexicon
 
 The lexicon is a dictionary. To make it iterable, need to convert into list:  
-- Step 1: Convert `dict` to `dict_items`, which is a list containing items, each item is one dict. 
-- Step 2: Convert to `dict_items` to `list`
+- Step 1: Convert `dict` to `dict_items`, which is a list containing items, each item is one dict  
+- Step 2: Unpack `dict_items` to `list`
 
 ```{python}
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
@@ -277,17 +279,17 @@ print( 'Total Vader Lexicon:', len(vader_lex),'\n',
         vader_list[1:10], vader_list[220:240] )
 ```
 
-**There is only three N-Gram in the lexicon**
+**There is only four N-Gram in the lexicon**
 
 ```{python}
 print('List of N-grams: ')
-[ (tok,score) for tok, score in vadersa.lexicon.items() if " " in tok]
+[ (tok,score) for tok, score in vader_list if " " in tok]
 ```
 
 If stemming or lemmatization is used, stem/lemmatize the vader lexicon too
 
 ```{python}
-[ (tok,score) for tok, score in vadersa.lexicon.items() if "lov" in tok]
+[ (tok,score) for tok, score in vader_list if "lov" in tok]
 ```
 
 #### Polarity Scoring
@@ -300,24 +302,104 @@ Scoring result is a dictionary of:
 - compound
 **neg, neu, pos adds up to 1.0**
 
+Example below shows polarity for two sentences:
+
 ```{python}
 corpus = ["Python is a very useful but hell difficult to learn",
         ":) :) :("]
-        
 for doc in corpus:
-  print(doc, "-->", vadersa.polarity_scores(doc) )
+  print(doc, '-->', "\n:", SentimentIntensityAnalyzer().polarity_scores(doc) )
 ```
 
-## Bag Of Words
+## Feature Representation
 
+### The Data
 
-### Word Count Frequency
+A corpus is a collection of multiple documents. In the below example, each document is represented by a sentence.
 
+```{python}
+corpus = [
+   'This is the first document, :)',
+   'This document is the second document.',
+   'And this is a third one',
+   'Is this the first document?',
+]
+```
 
+### Frequency Count
+
+Using purely frequency count as a feature will obviously bias on long document (which contain a lot of words, hence words within the document will have very high frequency).
+
+#### + Tokenizer
+
+**Default Tokenizer**  
+By default, vectorizer apply tokenizer to select minimum **2-chars alphanumeric words**.
+
+**Train** the vectorizer using `fit_transform()`.
+
+```{python}
+from sklearn.feature_extraction.text import CountVectorizer
+vec = CountVectorizer()          # initialize the vectorizer
+X   = vec.fit_transform(corpus)  # FIT the vectorizer, return fitted data
+print(pd.DataFrame(X.toarray(), columns=vec.get_feature_names()),'\n\n',
+      'Vocabulary: ', vec.vocabulary_)
+```
+
+**Custom Tokenizer**  
+You can use a custom tokenizer, which is a **function that return list of words**. Example below uses nltk RegexpTokenizer function, which retains one or more alphanumeric characters.
+
+```{python}
+my_tokenizer = RegexpTokenizer(r'[a-zA-Z0-9\']+')  ## Custom Tokenizer
+vec2 = CountVectorizer(tokenizer=my_tokenizer.tokenize) ## custom tokenizer's function
+X2   = vec2.fit_transform(corpus)  # FIT the vectorizer, return fitted data
+print(pd.DataFrame(X2.toarray(), columns=vec2.get_feature_names()),'\n\n',
+      'Vocabulary: ', vec.vocabulary_)
+```
+
+**1 and 2-Word-Gram Tokenizer**  
+Use `ngram_range()` to specify range of grams needed.
+
+```{python}
+vec3 = CountVectorizer(ngram_range=(1,2))          # initialize the vectorizer
+X3   = vec3.fit_transform(corpus)     # FIT the vectorizer, return fitted data
+print(pd.DataFrame(X3.toarray(), columns=vec3.get_feature_names()),'\n\n',
+      'Vocabulary: ', vec.vocabulary_)
+```
+
+**Apply Trained Vectorizer**
+Once the vectorizer had been trained, you can apply them on new corpus. **Tokens not in the vectorizer vocubulary are ignored**.
+
+```{python}
+new_corpus = ["My Name is Charlie Angel", "I love to watch Star Wars"]
+XX = vec.transform(new_corpus)
+pd.DataFrame(XX.toarray(), columns=vec.get_feature_names())
+```
+
+#### + Stop Words
+
+Vectorizer can optionally be use with stop words list. Use `stop_words=english` to apply filtering using sklearn built-in stop word.  You can replace `english` with other word **list object**.
+
+```{python}
+vec4 = CountVectorizer(stop_words='english') ## sklearn stopwords list
+X4 = vec4.fit_transform(corpus)
+pd.DataFrame(X4.toarray(), columns=vec4.get_feature_names())
+```
 
 ### TFIDF
 
 
+
+```{python}
+from sklearn.feature_extraction.text import TfidfVectorizer
+vec5 = TfidfVectorizer()
+X5   = vec5.fit_transform(corpus)
+print(
+  'TFIDF Features:\n',
+  pd.DataFrame(X5.toarray().round(2), columns=vec5.get_feature_names()),
+  '\n\nTF Features:\n',
+  pd.DataFrame(X.toarray(), columns=vec.get_feature_names())
+)
+```
 
 ## Naive Bayes
 
