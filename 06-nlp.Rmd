@@ -311,6 +311,10 @@ for doc in corpus:
   print(doc, '-->', "\n:", SentimentIntensityAnalyzer().polarity_scores(doc) )
 ```
 
+### SentiWordNet
+
+
+
 ## Feature Representation
 
 ### The Data
@@ -387,7 +391,7 @@ pd.DataFrame(X4.toarray(), columns=vec4.get_feature_names())
 
 ### TFIDF
 
-
+#### Equation
 
 ```{python}
 from sklearn.feature_extraction.text import TfidfVectorizer

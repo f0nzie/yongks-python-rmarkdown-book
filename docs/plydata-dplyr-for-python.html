@@ -53,9 +53,9 @@
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -64,16 +64,14 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -82,9 +80,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  background-color: #f8f8f8; }
+  { background-color: #f8f8f8; }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -572,6 +570,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.6" data-path="nlp.html"><a href="nlp.html#pos-tagging"><i class="fa fa-check"></i><b>18.6</b> POS Tagging</a></li>
 <li class="chapter" data-level="18.7" data-path="nlp.html"><a href="nlp.html#sentiment"><i class="fa fa-check"></i><b>18.7</b> Sentiment</a><ul>
 <li class="chapter" data-level="18.7.1" data-path="nlp.html"><a href="nlp.html#vader"><i class="fa fa-check"></i><b>18.7.1</b> Vader</a></li>
+<li class="chapter" data-level="18.7.2" data-path="nlp.html"><a href="nlp.html#sentiwordnet"><i class="fa fa-check"></i><b>18.7.2</b> SentiWordNet</a></li>
 </ul></li>
 <li class="chapter" data-level="18.8" data-path="nlp.html"><a href="nlp.html#feature-representation"><i class="fa fa-check"></i><b>18.8</b> Feature Representation</a><ul>
 <li class="chapter" data-level="18.8.1" data-path="nlp.html"><a href="nlp.html#the-data-1"><i class="fa fa-check"></i><b>18.8.1</b> The Data</a></li>
@@ -607,162 +606,162 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">11</span> Plydata (dplyr for Python)</h1>
 <div id="sample-data" class="section level2">
 <h2><span class="header-section-number">11.1</span> Sample Data</h2>
-<div class="sourceCode" id="cb560"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb560-1"><a href="plydata-dplyr-for-python.html#cb560-1"></a>n <span class="op">=</span> <span class="dv">200</span></span>
-<span id="cb560-2"><a href="plydata-dplyr-for-python.html#cb560-2"></a>comp <span class="op">=</span> [<span class="st">&#39;C&#39;</span> <span class="op">+</span> i <span class="cf">for</span> i <span class="kw">in</span> np.random.randint( <span class="dv">1</span>,<span class="dv">4</span>, size  <span class="op">=</span> n).astype(<span class="bu">str</span>)] <span class="co"># 3x Company</span></span>
-<span id="cb560-3"><a href="plydata-dplyr-for-python.html#cb560-3"></a>dept <span class="op">=</span> [<span class="st">&#39;D&#39;</span> <span class="op">+</span> i <span class="cf">for</span> i <span class="kw">in</span> np.random.randint( <span class="dv">1</span>,<span class="dv">6</span>, size  <span class="op">=</span> n).astype(<span class="bu">str</span>)] <span class="co"># 5x Department</span></span>
-<span id="cb560-4"><a href="plydata-dplyr-for-python.html#cb560-4"></a>grp <span class="op">=</span>  [<span class="st">&#39;G&#39;</span> <span class="op">+</span> i <span class="cf">for</span> i <span class="kw">in</span> np.random.randint( <span class="dv">1</span>,<span class="dv">3</span>, size  <span class="op">=</span> n).astype(<span class="bu">str</span>)] <span class="co"># 2x Groups</span></span>
-<span id="cb560-5"><a href="plydata-dplyr-for-python.html#cb560-5"></a>value1 <span class="op">=</span> np.random.normal( loc<span class="op">=</span><span class="dv">50</span> , scale<span class="op">=</span><span class="dv">5</span> , size <span class="op">=</span> n)</span>
-<span id="cb560-6"><a href="plydata-dplyr-for-python.html#cb560-6"></a>value2 <span class="op">=</span> np.random.normal( loc<span class="op">=</span><span class="dv">20</span> , scale<span class="op">=</span><span class="dv">3</span> , size <span class="op">=</span> n)</span>
-<span id="cb560-7"><a href="plydata-dplyr-for-python.html#cb560-7"></a><span class="co">#value3 = np.random.normal( loc=5 , scale=30 , size = n)</span></span>
-<span id="cb560-8"><a href="plydata-dplyr-for-python.html#cb560-8"></a></span>
-<span id="cb560-9"><a href="plydata-dplyr-for-python.html#cb560-9"></a>mydf <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb560-10"><a href="plydata-dplyr-for-python.html#cb560-10"></a>    <span class="st">&#39;comp&#39;</span>:comp, </span>
-<span id="cb560-11"><a href="plydata-dplyr-for-python.html#cb560-11"></a>    <span class="st">&#39;dept&#39;</span>:dept, </span>
-<span id="cb560-12"><a href="plydata-dplyr-for-python.html#cb560-12"></a>    <span class="st">&#39;grp&#39;</span>: grp,</span>
-<span id="cb560-13"><a href="plydata-dplyr-for-python.html#cb560-13"></a>    <span class="st">&#39;value1&#39;</span>:value1, </span>
-<span id="cb560-14"><a href="plydata-dplyr-for-python.html#cb560-14"></a>    <span class="st">&#39;value2&#39;</span>:value2</span>
-<span id="cb560-15"><a href="plydata-dplyr-for-python.html#cb560-15"></a>    <span class="co">#&#39;value3&#39;:value3 </span></span>
-<span id="cb560-16"><a href="plydata-dplyr-for-python.html#cb560-16"></a>})</span>
-<span id="cb560-17"><a href="plydata-dplyr-for-python.html#cb560-17"></a>mydf.head()</span></code></pre></div>
+<div class="sourceCode" id="cb560"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb560-1" title="1">n <span class="op">=</span> <span class="dv">200</span></a>
+<a class="sourceLine" id="cb560-2" title="2">comp <span class="op">=</span> [<span class="st">&#39;C&#39;</span> <span class="op">+</span> i <span class="cf">for</span> i <span class="kw">in</span> np.random.randint( <span class="dv">1</span>,<span class="dv">4</span>, size  <span class="op">=</span> n).astype(<span class="bu">str</span>)] <span class="co"># 3x Company</span></a>
+<a class="sourceLine" id="cb560-3" title="3">dept <span class="op">=</span> [<span class="st">&#39;D&#39;</span> <span class="op">+</span> i <span class="cf">for</span> i <span class="kw">in</span> np.random.randint( <span class="dv">1</span>,<span class="dv">6</span>, size  <span class="op">=</span> n).astype(<span class="bu">str</span>)] <span class="co"># 5x Department</span></a>
+<a class="sourceLine" id="cb560-4" title="4">grp <span class="op">=</span>  [<span class="st">&#39;G&#39;</span> <span class="op">+</span> i <span class="cf">for</span> i <span class="kw">in</span> np.random.randint( <span class="dv">1</span>,<span class="dv">3</span>, size  <span class="op">=</span> n).astype(<span class="bu">str</span>)] <span class="co"># 2x Groups</span></a>
+<a class="sourceLine" id="cb560-5" title="5">value1 <span class="op">=</span> np.random.normal( loc<span class="op">=</span><span class="dv">50</span> , scale<span class="op">=</span><span class="dv">5</span> , size <span class="op">=</span> n)</a>
+<a class="sourceLine" id="cb560-6" title="6">value2 <span class="op">=</span> np.random.normal( loc<span class="op">=</span><span class="dv">20</span> , scale<span class="op">=</span><span class="dv">3</span> , size <span class="op">=</span> n)</a>
+<a class="sourceLine" id="cb560-7" title="7"><span class="co">#value3 = np.random.normal( loc=5 , scale=30 , size = n)</span></a>
+<a class="sourceLine" id="cb560-8" title="8"></a>
+<a class="sourceLine" id="cb560-9" title="9">mydf <span class="op">=</span> pd.DataFrame({</a>
+<a class="sourceLine" id="cb560-10" title="10">    <span class="st">&#39;comp&#39;</span>:comp, </a>
+<a class="sourceLine" id="cb560-11" title="11">    <span class="st">&#39;dept&#39;</span>:dept, </a>
+<a class="sourceLine" id="cb560-12" title="12">    <span class="st">&#39;grp&#39;</span>: grp,</a>
+<a class="sourceLine" id="cb560-13" title="13">    <span class="st">&#39;value1&#39;</span>:value1, </a>
+<a class="sourceLine" id="cb560-14" title="14">    <span class="st">&#39;value2&#39;</span>:value2</a>
+<a class="sourceLine" id="cb560-15" title="15">    <span class="co">#&#39;value3&#39;:value3 </span></a>
+<a class="sourceLine" id="cb560-16" title="16">})</a>
+<a class="sourceLine" id="cb560-17" title="17">mydf.head()</a></code></pre></div>
 <pre><code>##   comp dept grp     value1     value2
-## 0   C2   D4  G1  52.361416  17.803696
-## 1   C1   D3  G1  55.604527  22.821107
-## 2   C1   D3  G2  48.181365  21.921686
-## 3   C1   D2  G2  48.568761  20.809538
-## 4   C1   D4  G2  48.164024  21.141821</code></pre>
+## 0   C2   D3  G1  57.908571  12.646310
+## 1   C3   D4  G1  56.711603  16.185175
+## 2   C2   D1  G1  47.744806  18.013863
+## 3   C3   D1  G1  51.490610  20.533382
+## 4   C2   D5  G2  44.951102  24.557412</code></pre>
 </div>
 <div id="column-manipulation" class="section level2">
 <h2><span class="header-section-number">11.2</span> Column Manipulation</h2>
 <div id="copy-column" class="section level3">
 <h3><span class="header-section-number">11.2.1</span> Copy Column</h3>
-<div class="sourceCode" id="cb562"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb562-1"><a href="plydata-dplyr-for-python.html#cb562-1"></a>mydf <span class="op">&gt;&gt;</span> define(newcol <span class="op">=</span> <span class="st">&#39;value1&#39;</span>)                 <span class="co"># simple method for one column</span></span></code></pre></div>
+<div class="sourceCode" id="cb562"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb562-1" title="1">mydf <span class="op">&gt;&gt;</span> define(newcol <span class="op">=</span> <span class="st">&#39;value1&#39;</span>)                 <span class="co"># simple method for one column</span></a></code></pre></div>
 <pre><code>##     comp dept grp     value1     value2     newcol
-## 0     C2   D4  G1  52.361416  17.803696  52.361416
-## 1     C1   D3  G1  55.604527  22.821107  55.604527
-## 2     C1   D3  G2  48.181365  21.921686  48.181365
-## 3     C1   D2  G2  48.568761  20.809538  48.568761
-## 4     C1   D4  G2  48.164024  21.141821  48.164024
-## 5     C2   D2  G1  50.742951  20.718502  50.742951
-## 6     C3   D4  G2  51.477397  20.584675  51.477397
-## 7     C3   D1  G2  53.190161  18.992199  53.190161
-## 8     C2   D2  G1  47.028651  18.635548  47.028651
-## 9     C3   D1  G2  46.572272  17.441823  46.572272
-## 10    C2   D3  G1  36.464604  22.676101  36.464604
-## 11    C1   D2  G2  40.098771  18.264857  40.098771
-## 12    C3   D3  G2  45.919937  23.155854  45.919937
-## 13    C2   D5  G1  56.717540  22.861759  56.717540
-## 14    C2   D1  G1  54.113238  14.310318  54.113238
-## 15    C1   D3  G2  47.904064  19.781050  47.904064
-## 16    C3   D1  G1  52.072863  16.579473  52.072863
-## 17    C3   D1  G1  51.308834  19.737421  51.308834
-## 18    C1   D1  G1  49.361366  15.175371  49.361366
-## 19    C1   D3  G1  49.734374  17.228755  49.734374
-## 20    C2   D4  G2  38.004896  21.763785  38.004896
-## 21    C2   D3  G1  51.301423  20.180735  51.301423
-## 22    C1   D3  G1  46.884157  16.924712  46.884157
-## 23    C3   D5  G2  40.693907  20.623897  40.693907
-## 24    C3   D5  G2  61.930670  16.639418  61.930670
-## 25    C2   D1  G1  53.604755  23.633122  53.604755
-## 26    C3   D2  G1  58.768928  24.555454  58.768928
-## 27    C2   D5  G2  48.925846  20.172250  48.925846
-## 28    C3   D3  G1  58.023978  17.570727  58.023978
-## 29    C3   D3  G2  50.405377  21.784671  50.405377
+## 0     C2   D3  G1  57.908571  12.646310  57.908571
+## 1     C3   D4  G1  56.711603  16.185175  56.711603
+## 2     C2   D1  G1  47.744806  18.013863  47.744806
+## 3     C3   D1  G1  51.490610  20.533382  51.490610
+## 4     C2   D5  G2  44.951102  24.557412  44.951102
+## 5     C2   D4  G2  40.629968  27.346727  40.629968
+## 6     C1   D4  G1  56.185284  22.248217  56.185284
+## 7     C3   D2  G1  61.780497  21.511004  61.780497
+## 8     C2   D1  G1  45.902423  18.942158  45.902423
+## 9     C1   D5  G1  53.142016  19.497765  53.142016
+## 10    C3   D2  G1  54.212944  13.974922  54.212944
+## 11    C3   D1  G2  43.056791  19.754025  43.056791
+## 12    C2   D2  G1  53.130303  26.187620  53.130303
+## 13    C2   D2  G1  52.403474  21.601645  52.403474
+## 14    C1   D4  G2  58.603230  20.069508  58.603230
+## 15    C3   D4  G1  56.395770  23.366805  56.395770
+## 16    C3   D3  G1  53.509489  21.876167  53.509489
+## 17    C3   D4  G2  53.457007  17.958950  53.457007
+## 18    C1   D1  G1  46.492231  28.369162  46.492231
+## 19    C1   D3  G1  54.191970  23.938745  54.191970
+## 20    C2   D4  G1  54.177112  22.969542  54.177112
+## 21    C2   D1  G2  57.020806  19.930771  57.020806
+## 22    C2   D4  G2  48.118947  21.458279  48.118947
+## 23    C3   D1  G2  52.551688  15.371764  52.551688
+## 24    C1   D5  G2  49.441572  20.054593  49.441572
+## 25    C1   D4  G2  47.297187  21.204947  47.297187
+## 26    C3   D3  G2  46.143019  20.359330  46.143019
+## 27    C2   D1  G1  49.217411  16.646345  49.217411
+## 28    C1   D4  G1  52.005339  17.985515  52.005339
+## 29    C2   D2  G2  47.773420  14.712537  47.773420
 ## ..   ...  ...  ..        ...        ...        ...
-## 170   C1   D4  G2  54.994384  18.911894  54.994384
-## 171   C2   D2  G2  49.733252  17.825844  49.733252
-## 172   C1   D4  G2  50.206757  20.554488  50.206757
-## 173   C3   D1  G2  53.981913  20.307610  53.981913
-## 174   C3   D3  G1  53.292632  16.955613  53.292632
-## 175   C1   D3  G2  49.570008  20.129475  49.570008
-## 176   C3   D2  G1  48.384255  17.315016  48.384255
-## 177   C1   D4  G1  54.895273  21.094471  54.895273
-## 178   C1   D5  G2  53.582690  23.542715  53.582690
-## 179   C2   D4  G2  46.791871  19.050269  46.791871
-## 180   C3   D4  G1  55.972171  20.611903  55.972171
-## 181   C1   D3  G1  47.606980  23.024013  47.606980
-## 182   C1   D2  G1  52.763450  15.562703  52.763450
-## 183   C1   D1  G1  55.979995  24.744029  55.979995
-## 184   C3   D1  G2  52.096039  16.645971  52.096039
-## 185   C1   D4  G1  51.181733  17.451090  51.181733
-## 186   C3   D4  G1  43.055540  26.063437  43.055540
-## 187   C2   D1  G2  48.858835  17.420277  48.858835
-## 188   C3   D5  G1  48.757997  19.768798  48.757997
-## 189   C1   D1  G1  55.823427  20.607406  55.823427
-## 190   C3   D1  G2  49.399337  20.124167  49.399337
-## 191   C1   D5  G1  54.122502  20.937300  54.122502
-## 192   C2   D4  G2  42.074158  25.993168  42.074158
-## 193   C1   D4  G2  54.777251  13.598987  54.777251
-## 194   C3   D1  G2  52.731958  16.710127  52.731958
-## 195   C1   D5  G2  41.530094  17.825596  41.530094
-## 196   C1   D1  G1  53.657563  19.358757  53.657563
-## 197   C1   D4  G1  56.341805  21.306421  56.341805
-## 198   C2   D5  G1  47.627294  16.440992  47.627294
-## 199   C3   D3  G1  49.791946  23.685515  49.791946
+## 170   C3   D3  G1  48.698948  20.078305  48.698948
+## 171   C3   D3  G1  46.792395  24.153217  46.792395
+## 172   C1   D2  G1  55.539493  18.722092  55.539493
+## 173   C3   D4  G1  36.912058  25.303297  36.912058
+## 174   C3   D1  G2  51.551101  22.906154  51.551101
+## 175   C2   D1  G2  61.013160  22.059351  61.013160
+## 176   C2   D1  G2  50.848222  17.043927  50.848222
+## 177   C2   D2  G2  53.378857  20.364066  53.378857
+## 178   C1   D3  G2  49.780936  28.967778  49.780936
+## 179   C3   D2  G2  52.799334  21.447751  52.799334
+## 180   C2   D1  G1  47.984499  20.016439  47.984499
+## 181   C2   D4  G2  48.452612  18.362744  48.452612
+## 182   C3   D5  G1  53.114765  21.784140  53.114765
+## 183   C2   D5  G2  47.680313  22.014013  47.680313
+## 184   C3   D5  G1  53.752871  19.816377  53.752871
+## 185   C2   D5  G2  49.984037  20.531557  49.984037
+## 186   C3   D1  G2  53.071667  24.239381  53.071667
+## 187   C1   D2  G1  53.719642  22.722981  53.719642
+## 188   C3   D1  G1  50.164513  22.339755  50.164513
+## 189   C1   D1  G2  57.211208  21.071540  57.211208
+## 190   C1   D2  G2  43.088772  15.537614  43.088772
+## 191   C1   D4  G1  51.287902  19.700570  51.287902
+## 192   C3   D1  G1  53.734003  21.901483  53.734003
+## 193   C2   D2  G1  48.491228  19.346164  48.491228
+## 194   C2   D1  G1  50.703628  19.571300  50.703628
+## 195   C3   D3  G1  57.329875  21.575310  57.329875
+## 196   C3   D3  G2  46.477284  21.361632  46.477284
+## 197   C3   D1  G1  55.528425  22.340085  55.528425
+## 198   C2   D4  G2  56.350849  22.028576  56.350849
+## 199   C2   D1  G1  44.977193  19.602629  44.977193
 ## 
 ## [200 rows x 6 columns]</code></pre>
-<div class="sourceCode" id="cb564"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb564-1"><a href="plydata-dplyr-for-python.html#cb564-1"></a>mydf <span class="op">&gt;&gt;</span> define ((<span class="st">&#39;newcol1&#39;</span>, <span class="st">&#39;value1&#39;</span>), newcol2<span class="op">=</span><span class="st">&#39;value2&#39;</span>)  <span class="co"># method for muiltiple new columns</span></span></code></pre></div>
+<div class="sourceCode" id="cb564"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb564-1" title="1">mydf <span class="op">&gt;&gt;</span> define ((<span class="st">&#39;newcol1&#39;</span>, <span class="st">&#39;value1&#39;</span>), newcol2<span class="op">=</span><span class="st">&#39;value2&#39;</span>)  <span class="co"># method for muiltiple new columns</span></a></code></pre></div>
 <pre><code>##     comp dept grp     value1     value2    newcol1    newcol2
-## 0     C2   D4  G1  52.361416  17.803696  52.361416  17.803696
-## 1     C1   D3  G1  55.604527  22.821107  55.604527  22.821107
-## 2     C1   D3  G2  48.181365  21.921686  48.181365  21.921686
-## 3     C1   D2  G2  48.568761  20.809538  48.568761  20.809538
-## 4     C1   D4  G2  48.164024  21.141821  48.164024  21.141821
-## 5     C2   D2  G1  50.742951  20.718502  50.742951  20.718502
-## 6     C3   D4  G2  51.477397  20.584675  51.477397  20.584675
-## 7     C3   D1  G2  53.190161  18.992199  53.190161  18.992199
-## 8     C2   D2  G1  47.028651  18.635548  47.028651  18.635548
-## 9     C3   D1  G2  46.572272  17.441823  46.572272  17.441823
-## 10    C2   D3  G1  36.464604  22.676101  36.464604  22.676101
-## 11    C1   D2  G2  40.098771  18.264857  40.098771  18.264857
-## 12    C3   D3  G2  45.919937  23.155854  45.919937  23.155854
-## 13    C2   D5  G1  56.717540  22.861759  56.717540  22.861759
-## 14    C2   D1  G1  54.113238  14.310318  54.113238  14.310318
-## 15    C1   D3  G2  47.904064  19.781050  47.904064  19.781050
-## 16    C3   D1  G1  52.072863  16.579473  52.072863  16.579473
-## 17    C3   D1  G1  51.308834  19.737421  51.308834  19.737421
-## 18    C1   D1  G1  49.361366  15.175371  49.361366  15.175371
-## 19    C1   D3  G1  49.734374  17.228755  49.734374  17.228755
-## 20    C2   D4  G2  38.004896  21.763785  38.004896  21.763785
-## 21    C2   D3  G1  51.301423  20.180735  51.301423  20.180735
-## 22    C1   D3  G1  46.884157  16.924712  46.884157  16.924712
-## 23    C3   D5  G2  40.693907  20.623897  40.693907  20.623897
-## 24    C3   D5  G2  61.930670  16.639418  61.930670  16.639418
-## 25    C2   D1  G1  53.604755  23.633122  53.604755  23.633122
-## 26    C3   D2  G1  58.768928  24.555454  58.768928  24.555454
-## 27    C2   D5  G2  48.925846  20.172250  48.925846  20.172250
-## 28    C3   D3  G1  58.023978  17.570727  58.023978  17.570727
-## 29    C3   D3  G2  50.405377  21.784671  50.405377  21.784671
+## 0     C2   D3  G1  57.908571  12.646310  57.908571  12.646310
+## 1     C3   D4  G1  56.711603  16.185175  56.711603  16.185175
+## 2     C2   D1  G1  47.744806  18.013863  47.744806  18.013863
+## 3     C3   D1  G1  51.490610  20.533382  51.490610  20.533382
+## 4     C2   D5  G2  44.951102  24.557412  44.951102  24.557412
+## 5     C2   D4  G2  40.629968  27.346727  40.629968  27.346727
+## 6     C1   D4  G1  56.185284  22.248217  56.185284  22.248217
+## 7     C3   D2  G1  61.780497  21.511004  61.780497  21.511004
+## 8     C2   D1  G1  45.902423  18.942158  45.902423  18.942158
+## 9     C1   D5  G1  53.142016  19.497765  53.142016  19.497765
+## 10    C3   D2  G1  54.212944  13.974922  54.212944  13.974922
+## 11    C3   D1  G2  43.056791  19.754025  43.056791  19.754025
+## 12    C2   D2  G1  53.130303  26.187620  53.130303  26.187620
+## 13    C2   D2  G1  52.403474  21.601645  52.403474  21.601645
+## 14    C1   D4  G2  58.603230  20.069508  58.603230  20.069508
+## 15    C3   D4  G1  56.395770  23.366805  56.395770  23.366805
+## 16    C3   D3  G1  53.509489  21.876167  53.509489  21.876167
+## 17    C3   D4  G2  53.457007  17.958950  53.457007  17.958950
+## 18    C1   D1  G1  46.492231  28.369162  46.492231  28.369162
+## 19    C1   D3  G1  54.191970  23.938745  54.191970  23.938745
+## 20    C2   D4  G1  54.177112  22.969542  54.177112  22.969542
+## 21    C2   D1  G2  57.020806  19.930771  57.020806  19.930771
+## 22    C2   D4  G2  48.118947  21.458279  48.118947  21.458279
+## 23    C3   D1  G2  52.551688  15.371764  52.551688  15.371764
+## 24    C1   D5  G2  49.441572  20.054593  49.441572  20.054593
+## 25    C1   D4  G2  47.297187  21.204947  47.297187  21.204947
+## 26    C3   D3  G2  46.143019  20.359330  46.143019  20.359330
+## 27    C2   D1  G1  49.217411  16.646345  49.217411  16.646345
+## 28    C1   D4  G1  52.005339  17.985515  52.005339  17.985515
+## 29    C2   D2  G2  47.773420  14.712537  47.773420  14.712537
 ## ..   ...  ...  ..        ...        ...        ...        ...
-## 170   C1   D4  G2  54.994384  18.911894  54.994384  18.911894
-## 171   C2   D2  G2  49.733252  17.825844  49.733252  17.825844
-## 172   C1   D4  G2  50.206757  20.554488  50.206757  20.554488
-## 173   C3   D1  G2  53.981913  20.307610  53.981913  20.307610
-## 174   C3   D3  G1  53.292632  16.955613  53.292632  16.955613
-## 175   C1   D3  G2  49.570008  20.129475  49.570008  20.129475
-## 176   C3   D2  G1  48.384255  17.315016  48.384255  17.315016
-## 177   C1   D4  G1  54.895273  21.094471  54.895273  21.094471
-## 178   C1   D5  G2  53.582690  23.542715  53.582690  23.542715
-## 179   C2   D4  G2  46.791871  19.050269  46.791871  19.050269
-## 180   C3   D4  G1  55.972171  20.611903  55.972171  20.611903
-## 181   C1   D3  G1  47.606980  23.024013  47.606980  23.024013
-## 182   C1   D2  G1  52.763450  15.562703  52.763450  15.562703
-## 183   C1   D1  G1  55.979995  24.744029  55.979995  24.744029
-## 184   C3   D1  G2  52.096039  16.645971  52.096039  16.645971
-## 185   C1   D4  G1  51.181733  17.451090  51.181733  17.451090
-## 186   C3   D4  G1  43.055540  26.063437  43.055540  26.063437
-## 187   C2   D1  G2  48.858835  17.420277  48.858835  17.420277
-## 188   C3   D5  G1  48.757997  19.768798  48.757997  19.768798
-## 189   C1   D1  G1  55.823427  20.607406  55.823427  20.607406
-## 190   C3   D1  G2  49.399337  20.124167  49.399337  20.124167
-## 191   C1   D5  G1  54.122502  20.937300  54.122502  20.937300
-## 192   C2   D4  G2  42.074158  25.993168  42.074158  25.993168
-## 193   C1   D4  G2  54.777251  13.598987  54.777251  13.598987
-## 194   C3   D1  G2  52.731958  16.710127  52.731958  16.710127
-## 195   C1   D5  G2  41.530094  17.825596  41.530094  17.825596
-## 196   C1   D1  G1  53.657563  19.358757  53.657563  19.358757
-## 197   C1   D4  G1  56.341805  21.306421  56.341805  21.306421
-## 198   C2   D5  G1  47.627294  16.440992  47.627294  16.440992
-## 199   C3   D3  G1  49.791946  23.685515  49.791946  23.685515
+## 170   C3   D3  G1  48.698948  20.078305  48.698948  20.078305
+## 171   C3   D3  G1  46.792395  24.153217  46.792395  24.153217
+## 172   C1   D2  G1  55.539493  18.722092  55.539493  18.722092
+## 173   C3   D4  G1  36.912058  25.303297  36.912058  25.303297
+## 174   C3   D1  G2  51.551101  22.906154  51.551101  22.906154
+## 175   C2   D1  G2  61.013160  22.059351  61.013160  22.059351
+## 176   C2   D1  G2  50.848222  17.043927  50.848222  17.043927
+## 177   C2   D2  G2  53.378857  20.364066  53.378857  20.364066
+## 178   C1   D3  G2  49.780936  28.967778  49.780936  28.967778
+## 179   C3   D2  G2  52.799334  21.447751  52.799334  21.447751
+## 180   C2   D1  G1  47.984499  20.016439  47.984499  20.016439
+## 181   C2   D4  G2  48.452612  18.362744  48.452612  18.362744
+## 182   C3   D5  G1  53.114765  21.784140  53.114765  21.784140
+## 183   C2   D5  G2  47.680313  22.014013  47.680313  22.014013
+## 184   C3   D5  G1  53.752871  19.816377  53.752871  19.816377
+## 185   C2   D5  G2  49.984037  20.531557  49.984037  20.531557
+## 186   C3   D1  G2  53.071667  24.239381  53.071667  24.239381
+## 187   C1   D2  G1  53.719642  22.722981  53.719642  22.722981
+## 188   C3   D1  G1  50.164513  22.339755  50.164513  22.339755
+## 189   C1   D1  G2  57.211208  21.071540  57.211208  21.071540
+## 190   C1   D2  G2  43.088772  15.537614  43.088772  15.537614
+## 191   C1   D4  G1  51.287902  19.700570  51.287902  19.700570
+## 192   C3   D1  G1  53.734003  21.901483  53.734003  21.901483
+## 193   C2   D2  G1  48.491228  19.346164  48.491228  19.346164
+## 194   C2   D1  G1  50.703628  19.571300  50.703628  19.571300
+## 195   C3   D3  G1  57.329875  21.575310  57.329875  21.575310
+## 196   C3   D3  G2  46.477284  21.361632  46.477284  21.361632
+## 197   C3   D1  G1  55.528425  22.340085  55.528425  22.340085
+## 198   C2   D4  G2  56.350849  22.028576  56.350849  22.028576
+## 199   C2   D1  G1  44.977193  19.602629  44.977193  19.602629
 ## 
 ## [200 rows x 7 columns]</code></pre>
 <!-- jupyter_markdown,  -->
@@ -771,211 +770,211 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">11.2.2</span> New Column from existing Column</h3>
 <!-- jupyter_markdown,  -->
 <p><strong>Without specify the new column name</strong>, it will be derived from expression</p>
-<div class="sourceCode" id="cb566"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb566-1"><a href="plydata-dplyr-for-python.html#cb566-1"></a>mydf <span class="op">&gt;&gt;</span> define (<span class="st">&#39;value1*2&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb566"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb566-1" title="1">mydf <span class="op">&gt;&gt;</span> define (<span class="st">&#39;value1*2&#39;</span>)</a></code></pre></div>
 <pre><code>##     comp dept grp     value1     value2    value1*2
-## 0     C2   D4  G1  52.361416  17.803696  104.722833
-## 1     C1   D3  G1  55.604527  22.821107  111.209054
-## 2     C1   D3  G2  48.181365  21.921686   96.362729
-## 3     C1   D2  G2  48.568761  20.809538   97.137522
-## 4     C1   D4  G2  48.164024  21.141821   96.328048
-## 5     C2   D2  G1  50.742951  20.718502  101.485901
-## 6     C3   D4  G2  51.477397  20.584675  102.954794
-## 7     C3   D1  G2  53.190161  18.992199  106.380321
-## 8     C2   D2  G1  47.028651  18.635548   94.057301
-## 9     C3   D1  G2  46.572272  17.441823   93.144544
-## 10    C2   D3  G1  36.464604  22.676101   72.929208
-## 11    C1   D2  G2  40.098771  18.264857   80.197542
-## 12    C3   D3  G2  45.919937  23.155854   91.839874
-## 13    C2   D5  G1  56.717540  22.861759  113.435080
-## 14    C2   D1  G1  54.113238  14.310318  108.226475
-## 15    C1   D3  G2  47.904064  19.781050   95.808129
-## 16    C3   D1  G1  52.072863  16.579473  104.145726
-## 17    C3   D1  G1  51.308834  19.737421  102.617669
-## 18    C1   D1  G1  49.361366  15.175371   98.722732
-## 19    C1   D3  G1  49.734374  17.228755   99.468749
-## 20    C2   D4  G2  38.004896  21.763785   76.009793
-## 21    C2   D3  G1  51.301423  20.180735  102.602846
-## 22    C1   D3  G1  46.884157  16.924712   93.768315
-## 23    C3   D5  G2  40.693907  20.623897   81.387814
-## 24    C3   D5  G2  61.930670  16.639418  123.861339
-## 25    C2   D1  G1  53.604755  23.633122  107.209510
-## 26    C3   D2  G1  58.768928  24.555454  117.537855
-## 27    C2   D5  G2  48.925846  20.172250   97.851691
-## 28    C3   D3  G1  58.023978  17.570727  116.047957
-## 29    C3   D3  G2  50.405377  21.784671  100.810754
+## 0     C2   D3  G1  57.908571  12.646310  115.817141
+## 1     C3   D4  G1  56.711603  16.185175  113.423206
+## 2     C2   D1  G1  47.744806  18.013863   95.489612
+## 3     C3   D1  G1  51.490610  20.533382  102.981221
+## 4     C2   D5  G2  44.951102  24.557412   89.902204
+## 5     C2   D4  G2  40.629968  27.346727   81.259937
+## 6     C1   D4  G1  56.185284  22.248217  112.370568
+## 7     C3   D2  G1  61.780497  21.511004  123.560995
+## 8     C2   D1  G1  45.902423  18.942158   91.804846
+## 9     C1   D5  G1  53.142016  19.497765  106.284033
+## 10    C3   D2  G1  54.212944  13.974922  108.425888
+## 11    C3   D1  G2  43.056791  19.754025   86.113581
+## 12    C2   D2  G1  53.130303  26.187620  106.260605
+## 13    C2   D2  G1  52.403474  21.601645  104.806948
+## 14    C1   D4  G2  58.603230  20.069508  117.206459
+## 15    C3   D4  G1  56.395770  23.366805  112.791540
+## 16    C3   D3  G1  53.509489  21.876167  107.018977
+## 17    C3   D4  G2  53.457007  17.958950  106.914014
+## 18    C1   D1  G1  46.492231  28.369162   92.984462
+## 19    C1   D3  G1  54.191970  23.938745  108.383940
+## 20    C2   D4  G1  54.177112  22.969542  108.354225
+## 21    C2   D1  G2  57.020806  19.930771  114.041613
+## 22    C2   D4  G2  48.118947  21.458279   96.237895
+## 23    C3   D1  G2  52.551688  15.371764  105.103377
+## 24    C1   D5  G2  49.441572  20.054593   98.883144
+## 25    C1   D4  G2  47.297187  21.204947   94.594373
+## 26    C3   D3  G2  46.143019  20.359330   92.286039
+## 27    C2   D1  G1  49.217411  16.646345   98.434823
+## 28    C1   D4  G1  52.005339  17.985515  104.010678
+## 29    C2   D2  G2  47.773420  14.712537   95.546840
 ## ..   ...  ...  ..        ...        ...         ...
-## 170   C1   D4  G2  54.994384  18.911894  109.988767
-## 171   C2   D2  G2  49.733252  17.825844   99.466504
-## 172   C1   D4  G2  50.206757  20.554488  100.413515
-## 173   C3   D1  G2  53.981913  20.307610  107.963827
-## 174   C3   D3  G1  53.292632  16.955613  106.585264
-## 175   C1   D3  G2  49.570008  20.129475   99.140015
-## 176   C3   D2  G1  48.384255  17.315016   96.768511
-## 177   C1   D4  G1  54.895273  21.094471  109.790547
-## 178   C1   D5  G2  53.582690  23.542715  107.165380
-## 179   C2   D4  G2  46.791871  19.050269   93.583741
-## 180   C3   D4  G1  55.972171  20.611903  111.944341
-## 181   C1   D3  G1  47.606980  23.024013   95.213960
-## 182   C1   D2  G1  52.763450  15.562703  105.526899
-## 183   C1   D1  G1  55.979995  24.744029  111.959991
-## 184   C3   D1  G2  52.096039  16.645971  104.192079
-## 185   C1   D4  G1  51.181733  17.451090  102.363466
-## 186   C3   D4  G1  43.055540  26.063437   86.111079
-## 187   C2   D1  G2  48.858835  17.420277   97.717670
-## 188   C3   D5  G1  48.757997  19.768798   97.515994
-## 189   C1   D1  G1  55.823427  20.607406  111.646854
-## 190   C3   D1  G2  49.399337  20.124167   98.798675
-## 191   C1   D5  G1  54.122502  20.937300  108.245005
-## 192   C2   D4  G2  42.074158  25.993168   84.148315
-## 193   C1   D4  G2  54.777251  13.598987  109.554503
-## 194   C3   D1  G2  52.731958  16.710127  105.463916
-## 195   C1   D5  G2  41.530094  17.825596   83.060188
-## 196   C1   D1  G1  53.657563  19.358757  107.315126
-## 197   C1   D4  G1  56.341805  21.306421  112.683609
-## 198   C2   D5  G1  47.627294  16.440992   95.254588
-## 199   C3   D3  G1  49.791946  23.685515   99.583891
+## 170   C3   D3  G1  48.698948  20.078305   97.397896
+## 171   C3   D3  G1  46.792395  24.153217   93.584790
+## 172   C1   D2  G1  55.539493  18.722092  111.078987
+## 173   C3   D4  G1  36.912058  25.303297   73.824117
+## 174   C3   D1  G2  51.551101  22.906154  103.102203
+## 175   C2   D1  G2  61.013160  22.059351  122.026320
+## 176   C2   D1  G2  50.848222  17.043927  101.696443
+## 177   C2   D2  G2  53.378857  20.364066  106.757713
+## 178   C1   D3  G2  49.780936  28.967778   99.561872
+## 179   C3   D2  G2  52.799334  21.447751  105.598668
+## 180   C2   D1  G1  47.984499  20.016439   95.968997
+## 181   C2   D4  G2  48.452612  18.362744   96.905224
+## 182   C3   D5  G1  53.114765  21.784140  106.229531
+## 183   C2   D5  G2  47.680313  22.014013   95.360625
+## 184   C3   D5  G1  53.752871  19.816377  107.505741
+## 185   C2   D5  G2  49.984037  20.531557   99.968073
+## 186   C3   D1  G2  53.071667  24.239381  106.143335
+## 187   C1   D2  G1  53.719642  22.722981  107.439284
+## 188   C3   D1  G1  50.164513  22.339755  100.329026
+## 189   C1   D1  G2  57.211208  21.071540  114.422417
+## 190   C1   D2  G2  43.088772  15.537614   86.177544
+## 191   C1   D4  G1  51.287902  19.700570  102.575805
+## 192   C3   D1  G1  53.734003  21.901483  107.468006
+## 193   C2   D2  G1  48.491228  19.346164   96.982456
+## 194   C2   D1  G1  50.703628  19.571300  101.407256
+## 195   C3   D3  G1  57.329875  21.575310  114.659750
+## 196   C3   D3  G2  46.477284  21.361632   92.954569
+## 197   C3   D1  G1  55.528425  22.340085  111.056851
+## 198   C2   D4  G2  56.350849  22.028576  112.701698
+## 199   C2   D1  G1  44.977193  19.602629   89.954387
 ## 
 ## [200 rows x 6 columns]</code></pre>
 <!-- jupyter_markdown,  -->
 <p><strong>Specify the new column name</strong></p>
-<div class="sourceCode" id="cb568"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb568-1"><a href="plydata-dplyr-for-python.html#cb568-1"></a>mydf <span class="op">&gt;&gt;</span> define(value3 <span class="op">=</span> <span class="st">&#39;value1*2&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb568"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb568-1" title="1">mydf <span class="op">&gt;&gt;</span> define(value3 <span class="op">=</span> <span class="st">&#39;value1*2&#39;</span>)</a></code></pre></div>
 <pre><code>##     comp dept grp     value1     value2      value3
-## 0     C2   D4  G1  52.361416  17.803696  104.722833
-## 1     C1   D3  G1  55.604527  22.821107  111.209054
-## 2     C1   D3  G2  48.181365  21.921686   96.362729
-## 3     C1   D2  G2  48.568761  20.809538   97.137522
-## 4     C1   D4  G2  48.164024  21.141821   96.328048
-## 5     C2   D2  G1  50.742951  20.718502  101.485901
-## 6     C3   D4  G2  51.477397  20.584675  102.954794
-## 7     C3   D1  G2  53.190161  18.992199  106.380321
-## 8     C2   D2  G1  47.028651  18.635548   94.057301
-## 9     C3   D1  G2  46.572272  17.441823   93.144544
-## 10    C2   D3  G1  36.464604  22.676101   72.929208
-## 11    C1   D2  G2  40.098771  18.264857   80.197542
-## 12    C3   D3  G2  45.919937  23.155854   91.839874
-## 13    C2   D5  G1  56.717540  22.861759  113.435080
-## 14    C2   D1  G1  54.113238  14.310318  108.226475
-## 15    C1   D3  G2  47.904064  19.781050   95.808129
-## 16    C3   D1  G1  52.072863  16.579473  104.145726
-## 17    C3   D1  G1  51.308834  19.737421  102.617669
-## 18    C1   D1  G1  49.361366  15.175371   98.722732
-## 19    C1   D3  G1  49.734374  17.228755   99.468749
-## 20    C2   D4  G2  38.004896  21.763785   76.009793
-## 21    C2   D3  G1  51.301423  20.180735  102.602846
-## 22    C1   D3  G1  46.884157  16.924712   93.768315
-## 23    C3   D5  G2  40.693907  20.623897   81.387814
-## 24    C3   D5  G2  61.930670  16.639418  123.861339
-## 25    C2   D1  G1  53.604755  23.633122  107.209510
-## 26    C3   D2  G1  58.768928  24.555454  117.537855
-## 27    C2   D5  G2  48.925846  20.172250   97.851691
-## 28    C3   D3  G1  58.023978  17.570727  116.047957
-## 29    C3   D3  G2  50.405377  21.784671  100.810754
+## 0     C2   D3  G1  57.908571  12.646310  115.817141
+## 1     C3   D4  G1  56.711603  16.185175  113.423206
+## 2     C2   D1  G1  47.744806  18.013863   95.489612
+## 3     C3   D1  G1  51.490610  20.533382  102.981221
+## 4     C2   D5  G2  44.951102  24.557412   89.902204
+## 5     C2   D4  G2  40.629968  27.346727   81.259937
+## 6     C1   D4  G1  56.185284  22.248217  112.370568
+## 7     C3   D2  G1  61.780497  21.511004  123.560995
+## 8     C2   D1  G1  45.902423  18.942158   91.804846
+## 9     C1   D5  G1  53.142016  19.497765  106.284033
+## 10    C3   D2  G1  54.212944  13.974922  108.425888
+## 11    C3   D1  G2  43.056791  19.754025   86.113581
+## 12    C2   D2  G1  53.130303  26.187620  106.260605
+## 13    C2   D2  G1  52.403474  21.601645  104.806948
+## 14    C1   D4  G2  58.603230  20.069508  117.206459
+## 15    C3   D4  G1  56.395770  23.366805  112.791540
+## 16    C3   D3  G1  53.509489  21.876167  107.018977
+## 17    C3   D4  G2  53.457007  17.958950  106.914014
+## 18    C1   D1  G1  46.492231  28.369162   92.984462
+## 19    C1   D3  G1  54.191970  23.938745  108.383940
+## 20    C2   D4  G1  54.177112  22.969542  108.354225
+## 21    C2   D1  G2  57.020806  19.930771  114.041613
+## 22    C2   D4  G2  48.118947  21.458279   96.237895
+## 23    C3   D1  G2  52.551688  15.371764  105.103377
+## 24    C1   D5  G2  49.441572  20.054593   98.883144
+## 25    C1   D4  G2  47.297187  21.204947   94.594373
+## 26    C3   D3  G2  46.143019  20.359330   92.286039
+## 27    C2   D1  G1  49.217411  16.646345   98.434823
+## 28    C1   D4  G1  52.005339  17.985515  104.010678
+## 29    C2   D2  G2  47.773420  14.712537   95.546840
 ## ..   ...  ...  ..        ...        ...         ...
-## 170   C1   D4  G2  54.994384  18.911894  109.988767
-## 171   C2   D2  G2  49.733252  17.825844   99.466504
-## 172   C1   D4  G2  50.206757  20.554488  100.413515
-## 173   C3   D1  G2  53.981913  20.307610  107.963827
-## 174   C3   D3  G1  53.292632  16.955613  106.585264
-## 175   C1   D3  G2  49.570008  20.129475   99.140015
-## 176   C3   D2  G1  48.384255  17.315016   96.768511
-## 177   C1   D4  G1  54.895273  21.094471  109.790547
-## 178   C1   D5  G2  53.582690  23.542715  107.165380
-## 179   C2   D4  G2  46.791871  19.050269   93.583741
-## 180   C3   D4  G1  55.972171  20.611903  111.944341
-## 181   C1   D3  G1  47.606980  23.024013   95.213960
-## 182   C1   D2  G1  52.763450  15.562703  105.526899
-## 183   C1   D1  G1  55.979995  24.744029  111.959991
-## 184   C3   D1  G2  52.096039  16.645971  104.192079
-## 185   C1   D4  G1  51.181733  17.451090  102.363466
-## 186   C3   D4  G1  43.055540  26.063437   86.111079
-## 187   C2   D1  G2  48.858835  17.420277   97.717670
-## 188   C3   D5  G1  48.757997  19.768798   97.515994
-## 189   C1   D1  G1  55.823427  20.607406  111.646854
-## 190   C3   D1  G2  49.399337  20.124167   98.798675
-## 191   C1   D5  G1  54.122502  20.937300  108.245005
-## 192   C2   D4  G2  42.074158  25.993168   84.148315
-## 193   C1   D4  G2  54.777251  13.598987  109.554503
-## 194   C3   D1  G2  52.731958  16.710127  105.463916
-## 195   C1   D5  G2  41.530094  17.825596   83.060188
-## 196   C1   D1  G1  53.657563  19.358757  107.315126
-## 197   C1   D4  G1  56.341805  21.306421  112.683609
-## 198   C2   D5  G1  47.627294  16.440992   95.254588
-## 199   C3   D3  G1  49.791946  23.685515   99.583891
+## 170   C3   D3  G1  48.698948  20.078305   97.397896
+## 171   C3   D3  G1  46.792395  24.153217   93.584790
+## 172   C1   D2  G1  55.539493  18.722092  111.078987
+## 173   C3   D4  G1  36.912058  25.303297   73.824117
+## 174   C3   D1  G2  51.551101  22.906154  103.102203
+## 175   C2   D1  G2  61.013160  22.059351  122.026320
+## 176   C2   D1  G2  50.848222  17.043927  101.696443
+## 177   C2   D2  G2  53.378857  20.364066  106.757713
+## 178   C1   D3  G2  49.780936  28.967778   99.561872
+## 179   C3   D2  G2  52.799334  21.447751  105.598668
+## 180   C2   D1  G1  47.984499  20.016439   95.968997
+## 181   C2   D4  G2  48.452612  18.362744   96.905224
+## 182   C3   D5  G1  53.114765  21.784140  106.229531
+## 183   C2   D5  G2  47.680313  22.014013   95.360625
+## 184   C3   D5  G1  53.752871  19.816377  107.505741
+## 185   C2   D5  G2  49.984037  20.531557   99.968073
+## 186   C3   D1  G2  53.071667  24.239381  106.143335
+## 187   C1   D2  G1  53.719642  22.722981  107.439284
+## 188   C3   D1  G1  50.164513  22.339755  100.329026
+## 189   C1   D1  G2  57.211208  21.071540  114.422417
+## 190   C1   D2  G2  43.088772  15.537614   86.177544
+## 191   C1   D4  G1  51.287902  19.700570  102.575805
+## 192   C3   D1  G1  53.734003  21.901483  107.468006
+## 193   C2   D2  G1  48.491228  19.346164   96.982456
+## 194   C2   D1  G1  50.703628  19.571300  101.407256
+## 195   C3   D3  G1  57.329875  21.575310  114.659750
+## 196   C3   D3  G2  46.477284  21.361632   92.954569
+## 197   C3   D1  G1  55.528425  22.340085  111.056851
+## 198   C2   D4  G2  56.350849  22.028576  112.701698
+## 199   C2   D1  G1  44.977193  19.602629   89.954387
 ## 
 ## [200 rows x 6 columns]</code></pre>
 <!-- jupyter_markdown,  -->
 <p>Define <strong>multiple</strong> new columns in one go. Observe there are three ways to specify the new columns</p>
-<div class="sourceCode" id="cb570"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb570-1"><a href="plydata-dplyr-for-python.html#cb570-1"></a>mydf <span class="op">&gt;&gt;</span> define(<span class="st">&#39;value1*2&#39;</span>,(<span class="st">&#39;newcol2&#39;</span>,<span class="st">&#39;value2*2&#39;</span>),newcol3<span class="op">=</span><span class="st">&#39;value2*3&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb570"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb570-1" title="1">mydf <span class="op">&gt;&gt;</span> define(<span class="st">&#39;value1*2&#39;</span>,(<span class="st">&#39;newcol2&#39;</span>,<span class="st">&#39;value2*2&#39;</span>),newcol3<span class="op">=</span><span class="st">&#39;value2*3&#39;</span>)</a></code></pre></div>
 <pre><code>##     comp dept grp    ...        value1*2    newcol2    newcol3
-## 0     C2   D4  G1    ...      104.722833  35.607391  53.411087
-## 1     C1   D3  G1    ...      111.209054  45.642214  68.463321
-## 2     C1   D3  G2    ...       96.362729  43.843371  65.765057
-## 3     C1   D2  G2    ...       97.137522  41.619076  62.428614
-## 4     C1   D4  G2    ...       96.328048  42.283642  63.425463
-## 5     C2   D2  G1    ...      101.485901  41.437004  62.155505
-## 6     C3   D4  G2    ...      102.954794  41.169349  61.754024
-## 7     C3   D1  G2    ...      106.380321  37.984398  56.976597
-## 8     C2   D2  G1    ...       94.057301  37.271095  55.906643
-## 9     C3   D1  G2    ...       93.144544  34.883645  52.325468
-## 10    C2   D3  G1    ...       72.929208  45.352203  68.028304
-## 11    C1   D2  G2    ...       80.197542  36.529715  54.794572
-## 12    C3   D3  G2    ...       91.839874  46.311709  69.467563
-## 13    C2   D5  G1    ...      113.435080  45.723518  68.585276
-## 14    C2   D1  G1    ...      108.226475  28.620635  42.930953
-## 15    C1   D3  G2    ...       95.808129  39.562100  59.343150
-## 16    C3   D1  G1    ...      104.145726  33.158947  49.738420
-## 17    C3   D1  G1    ...      102.617669  39.474842  59.212264
-## 18    C1   D1  G1    ...       98.722732  30.350742  45.526112
-## 19    C1   D3  G1    ...       99.468749  34.457510  51.686264
-## 20    C2   D4  G2    ...       76.009793  43.527569  65.291354
-## 21    C2   D3  G1    ...      102.602846  40.361470  60.542205
-## 22    C1   D3  G1    ...       93.768315  33.849423  50.774135
-## 23    C3   D5  G2    ...       81.387814  41.247794  61.871691
-## 24    C3   D5  G2    ...      123.861339  33.278836  49.918254
-## 25    C2   D1  G1    ...      107.209510  47.266244  70.899366
-## 26    C3   D2  G1    ...      117.537855  49.110907  73.666361
-## 27    C2   D5  G2    ...       97.851691  40.344500  60.516750
-## 28    C3   D3  G1    ...      116.047957  35.141454  52.712180
-## 29    C3   D3  G2    ...      100.810754  43.569343  65.354014
+## 0     C2   D3  G1    ...      115.817141  25.292620  37.938930
+## 1     C3   D4  G1    ...      113.423206  32.370350  48.555526
+## 2     C2   D1  G1    ...       95.489612  36.027727  54.041590
+## 3     C3   D1  G1    ...      102.981221  41.066764  61.600146
+## 4     C2   D5  G2    ...       89.902204  49.114823  73.672235
+## 5     C2   D4  G2    ...       81.259937  54.693453  82.040180
+## 6     C1   D4  G1    ...      112.370568  44.496434  66.744651
+## 7     C3   D2  G1    ...      123.560995  43.022009  64.533013
+## 8     C2   D1  G1    ...       91.804846  37.884315  56.826473
+## 9     C1   D5  G1    ...      106.284033  38.995529  58.493294
+## 10    C3   D2  G1    ...      108.425888  27.949844  41.924766
+## 11    C3   D1  G2    ...       86.113581  39.508049  59.262074
+## 12    C2   D2  G1    ...      106.260605  52.375240  78.562860
+## 13    C2   D2  G1    ...      104.806948  43.203289  64.804934
+## 14    C1   D4  G2    ...      117.206459  40.139015  60.208523
+## 15    C3   D4  G1    ...      112.791540  46.733610  70.100415
+## 16    C3   D3  G1    ...      107.018977  43.752334  65.628501
+## 17    C3   D4  G2    ...      106.914014  35.917901  53.876851
+## 18    C1   D1  G1    ...       92.984462  56.738324  85.107487
+## 19    C1   D3  G1    ...      108.383940  47.877490  71.816235
+## 20    C2   D4  G1    ...      108.354225  45.939085  68.908627
+## 21    C2   D1  G2    ...      114.041613  39.861543  59.792314
+## 22    C2   D4  G2    ...       96.237895  42.916558  64.374837
+## 23    C3   D1  G2    ...      105.103377  30.743527  46.115291
+## 24    C1   D5  G2    ...       98.883144  40.109186  60.163779
+## 25    C1   D4  G2    ...       94.594373  42.409894  63.614842
+## 26    C3   D3  G2    ...       92.286039  40.718659  61.077989
+## 27    C2   D1  G1    ...       98.434823  33.292690  49.939035
+## 28    C1   D4  G1    ...      104.010678  35.971030  53.956546
+## 29    C2   D2  G2    ...       95.546840  29.425073  44.137610
 ## ..   ...  ...  ..    ...             ...        ...        ...
-## 170   C1   D4  G2    ...      109.988767  37.823789  56.735683
-## 171   C2   D2  G2    ...       99.466504  35.651687  53.477531
-## 172   C1   D4  G2    ...      100.413515  41.108976  61.663465
-## 173   C3   D1  G2    ...      107.963827  40.615220  60.922830
-## 174   C3   D3  G1    ...      106.585264  33.911226  50.866838
-## 175   C1   D3  G2    ...       99.140015  40.258949  60.388424
-## 176   C3   D2  G1    ...       96.768511  34.630032  51.945048
-## 177   C1   D4  G1    ...      109.790547  42.188941  63.283412
-## 178   C1   D5  G2    ...      107.165380  47.085431  70.628146
-## 179   C2   D4  G2    ...       93.583741  38.100538  57.150807
-## 180   C3   D4  G1    ...      111.944341  41.223807  61.835710
-## 181   C1   D3  G1    ...       95.213960  46.048025  69.072038
-## 182   C1   D2  G1    ...      105.526899  31.125406  46.688109
-## 183   C1   D1  G1    ...      111.959991  49.488057  74.232086
-## 184   C3   D1  G2    ...      104.192079  33.291943  49.937914
-## 185   C1   D4  G1    ...      102.363466  34.902180  52.353270
-## 186   C3   D4  G1    ...       86.111079  52.126874  78.190311
-## 187   C2   D1  G2    ...       97.717670  34.840554  52.260830
-## 188   C3   D5  G1    ...       97.515994  39.537595  59.306393
-## 189   C1   D1  G1    ...      111.646854  41.214813  61.822219
-## 190   C3   D1  G2    ...       98.798675  40.248334  60.372501
-## 191   C1   D5  G1    ...      108.245005  41.874600  62.811901
-## 192   C2   D4  G2    ...       84.148315  51.986335  77.979503
-## 193   C1   D4  G2    ...      109.554503  27.197974  40.796961
-## 194   C3   D1  G2    ...      105.463916  33.420253  50.130380
-## 195   C1   D5  G2    ...       83.060188  35.651193  53.476789
-## 196   C1   D1  G1    ...      107.315126  38.717513  58.076270
-## 197   C1   D4  G1    ...      112.683609  42.612841  63.919262
-## 198   C2   D5  G1    ...       95.254588  32.881984  49.322976
-## 199   C3   D3  G1    ...       99.583891  47.371031  71.056546
+## 170   C3   D3  G1    ...       97.397896  40.156609  60.234914
+## 171   C3   D3  G1    ...       93.584790  48.306434  72.459651
+## 172   C1   D2  G1    ...      111.078987  37.444184  56.166276
+## 173   C3   D4  G1    ...       73.824117  50.606593  75.909890
+## 174   C3   D1  G2    ...      103.102203  45.812308  68.718462
+## 175   C2   D1  G2    ...      122.026320  44.118702  66.178054
+## 176   C2   D1  G2    ...      101.696443  34.087855  51.131782
+## 177   C2   D2  G2    ...      106.757713  40.728132  61.092197
+## 178   C1   D3  G2    ...       99.561872  57.935555  86.903333
+## 179   C3   D2  G2    ...      105.598668  42.895501  64.343252
+## 180   C2   D1  G1    ...       95.968997  40.032878  60.049317
+## 181   C2   D4  G2    ...       96.905224  36.725489  55.088233
+## 182   C3   D5  G1    ...      106.229531  43.568279  65.352419
+## 183   C2   D5  G2    ...       95.360625  44.028026  66.042039
+## 184   C3   D5  G1    ...      107.505741  39.632754  59.449132
+## 185   C2   D5  G2    ...       99.968073  41.063114  61.594671
+## 186   C3   D1  G2    ...      106.143335  48.478763  72.718144
+## 187   C1   D2  G1    ...      107.439284  45.445962  68.168944
+## 188   C3   D1  G1    ...      100.329026  44.679510  67.019265
+## 189   C1   D1  G2    ...      114.422417  42.143081  63.214621
+## 190   C1   D2  G2    ...       86.177544  31.075228  46.612842
+## 191   C1   D4  G1    ...      102.575805  39.401140  59.101710
+## 192   C3   D1  G1    ...      107.468006  43.802967  65.704450
+## 193   C2   D2  G1    ...       96.982456  38.692327  58.038491
+## 194   C2   D1  G1    ...      101.407256  39.142599  58.713899
+## 195   C3   D3  G1    ...      114.659750  43.150621  64.725931
+## 196   C3   D3  G2    ...       92.954569  42.723263  64.084895
+## 197   C3   D1  G1    ...      111.056851  44.680170  67.020256
+## 198   C2   D4  G2    ...      112.701698  44.057152  66.085728
+## 199   C2   D1  G1    ...       89.954387  39.205257  58.807886
 ## 
 ## [200 rows x 8 columns]</code></pre>
 <!-- jupyter_markdown,  -->
 </div>
 <div id="select-columns" class="section level3">
 <h3><span class="header-section-number">11.2.3</span> Select Column(s)</h3>
-<div class="sourceCode" id="cb572"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb572-1"><a href="plydata-dplyr-for-python.html#cb572-1"></a>mydf2 <span class="op">=</span> mydf <span class="op">&gt;&gt;</span> define(newcol1<span class="op">=</span><span class="st">&#39;value1&#39;</span>,newcol2<span class="op">=</span><span class="st">&#39;value2&#39;</span>)</span>
-<span id="cb572-2"><a href="plydata-dplyr-for-python.html#cb572-2"></a>mydf2.info()</span></code></pre></div>
+<div class="sourceCode" id="cb572"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb572-1" title="1">mydf2 <span class="op">=</span> mydf <span class="op">&gt;&gt;</span> define(newcol1<span class="op">=</span><span class="st">&#39;value1&#39;</span>,newcol2<span class="op">=</span><span class="st">&#39;value2&#39;</span>)</a>
+<a class="sourceLine" id="cb572-2" title="2">mydf2.info()</a></code></pre></div>
 <pre><code>## &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 ## RangeIndex: 200 entries, 0 to 199
 ## Data columns (total 7 columns):
@@ -992,539 +991,539 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="by-column-names" class="section level4">
 <h4><span class="header-section-number">11.2.3.1</span> By Column Names</h4>
 <p><strong>Exact Coumn Name</strong></p>
-<div class="sourceCode" id="cb574"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb574-1"><a href="plydata-dplyr-for-python.html#cb574-1"></a>mydf2 <span class="op">&gt;&gt;</span> select (<span class="st">&#39;comp&#39;</span>,<span class="st">&#39;dept&#39;</span>,<span class="st">&#39;value1&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb574"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb574-1" title="1">mydf2 <span class="op">&gt;&gt;</span> select (<span class="st">&#39;comp&#39;</span>,<span class="st">&#39;dept&#39;</span>,<span class="st">&#39;value1&#39;</span>)</a></code></pre></div>
 <pre><code>##     comp dept     value1
-## 0     C2   D4  52.361416
-## 1     C1   D3  55.604527
-## 2     C1   D3  48.181365
-## 3     C1   D2  48.568761
-## 4     C1   D4  48.164024
-## 5     C2   D2  50.742951
-## 6     C3   D4  51.477397
-## 7     C3   D1  53.190161
-## 8     C2   D2  47.028651
-## 9     C3   D1  46.572272
-## 10    C2   D3  36.464604
-## 11    C1   D2  40.098771
-## 12    C3   D3  45.919937
-## 13    C2   D5  56.717540
-## 14    C2   D1  54.113238
-## 15    C1   D3  47.904064
-## 16    C3   D1  52.072863
-## 17    C3   D1  51.308834
-## 18    C1   D1  49.361366
-## 19    C1   D3  49.734374
-## 20    C2   D4  38.004896
-## 21    C2   D3  51.301423
-## 22    C1   D3  46.884157
-## 23    C3   D5  40.693907
-## 24    C3   D5  61.930670
-## 25    C2   D1  53.604755
-## 26    C3   D2  58.768928
-## 27    C2   D5  48.925846
-## 28    C3   D3  58.023978
-## 29    C3   D3  50.405377
+## 0     C2   D3  57.908571
+## 1     C3   D4  56.711603
+## 2     C2   D1  47.744806
+## 3     C3   D1  51.490610
+## 4     C2   D5  44.951102
+## 5     C2   D4  40.629968
+## 6     C1   D4  56.185284
+## 7     C3   D2  61.780497
+## 8     C2   D1  45.902423
+## 9     C1   D5  53.142016
+## 10    C3   D2  54.212944
+## 11    C3   D1  43.056791
+## 12    C2   D2  53.130303
+## 13    C2   D2  52.403474
+## 14    C1   D4  58.603230
+## 15    C3   D4  56.395770
+## 16    C3   D3  53.509489
+## 17    C3   D4  53.457007
+## 18    C1   D1  46.492231
+## 19    C1   D3  54.191970
+## 20    C2   D4  54.177112
+## 21    C2   D1  57.020806
+## 22    C2   D4  48.118947
+## 23    C3   D1  52.551688
+## 24    C1   D5  49.441572
+## 25    C1   D4  47.297187
+## 26    C3   D3  46.143019
+## 27    C2   D1  49.217411
+## 28    C1   D4  52.005339
+## 29    C2   D2  47.773420
 ## ..   ...  ...        ...
-## 170   C1   D4  54.994384
-## 171   C2   D2  49.733252
-## 172   C1   D4  50.206757
-## 173   C3   D1  53.981913
-## 174   C3   D3  53.292632
-## 175   C1   D3  49.570008
-## 176   C3   D2  48.384255
-## 177   C1   D4  54.895273
-## 178   C1   D5  53.582690
-## 179   C2   D4  46.791871
-## 180   C3   D4  55.972171
-## 181   C1   D3  47.606980
-## 182   C1   D2  52.763450
-## 183   C1   D1  55.979995
-## 184   C3   D1  52.096039
-## 185   C1   D4  51.181733
-## 186   C3   D4  43.055540
-## 187   C2   D1  48.858835
-## 188   C3   D5  48.757997
-## 189   C1   D1  55.823427
-## 190   C3   D1  49.399337
-## 191   C1   D5  54.122502
-## 192   C2   D4  42.074158
-## 193   C1   D4  54.777251
-## 194   C3   D1  52.731958
-## 195   C1   D5  41.530094
-## 196   C1   D1  53.657563
-## 197   C1   D4  56.341805
-## 198   C2   D5  47.627294
-## 199   C3   D3  49.791946
+## 170   C3   D3  48.698948
+## 171   C3   D3  46.792395
+## 172   C1   D2  55.539493
+## 173   C3   D4  36.912058
+## 174   C3   D1  51.551101
+## 175   C2   D1  61.013160
+## 176   C2   D1  50.848222
+## 177   C2   D2  53.378857
+## 178   C1   D3  49.780936
+## 179   C3   D2  52.799334
+## 180   C2   D1  47.984499
+## 181   C2   D4  48.452612
+## 182   C3   D5  53.114765
+## 183   C2   D5  47.680313
+## 184   C3   D5  53.752871
+## 185   C2   D5  49.984037
+## 186   C3   D1  53.071667
+## 187   C1   D2  53.719642
+## 188   C3   D1  50.164513
+## 189   C1   D1  57.211208
+## 190   C1   D2  43.088772
+## 191   C1   D4  51.287902
+## 192   C3   D1  53.734003
+## 193   C2   D2  48.491228
+## 194   C2   D1  50.703628
+## 195   C3   D3  57.329875
+## 196   C3   D3  46.477284
+## 197   C3   D1  55.528425
+## 198   C2   D4  56.350849
+## 199   C2   D1  44.977193
 ## 
 ## [200 rows x 3 columns]</code></pre>
 <p><strong>Column Name Starts With</strong> …</p>
-<div class="sourceCode" id="cb576"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb576-1"><a href="plydata-dplyr-for-python.html#cb576-1"></a>mydf2 <span class="op">&gt;&gt;</span> select (<span class="st">&#39;comp&#39;</span>, startswith<span class="op">=</span><span class="st">&#39;val&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb576"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb576-1" title="1">mydf2 <span class="op">&gt;&gt;</span> select (<span class="st">&#39;comp&#39;</span>, startswith<span class="op">=</span><span class="st">&#39;val&#39;</span>)</a></code></pre></div>
 <pre><code>##     comp     value1     value2
-## 0     C2  52.361416  17.803696
-## 1     C1  55.604527  22.821107
-## 2     C1  48.181365  21.921686
-## 3     C1  48.568761  20.809538
-## 4     C1  48.164024  21.141821
-## 5     C2  50.742951  20.718502
-## 6     C3  51.477397  20.584675
-## 7     C3  53.190161  18.992199
-## 8     C2  47.028651  18.635548
-## 9     C3  46.572272  17.441823
-## 10    C2  36.464604  22.676101
-## 11    C1  40.098771  18.264857
-## 12    C3  45.919937  23.155854
-## 13    C2  56.717540  22.861759
-## 14    C2  54.113238  14.310318
-## 15    C1  47.904064  19.781050
-## 16    C3  52.072863  16.579473
-## 17    C3  51.308834  19.737421
-## 18    C1  49.361366  15.175371
-## 19    C1  49.734374  17.228755
-## 20    C2  38.004896  21.763785
-## 21    C2  51.301423  20.180735
-## 22    C1  46.884157  16.924712
-## 23    C3  40.693907  20.623897
-## 24    C3  61.930670  16.639418
-## 25    C2  53.604755  23.633122
-## 26    C3  58.768928  24.555454
-## 27    C2  48.925846  20.172250
-## 28    C3  58.023978  17.570727
-## 29    C3  50.405377  21.784671
+## 0     C2  57.908571  12.646310
+## 1     C3  56.711603  16.185175
+## 2     C2  47.744806  18.013863
+## 3     C3  51.490610  20.533382
+## 4     C2  44.951102  24.557412
+## 5     C2  40.629968  27.346727
+## 6     C1  56.185284  22.248217
+## 7     C3  61.780497  21.511004
+## 8     C2  45.902423  18.942158
+## 9     C1  53.142016  19.497765
+## 10    C3  54.212944  13.974922
+## 11    C3  43.056791  19.754025
+## 12    C2  53.130303  26.187620
+## 13    C2  52.403474  21.601645
+## 14    C1  58.603230  20.069508
+## 15    C3  56.395770  23.366805
+## 16    C3  53.509489  21.876167
+## 17    C3  53.457007  17.958950
+## 18    C1  46.492231  28.369162
+## 19    C1  54.191970  23.938745
+## 20    C2  54.177112  22.969542
+## 21    C2  57.020806  19.930771
+## 22    C2  48.118947  21.458279
+## 23    C3  52.551688  15.371764
+## 24    C1  49.441572  20.054593
+## 25    C1  47.297187  21.204947
+## 26    C3  46.143019  20.359330
+## 27    C2  49.217411  16.646345
+## 28    C1  52.005339  17.985515
+## 29    C2  47.773420  14.712537
 ## ..   ...        ...        ...
-## 170   C1  54.994384  18.911894
-## 171   C2  49.733252  17.825844
-## 172   C1  50.206757  20.554488
-## 173   C3  53.981913  20.307610
-## 174   C3  53.292632  16.955613
-## 175   C1  49.570008  20.129475
-## 176   C3  48.384255  17.315016
-## 177   C1  54.895273  21.094471
-## 178   C1  53.582690  23.542715
-## 179   C2  46.791871  19.050269
-## 180   C3  55.972171  20.611903
-## 181   C1  47.606980  23.024013
-## 182   C1  52.763450  15.562703
-## 183   C1  55.979995  24.744029
-## 184   C3  52.096039  16.645971
-## 185   C1  51.181733  17.451090
-## 186   C3  43.055540  26.063437
-## 187   C2  48.858835  17.420277
-## 188   C3  48.757997  19.768798
-## 189   C1  55.823427  20.607406
-## 190   C3  49.399337  20.124167
-## 191   C1  54.122502  20.937300
-## 192   C2  42.074158  25.993168
-## 193   C1  54.777251  13.598987
-## 194   C3  52.731958  16.710127
-## 195   C1  41.530094  17.825596
-## 196   C1  53.657563  19.358757
-## 197   C1  56.341805  21.306421
-## 198   C2  47.627294  16.440992
-## 199   C3  49.791946  23.685515
+## 170   C3  48.698948  20.078305
+## 171   C3  46.792395  24.153217
+## 172   C1  55.539493  18.722092
+## 173   C3  36.912058  25.303297
+## 174   C3  51.551101  22.906154
+## 175   C2  61.013160  22.059351
+## 176   C2  50.848222  17.043927
+## 177   C2  53.378857  20.364066
+## 178   C1  49.780936  28.967778
+## 179   C3  52.799334  21.447751
+## 180   C2  47.984499  20.016439
+## 181   C2  48.452612  18.362744
+## 182   C3  53.114765  21.784140
+## 183   C2  47.680313  22.014013
+## 184   C3  53.752871  19.816377
+## 185   C2  49.984037  20.531557
+## 186   C3  53.071667  24.239381
+## 187   C1  53.719642  22.722981
+## 188   C3  50.164513  22.339755
+## 189   C1  57.211208  21.071540
+## 190   C1  43.088772  15.537614
+## 191   C1  51.287902  19.700570
+## 192   C3  53.734003  21.901483
+## 193   C2  48.491228  19.346164
+## 194   C2  50.703628  19.571300
+## 195   C3  57.329875  21.575310
+## 196   C3  46.477284  21.361632
+## 197   C3  55.528425  22.340085
+## 198   C2  56.350849  22.028576
+## 199   C2  44.977193  19.602629
 ## 
 ## [200 rows x 3 columns]</code></pre>
 <p><strong>Column Name Ends With …</strong></p>
-<div class="sourceCode" id="cb578"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb578-1"><a href="plydata-dplyr-for-python.html#cb578-1"></a>mydf2 <span class="op">&gt;&gt;</span> select (<span class="st">&#39;comp&#39;</span>,endswith<span class="op">=</span>(<span class="st">&#39;1&#39;</span>,<span class="st">&#39;2&#39;</span>,<span class="st">&#39;3&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb578"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb578-1" title="1">mydf2 <span class="op">&gt;&gt;</span> select (<span class="st">&#39;comp&#39;</span>,endswith<span class="op">=</span>(<span class="st">&#39;1&#39;</span>,<span class="st">&#39;2&#39;</span>,<span class="st">&#39;3&#39;</span>))</a></code></pre></div>
 <pre><code>##     comp     value1     value2    newcol1    newcol2
-## 0     C2  52.361416  17.803696  52.361416  17.803696
-## 1     C1  55.604527  22.821107  55.604527  22.821107
-## 2     C1  48.181365  21.921686  48.181365  21.921686
-## 3     C1  48.568761  20.809538  48.568761  20.809538
-## 4     C1  48.164024  21.141821  48.164024  21.141821
-## 5     C2  50.742951  20.718502  50.742951  20.718502
-## 6     C3  51.477397  20.584675  51.477397  20.584675
-## 7     C3  53.190161  18.992199  53.190161  18.992199
-## 8     C2  47.028651  18.635548  47.028651  18.635548
-## 9     C3  46.572272  17.441823  46.572272  17.441823
-## 10    C2  36.464604  22.676101  36.464604  22.676101
-## 11    C1  40.098771  18.264857  40.098771  18.264857
-## 12    C3  45.919937  23.155854  45.919937  23.155854
-## 13    C2  56.717540  22.861759  56.717540  22.861759
-## 14    C2  54.113238  14.310318  54.113238  14.310318
-## 15    C1  47.904064  19.781050  47.904064  19.781050
-## 16    C3  52.072863  16.579473  52.072863  16.579473
-## 17    C3  51.308834  19.737421  51.308834  19.737421
-## 18    C1  49.361366  15.175371  49.361366  15.175371
-## 19    C1  49.734374  17.228755  49.734374  17.228755
-## 20    C2  38.004896  21.763785  38.004896  21.763785
-## 21    C2  51.301423  20.180735  51.301423  20.180735
-## 22    C1  46.884157  16.924712  46.884157  16.924712
-## 23    C3  40.693907  20.623897  40.693907  20.623897
-## 24    C3  61.930670  16.639418  61.930670  16.639418
-## 25    C2  53.604755  23.633122  53.604755  23.633122
-## 26    C3  58.768928  24.555454  58.768928  24.555454
-## 27    C2  48.925846  20.172250  48.925846  20.172250
-## 28    C3  58.023978  17.570727  58.023978  17.570727
-## 29    C3  50.405377  21.784671  50.405377  21.784671
+## 0     C2  57.908571  12.646310  57.908571  12.646310
+## 1     C3  56.711603  16.185175  56.711603  16.185175
+## 2     C2  47.744806  18.013863  47.744806  18.013863
+## 3     C3  51.490610  20.533382  51.490610  20.533382
+## 4     C2  44.951102  24.557412  44.951102  24.557412
+## 5     C2  40.629968  27.346727  40.629968  27.346727
+## 6     C1  56.185284  22.248217  56.185284  22.248217
+## 7     C3  61.780497  21.511004  61.780497  21.511004
+## 8     C2  45.902423  18.942158  45.902423  18.942158
+## 9     C1  53.142016  19.497765  53.142016  19.497765
+## 10    C3  54.212944  13.974922  54.212944  13.974922
+## 11    C3  43.056791  19.754025  43.056791  19.754025
+## 12    C2  53.130303  26.187620  53.130303  26.187620
+## 13    C2  52.403474  21.601645  52.403474  21.601645
+## 14    C1  58.603230  20.069508  58.603230  20.069508
+## 15    C3  56.395770  23.366805  56.395770  23.366805
+## 16    C3  53.509489  21.876167  53.509489  21.876167
+## 17    C3  53.457007  17.958950  53.457007  17.958950
+## 18    C1  46.492231  28.369162  46.492231  28.369162
+## 19    C1  54.191970  23.938745  54.191970  23.938745
+## 20    C2  54.177112  22.969542  54.177112  22.969542
+## 21    C2  57.020806  19.930771  57.020806  19.930771
+## 22    C2  48.118947  21.458279  48.118947  21.458279
+## 23    C3  52.551688  15.371764  52.551688  15.371764
+## 24    C1  49.441572  20.054593  49.441572  20.054593
+## 25    C1  47.297187  21.204947  47.297187  21.204947
+## 26    C3  46.143019  20.359330  46.143019  20.359330
+## 27    C2  49.217411  16.646345  49.217411  16.646345
+## 28    C1  52.005339  17.985515  52.005339  17.985515
+## 29    C2  47.773420  14.712537  47.773420  14.712537
 ## ..   ...        ...        ...        ...        ...
-## 170   C1  54.994384  18.911894  54.994384  18.911894
-## 171   C2  49.733252  17.825844  49.733252  17.825844
-## 172   C1  50.206757  20.554488  50.206757  20.554488
-## 173   C3  53.981913  20.307610  53.981913  20.307610
-## 174   C3  53.292632  16.955613  53.292632  16.955613
-## 175   C1  49.570008  20.129475  49.570008  20.129475
-## 176   C3  48.384255  17.315016  48.384255  17.315016
-## 177   C1  54.895273  21.094471  54.895273  21.094471
-## 178   C1  53.582690  23.542715  53.582690  23.542715
-## 179   C2  46.791871  19.050269  46.791871  19.050269
-## 180   C3  55.972171  20.611903  55.972171  20.611903
-## 181   C1  47.606980  23.024013  47.606980  23.024013
-## 182   C1  52.763450  15.562703  52.763450  15.562703
-## 183   C1  55.979995  24.744029  55.979995  24.744029
-## 184   C3  52.096039  16.645971  52.096039  16.645971
-## 185   C1  51.181733  17.451090  51.181733  17.451090
-## 186   C3  43.055540  26.063437  43.055540  26.063437
-## 187   C2  48.858835  17.420277  48.858835  17.420277
-## 188   C3  48.757997  19.768798  48.757997  19.768798
-## 189   C1  55.823427  20.607406  55.823427  20.607406
-## 190   C3  49.399337  20.124167  49.399337  20.124167
-## 191   C1  54.122502  20.937300  54.122502  20.937300
-## 192   C2  42.074158  25.993168  42.074158  25.993168
-## 193   C1  54.777251  13.598987  54.777251  13.598987
-## 194   C3  52.731958  16.710127  52.731958  16.710127
-## 195   C1  41.530094  17.825596  41.530094  17.825596
-## 196   C1  53.657563  19.358757  53.657563  19.358757
-## 197   C1  56.341805  21.306421  56.341805  21.306421
-## 198   C2  47.627294  16.440992  47.627294  16.440992
-## 199   C3  49.791946  23.685515  49.791946  23.685515
+## 170   C3  48.698948  20.078305  48.698948  20.078305
+## 171   C3  46.792395  24.153217  46.792395  24.153217
+## 172   C1  55.539493  18.722092  55.539493  18.722092
+## 173   C3  36.912058  25.303297  36.912058  25.303297
+## 174   C3  51.551101  22.906154  51.551101  22.906154
+## 175   C2  61.013160  22.059351  61.013160  22.059351
+## 176   C2  50.848222  17.043927  50.848222  17.043927
+## 177   C2  53.378857  20.364066  53.378857  20.364066
+## 178   C1  49.780936  28.967778  49.780936  28.967778
+## 179   C3  52.799334  21.447751  52.799334  21.447751
+## 180   C2  47.984499  20.016439  47.984499  20.016439
+## 181   C2  48.452612  18.362744  48.452612  18.362744
+## 182   C3  53.114765  21.784140  53.114765  21.784140
+## 183   C2  47.680313  22.014013  47.680313  22.014013
+## 184   C3  53.752871  19.816377  53.752871  19.816377
+## 185   C2  49.984037  20.531557  49.984037  20.531557
+## 186   C3  53.071667  24.239381  53.071667  24.239381
+## 187   C1  53.719642  22.722981  53.719642  22.722981
+## 188   C3  50.164513  22.339755  50.164513  22.339755
+## 189   C1  57.211208  21.071540  57.211208  21.071540
+## 190   C1  43.088772  15.537614  43.088772  15.537614
+## 191   C1  51.287902  19.700570  51.287902  19.700570
+## 192   C3  53.734003  21.901483  53.734003  21.901483
+## 193   C2  48.491228  19.346164  48.491228  19.346164
+## 194   C2  50.703628  19.571300  50.703628  19.571300
+## 195   C3  57.329875  21.575310  57.329875  21.575310
+## 196   C3  46.477284  21.361632  46.477284  21.361632
+## 197   C3  55.528425  22.340085  55.528425  22.340085
+## 198   C2  56.350849  22.028576  56.350849  22.028576
+## 199   C2  44.977193  19.602629  44.977193  19.602629
 ## 
 ## [200 rows x 5 columns]</code></pre>
 <p><strong>Column Name Contains …</strong></p>
-<div class="sourceCode" id="cb580"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb580-1"><a href="plydata-dplyr-for-python.html#cb580-1"></a>mydf2 <span class="op">&gt;&gt;</span> select(<span class="st">&#39;comp&#39;</span>, contains<span class="op">=</span>(<span class="st">&#39;col&#39;</span>,<span class="st">&#39;val&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb580"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb580-1" title="1">mydf2 <span class="op">&gt;&gt;</span> select(<span class="st">&#39;comp&#39;</span>, contains<span class="op">=</span>(<span class="st">&#39;col&#39;</span>,<span class="st">&#39;val&#39;</span>))</a></code></pre></div>
 <pre><code>##     comp     value1     value2    newcol1    newcol2
-## 0     C2  52.361416  17.803696  52.361416  17.803696
-## 1     C1  55.604527  22.821107  55.604527  22.821107
-## 2     C1  48.181365  21.921686  48.181365  21.921686
-## 3     C1  48.568761  20.809538  48.568761  20.809538
-## 4     C1  48.164024  21.141821  48.164024  21.141821
-## 5     C2  50.742951  20.718502  50.742951  20.718502
-## 6     C3  51.477397  20.584675  51.477397  20.584675
-## 7     C3  53.190161  18.992199  53.190161  18.992199
-## 8     C2  47.028651  18.635548  47.028651  18.635548
-## 9     C3  46.572272  17.441823  46.572272  17.441823
-## 10    C2  36.464604  22.676101  36.464604  22.676101
-## 11    C1  40.098771  18.264857  40.098771  18.264857
-## 12    C3  45.919937  23.155854  45.919937  23.155854
-## 13    C2  56.717540  22.861759  56.717540  22.861759
-## 14    C2  54.113238  14.310318  54.113238  14.310318
-## 15    C1  47.904064  19.781050  47.904064  19.781050
-## 16    C3  52.072863  16.579473  52.072863  16.579473
-## 17    C3  51.308834  19.737421  51.308834  19.737421
-## 18    C1  49.361366  15.175371  49.361366  15.175371
-## 19    C1  49.734374  17.228755  49.734374  17.228755
-## 20    C2  38.004896  21.763785  38.004896  21.763785
-## 21    C2  51.301423  20.180735  51.301423  20.180735
-## 22    C1  46.884157  16.924712  46.884157  16.924712
-## 23    C3  40.693907  20.623897  40.693907  20.623897
-## 24    C3  61.930670  16.639418  61.930670  16.639418
-## 25    C2  53.604755  23.633122  53.604755  23.633122
-## 26    C3  58.768928  24.555454  58.768928  24.555454
-## 27    C2  48.925846  20.172250  48.925846  20.172250
-## 28    C3  58.023978  17.570727  58.023978  17.570727
-## 29    C3  50.405377  21.784671  50.405377  21.784671
+## 0     C2  57.908571  12.646310  57.908571  12.646310
+## 1     C3  56.711603  16.185175  56.711603  16.185175
+## 2     C2  47.744806  18.013863  47.744806  18.013863
+## 3     C3  51.490610  20.533382  51.490610  20.533382
+## 4     C2  44.951102  24.557412  44.951102  24.557412
+## 5     C2  40.629968  27.346727  40.629968  27.346727
+## 6     C1  56.185284  22.248217  56.185284  22.248217
+## 7     C3  61.780497  21.511004  61.780497  21.511004
+## 8     C2  45.902423  18.942158  45.902423  18.942158
+## 9     C1  53.142016  19.497765  53.142016  19.497765
+## 10    C3  54.212944  13.974922  54.212944  13.974922
+## 11    C3  43.056791  19.754025  43.056791  19.754025
+## 12    C2  53.130303  26.187620  53.130303  26.187620
+## 13    C2  52.403474  21.601645  52.403474  21.601645
+## 14    C1  58.603230  20.069508  58.603230  20.069508
+## 15    C3  56.395770  23.366805  56.395770  23.366805
+## 16    C3  53.509489  21.876167  53.509489  21.876167
+## 17    C3  53.457007  17.958950  53.457007  17.958950
+## 18    C1  46.492231  28.369162  46.492231  28.369162
+## 19    C1  54.191970  23.938745  54.191970  23.938745
+## 20    C2  54.177112  22.969542  54.177112  22.969542
+## 21    C2  57.020806  19.930771  57.020806  19.930771
+## 22    C2  48.118947  21.458279  48.118947  21.458279
+## 23    C3  52.551688  15.371764  52.551688  15.371764
+## 24    C1  49.441572  20.054593  49.441572  20.054593
+## 25    C1  47.297187  21.204947  47.297187  21.204947
+## 26    C3  46.143019  20.359330  46.143019  20.359330
+## 27    C2  49.217411  16.646345  49.217411  16.646345
+## 28    C1  52.005339  17.985515  52.005339  17.985515
+## 29    C2  47.773420  14.712537  47.773420  14.712537
 ## ..   ...        ...        ...        ...        ...
-## 170   C1  54.994384  18.911894  54.994384  18.911894
-## 171   C2  49.733252  17.825844  49.733252  17.825844
-## 172   C1  50.206757  20.554488  50.206757  20.554488
-## 173   C3  53.981913  20.307610  53.981913  20.307610
-## 174   C3  53.292632  16.955613  53.292632  16.955613
-## 175   C1  49.570008  20.129475  49.570008  20.129475
-## 176   C3  48.384255  17.315016  48.384255  17.315016
-## 177   C1  54.895273  21.094471  54.895273  21.094471
-## 178   C1  53.582690  23.542715  53.582690  23.542715
-## 179   C2  46.791871  19.050269  46.791871  19.050269
-## 180   C3  55.972171  20.611903  55.972171  20.611903
-## 181   C1  47.606980  23.024013  47.606980  23.024013
-## 182   C1  52.763450  15.562703  52.763450  15.562703
-## 183   C1  55.979995  24.744029  55.979995  24.744029
-## 184   C3  52.096039  16.645971  52.096039  16.645971
-## 185   C1  51.181733  17.451090  51.181733  17.451090
-## 186   C3  43.055540  26.063437  43.055540  26.063437
-## 187   C2  48.858835  17.420277  48.858835  17.420277
-## 188   C3  48.757997  19.768798  48.757997  19.768798
-## 189   C1  55.823427  20.607406  55.823427  20.607406
-## 190   C3  49.399337  20.124167  49.399337  20.124167
-## 191   C1  54.122502  20.937300  54.122502  20.937300
-## 192   C2  42.074158  25.993168  42.074158  25.993168
-## 193   C1  54.777251  13.598987  54.777251  13.598987
-## 194   C3  52.731958  16.710127  52.731958  16.710127
-## 195   C1  41.530094  17.825596  41.530094  17.825596
-## 196   C1  53.657563  19.358757  53.657563  19.358757
-## 197   C1  56.341805  21.306421  56.341805  21.306421
-## 198   C2  47.627294  16.440992  47.627294  16.440992
-## 199   C3  49.791946  23.685515  49.791946  23.685515
+## 170   C3  48.698948  20.078305  48.698948  20.078305
+## 171   C3  46.792395  24.153217  46.792395  24.153217
+## 172   C1  55.539493  18.722092  55.539493  18.722092
+## 173   C3  36.912058  25.303297  36.912058  25.303297
+## 174   C3  51.551101  22.906154  51.551101  22.906154
+## 175   C2  61.013160  22.059351  61.013160  22.059351
+## 176   C2  50.848222  17.043927  50.848222  17.043927
+## 177   C2  53.378857  20.364066  53.378857  20.364066
+## 178   C1  49.780936  28.967778  49.780936  28.967778
+## 179   C3  52.799334  21.447751  52.799334  21.447751
+## 180   C2  47.984499  20.016439  47.984499  20.016439
+## 181   C2  48.452612  18.362744  48.452612  18.362744
+## 182   C3  53.114765  21.784140  53.114765  21.784140
+## 183   C2  47.680313  22.014013  47.680313  22.014013
+## 184   C3  53.752871  19.816377  53.752871  19.816377
+## 185   C2  49.984037  20.531557  49.984037  20.531557
+## 186   C3  53.071667  24.239381  53.071667  24.239381
+## 187   C1  53.719642  22.722981  53.719642  22.722981
+## 188   C3  50.164513  22.339755  50.164513  22.339755
+## 189   C1  57.211208  21.071540  57.211208  21.071540
+## 190   C1  43.088772  15.537614  43.088772  15.537614
+## 191   C1  51.287902  19.700570  51.287902  19.700570
+## 192   C3  53.734003  21.901483  53.734003  21.901483
+## 193   C2  48.491228  19.346164  48.491228  19.346164
+## 194   C2  50.703628  19.571300  50.703628  19.571300
+## 195   C3  57.329875  21.575310  57.329875  21.575310
+## 196   C3  46.477284  21.361632  46.477284  21.361632
+## 197   C3  55.528425  22.340085  55.528425  22.340085
+## 198   C2  56.350849  22.028576  56.350849  22.028576
+## 199   C2  44.977193  19.602629  44.977193  19.602629
 ## 
 ## [200 rows x 5 columns]</code></pre>
 </div>
 <div id="specify-column-range" class="section level4">
 <h4><span class="header-section-number">11.2.3.2</span> Specify Column Range</h4>
-<div class="sourceCode" id="cb582"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb582-1"><a href="plydata-dplyr-for-python.html#cb582-1"></a>mydf2 <span class="op">&gt;&gt;</span> select (<span class="st">&#39;comp&#39;</span>, <span class="bu">slice</span>(<span class="st">&#39;value1&#39;</span>,<span class="st">&#39;newcol2&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb582"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb582-1" title="1">mydf2 <span class="op">&gt;&gt;</span> select (<span class="st">&#39;comp&#39;</span>, <span class="bu">slice</span>(<span class="st">&#39;value1&#39;</span>,<span class="st">&#39;newcol2&#39;</span>))</a></code></pre></div>
 <pre><code>##     comp     value1     value2    newcol1    newcol2
-## 0     C2  52.361416  17.803696  52.361416  17.803696
-## 1     C1  55.604527  22.821107  55.604527  22.821107
-## 2     C1  48.181365  21.921686  48.181365  21.921686
-## 3     C1  48.568761  20.809538  48.568761  20.809538
-## 4     C1  48.164024  21.141821  48.164024  21.141821
-## 5     C2  50.742951  20.718502  50.742951  20.718502
-## 6     C3  51.477397  20.584675  51.477397  20.584675
-## 7     C3  53.190161  18.992199  53.190161  18.992199
-## 8     C2  47.028651  18.635548  47.028651  18.635548
-## 9     C3  46.572272  17.441823  46.572272  17.441823
-## 10    C2  36.464604  22.676101  36.464604  22.676101
-## 11    C1  40.098771  18.264857  40.098771  18.264857
-## 12    C3  45.919937  23.155854  45.919937  23.155854
-## 13    C2  56.717540  22.861759  56.717540  22.861759
-## 14    C2  54.113238  14.310318  54.113238  14.310318
-## 15    C1  47.904064  19.781050  47.904064  19.781050
-## 16    C3  52.072863  16.579473  52.072863  16.579473
-## 17    C3  51.308834  19.737421  51.308834  19.737421
-## 18    C1  49.361366  15.175371  49.361366  15.175371
-## 19    C1  49.734374  17.228755  49.734374  17.228755
-## 20    C2  38.004896  21.763785  38.004896  21.763785
-## 21    C2  51.301423  20.180735  51.301423  20.180735
-## 22    C1  46.884157  16.924712  46.884157  16.924712
-## 23    C3  40.693907  20.623897  40.693907  20.623897
-## 24    C3  61.930670  16.639418  61.930670  16.639418
-## 25    C2  53.604755  23.633122  53.604755  23.633122
-## 26    C3  58.768928  24.555454  58.768928  24.555454
-## 27    C2  48.925846  20.172250  48.925846  20.172250
-## 28    C3  58.023978  17.570727  58.023978  17.570727
-## 29    C3  50.405377  21.784671  50.405377  21.784671
+## 0     C2  57.908571  12.646310  57.908571  12.646310
+## 1     C3  56.711603  16.185175  56.711603  16.185175
+## 2     C2  47.744806  18.013863  47.744806  18.013863
+## 3     C3  51.490610  20.533382  51.490610  20.533382
+## 4     C2  44.951102  24.557412  44.951102  24.557412
+## 5     C2  40.629968  27.346727  40.629968  27.346727
+## 6     C1  56.185284  22.248217  56.185284  22.248217
+## 7     C3  61.780497  21.511004  61.780497  21.511004
+## 8     C2  45.902423  18.942158  45.902423  18.942158
+## 9     C1  53.142016  19.497765  53.142016  19.497765
+## 10    C3  54.212944  13.974922  54.212944  13.974922
+## 11    C3  43.056791  19.754025  43.056791  19.754025
+## 12    C2  53.130303  26.187620  53.130303  26.187620
+## 13    C2  52.403474  21.601645  52.403474  21.601645
+## 14    C1  58.603230  20.069508  58.603230  20.069508
+## 15    C3  56.395770  23.366805  56.395770  23.366805
+## 16    C3  53.509489  21.876167  53.509489  21.876167
+## 17    C3  53.457007  17.958950  53.457007  17.958950
+## 18    C1  46.492231  28.369162  46.492231  28.369162
+## 19    C1  54.191970  23.938745  54.191970  23.938745
+## 20    C2  54.177112  22.969542  54.177112  22.969542
+## 21    C2  57.020806  19.930771  57.020806  19.930771
+## 22    C2  48.118947  21.458279  48.118947  21.458279
+## 23    C3  52.551688  15.371764  52.551688  15.371764
+## 24    C1  49.441572  20.054593  49.441572  20.054593
+## 25    C1  47.297187  21.204947  47.297187  21.204947
+## 26    C3  46.143019  20.359330  46.143019  20.359330
+## 27    C2  49.217411  16.646345  49.217411  16.646345
+## 28    C1  52.005339  17.985515  52.005339  17.985515
+## 29    C2  47.773420  14.712537  47.773420  14.712537
 ## ..   ...        ...        ...        ...        ...
-## 170   C1  54.994384  18.911894  54.994384  18.911894
-## 171   C2  49.733252  17.825844  49.733252  17.825844
-## 172   C1  50.206757  20.554488  50.206757  20.554488
-## 173   C3  53.981913  20.307610  53.981913  20.307610
-## 174   C3  53.292632  16.955613  53.292632  16.955613
-## 175   C1  49.570008  20.129475  49.570008  20.129475
-## 176   C3  48.384255  17.315016  48.384255  17.315016
-## 177   C1  54.895273  21.094471  54.895273  21.094471
-## 178   C1  53.582690  23.542715  53.582690  23.542715
-## 179   C2  46.791871  19.050269  46.791871  19.050269
-## 180   C3  55.972171  20.611903  55.972171  20.611903
-## 181   C1  47.606980  23.024013  47.606980  23.024013
-## 182   C1  52.763450  15.562703  52.763450  15.562703
-## 183   C1  55.979995  24.744029  55.979995  24.744029
-## 184   C3  52.096039  16.645971  52.096039  16.645971
-## 185   C1  51.181733  17.451090  51.181733  17.451090
-## 186   C3  43.055540  26.063437  43.055540  26.063437
-## 187   C2  48.858835  17.420277  48.858835  17.420277
-## 188   C3  48.757997  19.768798  48.757997  19.768798
-## 189   C1  55.823427  20.607406  55.823427  20.607406
-## 190   C3  49.399337  20.124167  49.399337  20.124167
-## 191   C1  54.122502  20.937300  54.122502  20.937300
-## 192   C2  42.074158  25.993168  42.074158  25.993168
-## 193   C1  54.777251  13.598987  54.777251  13.598987
-## 194   C3  52.731958  16.710127  52.731958  16.710127
-## 195   C1  41.530094  17.825596  41.530094  17.825596
-## 196   C1  53.657563  19.358757  53.657563  19.358757
-## 197   C1  56.341805  21.306421  56.341805  21.306421
-## 198   C2  47.627294  16.440992  47.627294  16.440992
-## 199   C3  49.791946  23.685515  49.791946  23.685515
+## 170   C3  48.698948  20.078305  48.698948  20.078305
+## 171   C3  46.792395  24.153217  46.792395  24.153217
+## 172   C1  55.539493  18.722092  55.539493  18.722092
+## 173   C3  36.912058  25.303297  36.912058  25.303297
+## 174   C3  51.551101  22.906154  51.551101  22.906154
+## 175   C2  61.013160  22.059351  61.013160  22.059351
+## 176   C2  50.848222  17.043927  50.848222  17.043927
+## 177   C2  53.378857  20.364066  53.378857  20.364066
+## 178   C1  49.780936  28.967778  49.780936  28.967778
+## 179   C3  52.799334  21.447751  52.799334  21.447751
+## 180   C2  47.984499  20.016439  47.984499  20.016439
+## 181   C2  48.452612  18.362744  48.452612  18.362744
+## 182   C3  53.114765  21.784140  53.114765  21.784140
+## 183   C2  47.680313  22.014013  47.680313  22.014013
+## 184   C3  53.752871  19.816377  53.752871  19.816377
+## 185   C2  49.984037  20.531557  49.984037  20.531557
+## 186   C3  53.071667  24.239381  53.071667  24.239381
+## 187   C1  53.719642  22.722981  53.719642  22.722981
+## 188   C3  50.164513  22.339755  50.164513  22.339755
+## 189   C1  57.211208  21.071540  57.211208  21.071540
+## 190   C1  43.088772  15.537614  43.088772  15.537614
+## 191   C1  51.287902  19.700570  51.287902  19.700570
+## 192   C3  53.734003  21.901483  53.734003  21.901483
+## 193   C2  48.491228  19.346164  48.491228  19.346164
+## 194   C2  50.703628  19.571300  50.703628  19.571300
+## 195   C3  57.329875  21.575310  57.329875  21.575310
+## 196   C3  46.477284  21.361632  46.477284  21.361632
+## 197   C3  55.528425  22.340085  55.528425  22.340085
+## 198   C2  56.350849  22.028576  56.350849  22.028576
+## 199   C2  44.977193  19.602629  44.977193  19.602629
 ## 
 ## [200 rows x 5 columns]</code></pre>
 </div>
 </div>
 <div id="drop-columns" class="section level3">
 <h3><span class="header-section-number">11.2.4</span> Drop Column(s)</h3>
-<div class="sourceCode" id="cb584"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb584-1"><a href="plydata-dplyr-for-python.html#cb584-1"></a>mydf2 <span class="op">&gt;&gt;</span> select(<span class="st">&#39;newcol1&#39;</span>,<span class="st">&#39;newcol2&#39;</span>,drop<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb584"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb584-1" title="1">mydf2 <span class="op">&gt;&gt;</span> select(<span class="st">&#39;newcol1&#39;</span>,<span class="st">&#39;newcol2&#39;</span>,drop<span class="op">=</span><span class="va">True</span>)</a></code></pre></div>
 <pre><code>##     comp dept grp     value1     value2
-## 0     C2   D4  G1  52.361416  17.803696
-## 1     C1   D3  G1  55.604527  22.821107
-## 2     C1   D3  G2  48.181365  21.921686
-## 3     C1   D2  G2  48.568761  20.809538
-## 4     C1   D4  G2  48.164024  21.141821
-## 5     C2   D2  G1  50.742951  20.718502
-## 6     C3   D4  G2  51.477397  20.584675
-## 7     C3   D1  G2  53.190161  18.992199
-## 8     C2   D2  G1  47.028651  18.635548
-## 9     C3   D1  G2  46.572272  17.441823
-## 10    C2   D3  G1  36.464604  22.676101
-## 11    C1   D2  G2  40.098771  18.264857
-## 12    C3   D3  G2  45.919937  23.155854
-## 13    C2   D5  G1  56.717540  22.861759
-## 14    C2   D1  G1  54.113238  14.310318
-## 15    C1   D3  G2  47.904064  19.781050
-## 16    C3   D1  G1  52.072863  16.579473
-## 17    C3   D1  G1  51.308834  19.737421
-## 18    C1   D1  G1  49.361366  15.175371
-## 19    C1   D3  G1  49.734374  17.228755
-## 20    C2   D4  G2  38.004896  21.763785
-## 21    C2   D3  G1  51.301423  20.180735
-## 22    C1   D3  G1  46.884157  16.924712
-## 23    C3   D5  G2  40.693907  20.623897
-## 24    C3   D5  G2  61.930670  16.639418
-## 25    C2   D1  G1  53.604755  23.633122
-## 26    C3   D2  G1  58.768928  24.555454
-## 27    C2   D5  G2  48.925846  20.172250
-## 28    C3   D3  G1  58.023978  17.570727
-## 29    C3   D3  G2  50.405377  21.784671
+## 0     C2   D3  G1  57.908571  12.646310
+## 1     C3   D4  G1  56.711603  16.185175
+## 2     C2   D1  G1  47.744806  18.013863
+## 3     C3   D1  G1  51.490610  20.533382
+## 4     C2   D5  G2  44.951102  24.557412
+## 5     C2   D4  G2  40.629968  27.346727
+## 6     C1   D4  G1  56.185284  22.248217
+## 7     C3   D2  G1  61.780497  21.511004
+## 8     C2   D1  G1  45.902423  18.942158
+## 9     C1   D5  G1  53.142016  19.497765
+## 10    C3   D2  G1  54.212944  13.974922
+## 11    C3   D1  G2  43.056791  19.754025
+## 12    C2   D2  G1  53.130303  26.187620
+## 13    C2   D2  G1  52.403474  21.601645
+## 14    C1   D4  G2  58.603230  20.069508
+## 15    C3   D4  G1  56.395770  23.366805
+## 16    C3   D3  G1  53.509489  21.876167
+## 17    C3   D4  G2  53.457007  17.958950
+## 18    C1   D1  G1  46.492231  28.369162
+## 19    C1   D3  G1  54.191970  23.938745
+## 20    C2   D4  G1  54.177112  22.969542
+## 21    C2   D1  G2  57.020806  19.930771
+## 22    C2   D4  G2  48.118947  21.458279
+## 23    C3   D1  G2  52.551688  15.371764
+## 24    C1   D5  G2  49.441572  20.054593
+## 25    C1   D4  G2  47.297187  21.204947
+## 26    C3   D3  G2  46.143019  20.359330
+## 27    C2   D1  G1  49.217411  16.646345
+## 28    C1   D4  G1  52.005339  17.985515
+## 29    C2   D2  G2  47.773420  14.712537
 ## ..   ...  ...  ..        ...        ...
-## 170   C1   D4  G2  54.994384  18.911894
-## 171   C2   D2  G2  49.733252  17.825844
-## 172   C1   D4  G2  50.206757  20.554488
-## 173   C3   D1  G2  53.981913  20.307610
-## 174   C3   D3  G1  53.292632  16.955613
-## 175   C1   D3  G2  49.570008  20.129475
-## 176   C3   D2  G1  48.384255  17.315016
-## 177   C1   D4  G1  54.895273  21.094471
-## 178   C1   D5  G2  53.582690  23.542715
-## 179   C2   D4  G2  46.791871  19.050269
-## 180   C3   D4  G1  55.972171  20.611903
-## 181   C1   D3  G1  47.606980  23.024013
-## 182   C1   D2  G1  52.763450  15.562703
-## 183   C1   D1  G1  55.979995  24.744029
-## 184   C3   D1  G2  52.096039  16.645971
-## 185   C1   D4  G1  51.181733  17.451090
-## 186   C3   D4  G1  43.055540  26.063437
-## 187   C2   D1  G2  48.858835  17.420277
-## 188   C3   D5  G1  48.757997  19.768798
-## 189   C1   D1  G1  55.823427  20.607406
-## 190   C3   D1  G2  49.399337  20.124167
-## 191   C1   D5  G1  54.122502  20.937300
-## 192   C2   D4  G2  42.074158  25.993168
-## 193   C1   D4  G2  54.777251  13.598987
-## 194   C3   D1  G2  52.731958  16.710127
-## 195   C1   D5  G2  41.530094  17.825596
-## 196   C1   D1  G1  53.657563  19.358757
-## 197   C1   D4  G1  56.341805  21.306421
-## 198   C2   D5  G1  47.627294  16.440992
-## 199   C3   D3  G1  49.791946  23.685515
+## 170   C3   D3  G1  48.698948  20.078305
+## 171   C3   D3  G1  46.792395  24.153217
+## 172   C1   D2  G1  55.539493  18.722092
+## 173   C3   D4  G1  36.912058  25.303297
+## 174   C3   D1  G2  51.551101  22.906154
+## 175   C2   D1  G2  61.013160  22.059351
+## 176   C2   D1  G2  50.848222  17.043927
+## 177   C2   D2  G2  53.378857  20.364066
+## 178   C1   D3  G2  49.780936  28.967778
+## 179   C3   D2  G2  52.799334  21.447751
+## 180   C2   D1  G1  47.984499  20.016439
+## 181   C2   D4  G2  48.452612  18.362744
+## 182   C3   D5  G1  53.114765  21.784140
+## 183   C2   D5  G2  47.680313  22.014013
+## 184   C3   D5  G1  53.752871  19.816377
+## 185   C2   D5  G2  49.984037  20.531557
+## 186   C3   D1  G2  53.071667  24.239381
+## 187   C1   D2  G1  53.719642  22.722981
+## 188   C3   D1  G1  50.164513  22.339755
+## 189   C1   D1  G2  57.211208  21.071540
+## 190   C1   D2  G2  43.088772  15.537614
+## 191   C1   D4  G1  51.287902  19.700570
+## 192   C3   D1  G1  53.734003  21.901483
+## 193   C2   D2  G1  48.491228  19.346164
+## 194   C2   D1  G1  50.703628  19.571300
+## 195   C3   D3  G1  57.329875  21.575310
+## 196   C3   D3  G2  46.477284  21.361632
+## 197   C3   D1  G1  55.528425  22.340085
+## 198   C2   D4  G2  56.350849  22.028576
+## 199   C2   D1  G1  44.977193  19.602629
 ## 
 ## [200 rows x 5 columns]</code></pre>
-<div class="sourceCode" id="cb586"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb586-1"><a href="plydata-dplyr-for-python.html#cb586-1"></a>mydf <span class="op">&gt;&gt;</span> rename( {<span class="st">&#39;val.1&#39;</span> : <span class="st">&#39;value1&#39;</span>,</span>
-<span id="cb586-2"><a href="plydata-dplyr-for-python.html#cb586-2"></a>                 <span class="st">&#39;val.2&#39;</span> : <span class="st">&#39;value2&#39;</span> })</span></code></pre></div>
+<div class="sourceCode" id="cb586"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb586-1" title="1">mydf <span class="op">&gt;&gt;</span> rename( {<span class="st">&#39;val.1&#39;</span> : <span class="st">&#39;value1&#39;</span>,</a>
+<a class="sourceLine" id="cb586-2" title="2">                 <span class="st">&#39;val.2&#39;</span> : <span class="st">&#39;value2&#39;</span> })</a></code></pre></div>
 <pre><code>##     comp dept grp      val.1      val.2
-## 0     C2   D4  G1  52.361416  17.803696
-## 1     C1   D3  G1  55.604527  22.821107
-## 2     C1   D3  G2  48.181365  21.921686
-## 3     C1   D2  G2  48.568761  20.809538
-## 4     C1   D4  G2  48.164024  21.141821
-## 5     C2   D2  G1  50.742951  20.718502
-## 6     C3   D4  G2  51.477397  20.584675
-## 7     C3   D1  G2  53.190161  18.992199
-## 8     C2   D2  G1  47.028651  18.635548
-## 9     C3   D1  G2  46.572272  17.441823
-## 10    C2   D3  G1  36.464604  22.676101
-## 11    C1   D2  G2  40.098771  18.264857
-## 12    C3   D3  G2  45.919937  23.155854
-## 13    C2   D5  G1  56.717540  22.861759
-## 14    C2   D1  G1  54.113238  14.310318
-## 15    C1   D3  G2  47.904064  19.781050
-## 16    C3   D1  G1  52.072863  16.579473
-## 17    C3   D1  G1  51.308834  19.737421
-## 18    C1   D1  G1  49.361366  15.175371
-## 19    C1   D3  G1  49.734374  17.228755
-## 20    C2   D4  G2  38.004896  21.763785
-## 21    C2   D3  G1  51.301423  20.180735
-## 22    C1   D3  G1  46.884157  16.924712
-## 23    C3   D5  G2  40.693907  20.623897
-## 24    C3   D5  G2  61.930670  16.639418
-## 25    C2   D1  G1  53.604755  23.633122
-## 26    C3   D2  G1  58.768928  24.555454
-## 27    C2   D5  G2  48.925846  20.172250
-## 28    C3   D3  G1  58.023978  17.570727
-## 29    C3   D3  G2  50.405377  21.784671
+## 0     C2   D3  G1  57.908571  12.646310
+## 1     C3   D4  G1  56.711603  16.185175
+## 2     C2   D1  G1  47.744806  18.013863
+## 3     C3   D1  G1  51.490610  20.533382
+## 4     C2   D5  G2  44.951102  24.557412
+## 5     C2   D4  G2  40.629968  27.346727
+## 6     C1   D4  G1  56.185284  22.248217
+## 7     C3   D2  G1  61.780497  21.511004
+## 8     C2   D1  G1  45.902423  18.942158
+## 9     C1   D5  G1  53.142016  19.497765
+## 10    C3   D2  G1  54.212944  13.974922
+## 11    C3   D1  G2  43.056791  19.754025
+## 12    C2   D2  G1  53.130303  26.187620
+## 13    C2   D2  G1  52.403474  21.601645
+## 14    C1   D4  G2  58.603230  20.069508
+## 15    C3   D4  G1  56.395770  23.366805
+## 16    C3   D3  G1  53.509489  21.876167
+## 17    C3   D4  G2  53.457007  17.958950
+## 18    C1   D1  G1  46.492231  28.369162
+## 19    C1   D3  G1  54.191970  23.938745
+## 20    C2   D4  G1  54.177112  22.969542
+## 21    C2   D1  G2  57.020806  19.930771
+## 22    C2   D4  G2  48.118947  21.458279
+## 23    C3   D1  G2  52.551688  15.371764
+## 24    C1   D5  G2  49.441572  20.054593
+## 25    C1   D4  G2  47.297187  21.204947
+## 26    C3   D3  G2  46.143019  20.359330
+## 27    C2   D1  G1  49.217411  16.646345
+## 28    C1   D4  G1  52.005339  17.985515
+## 29    C2   D2  G2  47.773420  14.712537
 ## ..   ...  ...  ..        ...        ...
-## 170   C1   D4  G2  54.994384  18.911894
-## 171   C2   D2  G2  49.733252  17.825844
-## 172   C1   D4  G2  50.206757  20.554488
-## 173   C3   D1  G2  53.981913  20.307610
-## 174   C3   D3  G1  53.292632  16.955613
-## 175   C1   D3  G2  49.570008  20.129475
-## 176   C3   D2  G1  48.384255  17.315016
-## 177   C1   D4  G1  54.895273  21.094471
-## 178   C1   D5  G2  53.582690  23.542715
-## 179   C2   D4  G2  46.791871  19.050269
-## 180   C3   D4  G1  55.972171  20.611903
-## 181   C1   D3  G1  47.606980  23.024013
-## 182   C1   D2  G1  52.763450  15.562703
-## 183   C1   D1  G1  55.979995  24.744029
-## 184   C3   D1  G2  52.096039  16.645971
-## 185   C1   D4  G1  51.181733  17.451090
-## 186   C3   D4  G1  43.055540  26.063437
-## 187   C2   D1  G2  48.858835  17.420277
-## 188   C3   D5  G1  48.757997  19.768798
-## 189   C1   D1  G1  55.823427  20.607406
-## 190   C3   D1  G2  49.399337  20.124167
-## 191   C1   D5  G1  54.122502  20.937300
-## 192   C2   D4  G2  42.074158  25.993168
-## 193   C1   D4  G2  54.777251  13.598987
-## 194   C3   D1  G2  52.731958  16.710127
-## 195   C1   D5  G2  41.530094  17.825596
-## 196   C1   D1  G1  53.657563  19.358757
-## 197   C1   D4  G1  56.341805  21.306421
-## 198   C2   D5  G1  47.627294  16.440992
-## 199   C3   D3  G1  49.791946  23.685515
+## 170   C3   D3  G1  48.698948  20.078305
+## 171   C3   D3  G1  46.792395  24.153217
+## 172   C1   D2  G1  55.539493  18.722092
+## 173   C3   D4  G1  36.912058  25.303297
+## 174   C3   D1  G2  51.551101  22.906154
+## 175   C2   D1  G2  61.013160  22.059351
+## 176   C2   D1  G2  50.848222  17.043927
+## 177   C2   D2  G2  53.378857  20.364066
+## 178   C1   D3  G2  49.780936  28.967778
+## 179   C3   D2  G2  52.799334  21.447751
+## 180   C2   D1  G1  47.984499  20.016439
+## 181   C2   D4  G2  48.452612  18.362744
+## 182   C3   D5  G1  53.114765  21.784140
+## 183   C2   D5  G2  47.680313  22.014013
+## 184   C3   D5  G1  53.752871  19.816377
+## 185   C2   D5  G2  49.984037  20.531557
+## 186   C3   D1  G2  53.071667  24.239381
+## 187   C1   D2  G1  53.719642  22.722981
+## 188   C3   D1  G1  50.164513  22.339755
+## 189   C1   D1  G2  57.211208  21.071540
+## 190   C1   D2  G2  43.088772  15.537614
+## 191   C1   D4  G1  51.287902  19.700570
+## 192   C3   D1  G1  53.734003  21.901483
+## 193   C2   D2  G1  48.491228  19.346164
+## 194   C2   D1  G1  50.703628  19.571300
+## 195   C3   D3  G1  57.329875  21.575310
+## 196   C3   D3  G2  46.477284  21.361632
+## 197   C3   D1  G1  55.528425  22.340085
+## 198   C2   D4  G2  56.350849  22.028576
+## 199   C2   D1  G1  44.977193  19.602629
 ## 
 ## [200 rows x 5 columns]</code></pre>
 <p><strong>Combined Method</strong><br />
 Combine both assignment and dictionary method</p>
-<div class="sourceCode" id="cb588"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb588-1"><a href="plydata-dplyr-for-python.html#cb588-1"></a>mydf <span class="op">&gt;&gt;</span> rename( {<span class="st">&#39;val.1&#39;</span> : <span class="st">&#39;value1&#39;</span>,</span>
-<span id="cb588-2"><a href="plydata-dplyr-for-python.html#cb588-2"></a>                 <span class="st">&#39;val.2&#39;</span> : <span class="st">&#39;value2&#39;</span></span>
-<span id="cb588-3"><a href="plydata-dplyr-for-python.html#cb588-3"></a>              }, group <span class="op">=</span> <span class="st">&#39;grp&#39;</span> )</span></code></pre></div>
+<div class="sourceCode" id="cb588"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb588-1" title="1">mydf <span class="op">&gt;&gt;</span> rename( {<span class="st">&#39;val.1&#39;</span> : <span class="st">&#39;value1&#39;</span>,</a>
+<a class="sourceLine" id="cb588-2" title="2">                 <span class="st">&#39;val.2&#39;</span> : <span class="st">&#39;value2&#39;</span></a>
+<a class="sourceLine" id="cb588-3" title="3">              }, group <span class="op">=</span> <span class="st">&#39;grp&#39;</span> )</a></code></pre></div>
 <pre><code>##     comp dept group      val.1      val.2
-## 0     C2   D4    G1  52.361416  17.803696
-## 1     C1   D3    G1  55.604527  22.821107
-## 2     C1   D3    G2  48.181365  21.921686
-## 3     C1   D2    G2  48.568761  20.809538
-## 4     C1   D4    G2  48.164024  21.141821
-## 5     C2   D2    G1  50.742951  20.718502
-## 6     C3   D4    G2  51.477397  20.584675
-## 7     C3   D1    G2  53.190161  18.992199
-## 8     C2   D2    G1  47.028651  18.635548
-## 9     C3   D1    G2  46.572272  17.441823
-## 10    C2   D3    G1  36.464604  22.676101
-## 11    C1   D2    G2  40.098771  18.264857
-## 12    C3   D3    G2  45.919937  23.155854
-## 13    C2   D5    G1  56.717540  22.861759
-## 14    C2   D1    G1  54.113238  14.310318
-## 15    C1   D3    G2  47.904064  19.781050
-## 16    C3   D1    G1  52.072863  16.579473
-## 17    C3   D1    G1  51.308834  19.737421
-## 18    C1   D1    G1  49.361366  15.175371
-## 19    C1   D3    G1  49.734374  17.228755
-## 20    C2   D4    G2  38.004896  21.763785
-## 21    C2   D3    G1  51.301423  20.180735
-## 22    C1   D3    G1  46.884157  16.924712
-## 23    C3   D5    G2  40.693907  20.623897
-## 24    C3   D5    G2  61.930670  16.639418
-## 25    C2   D1    G1  53.604755  23.633122
-## 26    C3   D2    G1  58.768928  24.555454
-## 27    C2   D5    G2  48.925846  20.172250
-## 28    C3   D3    G1  58.023978  17.570727
-## 29    C3   D3    G2  50.405377  21.784671
+## 0     C2   D3    G1  57.908571  12.646310
+## 1     C3   D4    G1  56.711603  16.185175
+## 2     C2   D1    G1  47.744806  18.013863
+## 3     C3   D1    G1  51.490610  20.533382
+## 4     C2   D5    G2  44.951102  24.557412
+## 5     C2   D4    G2  40.629968  27.346727
+## 6     C1   D4    G1  56.185284  22.248217
+## 7     C3   D2    G1  61.780497  21.511004
+## 8     C2   D1    G1  45.902423  18.942158
+## 9     C1   D5    G1  53.142016  19.497765
+## 10    C3   D2    G1  54.212944  13.974922
+## 11    C3   D1    G2  43.056791  19.754025
+## 12    C2   D2    G1  53.130303  26.187620
+## 13    C2   D2    G1  52.403474  21.601645
+## 14    C1   D4    G2  58.603230  20.069508
+## 15    C3   D4    G1  56.395770  23.366805
+## 16    C3   D3    G1  53.509489  21.876167
+## 17    C3   D4    G2  53.457007  17.958950
+## 18    C1   D1    G1  46.492231  28.369162
+## 19    C1   D3    G1  54.191970  23.938745
+## 20    C2   D4    G1  54.177112  22.969542
+## 21    C2   D1    G2  57.020806  19.930771
+## 22    C2   D4    G2  48.118947  21.458279
+## 23    C3   D1    G2  52.551688  15.371764
+## 24    C1   D5    G2  49.441572  20.054593
+## 25    C1   D4    G2  47.297187  21.204947
+## 26    C3   D3    G2  46.143019  20.359330
+## 27    C2   D1    G1  49.217411  16.646345
+## 28    C1   D4    G1  52.005339  17.985515
+## 29    C2   D2    G2  47.773420  14.712537
 ## ..   ...  ...   ...        ...        ...
-## 170   C1   D4    G2  54.994384  18.911894
-## 171   C2   D2    G2  49.733252  17.825844
-## 172   C1   D4    G2  50.206757  20.554488
-## 173   C3   D1    G2  53.981913  20.307610
-## 174   C3   D3    G1  53.292632  16.955613
-## 175   C1   D3    G2  49.570008  20.129475
-## 176   C3   D2    G1  48.384255  17.315016
-## 177   C1   D4    G1  54.895273  21.094471
-## 178   C1   D5    G2  53.582690  23.542715
-## 179   C2   D4    G2  46.791871  19.050269
-## 180   C3   D4    G1  55.972171  20.611903
-## 181   C1   D3    G1  47.606980  23.024013
-## 182   C1   D2    G1  52.763450  15.562703
-## 183   C1   D1    G1  55.979995  24.744029
-## 184   C3   D1    G2  52.096039  16.645971
-## 185   C1   D4    G1  51.181733  17.451090
-## 186   C3   D4    G1  43.055540  26.063437
-## 187   C2   D1    G2  48.858835  17.420277
-## 188   C3   D5    G1  48.757997  19.768798
-## 189   C1   D1    G1  55.823427  20.607406
-## 190   C3   D1    G2  49.399337  20.124167
-## 191   C1   D5    G1  54.122502  20.937300
-## 192   C2   D4    G2  42.074158  25.993168
-## 193   C1   D4    G2  54.777251  13.598987
-## 194   C3   D1    G2  52.731958  16.710127
-## 195   C1   D5    G2  41.530094  17.825596
-## 196   C1   D1    G1  53.657563  19.358757
-## 197   C1   D4    G1  56.341805  21.306421
-## 198   C2   D5    G1  47.627294  16.440992
-## 199   C3   D3    G1  49.791946  23.685515
+## 170   C3   D3    G1  48.698948  20.078305
+## 171   C3   D3    G1  46.792395  24.153217
+## 172   C1   D2    G1  55.539493  18.722092
+## 173   C3   D4    G1  36.912058  25.303297
+## 174   C3   D1    G2  51.551101  22.906154
+## 175   C2   D1    G2  61.013160  22.059351
+## 176   C2   D1    G2  50.848222  17.043927
+## 177   C2   D2    G2  53.378857  20.364066
+## 178   C1   D3    G2  49.780936  28.967778
+## 179   C3   D2    G2  52.799334  21.447751
+## 180   C2   D1    G1  47.984499  20.016439
+## 181   C2   D4    G2  48.452612  18.362744
+## 182   C3   D5    G1  53.114765  21.784140
+## 183   C2   D5    G2  47.680313  22.014013
+## 184   C3   D5    G1  53.752871  19.816377
+## 185   C2   D5    G2  49.984037  20.531557
+## 186   C3   D1    G2  53.071667  24.239381
+## 187   C1   D2    G1  53.719642  22.722981
+## 188   C3   D1    G1  50.164513  22.339755
+## 189   C1   D1    G2  57.211208  21.071540
+## 190   C1   D2    G2  43.088772  15.537614
+## 191   C1   D4    G1  51.287902  19.700570
+## 192   C3   D1    G1  53.734003  21.901483
+## 193   C2   D2    G1  48.491228  19.346164
+## 194   C2   D1    G1  50.703628  19.571300
+## 195   C3   D3    G1  57.329875  21.575310
+## 196   C3   D3    G2  46.477284  21.361632
+## 197   C3   D1    G1  55.528425  22.340085
+## 198   C2   D4    G2  56.350849  22.028576
+## 199   C2   D1    G1  44.977193  19.602629
 ## 
 ## [200 rows x 5 columns]</code></pre>
 </div>
@@ -1532,75 +1531,75 @@ Combine both assignment and dictionary method</p>
 <div id="sorting-arrange" class="section level2">
 <h2><span class="header-section-number">11.3</span> Sorting (arrange)</h2>
 <p>Use <strong>‘-colName’</strong> for decending</p>
-<div class="sourceCode" id="cb590"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb590-1"><a href="plydata-dplyr-for-python.html#cb590-1"></a>mydf <span class="op">&gt;&gt;</span> arrange(<span class="st">&#39;comp&#39;</span>, <span class="st">&#39;-value1&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb590"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb590-1" title="1">mydf <span class="op">&gt;&gt;</span> arrange(<span class="st">&#39;comp&#39;</span>, <span class="st">&#39;-value1&#39;</span>)</a></code></pre></div>
 <pre><code>##     comp dept grp     value1     value2
-## 130   C1   D2  G1  57.940479  24.392373
-## 79    C1   D3  G2  57.417329  16.618970
-## 197   C1   D4  G1  56.341805  21.306421
-## 183   C1   D1  G1  55.979995  24.744029
-## 148   C1   D4  G2  55.968976  19.059537
-## 47    C1   D1  G1  55.863487  19.561633
-## 189   C1   D1  G1  55.823427  20.607406
-## 1     C1   D3  G1  55.604527  22.821107
-## 114   C1   D1  G2  55.532239  19.998128
-## 60    C1   D5  G2  55.398270  16.623057
-## 161   C1   D4  G2  55.333932  17.442165
-## 32    C1   D3  G2  55.319148  20.398619
-## 170   C1   D4  G2  54.994384  18.911894
-## 177   C1   D4  G1  54.895273  21.094471
-## 193   C1   D4  G2  54.777251  13.598987
-## 191   C1   D5  G1  54.122502  20.937300
-## 128   C1   D5  G1  53.923669  18.979912
-## 196   C1   D1  G1  53.657563  19.358757
-## 178   C1   D5  G2  53.582690  23.542715
-## 30    C1   D1  G2  52.917813  20.667018
-## 182   C1   D2  G1  52.763450  15.562703
-## 152   C1   D5  G2  52.651856  18.745612
-## 46    C1   D2  G1  52.055797  18.258539
-## 107   C1   D4  G1  51.904348  15.752872
-## 137   C1   D2  G2  51.739374  24.503628
-## 98    C1   D4  G1  51.206616  20.579798
-## 185   C1   D4  G1  51.181733  17.451090
-## 44    C1   D4  G1  51.169174  15.654089
-## 56    C1   D2  G1  51.043372  17.196394
-## 159   C1   D2  G2  50.967199  23.642797
+## 107   C1   D1  G2  60.613836  22.571715
+## 35    C1   D2  G1  59.947155  14.714474
+## 65    C1   D1  G1  59.363236  20.656802
+## 14    C1   D4  G2  58.603230  20.069508
+## 83    C1   D5  G1  58.590473  24.095523
+## 149   C1   D2  G1  58.394853  18.945170
+## 58    C1   D3  G1  58.331999  20.496319
+## 81    C1   D2  G2  58.247369  23.083244
+## 56    C1   D2  G2  57.954486  17.219702
+## 106   C1   D3  G2  57.845423  16.628900
+## 104   C1   D2  G1  57.263973  16.778500
+## 189   C1   D1  G2  57.211208  21.071540
+## 102   C1   D1  G2  56.228479  16.011634
+## 6     C1   D4  G1  56.185284  22.248217
+## 53    C1   D3  G1  55.855443  18.887539
+## 54    C1   D5  G2  55.595737  18.790311
+## 172   C1   D2  G1  55.539493  18.722092
+## 169   C1   D5  G2  55.532601  15.092656
+## 19    C1   D3  G1  54.191970  23.938745
+## 158   C1   D3  G1  53.976129  19.187447
+## 42    C1   D3  G2  53.805057  17.530917
+## 109   C1   D5  G1  53.758436  18.575648
+## 187   C1   D2  G1  53.719642  22.722981
+## 98    C1   D2  G1  53.717150  16.991028
+## 120   C1   D3  G2  53.538973  21.908324
+## 152   C1   D2  G1  53.491316  22.613249
+## 37    C1   D3  G2  53.445302  20.892119
+## 134   C1   D5  G2  53.313254  24.147220
+## 9     C1   D5  G1  53.142016  19.497765
+## 86    C1   D3  G2  53.081199  18.728594
 ## ..   ...  ...  ..        ...        ...
-## 190   C3   D1  G2  49.399337  20.124167
-## 117   C3   D2  G2  49.335145  12.681686
-## 126   C3   D5  G2  49.312054  18.656845
-## 135   C3   D2  G1  48.786804  24.193960
-## 188   C3   D5  G1  48.757997  19.768798
-## 176   C3   D2  G1  48.384255  17.315016
-## 33    C3   D3  G1  48.375421  16.295029
-## 143   C3   D4  G2  47.968796  19.197718
-## 145   C3   D5  G2  47.925042  12.260477
-## 76    C3   D3  G2  47.885907  19.334870
-## 136   C3   D4  G2  47.750480  19.473405
-## 45    C3   D1  G1  46.671840  20.044934
-## 9     C3   D1  G2  46.572272  17.441823
-## 83    C3   D3  G2  46.524641  18.818068
-## 12    C3   D3  G2  45.919937  23.155854
-## 82    C3   D3  G1  45.673202  19.525389
-## 160   C3   D5  G1  45.287966  19.489389
-## 36    C3   D2  G2  45.269492  16.445981
-## 105   C3   D3  G2  44.505258  19.678850
-## 122   C3   D5  G2  44.227476  19.857576
-## 150   C3   D3  G2  43.853419  24.039760
-## 156   C3   D4  G2  43.502662  19.997203
-## 186   C3   D4  G1  43.055540  26.063437
-## 144   C3   D1  G1  42.928567  22.258156
-## 75    C3   D5  G2  42.473402  21.142290
-## 23    C3   D5  G2  40.693907  20.623897
-## 39    C3   D2  G1  40.170489  22.091757
-## 95    C3   D3  G1  39.970905  16.810544
-## 51    C3   D5  G2  37.163143  26.325070
-## 112   C3   D2  G1  37.149429  21.635631
+## 74    C3   D2  G1  50.698620  20.738080
+## 132   C3   D1  G1  50.274458  15.585102
+## 188   C3   D1  G1  50.164513  22.339755
+## 105   C3   D4  G1  49.371070  22.678821
+## 127   C3   D1  G2  48.996145  19.683096
+## 147   C3   D1  G2  48.947886  23.411660
+## 110   C3   D2  G1  48.855717  16.391932
+## 170   C3   D3  G1  48.698948  20.078305
+## 112   C3   D4  G1  48.374261  22.857317
+## 46    C3   D1  G2  48.356837  27.184076
+## 67    C3   D2  G2  47.998351  21.027227
+## 153   C3   D1  G2  47.862112  21.214229
+## 108   C3   D4  G2  47.268008  18.363367
+## 48    C3   D1  G1  47.105527  21.432812
+## 171   C3   D3  G1  46.792395  24.153217
+## 196   C3   D3  G2  46.477284  21.361632
+## 143   C3   D1  G1  46.336295  18.541202
+## 26    C3   D3  G2  46.143019  20.359330
+## 119   C3   D4  G2  44.815495  22.004839
+## 155   C3   D2  G1  44.647709  20.258671
+## 145   C3   D1  G1  44.029697  17.821870
+## 60    C3   D5  G2  43.555028  22.637094
+## 137   C3   D2  G1  43.367948  13.897198
+## 69    C3   D5  G1  43.079129  17.667799
+## 11    C3   D1  G2  43.056791  19.754025
+## 165   C3   D3  G1  42.674162  17.956223
+## 39    C3   D5  G1  40.740756  22.483951
+## 41    C3   D5  G1  39.880677  21.046067
+## 146   C3   D4  G1  39.148603  19.952479
+## 173   C3   D4  G1  36.912058  25.303297
 ## 
 ## [200 rows x 5 columns]</code></pre>
 </div>
 <div id="grouping" class="section level2">
 <h2><span class="header-section-number">11.4</span> Grouping</h2>
-<div class="sourceCode" id="cb592"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb592-1"><a href="plydata-dplyr-for-python.html#cb592-1"></a>mydf.info()</span></code></pre></div>
+<div class="sourceCode" id="cb592"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb592-1" title="1">mydf.info()</a></code></pre></div>
 <pre><code>## &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 ## RangeIndex: 200 entries, 0 to 199
 ## Data columns (total 5 columns):
@@ -1611,8 +1610,8 @@ Combine both assignment and dictionary method</p>
 ## value2    200 non-null float64
 ## dtypes: float64(2), object(3)
 ## memory usage: 7.9+ KB</code></pre>
-<div class="sourceCode" id="cb594"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb594-1"><a href="plydata-dplyr-for-python.html#cb594-1"></a>gdf <span class="op">=</span> mydf <span class="op">&gt;&gt;</span> group_by(<span class="st">&#39;comp&#39;</span>,<span class="st">&#39;dept&#39;</span>)</span>
-<span id="cb594-2"><a href="plydata-dplyr-for-python.html#cb594-2"></a><span class="bu">type</span>(gdf)</span></code></pre></div>
+<div class="sourceCode" id="cb594"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb594-1" title="1">gdf <span class="op">=</span> mydf <span class="op">&gt;&gt;</span> group_by(<span class="st">&#39;comp&#39;</span>,<span class="st">&#39;dept&#39;</span>)</a>
+<a class="sourceLine" id="cb594-2" title="2"><span class="bu">type</span>(gdf)</a></code></pre></div>
 <pre><code>## &lt;class &#39;plydata.types.GroupedDataFrame&#39;&gt;</code></pre>
 </div>
 <div id="summarization" class="section level2">
@@ -1620,65 +1619,65 @@ Combine both assignment and dictionary method</p>
 <div id="simple-method" class="section level3">
 <h3><span class="header-section-number">11.5.1</span> Simple Method</h3>
 <p><strong>Passing Multiple Expressions</strong></p>
-<div class="sourceCode" id="cb596"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb596-1"><a href="plydata-dplyr-for-python.html#cb596-1"></a>gdf <span class="op">&gt;&gt;</span> summarize(<span class="st">&#39;n()&#39;</span>,<span class="st">&#39;sum(value1)&#39;</span>,<span class="st">&#39;mean(value2)&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb596"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb596-1" title="1">gdf <span class="op">&gt;&gt;</span> summarize(<span class="st">&#39;n()&#39;</span>,<span class="st">&#39;sum(value1)&#39;</span>,<span class="st">&#39;mean(value2)&#39;</span>)</a></code></pre></div>
 <pre><code>##    comp dept  n()  sum(value1)  mean(value2)
-## 0    C2   D4   16   792.704367     20.563386
-## 1    C1   D3   15   741.485003     19.825993
-## 2    C1   D2   16   759.910653     20.312098
-## 3    C1   D4   17   880.048529     19.367711
-## 4    C2   D2   13   658.816203     19.522787
-## 5    C3   D4    9   457.468647     19.832305
-## 6    C3   D1   13   658.237344     18.868931
-## 7    C2   D3   12   590.823655     20.008862
-## 8    C3   D3   15   744.606673     19.694130
-## 9    C2   D5   16   779.049161     20.217900
-## 10   C2   D1   13   655.293457     18.694434
-## 11   C1   D1   12   607.565827     19.982347
-## 12   C3   D5   11   520.721265     19.491548
-## 13   C3   D2    9   430.329510     20.134666
-## 14   C1   D5   13   632.272870     19.960579</code></pre>
+## 0    C2   D3   15   779.283647     18.563849
+## 1    C3   D4   12   598.121282     19.918190
+## 2    C2   D1   13   662.361702     19.143600
+## 3    C3   D1   20  1010.572833     20.770494
+## 4    C2   D5    8   390.130488     21.980178
+## 5    C2   D4   11   541.951878     20.996814
+## 6    C1   D4   14   684.767174     19.758875
+## 7    C3   D2   12   620.077614     18.679981
+## 8    C1   D5   13   665.958293     20.729273
+## 9    C2   D2   10   517.675298     19.822836
+## 10   C3   D3   14   721.940607     21.093304
+## 11   C1   D1   14   687.423585     19.712111
+## 12   C1   D3   18   916.174636     21.008947
+## 13   C3   D5   12   590.292169     19.696374
+## 14   C1   D2   14   748.181259     18.359908</code></pre>
 </div>
 <div id="specify-summarized-column-name" class="section level3">
 <h3><span class="header-section-number">11.5.2</span> Specify Summarized Column Name</h3>
 <p><strong>Assignment Method</strong><br />
 - Passing colName=‘expression’**<br />
 - Column name cannot contain special character</p>
-<div class="sourceCode" id="cb598"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb598-1"><a href="plydata-dplyr-for-python.html#cb598-1"></a>gdf <span class="op">&gt;&gt;</span> summarize(count<span class="op">=</span><span class="st">&#39;n()&#39;</span>,v1sum<span class="op">=</span><span class="st">&#39;sum(value1)&#39;</span>,v2_mean<span class="op">=</span><span class="st">&#39;mean(value2)&#39;</span>)</span></code></pre></div>
-<pre><code>##    comp dept  count       v1sum    v2_mean
-## 0    C2   D4     16  792.704367  20.563386
-## 1    C1   D3     15  741.485003  19.825993
-## 2    C1   D2     16  759.910653  20.312098
-## 3    C1   D4     17  880.048529  19.367711
-## 4    C2   D2     13  658.816203  19.522787
-## 5    C3   D4      9  457.468647  19.832305
-## 6    C3   D1     13  658.237344  18.868931
-## 7    C2   D3     12  590.823655  20.008862
-## 8    C3   D3     15  744.606673  19.694130
-## 9    C2   D5     16  779.049161  20.217900
-## 10   C2   D1     13  655.293457  18.694434
-## 11   C1   D1     12  607.565827  19.982347
-## 12   C3   D5     11  520.721265  19.491548
-## 13   C3   D2      9  430.329510  20.134666
-## 14   C1   D5     13  632.272870  19.960579</code></pre>
+<div class="sourceCode" id="cb598"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb598-1" title="1">gdf <span class="op">&gt;&gt;</span> summarize(count<span class="op">=</span><span class="st">&#39;n()&#39;</span>,v1sum<span class="op">=</span><span class="st">&#39;sum(value1)&#39;</span>,v2_mean<span class="op">=</span><span class="st">&#39;mean(value2)&#39;</span>)</a></code></pre></div>
+<pre><code>##    comp dept  count        v1sum    v2_mean
+## 0    C2   D3     15   779.283647  18.563849
+## 1    C3   D4     12   598.121282  19.918190
+## 2    C2   D1     13   662.361702  19.143600
+## 3    C3   D1     20  1010.572833  20.770494
+## 4    C2   D5      8   390.130488  21.980178
+## 5    C2   D4     11   541.951878  20.996814
+## 6    C1   D4     14   684.767174  19.758875
+## 7    C3   D2     12   620.077614  18.679981
+## 8    C1   D5     13   665.958293  20.729273
+## 9    C2   D2     10   517.675298  19.822836
+## 10   C3   D3     14   721.940607  21.093304
+## 11   C1   D1     14   687.423585  19.712111
+## 12   C1   D3     18   916.174636  21.008947
+## 13   C3   D5     12   590.292169  19.696374
+## 14   C1   D2     14   748.181259  18.359908</code></pre>
 <p><strong>Tuple Method (‘colName’,‘expression’)</strong><br />
 Use when the column name contain special character</p>
-<div class="sourceCode" id="cb600"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb600-1"><a href="plydata-dplyr-for-python.html#cb600-1"></a>gdf <span class="op">&gt;&gt;</span> summarize((<span class="st">&#39;count&#39;</span>,<span class="st">&#39;n()&#39;</span>),(<span class="st">&#39;v1.sum&#39;</span>,<span class="st">&#39;sum(value1)&#39;</span>),(<span class="st">&#39;s2.sum&#39;</span>,<span class="st">&#39;sum(value2)&#39;</span>),v2mean<span class="op">=</span>np.mean(value2))</span></code></pre></div>
-<pre><code>##    comp dept  count      v1.sum      s2.sum     v2mean
-## 0    C2   D4     16  792.704367  329.014178  19.775794
-## 1    C1   D3     15  741.485003  297.389895  19.775794
-## 2    C1   D2     16  759.910653  324.993561  19.775794
-## 3    C1   D4     17  880.048529  329.251093  19.775794
-## 4    C2   D2     13  658.816203  253.796226  19.775794
-## 5    C3   D4      9  457.468647  178.490749  19.775794
-## 6    C3   D1     13  658.237344  245.296104  19.775794
-## 7    C2   D3     12  590.823655  240.106348  19.775794
-## 8    C3   D3     15  744.606673  295.411955  19.775794
-## 9    C2   D5     16  779.049161  323.486405  19.775794
-## 10   C2   D1     13  655.293457  243.027642  19.775794
-## 11   C1   D1     12  607.565827  239.788162  19.775794
-## 12   C3   D5     11  520.721265  214.407024  19.775794
-## 13   C3   D2      9  430.329510  181.211998  19.775794
-## 14   C1   D5     13  632.272870  259.487533  19.775794</code></pre>
+<div class="sourceCode" id="cb600"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb600-1" title="1">gdf <span class="op">&gt;&gt;</span> summarize((<span class="st">&#39;count&#39;</span>,<span class="st">&#39;n()&#39;</span>),(<span class="st">&#39;v1.sum&#39;</span>,<span class="st">&#39;sum(value1)&#39;</span>),(<span class="st">&#39;s2.sum&#39;</span>,<span class="st">&#39;sum(value2)&#39;</span>),v2mean<span class="op">=</span>np.mean(value2))</a></code></pre></div>
+<pre><code>##    comp dept  count       v1.sum      s2.sum    v2mean
+## 0    C2   D3     15   779.283647  278.457738  19.99942
+## 1    C3   D4     12   598.121282  239.018278  19.99942
+## 2    C2   D1     13   662.361702  248.866805  19.99942
+## 3    C3   D1     20  1010.572833  415.409873  19.99942
+## 4    C2   D5      8   390.130488  175.841428  19.99942
+## 5    C2   D4     11   541.951878  230.964957  19.99942
+## 6    C1   D4     14   684.767174  276.624250  19.99942
+## 7    C3   D2     12   620.077614  224.159772  19.99942
+## 8    C1   D5     13   665.958293  269.480550  19.99942
+## 9    C2   D2     10   517.675298  198.228358  19.99942
+## 10   C3   D3     14   721.940607  295.306262  19.99942
+## 11   C1   D1     14   687.423585  275.969554  19.99942
+## 12   C1   D3     18   916.174636  378.161047  19.99942
+## 13   C3   D5     12   590.292169  236.356489  19.99942
+## 14   C1   D2     14   748.181259  257.038716  19.99942</code></pre>
 </div>
 <div id="number-of-rows-in-group" class="section level3">
 <h3><span class="header-section-number">11.5.3</span> Number of Rows in Group</h3>
@@ -1687,23 +1686,23 @@ Use when the column name contain special character</p>
 </li>
 <li>n_unique() : total of rows with unique value</li>
 </ul>
-<div class="sourceCode" id="cb602"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb602-1"><a href="plydata-dplyr-for-python.html#cb602-1"></a>gdf <span class="op">&gt;&gt;</span> summarize(count<span class="op">=</span><span class="st">&#39;n()&#39;</span>, va11_unique<span class="op">=</span><span class="st">&#39;n_unique(value1)&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb602"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb602-1" title="1">gdf <span class="op">&gt;&gt;</span> summarize(count<span class="op">=</span><span class="st">&#39;n()&#39;</span>, va11_unique<span class="op">=</span><span class="st">&#39;n_unique(value1)&#39;</span>)</a></code></pre></div>
 <pre><code>##    comp dept  count  va11_unique
-## 0    C2   D4     16           16
-## 1    C1   D3     15           15
-## 2    C1   D2     16           16
-## 3    C1   D4     17           17
-## 4    C2   D2     13           13
-## 5    C3   D4      9            9
-## 6    C3   D1     13           13
-## 7    C2   D3     12           12
-## 8    C3   D3     15           15
-## 9    C2   D5     16           16
-## 10   C2   D1     13           13
-## 11   C1   D1     12           12
-## 12   C3   D5     11           11
-## 13   C3   D2      9            9
-## 14   C1   D5     13           13</code></pre>
+## 0    C2   D3     15           15
+## 1    C3   D4     12           12
+## 2    C2   D1     13           13
+## 3    C3   D1     20           20
+## 4    C2   D5      8            8
+## 5    C2   D4     11           11
+## 6    C1   D4     14           14
+## 7    C3   D2     12           12
+## 8    C1   D5     13           13
+## 9    C2   D2     10           10
+## 10   C3   D3     14           14
+## 11   C1   D1     14           14
+## 12   C1   D3     18           18
+## 13   C3   D5     12           12
+## 14   C1   D2     14           14</code></pre>
 
 <!-- jupyter_markdown -->
 </div>
@@ -1732,8 +1731,8 @@ gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,
-"facebook": true,
-"twitter": true,
+"facebook": false,
+"twitter": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
