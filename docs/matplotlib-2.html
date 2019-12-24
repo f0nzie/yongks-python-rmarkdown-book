@@ -53,9 +53,9 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -64,14 +64,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -80,9 +82,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  { background-color: #f8f8f8; }
+  {  background-color: #f8f8f8; }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -940,6 +942,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="18.8.3" data-path="nlp.html"><a href="nlp.html#tfidf"><i class="fa fa-check"></i><b>18.8.3</b> TFIDF</a><ul>
 <li class="chapter" data-level="18.8.3.1" data-path="nlp.html"><a href="nlp.html#equation"><i class="fa fa-check"></i><b>18.8.3.1</b> Equation</a></li>
+<li class="chapter" data-level="18.8.3.2" data-path="nlp.html"><a href="nlp.html#tfidftransformer"><i class="fa fa-check"></i><b>18.8.3.2</b> <code>TfidfTransformer</code></a></li>
+<li class="chapter" data-level="18.8.3.3" data-path="nlp.html"><a href="nlp.html#tfidfvectorizer"><i class="fa fa-check"></i><b>18.8.3.3</b> <code>TfidfVectorizer</code></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="18.9" data-path="nlp.html"><a href="nlp.html#appliction"><i class="fa fa-check"></i><b>18.9</b> Appliction</a><ul>
@@ -972,30 +976,30 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="matplotlib-2" class="section level1">
 <h1><span class="header-section-number">14</span> matplotlib</h1>
-<div class="sourceCode" id="cb1608"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1608-1" title="1"><span class="im">from</span> IPython.core.display <span class="im">import</span> display, HTML</a>
-<a class="sourceLine" id="cb1608-2" title="2">display(HTML(<span class="st">&quot;&lt;style&gt;.container { width:75% !important; margin-left:350px; }&lt;/style&gt;&quot;</span>))</a>
-<a class="sourceLine" id="cb1608-3" title="3"><span class="co">#%matplotlib inline</span></a></code></pre></div>
+<div class="sourceCode" id="cb1608"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1608-1"><a href="matplotlib-2.html#cb1608-1"></a><span class="im">from</span> IPython.core.display <span class="im">import</span> display, HTML</span>
+<span id="cb1608-2"><a href="matplotlib-2.html#cb1608-2"></a>display(HTML(<span class="st">&quot;&lt;style&gt;.container { width:75% !important; margin-left:350px; }&lt;/style&gt;&quot;</span>))</span>
+<span id="cb1608-3"><a href="matplotlib-2.html#cb1608-3"></a><span class="co">#%matplotlib inline</span></span></code></pre></div>
 <pre><code>## &lt;IPython.core.display.HTML object&gt;</code></pre>
-<div class="sourceCode" id="cb1610"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1610-1" title="1"><span class="im">import</span> numpy <span class="im">as</span> np</a>
-<a class="sourceLine" id="cb1610-2" title="2"><span class="im">import</span> pandas <span class="im">as</span> pd</a>
-<a class="sourceLine" id="cb1610-3" title="3"><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</a>
-<a class="sourceLine" id="cb1610-4" title="4"><span class="im">import</span> math</a>
-<a class="sourceLine" id="cb1610-5" title="5"><span class="im">import</span> seaborn <span class="im">as</span> sns</a>
-<a class="sourceLine" id="cb1610-6" title="6">pd.set_option( <span class="st">&#39;display.notebook_repr_html&#39;</span>, <span class="va">False</span>)  <span class="co"># render Series and DataFrame as text, not HTML</span></a>
-<a class="sourceLine" id="cb1610-7" title="7">pd.set_option( <span class="st">&#39;display.max_column&#39;</span>, <span class="dv">10</span>)    <span class="co"># number of columns</span></a>
-<a class="sourceLine" id="cb1610-8" title="8">pd.set_option( <span class="st">&#39;display.max_rows&#39;</span>, <span class="dv">10</span>)     <span class="co"># number of rows</span></a>
-<a class="sourceLine" id="cb1610-9" title="9">pd.set_option( <span class="st">&#39;display.width&#39;</span>, <span class="dv">90</span>)        <span class="co"># number of characters per row</span></a></code></pre></div>
+<div class="sourceCode" id="cb1610"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1610-1"><a href="matplotlib-2.html#cb1610-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1610-2"><a href="matplotlib-2.html#cb1610-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1610-3"><a href="matplotlib-2.html#cb1610-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1610-4"><a href="matplotlib-2.html#cb1610-4"></a><span class="im">import</span> math</span>
+<span id="cb1610-5"><a href="matplotlib-2.html#cb1610-5"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1610-6"><a href="matplotlib-2.html#cb1610-6"></a>pd.set_option( <span class="st">&#39;display.notebook_repr_html&#39;</span>, <span class="va">False</span>)  <span class="co"># render Series and DataFrame as text, not HTML</span></span>
+<span id="cb1610-7"><a href="matplotlib-2.html#cb1610-7"></a>pd.set_option( <span class="st">&#39;display.max_column&#39;</span>, <span class="dv">10</span>)    <span class="co"># number of columns</span></span>
+<span id="cb1610-8"><a href="matplotlib-2.html#cb1610-8"></a>pd.set_option( <span class="st">&#39;display.max_rows&#39;</span>, <span class="dv">10</span>)     <span class="co"># number of rows</span></span>
+<span id="cb1610-9"><a href="matplotlib-2.html#cb1610-9"></a>pd.set_option( <span class="st">&#39;display.width&#39;</span>, <span class="dv">90</span>)        <span class="co"># number of characters per row</span></span></code></pre></div>
 <div id="library" class="section level2">
 <h2><span class="header-section-number">14.1</span> Library</h2>
-<div class="sourceCode" id="cb1611"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1611-1" title="1"><span class="im">import</span> matplotlib</a>
-<a class="sourceLine" id="cb1611-2" title="2"><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</a>
-<a class="sourceLine" id="cb1611-3" title="3"></a>
-<a class="sourceLine" id="cb1611-4" title="4"><span class="im">from</span> plydata <span class="im">import</span> define, query, select, group_by, summarize, arrange, head, rename</a>
-<a class="sourceLine" id="cb1611-5" title="5"><span class="im">import</span> plotnine</a>
-<a class="sourceLine" id="cb1611-6" title="6"><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></a>
-<a class="sourceLine" id="cb1611-7" title="7"></a>
-<a class="sourceLine" id="cb1611-8" title="8"><span class="im">import</span> os</a>
-<a class="sourceLine" id="cb1611-9" title="9">os.environ[<span class="st">&#39;QT_QPA_PLATFORM_PLUGIN_PATH&#39;</span>] <span class="op">=</span> <span class="st">&quot;C:\ProgramData\Anaconda3\Library\plugins\platforms&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb1611"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1611-1"><a href="matplotlib-2.html#cb1611-1"></a><span class="im">import</span> matplotlib</span>
+<span id="cb1611-2"><a href="matplotlib-2.html#cb1611-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1611-3"><a href="matplotlib-2.html#cb1611-3"></a></span>
+<span id="cb1611-4"><a href="matplotlib-2.html#cb1611-4"></a><span class="im">from</span> plydata <span class="im">import</span> define, query, select, group_by, summarize, arrange, head, rename</span>
+<span id="cb1611-5"><a href="matplotlib-2.html#cb1611-5"></a><span class="im">import</span> plotnine</span>
+<span id="cb1611-6"><a href="matplotlib-2.html#cb1611-6"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb1611-7"><a href="matplotlib-2.html#cb1611-7"></a></span>
+<span id="cb1611-8"><a href="matplotlib-2.html#cb1611-8"></a><span class="im">import</span> os</span>
+<span id="cb1611-9"><a href="matplotlib-2.html#cb1611-9"></a>os.environ[<span class="st">&#39;QT_QPA_PLATFORM_PLUGIN_PATH&#39;</span>] <span class="op">=</span> <span class="st">&quot;C:\ProgramData\Anaconda3\Library\plugins\platforms&quot;</span></span></code></pre></div>
 </div>
 <div id="sample-data-14" class="section level2">
 <h2><span class="header-section-number">14.2</span> Sample Data</h2>
@@ -1011,29 +1015,29 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </li>
 <li>value2 is numeric value, normally distributed at mean 25</li>
 </ul>
-<div class="sourceCode" id="cb1612"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1612-1" title="1">n <span class="op">=</span> <span class="dv">200</span></a>
-<a class="sourceLine" id="cb1612-2" title="2">comp <span class="op">=</span> [<span class="st">&#39;C&#39;</span> <span class="op">+</span> i <span class="cf">for</span> i <span class="kw">in</span> np.random.randint( <span class="dv">1</span>,<span class="dv">4</span>, size  <span class="op">=</span> n).astype(<span class="bu">str</span>)] <span class="co"># 3x Company</span></a>
-<a class="sourceLine" id="cb1612-3" title="3">dept <span class="op">=</span> [<span class="st">&#39;D&#39;</span> <span class="op">+</span> i <span class="cf">for</span> i <span class="kw">in</span> np.random.randint( <span class="dv">1</span>,<span class="dv">6</span>, size  <span class="op">=</span> n).astype(<span class="bu">str</span>)] <span class="co"># 5x Department</span></a>
-<a class="sourceLine" id="cb1612-4" title="4">grp <span class="op">=</span>  [<span class="st">&#39;G&#39;</span> <span class="op">+</span> i <span class="cf">for</span> i <span class="kw">in</span> np.random.randint( <span class="dv">1</span>,<span class="dv">3</span>, size  <span class="op">=</span> n).astype(<span class="bu">str</span>)] <span class="co"># 2x Groups</span></a>
-<a class="sourceLine" id="cb1612-5" title="5">value1 <span class="op">=</span> np.random.normal( loc<span class="op">=</span><span class="dv">50</span> , scale<span class="op">=</span><span class="dv">5</span> , size <span class="op">=</span> n)</a>
-<a class="sourceLine" id="cb1612-6" title="6">value2 <span class="op">=</span> np.random.normal( loc<span class="op">=</span><span class="dv">20</span> , scale<span class="op">=</span><span class="dv">3</span> , size <span class="op">=</span> n)</a>
-<a class="sourceLine" id="cb1612-7" title="7">value3 <span class="op">=</span> np.random.normal( loc<span class="op">=</span><span class="dv">5</span> , scale<span class="op">=</span><span class="dv">30</span> , size <span class="op">=</span> n)</a>
-<a class="sourceLine" id="cb1612-8" title="8"></a>
-<a class="sourceLine" id="cb1612-9" title="9">mydf <span class="op">=</span> pd.DataFrame({</a>
-<a class="sourceLine" id="cb1612-10" title="10">    <span class="st">&#39;comp&#39;</span>:comp, </a>
-<a class="sourceLine" id="cb1612-11" title="11">    <span class="st">&#39;dept&#39;</span>:dept, </a>
-<a class="sourceLine" id="cb1612-12" title="12">    <span class="st">&#39;grp&#39;</span>: grp,</a>
-<a class="sourceLine" id="cb1612-13" title="13">    <span class="st">&#39;value1&#39;</span>:value1, </a>
-<a class="sourceLine" id="cb1612-14" title="14">    <span class="st">&#39;value2&#39;</span>:value2,</a>
-<a class="sourceLine" id="cb1612-15" title="15">    <span class="st">&#39;value3&#39;</span>:value3 })</a>
-<a class="sourceLine" id="cb1612-16" title="16">mydf.head()</a></code></pre></div>
+<div class="sourceCode" id="cb1612"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1612-1"><a href="matplotlib-2.html#cb1612-1"></a>n <span class="op">=</span> <span class="dv">200</span></span>
+<span id="cb1612-2"><a href="matplotlib-2.html#cb1612-2"></a>comp <span class="op">=</span> [<span class="st">&#39;C&#39;</span> <span class="op">+</span> i <span class="cf">for</span> i <span class="kw">in</span> np.random.randint( <span class="dv">1</span>,<span class="dv">4</span>, size  <span class="op">=</span> n).astype(<span class="bu">str</span>)] <span class="co"># 3x Company</span></span>
+<span id="cb1612-3"><a href="matplotlib-2.html#cb1612-3"></a>dept <span class="op">=</span> [<span class="st">&#39;D&#39;</span> <span class="op">+</span> i <span class="cf">for</span> i <span class="kw">in</span> np.random.randint( <span class="dv">1</span>,<span class="dv">6</span>, size  <span class="op">=</span> n).astype(<span class="bu">str</span>)] <span class="co"># 5x Department</span></span>
+<span id="cb1612-4"><a href="matplotlib-2.html#cb1612-4"></a>grp <span class="op">=</span>  [<span class="st">&#39;G&#39;</span> <span class="op">+</span> i <span class="cf">for</span> i <span class="kw">in</span> np.random.randint( <span class="dv">1</span>,<span class="dv">3</span>, size  <span class="op">=</span> n).astype(<span class="bu">str</span>)] <span class="co"># 2x Groups</span></span>
+<span id="cb1612-5"><a href="matplotlib-2.html#cb1612-5"></a>value1 <span class="op">=</span> np.random.normal( loc<span class="op">=</span><span class="dv">50</span> , scale<span class="op">=</span><span class="dv">5</span> , size <span class="op">=</span> n)</span>
+<span id="cb1612-6"><a href="matplotlib-2.html#cb1612-6"></a>value2 <span class="op">=</span> np.random.normal( loc<span class="op">=</span><span class="dv">20</span> , scale<span class="op">=</span><span class="dv">3</span> , size <span class="op">=</span> n)</span>
+<span id="cb1612-7"><a href="matplotlib-2.html#cb1612-7"></a>value3 <span class="op">=</span> np.random.normal( loc<span class="op">=</span><span class="dv">5</span> , scale<span class="op">=</span><span class="dv">30</span> , size <span class="op">=</span> n)</span>
+<span id="cb1612-8"><a href="matplotlib-2.html#cb1612-8"></a></span>
+<span id="cb1612-9"><a href="matplotlib-2.html#cb1612-9"></a>mydf <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb1612-10"><a href="matplotlib-2.html#cb1612-10"></a>    <span class="st">&#39;comp&#39;</span>:comp, </span>
+<span id="cb1612-11"><a href="matplotlib-2.html#cb1612-11"></a>    <span class="st">&#39;dept&#39;</span>:dept, </span>
+<span id="cb1612-12"><a href="matplotlib-2.html#cb1612-12"></a>    <span class="st">&#39;grp&#39;</span>: grp,</span>
+<span id="cb1612-13"><a href="matplotlib-2.html#cb1612-13"></a>    <span class="st">&#39;value1&#39;</span>:value1, </span>
+<span id="cb1612-14"><a href="matplotlib-2.html#cb1612-14"></a>    <span class="st">&#39;value2&#39;</span>:value2,</span>
+<span id="cb1612-15"><a href="matplotlib-2.html#cb1612-15"></a>    <span class="st">&#39;value3&#39;</span>:value3 })</span>
+<span id="cb1612-16"><a href="matplotlib-2.html#cb1612-16"></a>mydf.head()</span></code></pre></div>
 <pre><code>##   comp dept grp     value1     value2     value3
 ## 0   C3   D1  G2  58.001073  20.797796   4.565181
 ## 1   C2   D4  G2  47.122054  20.691133  36.084163
 ## 2   C3   D5  G1  49.497686  15.715835   7.232685
 ## 3   C1   D3  G2  50.129623  26.790262  -6.875583
 ## 4   C3   D3  G1  51.620032  23.704337  11.909618</code></pre>
-<div class="sourceCode" id="cb1614"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1614-1" title="1">mydf.info()</a></code></pre></div>
+<div class="sourceCode" id="cb1614"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1614-1"><a href="matplotlib-2.html#cb1614-1"></a>mydf.info()</span></code></pre></div>
 <pre><code>## &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 ## RangeIndex: 200 entries, 0 to 199
 ## Data columns (total 6 columns):
@@ -1057,33 +1061,33 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <div id="sample-data-15" class="section level3">
 <h3><span class="header-section-number">14.3.1</span> Sample Data</h3>
-<div class="sourceCode" id="cb1616"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1616-1" title="1"><span class="co"># Sample Data</span></a>
-<a class="sourceLine" id="cb1616-2" title="2">x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">5</span>,<span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb1616-3" title="3">y <span class="op">=</span> x <span class="op">**</span> <span class="dv">2</span></a></code></pre></div>
+<div class="sourceCode" id="cb1616"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1616-1"><a href="matplotlib-2.html#cb1616-1"></a><span class="co"># Sample Data</span></span>
+<span id="cb1616-2"><a href="matplotlib-2.html#cb1616-2"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">5</span>,<span class="dv">10</span>)</span>
+<span id="cb1616-3"><a href="matplotlib-2.html#cb1616-3"></a>y <span class="op">=</span> x <span class="op">**</span> <span class="dv">2</span></span></code></pre></div>
 </div>
 <div id="single-plot" class="section level3">
 <h3><span class="header-section-number">14.3.2</span> Single Plot</h3>
-<div class="sourceCode" id="cb1617"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1617-1" title="1"><span class="co">#plt.figure()</span></a>
-<a class="sourceLine" id="cb1617-2" title="2"><span class="co">#plt.xlabel(&#39;x&#39;)</span></a>
-<a class="sourceLine" id="cb1617-3" title="3"><span class="co">#plt.ylabel(&#39;y&#39;)</span></a>
-<a class="sourceLine" id="cb1617-4" title="4"><span class="co">#plt.plot(x,y,&#39;red&#39;)</span></a>
-<a class="sourceLine" id="cb1617-5" title="5"><span class="co">#plt.title(&#39;My Good Data&#39;)</span></a>
-<a class="sourceLine" id="cb1617-6" title="6"><span class="co">#plt.show()</span></a></code></pre></div>
+<div class="sourceCode" id="cb1617"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1617-1"><a href="matplotlib-2.html#cb1617-1"></a><span class="co">#plt.figure()</span></span>
+<span id="cb1617-2"><a href="matplotlib-2.html#cb1617-2"></a><span class="co">#plt.xlabel(&#39;x&#39;)</span></span>
+<span id="cb1617-3"><a href="matplotlib-2.html#cb1617-3"></a><span class="co">#plt.ylabel(&#39;y&#39;)</span></span>
+<span id="cb1617-4"><a href="matplotlib-2.html#cb1617-4"></a><span class="co">#plt.plot(x,y,&#39;red&#39;)</span></span>
+<span id="cb1617-5"><a href="matplotlib-2.html#cb1617-5"></a><span class="co">#plt.title(&#39;My Good Data&#39;)</span></span>
+<span id="cb1617-6"><a href="matplotlib-2.html#cb1617-6"></a><span class="co">#plt.show()</span></span></code></pre></div>
 </div>
 <div id="multiple-subplots" class="section level3">
 <h3><span class="header-section-number">14.3.3</span> Multiple Subplots</h3>
 <p>Each call lto <strong>subplot()</strong> will create a new container for subsequent plot command</p>
-<div class="sourceCode" id="cb1618"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1618-1" title="1">plt.figure()</a></code></pre></div>
+<div class="sourceCode" id="cb1618"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1618-1"><a href="matplotlib-2.html#cb1618-1"></a>plt.figure()</span></code></pre></div>
 <pre><code>## &lt;Figure size 267.36x250 with 0 Axes&gt;</code></pre>
-<div class="sourceCode" id="cb1620"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1620-1" title="1">plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>) <span class="co"># 1 row, 2 cols, at first box</span></a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000000029323908&gt;</code></pre>
-<div class="sourceCode" id="cb1622"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1622-1" title="1">plt.plot(x,y,<span class="st">&#39;r--&#39;</span>)</a></code></pre></div>
-<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002B37EE10&gt;]</code></pre>
-<div class="sourceCode" id="cb1624"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1624-1" title="1">plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>) <span class="co"># 1 row, 2 cols, at second box</span></a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x00000000298E1EB8&gt;</code></pre>
-<div class="sourceCode" id="cb1626"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1626-1" title="1">plt.plot(y,x,<span class="st">&#39;g*-&#39;</span>)</a></code></pre></div>
-<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002B3C27F0&gt;]</code></pre>
-<div class="sourceCode" id="cb1628"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1628-1" title="1">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb1620"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1620-1"><a href="matplotlib-2.html#cb1620-1"></a>plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>) <span class="co"># 1 row, 2 cols, at first box</span></span></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x00000000183EDC50&gt;</code></pre>
+<div class="sourceCode" id="cb1622"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1622-1"><a href="matplotlib-2.html#cb1622-1"></a>plt.plot(x,y,<span class="st">&#39;r--&#39;</span>)</span></code></pre></div>
+<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002B54D0B8&gt;]</code></pre>
+<div class="sourceCode" id="cb1624"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1624-1"><a href="matplotlib-2.html#cb1624-1"></a>plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>) <span class="co"># 1 row, 2 cols, at second box</span></span></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002B53FEF0&gt;</code></pre>
+<div class="sourceCode" id="cb1626"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1626-1"><a href="matplotlib-2.html#cb1626-1"></a>plt.plot(y,x,<span class="st">&#39;g*-&#39;</span>)</span></code></pre></div>
+<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002B581978&gt;]</code></pre>
+<div class="sourceCode" id="cb1628"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1628-1"><a href="matplotlib-2.html#cb1628-1"></a>plt.show()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-630-1.png" /><!-- --></p>
 </div>
 </div>
@@ -1091,24 +1095,24 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">14.4</span> Object-Oriented API</h2>
 <div id="sample-data-16" class="section level3">
 <h3><span class="header-section-number">14.4.1</span> Sample Data</h3>
-<div class="sourceCode" id="cb1629"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1629-1" title="1"><span class="co"># Sample Data</span></a>
-<a class="sourceLine" id="cb1629-2" title="2">x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">5</span>,<span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb1629-3" title="3">y <span class="op">=</span> x <span class="op">**</span> <span class="dv">2</span></a></code></pre></div>
+<div class="sourceCode" id="cb1629"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1629-1"><a href="matplotlib-2.html#cb1629-1"></a><span class="co"># Sample Data</span></span>
+<span id="cb1629-2"><a href="matplotlib-2.html#cb1629-2"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">5</span>,<span class="dv">10</span>)</span>
+<span id="cb1629-3"><a href="matplotlib-2.html#cb1629-3"></a>y <span class="op">=</span> x <span class="op">**</span> <span class="dv">2</span></span></code></pre></div>
 </div>
 <div id="single-plot-1" class="section level3">
 <h3><span class="header-section-number">14.4.2</span> Single Plot</h3>
 <p><strong>One figure, one axes</strong></p>
-<div class="sourceCode" id="cb1630"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1630-1" title="1">fig <span class="op">=</span> plt.figure()</a>
-<a class="sourceLine" id="cb1630-2" title="2">axes <span class="op">=</span> fig.add_axes([<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>]) <span class="co"># left, bottom, width, height (range 0 to 1)</span></a>
-<a class="sourceLine" id="cb1630-3" title="3">axes.plot(x, y, <span class="st">&#39;r&#39;</span>)</a></code></pre></div>
-<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002B445C50&gt;]</code></pre>
-<div class="sourceCode" id="cb1632"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1632-1" title="1">axes.set_xlabel(<span class="st">&#39;x&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1630"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1630-1"><a href="matplotlib-2.html#cb1630-1"></a>fig <span class="op">=</span> plt.figure()</span>
+<span id="cb1630-2"><a href="matplotlib-2.html#cb1630-2"></a>axes <span class="op">=</span> fig.add_axes([<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>]) <span class="co"># left, bottom, width, height (range 0 to 1)</span></span>
+<span id="cb1630-3"><a href="matplotlib-2.html#cb1630-3"></a>axes.plot(x, y, <span class="st">&#39;r&#39;</span>)</span></code></pre></div>
+<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002B53FFD0&gt;]</code></pre>
+<div class="sourceCode" id="cb1632"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1632-1"><a href="matplotlib-2.html#cb1632-1"></a>axes.set_xlabel(<span class="st">&#39;x&#39;</span>)</span></code></pre></div>
 <pre><code>## Text(0.5, 0, &#39;x&#39;)</code></pre>
-<div class="sourceCode" id="cb1634"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1634-1" title="1">axes.set_ylabel(<span class="st">&#39;y&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1634"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1634-1"><a href="matplotlib-2.html#cb1634-1"></a>axes.set_ylabel(<span class="st">&#39;y&#39;</span>)</span></code></pre></div>
 <pre><code>## Text(0, 0.5, &#39;y&#39;)</code></pre>
-<div class="sourceCode" id="cb1636"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1636-1" title="1">axes.set_title(<span class="st">&#39;title&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1636"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1636-1"><a href="matplotlib-2.html#cb1636-1"></a>axes.set_title(<span class="st">&#39;title&#39;</span>)</span></code></pre></div>
 <pre><code>## Text(0.5, 1.0, &#39;title&#39;)</code></pre>
-<div class="sourceCode" id="cb1638"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1638-1" title="1">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb1638"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1638-1"><a href="matplotlib-2.html#cb1638-1"></a>plt.show()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-632-1.png" /><!-- --></p>
 </div>
 <div id="multiple-axes-in-one-plot" class="section level3">
@@ -1116,25 +1120,25 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>This is still considered a <strong>single plot</strong>, but with <strong>multiple axes</strong></li>
 </ul>
-<div class="sourceCode" id="cb1639"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1639-1" title="1">fig <span class="op">=</span> plt.figure()</a>
-<a class="sourceLine" id="cb1639-2" title="2">ax1 <span class="op">=</span> fig.add_axes([<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>])         <span class="co"># main axes</span></a>
-<a class="sourceLine" id="cb1639-3" title="3">ax2 <span class="op">=</span> fig.add_axes([<span class="fl">0.2</span>, <span class="fl">0.5</span>, <span class="fl">0.4</span>, <span class="fl">0.3</span>]) <span class="co"># inset axes</span></a>
-<a class="sourceLine" id="cb1639-4" title="4"></a>
-<a class="sourceLine" id="cb1639-5" title="5">ax1.plot(x,y,<span class="st">&#39;r&#39;</span>)</a></code></pre></div>
-<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002B4A27B8&gt;]</code></pre>
-<div class="sourceCode" id="cb1641"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1641-1" title="1">ax1.set_xlabel(<span class="st">&#39;x&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1639"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1639-1"><a href="matplotlib-2.html#cb1639-1"></a>fig <span class="op">=</span> plt.figure()</span>
+<span id="cb1639-2"><a href="matplotlib-2.html#cb1639-2"></a>ax1 <span class="op">=</span> fig.add_axes([<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>])         <span class="co"># main axes</span></span>
+<span id="cb1639-3"><a href="matplotlib-2.html#cb1639-3"></a>ax2 <span class="op">=</span> fig.add_axes([<span class="fl">0.2</span>, <span class="fl">0.5</span>, <span class="fl">0.4</span>, <span class="fl">0.3</span>]) <span class="co"># inset axes</span></span>
+<span id="cb1639-4"><a href="matplotlib-2.html#cb1639-4"></a></span>
+<span id="cb1639-5"><a href="matplotlib-2.html#cb1639-5"></a>ax1.plot(x,y,<span class="st">&#39;r&#39;</span>)</span></code></pre></div>
+<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002C622AC8&gt;]</code></pre>
+<div class="sourceCode" id="cb1641"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1641-1"><a href="matplotlib-2.html#cb1641-1"></a>ax1.set_xlabel(<span class="st">&#39;x&#39;</span>)</span></code></pre></div>
 <pre><code>## Text(0.5, 0, &#39;x&#39;)</code></pre>
-<div class="sourceCode" id="cb1643"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1643-1" title="1">ax1.set_ylabel(<span class="st">&#39;y&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1643"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1643-1"><a href="matplotlib-2.html#cb1643-1"></a>ax1.set_ylabel(<span class="st">&#39;y&#39;</span>)</span></code></pre></div>
 <pre><code>## Text(0, 0.5, &#39;y&#39;)</code></pre>
-<div class="sourceCode" id="cb1645"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1645-1" title="1">ax2.plot(y, x, <span class="st">&#39;g&#39;</span>)</a></code></pre></div>
-<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002B3B7B00&gt;]</code></pre>
-<div class="sourceCode" id="cb1647"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1647-1" title="1">ax2.set_xlabel(<span class="st">&#39;y&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1645"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1645-1"><a href="matplotlib-2.html#cb1645-1"></a>ax2.plot(y, x, <span class="st">&#39;g&#39;</span>)</span></code></pre></div>
+<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002B54D208&gt;]</code></pre>
+<div class="sourceCode" id="cb1647"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1647-1"><a href="matplotlib-2.html#cb1647-1"></a>ax2.set_xlabel(<span class="st">&#39;y&#39;</span>)</span></code></pre></div>
 <pre><code>## Text(0.5, 0, &#39;y&#39;)</code></pre>
-<div class="sourceCode" id="cb1649"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1649-1" title="1">ax2.set_ylabel(<span class="st">&#39;x&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1649"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1649-1"><a href="matplotlib-2.html#cb1649-1"></a>ax2.set_ylabel(<span class="st">&#39;x&#39;</span>)</span></code></pre></div>
 <pre><code>## Text(0, 0.5, &#39;x&#39;)</code></pre>
-<div class="sourceCode" id="cb1651"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1651-1" title="1">ax2.set_title(<span class="st">&#39;insert title&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1651"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1651-1"><a href="matplotlib-2.html#cb1651-1"></a>ax2.set_title(<span class="st">&#39;insert title&#39;</span>)</span></code></pre></div>
 <pre><code>## Text(0.5, 1.0, &#39;insert title&#39;)</code></pre>
-<div class="sourceCode" id="cb1653"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1653-1" title="1">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb1653"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1653-1"><a href="matplotlib-2.html#cb1653-1"></a>plt.show()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-633-1.png" /><!-- --></p>
 </div>
 <div id="multiple-subplots-1" class="section level3">
@@ -1151,48 +1155,48 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p><strong>Single Row Grid</strong><br />
 Single row grid means axes is an 1-D array. Hence can use <strong>for</strong> to iterate through axes</p>
-<div class="sourceCode" id="cb1654"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1654-1" title="1">fig, axes <span class="op">=</span> plt.subplots( nrows<span class="op">=</span><span class="dv">1</span>,ncols<span class="op">=</span><span class="dv">3</span> )</a>
-<a class="sourceLine" id="cb1654-2" title="2"><span class="bu">print</span> (axes.shape)</a></code></pre></div>
+<div class="sourceCode" id="cb1654"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1654-1"><a href="matplotlib-2.html#cb1654-1"></a>fig, axes <span class="op">=</span> plt.subplots( nrows<span class="op">=</span><span class="dv">1</span>,ncols<span class="op">=</span><span class="dv">3</span> )</span>
+<span id="cb1654-2"><a href="matplotlib-2.html#cb1654-2"></a><span class="bu">print</span> (axes.shape)</span></code></pre></div>
 <pre><code>## (3,)</code></pre>
-<div class="sourceCode" id="cb1656"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1656-1" title="1"><span class="cf">for</span> ax <span class="kw">in</span> axes:</a>
-<a class="sourceLine" id="cb1656-2" title="2">    ax.plot(x, y, <span class="st">&#39;r&#39;</span>)</a>
-<a class="sourceLine" id="cb1656-3" title="3">    ax.set_xlabel(<span class="st">&#39;x&#39;</span>)</a>
-<a class="sourceLine" id="cb1656-4" title="4">    ax.set_ylabel(<span class="st">&#39;y&#39;</span>)</a>
-<a class="sourceLine" id="cb1656-5" title="5">    ax.set_title(<span class="st">&#39;title&#39;</span>)</a>
-<a class="sourceLine" id="cb1656-6" title="6">    ax.text(<span class="fl">0.2</span>,<span class="fl">0.5</span>,<span class="st">&#39;One&#39;</span>)</a></code></pre></div>
-<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002B583EB8&gt;]
+<div class="sourceCode" id="cb1656"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1656-1"><a href="matplotlib-2.html#cb1656-1"></a><span class="cf">for</span> ax <span class="kw">in</span> axes:</span>
+<span id="cb1656-2"><a href="matplotlib-2.html#cb1656-2"></a>    ax.plot(x, y, <span class="st">&#39;r&#39;</span>)</span>
+<span id="cb1656-3"><a href="matplotlib-2.html#cb1656-3"></a>    ax.set_xlabel(<span class="st">&#39;x&#39;</span>)</span>
+<span id="cb1656-4"><a href="matplotlib-2.html#cb1656-4"></a>    ax.set_ylabel(<span class="st">&#39;y&#39;</span>)</span>
+<span id="cb1656-5"><a href="matplotlib-2.html#cb1656-5"></a>    ax.set_title(<span class="st">&#39;title&#39;</span>)</span>
+<span id="cb1656-6"><a href="matplotlib-2.html#cb1656-6"></a>    ax.text(<span class="fl">0.2</span>,<span class="fl">0.5</span>,<span class="st">&#39;One&#39;</span>)</span></code></pre></div>
+<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002C70D198&gt;]
 ## Text(0.5, 0, &#39;x&#39;)
 ## Text(0, 0.5, &#39;y&#39;)
 ## Text(0.5, 1.0, &#39;title&#39;)
 ## Text(0.2, 0.5, &#39;One&#39;)
-## [&lt;matplotlib.lines.Line2D object at 0x000000002B5924E0&gt;]
+## [&lt;matplotlib.lines.Line2D object at 0x000000002C70D780&gt;]
 ## Text(0.5, 0, &#39;x&#39;)
 ## Text(0, 0.5, &#39;y&#39;)
 ## Text(0.5, 1.0, &#39;title&#39;)
 ## Text(0.2, 0.5, &#39;One&#39;)
-## [&lt;matplotlib.lines.Line2D object at 0x000000002B592A58&gt;]
+## [&lt;matplotlib.lines.Line2D object at 0x000000002C70DCF8&gt;]
 ## Text(0.5, 0, &#39;x&#39;)
 ## Text(0, 0.5, &#39;y&#39;)
 ## Text(0.5, 1.0, &#39;title&#39;)
 ## Text(0.2, 0.5, &#39;One&#39;)</code></pre>
-<div class="sourceCode" id="cb1658"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1658-1" title="1">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb1658"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1658-1"><a href="matplotlib-2.html#cb1658-1"></a>plt.show()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-634-1.png" /><!-- --></p>
 <p><strong>Multiple Row Grid</strong><br />
 Multile row grid means axes is an 2-D array. Hence can use two levels of <strong>for</strong> loop to iterate through each row and column</p>
-<div class="sourceCode" id="cb1659"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1659-1" title="1">fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, sharex<span class="op">=</span><span class="st">&#39;col&#39;</span>, sharey<span class="op">=</span><span class="st">&#39;row&#39;</span>)</a>
-<a class="sourceLine" id="cb1659-2" title="2"><span class="bu">print</span> (axes.shape)</a></code></pre></div>
+<div class="sourceCode" id="cb1659"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1659-1"><a href="matplotlib-2.html#cb1659-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, sharex<span class="op">=</span><span class="st">&#39;col&#39;</span>, sharey<span class="op">=</span><span class="st">&#39;row&#39;</span>)</span>
+<span id="cb1659-2"><a href="matplotlib-2.html#cb1659-2"></a><span class="bu">print</span> (axes.shape)</span></code></pre></div>
 <pre><code>## (2, 3)</code></pre>
-<div class="sourceCode" id="cb1661"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1661-1" title="1"><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(axes.shape[<span class="dv">0</span>]):</a>
-<a class="sourceLine" id="cb1661-2" title="2">    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(axes.shape[<span class="dv">1</span>]):</a>
-<a class="sourceLine" id="cb1661-3" title="3">        axes[i, j].text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="bu">str</span>((i, j)),</a>
-<a class="sourceLine" id="cb1661-4" title="4">                      fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1661"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1661-1"><a href="matplotlib-2.html#cb1661-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(axes.shape[<span class="dv">0</span>]):</span>
+<span id="cb1661-2"><a href="matplotlib-2.html#cb1661-2"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(axes.shape[<span class="dv">1</span>]):</span>
+<span id="cb1661-3"><a href="matplotlib-2.html#cb1661-3"></a>        axes[i, j].text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="bu">str</span>((i, j)),</span>
+<span id="cb1661-4"><a href="matplotlib-2.html#cb1661-4"></a>                      fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)</span></code></pre></div>
 <pre><code>## Text(0.5, 0.5, &#39;(0, 0)&#39;)
 ## Text(0.5, 0.5, &#39;(0, 1)&#39;)
 ## Text(0.5, 0.5, &#39;(0, 2)&#39;)
 ## Text(0.5, 0.5, &#39;(1, 0)&#39;)
 ## Text(0.5, 0.5, &#39;(1, 1)&#39;)
 ## Text(0.5, 0.5, &#39;(1, 2)&#39;)</code></pre>
-<div class="sourceCode" id="cb1663"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1663-1" title="1">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb1663"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1663-1"><a href="matplotlib-2.html#cb1663-1"></a>plt.show()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-635-1.png" /><!-- --></p>
 </div>
 <div id="complicated-subplots---different-size" class="section level4">
@@ -1202,63 +1206,41 @@ Multile row grid means axes is an 2-D array. Hence can use two levels of <strong
 </li>
 <li>Manually specify each subplot and their relevant grid position and size</li>
 </ul>
-<div class="sourceCode" id="cb1664"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1664-1" title="1">plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb1664"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1664-1"><a href="matplotlib-2.html#cb1664-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))</span></code></pre></div>
 <pre><code>## &lt;Figure size 500x500 with 0 Axes&gt;</code></pre>
-<div class="sourceCode" id="cb1666"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1666-1" title="1">grid <span class="op">=</span> plt.GridSpec(<span class="dv">2</span>, <span class="dv">3</span>, hspace<span class="op">=</span><span class="fl">0.4</span>, wspace<span class="op">=</span><span class="fl">0.4</span>)</a>
-<a class="sourceLine" id="cb1666-2" title="2">plt.subplot(grid[<span class="dv">0</span>, <span class="dv">0</span>])  <span class="co">#row 0, col 0</span></a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002B71D908&gt;</code></pre>
-<div class="sourceCode" id="cb1668"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1668-1" title="1">plt.subplot(grid[<span class="dv">0</span>, <span class="dv">1</span>:]) <span class="co">#row 0, col 1 to :</span></a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002B75EA58&gt;</code></pre>
-<div class="sourceCode" id="cb1670"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1670-1" title="1">plt.subplot(grid[<span class="dv">1</span>, :<span class="dv">2</span>]) <span class="co">#row 1, col 0:2 </span></a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002B790D68&gt;</code></pre>
-<div class="sourceCode" id="cb1672"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1672-1" title="1">plt.subplot(grid[<span class="dv">1</span>, <span class="dv">2</span>])<span class="op">;</span> <span class="co">#row 1, col 2</span></a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002B7CD390&gt;</code></pre>
-<div class="sourceCode" id="cb1674"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1674-1" title="1">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb1666"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1666-1"><a href="matplotlib-2.html#cb1666-1"></a>grid <span class="op">=</span> plt.GridSpec(<span class="dv">2</span>, <span class="dv">3</span>, hspace<span class="op">=</span><span class="fl">0.4</span>, wspace<span class="op">=</span><span class="fl">0.4</span>)</span>
+<span id="cb1666-2"><a href="matplotlib-2.html#cb1666-2"></a>plt.subplot(grid[<span class="dv">0</span>, <span class="dv">0</span>])  <span class="co">#row 0, col 0</span></span></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002C89A7B8&gt;</code></pre>
+<div class="sourceCode" id="cb1668"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1668-1"><a href="matplotlib-2.html#cb1668-1"></a>plt.subplot(grid[<span class="dv">0</span>, <span class="dv">1</span>:]) <span class="co">#row 0, col 1 to :</span></span></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000000662EC18&gt;</code></pre>
+<div class="sourceCode" id="cb1670"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1670-1"><a href="matplotlib-2.html#cb1670-1"></a>plt.subplot(grid[<span class="dv">1</span>, :<span class="dv">2</span>]) <span class="co">#row 1, col 0:2 </span></span></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000000006662F28&gt;</code></pre>
+<div class="sourceCode" id="cb1672"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1672-1"><a href="matplotlib-2.html#cb1672-1"></a>plt.subplot(grid[<span class="dv">1</span>, <span class="dv">2</span>])<span class="op">;</span> <span class="co">#row 1, col 2</span></span></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000000669E518&gt;</code></pre>
+<div class="sourceCode" id="cb1674"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1674-1"><a href="matplotlib-2.html#cb1674-1"></a>plt.show()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-636-1.png" /><!-- --></p>
-<div class="sourceCode" id="cb1675"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1675-1" title="1">plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb1675"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1675-1"><a href="matplotlib-2.html#cb1675-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))</span></code></pre></div>
 <pre><code>## &lt;Figure size 500x500 with 0 Axes&gt;</code></pre>
-<div class="sourceCode" id="cb1677"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1677-1" title="1">grid <span class="op">=</span> plt.GridSpec(<span class="dv">4</span>, <span class="dv">4</span>, hspace<span class="op">=</span><span class="fl">0.8</span>, wspace<span class="op">=</span><span class="fl">0.4</span>)</a>
-<a class="sourceLine" id="cb1677-2" title="2">plt.subplot(grid[:<span class="dv">3</span>, <span class="dv">0</span>])    <span class="co"># row 0:3, col 0</span></a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002B7E2208&gt;</code></pre>
-<div class="sourceCode" id="cb1679"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1679-1" title="1">plt.subplot(grid[:<span class="dv">3</span>, <span class="dv">1</span>: ])  <span class="co"># row 0:3, col 1:</span></a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002B81C748&gt;</code></pre>
-<div class="sourceCode" id="cb1681"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1681-1" title="1">plt.subplot(grid[<span class="dv">3</span>, <span class="dv">1</span>: ])<span class="op">;</span>  <span class="co"># row 3,   col 1:</span></a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x00000000065E59E8&gt;</code></pre>
-<div class="sourceCode" id="cb1683"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1683-1" title="1">plt.show()</a></code></pre></div>
-<pre><code>## Traceback (most recent call last):
-##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\backends\backend_qt5.py&quot;, line 505, in _draw_idle
-##     self.draw()
-##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\backends\backend_agg.py&quot;, line 388, in draw
-##     self.figure.draw(self.renderer)
-##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\artist.py&quot;, line 38, in draw_wrapper
-##     return draw(artist, renderer, *args, **kwargs)
-##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\figure.py&quot;, line 1709, in draw
-##     renderer, self, artists, self.suppressComposite)
-##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\image.py&quot;, line 135, in _draw_list_compositing_images
-##     a.draw(renderer)
-##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\artist.py&quot;, line 38, in draw_wrapper
-##     return draw(artist, renderer, *args, **kwargs)
-##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\axes\_base.py&quot;, line 2607, in draw
-##     self._update_title_position(renderer)
-##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\axes\_base.py&quot;, line 2548, in _update_title_position
-##     ax.xaxis.get_ticks_position() in choices):
-##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\axis.py&quot;, line 2146, in get_ticks_position
-##     self._get_ticks_position()]
-##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\axis.py&quot;, line 1832, in _get_ticks_position
-##     major = self.majorTicks[0]
-## IndexError: list index out of range</code></pre>
+<div class="sourceCode" id="cb1677"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1677-1"><a href="matplotlib-2.html#cb1677-1"></a>grid <span class="op">=</span> plt.GridSpec(<span class="dv">4</span>, <span class="dv">4</span>, hspace<span class="op">=</span><span class="fl">0.8</span>, wspace<span class="op">=</span><span class="fl">0.4</span>)</span>
+<span id="cb1677-2"><a href="matplotlib-2.html#cb1677-2"></a>plt.subplot(grid[:<span class="dv">3</span>, <span class="dv">0</span>])    <span class="co"># row 0:3, col 0</span></span></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x00000000066B36D8&gt;</code></pre>
+<div class="sourceCode" id="cb1679"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1679-1"><a href="matplotlib-2.html#cb1679-1"></a>plt.subplot(grid[:<span class="dv">3</span>, <span class="dv">1</span>: ])  <span class="co"># row 0:3, col 1:</span></span></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000000006AB8FD0&gt;</code></pre>
+<div class="sourceCode" id="cb1681"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1681-1"><a href="matplotlib-2.html#cb1681-1"></a>plt.subplot(grid[<span class="dv">3</span>, <span class="dv">1</span>: ])<span class="op">;</span>  <span class="co"># row 3,   col 1:</span></span></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000000006716AC8&gt;</code></pre>
+<div class="sourceCode" id="cb1683"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1683-1"><a href="matplotlib-2.html#cb1683-1"></a>plt.show()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-637-1.png" /><!-- --></p>
 <p><strong>-1 means last row or column</strong></p>
-<div class="sourceCode" id="cb1685"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1685-1" title="1">plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">6</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb1684"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1684-1"><a href="matplotlib-2.html#cb1684-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">6</span>))</span></code></pre></div>
 <pre><code>## &lt;Figure size 600x600 with 0 Axes&gt;</code></pre>
-<div class="sourceCode" id="cb1687"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1687-1" title="1">grid <span class="op">=</span> plt.GridSpec(<span class="dv">4</span>, <span class="dv">4</span>, hspace<span class="op">=</span><span class="fl">0.4</span>, wspace<span class="op">=</span><span class="fl">1.2</span>)</a>
-<a class="sourceLine" id="cb1687-2" title="2">plt.subplot(grid[:<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span> ])  <span class="co"># row 0 till last row (not including last row), col 0</span></a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002B7F2828&gt;</code></pre>
-<div class="sourceCode" id="cb1689"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1689-1" title="1">plt.subplot(grid[:<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>:])  <span class="co"># row 0 till last row (not including last row), col 1 till end</span></a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002B7AD208&gt;</code></pre>
-<div class="sourceCode" id="cb1691"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1691-1" title="1">plt.subplot(grid[<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>: ])<span class="op">;</span> <span class="co"># row last row, col 1 till end</span></a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002B71DC50&gt;</code></pre>
-<div class="sourceCode" id="cb1693"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1693-1" title="1">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb1686"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1686-1"><a href="matplotlib-2.html#cb1686-1"></a>grid <span class="op">=</span> plt.GridSpec(<span class="dv">4</span>, <span class="dv">4</span>, hspace<span class="op">=</span><span class="fl">0.4</span>, wspace<span class="op">=</span><span class="fl">1.2</span>)</span>
+<span id="cb1686-2"><a href="matplotlib-2.html#cb1686-2"></a>plt.subplot(grid[:<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span> ])  <span class="co"># row 0 till last row (not including last row), col 0</span></span></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x00000000066BBC18&gt;</code></pre>
+<div class="sourceCode" id="cb1688"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1688-1"><a href="matplotlib-2.html#cb1688-1"></a>plt.subplot(grid[:<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>:])  <span class="co"># row 0 till last row (not including last row), col 1 till end</span></span></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x00000000066BB5C0&gt;</code></pre>
+<div class="sourceCode" id="cb1690"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1690-1"><a href="matplotlib-2.html#cb1690-1"></a>plt.subplot(grid[<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>: ])<span class="op">;</span> <span class="co"># row last row, col 1 till end</span></span></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x00000000066F3828&gt;</code></pre>
+<div class="sourceCode" id="cb1692"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1692-1"><a href="matplotlib-2.html#cb1692-1"></a>plt.show()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-638-1.png" /><!-- --></p>
 </div>
 </div>
@@ -1269,50 +1251,50 @@ Multile row grid means axes is an 2-D array. Hence can use two levels of <strong
 <p>Sometimes when the figure size is too small, plots will overlap each other.
 - <strong>tight_layout()</strong> will introduce extra white space in between the subplots to avoid overlap.<br />
 - The figure became wider.</p>
-<div class="sourceCode" id="cb1694"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1694-1" title="1">fig, axes <span class="op">=</span> plt.subplots( nrows<span class="op">=</span><span class="dv">1</span>,ncols<span class="op">=</span><span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb1694-2" title="2"><span class="cf">for</span> ax <span class="kw">in</span> axes:</a>
-<a class="sourceLine" id="cb1694-3" title="3">    ax.plot(x, y, <span class="st">&#39;r&#39;</span>)</a>
-<a class="sourceLine" id="cb1694-4" title="4">    ax.set_xlabel(<span class="st">&#39;x&#39;</span>)</a>
-<a class="sourceLine" id="cb1694-5" title="5">    ax.set_ylabel(<span class="st">&#39;y&#39;</span>)</a>
-<a class="sourceLine" id="cb1694-6" title="6">    ax.set_title(<span class="st">&#39;title&#39;</span>)</a></code></pre></div>
-<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002B467198&gt;]
+<div class="sourceCode" id="cb1693"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1693-1"><a href="matplotlib-2.html#cb1693-1"></a>fig, axes <span class="op">=</span> plt.subplots( nrows<span class="op">=</span><span class="dv">1</span>,ncols<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb1693-2"><a href="matplotlib-2.html#cb1693-2"></a><span class="cf">for</span> ax <span class="kw">in</span> axes:</span>
+<span id="cb1693-3"><a href="matplotlib-2.html#cb1693-3"></a>    ax.plot(x, y, <span class="st">&#39;r&#39;</span>)</span>
+<span id="cb1693-4"><a href="matplotlib-2.html#cb1693-4"></a>    ax.set_xlabel(<span class="st">&#39;x&#39;</span>)</span>
+<span id="cb1693-5"><a href="matplotlib-2.html#cb1693-5"></a>    ax.set_ylabel(<span class="st">&#39;y&#39;</span>)</span>
+<span id="cb1693-6"><a href="matplotlib-2.html#cb1693-6"></a>    ax.set_title(<span class="st">&#39;title&#39;</span>)</span></code></pre></div>
+<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002C5CB8D0&gt;]
 ## Text(0.5, 0, &#39;x&#39;)
 ## Text(0, 0.5, &#39;y&#39;)
 ## Text(0.5, 1.0, &#39;title&#39;)
-## [&lt;matplotlib.lines.Line2D object at 0x000000002B543F60&gt;]
+## [&lt;matplotlib.lines.Line2D object at 0x00000000066CFF98&gt;]
 ## Text(0.5, 0, &#39;x&#39;)
 ## Text(0, 0.5, &#39;y&#39;)
 ## Text(0.5, 1.0, &#39;title&#39;)</code></pre>
-<div class="sourceCode" id="cb1696"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1696-1" title="1">fig.tight_layout() <span class="co"># adjust the positions of axes so that there is no overlap</span></a>
-<a class="sourceLine" id="cb1696-2" title="2">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb1695"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1695-1"><a href="matplotlib-2.html#cb1695-1"></a>fig.tight_layout() <span class="co"># adjust the positions of axes so that there is no overlap</span></span>
+<span id="cb1695-2"><a href="matplotlib-2.html#cb1695-2"></a>plt.show()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-639-1.png" /><!-- --></p>
 </div>
 <div id="avoid-overlap---change-figure-size" class="section level4">
 <h4><span class="header-section-number">14.4.5.2</span> Avoid Overlap - Change Figure Size</h4>
-<div class="sourceCode" id="cb1697"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1697-1" title="1">fig, axes <span class="op">=</span> plt.subplots( nrows<span class="op">=</span><span class="dv">1</span>,ncols<span class="op">=</span><span class="dv">2</span>,figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">3</span>))</a>
-<a class="sourceLine" id="cb1697-2" title="2"><span class="cf">for</span> ax <span class="kw">in</span> axes:</a>
-<a class="sourceLine" id="cb1697-3" title="3">    ax.plot(x, y, <span class="st">&#39;r&#39;</span>)</a>
-<a class="sourceLine" id="cb1697-4" title="4">    ax.set_xlabel(<span class="st">&#39;x&#39;</span>)</a>
-<a class="sourceLine" id="cb1697-5" title="5">    ax.set_ylabel(<span class="st">&#39;y&#39;</span>)</a>
-<a class="sourceLine" id="cb1697-6" title="6">    ax.set_title(<span class="st">&#39;title&#39;</span>)</a></code></pre></div>
-<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x00000000293D3550&gt;]
+<div class="sourceCode" id="cb1696"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1696-1"><a href="matplotlib-2.html#cb1696-1"></a>fig, axes <span class="op">=</span> plt.subplots( nrows<span class="op">=</span><span class="dv">1</span>,ncols<span class="op">=</span><span class="dv">2</span>,figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">3</span>))</span>
+<span id="cb1696-2"><a href="matplotlib-2.html#cb1696-2"></a><span class="cf">for</span> ax <span class="kw">in</span> axes:</span>
+<span id="cb1696-3"><a href="matplotlib-2.html#cb1696-3"></a>    ax.plot(x, y, <span class="st">&#39;r&#39;</span>)</span>
+<span id="cb1696-4"><a href="matplotlib-2.html#cb1696-4"></a>    ax.set_xlabel(<span class="st">&#39;x&#39;</span>)</span>
+<span id="cb1696-5"><a href="matplotlib-2.html#cb1696-5"></a>    ax.set_ylabel(<span class="st">&#39;y&#39;</span>)</span>
+<span id="cb1696-6"><a href="matplotlib-2.html#cb1696-6"></a>    ax.set_title(<span class="st">&#39;title&#39;</span>)</span></code></pre></div>
+<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x00000000297B5710&gt;]
 ## Text(0.5, 0, &#39;x&#39;)
 ## Text(0, 0.5, &#39;y&#39;)
 ## Text(0.5, 1.0, &#39;title&#39;)
-## [&lt;matplotlib.lines.Line2D object at 0x0000000029904C50&gt;]
+## [&lt;matplotlib.lines.Line2D object at 0x0000000029836A90&gt;]
 ## Text(0.5, 0, &#39;x&#39;)
 ## Text(0, 0.5, &#39;y&#39;)
 ## Text(0.5, 1.0, &#39;title&#39;)</code></pre>
-<div class="sourceCode" id="cb1699"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1699-1" title="1">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb1698"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1698-1"><a href="matplotlib-2.html#cb1698-1"></a>plt.show()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-640-1.png" /><!-- --></p>
 </div>
 <div id="text-within-figure" class="section level4">
 <h4><span class="header-section-number">14.4.5.3</span> Text Within Figure</h4>
-<div class="sourceCode" id="cb1700"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1700-1" title="1">fig <span class="op">=</span> plt.figure()</a>
-<a class="sourceLine" id="cb1700-2" title="2">fig.text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="st">&#39;This Is A Sample&#39;</span>,fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb1699"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1699-1"><a href="matplotlib-2.html#cb1699-1"></a>fig <span class="op">=</span> plt.figure()</span>
+<span id="cb1699-2"><a href="matplotlib-2.html#cb1699-2"></a>fig.text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="st">&#39;This Is A Sample&#39;</span>,fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)<span class="op">;</span></span></code></pre></div>
 <pre><code>## Text(0.5, 0.5, &#39;This Is A Sample&#39;)</code></pre>
-<div class="sourceCode" id="cb1702"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1702-1" title="1">axes <span class="op">=</span> fig.add_axes([<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>]) <span class="co"># left, bottom, width, height (range 0 to 1)</span></a>
-<a class="sourceLine" id="cb1702-2" title="2">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb1701"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1701-1"><a href="matplotlib-2.html#cb1701-1"></a>axes <span class="op">=</span> fig.add_axes([<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>]) <span class="co"># left, bottom, width, height (range 0 to 1)</span></span>
+<span id="cb1701-2"><a href="matplotlib-2.html#cb1701-2"></a>plt.show()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-641-1.png" /><!-- --></p>
 </div>
 </div>
@@ -1320,100 +1302,100 @@ Multile row grid means axes is an 2-D array. Hence can use two levels of <strong
 <h3><span class="header-section-number">14.4.6</span> Axes Customization</h3>
 <div id="y-axis-limit" class="section level4">
 <h4><span class="header-section-number">14.4.6.1</span> Y-Axis Limit</h4>
-<div class="sourceCode" id="cb1703"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1703-1" title="1">fig <span class="op">=</span> plt.figure()</a>
-<a class="sourceLine" id="cb1703-2" title="2">fig.add_axes([<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>], ylim<span class="op">=</span>(<span class="op">-</span><span class="dv">2</span>,<span class="dv">5</span>))<span class="op">;</span></a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._axes.Axes object at 0x000000002B6A99E8&gt;</code></pre>
-<div class="sourceCode" id="cb1705"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1705-1" title="1">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb1702"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1702-1"><a href="matplotlib-2.html#cb1702-1"></a>fig <span class="op">=</span> plt.figure()</span>
+<span id="cb1702-2"><a href="matplotlib-2.html#cb1702-2"></a>fig.add_axes([<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>], ylim<span class="op">=</span>(<span class="op">-</span><span class="dv">2</span>,<span class="dv">5</span>))<span class="op">;</span></span></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._axes.Axes object at 0x000000002C72E080&gt;</code></pre>
+<div class="sourceCode" id="cb1704"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1704-1"><a href="matplotlib-2.html#cb1704-1"></a>plt.show()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-642-1.png" /><!-- --></p>
 </div>
 <div id="text-within-axes" class="section level4">
 <h4><span class="header-section-number">14.4.6.2</span> Text Within Axes</h4>
-<div class="sourceCode" id="cb1706"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1706-1" title="1">fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, sharex<span class="op">=</span><span class="st">&#39;col&#39;</span>, sharey<span class="op">=</span><span class="st">&#39;row&#39;</span>)</a>
-<a class="sourceLine" id="cb1706-2" title="2"><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</a>
-<a class="sourceLine" id="cb1706-3" title="3">    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>):</a>
-<a class="sourceLine" id="cb1706-4" title="4">        ax[i, j].text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="bu">str</span>((i, j)),</a>
-<a class="sourceLine" id="cb1706-5" title="5">                      fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1705"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1705-1"><a href="matplotlib-2.html#cb1705-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, sharex<span class="op">=</span><span class="st">&#39;col&#39;</span>, sharey<span class="op">=</span><span class="st">&#39;row&#39;</span>)</span>
+<span id="cb1705-2"><a href="matplotlib-2.html#cb1705-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
+<span id="cb1705-3"><a href="matplotlib-2.html#cb1705-3"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>):</span>
+<span id="cb1705-4"><a href="matplotlib-2.html#cb1705-4"></a>        ax[i, j].text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="bu">str</span>((i, j)),</span>
+<span id="cb1705-5"><a href="matplotlib-2.html#cb1705-5"></a>                      fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)</span></code></pre></div>
 <pre><code>## Text(0.5, 0.5, &#39;(0, 0)&#39;)
 ## Text(0.5, 0.5, &#39;(0, 1)&#39;)
 ## Text(0.5, 0.5, &#39;(0, 2)&#39;)
 ## Text(0.5, 0.5, &#39;(1, 0)&#39;)
 ## Text(0.5, 0.5, &#39;(1, 1)&#39;)
 ## Text(0.5, 0.5, &#39;(1, 2)&#39;)</code></pre>
-<div class="sourceCode" id="cb1708"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1708-1" title="1">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb1707"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1707-1"><a href="matplotlib-2.html#cb1707-1"></a>plt.show()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-643-1.png" /><!-- --></p>
-<div class="sourceCode" id="cb1709"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1709-1" title="1">plt.text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="st">&#39;one&#39;</span>,fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1708"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1708-1"><a href="matplotlib-2.html#cb1708-1"></a>plt.text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="st">&#39;one&#39;</span>,fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)</span></code></pre></div>
 <pre><code>## Text(0.5, 0.5, &#39;one&#39;)</code></pre>
-<div class="sourceCode" id="cb1711"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1711-1" title="1">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb1710"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1710-1"><a href="matplotlib-2.html#cb1710-1"></a>plt.show()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-644-1.png" /><!-- --></p>
 </div>
 <div id="share-y-axis-label" class="section level4">
 <h4><span class="header-section-number">14.4.6.3</span> Share Y Axis Label</h4>
-<div class="sourceCode" id="cb1712"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1712-1" title="1">fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, sharex<span class="op">=</span><span class="st">&#39;col&#39;</span>, sharey<span class="op">=</span><span class="st">&#39;row&#39;</span>) <span class="co"># removed inner label</span></a>
-<a class="sourceLine" id="cb1712-2" title="2">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb1711"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1711-1"><a href="matplotlib-2.html#cb1711-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, sharex<span class="op">=</span><span class="st">&#39;col&#39;</span>, sharey<span class="op">=</span><span class="st">&#39;row&#39;</span>) <span class="co"># removed inner label</span></span>
+<span id="cb1711-2"><a href="matplotlib-2.html#cb1711-2"></a>plt.show()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-645-1.png" /><!-- --></p>
 </div>
 <div id="create-subplot-individually" class="section level4">
 <h4><span class="header-section-number">14.4.6.4</span> Create Subplot Individually</h4>
 <p>Each call lto <strong>subplot()</strong> will create a new container for subsequent plot command</p>
-<div class="sourceCode" id="cb1713"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1713-1" title="1">plt.subplot(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">1</span>)</a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000000006B01EB8&gt;</code></pre>
-<div class="sourceCode" id="cb1715"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1715-1" title="1">plt.text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="st">&#39;one&#39;</span>,fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1712"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1712-1"><a href="matplotlib-2.html#cb1712-1"></a>plt.subplot(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000000006D47358&gt;</code></pre>
+<div class="sourceCode" id="cb1714"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1714-1"><a href="matplotlib-2.html#cb1714-1"></a>plt.text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="st">&#39;one&#39;</span>,fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)</span></code></pre></div>
 <pre><code>## Text(0.5, 0.5, &#39;one&#39;)</code></pre>
-<div class="sourceCode" id="cb1717"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1717-1" title="1">plt.subplot(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">8</span>)</a></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000000006BB3B70&gt;</code></pre>
-<div class="sourceCode" id="cb1719"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1719-1" title="1">plt.text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="st">&#39;eight&#39;</span>,fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1716"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1716-1"><a href="matplotlib-2.html#cb1716-1"></a>plt.subplot(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">8</span>)</span></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000000006D6F358&gt;</code></pre>
+<div class="sourceCode" id="cb1718"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1718-1"><a href="matplotlib-2.html#cb1718-1"></a>plt.text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="st">&#39;eight&#39;</span>,fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)</span></code></pre></div>
 <pre><code>## Text(0.5, 0.5, &#39;eight&#39;)</code></pre>
-<div class="sourceCode" id="cb1721"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1721-1" title="1">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb1720"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1720-1"><a href="matplotlib-2.html#cb1720-1"></a>plt.show()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-646-1.png" /><!-- --></p>
 <p><strong>Iterate through subplots (ax) to populate them</strong></p>
-<div class="sourceCode" id="cb1722"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1722-1" title="1">fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, sharex<span class="op">=</span><span class="st">&#39;col&#39;</span>, sharey<span class="op">=</span><span class="st">&#39;row&#39;</span>)</a>
-<a class="sourceLine" id="cb1722-2" title="2"><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</a>
-<a class="sourceLine" id="cb1722-3" title="3">    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>):</a>
-<a class="sourceLine" id="cb1722-4" title="4">        ax[i, j].text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="bu">str</span>((i, j)),</a>
-<a class="sourceLine" id="cb1722-5" title="5">                      fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1721"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1721-1"><a href="matplotlib-2.html#cb1721-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, sharex<span class="op">=</span><span class="st">&#39;col&#39;</span>, sharey<span class="op">=</span><span class="st">&#39;row&#39;</span>)</span>
+<span id="cb1721-2"><a href="matplotlib-2.html#cb1721-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
+<span id="cb1721-3"><a href="matplotlib-2.html#cb1721-3"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>):</span>
+<span id="cb1721-4"><a href="matplotlib-2.html#cb1721-4"></a>        ax[i, j].text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="bu">str</span>((i, j)),</span>
+<span id="cb1721-5"><a href="matplotlib-2.html#cb1721-5"></a>                      fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)</span></code></pre></div>
 <pre><code>## Text(0.5, 0.5, &#39;(0, 0)&#39;)
 ## Text(0.5, 0.5, &#39;(0, 1)&#39;)
 ## Text(0.5, 0.5, &#39;(0, 2)&#39;)
 ## Text(0.5, 0.5, &#39;(1, 0)&#39;)
 ## Text(0.5, 0.5, &#39;(1, 1)&#39;)
 ## Text(0.5, 0.5, &#39;(1, 2)&#39;)</code></pre>
-<div class="sourceCode" id="cb1724"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1724-1" title="1">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb1723"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1723-1"><a href="matplotlib-2.html#cb1723-1"></a>plt.show()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-647-1.png" /><!-- --></p>
 </div>
 </div>
 </div>
 <div id="histogram" class="section level2">
 <h2><span class="header-section-number">14.5</span> Histogram</h2>
-<div class="sourceCode" id="cb1725"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1725-1" title="1">plt.hist(mydf.value1, bins<span class="op">=</span><span class="dv">12</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb1724"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1724-1"><a href="matplotlib-2.html#cb1724-1"></a>plt.hist(mydf.value1, bins<span class="op">=</span><span class="dv">12</span>)<span class="op">;</span></span></code></pre></div>
 <pre><code>## (array([ 2.,  4., 10., 16., 35., 38., 31., 27., 22.,  6.,  6.,  3.]), array([37.09329803, 39.25349925, 41.41370047, 43.57390169, 45.73410291,
 ##        47.89430413, 50.05450535, 52.21470657, 54.37490779, 56.53510901,
 ##        58.69531023, 60.85551145, 63.01571267]), &lt;a list of 12 Patch objects&gt;)</code></pre>
-<div class="sourceCode" id="cb1727"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1727-1" title="1">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb1726"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1726-1"><a href="matplotlib-2.html#cb1726-1"></a>plt.show()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-648-1.png" /><!-- --></p>
 </div>
 <div id="scatter-plot" class="section level2">
 <h2><span class="header-section-number">14.6</span> Scatter Plot</h2>
-<div class="sourceCode" id="cb1728"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1728-1" title="1">plt.scatter(mydf.value1, mydf.value2)</a></code></pre></div>
-<pre><code>## &lt;matplotlib.collections.PathCollection object at 0x0000000006AE7CF8&gt;</code></pre>
-<div class="sourceCode" id="cb1730"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1730-1" title="1">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb1727"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1727-1"><a href="matplotlib-2.html#cb1727-1"></a>plt.scatter(mydf.value1, mydf.value2)</span></code></pre></div>
+<pre><code>## &lt;matplotlib.collections.PathCollection object at 0x0000000006C95B70&gt;</code></pre>
+<div class="sourceCode" id="cb1729"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1729-1"><a href="matplotlib-2.html#cb1729-1"></a>plt.show()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-649-1.png" /><!-- --></p>
 </div>
 <div id="bar-chart" class="section level2">
 <h2><span class="header-section-number">14.7</span> Bar Chart</h2>
-<div class="sourceCode" id="cb1731"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1731-1" title="1">com_grp <span class="op">=</span> mydf.groupby(<span class="st">&#39;comp&#39;</span>)</a>
-<a class="sourceLine" id="cb1731-2" title="2">grpdf <span class="op">=</span> com_grp[<span class="st">&#39;value1&#39;</span>].<span class="bu">sum</span>().reset_index()</a>
-<a class="sourceLine" id="cb1731-3" title="3">grpdf</a></code></pre></div>
+<div class="sourceCode" id="cb1730"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1730-1"><a href="matplotlib-2.html#cb1730-1"></a>com_grp <span class="op">=</span> mydf.groupby(<span class="st">&#39;comp&#39;</span>)</span>
+<span id="cb1730-2"><a href="matplotlib-2.html#cb1730-2"></a>grpdf <span class="op">=</span> com_grp[<span class="st">&#39;value1&#39;</span>].<span class="bu">sum</span>().reset_index()</span>
+<span id="cb1730-3"><a href="matplotlib-2.html#cb1730-3"></a>grpdf</span></code></pre></div>
 <pre><code>##   comp       value1
 ## 0   C1  3988.891405
 ## 1   C2  3007.230028
 ## 2   C3  3017.883718</code></pre>
-<div class="sourceCode" id="cb1733"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1733-1" title="1">plt.bar(grpdf.comp, grpdf.value1)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb1732"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1732-1"><a href="matplotlib-2.html#cb1732-1"></a>plt.bar(grpdf.comp, grpdf.value1)<span class="op">;</span></span></code></pre></div>
 <pre><code>## &lt;BarContainer object of 3 artists&gt;</code></pre>
-<div class="sourceCode" id="cb1735"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1735-1" title="1">plt.xlabel(<span class="st">&#39;Company&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1734"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1734-1"><a href="matplotlib-2.html#cb1734-1"></a>plt.xlabel(<span class="st">&#39;Company&#39;</span>)</span></code></pre></div>
 <pre><code>## Text(0.5, 0, &#39;Company&#39;)</code></pre>
-<div class="sourceCode" id="cb1737"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1737-1" title="1">plt.ylabel(<span class="st">&#39;Sum of Value 1&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1736"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1736-1"><a href="matplotlib-2.html#cb1736-1"></a>plt.ylabel(<span class="st">&#39;Sum of Value 1&#39;</span>)</span></code></pre></div>
 <pre><code>## Text(0, 0.5, &#39;Sum of Value 1&#39;)</code></pre>
-<div class="sourceCode" id="cb1739"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1739-1" title="1">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb1738"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1738-1"><a href="matplotlib-2.html#cb1738-1"></a>plt.show()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-651-1.png" /><!-- --></p>
 </div>
 </div>
@@ -1451,7 +1433,7 @@ gitbook.start({
 "instapper": false
 },
 "fontsettings": {
-"theme": "white",
+"theme": "Sep;ia",
 "family": "sans",
 "size": 2
 },
@@ -1475,11 +1457,25 @@ gitbook.start({
 "toolbar": {
 "position": "fixed"
 },
-"searh": true
+"search": true
 });
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

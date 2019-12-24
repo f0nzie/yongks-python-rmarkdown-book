@@ -361,9 +361,7 @@ Using purely frequency count as a feature will obviously bias on long document (
 #### + Tokenizer
 
 **Default Tokenizer**  
-By default, vectorizer apply tokenizer to select minimum **2-chars alphanumeric words**.
-
-**Train** the vectorizer using `fit_transform()`.
+By default, vectorizer apply tokenizer to select minimum **2-chars alphanumeric words**.  Below **train** the vectorizer using **`fit_transform()`**.
 
 ```{python}
 from sklearn.feature_extraction.text import CountVectorizer
@@ -417,16 +415,70 @@ pd.DataFrame(X4.toarray(), columns=vec4.get_feature_names())
 
 #### Equation
 
+$$tf(t,d) = \text{occurances of term t in document t} \\
+n     = \text{number of documents} \\
+df(t) = \text{number of documents containing term t} \\
+idf(t)  = log \frac{n}{df(t))} + 1 \\
+idf(t)  = log \frac{1+n}{1+df(t))} + 1 \text{.... smoothing, prevent zero division} \\
+tfidf(t) = tf(t) * idf(t,d)    \text{.... raw, no normalization on tf(t)} \\
+tfidf(t) = \frac{tf(t,d)}{||V||_2} * idf(t)    \text{.... tf normalized with euclidean norm}$$
+
+#### `TfidfTransformer`
+
+To generate TFIDF vectors, first run `CountVectorizer` to get frequency vector matrix. Then take the output into this transformer.
+
+```{python}
+from sklearn.feature_extraction.text import TfidfTransformer
+
+corpus = [
+    "apple apple apple apple apple banana",
+    "apple apple",
+    "apple apple apple banana",
+    "durian durian durian"]
+    
+count_vec = CountVectorizer()
+X = count_vec.fit_transform(corpus)
+
+transformer1 = TfidfTransformer(smooth_idf=False,norm=None)
+transformer2 = TfidfTransformer(smooth_idf=False,norm='l2')
+transformer3 = TfidfTransformer(smooth_idf=True,norm='l2')
+
+tfidf1 = transformer1.fit_transform(X)
+tfidf2 = transformer2.fit_transform(X)
+tfidf3 = transformer3.fit_transform(X)
+
+print(
+  'Frequency Count: \n', pd.DataFrame(X.toarray(), columns=count_vec.get_feature_names()),
+  '\n\nVocabulary: ', count_vec.vocabulary_,
+  '\n\nTFIDF Without Norm:\n',tfidf1.toarray(), 
+  '\n\nTFIDF with L2 Norm:\n',tfidf2.toarray(),  
+  '\n\nTFIDF with L2 Norm (smooth):\n',tfidf3.toarray())
+```
+
+#### `TfidfVectorizer`
+
+This vectorizer gives end to end processing from corpus into TFIDF vector matrix, including tokenization, stopwords.
+
 ```{python}
 from sklearn.feature_extraction.text import TfidfVectorizer
-vec5 = TfidfVectorizer()
-X5   = vec5.fit_transform(corpus)
+my_tokenizer = RegexpTokenizer(r'[a-zA-Z0-9\']+')  ## Custom Tokenizer
+
+vec1 = TfidfVectorizer(tokenizer=my_tokenizer.tokenize,  stop_words='english') #default smooth_idf=True, norm='l2'
+vec2 = TfidfVectorizer(tokenizer=my_tokenizer.tokenize, stop_words='english',smooth_idf=False)
+vec3 = TfidfVectorizer(tokenizer=my_tokenizer.tokenize, stop_words='english', norm=None)
+
+X1   = vec1.fit_transform(corpus)  # FIT the vectorizer, return fitted data
+X2   = vec2.fit_transform(corpus)  # FIT the vectorizer, return fitted data
+X3   = vec3.fit_transform(corpus)  # FIT the vectorizer, return fitted data
+
 print(
-  'TFIDF Features:\n',
-  pd.DataFrame(X5.toarray().round(2), columns=vec5.get_feature_names()),
-  '\n\nTF Features:\n',
-  pd.DataFrame(X.toarray(), columns=vec.get_feature_names())
-)
+  'TFIDF Features (Default with Smooth and L2 Norm):\n',
+  pd.DataFrame(X1.toarray().round(3), columns=vec1.get_feature_names()),
+  '\n\nTFIDF Features (without Smoothing):\n',
+  pd.DataFrame(X2.toarray().round(3), columns=vec2.get_feature_names()),
+  '\n\nTFIDF Features (without L2 Norm):\n',
+  pd.DataFrame(X3.toarray().round(3), columns=vec3.get_feature_names())
+  )
 ```
 
 ## Appliction

@@ -53,9 +53,9 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -64,14 +64,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -80,9 +82,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  { background-color: #f8f8f8; }
+  {  background-color: #f8f8f8; }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -940,6 +942,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="18.8.3" data-path="nlp.html"><a href="nlp.html#tfidf"><i class="fa fa-check"></i><b>18.8.3</b> TFIDF</a><ul>
 <li class="chapter" data-level="18.8.3.1" data-path="nlp.html"><a href="nlp.html#equation"><i class="fa fa-check"></i><b>18.8.3.1</b> Equation</a></li>
+<li class="chapter" data-level="18.8.3.2" data-path="nlp.html"><a href="nlp.html#tfidftransformer"><i class="fa fa-check"></i><b>18.8.3.2</b> <code>TfidfTransformer</code></a></li>
+<li class="chapter" data-level="18.8.3.3" data-path="nlp.html"><a href="nlp.html#tfidfvectorizer"><i class="fa fa-check"></i><b>18.8.3.3</b> <code>TfidfVectorizer</code></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="18.9" data-path="nlp.html"><a href="nlp.html#appliction"><i class="fa fa-check"></i><b>18.9</b> Appliction</a><ul>
@@ -976,26 +980,26 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">5.1</span> If Statement</h2>
 <div id="multiline-if..-statements" class="section level3">
 <h3><span class="header-section-number">5.1.1</span> Multiline If.. Statements</h3>
-<div class="sourceCode" id="cb334"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb334-1" title="1">price <span class="op">=</span> <span class="dv">102</span></a>
-<a class="sourceLine" id="cb334-2" title="2"><span class="cf">if</span> price <span class="op">&lt;</span><span class="dv">100</span>:</a>
-<a class="sourceLine" id="cb334-3" title="3">    <span class="bu">print</span> (<span class="st">&#39;buy&#39;</span>)</a>
-<a class="sourceLine" id="cb334-4" title="4"><span class="cf">elif</span> price <span class="op">&lt;</span> <span class="dv">110</span>:</a>
-<a class="sourceLine" id="cb334-5" title="5">    <span class="bu">print</span> (<span class="st">&#39;hold&#39;</span>)</a>
-<a class="sourceLine" id="cb334-6" title="6"><span class="cf">elif</span> price <span class="op">&lt;</span> <span class="dv">120</span>:</a>
-<a class="sourceLine" id="cb334-7" title="7">    <span class="bu">print</span> (<span class="st">&#39;think about it&#39;</span>)</a>
-<a class="sourceLine" id="cb334-8" title="8"><span class="cf">else</span>:</a>
-<a class="sourceLine" id="cb334-9" title="9">    <span class="bu">print</span> (<span class="st">&#39;sell&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb334"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb334-1"><a href="control-and-loops.html#cb334-1"></a>price <span class="op">=</span> <span class="dv">102</span></span>
+<span id="cb334-2"><a href="control-and-loops.html#cb334-2"></a><span class="cf">if</span> price <span class="op">&lt;</span><span class="dv">100</span>:</span>
+<span id="cb334-3"><a href="control-and-loops.html#cb334-3"></a>    <span class="bu">print</span> (<span class="st">&#39;buy&#39;</span>)</span>
+<span id="cb334-4"><a href="control-and-loops.html#cb334-4"></a><span class="cf">elif</span> price <span class="op">&lt;</span> <span class="dv">110</span>:</span>
+<span id="cb334-5"><a href="control-and-loops.html#cb334-5"></a>    <span class="bu">print</span> (<span class="st">&#39;hold&#39;</span>)</span>
+<span id="cb334-6"><a href="control-and-loops.html#cb334-6"></a><span class="cf">elif</span> price <span class="op">&lt;</span> <span class="dv">120</span>:</span>
+<span id="cb334-7"><a href="control-and-loops.html#cb334-7"></a>    <span class="bu">print</span> (<span class="st">&#39;think about it&#39;</span>)</span>
+<span id="cb334-8"><a href="control-and-loops.html#cb334-8"></a><span class="cf">else</span>:</span>
+<span id="cb334-9"><a href="control-and-loops.html#cb334-9"></a>    <span class="bu">print</span> (<span class="st">&#39;sell&#39;</span>)</span></code></pre></div>
 <pre><code>## hold</code></pre>
-<div class="sourceCode" id="cb336"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb336-1" title="1"><span class="bu">print</span>(<span class="st">&#39;end of programming&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb336"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb336-1"><a href="control-and-loops.html#cb336-1"></a><span class="bu">print</span>(<span class="st">&#39;end of programming&#39;</span>)</span></code></pre></div>
 <pre><code>## end of programming</code></pre>
 </div>
 <div id="single-line-if-..-statement" class="section level3">
 <h3><span class="header-section-number">5.1.2</span> Single Line If .. Statement</h3>
-<div class="sourceCode" id="cb338"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb338-1" title="1">price <span class="op">=</span> <span class="dv">70</span></a>
-<a class="sourceLine" id="cb338-2" title="2"><span class="cf">if</span> price<span class="op">&lt;</span><span class="dv">80</span>: <span class="bu">print</span>(<span class="st">&#39;buy&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb338"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb338-1"><a href="control-and-loops.html#cb338-1"></a>price <span class="op">=</span> <span class="dv">70</span></span>
+<span id="cb338-2"><a href="control-and-loops.html#cb338-2"></a><span class="cf">if</span> price<span class="op">&lt;</span><span class="dv">80</span>: <span class="bu">print</span>(<span class="st">&#39;buy&#39;</span>)</span></code></pre></div>
 <pre><code>## buy</code></pre>
-<div class="sourceCode" id="cb340"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb340-1" title="1">price <span class="op">=</span> <span class="dv">85</span></a>
-<a class="sourceLine" id="cb340-2" title="2"><span class="co">&#39;buy&#39;</span> <span class="cf">if</span> (price<span class="op">&lt;</span><span class="dv">80</span>) <span class="cf">else</span> <span class="st">&#39;dont buy&#39;</span></a></code></pre></div>
+<div class="sourceCode" id="cb340"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb340-1"><a href="control-and-loops.html#cb340-1"></a>price <span class="op">=</span> <span class="dv">85</span></span>
+<span id="cb340-2"><a href="control-and-loops.html#cb340-2"></a><span class="co">&#39;buy&#39;</span> <span class="cf">if</span> (price<span class="op">&lt;</span><span class="dv">80</span>) <span class="cf">else</span> <span class="st">&#39;dont buy&#39;</span></span></code></pre></div>
 <pre><code>## &#39;dont buy&#39;</code></pre>
 </div>
 </div>
@@ -1003,8 +1007,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">5.2</span> For Loops</h2>
 <div id="loop-thorugh-range" class="section level3">
 <h3><span class="header-section-number">5.2.1</span> Loop thorugh ‘range’</h3>
-<div class="sourceCode" id="cb342"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb342-1" title="1"><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span> (<span class="dv">1</span>,<span class="dv">10</span>,<span class="dv">2</span>):</a>
-<a class="sourceLine" id="cb342-2" title="2">    <span class="bu">print</span> (<span class="st">&#39;Odds Number : &#39;</span>,i) </a></code></pre></div>
+<div class="sourceCode" id="cb342"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb342-1"><a href="control-and-loops.html#cb342-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span> (<span class="dv">1</span>,<span class="dv">10</span>,<span class="dv">2</span>):</span>
+<span id="cb342-2"><a href="control-and-loops.html#cb342-2"></a>    <span class="bu">print</span> (<span class="st">&#39;Odds Number : &#39;</span>,i) </span></code></pre></div>
 <pre><code>## Odds Number :  1
 ## Odds Number :  3
 ## Odds Number :  5
@@ -1015,9 +1019,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">5.2.2</span> Loop through ‘list’</h3>
 <div id="standard-for-loop" class="section level4">
 <h4><span class="header-section-number">5.2.2.1</span> Standard For Loop</h4>
-<div class="sourceCode" id="cb344"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb344-1" title="1">letters <span class="op">=</span> [<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>]</a>
-<a class="sourceLine" id="cb344-2" title="2"><span class="cf">for</span> e <span class="kw">in</span> letters:</a>
-<a class="sourceLine" id="cb344-3" title="3">    <span class="bu">print</span> (<span class="st">&#39;Letter : &#39;</span>,e)</a></code></pre></div>
+<div class="sourceCode" id="cb344"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb344-1"><a href="control-and-loops.html#cb344-1"></a>letters <span class="op">=</span> [<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>]</span>
+<span id="cb344-2"><a href="control-and-loops.html#cb344-2"></a><span class="cf">for</span> e <span class="kw">in</span> letters:</span>
+<span id="cb344-3"><a href="control-and-loops.html#cb344-3"></a>    <span class="bu">print</span> (<span class="st">&#39;Letter : &#39;</span>,e)</span></code></pre></div>
 <pre><code>## Letter :  a
 ## Letter :  b
 ## Letter :  c
@@ -1027,23 +1031,23 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">5.2.2.2</span> List Comprehension</h4>
 <p>Iterate through existing list, and <strong>build new list</strong> based on condition<br />
 <code>new_list = [expression(i) for i in old_list]</code></p>
-<div class="sourceCode" id="cb346"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb346-1" title="1">s <span class="op">=</span> [<span class="st">&#39;abc&#39;</span>,<span class="st">&#39;abcd&#39;</span>,<span class="st">&#39;bcde&#39;</span>,<span class="st">&#39;bcdee&#39;</span>,<span class="st">&#39;cdefg&#39;</span>]</a>
-<a class="sourceLine" id="cb346-2" title="2">[x.upper() <span class="cf">for</span> x <span class="kw">in</span> s]</a></code></pre></div>
+<div class="sourceCode" id="cb346"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb346-1"><a href="control-and-loops.html#cb346-1"></a>s <span class="op">=</span> [<span class="st">&#39;abc&#39;</span>,<span class="st">&#39;abcd&#39;</span>,<span class="st">&#39;bcde&#39;</span>,<span class="st">&#39;bcdee&#39;</span>,<span class="st">&#39;cdefg&#39;</span>]</span>
+<span id="cb346-2"><a href="control-and-loops.html#cb346-2"></a>[x.upper() <span class="cf">for</span> x <span class="kw">in</span> s]</span></code></pre></div>
 <pre><code>## [&#39;ABC&#39;, &#39;ABCD&#39;, &#39;BCDE&#39;, &#39;BCDEE&#39;, &#39;CDEFG&#39;]</code></pre>
 <p>Extend list comprehension can be extended with <strong><code>if</code></strong> condition**<br />
 <code>new_list = [expression(i) for i in old_list if filter(i)]</code></p>
-<div class="sourceCode" id="cb348"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb348-1" title="1">old_list    <span class="op">=</span> [<span class="st">&#39;abc&#39;</span>,<span class="st">&#39;abcd&#39;</span>,<span class="st">&#39;bcde&#39;</span>,<span class="st">&#39;bcdee&#39;</span>,<span class="st">&#39;cdefg&#39;</span>]</a>
-<a class="sourceLine" id="cb348-2" title="2">matching <span class="op">=</span> [ x.upper() <span class="cf">for</span> x <span class="kw">in</span> old_list <span class="cf">if</span> <span class="st">&#39;bcd&#39;</span> <span class="kw">in</span> x ]</a>
-<a class="sourceLine" id="cb348-3" title="3"><span class="bu">print</span>( matching )</a></code></pre></div>
+<div class="sourceCode" id="cb348"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb348-1"><a href="control-and-loops.html#cb348-1"></a>old_list    <span class="op">=</span> [<span class="st">&#39;abc&#39;</span>,<span class="st">&#39;abcd&#39;</span>,<span class="st">&#39;bcde&#39;</span>,<span class="st">&#39;bcdee&#39;</span>,<span class="st">&#39;cdefg&#39;</span>]</span>
+<span id="cb348-2"><a href="control-and-loops.html#cb348-2"></a>matching <span class="op">=</span> [ x.upper() <span class="cf">for</span> x <span class="kw">in</span> old_list <span class="cf">if</span> <span class="st">&#39;bcd&#39;</span> <span class="kw">in</span> x ]</span>
+<span id="cb348-3"><a href="control-and-loops.html#cb348-3"></a><span class="bu">print</span>( matching )</span></code></pre></div>
 <pre><code>## [&#39;ABCD&#39;, &#39;BCDE&#39;, &#39;BCDEE&#39;]</code></pre>
 </div>
 </div>
 <div id="loop-through-dictionary" class="section level3">
 <h3><span class="header-section-number">5.2.3</span> Loop Through ‘Dictionary’</h3>
 <p>Looping through dict will picup <strong>key</strong></p>
-<div class="sourceCode" id="cb350"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb350-1" title="1">d <span class="op">=</span> {<span class="st">&quot;x&quot;</span>: <span class="dv">1</span>, <span class="st">&quot;y&quot;</span>: <span class="dv">2</span>}</a>
-<a class="sourceLine" id="cb350-2" title="2"><span class="cf">for</span> key <span class="kw">in</span> d:</a>
-<a class="sourceLine" id="cb350-3" title="3">    <span class="bu">print</span> (key, d[key])</a></code></pre></div>
+<div class="sourceCode" id="cb350"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb350-1"><a href="control-and-loops.html#cb350-1"></a>d <span class="op">=</span> {<span class="st">&quot;x&quot;</span>: <span class="dv">1</span>, <span class="st">&quot;y&quot;</span>: <span class="dv">2</span>}</span>
+<span id="cb350-2"><a href="control-and-loops.html#cb350-2"></a><span class="cf">for</span> key <span class="kw">in</span> d:</span>
+<span id="cb350-3"><a href="control-and-loops.html#cb350-3"></a>    <span class="bu">print</span> (key, d[key])</span></code></pre></div>
 <pre><code>## x 1
 ## y 2</code></pre>
 </div>
@@ -1069,26 +1073,26 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="basic-generator-function" class="section level3">
 <h3><span class="header-section-number">5.3.1</span> Basic Generator Function</h3>
 <p>Below example give clear understanding of how generator works</p>
-<div class="sourceCode" id="cb352"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb352-1" title="1"><span class="kw">def</span> my_gen():</a>
-<a class="sourceLine" id="cb352-2" title="2">    n <span class="op">=</span> <span class="dv">1</span></a>
-<a class="sourceLine" id="cb352-3" title="3">    <span class="bu">print</span>(<span class="st">&#39;This is printed first&#39;</span>)</a>
-<a class="sourceLine" id="cb352-4" title="4">    <span class="co"># Generator function contains yield statements</span></a>
-<a class="sourceLine" id="cb352-5" title="5">    <span class="cf">yield</span> n</a>
-<a class="sourceLine" id="cb352-6" title="6"></a>
-<a class="sourceLine" id="cb352-7" title="7">    n <span class="op">+=</span> <span class="dv">1</span></a>
-<a class="sourceLine" id="cb352-8" title="8">    <span class="bu">print</span>(<span class="st">&#39;This is printed second&#39;</span>)</a>
-<a class="sourceLine" id="cb352-9" title="9">    <span class="cf">yield</span> n</a>
-<a class="sourceLine" id="cb352-10" title="10"></a>
-<a class="sourceLine" id="cb352-11" title="11">    n <span class="op">+=</span> <span class="dv">1</span></a>
-<a class="sourceLine" id="cb352-12" title="12">    <span class="bu">print</span>(<span class="st">&#39;This is printed at last&#39;</span>)</a>
-<a class="sourceLine" id="cb352-13" title="13">    <span class="cf">yield</span> n</a></code></pre></div>
-<div class="sourceCode" id="cb353"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb353-1" title="1">a <span class="op">=</span> my_gen()</a>
-<a class="sourceLine" id="cb353-2" title="2"><span class="bu">type</span>(a)</a></code></pre></div>
+<div class="sourceCode" id="cb352"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb352-1"><a href="control-and-loops.html#cb352-1"></a><span class="kw">def</span> my_gen():</span>
+<span id="cb352-2"><a href="control-and-loops.html#cb352-2"></a>    n <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb352-3"><a href="control-and-loops.html#cb352-3"></a>    <span class="bu">print</span>(<span class="st">&#39;This is printed first&#39;</span>)</span>
+<span id="cb352-4"><a href="control-and-loops.html#cb352-4"></a>    <span class="co"># Generator function contains yield statements</span></span>
+<span id="cb352-5"><a href="control-and-loops.html#cb352-5"></a>    <span class="cf">yield</span> n</span>
+<span id="cb352-6"><a href="control-and-loops.html#cb352-6"></a></span>
+<span id="cb352-7"><a href="control-and-loops.html#cb352-7"></a>    n <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb352-8"><a href="control-and-loops.html#cb352-8"></a>    <span class="bu">print</span>(<span class="st">&#39;This is printed second&#39;</span>)</span>
+<span id="cb352-9"><a href="control-and-loops.html#cb352-9"></a>    <span class="cf">yield</span> n</span>
+<span id="cb352-10"><a href="control-and-loops.html#cb352-10"></a></span>
+<span id="cb352-11"><a href="control-and-loops.html#cb352-11"></a>    n <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb352-12"><a href="control-and-loops.html#cb352-12"></a>    <span class="bu">print</span>(<span class="st">&#39;This is printed at last&#39;</span>)</span>
+<span id="cb352-13"><a href="control-and-loops.html#cb352-13"></a>    <span class="cf">yield</span> n</span></code></pre></div>
+<div class="sourceCode" id="cb353"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb353-1"><a href="control-and-loops.html#cb353-1"></a>a <span class="op">=</span> my_gen()</span>
+<span id="cb353-2"><a href="control-and-loops.html#cb353-2"></a><span class="bu">type</span>(a)</span></code></pre></div>
 <pre><code>## &lt;class &#39;generator&#39;&gt;</code></pre>
-<div class="sourceCode" id="cb355"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb355-1" title="1"><span class="bu">next</span>(a)</a></code></pre></div>
+<div class="sourceCode" id="cb355"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb355-1"><a href="control-and-loops.html#cb355-1"></a><span class="bu">next</span>(a)</span></code></pre></div>
 <pre><code>## This is printed first
 ## 1</code></pre>
-<div class="sourceCode" id="cb357"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb357-1" title="1"><span class="bu">next</span>(a)</a></code></pre></div>
+<div class="sourceCode" id="cb357"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb357-1"><a href="control-and-loops.html#cb357-1"></a><span class="bu">next</span>(a)</span></code></pre></div>
 <pre><code>## This is printed second
 ## 2</code></pre>
 </div>
@@ -1097,12 +1101,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Generator is only useful when it uses <strong>for-loop</strong>
 - for-loop within generator
 - for-loop to iterate through a generator</p>
-<div class="sourceCode" id="cb359"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb359-1" title="1"><span class="kw">def</span> rev_str(my_str):</a>
-<a class="sourceLine" id="cb359-2" title="2">    length <span class="op">=</span> <span class="bu">len</span>(my_str)</a>
-<a class="sourceLine" id="cb359-3" title="3">    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(length <span class="op">-</span> <span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>):</a>
-<a class="sourceLine" id="cb359-4" title="4">        <span class="cf">yield</span> my_str[i]</a></code></pre></div>
-<div class="sourceCode" id="cb360"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb360-1" title="1"><span class="cf">for</span> c <span class="kw">in</span> rev_str(<span class="st">&quot;hello&quot;</span>):</a>
-<a class="sourceLine" id="cb360-2" title="2">     <span class="bu">print</span>(c)</a></code></pre></div>
+<div class="sourceCode" id="cb359"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb359-1"><a href="control-and-loops.html#cb359-1"></a><span class="kw">def</span> rev_str(my_str):</span>
+<span id="cb359-2"><a href="control-and-loops.html#cb359-2"></a>    length <span class="op">=</span> <span class="bu">len</span>(my_str)</span>
+<span id="cb359-3"><a href="control-and-loops.html#cb359-3"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(length <span class="op">-</span> <span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>):</span>
+<span id="cb359-4"><a href="control-and-loops.html#cb359-4"></a>        <span class="cf">yield</span> my_str[i]</span></code></pre></div>
+<div class="sourceCode" id="cb360"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb360-1"><a href="control-and-loops.html#cb360-1"></a><span class="cf">for</span> c <span class="kw">in</span> rev_str(<span class="st">&quot;hello&quot;</span>):</span>
+<span id="cb360-2"><a href="control-and-loops.html#cb360-2"></a>     <span class="bu">print</span>(c)</span></code></pre></div>
 <pre><code>## o
 ## l
 ## l
@@ -1112,38 +1116,38 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="generator-expression" class="section level3">
 <h3><span class="header-section-number">5.3.3</span> Generator Expression</h3>
 <p>Use () to create an annonymous generator function</p>
-<div class="sourceCode" id="cb362"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb362-1" title="1">my_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">10</span>]</a>
-<a class="sourceLine" id="cb362-2" title="2">a <span class="op">=</span> (x<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> x <span class="kw">in</span> my_list)</a></code></pre></div>
-<div class="sourceCode" id="cb363"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb363-1" title="1"><span class="bu">next</span>(a)</a></code></pre></div>
+<div class="sourceCode" id="cb362"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb362-1"><a href="control-and-loops.html#cb362-1"></a>my_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">10</span>]</span>
+<span id="cb362-2"><a href="control-and-loops.html#cb362-2"></a>a <span class="op">=</span> (x<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> x <span class="kw">in</span> my_list)</span></code></pre></div>
+<div class="sourceCode" id="cb363"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb363-1"><a href="control-and-loops.html#cb363-1"></a><span class="bu">next</span>(a)</span></code></pre></div>
 <pre><code>## 1</code></pre>
-<div class="sourceCode" id="cb365"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb365-1" title="1"><span class="bu">next</span>(a)</a></code></pre></div>
+<div class="sourceCode" id="cb365"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb365-1"><a href="control-and-loops.html#cb365-1"></a><span class="bu">next</span>(a)</span></code></pre></div>
 <pre><code>## 9</code></pre>
-<div class="sourceCode" id="cb367"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb367-1" title="1"><span class="bu">sum</span>(a) <span class="co"># sum the power of 6,10</span></a></code></pre></div>
+<div class="sourceCode" id="cb367"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb367-1"><a href="control-and-loops.html#cb367-1"></a><span class="bu">sum</span>(a) <span class="co"># sum the power of 6,10</span></span></code></pre></div>
 <pre><code>## 136</code></pre>
 </div>
 <div id="compare-to-iterator-class" class="section level3">
 <h3><span class="header-section-number">5.3.4</span> Compare to Iterator Class</h3>
-<div class="sourceCode" id="cb369"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb369-1" title="1"><span class="kw">class</span> PowTwo:</a>
-<a class="sourceLine" id="cb369-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, <span class="bu">max</span> <span class="op">=</span> <span class="dv">0</span>):</a>
-<a class="sourceLine" id="cb369-3" title="3">        <span class="va">self</span>.<span class="bu">max</span> <span class="op">=</span> <span class="bu">max</span></a>
-<a class="sourceLine" id="cb369-4" title="4"></a>
-<a class="sourceLine" id="cb369-5" title="5">    <span class="kw">def</span> <span class="fu">__iter__</span>(<span class="va">self</span>):</a>
-<a class="sourceLine" id="cb369-6" title="6">        <span class="va">self</span>.n <span class="op">=</span> <span class="dv">0</span></a>
-<a class="sourceLine" id="cb369-7" title="7">        <span class="cf">return</span> <span class="va">self</span></a>
-<a class="sourceLine" id="cb369-8" title="8"></a>
-<a class="sourceLine" id="cb369-9" title="9">    <span class="kw">def</span> <span class="fu">__next__</span>(<span class="va">self</span>):</a>
-<a class="sourceLine" id="cb369-10" title="10">        <span class="cf">if</span> <span class="va">self</span>.n <span class="op">&gt;</span> <span class="va">self</span>.<span class="bu">max</span>:</a>
-<a class="sourceLine" id="cb369-11" title="11">            <span class="cf">raise</span> <span class="pp">StopIteration</span></a>
-<a class="sourceLine" id="cb369-12" title="12"></a>
-<a class="sourceLine" id="cb369-13" title="13">        result <span class="op">=</span> <span class="dv">2</span> <span class="op">**</span> <span class="va">self</span>.n</a>
-<a class="sourceLine" id="cb369-14" title="14">        <span class="va">self</span>.n <span class="op">+=</span> <span class="dv">1</span></a>
-<a class="sourceLine" id="cb369-15" title="15">        <span class="cf">return</span> result</a></code></pre></div>
+<div class="sourceCode" id="cb369"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb369-1"><a href="control-and-loops.html#cb369-1"></a><span class="kw">class</span> PowTwo:</span>
+<span id="cb369-2"><a href="control-and-loops.html#cb369-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, <span class="bu">max</span> <span class="op">=</span> <span class="dv">0</span>):</span>
+<span id="cb369-3"><a href="control-and-loops.html#cb369-3"></a>        <span class="va">self</span>.<span class="bu">max</span> <span class="op">=</span> <span class="bu">max</span></span>
+<span id="cb369-4"><a href="control-and-loops.html#cb369-4"></a></span>
+<span id="cb369-5"><a href="control-and-loops.html#cb369-5"></a>    <span class="kw">def</span> <span class="fu">__iter__</span>(<span class="va">self</span>):</span>
+<span id="cb369-6"><a href="control-and-loops.html#cb369-6"></a>        <span class="va">self</span>.n <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb369-7"><a href="control-and-loops.html#cb369-7"></a>        <span class="cf">return</span> <span class="va">self</span></span>
+<span id="cb369-8"><a href="control-and-loops.html#cb369-8"></a></span>
+<span id="cb369-9"><a href="control-and-loops.html#cb369-9"></a>    <span class="kw">def</span> <span class="fu">__next__</span>(<span class="va">self</span>):</span>
+<span id="cb369-10"><a href="control-and-loops.html#cb369-10"></a>        <span class="cf">if</span> <span class="va">self</span>.n <span class="op">&gt;</span> <span class="va">self</span>.<span class="bu">max</span>:</span>
+<span id="cb369-11"><a href="control-and-loops.html#cb369-11"></a>            <span class="cf">raise</span> <span class="pp">StopIteration</span></span>
+<span id="cb369-12"><a href="control-and-loops.html#cb369-12"></a></span>
+<span id="cb369-13"><a href="control-and-loops.html#cb369-13"></a>        result <span class="op">=</span> <span class="dv">2</span> <span class="op">**</span> <span class="va">self</span>.n</span>
+<span id="cb369-14"><a href="control-and-loops.html#cb369-14"></a>        <span class="va">self</span>.n <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb369-15"><a href="control-and-loops.html#cb369-15"></a>        <span class="cf">return</span> result</span></code></pre></div>
 <p><strong>Obviously, Generator is more concise and cleaner</strong></p>
-<div class="sourceCode" id="cb370"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb370-1" title="1"><span class="kw">def</span> PowTwoGen(<span class="bu">max</span> <span class="op">=</span> <span class="dv">0</span>):</a>
-<a class="sourceLine" id="cb370-2" title="2">    n <span class="op">=</span> <span class="dv">0</span></a>
-<a class="sourceLine" id="cb370-3" title="3">    <span class="cf">while</span> n <span class="op">&lt;</span> <span class="bu">max</span>:</a>
-<a class="sourceLine" id="cb370-4" title="4">        <span class="cf">yield</span> <span class="dv">2</span> <span class="op">**</span> n</a>
-<a class="sourceLine" id="cb370-5" title="5">        n <span class="op">+=</span> <span class="dv">1</span></a></code></pre></div>
+<div class="sourceCode" id="cb370"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb370-1"><a href="control-and-loops.html#cb370-1"></a><span class="kw">def</span> PowTwoGen(<span class="bu">max</span> <span class="op">=</span> <span class="dv">0</span>):</span>
+<span id="cb370-2"><a href="control-and-loops.html#cb370-2"></a>    n <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb370-3"><a href="control-and-loops.html#cb370-3"></a>    <span class="cf">while</span> n <span class="op">&lt;</span> <span class="bu">max</span>:</span>
+<span id="cb370-4"><a href="control-and-loops.html#cb370-4"></a>        <span class="cf">yield</span> <span class="dv">2</span> <span class="op">**</span> n</span>
+<span id="cb370-5"><a href="control-and-loops.html#cb370-5"></a>        n <span class="op">+=</span> <span class="dv">1</span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -1181,7 +1185,7 @@ gitbook.start({
 "instapper": false
 },
 "fontsettings": {
-"theme": "white",
+"theme": "Sep;ia",
 "family": "sans",
 "size": 2
 },
@@ -1205,11 +1209,25 @@ gitbook.start({
 "toolbar": {
 "position": "fixed"
 },
-"searh": true
+"search": true
 });
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

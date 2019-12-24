@@ -53,9 +53,9 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -64,14 +64,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -80,9 +82,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  { background-color: #f8f8f8; }
+  {  background-color: #f8f8f8; }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -940,6 +942,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="18.8.3" data-path="nlp.html"><a href="nlp.html#tfidf"><i class="fa fa-check"></i><b>18.8.3</b> TFIDF</a><ul>
 <li class="chapter" data-level="18.8.3.1" data-path="nlp.html"><a href="nlp.html#equation"><i class="fa fa-check"></i><b>18.8.3.1</b> Equation</a></li>
+<li class="chapter" data-level="18.8.3.2" data-path="nlp.html"><a href="nlp.html#tfidftransformer"><i class="fa fa-check"></i><b>18.8.3.2</b> <code>TfidfTransformer</code></a></li>
+<li class="chapter" data-level="18.8.3.3" data-path="nlp.html"><a href="nlp.html#tfidfvectorizer"><i class="fa fa-check"></i><b>18.8.3.3</b> <code>TfidfVectorizer</code></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="18.9" data-path="nlp.html"><a href="nlp.html#appliction"><i class="fa fa-check"></i><b>18.9</b> Appliction</a><ul>
@@ -982,66 +986,66 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>In the below exmaple, <strong>a, b and c </strong> refer to the <strong>same memory location</strong>:<br />
 - Notice when an object assigned to another object, they refer to the same memory location<br />
 - When two variable refers to the same value, they refer to the same memory location</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb17-1" title="1">a <span class="op">=</span> <span class="dv">123</span></a>
-<a class="sourceLine" id="cb17-2" title="2">b <span class="op">=</span> <span class="dv">123</span>  </a>
-<a class="sourceLine" id="cb17-3" title="3">c <span class="op">=</span> a</a>
-<a class="sourceLine" id="cb17-4" title="4"><span class="bu">print</span> (<span class="st">&#39;Data of a =&#39;</span>,  a,</a>
-<a class="sourceLine" id="cb17-5" title="5">       <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Data of b =&#39;</span>,b,</a>
-<a class="sourceLine" id="cb17-6" title="6">       <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Data of c =&#39;</span>,c,</a>
-<a class="sourceLine" id="cb17-7" title="7">       <span class="st">&#39;</span><span class="ch">\n</span><span class="st">ID of a = &#39;</span>, <span class="bu">id</span>(a),</a>
-<a class="sourceLine" id="cb17-8" title="8">       <span class="st">&#39;</span><span class="ch">\n</span><span class="st">ID of b = &#39;</span>, <span class="bu">id</span>(b),</a>
-<a class="sourceLine" id="cb17-9" title="9">       <span class="st">&#39;</span><span class="ch">\n</span><span class="st">ID of c = &#39;</span>, <span class="bu">id</span>(c)</a>
-<a class="sourceLine" id="cb17-10" title="10">)</a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="python-fundamental.html#cb17-1"></a>a <span class="op">=</span> <span class="dv">123</span></span>
+<span id="cb17-2"><a href="python-fundamental.html#cb17-2"></a>b <span class="op">=</span> <span class="dv">123</span>  </span>
+<span id="cb17-3"><a href="python-fundamental.html#cb17-3"></a>c <span class="op">=</span> a</span>
+<span id="cb17-4"><a href="python-fundamental.html#cb17-4"></a><span class="bu">print</span> (<span class="st">&#39;Data of a =&#39;</span>,  a,</span>
+<span id="cb17-5"><a href="python-fundamental.html#cb17-5"></a>       <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Data of b =&#39;</span>,b,</span>
+<span id="cb17-6"><a href="python-fundamental.html#cb17-6"></a>       <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Data of c =&#39;</span>,c,</span>
+<span id="cb17-7"><a href="python-fundamental.html#cb17-7"></a>       <span class="st">&#39;</span><span class="ch">\n</span><span class="st">ID of a = &#39;</span>, <span class="bu">id</span>(a),</span>
+<span id="cb17-8"><a href="python-fundamental.html#cb17-8"></a>       <span class="st">&#39;</span><span class="ch">\n</span><span class="st">ID of b = &#39;</span>, <span class="bu">id</span>(b),</span>
+<span id="cb17-9"><a href="python-fundamental.html#cb17-9"></a>       <span class="st">&#39;</span><span class="ch">\n</span><span class="st">ID of c = &#39;</span>, <span class="bu">id</span>(c)</span>
+<span id="cb17-10"><a href="python-fundamental.html#cb17-10"></a>)</span></code></pre></div>
 <pre><code>## Data of a = 123 
 ## Data of b = 123 
 ## Data of c = 123 
-## ID of a =  140735502200160 
-## ID of b =  140735502200160 
-## ID of c =  140735502200160</code></pre>
+## ID of a =  140733801278816 
+## ID of b =  140733801278816 
+## ID of c =  140733801278816</code></pre>
 <p>Changing data value (using assignment) changes <strong>the reference</strong></p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb19-1" title="1">a <span class="op">=</span> <span class="dv">123</span></a>
-<a class="sourceLine" id="cb19-2" title="2">b <span class="op">=</span> a</a>
-<a class="sourceLine" id="cb19-3" title="3">a <span class="op">=</span> <span class="dv">456</span>  <span class="co"># reassignemnt changed a memory reference</span></a>
-<a class="sourceLine" id="cb19-4" title="4">         <span class="co"># b memory reference not changed</span></a>
-<a class="sourceLine" id="cb19-5" title="5"><span class="bu">print</span> (<span class="st">&#39;Data of a =&#39;</span>,a,</a>
-<a class="sourceLine" id="cb19-6" title="6">     <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Data of b =&#39;</span>,b,</a>
-<a class="sourceLine" id="cb19-7" title="7">     <span class="st">&#39;</span><span class="ch">\n</span><span class="st">ID of a = &#39;</span>, <span class="bu">id</span>(a),</a>
-<a class="sourceLine" id="cb19-8" title="8">     <span class="st">&#39;</span><span class="ch">\n</span><span class="st">ID of b = &#39;</span>, <span class="bu">id</span>(b)</a>
-<a class="sourceLine" id="cb19-9" title="9">)</a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="python-fundamental.html#cb19-1"></a>a <span class="op">=</span> <span class="dv">123</span></span>
+<span id="cb19-2"><a href="python-fundamental.html#cb19-2"></a>b <span class="op">=</span> a</span>
+<span id="cb19-3"><a href="python-fundamental.html#cb19-3"></a>a <span class="op">=</span> <span class="dv">456</span>  <span class="co"># reassignemnt changed a memory reference</span></span>
+<span id="cb19-4"><a href="python-fundamental.html#cb19-4"></a>         <span class="co"># b memory reference not changed</span></span>
+<span id="cb19-5"><a href="python-fundamental.html#cb19-5"></a><span class="bu">print</span> (<span class="st">&#39;Data of a =&#39;</span>,a,</span>
+<span id="cb19-6"><a href="python-fundamental.html#cb19-6"></a>     <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Data of b =&#39;</span>,b,</span>
+<span id="cb19-7"><a href="python-fundamental.html#cb19-7"></a>     <span class="st">&#39;</span><span class="ch">\n</span><span class="st">ID of a = &#39;</span>, <span class="bu">id</span>(a),</span>
+<span id="cb19-8"><a href="python-fundamental.html#cb19-8"></a>     <span class="st">&#39;</span><span class="ch">\n</span><span class="st">ID of b = &#39;</span>, <span class="bu">id</span>(b)</span>
+<span id="cb19-9"><a href="python-fundamental.html#cb19-9"></a>)</span></code></pre></div>
 <pre><code>## Data of a = 456 
 ## Data of b = 123 
-## ID of a =  689560624 
-## ID of b =  140735502200160</code></pre>
+## ID of a =  694148144 
+## ID of b =  140733801278816</code></pre>
 </div>
 <div id="assignment" class="section level2">
 <h2><span class="header-section-number">2.2</span> Assignment</h2>
 <div id="multiple-assignment" class="section level3">
 <h3><span class="header-section-number">2.2.1</span> Multiple Assignment</h3>
 <p>Assign multiple variable at the same time with same value. Note that all object created using this method refer to the <strong>same memory location</strong>.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb21-1" title="1">x <span class="op">=</span> y <span class="op">=</span> <span class="st">&#39;same mem loc&#39;</span></a>
-<a class="sourceLine" id="cb21-2" title="2"><span class="bu">print</span> (<span class="st">&#39;x = &#39;</span>, x,</a>
-<a class="sourceLine" id="cb21-3" title="3">     <span class="st">&#39;</span><span class="ch">\n</span><span class="st">y = &#39;</span>, y,</a>
-<a class="sourceLine" id="cb21-4" title="4">     <span class="st">&#39;</span><span class="ch">\n</span><span class="st">id(x) = &#39;</span>, <span class="bu">id</span>(x), </a>
-<a class="sourceLine" id="cb21-5" title="5">     <span class="st">&#39;</span><span class="ch">\n</span><span class="st">id(y) = &#39;</span>, <span class="bu">id</span>(y)</a>
-<a class="sourceLine" id="cb21-6" title="6">)</a></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="python-fundamental.html#cb21-1"></a>x <span class="op">=</span> y <span class="op">=</span> <span class="st">&#39;same mem loc&#39;</span></span>
+<span id="cb21-2"><a href="python-fundamental.html#cb21-2"></a><span class="bu">print</span> (<span class="st">&#39;x = &#39;</span>, x,</span>
+<span id="cb21-3"><a href="python-fundamental.html#cb21-3"></a>     <span class="st">&#39;</span><span class="ch">\n</span><span class="st">y = &#39;</span>, y,</span>
+<span id="cb21-4"><a href="python-fundamental.html#cb21-4"></a>     <span class="st">&#39;</span><span class="ch">\n</span><span class="st">id(x) = &#39;</span>, <span class="bu">id</span>(x), </span>
+<span id="cb21-5"><a href="python-fundamental.html#cb21-5"></a>     <span class="st">&#39;</span><span class="ch">\n</span><span class="st">id(y) = &#39;</span>, <span class="bu">id</span>(y)</span>
+<span id="cb21-6"><a href="python-fundamental.html#cb21-6"></a>)</span></code></pre></div>
 <pre><code>## x =  same mem loc 
 ## y =  same mem loc 
-## id(x) =  689738352 
-## id(y) =  689738352</code></pre>
+## id(x) =  694327536 
+## id(y) =  694327536</code></pre>
 </div>
 <div id="augmented-assignment" class="section level3">
 <h3><span class="header-section-number">2.2.2</span> Augmented Assignment</h3>
-<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb23-1" title="1">x <span class="op">=</span> <span class="dv">1</span></a>
-<a class="sourceLine" id="cb23-2" title="2">y <span class="op">=</span> x <span class="op">+</span> <span class="dv">1</span></a>
-<a class="sourceLine" id="cb23-3" title="3">y <span class="op">+=</span> <span class="dv">1</span></a>
-<a class="sourceLine" id="cb23-4" title="4"><span class="bu">print</span> (<span class="st">&#39;y = &#39;</span>, y)</a></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="python-fundamental.html#cb23-1"></a>x <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb23-2"><a href="python-fundamental.html#cb23-2"></a>y <span class="op">=</span> x <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb23-3"><a href="python-fundamental.html#cb23-3"></a>y <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb23-4"><a href="python-fundamental.html#cb23-4"></a><span class="bu">print</span> (<span class="st">&#39;y = &#39;</span>, y)</span></code></pre></div>
 <pre><code>## y =  3</code></pre>
 </div>
 <div id="unpacking-assingment" class="section level3">
 <h3><span class="header-section-number">2.2.3</span> Unpacking Assingment</h3>
 <p>Assign multiple value to multiple variabels at the same time.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb25-1" title="1">x,y <span class="op">=</span> <span class="dv">1</span>,<span class="dv">3</span></a>
-<a class="sourceLine" id="cb25-2" title="2"><span class="bu">print</span> (x,y)</a></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="python-fundamental.html#cb25-1"></a>x,y <span class="op">=</span> <span class="dv">1</span>,<span class="dv">3</span></span>
+<span id="cb25-2"><a href="python-fundamental.html#cb25-2"></a><span class="bu">print</span> (x,y)</span></code></pre></div>
 <pre><code>## 1 3</code></pre>
 </div>
 </div>
@@ -1080,7 +1084,7 @@ gitbook.start({
 "instapper": false
 },
 "fontsettings": {
-"theme": "white",
+"theme": "Sep;ia",
 "family": "sans",
 "size": 2
 },
@@ -1104,11 +1108,25 @@ gitbook.start({
 "toolbar": {
 "position": "fixed"
 },
-"searh": true
+"search": true
 });
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
