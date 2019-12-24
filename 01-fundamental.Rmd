@@ -1116,13 +1116,28 @@ animal_names.clear()
 
 
 ## Sets
-Set is unordered collection of unique items
+Set is **unordered** collection of **unique items**. Set is **mutable**
+
+### Creation
+
+Set can be declared with `{}`, unlike list creation uses '[]'.
 
 ```{python}
 myset = {'a','b','c','d','a','b','e','f','g'}
 print (myset) # notice no repetition values
 ```
 
+Set can be created from list, and then converted back to list
+
+```{python}
+mylist = ['a','b','c','d','a','b','e','f','g']
+myset = set(mylist)
+my_unique_list = list(myset)
+print (
+  'Original List       : ', mylist,
+  '\nConvert to set      : ', myset,
+  '\nConvert back to list: ', my_unique_list) # notice no repetition values
+```
 
 ### Membership Test
 
@@ -1130,7 +1145,6 @@ print (myset) # notice no repetition values
 print ('a' in myset)      # is member ?
 print ('f' not in myset)  # is not member ?
 ```
-
 
 ### Subset Test
 Subset Test : <=  
@@ -1141,7 +1155,6 @@ mysubset = {'d','g'}
 mysubset <= myset
 ```
 
-
 Proper Subset test that the master set **contain at least one element** which is not in the subset
 
 ```{python}
@@ -1150,29 +1163,27 @@ print ('Is Subset : ', mysubset <= myset)
 print ('Is Proper Subet : ', mysubset < myset)
 ```
 
-
-### Union using '|'
+### Union using `|`
 
 ```{python}
-{'a','b','c'} | {'e','f'}
+{'a','b','c'} | {'a','e','f'}
 ```
 
+### Intersection using `&`
 
-### Intersection using '&'
 Any elments that exist in both left and right set
 
 ```{python}
 {'a','b','c','d'} & {'c','d','e','f'}
 ```
 
+### Difference using `-`
 
-### Difference using '-'
-Anything in **left** that is **not in right** 
+Remove **right** from **left**
 
 ```{python}
 {'a','b','c','d'} - {'c','d','e','f'}
 ```
-
 
 ## range
 **range(X)** generates sequence of integer object

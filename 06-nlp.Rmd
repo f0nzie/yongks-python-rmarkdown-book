@@ -19,7 +19,6 @@ pd.set_option( 'display.width', 90)         # number of characters per row
 
 ## Word Tokenizer
 
-
 ### Custom Tokenizer
 
 #### Split By Regex Pattern
@@ -80,6 +79,31 @@ Treebank assume input text is **A sentence**, hence any period combined with wor
 ```{python}
 from nltk.tokenize.treebank   import TreebankWordTokenizer
 TreebankWordTokenizer().tokenize("hi @ali-baba, you are aweeeeeesome! isn't it. Believe it.:)")
+```
+
+### Corpus Token Extractor
+
+
+```{python}
+from nltk.tokenize import word_tokenize
+from nlpia.data.loaders import harry_docs as corpus
+
+doc_tokens=[]
+for doc in corpus:
+  doc_tokens += [word_tokenize(doc.lower())]  ## adding a LISt into a LIST
+
+corpus_tokens = sum(doc_tokens,[])  ### WOW !!!
+
+print('Corpus (Contain 3 Documents):')
+for c in corpus:
+  print(c)
+
+print('\nTokens For Each Document:')
+for d in doc_tokens:
+  print(d)
+
+print('\nTokens For Entire Corpus (Unique):')
+print(sorted(set(corpus_tokens)))
 ```
 
 ## Sentence Tokenizer
@@ -404,6 +428,29 @@ print(
   pd.DataFrame(X.toarray(), columns=vec.get_feature_names())
 )
 ```
+
+## Appliction
+
+### Document Similarity
+
+Document1 and Document 2 are mutiplicate of Document0, therefore their consine similarity is the same.
+
+```{python}
+documents = (
+    "apple apple banana",
+    "apple apple banana apple apple banana",
+    "apple apple banana apple apple banana apple apple banana")
+    
+from sklearn.feature_extraction.text import TfidfVectorizer
+tfidf_vec = TfidfVectorizer()
+tfidf_matrix = tfidf_vec.fit_transform(documents)
+
+from sklearn.metrics.pairwise import cosine_similarity
+print('Cosine Similarity betwen doc0 and doc1:\n',cosine_similarity(tfidf_matrix[0], tfidf_matrix[1]))
+print('Cosine Similarity betwen doc1 and doc2:\n',cosine_similarity(tfidf_matrix[1], tfidf_matrix[2]))
+print('Cosine Similarity betwen doc1 and doc2:\n',cosine_similarity(tfidf_matrix[0], tfidf_matrix[2]))
+```
+
 
 ## Naive Bayes
 

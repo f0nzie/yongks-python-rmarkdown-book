@@ -24,7 +24,7 @@
 <meta name="author" content="Yong Keh Soon" />
 
 
-<meta name="date" content="2019-12-23" />
+<meta name="date" content="2019-12-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -53,9 +53,9 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -64,14 +64,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -80,9 +82,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  { background-color: #f8f8f8; }
+  {  background-color: #f8f8f8; }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -207,11 +209,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3.3" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#dict-are-mutable"><i class="fa fa-check"></i><b>4.3.3</b> Dict are Mutable</a></li>
 </ul></li>
 <li class="chapter" data-level="4.4" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#sets"><i class="fa fa-check"></i><b>4.4</b> Sets</a><ul>
-<li class="chapter" data-level="4.4.1" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#membership-test"><i class="fa fa-check"></i><b>4.4.1</b> Membership Test</a></li>
-<li class="chapter" data-level="4.4.2" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#subset-test"><i class="fa fa-check"></i><b>4.4.2</b> Subset Test</a></li>
-<li class="chapter" data-level="4.4.3" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#union-using"><i class="fa fa-check"></i><b>4.4.3</b> Union using ‘|’</a></li>
-<li class="chapter" data-level="4.4.4" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#intersection-using"><i class="fa fa-check"></i><b>4.4.4</b> Intersection using ‘&amp;’</a></li>
-<li class="chapter" data-level="4.4.5" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#difference-using--"><i class="fa fa-check"></i><b>4.4.5</b> Difference using ‘-’</a></li>
+<li class="chapter" data-level="4.4.1" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#creation"><i class="fa fa-check"></i><b>4.4.1</b> Creation</a></li>
+<li class="chapter" data-level="4.4.2" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#membership-test"><i class="fa fa-check"></i><b>4.4.2</b> Membership Test</a></li>
+<li class="chapter" data-level="4.4.3" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#subset-test"><i class="fa fa-check"></i><b>4.4.3</b> Subset Test</a></li>
+<li class="chapter" data-level="4.4.4" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#union-using"><i class="fa fa-check"></i><b>4.4.4</b> Union using <code>|</code></a></li>
+<li class="chapter" data-level="4.4.5" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#intersection-using"><i class="fa fa-check"></i><b>4.4.5</b> Intersection using <code>&amp;</code></a></li>
+<li class="chapter" data-level="4.4.6" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#difference-using--"><i class="fa fa-check"></i><b>4.4.6</b> Difference using <code>-</code></a></li>
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html#range"><i class="fa fa-check"></i><b>4.5</b> range</a></li>
 </ul></li>
@@ -550,6 +553,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.1.2" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.word_tokenize"><i class="fa fa-check"></i><b>18.1.2</b> <code>nltk.tokenize.word_tokenize()</code></a></li>
 <li class="chapter" data-level="18.1.3" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.casual.casual_tokenize"><i class="fa fa-check"></i><b>18.1.3</b> <code>nltk.tokenize.casual.casual_tokenize()</code></a></li>
 <li class="chapter" data-level="18.1.4" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.treebank.treebankwordtokenizer.tokenize"><i class="fa fa-check"></i><b>18.1.4</b> <code>nltk.tokenize.treebank.TreebankWordTokenizer().tokenize()</code></a></li>
+<li class="chapter" data-level="18.1.5" data-path="nlp.html"><a href="nlp.html#corpus-token-extractor"><i class="fa fa-check"></i><b>18.1.5</b> Corpus Token Extractor</a></li>
 </ul></li>
 <li class="chapter" data-level="18.2" data-path="nlp.html"><a href="nlp.html#sentence-tokenizer"><i class="fa fa-check"></i><b>18.2</b> Sentence Tokenizer</a><ul>
 <li class="chapter" data-level="18.2.1" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.sent_tokenize"><i class="fa fa-check"></i><b>18.2.1</b> <code>nltk.tokenize.sent_tokenize()</code></a></li>
@@ -577,12 +581,15 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.8.2" data-path="nlp.html"><a href="nlp.html#frequency-count-1"><i class="fa fa-check"></i><b>18.8.2</b> Frequency Count</a></li>
 <li class="chapter" data-level="18.8.3" data-path="nlp.html"><a href="nlp.html#tfidf"><i class="fa fa-check"></i><b>18.8.3</b> TFIDF</a></li>
 </ul></li>
-<li class="chapter" data-level="18.9" data-path="nlp.html"><a href="nlp.html#naive-bayes"><i class="fa fa-check"></i><b>18.9</b> Naive Bayes</a><ul>
-<li class="chapter" data-level="18.9.1" data-path="nlp.html"><a href="nlp.html#libraries-1"><i class="fa fa-check"></i><b>18.9.1</b> Libraries</a></li>
-<li class="chapter" data-level="18.9.2" data-path="nlp.html"><a href="nlp.html#the-data-2"><i class="fa fa-check"></i><b>18.9.2</b> The Data</a></li>
-<li class="chapter" data-level="18.9.3" data-path="nlp.html"><a href="nlp.html#bag-of-words"><i class="fa fa-check"></i><b>18.9.3</b> Bag of Words</a></li>
-<li class="chapter" data-level="18.9.4" data-path="nlp.html"><a href="nlp.html#build-the-model"><i class="fa fa-check"></i><b>18.9.4</b> Build The Model</a></li>
-<li class="chapter" data-level="18.9.5" data-path="nlp.html"><a href="nlp.html#train-set-prediction"><i class="fa fa-check"></i><b>18.9.5</b> Train Set Prediction</a></li>
+<li class="chapter" data-level="18.9" data-path="nlp.html"><a href="nlp.html#appliction"><i class="fa fa-check"></i><b>18.9</b> Appliction</a><ul>
+<li class="chapter" data-level="18.9.1" data-path="nlp.html"><a href="nlp.html#document-similarity"><i class="fa fa-check"></i><b>18.9.1</b> Document Similarity</a></li>
+</ul></li>
+<li class="chapter" data-level="18.10" data-path="nlp.html"><a href="nlp.html#naive-bayes"><i class="fa fa-check"></i><b>18.10</b> Naive Bayes</a><ul>
+<li class="chapter" data-level="18.10.1" data-path="nlp.html"><a href="nlp.html#libraries-1"><i class="fa fa-check"></i><b>18.10.1</b> Libraries</a></li>
+<li class="chapter" data-level="18.10.2" data-path="nlp.html"><a href="nlp.html#the-data-2"><i class="fa fa-check"></i><b>18.10.2</b> The Data</a></li>
+<li class="chapter" data-level="18.10.3" data-path="nlp.html"><a href="nlp.html#bag-of-words"><i class="fa fa-check"></i><b>18.10.3</b> Bag of Words</a></li>
+<li class="chapter" data-level="18.10.4" data-path="nlp.html"><a href="nlp.html#build-the-model"><i class="fa fa-check"></i><b>18.10.4</b> Build The Model</a></li>
+<li class="chapter" data-level="18.10.5" data-path="nlp.html"><a href="nlp.html#train-set-prediction"><i class="fa fa-check"></i><b>18.10.5</b> Train Set Prediction</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -644,12 +651,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">6.2.1</span> Import Entire Library</h3>
 <div id="import-into-standalone-namespace" class="section level4">
 <h4><span class="header-section-number">6.2.1.1</span> Import Into Standalone Namespace</h4>
-<div class="sourceCode" id="cb371"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb371-1" title="1"><span class="im">import</span> math</a>
-<a class="sourceLine" id="cb371-2" title="2">math.sqrt(<span class="dv">9</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb373"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb373-1"><a href="library-and-functions.html#cb373-1"></a><span class="im">import</span> math</span>
+<span id="cb373-2"><a href="library-and-functions.html#cb373-2"></a>math.sqrt(<span class="dv">9</span>)</span></code></pre></div>
 <pre><code>## 3.0</code></pre>
 <p>Use <strong>as</strong> for aliasing library name. This is useful if you have conflicting library name</p>
-<div class="sourceCode" id="cb373"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb373-1" title="1"><span class="im">import</span> math <span class="im">as</span> m</a>
-<a class="sourceLine" id="cb373-2" title="2">m.sqrt(<span class="dv">9</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb375"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb375-1"><a href="library-and-functions.html#cb375-1"></a><span class="im">import</span> math <span class="im">as</span> m</span>
+<span id="cb375-2"><a href="library-and-functions.html#cb375-2"></a>m.sqrt(<span class="dv">9</span>)</span></code></pre></div>
 <pre><code>## 3.0</code></pre>
 </div>
 <div id="import-into-global-name-space" class="section level4">
@@ -660,18 +667,18 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="import-specific-function" class="section level3">
 <h3><span class="header-section-number">6.2.2</span> Import Specific Function</h3>
-<div class="sourceCode" id="cb376"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb376-1" title="1"><span class="im">from</span> math <span class="im">import</span> sqrt</a>
-<a class="sourceLine" id="cb376-2" title="2"><span class="bu">print</span> (sqrt(<span class="dv">9</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb378"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb378-1"><a href="library-and-functions.html#cb378-1"></a><span class="im">from</span> math <span class="im">import</span> sqrt</span>
+<span id="cb378-2"><a href="library-and-functions.html#cb378-2"></a><span class="bu">print</span> (sqrt(<span class="dv">9</span>))</span></code></pre></div>
 <pre><code>## 3.0</code></pre>
 <p>Use <strong>as</strong> for aliasing function name</p>
-<div class="sourceCode" id="cb378"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb378-1" title="1"><span class="im">from</span> math <span class="im">import</span> sqrt <span class="im">as</span> sq</a>
-<a class="sourceLine" id="cb378-2" title="2"><span class="bu">print</span> (sq(<span class="dv">9</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb380"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb380-1"><a href="library-and-functions.html#cb380-1"></a><span class="im">from</span> math <span class="im">import</span> sqrt <span class="im">as</span> sq</span>
+<span id="cb380-2"><a href="library-and-functions.html#cb380-2"></a><span class="bu">print</span> (sq(<span class="dv">9</span>))</span></code></pre></div>
 <pre><code>## 3.0</code></pre>
 </div>
 <div id="machine-learning-packages" class="section level3">
 <h3><span class="header-section-number">6.2.3</span> Machine Learning Packages</h3>
 <div class="figure">
-<img src="img/ml_libraries.jpg" alt="alt text" />
+<img src="img/ml_libraries.jpg" alt="" />
 <p class="caption">alt text</p>
 </div>
 </div>
@@ -681,81 +688,81 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="function-arguments" class="section level3">
 <h3><span class="header-section-number">6.3.1</span> Function Arguments</h3>
 <p>By default, arguments are assigned to function left to right</p>
-<div class="sourceCode" id="cb380"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb380-1" title="1"><span class="kw">def</span> myfun(x,y):</a>
-<a class="sourceLine" id="cb380-2" title="2">    <span class="bu">print</span> (<span class="st">&#39;x:&#39;</span>,x)</a>
-<a class="sourceLine" id="cb380-3" title="3">    <span class="bu">print</span> (<span class="st">&#39;y:&#39;</span>,y)</a>
-<a class="sourceLine" id="cb380-4" title="4">    </a>
-<a class="sourceLine" id="cb380-5" title="5">myfun(<span class="dv">5</span>,<span class="dv">8</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb382"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb382-1"><a href="library-and-functions.html#cb382-1"></a><span class="kw">def</span> myfun(x,y):</span>
+<span id="cb382-2"><a href="library-and-functions.html#cb382-2"></a>    <span class="bu">print</span> (<span class="st">&#39;x:&#39;</span>,x)</span>
+<span id="cb382-3"><a href="library-and-functions.html#cb382-3"></a>    <span class="bu">print</span> (<span class="st">&#39;y:&#39;</span>,y)</span>
+<span id="cb382-4"><a href="library-and-functions.html#cb382-4"></a>    </span>
+<span id="cb382-5"><a href="library-and-functions.html#cb382-5"></a>myfun(<span class="dv">5</span>,<span class="dv">8</span>)</span></code></pre></div>
 <pre><code>## x: 5
 ## y: 8</code></pre>
 <p>However, you can also specify the argument assigment during function call</p>
-<div class="sourceCode" id="cb382"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb382-1" title="1">myfun (y<span class="op">=</span><span class="dv">8</span>,x<span class="op">=</span><span class="dv">5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb384"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb384-1"><a href="library-and-functions.html#cb384-1"></a>myfun (y<span class="op">=</span><span class="dv">8</span>,x<span class="op">=</span><span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## x: 5
 ## y: 8</code></pre>
 <p>Function can have <strong>default argement value</strong></p>
-<div class="sourceCode" id="cb384"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb384-1" title="1"><span class="kw">def</span> myfun(x<span class="op">=</span><span class="dv">1</span>,y<span class="op">=</span><span class="dv">1</span>):  <span class="co"># default argument value is 1</span></a>
-<a class="sourceLine" id="cb384-2" title="2">    <span class="bu">print</span> (<span class="st">&#39;x:&#39;</span>,x)</a>
-<a class="sourceLine" id="cb384-3" title="3">    <span class="bu">print</span> (<span class="st">&#39;y:&#39;</span>,y)</a>
-<a class="sourceLine" id="cb384-4" title="4">    </a>
-<a class="sourceLine" id="cb384-5" title="5">myfun(<span class="dv">5</span>)  <span class="co"># pass only one argument</span></a></code></pre></div>
+<div class="sourceCode" id="cb386"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb386-1"><a href="library-and-functions.html#cb386-1"></a><span class="kw">def</span> myfun(x<span class="op">=</span><span class="dv">1</span>,y<span class="op">=</span><span class="dv">1</span>):  <span class="co"># default argument value is 1</span></span>
+<span id="cb386-2"><a href="library-and-functions.html#cb386-2"></a>    <span class="bu">print</span> (<span class="st">&#39;x:&#39;</span>,x)</span>
+<span id="cb386-3"><a href="library-and-functions.html#cb386-3"></a>    <span class="bu">print</span> (<span class="st">&#39;y:&#39;</span>,y)</span>
+<span id="cb386-4"><a href="library-and-functions.html#cb386-4"></a>    </span>
+<span id="cb386-5"><a href="library-and-functions.html#cb386-5"></a>myfun(<span class="dv">5</span>)  <span class="co"># pass only one argument</span></span></code></pre></div>
 <pre><code>## x: 5
 ## y: 1</code></pre>
 </div>
 <div id="list-within-function" class="section level3">
 <h3><span class="header-section-number">6.3.2</span> List Within Function</h3>
 <p>Consider a function is an object, its variable (some_list) is immutable and hence its reference won’t change, even data changes</p>
-<div class="sourceCode" id="cb386"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb386-1" title="1"><span class="kw">def</span> spam (elem, some_list<span class="op">=</span>[]):</a>
-<a class="sourceLine" id="cb386-2" title="2">    some_list.append(elem)</a>
-<a class="sourceLine" id="cb386-3" title="3">    <span class="cf">return</span> some_list</a>
-<a class="sourceLine" id="cb386-4" title="4"></a>
-<a class="sourceLine" id="cb386-5" title="5"><span class="bu">print</span> (spam(<span class="dv">1</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb388"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb388-1"><a href="library-and-functions.html#cb388-1"></a><span class="kw">def</span> spam (elem, some_list<span class="op">=</span>[]):</span>
+<span id="cb388-2"><a href="library-and-functions.html#cb388-2"></a>    some_list.append(elem)</span>
+<span id="cb388-3"><a href="library-and-functions.html#cb388-3"></a>    <span class="cf">return</span> some_list</span>
+<span id="cb388-4"><a href="library-and-functions.html#cb388-4"></a></span>
+<span id="cb388-5"><a href="library-and-functions.html#cb388-5"></a><span class="bu">print</span> (spam(<span class="dv">1</span>))</span></code></pre></div>
 <pre><code>## [1]</code></pre>
-<div class="sourceCode" id="cb388"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb388-1" title="1"><span class="bu">print</span> (spam(<span class="dv">2</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb390"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb390-1"><a href="library-and-functions.html#cb390-1"></a><span class="bu">print</span> (spam(<span class="dv">2</span>))</span></code></pre></div>
 <pre><code>## [1, 2]</code></pre>
-<div class="sourceCode" id="cb390"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb390-1" title="1"><span class="bu">print</span> (spam(<span class="dv">3</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb392"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb392-1"><a href="library-and-functions.html#cb392-1"></a><span class="bu">print</span> (spam(<span class="dv">3</span>))</span></code></pre></div>
 <pre><code>## [1, 2, 3]</code></pre>
 </div>
 <div id="return-statement" class="section level3">
 <h3><span class="header-section-number">6.3.3</span> Return Statement</h3>
-<div class="sourceCode" id="cb392"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb392-1" title="1"><span class="kw">def</span> bigger(x,y):</a>
-<a class="sourceLine" id="cb392-2" title="2">    <span class="cf">if</span> (x<span class="op">&gt;</span>y):</a>
-<a class="sourceLine" id="cb392-3" title="3">        <span class="cf">return</span> x</a>
-<a class="sourceLine" id="cb392-4" title="4">    <span class="cf">else</span>:</a>
-<a class="sourceLine" id="cb392-5" title="5">        <span class="cf">return</span> y</a>
-<a class="sourceLine" id="cb392-6" title="6">    </a>
-<a class="sourceLine" id="cb392-7" title="7"><span class="bu">print</span> (bigger(<span class="dv">5</span>,<span class="dv">8</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb394"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb394-1"><a href="library-and-functions.html#cb394-1"></a><span class="kw">def</span> bigger(x,y):</span>
+<span id="cb394-2"><a href="library-and-functions.html#cb394-2"></a>    <span class="cf">if</span> (x<span class="op">&gt;</span>y):</span>
+<span id="cb394-3"><a href="library-and-functions.html#cb394-3"></a>        <span class="cf">return</span> x</span>
+<span id="cb394-4"><a href="library-and-functions.html#cb394-4"></a>    <span class="cf">else</span>:</span>
+<span id="cb394-5"><a href="library-and-functions.html#cb394-5"></a>        <span class="cf">return</span> y</span>
+<span id="cb394-6"><a href="library-and-functions.html#cb394-6"></a>    </span>
+<span id="cb394-7"><a href="library-and-functions.html#cb394-7"></a><span class="bu">print</span> (bigger(<span class="dv">5</span>,<span class="dv">8</span>))</span></code></pre></div>
 <pre><code>## 8</code></pre>
 </div>
 <div id="no-return-statement" class="section level3">
 <h3><span class="header-section-number">6.3.4</span> No Return Statement</h3>
 <p>if no <strong>return</strong> statement, python return <strong>None</strong></p>
-<div class="sourceCode" id="cb394"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb394-1" title="1"><span class="kw">def</span> dummy():</a>
-<a class="sourceLine" id="cb394-2" title="2">    <span class="bu">print</span> (<span class="st">&#39;This is a dummy function, return no value&#39;</span>)</a>
-<a class="sourceLine" id="cb394-3" title="3"></a>
-<a class="sourceLine" id="cb394-4" title="4">dummy()</a></code></pre></div>
+<div class="sourceCode" id="cb396"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb396-1"><a href="library-and-functions.html#cb396-1"></a><span class="kw">def</span> dummy():</span>
+<span id="cb396-2"><a href="library-and-functions.html#cb396-2"></a>    <span class="bu">print</span> (<span class="st">&#39;This is a dummy function, return no value&#39;</span>)</span>
+<span id="cb396-3"><a href="library-and-functions.html#cb396-3"></a></span>
+<span id="cb396-4"><a href="library-and-functions.html#cb396-4"></a>dummy()</span></code></pre></div>
 <pre><code>## This is a dummy function, return no value</code></pre>
 </div>
 <div id="return-multiple-value" class="section level3">
 <h3><span class="header-section-number">6.3.5</span> Return Multiple Value</h3>
 <p>Multiple value is returned as <strong>tuple</strong>. Use multiple assignment to assign to multiple variable</p>
-<div class="sourceCode" id="cb396"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb396-1" title="1"><span class="kw">def</span> minmax(x,y,z):</a>
-<a class="sourceLine" id="cb396-2" title="2">    <span class="cf">return</span> <span class="bu">min</span>(x,y,z), <span class="bu">max</span>(x,y,z)</a>
-<a class="sourceLine" id="cb396-3" title="3"></a>
-<a class="sourceLine" id="cb396-4" title="4">a,b <span class="op">=</span> minmax(<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>)     <span class="co"># multiple assignment</span></a>
-<a class="sourceLine" id="cb396-5" title="5">c   <span class="op">=</span> minmax(<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>)     <span class="co"># tuple</span></a>
-<a class="sourceLine" id="cb396-6" title="6"></a>
-<a class="sourceLine" id="cb396-7" title="7"><span class="bu">print</span> (a,b)</a></code></pre></div>
+<div class="sourceCode" id="cb398"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb398-1"><a href="library-and-functions.html#cb398-1"></a><span class="kw">def</span> minmax(x,y,z):</span>
+<span id="cb398-2"><a href="library-and-functions.html#cb398-2"></a>    <span class="cf">return</span> <span class="bu">min</span>(x,y,z), <span class="bu">max</span>(x,y,z)</span>
+<span id="cb398-3"><a href="library-and-functions.html#cb398-3"></a></span>
+<span id="cb398-4"><a href="library-and-functions.html#cb398-4"></a>a,b <span class="op">=</span> minmax(<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>)     <span class="co"># multiple assignment</span></span>
+<span id="cb398-5"><a href="library-and-functions.html#cb398-5"></a>c   <span class="op">=</span> minmax(<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>)     <span class="co"># tuple</span></span>
+<span id="cb398-6"><a href="library-and-functions.html#cb398-6"></a></span>
+<span id="cb398-7"><a href="library-and-functions.html#cb398-7"></a><span class="bu">print</span> (a,b)</span></code></pre></div>
 <pre><code>## 7 9</code></pre>
-<div class="sourceCode" id="cb398"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb398-1" title="1"><span class="bu">print</span> (c)    </a></code></pre></div>
+<div class="sourceCode" id="cb400"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb400-1"><a href="library-and-functions.html#cb400-1"></a><span class="bu">print</span> (c)    </span></code></pre></div>
 <pre><code>## (7, 9)</code></pre>
 </div>
 <div id="passing-function-as-argument" class="section level3">
 <h3><span class="header-section-number">6.3.6</span> Passing Function as Argument</h3>
 <p>You can pass a function name as an argument to a function</p>
-<div class="sourceCode" id="cb400"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb400-1" title="1"><span class="kw">def</span> myfun(x,y,f):</a>
-<a class="sourceLine" id="cb400-2" title="2">    f(x,y)</a>
-<a class="sourceLine" id="cb400-3" title="3"></a>
-<a class="sourceLine" id="cb400-4" title="4">myfun(<span class="st">&#39;hello&#39;</span>,<span class="dv">54</span>,<span class="bu">print</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb402"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb402-1"><a href="library-and-functions.html#cb402-1"></a><span class="kw">def</span> myfun(x,y,f):</span>
+<span id="cb402-2"><a href="library-and-functions.html#cb402-2"></a>    f(x,y)</span>
+<span id="cb402-3"><a href="library-and-functions.html#cb402-3"></a></span>
+<span id="cb402-4"><a href="library-and-functions.html#cb402-4"></a>myfun(<span class="st">&#39;hello&#39;</span>,<span class="dv">54</span>,<span class="bu">print</span>)</span></code></pre></div>
 <pre><code>## hello 54</code></pre>
 </div>
 <div id="arguments" class="section level3">
@@ -768,35 +775,35 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="example-2" class="section level4">
 <h4><span class="header-section-number">6.3.7.2</span> Example 2</h4>
 <p>First argument goes to x, remaining goes to args as tuple</p>
-<div class="sourceCode" id="cb402"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb402-1" title="1"><span class="kw">def</span> myfun(x,<span class="op">*</span>args):</a>
-<a class="sourceLine" id="cb402-2" title="2">    <span class="bu">print</span> (x)</a>
-<a class="sourceLine" id="cb402-3" title="3">    <span class="bu">print</span> (args)     <span class="co">#tuple</span></a>
-<a class="sourceLine" id="cb402-4" title="4">    </a>
-<a class="sourceLine" id="cb402-5" title="5">myfun(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="st">&#39;abc&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb404"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb404-1"><a href="library-and-functions.html#cb404-1"></a><span class="kw">def</span> myfun(x,<span class="op">*</span>args):</span>
+<span id="cb404-2"><a href="library-and-functions.html#cb404-2"></a>    <span class="bu">print</span> (x)</span>
+<span id="cb404-3"><a href="library-and-functions.html#cb404-3"></a>    <span class="bu">print</span> (args)     <span class="co">#tuple</span></span>
+<span id="cb404-4"><a href="library-and-functions.html#cb404-4"></a>    </span>
+<span id="cb404-5"><a href="library-and-functions.html#cb404-5"></a>myfun(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="st">&#39;abc&#39;</span>)</span></code></pre></div>
 <pre><code>## 1
 ## (2, 3, 4, 5, &#39;abc&#39;)</code></pre>
 </div>
 <div id="example-3" class="section level4">
 <h4><span class="header-section-number">6.3.7.3</span> Example 3</h4>
 <p>First argument goes to x, second argument goest to y, remaining goes to args</p>
-<div class="sourceCode" id="cb404"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb404-1" title="1"><span class="kw">def</span> myfun(x,y,<span class="op">*</span>args):</a>
-<a class="sourceLine" id="cb404-2" title="2">    <span class="bu">print</span> (x)</a>
-<a class="sourceLine" id="cb404-3" title="3">    <span class="bu">print</span> (y)</a>
-<a class="sourceLine" id="cb404-4" title="4">    <span class="bu">print</span> (args)     <span class="co">#tuple</span></a>
-<a class="sourceLine" id="cb404-5" title="5">    </a>
-<a class="sourceLine" id="cb404-6" title="6">myfun(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb406"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb406-1"><a href="library-and-functions.html#cb406-1"></a><span class="kw">def</span> myfun(x,y,<span class="op">*</span>args):</span>
+<span id="cb406-2"><a href="library-and-functions.html#cb406-2"></a>    <span class="bu">print</span> (x)</span>
+<span id="cb406-3"><a href="library-and-functions.html#cb406-3"></a>    <span class="bu">print</span> (y)</span>
+<span id="cb406-4"><a href="library-and-functions.html#cb406-4"></a>    <span class="bu">print</span> (args)     <span class="co">#tuple</span></span>
+<span id="cb406-5"><a href="library-and-functions.html#cb406-5"></a>    </span>
+<span id="cb406-6"><a href="library-and-functions.html#cb406-6"></a>myfun(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## 1
 ## 2
 ## (3,)</code></pre>
 </div>
 <div id="example-4" class="section level4">
 <h4><span class="header-section-number">6.3.7.4</span> Example 4</h4>
-<div class="sourceCode" id="cb406"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb406-1" title="1"><span class="kw">def</span> myfun(x,<span class="op">*</span>args, y<span class="op">=</span><span class="dv">9</span>):</a>
-<a class="sourceLine" id="cb406-2" title="2">    <span class="bu">print</span> (x)</a>
-<a class="sourceLine" id="cb406-3" title="3">    <span class="bu">print</span> (y)</a>
-<a class="sourceLine" id="cb406-4" title="4">    <span class="bu">print</span> (args)     <span class="co">#tuple</span></a>
-<a class="sourceLine" id="cb406-5" title="5">    </a>
-<a class="sourceLine" id="cb406-6" title="6">myfun(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb408"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb408-1"><a href="library-and-functions.html#cb408-1"></a><span class="kw">def</span> myfun(x,<span class="op">*</span>args, y<span class="op">=</span><span class="dv">9</span>):</span>
+<span id="cb408-2"><a href="library-and-functions.html#cb408-2"></a>    <span class="bu">print</span> (x)</span>
+<span id="cb408-3"><a href="library-and-functions.html#cb408-3"></a>    <span class="bu">print</span> (y)</span>
+<span id="cb408-4"><a href="library-and-functions.html#cb408-4"></a>    <span class="bu">print</span> (args)     <span class="co">#tuple</span></span>
+<span id="cb408-5"><a href="library-and-functions.html#cb408-5"></a>    </span>
+<span id="cb408-6"><a href="library-and-functions.html#cb408-6"></a>myfun(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## 1
 ## 9
 ## (2, 3, 4, 5)</code></pre>
@@ -804,20 +811,20 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="example-5" class="section level4">
 <h4><span class="header-section-number">6.3.7.5</span> Example 5</h4>
 <p>All goes to args</p>
-<div class="sourceCode" id="cb408"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb408-1" title="1"><span class="kw">def</span> myfun(<span class="op">*</span>args):</a>
-<a class="sourceLine" id="cb408-2" title="2">    <span class="bu">print</span> (args)     <span class="co">#tuple</span></a>
-<a class="sourceLine" id="cb408-3" title="3">    </a>
-<a class="sourceLine" id="cb408-4" title="4">myfun(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb410"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb410-1"><a href="library-and-functions.html#cb410-1"></a><span class="kw">def</span> myfun(<span class="op">*</span>args):</span>
+<span id="cb410-2"><a href="library-and-functions.html#cb410-2"></a>    <span class="bu">print</span> (args)     <span class="co">#tuple</span></span>
+<span id="cb410-3"><a href="library-and-functions.html#cb410-3"></a>    </span>
+<span id="cb410-4"><a href="library-and-functions.html#cb410-4"></a>myfun(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## (1, 2, 3, 4, 5)</code></pre>
 </div>
 <div id="example-6-empty-args" class="section level4">
 <h4><span class="header-section-number">6.3.7.6</span> Example 6 Empty args</h4>
-<div class="sourceCode" id="cb410"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb410-1" title="1"><span class="kw">def</span> myfun(x,y,<span class="op">*</span>args):</a>
-<a class="sourceLine" id="cb410-2" title="2">    <span class="bu">print</span> (x)</a>
-<a class="sourceLine" id="cb410-3" title="3">    <span class="bu">print</span> (y)</a>
-<a class="sourceLine" id="cb410-4" title="4">    <span class="bu">print</span> (args)</a>
-<a class="sourceLine" id="cb410-5" title="5">    </a>
-<a class="sourceLine" id="cb410-6" title="6">myfun(<span class="dv">1</span>,<span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb412"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb412-1"><a href="library-and-functions.html#cb412-1"></a><span class="kw">def</span> myfun(x,y,<span class="op">*</span>args):</span>
+<span id="cb412-2"><a href="library-and-functions.html#cb412-2"></a>    <span class="bu">print</span> (x)</span>
+<span id="cb412-3"><a href="library-and-functions.html#cb412-3"></a>    <span class="bu">print</span> (y)</span>
+<span id="cb412-4"><a href="library-and-functions.html#cb412-4"></a>    <span class="bu">print</span> (args)</span>
+<span id="cb412-5"><a href="library-and-functions.html#cb412-5"></a>    </span>
+<span id="cb412-6"><a href="library-and-functions.html#cb412-6"></a>myfun(<span class="dv">1</span>,<span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## 1
 ## 2
 ## ()</code></pre>
@@ -828,34 +835,34 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>kwargs is a <strong>dictionary</strong></p>
 <div id="example-1-1" class="section level4">
 <h4><span class="header-section-number">6.3.8.1</span> Example 1</h4>
-<div class="sourceCode" id="cb412"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb412-1" title="1"><span class="kw">def</span> foo(<span class="op">**</span>kwargs):</a>
-<a class="sourceLine" id="cb412-2" title="2">    <span class="bu">print</span>(kwargs)</a>
-<a class="sourceLine" id="cb412-3" title="3">    </a>
-<a class="sourceLine" id="cb412-4" title="4">foo(a<span class="op">=</span><span class="dv">1</span>,b<span class="op">=</span><span class="dv">2</span>,c<span class="op">=</span><span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb414"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb414-1"><a href="library-and-functions.html#cb414-1"></a><span class="kw">def</span> foo(<span class="op">**</span>kwargs):</span>
+<span id="cb414-2"><a href="library-and-functions.html#cb414-2"></a>    <span class="bu">print</span>(kwargs)</span>
+<span id="cb414-3"><a href="library-and-functions.html#cb414-3"></a>    </span>
+<span id="cb414-4"><a href="library-and-functions.html#cb414-4"></a>foo(a<span class="op">=</span><span class="dv">1</span>,b<span class="op">=</span><span class="dv">2</span>,c<span class="op">=</span><span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## {&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: 3}</code></pre>
 </div>
 <div id="example-2-1" class="section level4">
 <h4><span class="header-section-number">6.3.8.2</span> Example 2</h4>
-<div class="sourceCode" id="cb414"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb414-1" title="1"><span class="kw">def</span> foo(x,<span class="op">**</span>kwargs):</a>
-<a class="sourceLine" id="cb414-2" title="2">    <span class="bu">print</span>(x)</a>
-<a class="sourceLine" id="cb414-3" title="3">    <span class="bu">print</span>(kwargs)</a>
-<a class="sourceLine" id="cb414-4" title="4">    </a>
-<a class="sourceLine" id="cb414-5" title="5">foo(<span class="dv">9</span>,a<span class="op">=</span><span class="dv">1</span>,b<span class="op">=</span><span class="dv">2</span>,c<span class="op">=</span><span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb416"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb416-1"><a href="library-and-functions.html#cb416-1"></a><span class="kw">def</span> foo(x,<span class="op">**</span>kwargs):</span>
+<span id="cb416-2"><a href="library-and-functions.html#cb416-2"></a>    <span class="bu">print</span>(x)</span>
+<span id="cb416-3"><a href="library-and-functions.html#cb416-3"></a>    <span class="bu">print</span>(kwargs)</span>
+<span id="cb416-4"><a href="library-and-functions.html#cb416-4"></a>    </span>
+<span id="cb416-5"><a href="library-and-functions.html#cb416-5"></a>foo(<span class="dv">9</span>,a<span class="op">=</span><span class="dv">1</span>,b<span class="op">=</span><span class="dv">2</span>,c<span class="op">=</span><span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## 9
 ## {&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: 3}</code></pre>
-<div class="sourceCode" id="cb416"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb416-1" title="1">foo(<span class="dv">9</span>) <span class="co">#empty dictionary</span></a></code></pre></div>
+<div class="sourceCode" id="cb418"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb418-1"><a href="library-and-functions.html#cb418-1"></a>foo(<span class="dv">9</span>) <span class="co">#empty dictionary</span></span></code></pre></div>
 <pre><code>## 9
 ## {}</code></pre>
 </div>
 <div id="example-3-1" class="section level4">
 <h4><span class="header-section-number">6.3.8.3</span> Example 3</h4>
-<div class="sourceCode" id="cb418"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb418-1" title="1"><span class="kw">def</span> foo(a,b,c,d<span class="op">=</span><span class="dv">1</span>):</a>
-<a class="sourceLine" id="cb418-2" title="2">    <span class="bu">print</span>(a)</a>
-<a class="sourceLine" id="cb418-3" title="3">    <span class="bu">print</span>(b)</a>
-<a class="sourceLine" id="cb418-4" title="4">    <span class="bu">print</span>(c)</a>
-<a class="sourceLine" id="cb418-5" title="5">    <span class="bu">print</span>(d)</a>
-<a class="sourceLine" id="cb418-6" title="6">    </a>
-<a class="sourceLine" id="cb418-7" title="7">foo(<span class="op">**</span>{<span class="st">&quot;a&quot;</span>:<span class="dv">2</span>,<span class="st">&quot;b&quot;</span>:<span class="dv">3</span>,<span class="st">&quot;c&quot;</span>:<span class="dv">4</span>})</a></code></pre></div>
+<div class="sourceCode" id="cb420"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb420-1"><a href="library-and-functions.html#cb420-1"></a><span class="kw">def</span> foo(a,b,c,d<span class="op">=</span><span class="dv">1</span>):</span>
+<span id="cb420-2"><a href="library-and-functions.html#cb420-2"></a>    <span class="bu">print</span>(a)</span>
+<span id="cb420-3"><a href="library-and-functions.html#cb420-3"></a>    <span class="bu">print</span>(b)</span>
+<span id="cb420-4"><a href="library-and-functions.html#cb420-4"></a>    <span class="bu">print</span>(c)</span>
+<span id="cb420-5"><a href="library-and-functions.html#cb420-5"></a>    <span class="bu">print</span>(d)</span>
+<span id="cb420-6"><a href="library-and-functions.html#cb420-6"></a>    </span>
+<span id="cb420-7"><a href="library-and-functions.html#cb420-7"></a>foo(<span class="op">**</span>{<span class="st">&quot;a&quot;</span>:<span class="dv">2</span>,<span class="st">&quot;b&quot;</span>:<span class="dv">3</span>,<span class="st">&quot;c&quot;</span>:<span class="dv">4</span>})</span></code></pre></div>
 <pre><code>## 2
 ## 3
 ## 4
@@ -867,25 +874,25 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Always put args <strong>before</strong> kwargs</p>
 <div id="example-1-2" class="section level4">
 <h4><span class="header-section-number">6.3.9.1</span> Example 1</h4>
-<div class="sourceCode" id="cb420"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb420-1" title="1"><span class="kw">def</span> foo(x,y<span class="op">=</span><span class="dv">1</span>,<span class="op">**</span>kwargs):</a>
-<a class="sourceLine" id="cb420-2" title="2">    <span class="bu">print</span> (x)</a>
-<a class="sourceLine" id="cb420-3" title="3">    <span class="bu">print</span> (y)</a>
-<a class="sourceLine" id="cb420-4" title="4">    <span class="bu">print</span> (kwargs)</a>
-<a class="sourceLine" id="cb420-5" title="5">    </a>
-<a class="sourceLine" id="cb420-6" title="6">foo(<span class="dv">1</span>,<span class="dv">2</span>,c<span class="op">=</span><span class="dv">3</span>,d<span class="op">=</span><span class="dv">4</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb422"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb422-1"><a href="library-and-functions.html#cb422-1"></a><span class="kw">def</span> foo(x,y<span class="op">=</span><span class="dv">1</span>,<span class="op">**</span>kwargs):</span>
+<span id="cb422-2"><a href="library-and-functions.html#cb422-2"></a>    <span class="bu">print</span> (x)</span>
+<span id="cb422-3"><a href="library-and-functions.html#cb422-3"></a>    <span class="bu">print</span> (y)</span>
+<span id="cb422-4"><a href="library-and-functions.html#cb422-4"></a>    <span class="bu">print</span> (kwargs)</span>
+<span id="cb422-5"><a href="library-and-functions.html#cb422-5"></a>    </span>
+<span id="cb422-6"><a href="library-and-functions.html#cb422-6"></a>foo(<span class="dv">1</span>,<span class="dv">2</span>,c<span class="op">=</span><span class="dv">3</span>,d<span class="op">=</span><span class="dv">4</span>)</span></code></pre></div>
 <pre><code>## 1
 ## 2
 ## {&#39;c&#39;: 3, &#39;d&#39;: 4}</code></pre>
 </div>
 <div id="example-2-2" class="section level4">
 <h4><span class="header-section-number">6.3.9.2</span> Example 2</h4>
-<div class="sourceCode" id="cb422"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb422-1" title="1"><span class="kw">def</span> foo(x,y<span class="op">=</span><span class="dv">2</span>,<span class="op">*</span>args,<span class="op">**</span>kwargs):</a>
-<a class="sourceLine" id="cb422-2" title="2">    <span class="bu">print</span> (x)</a>
-<a class="sourceLine" id="cb422-3" title="3">    <span class="bu">print</span> (y)</a>
-<a class="sourceLine" id="cb422-4" title="4">    <span class="bu">print</span> (args)</a>
-<a class="sourceLine" id="cb422-5" title="5">    <span class="bu">print</span> (kwargs)</a>
-<a class="sourceLine" id="cb422-6" title="6">    </a>
-<a class="sourceLine" id="cb422-7" title="7">foo(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,c<span class="op">=</span><span class="dv">6</span>,d<span class="op">=</span><span class="dv">7</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb424"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb424-1"><a href="library-and-functions.html#cb424-1"></a><span class="kw">def</span> foo(x,y<span class="op">=</span><span class="dv">2</span>,<span class="op">*</span>args,<span class="op">**</span>kwargs):</span>
+<span id="cb424-2"><a href="library-and-functions.html#cb424-2"></a>    <span class="bu">print</span> (x)</span>
+<span id="cb424-3"><a href="library-and-functions.html#cb424-3"></a>    <span class="bu">print</span> (y)</span>
+<span id="cb424-4"><a href="library-and-functions.html#cb424-4"></a>    <span class="bu">print</span> (args)</span>
+<span id="cb424-5"><a href="library-and-functions.html#cb424-5"></a>    <span class="bu">print</span> (kwargs)</span>
+<span id="cb424-6"><a href="library-and-functions.html#cb424-6"></a>    </span>
+<span id="cb424-7"><a href="library-and-functions.html#cb424-7"></a>foo(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,c<span class="op">=</span><span class="dv">6</span>,d<span class="op">=</span><span class="dv">7</span>)</span></code></pre></div>
 <pre><code>## 1
 ## 2
 ## (3, 4, 5)
