@@ -17,6 +17,209 @@ pd.set_option( 'display.max_rows', 10)      # number of rows
 pd.set_option( 'display.width', 90)         # number of characters per row
 ```
 
+## Regular Expression
+- Rgular expressions (called REs or regexes) is mandatory skill for NLP. The `re` is a **built-in* library  
+- It is essentially a tiny, highly specialized programming language embedded inside Python and made available through the re module  
+- Regular expression patterns are compiled into a series of bytecodes which are then executed by a matching engine written in C  
+
+### Syntax
+There are two methods to emply re. Below method compile a regex first, then apply it multiple times in subsequent code.
+
+```{python}
+import re
+pattern = re.compile(r'put pattern here')
+pattern.match('put text here')
+```
+
+Second method below employ compile and match in single line. The pattern cannot be reused, therefore good for onetime usage only.
+
+```{python}
+import re
+pattern = (r'put pattern here')
+re.match(pattern, r'put text here')  # compile and match in single line
+```
+
+### Finding
+
+#### Find The First Match
+There are two ways to find the first match:  
+- **`re.search`** find first match anywhere in text, including multiline  
+- **`re.match`** find first match at the BEGINNING of text, similar to `re.search`with `^`  
+- Both returns first match, return  **MatchObject**  
+- Both returns **None** if no match is found  
+
+```{python}
+pattern1 = re.compile('123') 
+pattern2 = re.compile('123')
+pattern3 = re.compile('^123')  # equivalent to above
+text = 'abc123xyz'
+
+## Single Line Text Example
+print( 're.search found a match somewhere:\n',
+       pattern1.search(text), '\n', ## found
+       '\nre.match did not find anything at the beginning:\n',
+       pattern2.match(text), '\n',
+       '\nre.search did not find anything at beginning too:\n',
+       pattern3.search(text))        ## None
+```
+
+Returned **MatchObject** provides useful information about the matched string.
+
+```{python}
+age_pattern = re.compile(r'\d+')
+age_text    = 'Ali is my teacher. He is 109 years old. his kid is 40 years old.'
+first_found = age_pattern.search(age_text)
+
+print('Found Object:      ',  first_found,
+      '\nInput Text:        ',first_found.string,
+      '\nInput Pattern:     ',first_found.re,
+      '\nFirst Found string:     ',first_found.group(),
+      '\nFound Start Position:   ', first_found.start(),
+      '\nFound End Position:     ', first_found.end(),
+      '\nFound Span:             ', first_found.span(),)
+```
+
+#### Find All Matches
+
+**`findall()`** returns all matching string as **list**. If no matches found, it return an empty list.
+
+```{python}
+print(
+  'Finding Two Digits:',
+  re.findall(r'\d\d','abc123xyz456'), '\n',
+  '\nFound Nothing:',
+  re.findall(r'\d\d','abcxyz'))
+```
+
+### Matching Condition
+
+#### Meta Characters
+
+```
+[]     match any single character within the bracket
+[1234] is the same as [1-4]
+[0-39] is the same as [01239]
+[a-e]  is the same as [abcde]
+[^abc] means any character except a,b,c
+[^0-9] means any character except 0-9
+a|b:   a or b
+{n,m}  at least n repetition, but maximum m repetition
+()     grouping
+```
+
+
+```{python}
+pattern = re.compile(r'[a-z]+')
+text1 = "tempo"
+text2 = "tempo1"
+text3 = "123 tempo1"
+text4 = " tempo"
+print(
+  'Matching Text1:', pattern.match(text1),
+  '\nMatching Text2:', pattern.match(text2),
+  '\nMatching Text3:', pattern.match(text3),
+  '\nMatching Text4:', pattern.match(text4))
+```
+
+
+#### Special Sequence
+
+```
+. : [^\n]
+\d: [0-9]              \D: [^0-9]
+\s: [ \t\n\r\f\v]      \S: [^ \t\n\r\f\v]
+\w: [a-zA-Z0-9_]       \W: [^a-zA-Z0-9_]
+\t: tab
+\n: newline
+\b: word boundry (delimited by space, \t, \n)
+```
+
+**Word Boundry Using `\b`**:  
+
+- `\bABC` match if specified characters at the beginning of word (delimited by space, \t, \n), or beginning of newline  
+- `ABC\b` match if specified characters at the end of word (delimited by space, \t, \n), or end of the line  
+
+```{python}
+text = "ABCD ABC XYZABC"
+pattern1 = re.compile(r'\bABC')
+pattern2 = re.compile(r'ABC\b')
+pattern3 = re.compile(r'\bABC\b')
+
+print('Match word that begins ABC:',
+  pattern1.findall(text), '\n',
+  'Match word that ends with ABC:',
+  pattern2.findall(text),'\n',
+  'Match isolated word with ABC:',
+  pattern3.findall(text))
+```
+
+#### Repetition
+
+When repetition is used, re will be **greedy**; it try to repeat as many times as possible. If **later portions of the pattern don’t match**, the matching engine will then **back up and try again** with fewer repetitions.
+
+```
+?:    zero or 1 occurance
+*:    zero or more occurance
++:    one  or more occurance
+```
+
+**`?` Zero or 1 Occurance**
+
+```{python}
+text = 'abcbcdd'
+pattern = re.compile(r'a[bcd]?b')
+pattern.findall(text)
+```
+
+**`+` At Least One Occurance**
+
+```{python}
+text = 'abcbcdd'
+pattern = re.compile(r'a[bcd]+b')
+pattern.findall(text)
+```
+
+**`*` Zero Or More Occurance Occurance**
+
+```{python}
+text = 'abcbcdd'
+pattern = re.compile(r'a[bcd]*b')
+pattern.findall(text)
+```
+
+### Grouping
+
+When `()` is used in the pattern, retrive the grouping components in MatchObject with `.groups()`. Result is in list. Example below extract hours, minutes and am/pm into a list.
+
+```{python}
+text = 'Today at Wednesday, 10:50pm, we go for a walk'
+pattern = re.compile(r'(\d\d):(\d\d)(am|pm)')
+m = pattern.search(text)
+print(m.groups())
+```
+
+### Splittitng
+
+Pattern is used to match **delimters**.
+
+#### Use `re.split()`
+
+```{python}
+print( re.split('@',  "aa@bb @ cc "), '\n',
+       re.split('\|', "aa|bb | cc "), '\n',
+       re.split('\n', "sentence1\nsentence2\nsentence3") )
+```
+
+#### Use `re.comple().split()`
+
+```{python}
+pattern = re.compile(r"\|")
+pattern.split("aa|bb | cc ")
+```
+
+
+
+
 ## Word Tokenizer
 
 ### Custom Tokenizer
@@ -83,27 +286,31 @@ TreebankWordTokenizer().tokenize("hi @ali-baba, you are aweeeeeesome! isn't it. 
 
 ### Corpus Token Extractor
 
+A corpus is a collection of documents (list of documents). 
+A document is a text string containing one or many sentences.
 
-```{python}
+```{python results='hide'}
 from nltk.tokenize import word_tokenize
 from nlpia.data.loaders import harry_docs as corpus
+```
 
+```{python}
+## Tokenize each doc to list, then add to a bigger list
 doc_tokens=[]
 for doc in corpus:
-  doc_tokens += [word_tokenize(doc.lower())]  ## adding a LISt into a LIST
+  doc_tokens += [word_tokenize(doc.lower())]
 
-corpus_tokens = sum(doc_tokens,[])  ### WOW !!!
+print('Corpus (Contain 3 Documents):\n',corpus,'\n',
+      '\nTokenized result for each document:','\n',doc_tokens)
+```
 
-print('Corpus (Contain 3 Documents):')
-for c in corpus:
-  print(c)
+Unpack list of token lists from above using sum. To get the **vocabulary** (unique tokens), **convert list to set**.
 
-print('\nTokens For Each Document:')
-for d in doc_tokens:
-  print(d)
-
-print('\nTokens For Entire Corpus (Unique):')
-print(sorted(set(corpus_tokens)))
+```{python}
+## unpack list of list to list
+vocab = sum(doc_tokens,[])
+print('\nCorpus Vacabulary (Unique Tokens):\n',
+       sorted(set(corpus_tokens)))
 ```
 
 ## Sentence Tokenizer

@@ -1,17 +1,58 @@
+/*************************************************
+TOC
+*************************************************/
 
-/*  Source Code - Outer Box */
+/* first level TOC */
+.book .book-summary ul.summary li.chapter a {
+  padding-top:    6px !important;
+  padding-bottom: 3px !important;
+  font-size:      1.4rem !important;
+}
+
+/* second level TOC */
+.book .book-summary ul.summary li.chapter li.chapter a {
+  padding-top:    6px !important;
+  padding-bottom: 4px !important;
+  font-size:      1.3rem !important;
+}
+
+/* third level TOC */
+.book .book-summary ul.summary li.chapter li.chapter a {
+  padding-top:    3px !important;
+  padding-bottom: 3px !important;
+  font-size:      1.3rem !important;
+}
+
+/* fourth level TOC */
+.book .book-summary ul.summary li.chapter li.chapter li.chapter a {
+  padding-top:    3px !important;
+  padding-bottom: 3px !important;
+  font-size:      1.3rem !important;
+}
+
+
+/*************************************************
+Source Code
+*************************************************/
+
+/* Outer Box */
 div.sourceCode {
   background-color: transparent         !important;
 }
 
-/* Source Code - Inner Box */
+/* Inner Box */
 pre.sourceCode {
   border:           2px solid lightgray !important;
   border-radius:    5px;
   margin-bottom:    3px                 !important;
 }
 
-/* Output Box - Outer Box*/
+
+/*************************************************
+Output Block
+*************************************************/
+
+/* Outer Box*/
 pre {
   margin-top:       5px                 !important;
   margin-bottom:    5px                 !important;
@@ -19,6 +60,10 @@ pre {
   line-height:      1.4                 !important;
 }
 
+
+/*************************************************
+Source Code and Output Block
+*************************************************/
 /* Code block - Source and Output */
 /* Make the word wrap             */
 code {

@@ -24,7 +24,7 @@
 <meta name="author" content="Yong Keh Soon" />
 
 
-<meta name="date" content="2019-12-24" />
+<meta name="date" content="2019-12-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -53,9 +53,9 @@
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -64,16 +64,14 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -82,9 +80,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  background-color: #f8f8f8; }
+  { background-color: #f8f8f8; }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -480,266 +478,263 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.7" data-path="numpy-1.html"><a href="numpy-1.html#nan-missing-numerical-data"><i class="fa fa-check"></i><b>12.7</b> NaN : Missing Numerical Data</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="pandas-1.html"><a href="pandas-1.html"><i class="fa fa-check"></i><b>13</b> pandas</a><ul>
-<li class="chapter" data-level="13.1" data-path="pandas-1.html"><a href="pandas-1.html#environment-setup-2"><i class="fa fa-check"></i><b>13.1</b> Environment Setup <a class="tocSkip"></a></li>
-<li class="chapter" data-level="13.2" data-path="pandas-1.html"><a href="pandas-1.html#modules-import"><i class="fa fa-check"></i><b>13.2</b> Modules Import</a><ul>
-<li class="chapter" data-level="13.2.1" data-path="pandas-1.html"><a href="pandas-1.html#display-setup"><i class="fa fa-check"></i><b>13.2.1</b> Display Setup</a></li>
+<li class="chapter" data-level="13.1" data-path="pandas-1.html"><a href="pandas-1.html#modules-import"><i class="fa fa-check"></i><b>13.1</b> Modules Import</a></li>
+<li class="chapter" data-level="13.2" data-path="pandas-1.html"><a href="pandas-1.html#pandas-objects"><i class="fa fa-check"></i><b>13.2</b> Pandas Objects</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="pandas-1.html"><a href="pandas-1.html#pandas-data-types"><i class="fa fa-check"></i><b>13.2.1</b> Pandas Data Types</a></li>
+<li class="chapter" data-level="13.2.2" data-path="pandas-1.html"><a href="pandas-1.html#pandas-data-structure"><i class="fa fa-check"></i><b>13.2.2</b> Pandas Data Structure</a></li>
 </ul></li>
-<li class="chapter" data-level="13.3" data-path="pandas-1.html"><a href="pandas-1.html#pandas-objects"><i class="fa fa-check"></i><b>13.3</b> Pandas Objects</a><ul>
-<li class="chapter" data-level="13.3.1" data-path="pandas-1.html"><a href="pandas-1.html#pandas-data-types"><i class="fa fa-check"></i><b>13.3.1</b> Pandas Data Types</a></li>
-<li class="chapter" data-level="13.3.2" data-path="pandas-1.html"><a href="pandas-1.html#pandas-data-structure"><i class="fa fa-check"></i><b>13.3.2</b> Pandas Data Structure</a></li>
+<li class="chapter" data-level="13.3" data-path="pandas-1.html"><a href="pandas-1.html#class-method-4"><i class="fa fa-check"></i><b>13.3</b> Class Method</a><ul>
+<li class="chapter" data-level="13.3.1" data-path="pandas-1.html"><a href="pandas-1.html#conversion-to_datetime"><i class="fa fa-check"></i><b>13.3.1</b> Conversion: <code>to_datetime()</code></a><ul>
+<li class="chapter" data-level="13.3.1.1" data-path="pandas-1.html"><a href="pandas-1.html#from-list-to-datetimeindex"><i class="fa fa-check"></i><b>13.3.1.1</b> From List to <code>DateTimeIndex</code></a></li>
+<li class="chapter" data-level="13.3.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-list-to-series"><i class="fa fa-check"></i><b>13.3.1.2</b> From List to Series</a></li>
+<li class="chapter" data-level="13.3.1.3" data-path="pandas-1.html"><a href="pandas-1.html#from-scalar-to-timestamp"><i class="fa fa-check"></i><b>13.3.1.3</b> From Scalar to Timestamp</a></li>
 </ul></li>
-<li class="chapter" data-level="13.4" data-path="pandas-1.html"><a href="pandas-1.html#class-method-4"><i class="fa fa-check"></i><b>13.4</b> Class Method</a><ul>
-<li class="chapter" data-level="13.4.1" data-path="pandas-1.html"><a href="pandas-1.html#conversion-to_datetime"><i class="fa fa-check"></i><b>13.4.1</b> Conversion: <code>to_datetime()</code></a><ul>
-<li class="chapter" data-level="13.4.1.1" data-path="pandas-1.html"><a href="pandas-1.html#from-list-to-datetimeindex"><i class="fa fa-check"></i><b>13.4.1.1</b> From List to <code>DateTimeIndex</code></a></li>
-<li class="chapter" data-level="13.4.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-list-to-series-to-series"><i class="fa fa-check"></i><b>13.4.1.2</b> From List to Series to Series</a></li>
-<li class="chapter" data-level="13.4.1.3" data-path="pandas-1.html"><a href="pandas-1.html#from-scalar-to-timestamp"><i class="fa fa-check"></i><b>13.4.1.3</b> From Scalar to Timestamp</a></li>
+<li class="chapter" data-level="13.3.2" data-path="pandas-1.html"><a href="pandas-1.html#generate-timestamp-sequence"><i class="fa fa-check"></i><b>13.3.2</b> Generate Timestamp Sequence</a><ul>
+<li class="chapter" data-level="13.3.2.1" data-path="pandas-1.html"><a href="pandas-1.html#date_range"><i class="fa fa-check"></i><b>13.3.2.1</b> <code>date_range()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="13.4.2" data-path="pandas-1.html"><a href="pandas-1.html#generate-timestamp-sequence"><i class="fa fa-check"></i><b>13.4.2</b> Generate Timestamp Sequence</a><ul>
-<li class="chapter" data-level="13.4.2.1" data-path="pandas-1.html"><a href="pandas-1.html#date_range"><i class="fa fa-check"></i><b>13.4.2.1</b> <code>date_range()</code></a></li>
-</ul></li>
-<li class="chapter" data-level="13.4.3" data-path="pandas-1.html"><a href="pandas-1.html#frequency-table-crosstab"><i class="fa fa-check"></i><b>13.4.3</b> Frequency Table (crosstab)</a><ul>
-<li class="chapter" data-level="13.4.3.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-2"><i class="fa fa-check"></i><b>13.4.3.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.4.3.2" data-path="pandas-1.html"><a href="pandas-1.html#one-dimensiontable"><i class="fa fa-check"></i><b>13.4.3.2</b> One DimensionTable</a></li>
-<li class="chapter" data-level="13.4.3.3" data-path="pandas-1.html"><a href="pandas-1.html#two-dimension-table"><i class="fa fa-check"></i><b>13.4.3.3</b> Two Dimension Table</a></li>
-<li class="chapter" data-level="13.4.3.4" data-path="pandas-1.html"><a href="pandas-1.html#higher-dimension-table"><i class="fa fa-check"></i><b>13.4.3.4</b> Higher Dimension Table</a></li>
-<li class="chapter" data-level="13.4.3.5" data-path="pandas-1.html"><a href="pandas-1.html#getting-margin"><i class="fa fa-check"></i><b>13.4.3.5</b> Getting Margin</a></li>
-<li class="chapter" data-level="13.4.3.6" data-path="pandas-1.html"><a href="pandas-1.html#getting-proportion"><i class="fa fa-check"></i><b>13.4.3.6</b> Getting Proportion</a></li>
-<li class="chapter" data-level="13.4.3.7" data-path="pandas-1.html"><a href="pandas-1.html#reseting-index"><i class="fa fa-check"></i><b>13.4.3.7</b> Reseting Index</a></li>
+<li class="chapter" data-level="13.3.3" data-path="pandas-1.html"><a href="pandas-1.html#frequency-table-crosstab"><i class="fa fa-check"></i><b>13.3.3</b> Frequency Table (crosstab)</a><ul>
+<li class="chapter" data-level="13.3.3.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-2"><i class="fa fa-check"></i><b>13.3.3.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.3.3.2" data-path="pandas-1.html"><a href="pandas-1.html#one-dimensiontable"><i class="fa fa-check"></i><b>13.3.3.2</b> One DimensionTable</a></li>
+<li class="chapter" data-level="13.3.3.3" data-path="pandas-1.html"><a href="pandas-1.html#two-dimension-table"><i class="fa fa-check"></i><b>13.3.3.3</b> Two Dimension Table</a></li>
+<li class="chapter" data-level="13.3.3.4" data-path="pandas-1.html"><a href="pandas-1.html#higher-dimension-table"><i class="fa fa-check"></i><b>13.3.3.4</b> Higher Dimension Table</a></li>
+<li class="chapter" data-level="13.3.3.5" data-path="pandas-1.html"><a href="pandas-1.html#getting-margin"><i class="fa fa-check"></i><b>13.3.3.5</b> Getting Margin</a></li>
+<li class="chapter" data-level="13.3.3.6" data-path="pandas-1.html"><a href="pandas-1.html#getting-proportion"><i class="fa fa-check"></i><b>13.3.3.6</b> Getting Proportion</a></li>
+<li class="chapter" data-level="13.3.3.7" data-path="pandas-1.html"><a href="pandas-1.html#reseting-index"><i class="fa fa-check"></i><b>13.3.3.7</b> Reseting Index</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="13.5" data-path="pandas-1.html"><a href="pandas-1.html#timestamp"><i class="fa fa-check"></i><b>13.5</b> Timestamp</a><ul>
-<li class="chapter" data-level="13.5.1" data-path="pandas-1.html"><a href="pandas-1.html#constructor-6"><i class="fa fa-check"></i><b>13.5.1</b> Constructor</a><ul>
-<li class="chapter" data-level="13.5.1.1" data-path="pandas-1.html"><a href="pandas-1.html#from-number"><i class="fa fa-check"></i><b>13.5.1.1</b> From Number</a></li>
-<li class="chapter" data-level="13.5.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-string"><i class="fa fa-check"></i><b>13.5.1.2</b> From String</a></li>
-<li class="chapter" data-level="13.5.1.3" data-path="pandas-1.html"><a href="pandas-1.html#from-standard-library-datetime-and-date-object"><i class="fa fa-check"></i><b>13.5.1.3</b> From Standard Library <code>datetime</code> and <code>date</code> Object</a></li>
+<li class="chapter" data-level="13.4" data-path="pandas-1.html"><a href="pandas-1.html#timestamp"><i class="fa fa-check"></i><b>13.4</b> Timestamp</a><ul>
+<li class="chapter" data-level="13.4.1" data-path="pandas-1.html"><a href="pandas-1.html#constructor-6"><i class="fa fa-check"></i><b>13.4.1</b> Constructor</a><ul>
+<li class="chapter" data-level="13.4.1.1" data-path="pandas-1.html"><a href="pandas-1.html#from-number"><i class="fa fa-check"></i><b>13.4.1.1</b> From Number</a></li>
+<li class="chapter" data-level="13.4.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-string"><i class="fa fa-check"></i><b>13.4.1.2</b> From String</a></li>
+<li class="chapter" data-level="13.4.1.3" data-path="pandas-1.html"><a href="pandas-1.html#from-standard-library-datetime-and-date-object"><i class="fa fa-check"></i><b>13.4.1.3</b> From Standard Library <code>datetime</code> and <code>date</code> Object</a></li>
 </ul></li>
-<li class="chapter" data-level="13.5.2" data-path="pandas-1.html"><a href="pandas-1.html#attributes-4"><i class="fa fa-check"></i><b>13.5.2</b> Attributes</a></li>
-<li class="chapter" data-level="13.5.3" data-path="pandas-1.html"><a href="pandas-1.html#operator-2"><i class="fa fa-check"></i><b>13.5.3</b> Operator</a></li>
-<li class="chapter" data-level="13.5.4" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods-1"><i class="fa fa-check"></i><b>13.5.4</b> Instance Methods</a><ul>
-<li class="chapter" data-level="13.5.4.1" data-path="pandas-1.html"><a href="pandas-1.html#useful-methods"><i class="fa fa-check"></i><b>13.5.4.1</b> Useful Methods</a></li>
-<li class="chapter" data-level="13.5.4.2" data-path="pandas-1.html"><a href="pandas-1.html#convert-to-datetime"><i class="fa fa-check"></i><b>13.5.4.2</b> Convert To datetime</a></li>
-<li class="chapter" data-level="13.5.4.3" data-path="pandas-1.html"><a href="pandas-1.html#convert-to-numpy"><i class="fa fa-check"></i><b>13.5.4.3</b> Convert To <code>numpy</code></a></li>
-<li class="chapter" data-level="13.5.4.4" data-path="pandas-1.html"><a href="pandas-1.html#formatting-with-strftime"><i class="fa fa-check"></i><b>13.5.4.4</b> Formatting with <code>strftime</code></a></li>
-<li class="chapter" data-level="13.5.4.5" data-path="pandas-1.html"><a href="pandas-1.html#add-timezone"><i class="fa fa-check"></i><b>13.5.4.5</b> Add Timezone</a></li>
-<li class="chapter" data-level="13.5.4.6" data-path="pandas-1.html"><a href="pandas-1.html#convert-timezone"><i class="fa fa-check"></i><b>13.5.4.6</b> Convert Timezone</a></li>
-<li class="chapter" data-level="13.5.4.7" data-path="pandas-1.html"><a href="pandas-1.html#removing-timezone"><i class="fa fa-check"></i><b>13.5.4.7</b> Removing TImezone</a></li>
-<li class="chapter" data-level="13.5.4.8" data-path="pandas-1.html"><a href="pandas-1.html#formatting-with-isoformat"><i class="fa fa-check"></i><b>13.5.4.8</b> Formatting with <code>isoformat</code></a></li>
-<li class="chapter" data-level="13.5.4.9" data-path="pandas-1.html"><a href="pandas-1.html#ceil"><i class="fa fa-check"></i><b>13.5.4.9</b> <code>ceil</code></a></li>
-<li class="chapter" data-level="13.5.4.10" data-path="pandas-1.html"><a href="pandas-1.html#replace-2"><i class="fa fa-check"></i><b>13.5.4.10</b> <code>replace()</code></a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="13.6" data-path="pandas-1.html"><a href="pandas-1.html#series"><i class="fa fa-check"></i><b>13.6</b> Series</a><ul>
-<li class="chapter" data-level="13.6.1" data-path="pandas-1.html"><a href="pandas-1.html#constructor-7"><i class="fa fa-check"></i><b>13.6.1</b> Constructor</a><ul>
-<li class="chapter" data-level="13.6.1.1" data-path="pandas-1.html"><a href="pandas-1.html#empty-series"><i class="fa fa-check"></i><b>13.6.1.1</b> Empty Series</a></li>
-<li class="chapter" data-level="13.6.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-scalar"><i class="fa fa-check"></i><b>13.6.1.2</b> From Scalar</a></li>
-<li class="chapter" data-level="13.6.1.3" data-path="pandas-1.html"><a href="pandas-1.html#from-array-like"><i class="fa fa-check"></i><b>13.6.1.3</b> From array-like</a></li>
-<li class="chapter" data-level="13.6.1.4" data-path="pandas-1.html"><a href="pandas-1.html#from-dictionary"><i class="fa fa-check"></i><b>13.6.1.4</b> From Dictionary</a></li>
-<li class="chapter" data-level="13.6.1.5" data-path="pandas-1.html"><a href="pandas-1.html#specify-index"><i class="fa fa-check"></i><b>13.6.1.5</b> Specify Index</a></li>
-<li class="chapter" data-level="13.6.1.6" data-path="pandas-1.html"><a href="pandas-1.html#mix-element-types"><i class="fa fa-check"></i><b>13.6.1.6</b> Mix Element Types</a></li>
-<li class="chapter" data-level="13.6.1.7" data-path="pandas-1.html"><a href="pandas-1.html#specify-data-types"><i class="fa fa-check"></i><b>13.6.1.7</b> Specify Data Types</a></li>
-</ul></li>
-<li class="chapter" data-level="13.6.2" data-path="pandas-1.html"><a href="pandas-1.html#accessing-series"><i class="fa fa-check"></i><b>13.6.2</b> Accessing Series</a><ul>
-<li class="chapter" data-level="13.6.2.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-3"><i class="fa fa-check"></i><b>13.6.2.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.6.2.2" data-path="pandas-1.html"><a href="pandas-1.html#by-row-numbers"><i class="fa fa-check"></i><b>13.6.2.2</b> by Row Number(s)</a></li>
-<li class="chapter" data-level="13.6.2.3" data-path="pandas-1.html"><a href="pandas-1.html#by-indexes"><i class="fa fa-check"></i><b>13.6.2.3</b> by Index(es)</a></li>
-<li class="chapter" data-level="13.6.2.4" data-path="pandas-1.html"><a href="pandas-1.html#filtering-criteria"><i class="fa fa-check"></i><b>13.6.2.4</b> Filtering Criteria</a></li>
-</ul></li>
-<li class="chapter" data-level="13.6.3" data-path="pandas-1.html"><a href="pandas-1.html#modifying-series"><i class="fa fa-check"></i><b>13.6.3</b> Modifying Series</a><ul>
-<li class="chapter" data-level="13.6.3.1" data-path="pandas-1.html"><a href="pandas-1.html#by-row-numbers-1"><i class="fa fa-check"></i><b>13.6.3.1</b> by Row Number(s)</a></li>
-<li class="chapter" data-level="13.6.3.2" data-path="pandas-1.html"><a href="pandas-1.html#by-indexes-1"><i class="fa fa-check"></i><b>13.6.3.2</b> by Index(es)</a></li>
-</ul></li>
-<li class="chapter" data-level="13.6.4" data-path="pandas-1.html"><a href="pandas-1.html#series-attributes"><i class="fa fa-check"></i><b>13.6.4</b> Series Attributes</a><ul>
-<li class="chapter" data-level="13.6.4.1" data-path="pandas-1.html"><a href="pandas-1.html#the-data"><i class="fa fa-check"></i><b>13.6.4.1</b> The Data</a></li>
-<li class="chapter" data-level="13.6.4.2" data-path="pandas-1.html"><a href="pandas-1.html#index"><i class="fa fa-check"></i><b>13.6.4.2</b> <code>index</code></a></li>
-<li class="chapter" data-level="13.6.4.3" data-path="pandas-1.html"><a href="pandas-1.html#dtype-1"><i class="fa fa-check"></i><b>13.6.4.3</b> <code>dtype</code></a></li>
-<li class="chapter" data-level="13.6.4.4" data-path="pandas-1.html"><a href="pandas-1.html#dimensions-1"><i class="fa fa-check"></i><b>13.6.4.4</b> Dimensions</a></li>
-<li class="chapter" data-level="13.6.4.5" data-path="pandas-1.html"><a href="pandas-1.html#name"><i class="fa fa-check"></i><b>13.6.4.5</b> <code>.name</code></a></li>
-</ul></li>
-<li class="chapter" data-level="13.6.5" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods-2"><i class="fa fa-check"></i><b>13.6.5</b> Instance Methods</a><ul>
-<li class="chapter" data-level="13.6.5.1" data-path="pandas-1.html"><a href="pandas-1.html#reset_index"><i class="fa fa-check"></i><b>13.6.5.1</b> .reset_index ()</a></li>
-<li class="chapter" data-level="13.6.5.2" data-path="pandas-1.html"><a href="pandas-1.html#structure-conversion"><i class="fa fa-check"></i><b>13.6.5.2</b> Structure Conversion</a></li>
-<li class="chapter" data-level="13.6.5.3" data-path="pandas-1.html"><a href="pandas-1.html#datatype-conversion"><i class="fa fa-check"></i><b>13.6.5.3</b> DataType Conversion</a></li>
-</ul></li>
-<li class="chapter" data-level="13.6.6" data-path="pandas-1.html"><a href="pandas-1.html#series-operators"><i class="fa fa-check"></i><b>13.6.6</b> Series Operators</a><ul>
-<li class="chapter" data-level="13.6.6.1" data-path="pandas-1.html"><a href="pandas-1.html#arithmetic-operator"><i class="fa fa-check"></i><b>13.6.6.1</b> Arithmetic Operator</a></li>
-<li class="chapter" data-level="13.6.6.2" data-path="pandas-1.html"><a href="pandas-1.html#logic-operator"><i class="fa fa-check"></i><b>13.6.6.2</b> Logic Operator</a></li>
-</ul></li>
-<li class="chapter" data-level="13.6.7" data-path="pandas-1.html"><a href="pandas-1.html#series-string-accesor-.str"><i class="fa fa-check"></i><b>13.6.7</b> Series String Accesor <code>.str</code></a><ul>
-<li class="chapter" data-level="13.6.7.1" data-path="pandas-1.html"><a href="pandas-1.html#splitting"><i class="fa fa-check"></i><b>13.6.7.1</b> Splitting</a></li>
-<li class="chapter" data-level="13.6.7.2" data-path="pandas-1.html"><a href="pandas-1.html#matching"><i class="fa fa-check"></i><b>13.6.7.2</b> Matching</a></li>
-<li class="chapter" data-level="13.6.7.3" data-path="pandas-1.html"><a href="pandas-1.html#case-conversion"><i class="fa fa-check"></i><b>13.6.7.3</b> Case Conversion</a></li>
-<li class="chapter" data-level="13.6.7.4" data-path="pandas-1.html"><a href="pandas-1.html#number-of-characters"><i class="fa fa-check"></i><b>13.6.7.4</b> Number of Characters</a></li>
-<li class="chapter" data-level="13.6.7.5" data-path="pandas-1.html"><a href="pandas-1.html#string-indexing"><i class="fa fa-check"></i><b>13.6.7.5</b> String Indexing</a></li>
-<li class="chapter" data-level="13.6.7.6" data-path="pandas-1.html"><a href="pandas-1.html#splitting-1"><i class="fa fa-check"></i><b>13.6.7.6</b> Splitting</a></li>
-<li class="chapter" data-level="13.6.7.7" data-path="pandas-1.html"><a href="pandas-1.html#split-and-expand-into-dataframe"><i class="fa fa-check"></i><b>13.6.7.7</b> Split and Expand Into DataFrame</a></li>
-<li class="chapter" data-level="13.6.7.8" data-path="pandas-1.html"><a href="pandas-1.html#series-substring-extraction"><i class="fa fa-check"></i><b>13.6.7.8</b> Series Substring Extraction</a></li>
-</ul></li>
-<li class="chapter" data-level="13.6.8" data-path="pandas-1.html"><a href="pandas-1.html#series-datetime-accessor-.dt"><i class="fa fa-check"></i><b>13.6.8</b> Series DateTime Accessor <code>.dt</code></a><ul>
-<li class="chapter" data-level="13.6.8.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-4"><i class="fa fa-check"></i><b>13.6.8.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.6.8.2" data-path="pandas-1.html"><a href="pandas-1.html#convert-to"><i class="fa fa-check"></i><b>13.6.8.2</b> Convert To</a></li>
-<li class="chapter" data-level="13.6.8.3" data-path="pandas-1.html"><a href="pandas-1.html#timestamp-attributes"><i class="fa fa-check"></i><b>13.6.8.3</b> Timestamp Attributes</a></li>
+<li class="chapter" data-level="13.4.2" data-path="pandas-1.html"><a href="pandas-1.html#attributes-4"><i class="fa fa-check"></i><b>13.4.2</b> Attributes</a></li>
+<li class="chapter" data-level="13.4.3" data-path="pandas-1.html"><a href="pandas-1.html#operator-2"><i class="fa fa-check"></i><b>13.4.3</b> Operator</a></li>
+<li class="chapter" data-level="13.4.4" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods-1"><i class="fa fa-check"></i><b>13.4.4</b> Instance Methods</a><ul>
+<li class="chapter" data-level="13.4.4.1" data-path="pandas-1.html"><a href="pandas-1.html#useful-methods"><i class="fa fa-check"></i><b>13.4.4.1</b> Useful Methods</a></li>
+<li class="chapter" data-level="13.4.4.2" data-path="pandas-1.html"><a href="pandas-1.html#convert-to-datetime"><i class="fa fa-check"></i><b>13.4.4.2</b> Convert To datetime</a></li>
+<li class="chapter" data-level="13.4.4.3" data-path="pandas-1.html"><a href="pandas-1.html#convert-to-numpy"><i class="fa fa-check"></i><b>13.4.4.3</b> Convert To <code>numpy</code></a></li>
+<li class="chapter" data-level="13.4.4.4" data-path="pandas-1.html"><a href="pandas-1.html#formatting-with-strftime"><i class="fa fa-check"></i><b>13.4.4.4</b> Formatting with <code>strftime</code></a></li>
+<li class="chapter" data-level="13.4.4.5" data-path="pandas-1.html"><a href="pandas-1.html#add-timezone"><i class="fa fa-check"></i><b>13.4.4.5</b> Add Timezone</a></li>
+<li class="chapter" data-level="13.4.4.6" data-path="pandas-1.html"><a href="pandas-1.html#convert-timezone"><i class="fa fa-check"></i><b>13.4.4.6</b> Convert Timezone</a></li>
+<li class="chapter" data-level="13.4.4.7" data-path="pandas-1.html"><a href="pandas-1.html#removing-timezone"><i class="fa fa-check"></i><b>13.4.4.7</b> Removing TImezone</a></li>
+<li class="chapter" data-level="13.4.4.8" data-path="pandas-1.html"><a href="pandas-1.html#formatting-with-isoformat"><i class="fa fa-check"></i><b>13.4.4.8</b> Formatting with <code>isoformat</code></a></li>
+<li class="chapter" data-level="13.4.4.9" data-path="pandas-1.html"><a href="pandas-1.html#ceil"><i class="fa fa-check"></i><b>13.4.4.9</b> <code>ceil</code></a></li>
+<li class="chapter" data-level="13.4.4.10" data-path="pandas-1.html"><a href="pandas-1.html#replace-2"><i class="fa fa-check"></i><b>13.4.4.10</b> <code>replace()</code></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="13.7" data-path="pandas-1.html"><a href="pandas-1.html#dataframe"><i class="fa fa-check"></i><b>13.7</b> DataFrame</a><ul>
-<li class="chapter" data-level="13.7.1" data-path="pandas-1.html"><a href="pandas-1.html#constructor-8"><i class="fa fa-check"></i><b>13.7.1</b> Constructor</a><ul>
-<li class="chapter" data-level="13.7.1.1" data-path="pandas-1.html"><a href="pandas-1.html#from-row-oriented-data-list-of-lists"><i class="fa fa-check"></i><b>13.7.1.1</b> From Row Oriented Data (List of Lists)</a></li>
-<li class="chapter" data-level="13.7.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-row-oriented-data-list-of-dictionary"><i class="fa fa-check"></i><b>13.7.1.2</b> From Row Oriented Data (List of Dictionary)</a></li>
-<li class="chapter" data-level="13.7.1.3" data-path="pandas-1.html"><a href="pandas-1.html#from-column-oriented-data"><i class="fa fa-check"></i><b>13.7.1.3</b> From Column Oriented Data</a></li>
+<li class="chapter" data-level="13.5" data-path="pandas-1.html"><a href="pandas-1.html#series"><i class="fa fa-check"></i><b>13.5</b> Series</a><ul>
+<li class="chapter" data-level="13.5.1" data-path="pandas-1.html"><a href="pandas-1.html#constructor-7"><i class="fa fa-check"></i><b>13.5.1</b> Constructor</a><ul>
+<li class="chapter" data-level="13.5.1.1" data-path="pandas-1.html"><a href="pandas-1.html#empty-series"><i class="fa fa-check"></i><b>13.5.1.1</b> Empty Series</a></li>
+<li class="chapter" data-level="13.5.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-scalar"><i class="fa fa-check"></i><b>13.5.1.2</b> From Scalar</a></li>
+<li class="chapter" data-level="13.5.1.3" data-path="pandas-1.html"><a href="pandas-1.html#from-array-like"><i class="fa fa-check"></i><b>13.5.1.3</b> From array-like</a></li>
+<li class="chapter" data-level="13.5.1.4" data-path="pandas-1.html"><a href="pandas-1.html#from-dictionary"><i class="fa fa-check"></i><b>13.5.1.4</b> From Dictionary</a></li>
+<li class="chapter" data-level="13.5.1.5" data-path="pandas-1.html"><a href="pandas-1.html#specify-index"><i class="fa fa-check"></i><b>13.5.1.5</b> Specify Index</a></li>
+<li class="chapter" data-level="13.5.1.6" data-path="pandas-1.html"><a href="pandas-1.html#mix-element-types"><i class="fa fa-check"></i><b>13.5.1.6</b> Mix Element Types</a></li>
+<li class="chapter" data-level="13.5.1.7" data-path="pandas-1.html"><a href="pandas-1.html#specify-data-types"><i class="fa fa-check"></i><b>13.5.1.7</b> Specify Data Types</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.2" data-path="pandas-1.html"><a href="pandas-1.html#attributes-5"><i class="fa fa-check"></i><b>13.7.2</b> Attributes</a><ul>
-<li class="chapter" data-level="13.7.2.1" data-path="pandas-1.html"><a href="pandas-1.html#dimensions-2"><i class="fa fa-check"></i><b>13.7.2.1</b> Dimensions</a></li>
-<li class="chapter" data-level="13.7.2.2" data-path="pandas-1.html"><a href="pandas-1.html#index-1"><i class="fa fa-check"></i><b>13.7.2.2</b> Index</a></li>
-<li class="chapter" data-level="13.7.2.3" data-path="pandas-1.html"><a href="pandas-1.html#columns"><i class="fa fa-check"></i><b>13.7.2.3</b> Columns</a></li>
-<li class="chapter" data-level="13.7.2.4" data-path="pandas-1.html"><a href="pandas-1.html#values"><i class="fa fa-check"></i><b>13.7.2.4</b> Values</a></li>
+<li class="chapter" data-level="13.5.2" data-path="pandas-1.html"><a href="pandas-1.html#accessing-series"><i class="fa fa-check"></i><b>13.5.2</b> Accessing Series</a><ul>
+<li class="chapter" data-level="13.5.2.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-3"><i class="fa fa-check"></i><b>13.5.2.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.5.2.2" data-path="pandas-1.html"><a href="pandas-1.html#by-row-numbers"><i class="fa fa-check"></i><b>13.5.2.2</b> by Row Number(s)</a></li>
+<li class="chapter" data-level="13.5.2.3" data-path="pandas-1.html"><a href="pandas-1.html#by-indexes"><i class="fa fa-check"></i><b>13.5.2.3</b> by Index(es)</a></li>
+<li class="chapter" data-level="13.5.2.4" data-path="pandas-1.html"><a href="pandas-1.html#filtering-criteria"><i class="fa fa-check"></i><b>13.5.2.4</b> Filtering Criteria</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.3" data-path="pandas-1.html"><a href="pandas-1.html#index-manipulation"><i class="fa fa-check"></i><b>13.7.3</b> Index Manipulation</a><ul>
-<li class="chapter" data-level="13.7.3.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-5"><i class="fa fa-check"></i><b>13.7.3.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.7.3.2" data-path="pandas-1.html"><a href="pandas-1.html#convert-column-to-index"><i class="fa fa-check"></i><b>13.7.3.2</b> Convert Column To Index</a></li>
-<li class="chapter" data-level="13.7.3.3" data-path="pandas-1.html"><a href="pandas-1.html#convert-index-back-to-column"><i class="fa fa-check"></i><b>13.7.3.3</b> Convert Index Back To Column</a></li>
-<li class="chapter" data-level="13.7.3.4" data-path="pandas-1.html"><a href="pandas-1.html#updating-index-.index"><i class="fa fa-check"></i><b>13.7.3.4</b> Updating Index ( .index= )</a></li>
-<li class="chapter" data-level="13.7.3.5" data-path="pandas-1.html"><a href="pandas-1.html#reordering-index-.-reindex"><i class="fa fa-check"></i><b>13.7.3.5</b> Reordering Index (. reindex )</a></li>
+<li class="chapter" data-level="13.5.3" data-path="pandas-1.html"><a href="pandas-1.html#modifying-series"><i class="fa fa-check"></i><b>13.5.3</b> Modifying Series</a><ul>
+<li class="chapter" data-level="13.5.3.1" data-path="pandas-1.html"><a href="pandas-1.html#by-row-numbers-1"><i class="fa fa-check"></i><b>13.5.3.1</b> by Row Number(s)</a></li>
+<li class="chapter" data-level="13.5.3.2" data-path="pandas-1.html"><a href="pandas-1.html#by-indexes-1"><i class="fa fa-check"></i><b>13.5.3.2</b> by Index(es)</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.4" data-path="pandas-1.html"><a href="pandas-1.html#subsetting-columns"><i class="fa fa-check"></i><b>13.7.4</b> Subsetting Columns</a><ul>
-<li class="chapter" data-level="13.7.4.1" data-path="pandas-1.html"><a href="pandas-1.html#select-single-column"><i class="fa fa-check"></i><b>13.7.4.1</b> Select Single Column</a></li>
-<li class="chapter" data-level="13.7.4.2" data-path="pandas-1.html"><a href="pandas-1.html#select-multiple-columns"><i class="fa fa-check"></i><b>13.7.4.2</b> Select Multiple Columns</a></li>
-<li class="chapter" data-level="13.7.4.3" data-path="pandas-1.html"><a href="pandas-1.html#selection-by-data-type"><i class="fa fa-check"></i><b>13.7.4.3</b> Selection by Data Type</a></li>
-<li class="chapter" data-level="13.7.4.4" data-path="pandas-1.html"><a href="pandas-1.html#subset-by-filter"><i class="fa fa-check"></i><b>13.7.4.4</b> Subset by <code>filter()</code></a></li>
+<li class="chapter" data-level="13.5.4" data-path="pandas-1.html"><a href="pandas-1.html#series-attributes"><i class="fa fa-check"></i><b>13.5.4</b> Series Attributes</a><ul>
+<li class="chapter" data-level="13.5.4.1" data-path="pandas-1.html"><a href="pandas-1.html#the-data"><i class="fa fa-check"></i><b>13.5.4.1</b> The Data</a></li>
+<li class="chapter" data-level="13.5.4.2" data-path="pandas-1.html"><a href="pandas-1.html#index"><i class="fa fa-check"></i><b>13.5.4.2</b> <code>index</code></a></li>
+<li class="chapter" data-level="13.5.4.3" data-path="pandas-1.html"><a href="pandas-1.html#dtype-1"><i class="fa fa-check"></i><b>13.5.4.3</b> <code>dtype</code></a></li>
+<li class="chapter" data-level="13.5.4.4" data-path="pandas-1.html"><a href="pandas-1.html#dimensions-1"><i class="fa fa-check"></i><b>13.5.4.4</b> Dimensions</a></li>
+<li class="chapter" data-level="13.5.4.5" data-path="pandas-1.html"><a href="pandas-1.html#name"><i class="fa fa-check"></i><b>13.5.4.5</b> <code>.name</code></a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.5" data-path="pandas-1.html"><a href="pandas-1.html#column-manipulation-1"><i class="fa fa-check"></i><b>13.7.5</b> Column Manipulation</a><ul>
-<li class="chapter" data-level="13.7.5.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-6"><i class="fa fa-check"></i><b>13.7.5.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.7.5.2" data-path="pandas-1.html"><a href="pandas-1.html#renaming-columns"><i class="fa fa-check"></i><b>13.7.5.2</b> Renaming Columns</a></li>
-<li class="chapter" data-level="13.7.5.3" data-path="pandas-1.html"><a href="pandas-1.html#reordering-columns"><i class="fa fa-check"></i><b>13.7.5.3</b> Reordering Columns</a></li>
-<li class="chapter" data-level="13.7.5.4" data-path="pandas-1.html"><a href="pandas-1.html#duplicating-or-replacing-column"><i class="fa fa-check"></i><b>13.7.5.4</b> Duplicating or Replacing Column</a></li>
-<li class="chapter" data-level="13.7.5.5" data-path="pandas-1.html"><a href="pandas-1.html#dropping-columns-.drop"><i class="fa fa-check"></i><b>13.7.5.5</b> Dropping Columns (.drop)</a></li>
+<li class="chapter" data-level="13.5.5" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods-2"><i class="fa fa-check"></i><b>13.5.5</b> Instance Methods</a><ul>
+<li class="chapter" data-level="13.5.5.1" data-path="pandas-1.html"><a href="pandas-1.html#reset_index"><i class="fa fa-check"></i><b>13.5.5.1</b> .reset_index ()</a></li>
+<li class="chapter" data-level="13.5.5.2" data-path="pandas-1.html"><a href="pandas-1.html#structure-conversion"><i class="fa fa-check"></i><b>13.5.5.2</b> Structure Conversion</a></li>
+<li class="chapter" data-level="13.5.5.3" data-path="pandas-1.html"><a href="pandas-1.html#datatype-conversion"><i class="fa fa-check"></i><b>13.5.5.3</b> DataType Conversion</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.6" data-path="pandas-1.html"><a href="pandas-1.html#subsetting-rows"><i class="fa fa-check"></i><b>13.7.6</b> Subsetting Rows</a><ul>
-<li class="chapter" data-level="13.7.6.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-7"><i class="fa fa-check"></i><b>13.7.6.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.7.6.2" data-path="pandas-1.html"><a href="pandas-1.html#by-index-or-boolean"><i class="fa fa-check"></i><b>13.7.6.2</b> By Index or Boolean</a></li>
-<li class="chapter" data-level="13.7.6.3" data-path="pandas-1.html"><a href="pandas-1.html#by-row-number"><i class="fa fa-check"></i><b>13.7.6.3</b> By Row Number</a></li>
-<li class="chapter" data-level="13.7.6.4" data-path="pandas-1.html"><a href="pandas-1.html#query"><i class="fa fa-check"></i><b>13.7.6.4</b> <code>query()</code></a></li>
-<li class="chapter" data-level="13.7.6.5" data-path="pandas-1.html"><a href="pandas-1.html#sample"><i class="fa fa-check"></i><b>13.7.6.5</b> <code>sample()</code></a></li>
+<li class="chapter" data-level="13.5.6" data-path="pandas-1.html"><a href="pandas-1.html#series-operators"><i class="fa fa-check"></i><b>13.5.6</b> Series Operators</a><ul>
+<li class="chapter" data-level="13.5.6.1" data-path="pandas-1.html"><a href="pandas-1.html#arithmetic-operator"><i class="fa fa-check"></i><b>13.5.6.1</b> Arithmetic Operator</a></li>
+<li class="chapter" data-level="13.5.6.2" data-path="pandas-1.html"><a href="pandas-1.html#logic-operator"><i class="fa fa-check"></i><b>13.5.6.2</b> Logic Operator</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.7" data-path="pandas-1.html"><a href="pandas-1.html#row-manipulation"><i class="fa fa-check"></i><b>13.7.7</b> Row Manipulation</a><ul>
-<li class="chapter" data-level="13.7.7.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-8"><i class="fa fa-check"></i><b>13.7.7.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.7.7.2" data-path="pandas-1.html"><a href="pandas-1.html#dropping-rows-.drop"><i class="fa fa-check"></i><b>13.7.7.2</b> Dropping Rows (.drop)</a></li>
+<li class="chapter" data-level="13.5.7" data-path="pandas-1.html"><a href="pandas-1.html#series-string-accesor-.str"><i class="fa fa-check"></i><b>13.5.7</b> Series String Accesor <code>.str</code></a><ul>
+<li class="chapter" data-level="13.5.7.1" data-path="pandas-1.html"><a href="pandas-1.html#splitting"><i class="fa fa-check"></i><b>13.5.7.1</b> Splitting</a></li>
+<li class="chapter" data-level="13.5.7.2" data-path="pandas-1.html"><a href="pandas-1.html#matching"><i class="fa fa-check"></i><b>13.5.7.2</b> Matching</a></li>
+<li class="chapter" data-level="13.5.7.3" data-path="pandas-1.html"><a href="pandas-1.html#case-conversion"><i class="fa fa-check"></i><b>13.5.7.3</b> Case Conversion</a></li>
+<li class="chapter" data-level="13.5.7.4" data-path="pandas-1.html"><a href="pandas-1.html#number-of-characters"><i class="fa fa-check"></i><b>13.5.7.4</b> Number of Characters</a></li>
+<li class="chapter" data-level="13.5.7.5" data-path="pandas-1.html"><a href="pandas-1.html#string-indexing"><i class="fa fa-check"></i><b>13.5.7.5</b> String Indexing</a></li>
+<li class="chapter" data-level="13.5.7.6" data-path="pandas-1.html"><a href="pandas-1.html#splitting-1"><i class="fa fa-check"></i><b>13.5.7.6</b> Splitting</a></li>
+<li class="chapter" data-level="13.5.7.7" data-path="pandas-1.html"><a href="pandas-1.html#split-and-expand-into-dataframe"><i class="fa fa-check"></i><b>13.5.7.7</b> Split and Expand Into DataFrame</a></li>
+<li class="chapter" data-level="13.5.7.8" data-path="pandas-1.html"><a href="pandas-1.html#series-substring-extraction"><i class="fa fa-check"></i><b>13.5.7.8</b> Series Substring Extraction</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.8" data-path="pandas-1.html"><a href="pandas-1.html#slicing"><i class="fa fa-check"></i><b>13.7.8</b> Slicing</a><ul>
-<li class="chapter" data-level="13.7.8.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-9"><i class="fa fa-check"></i><b>13.7.8.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.7.8.2" data-path="pandas-1.html"><a href="pandas-1.html#getting-one-cell"><i class="fa fa-check"></i><b>13.7.8.2</b> Getting One Cell</a></li>
-<li class="chapter" data-level="13.7.8.3" data-path="pandas-1.html"><a href="pandas-1.html#getting-multiple-cells"><i class="fa fa-check"></i><b>13.7.8.3</b> Getting Multiple Cells</a></li>
-</ul></li>
-<li class="chapter" data-level="13.7.9" data-path="pandas-1.html"><a href="pandas-1.html#chained-indexing"><i class="fa fa-check"></i><b>13.7.9</b> Chained Indexing</a></li>
-<li class="chapter" data-level="13.7.10" data-path="pandas-1.html"><a href="pandas-1.html#data-structure"><i class="fa fa-check"></i><b>13.7.10</b> Data Structure</a><ul>
-<li class="chapter" data-level="13.7.10.1" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods---structure"><i class="fa fa-check"></i><b>13.7.10.1</b> Instance Methods - Structure</a></li>
-<li class="chapter" data-level="13.7.10.2" data-path="pandas-1.html"><a href="pandas-1.html#conversion-to-other-format"><i class="fa fa-check"></i><b>13.7.10.2</b> Conversion To Other Format</a></li>
-</ul></li>
-<li class="chapter" data-level="13.7.11" data-path="pandas-1.html"><a href="pandas-1.html#exploratory-analysis"><i class="fa fa-check"></i><b>13.7.11</b> Exploratory Analysis</a><ul>
-<li class="chapter" data-level="13.7.11.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-10"><i class="fa fa-check"></i><b>13.7.11.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.7.11.2" data-path="pandas-1.html"><a href="pandas-1.html#all-stats-in-one---.describe"><i class="fa fa-check"></i><b>13.7.11.2</b> All Stats in One - .describe()</a></li>
-<li class="chapter" data-level="13.7.11.3" data-path="pandas-1.html"><a href="pandas-1.html#minmaxmeanmedian"><i class="fa fa-check"></i><b>13.7.11.3</b> min/max/mean/median</a></li>
-</ul></li>
-<li class="chapter" data-level="13.7.12" data-path="pandas-1.html"><a href="pandas-1.html#plotting"><i class="fa fa-check"></i><b>13.7.12</b> Plotting</a></li>
-</ul></li>
-<li class="chapter" data-level="13.8" data-path="pandas-1.html"><a href="pandas-1.html#categories"><i class="fa fa-check"></i><b>13.8</b> Categories</a><ul>
-<li class="chapter" data-level="13.8.1" data-path="pandas-1.html"><a href="pandas-1.html#creating"><i class="fa fa-check"></i><b>13.8.1</b> Creating</a><ul>
-<li class="chapter" data-level="13.8.1.1" data-path="pandas-1.html"><a href="pandas-1.html#from-list"><i class="fa fa-check"></i><b>13.8.1.1</b> From List</a></li>
-<li class="chapter" data-level="13.8.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-series"><i class="fa fa-check"></i><b>13.8.1.2</b> From Series</a></li>
-<li class="chapter" data-level="13.8.1.3" data-path="pandas-1.html"><a href="pandas-1.html#ordering-category"><i class="fa fa-check"></i><b>13.8.1.3</b> Ordering Category</a></li>
-</ul></li>
-<li class="chapter" data-level="13.8.2" data-path="pandas-1.html"><a href="pandas-1.html#properties"><i class="fa fa-check"></i><b>13.8.2</b> Properties</a><ul>
-<li class="chapter" data-level="13.8.2.1" data-path="pandas-1.html"><a href="pandas-1.html#categories-1"><i class="fa fa-check"></i><b>13.8.2.1</b> .categories</a></li>
-<li class="chapter" data-level="13.8.2.2" data-path="pandas-1.html"><a href="pandas-1.html#codes"><i class="fa fa-check"></i><b>13.8.2.2</b> .codes</a></li>
-</ul></li>
-<li class="chapter" data-level="13.8.3" data-path="pandas-1.html"><a href="pandas-1.html#rename-category"><i class="fa fa-check"></i><b>13.8.3</b> Rename Category</a><ul>
-<li class="chapter" data-level="13.8.3.1" data-path="pandas-1.html"><a href="pandas-1.html#renamce-to-new-category-object"><i class="fa fa-check"></i><b>13.8.3.1</b> Renamce To New Category Object</a></li>
-<li class="chapter" data-level="13.8.3.2" data-path="pandas-1.html"><a href="pandas-1.html#rename-inplace"><i class="fa fa-check"></i><b>13.8.3.2</b> Rename Inplace</a></li>
-</ul></li>
-<li class="chapter" data-level="13.8.4" data-path="pandas-1.html"><a href="pandas-1.html#adding-new-category"><i class="fa fa-check"></i><b>13.8.4</b> Adding New Category</a></li>
-<li class="chapter" data-level="13.8.5" data-path="pandas-1.html"><a href="pandas-1.html#removing-category"><i class="fa fa-check"></i><b>13.8.5</b> Removing Category</a><ul>
-<li class="chapter" data-level="13.8.5.1" data-path="pandas-1.html"><a href="pandas-1.html#remove-specific-categories"><i class="fa fa-check"></i><b>13.8.5.1</b> Remove Specific Categor(ies)</a></li>
-<li class="chapter" data-level="13.8.5.2" data-path="pandas-1.html"><a href="pandas-1.html#remove-unused-category"><i class="fa fa-check"></i><b>13.8.5.2</b> Remove Unused Category</a></li>
-</ul></li>
-<li class="chapter" data-level="13.8.6" data-path="pandas-1.html"><a href="pandas-1.html#add-and-remove-categories-in-one-step---set"><i class="fa fa-check"></i><b>13.8.6</b> Add and Remove Categories In One Step - Set()</a></li>
-<li class="chapter" data-level="13.8.7" data-path="pandas-1.html"><a href="pandas-1.html#categorical-descriptive-analysis"><i class="fa fa-check"></i><b>13.8.7</b> Categorical Descriptive Analysis</a><ul>
-<li class="chapter" data-level="13.8.7.1" data-path="pandas-1.html"><a href="pandas-1.html#at-one-glance"><i class="fa fa-check"></i><b>13.8.7.1</b> At One Glance</a></li>
-<li class="chapter" data-level="13.8.7.2" data-path="pandas-1.html"><a href="pandas-1.html#frequency-count"><i class="fa fa-check"></i><b>13.8.7.2</b> Frequency Count</a></li>
-<li class="chapter" data-level="13.8.7.3" data-path="pandas-1.html"><a href="pandas-1.html#least-frequent-category-most-frequent-category-and-most-frequent-category"><i class="fa fa-check"></i><b>13.8.7.3</b> Least Frequent Category, Most Frequent Category, and Most Frequent Category</a></li>
-</ul></li>
-<li class="chapter" data-level="13.8.8" data-path="pandas-1.html"><a href="pandas-1.html#other-methods-1"><i class="fa fa-check"></i><b>13.8.8</b> Other Methods</a><ul>
-<li class="chapter" data-level="13.8.8.1" data-path="pandas-1.html"><a href="pandas-1.html#get_values"><i class="fa fa-check"></i><b>13.8.8.1</b> .get_values()</a></li>
+<li class="chapter" data-level="13.5.8" data-path="pandas-1.html"><a href="pandas-1.html#series-datetime-accessor-.dt"><i class="fa fa-check"></i><b>13.5.8</b> Series DateTime Accessor <code>.dt</code></a><ul>
+<li class="chapter" data-level="13.5.8.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-4"><i class="fa fa-check"></i><b>13.5.8.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.5.8.2" data-path="pandas-1.html"><a href="pandas-1.html#convert-to"><i class="fa fa-check"></i><b>13.5.8.2</b> Convert To</a></li>
+<li class="chapter" data-level="13.5.8.3" data-path="pandas-1.html"><a href="pandas-1.html#timestamp-attributes"><i class="fa fa-check"></i><b>13.5.8.3</b> Timestamp Attributes</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="13.9" data-path="pandas-1.html"><a href="pandas-1.html#dummies"><i class="fa fa-check"></i><b>13.9</b> Dummies</a><ul>
-<li class="chapter" data-level="13.9.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-11"><i class="fa fa-check"></i><b>13.9.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.9.2" data-path="pandas-1.html"><a href="pandas-1.html#dummies-on-array-like-data"><i class="fa fa-check"></i><b>13.9.2</b> Dummies on Array-Like Data</a></li>
-<li class="chapter" data-level="13.9.3" data-path="pandas-1.html"><a href="pandas-1.html#dummies-on-dataframe-multiple-columns"><i class="fa fa-check"></i><b>13.9.3</b> Dummies on DataFrame (multiple columns)</a><ul>
-<li class="chapter" data-level="13.9.3.1" data-path="pandas-1.html"><a href="pandas-1.html#all-columns"><i class="fa fa-check"></i><b>13.9.3.1</b> All Columns</a></li>
-<li class="chapter" data-level="13.9.3.2" data-path="pandas-1.html"><a href="pandas-1.html#selected-columns"><i class="fa fa-check"></i><b>13.9.3.2</b> Selected Columns</a></li>
+<li class="chapter" data-level="13.6" data-path="pandas-1.html"><a href="pandas-1.html#dataframe"><i class="fa fa-check"></i><b>13.6</b> DataFrame</a><ul>
+<li class="chapter" data-level="13.6.1" data-path="pandas-1.html"><a href="pandas-1.html#constructor-8"><i class="fa fa-check"></i><b>13.6.1</b> Constructor</a><ul>
+<li class="chapter" data-level="13.6.1.1" data-path="pandas-1.html"><a href="pandas-1.html#from-row-oriented-data-list-of-lists"><i class="fa fa-check"></i><b>13.6.1.1</b> From Row Oriented Data (List of Lists)</a></li>
+<li class="chapter" data-level="13.6.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-row-oriented-data-list-of-dictionary"><i class="fa fa-check"></i><b>13.6.1.2</b> From Row Oriented Data (List of Dictionary)</a></li>
+<li class="chapter" data-level="13.6.1.3" data-path="pandas-1.html"><a href="pandas-1.html#from-column-oriented-data"><i class="fa fa-check"></i><b>13.6.1.3</b> From Column Oriented Data</a></li>
 </ul></li>
-<li class="chapter" data-level="13.9.4" data-path="pandas-1.html"><a href="pandas-1.html#dummies-with-na"><i class="fa fa-check"></i><b>13.9.4</b> Dummies with na</a></li>
-<li class="chapter" data-level="13.9.5" data-path="pandas-1.html"><a href="pandas-1.html#specify-prefixes"><i class="fa fa-check"></i><b>13.9.5</b> Specify Prefixes</a></li>
-<li class="chapter" data-level="13.9.6" data-path="pandas-1.html"><a href="pandas-1.html#dropping-first-column"><i class="fa fa-check"></i><b>13.9.6</b> Dropping First Column</a></li>
+<li class="chapter" data-level="13.6.2" data-path="pandas-1.html"><a href="pandas-1.html#attributes-5"><i class="fa fa-check"></i><b>13.6.2</b> Attributes</a><ul>
+<li class="chapter" data-level="13.6.2.1" data-path="pandas-1.html"><a href="pandas-1.html#dimensions-2"><i class="fa fa-check"></i><b>13.6.2.1</b> Dimensions</a></li>
+<li class="chapter" data-level="13.6.2.2" data-path="pandas-1.html"><a href="pandas-1.html#index-1"><i class="fa fa-check"></i><b>13.6.2.2</b> Index</a></li>
+<li class="chapter" data-level="13.6.2.3" data-path="pandas-1.html"><a href="pandas-1.html#columns"><i class="fa fa-check"></i><b>13.6.2.3</b> Columns</a></li>
+<li class="chapter" data-level="13.6.2.4" data-path="pandas-1.html"><a href="pandas-1.html#values"><i class="fa fa-check"></i><b>13.6.2.4</b> Values</a></li>
 </ul></li>
-<li class="chapter" data-level="13.10" data-path="pandas-1.html"><a href="pandas-1.html#getting-external-data-1"><i class="fa fa-check"></i><b>13.10</b> Getting External Data</a><ul>
-<li class="chapter" data-level="13.10.1" data-path="pandas-1.html"><a href="pandas-1.html#html_table-parser"><i class="fa fa-check"></i><b>13.10.1</b> html_table parser</a></li>
-<li class="chapter" data-level="13.10.2" data-path="pandas-1.html"><a href="pandas-1.html#csv-import"><i class="fa fa-check"></i><b>13.10.2</b> CSV Import</a><ul>
-<li class="chapter" data-level="13.10.2.1" data-path="pandas-1.html"><a href="pandas-1.html#syntax"><i class="fa fa-check"></i><b>13.10.2.1</b> Syntax</a></li>
-<li class="chapter" data-level="13.10.2.2" data-path="pandas-1.html"><a href="pandas-1.html#default-import"><i class="fa fa-check"></i><b>13.10.2.2</b> Default Import</a></li>
-<li class="chapter" data-level="13.10.2.3" data-path="pandas-1.html"><a href="pandas-1.html#specify-data-types-1"><i class="fa fa-check"></i><b>13.10.2.3</b> Specify Data Types</a></li>
-<li class="chapter" data-level="13.10.2.4" data-path="pandas-1.html"><a href="pandas-1.html#on-the-fly-date-parsing-and-indexing"><i class="fa fa-check"></i><b>13.10.2.4</b> On The Fly Date Parsing and Indexing</a></li>
-<li class="chapter" data-level="13.10.2.5" data-path="pandas-1.html"><a href="pandas-1.html#parse-date-then-set-as-index"><i class="fa fa-check"></i><b>13.10.2.5</b> Parse Date, Then Set as Index</a></li>
+<li class="chapter" data-level="13.6.3" data-path="pandas-1.html"><a href="pandas-1.html#index-manipulation"><i class="fa fa-check"></i><b>13.6.3</b> Index Manipulation</a><ul>
+<li class="chapter" data-level="13.6.3.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-5"><i class="fa fa-check"></i><b>13.6.3.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.6.3.2" data-path="pandas-1.html"><a href="pandas-1.html#convert-column-to-index"><i class="fa fa-check"></i><b>13.6.3.2</b> Convert Column To Index</a></li>
+<li class="chapter" data-level="13.6.3.3" data-path="pandas-1.html"><a href="pandas-1.html#convert-index-back-to-column"><i class="fa fa-check"></i><b>13.6.3.3</b> Convert Index Back To Column</a></li>
+<li class="chapter" data-level="13.6.3.4" data-path="pandas-1.html"><a href="pandas-1.html#updating-index-.index"><i class="fa fa-check"></i><b>13.6.3.4</b> Updating Index ( .index= )</a></li>
+<li class="chapter" data-level="13.6.3.5" data-path="pandas-1.html"><a href="pandas-1.html#reordering-index-.-reindex"><i class="fa fa-check"></i><b>13.6.3.5</b> Reordering Index (. reindex )</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6.4" data-path="pandas-1.html"><a href="pandas-1.html#subsetting-columns"><i class="fa fa-check"></i><b>13.6.4</b> Subsetting Columns</a><ul>
+<li class="chapter" data-level="13.6.4.1" data-path="pandas-1.html"><a href="pandas-1.html#select-single-column"><i class="fa fa-check"></i><b>13.6.4.1</b> Select Single Column</a></li>
+<li class="chapter" data-level="13.6.4.2" data-path="pandas-1.html"><a href="pandas-1.html#select-multiple-columns"><i class="fa fa-check"></i><b>13.6.4.2</b> Select Multiple Columns</a></li>
+<li class="chapter" data-level="13.6.4.3" data-path="pandas-1.html"><a href="pandas-1.html#selection-by-data-type"><i class="fa fa-check"></i><b>13.6.4.3</b> Selection by Data Type</a></li>
+<li class="chapter" data-level="13.6.4.4" data-path="pandas-1.html"><a href="pandas-1.html#subset-by-filter"><i class="fa fa-check"></i><b>13.6.4.4</b> Subset by <code>filter()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="13.6.5" data-path="pandas-1.html"><a href="pandas-1.html#column-manipulation-1"><i class="fa fa-check"></i><b>13.6.5</b> Column Manipulation</a><ul>
+<li class="chapter" data-level="13.6.5.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-6"><i class="fa fa-check"></i><b>13.6.5.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.6.5.2" data-path="pandas-1.html"><a href="pandas-1.html#renaming-columns"><i class="fa fa-check"></i><b>13.6.5.2</b> Renaming Columns</a></li>
+<li class="chapter" data-level="13.6.5.3" data-path="pandas-1.html"><a href="pandas-1.html#reordering-columns"><i class="fa fa-check"></i><b>13.6.5.3</b> Reordering Columns</a></li>
+<li class="chapter" data-level="13.6.5.4" data-path="pandas-1.html"><a href="pandas-1.html#duplicating-or-replacing-column"><i class="fa fa-check"></i><b>13.6.5.4</b> Duplicating or Replacing Column</a></li>
+<li class="chapter" data-level="13.6.5.5" data-path="pandas-1.html"><a href="pandas-1.html#dropping-columns-.drop"><i class="fa fa-check"></i><b>13.6.5.5</b> Dropping Columns (.drop)</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6.6" data-path="pandas-1.html"><a href="pandas-1.html#subsetting-rows"><i class="fa fa-check"></i><b>13.6.6</b> Subsetting Rows</a><ul>
+<li class="chapter" data-level="13.6.6.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-7"><i class="fa fa-check"></i><b>13.6.6.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.6.6.2" data-path="pandas-1.html"><a href="pandas-1.html#by-index-or-boolean"><i class="fa fa-check"></i><b>13.6.6.2</b> By Index or Boolean</a></li>
+<li class="chapter" data-level="13.6.6.3" data-path="pandas-1.html"><a href="pandas-1.html#by-row-number"><i class="fa fa-check"></i><b>13.6.6.3</b> By Row Number</a></li>
+<li class="chapter" data-level="13.6.6.4" data-path="pandas-1.html"><a href="pandas-1.html#query"><i class="fa fa-check"></i><b>13.6.6.4</b> <code>query()</code></a></li>
+<li class="chapter" data-level="13.6.6.5" data-path="pandas-1.html"><a href="pandas-1.html#sample"><i class="fa fa-check"></i><b>13.6.6.5</b> <code>sample()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="13.6.7" data-path="pandas-1.html"><a href="pandas-1.html#row-manipulation"><i class="fa fa-check"></i><b>13.6.7</b> Row Manipulation</a><ul>
+<li class="chapter" data-level="13.6.7.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-8"><i class="fa fa-check"></i><b>13.6.7.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.6.7.2" data-path="pandas-1.html"><a href="pandas-1.html#dropping-rows-.drop"><i class="fa fa-check"></i><b>13.6.7.2</b> Dropping Rows (.drop)</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6.8" data-path="pandas-1.html"><a href="pandas-1.html#slicing"><i class="fa fa-check"></i><b>13.6.8</b> Slicing</a><ul>
+<li class="chapter" data-level="13.6.8.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-9"><i class="fa fa-check"></i><b>13.6.8.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.6.8.2" data-path="pandas-1.html"><a href="pandas-1.html#getting-one-cell"><i class="fa fa-check"></i><b>13.6.8.2</b> Getting One Cell</a></li>
+<li class="chapter" data-level="13.6.8.3" data-path="pandas-1.html"><a href="pandas-1.html#getting-multiple-cells"><i class="fa fa-check"></i><b>13.6.8.3</b> Getting Multiple Cells</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6.9" data-path="pandas-1.html"><a href="pandas-1.html#chained-indexing"><i class="fa fa-check"></i><b>13.6.9</b> Chained Indexing</a></li>
+<li class="chapter" data-level="13.6.10" data-path="pandas-1.html"><a href="pandas-1.html#data-structure"><i class="fa fa-check"></i><b>13.6.10</b> Data Structure</a><ul>
+<li class="chapter" data-level="13.6.10.1" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods---structure"><i class="fa fa-check"></i><b>13.6.10.1</b> Instance Methods - Structure</a></li>
+<li class="chapter" data-level="13.6.10.2" data-path="pandas-1.html"><a href="pandas-1.html#conversion-to-other-format"><i class="fa fa-check"></i><b>13.6.10.2</b> Conversion To Other Format</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6.11" data-path="pandas-1.html"><a href="pandas-1.html#exploratory-analysis"><i class="fa fa-check"></i><b>13.6.11</b> Exploratory Analysis</a><ul>
+<li class="chapter" data-level="13.6.11.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-10"><i class="fa fa-check"></i><b>13.6.11.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.6.11.2" data-path="pandas-1.html"><a href="pandas-1.html#all-stats-in-one---.describe"><i class="fa fa-check"></i><b>13.6.11.2</b> All Stats in One - .describe()</a></li>
+<li class="chapter" data-level="13.6.11.3" data-path="pandas-1.html"><a href="pandas-1.html#minmaxmeanmedian"><i class="fa fa-check"></i><b>13.6.11.3</b> min/max/mean/median</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6.12" data-path="pandas-1.html"><a href="pandas-1.html#plotting"><i class="fa fa-check"></i><b>13.6.12</b> Plotting</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7" data-path="pandas-1.html"><a href="pandas-1.html#categories"><i class="fa fa-check"></i><b>13.7</b> Categories</a><ul>
+<li class="chapter" data-level="13.7.1" data-path="pandas-1.html"><a href="pandas-1.html#creating"><i class="fa fa-check"></i><b>13.7.1</b> Creating</a><ul>
+<li class="chapter" data-level="13.7.1.1" data-path="pandas-1.html"><a href="pandas-1.html#from-list"><i class="fa fa-check"></i><b>13.7.1.1</b> From List</a></li>
+<li class="chapter" data-level="13.7.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-series"><i class="fa fa-check"></i><b>13.7.1.2</b> From Series</a></li>
+<li class="chapter" data-level="13.7.1.3" data-path="pandas-1.html"><a href="pandas-1.html#ordering-category"><i class="fa fa-check"></i><b>13.7.1.3</b> Ordering Category</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7.2" data-path="pandas-1.html"><a href="pandas-1.html#properties"><i class="fa fa-check"></i><b>13.7.2</b> Properties</a><ul>
+<li class="chapter" data-level="13.7.2.1" data-path="pandas-1.html"><a href="pandas-1.html#categories-1"><i class="fa fa-check"></i><b>13.7.2.1</b> .categories</a></li>
+<li class="chapter" data-level="13.7.2.2" data-path="pandas-1.html"><a href="pandas-1.html#codes"><i class="fa fa-check"></i><b>13.7.2.2</b> .codes</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7.3" data-path="pandas-1.html"><a href="pandas-1.html#rename-category"><i class="fa fa-check"></i><b>13.7.3</b> Rename Category</a><ul>
+<li class="chapter" data-level="13.7.3.1" data-path="pandas-1.html"><a href="pandas-1.html#renamce-to-new-category-object"><i class="fa fa-check"></i><b>13.7.3.1</b> Renamce To New Category Object</a></li>
+<li class="chapter" data-level="13.7.3.2" data-path="pandas-1.html"><a href="pandas-1.html#rename-inplace"><i class="fa fa-check"></i><b>13.7.3.2</b> Rename Inplace</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7.4" data-path="pandas-1.html"><a href="pandas-1.html#adding-new-category"><i class="fa fa-check"></i><b>13.7.4</b> Adding New Category</a></li>
+<li class="chapter" data-level="13.7.5" data-path="pandas-1.html"><a href="pandas-1.html#removing-category"><i class="fa fa-check"></i><b>13.7.5</b> Removing Category</a><ul>
+<li class="chapter" data-level="13.7.5.1" data-path="pandas-1.html"><a href="pandas-1.html#remove-specific-categories"><i class="fa fa-check"></i><b>13.7.5.1</b> Remove Specific Categor(ies)</a></li>
+<li class="chapter" data-level="13.7.5.2" data-path="pandas-1.html"><a href="pandas-1.html#remove-unused-category"><i class="fa fa-check"></i><b>13.7.5.2</b> Remove Unused Category</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7.6" data-path="pandas-1.html"><a href="pandas-1.html#add-and-remove-categories-in-one-step---set"><i class="fa fa-check"></i><b>13.7.6</b> Add and Remove Categories In One Step - Set()</a></li>
+<li class="chapter" data-level="13.7.7" data-path="pandas-1.html"><a href="pandas-1.html#categorical-descriptive-analysis"><i class="fa fa-check"></i><b>13.7.7</b> Categorical Descriptive Analysis</a><ul>
+<li class="chapter" data-level="13.7.7.1" data-path="pandas-1.html"><a href="pandas-1.html#at-one-glance"><i class="fa fa-check"></i><b>13.7.7.1</b> At One Glance</a></li>
+<li class="chapter" data-level="13.7.7.2" data-path="pandas-1.html"><a href="pandas-1.html#frequency-count"><i class="fa fa-check"></i><b>13.7.7.2</b> Frequency Count</a></li>
+<li class="chapter" data-level="13.7.7.3" data-path="pandas-1.html"><a href="pandas-1.html#least-frequent-category-most-frequent-category-and-most-frequent-category"><i class="fa fa-check"></i><b>13.7.7.3</b> Least Frequent Category, Most Frequent Category, and Most Frequent Category</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7.8" data-path="pandas-1.html"><a href="pandas-1.html#other-methods-1"><i class="fa fa-check"></i><b>13.7.8</b> Other Methods</a><ul>
+<li class="chapter" data-level="13.7.8.1" data-path="pandas-1.html"><a href="pandas-1.html#get_values"><i class="fa fa-check"></i><b>13.7.8.1</b> .get_values()</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="13.11" data-path="pandas-1.html"><a href="pandas-1.html#groupby"><i class="fa fa-check"></i><b>13.11</b> GroupBy</a><ul>
-<li class="chapter" data-level="13.11.1" data-path="pandas-1.html"><a href="pandas-1.html#creating-groups"><i class="fa fa-check"></i><b>13.11.1</b> Creating Groups</a></li>
-<li class="chapter" data-level="13.11.2" data-path="pandas-1.html"><a href="pandas-1.html#properties-1"><i class="fa fa-check"></i><b>13.11.2</b> Properties</a><ul>
-<li class="chapter" data-level="13.11.2.1" data-path="pandas-1.html"><a href="pandas-1.html#number-of-groups-created"><i class="fa fa-check"></i><b>13.11.2.1</b> Number of Groups Created</a></li>
-<li class="chapter" data-level="13.11.2.2" data-path="pandas-1.html"><a href="pandas-1.html#row-numbers-associated-for-each-group"><i class="fa fa-check"></i><b>13.11.2.2</b> Row Numbers Associated For Each Group</a></li>
+<li class="chapter" data-level="13.8" data-path="pandas-1.html"><a href="pandas-1.html#dummies"><i class="fa fa-check"></i><b>13.8</b> Dummies</a><ul>
+<li class="chapter" data-level="13.8.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-11"><i class="fa fa-check"></i><b>13.8.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.8.2" data-path="pandas-1.html"><a href="pandas-1.html#dummies-on-array-like-data"><i class="fa fa-check"></i><b>13.8.2</b> Dummies on Array-Like Data</a></li>
+<li class="chapter" data-level="13.8.3" data-path="pandas-1.html"><a href="pandas-1.html#dummies-on-dataframe-multiple-columns"><i class="fa fa-check"></i><b>13.8.3</b> Dummies on DataFrame (multiple columns)</a><ul>
+<li class="chapter" data-level="13.8.3.1" data-path="pandas-1.html"><a href="pandas-1.html#all-columns"><i class="fa fa-check"></i><b>13.8.3.1</b> All Columns</a></li>
+<li class="chapter" data-level="13.8.3.2" data-path="pandas-1.html"><a href="pandas-1.html#selected-columns"><i class="fa fa-check"></i><b>13.8.3.2</b> Selected Columns</a></li>
 </ul></li>
-<li class="chapter" data-level="13.11.3" data-path="pandas-1.html"><a href="pandas-1.html#methods-1"><i class="fa fa-check"></i><b>13.11.3</b> Methods</a><ul>
-<li class="chapter" data-level="13.11.3.1" data-path="pandas-1.html"><a href="pandas-1.html#number-of-rows-in-each-group"><i class="fa fa-check"></i><b>13.11.3.1</b> Number of Rows In Each Group</a></li>
-<li class="chapter" data-level="13.11.3.2" data-path="pandas-1.html"><a href="pandas-1.html#valid-not-null-data-count-for-each-fields-in-the-group"><i class="fa fa-check"></i><b>13.11.3.2</b> Valid (not Null) Data Count For Each Fields In The Group</a></li>
+<li class="chapter" data-level="13.8.4" data-path="pandas-1.html"><a href="pandas-1.html#dummies-with-na"><i class="fa fa-check"></i><b>13.8.4</b> Dummies with na</a></li>
+<li class="chapter" data-level="13.8.5" data-path="pandas-1.html"><a href="pandas-1.html#specify-prefixes"><i class="fa fa-check"></i><b>13.8.5</b> Specify Prefixes</a></li>
+<li class="chapter" data-level="13.8.6" data-path="pandas-1.html"><a href="pandas-1.html#dropping-first-column"><i class="fa fa-check"></i><b>13.8.6</b> Dropping First Column</a></li>
 </ul></li>
-<li class="chapter" data-level="13.11.4" data-path="pandas-1.html"><a href="pandas-1.html#retrieve-rows"><i class="fa fa-check"></i><b>13.11.4</b> Retrieve Rows</a><ul>
-<li class="chapter" data-level="13.11.4.1" data-path="pandas-1.html"><a href="pandas-1.html#retrieve-n-rows-for-each-groups"><i class="fa fa-check"></i><b>13.11.4.1</b> Retrieve N Rows For Each Groups</a></li>
-<li class="chapter" data-level="13.11.4.2" data-path="pandas-1.html"><a href="pandas-1.html#retrieve-rows-in-one-specific-group"><i class="fa fa-check"></i><b>13.11.4.2</b> Retrieve Rows In One Specific Group</a></li>
-<li class="chapter" data-level="13.11.4.3" data-path="pandas-1.html"><a href="pandas-1.html#retrieve-n-th-row-from-each-group"><i class="fa fa-check"></i><b>13.11.4.3</b> Retrieve n-th Row From Each Group</a></li>
+<li class="chapter" data-level="13.9" data-path="pandas-1.html"><a href="pandas-1.html#getting-external-data-1"><i class="fa fa-check"></i><b>13.9</b> Getting External Data</a><ul>
+<li class="chapter" data-level="13.9.1" data-path="pandas-1.html"><a href="pandas-1.html#html_table-parser"><i class="fa fa-check"></i><b>13.9.1</b> html_table parser</a></li>
+<li class="chapter" data-level="13.9.2" data-path="pandas-1.html"><a href="pandas-1.html#csv-import"><i class="fa fa-check"></i><b>13.9.2</b> CSV Import</a><ul>
+<li class="chapter" data-level="13.9.2.1" data-path="pandas-1.html"><a href="pandas-1.html#syntax"><i class="fa fa-check"></i><b>13.9.2.1</b> Syntax</a></li>
+<li class="chapter" data-level="13.9.2.2" data-path="pandas-1.html"><a href="pandas-1.html#default-import"><i class="fa fa-check"></i><b>13.9.2.2</b> Default Import</a></li>
+<li class="chapter" data-level="13.9.2.3" data-path="pandas-1.html"><a href="pandas-1.html#specify-data-types-1"><i class="fa fa-check"></i><b>13.9.2.3</b> Specify Data Types</a></li>
+<li class="chapter" data-level="13.9.2.4" data-path="pandas-1.html"><a href="pandas-1.html#on-the-fly-date-parsing-and-indexing"><i class="fa fa-check"></i><b>13.9.2.4</b> On The Fly Date Parsing and Indexing</a></li>
+<li class="chapter" data-level="13.9.2.5" data-path="pandas-1.html"><a href="pandas-1.html#parse-date-then-set-as-index"><i class="fa fa-check"></i><b>13.9.2.5</b> Parse Date, Then Set as Index</a></li>
 </ul></li>
-<li class="chapter" data-level="13.11.5" data-path="pandas-1.html"><a href="pandas-1.html#iteration"><i class="fa fa-check"></i><b>13.11.5</b> Iteration</a></li>
-<li class="chapter" data-level="13.11.6" data-path="pandas-1.html"><a href="pandas-1.html#apply-aggregate-functions-to-groups"><i class="fa fa-check"></i><b>13.11.6</b> Apply Aggregate Functions to Groups</a><ul>
-<li class="chapter" data-level="13.11.6.1" data-path="pandas-1.html"><a href="pandas-1.html#apply-one-function-to-one-or-more-columns"><i class="fa fa-check"></i><b>13.11.6.1</b> Apply One Function to One or More Columns</a></li>
-<li class="chapter" data-level="13.11.6.2" data-path="pandas-1.html"><a href="pandas-1.html#apply-one-or-more-functions-to-all-columns"><i class="fa fa-check"></i><b>13.11.6.2</b> Apply One or More Functions To All Columns</a></li>
-<li class="chapter" data-level="13.11.6.3" data-path="pandas-1.html"><a href="pandas-1.html#apply-different-functions-to-different-columns"><i class="fa fa-check"></i><b>13.11.6.3</b> Apply Different Functions To Different Columns</a></li>
 </ul></li>
-<li class="chapter" data-level="13.11.7" data-path="pandas-1.html"><a href="pandas-1.html#transform"><i class="fa fa-check"></i><b>13.11.7</b> Transform</a></li>
+<li class="chapter" data-level="13.10" data-path="pandas-1.html"><a href="pandas-1.html#groupby"><i class="fa fa-check"></i><b>13.10</b> GroupBy</a><ul>
+<li class="chapter" data-level="13.10.1" data-path="pandas-1.html"><a href="pandas-1.html#creating-groups"><i class="fa fa-check"></i><b>13.10.1</b> Creating Groups</a></li>
+<li class="chapter" data-level="13.10.2" data-path="pandas-1.html"><a href="pandas-1.html#properties-1"><i class="fa fa-check"></i><b>13.10.2</b> Properties</a><ul>
+<li class="chapter" data-level="13.10.2.1" data-path="pandas-1.html"><a href="pandas-1.html#number-of-groups-created"><i class="fa fa-check"></i><b>13.10.2.1</b> Number of Groups Created</a></li>
+<li class="chapter" data-level="13.10.2.2" data-path="pandas-1.html"><a href="pandas-1.html#row-numbers-associated-for-each-group"><i class="fa fa-check"></i><b>13.10.2.2</b> Row Numbers Associated For Each Group</a></li>
 </ul></li>
-<li class="chapter" data-level="13.12" data-path="pandas-1.html"><a href="pandas-1.html#concat"><i class="fa fa-check"></i><b>13.12</b> Concat</a><ul>
-<li class="chapter" data-level="13.12.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-12"><i class="fa fa-check"></i><b>13.12.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.12.2" data-path="pandas-1.html"><a href="pandas-1.html#column-wise"><i class="fa fa-check"></i><b>13.12.2</b> Column-Wise</a><ul>
-<li class="chapter" data-level="13.12.2.1" data-path="pandas-1.html"><a href="pandas-1.html#multiple-arraysseries"><i class="fa fa-check"></i><b>13.12.2.1</b> Multiple Arrays/Series</a></li>
-<li class="chapter" data-level="13.12.2.2" data-path="pandas-1.html"><a href="pandas-1.html#dataframe-and-series"><i class="fa fa-check"></i><b>13.12.2.2</b> DataFrame and Series</a></li>
+<li class="chapter" data-level="13.10.3" data-path="pandas-1.html"><a href="pandas-1.html#methods-1"><i class="fa fa-check"></i><b>13.10.3</b> Methods</a><ul>
+<li class="chapter" data-level="13.10.3.1" data-path="pandas-1.html"><a href="pandas-1.html#number-of-rows-in-each-group"><i class="fa fa-check"></i><b>13.10.3.1</b> Number of Rows In Each Group</a></li>
+<li class="chapter" data-level="13.10.3.2" data-path="pandas-1.html"><a href="pandas-1.html#valid-not-null-data-count-for-each-fields-in-the-group"><i class="fa fa-check"></i><b>13.10.3.2</b> Valid (not Null) Data Count For Each Fields In The Group</a></li>
 </ul></li>
-<li class="chapter" data-level="13.12.3" data-path="pandas-1.html"><a href="pandas-1.html#row-wise"><i class="fa fa-check"></i><b>13.12.3</b> Row-Wise</a></li>
+<li class="chapter" data-level="13.10.4" data-path="pandas-1.html"><a href="pandas-1.html#retrieve-rows"><i class="fa fa-check"></i><b>13.10.4</b> Retrieve Rows</a><ul>
+<li class="chapter" data-level="13.10.4.1" data-path="pandas-1.html"><a href="pandas-1.html#retrieve-n-rows-for-each-groups"><i class="fa fa-check"></i><b>13.10.4.1</b> Retrieve N Rows For Each Groups</a></li>
+<li class="chapter" data-level="13.10.4.2" data-path="pandas-1.html"><a href="pandas-1.html#retrieve-rows-in-one-specific-group"><i class="fa fa-check"></i><b>13.10.4.2</b> Retrieve Rows In One Specific Group</a></li>
+<li class="chapter" data-level="13.10.4.3" data-path="pandas-1.html"><a href="pandas-1.html#retrieve-n-th-row-from-each-group"><i class="fa fa-check"></i><b>13.10.4.3</b> Retrieve n-th Row From Each Group</a></li>
 </ul></li>
-<li class="chapter" data-level="13.13" data-path="pandas-1.html"><a href="pandas-1.html#fundamental-analysis"><i class="fa fa-check"></i><b>13.13</b> Fundamental Analysis</a><ul>
-<li class="chapter" data-level="13.13.1" data-path="pandas-1.html"><a href="pandas-1.html#structure-of-the-dataframe-.info"><i class="fa fa-check"></i><b>13.13.1</b> Structure of the Dataframe (.info())</a></li>
-<li class="chapter" data-level="13.13.2" data-path="pandas-1.html"><a href="pandas-1.html#first-few-rows-.head"><i class="fa fa-check"></i><b>13.13.2</b> First Few Rows (.head())</a></li>
+<li class="chapter" data-level="13.10.5" data-path="pandas-1.html"><a href="pandas-1.html#iteration"><i class="fa fa-check"></i><b>13.10.5</b> Iteration</a></li>
+<li class="chapter" data-level="13.10.6" data-path="pandas-1.html"><a href="pandas-1.html#apply-aggregate-functions-to-groups"><i class="fa fa-check"></i><b>13.10.6</b> Apply Aggregate Functions to Groups</a><ul>
+<li class="chapter" data-level="13.10.6.1" data-path="pandas-1.html"><a href="pandas-1.html#apply-one-function-to-one-or-more-columns"><i class="fa fa-check"></i><b>13.10.6.1</b> Apply One Function to One or More Columns</a></li>
+<li class="chapter" data-level="13.10.6.2" data-path="pandas-1.html"><a href="pandas-1.html#apply-one-or-more-functions-to-all-columns"><i class="fa fa-check"></i><b>13.10.6.2</b> Apply One or More Functions To All Columns</a></li>
+<li class="chapter" data-level="13.10.6.3" data-path="pandas-1.html"><a href="pandas-1.html#apply-different-functions-to-different-columns"><i class="fa fa-check"></i><b>13.10.6.3</b> Apply Different Functions To Different Columns</a></li>
 </ul></li>
-<li class="chapter" data-level="13.14" data-path="pandas-1.html"><a href="pandas-1.html#missing-data"><i class="fa fa-check"></i><b>13.14</b> Missing Data</a><ul>
-<li class="chapter" data-level="13.14.1" data-path="pandas-1.html"><a href="pandas-1.html#what-is-considered-missing-data"><i class="fa fa-check"></i><b>13.14.1</b> What Is Considered Missing Data ?</a></li>
-<li class="chapter" data-level="13.14.2" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-13"><i class="fa fa-check"></i><b>13.14.2</b> Sample Data</a></li>
+<li class="chapter" data-level="13.10.7" data-path="pandas-1.html"><a href="pandas-1.html#transform"><i class="fa fa-check"></i><b>13.10.7</b> Transform</a></li>
 </ul></li>
-<li class="chapter" data-level="13.15" data-path="pandas-1.html"><a href="pandas-1.html#pandas-datetime"><i class="fa fa-check"></i><b>13.15</b> Pandas DateTime</a></li>
-<li class="chapter" data-level="13.16" data-path="pandas-1.html"><a href="pandas-1.html#datetimeindex"><i class="fa fa-check"></i><b>13.16</b> DateTimeIndex</a><ul>
-<li class="chapter" data-level="13.16.1" data-path="pandas-1.html"><a href="pandas-1.html#creating-1"><i class="fa fa-check"></i><b>13.16.1</b> Creating</a><ul>
-<li class="chapter" data-level="13.16.1.1" data-path="pandas-1.html"><a href="pandas-1.html#convert-from"><i class="fa fa-check"></i><b>13.16.1.1</b> Convert From</a></li>
+<li class="chapter" data-level="13.11" data-path="pandas-1.html"><a href="pandas-1.html#concat"><i class="fa fa-check"></i><b>13.11</b> Concat</a><ul>
+<li class="chapter" data-level="13.11.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-12"><i class="fa fa-check"></i><b>13.11.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.11.2" data-path="pandas-1.html"><a href="pandas-1.html#column-wise"><i class="fa fa-check"></i><b>13.11.2</b> Column-Wise</a><ul>
+<li class="chapter" data-level="13.11.2.1" data-path="pandas-1.html"><a href="pandas-1.html#multiple-arraysseries"><i class="fa fa-check"></i><b>13.11.2.1</b> Multiple Arrays/Series</a></li>
+<li class="chapter" data-level="13.11.2.2" data-path="pandas-1.html"><a href="pandas-1.html#dataframe-and-series"><i class="fa fa-check"></i><b>13.11.2.2</b> DataFrame and Series</a></li>
 </ul></li>
-<li class="chapter" data-level="13.16.2" data-path="pandas-1.html"><a href="pandas-1.html#instance-method-4"><i class="fa fa-check"></i><b>13.16.2</b> Instance Method</a><ul>
-<li class="chapter" data-level="13.16.2.1" data-path="pandas-1.html"><a href="pandas-1.html#conversion-to-datetime.datetime"><i class="fa fa-check"></i><b>13.16.2.1</b> Conversion to: datetime.datetime</a></li>
-<li class="chapter" data-level="13.16.2.2" data-path="pandas-1.html"><a href="pandas-1.html#converion-to_series"><i class="fa fa-check"></i><b>13.16.2.2</b> Converion: <code>to_series</code></a></li>
-<li class="chapter" data-level="13.16.2.3" data-path="pandas-1.html"><a href="pandas-1.html#converion-to_frame"><i class="fa fa-check"></i><b>13.16.2.3</b> Converion: <code>to_frame()</code></a></li>
+<li class="chapter" data-level="13.11.3" data-path="pandas-1.html"><a href="pandas-1.html#row-wise"><i class="fa fa-check"></i><b>13.11.3</b> Row-Wise</a></li>
 </ul></li>
-<li class="chapter" data-level="13.16.3" data-path="pandas-1.html"><a href="pandas-1.html#properties-2"><i class="fa fa-check"></i><b>13.16.3</b> Properties</a></li>
+<li class="chapter" data-level="13.12" data-path="pandas-1.html"><a href="pandas-1.html#fundamental-analysis"><i class="fa fa-check"></i><b>13.12</b> Fundamental Analysis</a><ul>
+<li class="chapter" data-level="13.12.1" data-path="pandas-1.html"><a href="pandas-1.html#structure-of-the-dataframe-.info"><i class="fa fa-check"></i><b>13.12.1</b> Structure of the Dataframe (.info())</a></li>
+<li class="chapter" data-level="13.12.2" data-path="pandas-1.html"><a href="pandas-1.html#first-few-rows-.head"><i class="fa fa-check"></i><b>13.12.2</b> First Few Rows (.head())</a></li>
+</ul></li>
+<li class="chapter" data-level="13.13" data-path="pandas-1.html"><a href="pandas-1.html#missing-data"><i class="fa fa-check"></i><b>13.13</b> Missing Data</a><ul>
+<li class="chapter" data-level="13.13.1" data-path="pandas-1.html"><a href="pandas-1.html#what-is-considered-missing-data"><i class="fa fa-check"></i><b>13.13.1</b> What Is Considered Missing Data ?</a></li>
+<li class="chapter" data-level="13.13.2" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-13"><i class="fa fa-check"></i><b>13.13.2</b> Sample Data</a></li>
+</ul></li>
+<li class="chapter" data-level="13.14" data-path="pandas-1.html"><a href="pandas-1.html#pandas-datetime"><i class="fa fa-check"></i><b>13.14</b> Pandas DateTime</a></li>
+<li class="chapter" data-level="13.15" data-path="pandas-1.html"><a href="pandas-1.html#datetimeindex"><i class="fa fa-check"></i><b>13.15</b> DateTimeIndex</a><ul>
+<li class="chapter" data-level="13.15.1" data-path="pandas-1.html"><a href="pandas-1.html#creating-1"><i class="fa fa-check"></i><b>13.15.1</b> Creating</a><ul>
+<li class="chapter" data-level="13.15.1.1" data-path="pandas-1.html"><a href="pandas-1.html#convert-from"><i class="fa fa-check"></i><b>13.15.1.1</b> Convert From</a></li>
+</ul></li>
+<li class="chapter" data-level="13.15.2" data-path="pandas-1.html"><a href="pandas-1.html#instance-method-4"><i class="fa fa-check"></i><b>13.15.2</b> Instance Method</a><ul>
+<li class="chapter" data-level="13.15.2.1" data-path="pandas-1.html"><a href="pandas-1.html#conversion-to-datetime.datetime"><i class="fa fa-check"></i><b>13.15.2.1</b> Conversion to: datetime.datetime</a></li>
+<li class="chapter" data-level="13.15.2.2" data-path="pandas-1.html"><a href="pandas-1.html#converion-to_series"><i class="fa fa-check"></i><b>13.15.2.2</b> Converion: <code>to_series</code></a></li>
+<li class="chapter" data-level="13.15.2.3" data-path="pandas-1.html"><a href="pandas-1.html#converion-to_frame"><i class="fa fa-check"></i><b>13.15.2.3</b> Converion: <code>to_frame()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="13.15.3" data-path="pandas-1.html"><a href="pandas-1.html#properties-2"><i class="fa fa-check"></i><b>13.15.3</b> Properties</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="matplotlib-2.html"><a href="matplotlib-2.html"><i class="fa fa-check"></i><b>14</b> matplotlib</a><ul>
@@ -900,61 +895,78 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="18" data-path="nlp.html"><a href="nlp.html"><i class="fa fa-check"></i><b>18</b> NLP</a><ul>
-<li class="chapter" data-level="18.1" data-path="nlp.html"><a href="nlp.html#word-tokenizer"><i class="fa fa-check"></i><b>18.1</b> Word Tokenizer</a><ul>
-<li class="chapter" data-level="18.1.1" data-path="nlp.html"><a href="nlp.html#custom-tokenizer"><i class="fa fa-check"></i><b>18.1.1</b> Custom Tokenizer</a><ul>
-<li class="chapter" data-level="18.1.1.1" data-path="nlp.html"><a href="nlp.html#split-by-regex-pattern"><i class="fa fa-check"></i><b>18.1.1.1</b> Split By Regex Pattern</a></li>
-<li class="chapter" data-level="18.1.1.2" data-path="nlp.html"><a href="nlp.html#pick-by-regex-pattern-nltk.tokenize.regexptokenizer"><i class="fa fa-check"></i><b>18.1.1.2</b> Pick By Regex Pattern <code>nltk.tokenize.RegexpTokenizer</code></a></li>
+<li class="chapter" data-level="18.1" data-path="nlp.html"><a href="nlp.html#regular-expression"><i class="fa fa-check"></i><b>18.1</b> Regular Expression</a><ul>
+<li class="chapter" data-level="18.1.1" data-path="nlp.html"><a href="nlp.html#syntax-1"><i class="fa fa-check"></i><b>18.1.1</b> Syntax</a></li>
+<li class="chapter" data-level="18.1.2" data-path="nlp.html"><a href="nlp.html#finding"><i class="fa fa-check"></i><b>18.1.2</b> Finding</a><ul>
+<li class="chapter" data-level="18.1.2.1" data-path="nlp.html"><a href="nlp.html#find-the-first-match"><i class="fa fa-check"></i><b>18.1.2.1</b> Find The First Match</a></li>
+<li class="chapter" data-level="18.1.2.2" data-path="nlp.html"><a href="nlp.html#find-all-matches"><i class="fa fa-check"></i><b>18.1.2.2</b> Find All Matches</a></li>
 </ul></li>
-<li class="chapter" data-level="18.1.2" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.word_tokenize"><i class="fa fa-check"></i><b>18.1.2</b> <code>nltk.tokenize.word_tokenize()</code></a></li>
-<li class="chapter" data-level="18.1.3" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.casual.casual_tokenize"><i class="fa fa-check"></i><b>18.1.3</b> <code>nltk.tokenize.casual.casual_tokenize()</code></a></li>
-<li class="chapter" data-level="18.1.4" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.treebank.treebankwordtokenizer.tokenize"><i class="fa fa-check"></i><b>18.1.4</b> <code>nltk.tokenize.treebank.TreebankWordTokenizer().tokenize()</code></a></li>
-<li class="chapter" data-level="18.1.5" data-path="nlp.html"><a href="nlp.html#corpus-token-extractor"><i class="fa fa-check"></i><b>18.1.5</b> Corpus Token Extractor</a></li>
+<li class="chapter" data-level="18.1.3" data-path="nlp.html"><a href="nlp.html#matching-condition"><i class="fa fa-check"></i><b>18.1.3</b> Matching Condition</a><ul>
+<li class="chapter" data-level="18.1.3.1" data-path="nlp.html"><a href="nlp.html#meta-characters"><i class="fa fa-check"></i><b>18.1.3.1</b> Meta Characters</a></li>
+<li class="chapter" data-level="18.1.3.2" data-path="nlp.html"><a href="nlp.html#special-sequence"><i class="fa fa-check"></i><b>18.1.3.2</b> Special Sequence</a></li>
+<li class="chapter" data-level="18.1.3.3" data-path="nlp.html"><a href="nlp.html#repetition"><i class="fa fa-check"></i><b>18.1.3.3</b> Repetition</a></li>
 </ul></li>
-<li class="chapter" data-level="18.2" data-path="nlp.html"><a href="nlp.html#sentence-tokenizer"><i class="fa fa-check"></i><b>18.2</b> Sentence Tokenizer</a><ul>
-<li class="chapter" data-level="18.2.1" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.sent_tokenize"><i class="fa fa-check"></i><b>18.2.1</b> <code>nltk.tokenize.sent_tokenize()</code></a></li>
-</ul></li>
-<li class="chapter" data-level="18.3" data-path="nlp.html"><a href="nlp.html#n-gram"><i class="fa fa-check"></i><b>18.3</b> N-Gram</a></li>
-<li class="chapter" data-level="18.4" data-path="nlp.html"><a href="nlp.html#stopwords"><i class="fa fa-check"></i><b>18.4</b> Stopwords</a><ul>
-<li class="chapter" data-level="18.4.1" data-path="nlp.html"><a href="nlp.html#custom-stop-words"><i class="fa fa-check"></i><b>18.4.1</b> Custom Stop Words</a></li>
-<li class="chapter" data-level="18.4.2" data-path="nlp.html"><a href="nlp.html#nltk-stop-words"><i class="fa fa-check"></i><b>18.4.2</b> NLTK Stop Words</a></li>
-<li class="chapter" data-level="18.4.3" data-path="nlp.html"><a href="nlp.html#sklearn-stop-words"><i class="fa fa-check"></i><b>18.4.3</b> SKLearn Stop Words</a></li>
-<li class="chapter" data-level="18.4.4" data-path="nlp.html"><a href="nlp.html#combined-nltk-and-sklearn-stop-words"><i class="fa fa-check"></i><b>18.4.4</b> Combined NLTK and SKLearn Stop Words</a></li>
-</ul></li>
-<li class="chapter" data-level="18.5" data-path="nlp.html"><a href="nlp.html#normalizing"><i class="fa fa-check"></i><b>18.5</b> Normalizing</a><ul>
-<li class="chapter" data-level="18.5.1" data-path="nlp.html"><a href="nlp.html#case-folding"><i class="fa fa-check"></i><b>18.5.1</b> Case Folding</a></li>
-<li class="chapter" data-level="18.5.2" data-path="nlp.html"><a href="nlp.html#stemming"><i class="fa fa-check"></i><b>18.5.2</b> Stemming</a></li>
-<li class="chapter" data-level="18.5.3" data-path="nlp.html"><a href="nlp.html#lemmatization"><i class="fa fa-check"></i><b>18.5.3</b> Lemmatization</a></li>
-<li class="chapter" data-level="18.5.4" data-path="nlp.html"><a href="nlp.html#comparing-stemming-and-lemmatization"><i class="fa fa-check"></i><b>18.5.4</b> Comparing Stemming and Lemmatization</a></li>
-</ul></li>
-<li class="chapter" data-level="18.6" data-path="nlp.html"><a href="nlp.html#pos-tagging"><i class="fa fa-check"></i><b>18.6</b> POS Tagging</a></li>
-<li class="chapter" data-level="18.7" data-path="nlp.html"><a href="nlp.html#sentiment"><i class="fa fa-check"></i><b>18.7</b> Sentiment</a><ul>
-<li class="chapter" data-level="18.7.1" data-path="nlp.html"><a href="nlp.html#vader"><i class="fa fa-check"></i><b>18.7.1</b> Vader</a><ul>
-<li class="chapter" data-level="18.7.1.1" data-path="nlp.html"><a href="nlp.html#vader-lexicon"><i class="fa fa-check"></i><b>18.7.1.1</b> Vader Lexicon</a></li>
-<li class="chapter" data-level="18.7.1.2" data-path="nlp.html"><a href="nlp.html#polarity-scoring"><i class="fa fa-check"></i><b>18.7.1.2</b> Polarity Scoring</a></li>
-</ul></li>
-<li class="chapter" data-level="18.7.2" data-path="nlp.html"><a href="nlp.html#sentiwordnet"><i class="fa fa-check"></i><b>18.7.2</b> SentiWordNet</a></li>
-</ul></li>
-<li class="chapter" data-level="18.8" data-path="nlp.html"><a href="nlp.html#feature-representation"><i class="fa fa-check"></i><b>18.8</b> Feature Representation</a><ul>
-<li class="chapter" data-level="18.8.1" data-path="nlp.html"><a href="nlp.html#the-data-1"><i class="fa fa-check"></i><b>18.8.1</b> The Data</a></li>
-<li class="chapter" data-level="18.8.2" data-path="nlp.html"><a href="nlp.html#frequency-count-1"><i class="fa fa-check"></i><b>18.8.2</b> Frequency Count</a><ul>
-<li class="chapter" data-level="18.8.2.1" data-path="nlp.html"><a href="nlp.html#tokenizer"><i class="fa fa-check"></i><b>18.8.2.1</b> + Tokenizer</a></li>
-<li class="chapter" data-level="18.8.2.2" data-path="nlp.html"><a href="nlp.html#stop-words"><i class="fa fa-check"></i><b>18.8.2.2</b> + Stop Words</a></li>
-</ul></li>
-<li class="chapter" data-level="18.8.3" data-path="nlp.html"><a href="nlp.html#tfidf"><i class="fa fa-check"></i><b>18.8.3</b> TFIDF</a><ul>
-<li class="chapter" data-level="18.8.3.1" data-path="nlp.html"><a href="nlp.html#equation"><i class="fa fa-check"></i><b>18.8.3.1</b> Equation</a></li>
-<li class="chapter" data-level="18.8.3.2" data-path="nlp.html"><a href="nlp.html#tfidftransformer"><i class="fa fa-check"></i><b>18.8.3.2</b> <code>TfidfTransformer</code></a></li>
-<li class="chapter" data-level="18.8.3.3" data-path="nlp.html"><a href="nlp.html#tfidfvectorizer"><i class="fa fa-check"></i><b>18.8.3.3</b> <code>TfidfVectorizer</code></a></li>
+<li class="chapter" data-level="18.1.4" data-path="nlp.html"><a href="nlp.html#grouping-1"><i class="fa fa-check"></i><b>18.1.4</b> Grouping</a></li>
+<li class="chapter" data-level="18.1.5" data-path="nlp.html"><a href="nlp.html#splittitng"><i class="fa fa-check"></i><b>18.1.5</b> Splittitng</a><ul>
+<li class="chapter" data-level="18.1.5.1" data-path="nlp.html"><a href="nlp.html#use-re.split"><i class="fa fa-check"></i><b>18.1.5.1</b> Use <code>re.split()</code></a></li>
+<li class="chapter" data-level="18.1.5.2" data-path="nlp.html"><a href="nlp.html#use-re.comple.split"><i class="fa fa-check"></i><b>18.1.5.2</b> Use <code>re.comple().split()</code></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="18.9" data-path="nlp.html"><a href="nlp.html#appliction"><i class="fa fa-check"></i><b>18.9</b> Appliction</a><ul>
-<li class="chapter" data-level="18.9.1" data-path="nlp.html"><a href="nlp.html#document-similarity"><i class="fa fa-check"></i><b>18.9.1</b> Document Similarity</a></li>
+<li class="chapter" data-level="18.2" data-path="nlp.html"><a href="nlp.html#word-tokenizer"><i class="fa fa-check"></i><b>18.2</b> Word Tokenizer</a><ul>
+<li class="chapter" data-level="18.2.1" data-path="nlp.html"><a href="nlp.html#custom-tokenizer"><i class="fa fa-check"></i><b>18.2.1</b> Custom Tokenizer</a><ul>
+<li class="chapter" data-level="18.2.1.1" data-path="nlp.html"><a href="nlp.html#split-by-regex-pattern"><i class="fa fa-check"></i><b>18.2.1.1</b> Split By Regex Pattern</a></li>
+<li class="chapter" data-level="18.2.1.2" data-path="nlp.html"><a href="nlp.html#pick-by-regex-pattern-nltk.tokenize.regexptokenizer"><i class="fa fa-check"></i><b>18.2.1.2</b> Pick By Regex Pattern <code>nltk.tokenize.RegexpTokenizer</code></a></li>
 </ul></li>
-<li class="chapter" data-level="18.10" data-path="nlp.html"><a href="nlp.html#naive-bayes"><i class="fa fa-check"></i><b>18.10</b> Naive Bayes</a><ul>
-<li class="chapter" data-level="18.10.1" data-path="nlp.html"><a href="nlp.html#libraries-1"><i class="fa fa-check"></i><b>18.10.1</b> Libraries</a></li>
-<li class="chapter" data-level="18.10.2" data-path="nlp.html"><a href="nlp.html#the-data-2"><i class="fa fa-check"></i><b>18.10.2</b> The Data</a></li>
-<li class="chapter" data-level="18.10.3" data-path="nlp.html"><a href="nlp.html#bag-of-words"><i class="fa fa-check"></i><b>18.10.3</b> Bag of Words</a></li>
-<li class="chapter" data-level="18.10.4" data-path="nlp.html"><a href="nlp.html#build-the-model"><i class="fa fa-check"></i><b>18.10.4</b> Build The Model</a></li>
-<li class="chapter" data-level="18.10.5" data-path="nlp.html"><a href="nlp.html#train-set-prediction"><i class="fa fa-check"></i><b>18.10.5</b> Train Set Prediction</a></li>
+<li class="chapter" data-level="18.2.2" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.word_tokenize"><i class="fa fa-check"></i><b>18.2.2</b> <code>nltk.tokenize.word_tokenize()</code></a></li>
+<li class="chapter" data-level="18.2.3" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.casual.casual_tokenize"><i class="fa fa-check"></i><b>18.2.3</b> <code>nltk.tokenize.casual.casual_tokenize()</code></a></li>
+<li class="chapter" data-level="18.2.4" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.treebank.treebankwordtokenizer.tokenize"><i class="fa fa-check"></i><b>18.2.4</b> <code>nltk.tokenize.treebank.TreebankWordTokenizer().tokenize()</code></a></li>
+<li class="chapter" data-level="18.2.5" data-path="nlp.html"><a href="nlp.html#corpus-token-extractor"><i class="fa fa-check"></i><b>18.2.5</b> Corpus Token Extractor</a></li>
+</ul></li>
+<li class="chapter" data-level="18.3" data-path="nlp.html"><a href="nlp.html#sentence-tokenizer"><i class="fa fa-check"></i><b>18.3</b> Sentence Tokenizer</a><ul>
+<li class="chapter" data-level="18.3.1" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.sent_tokenize"><i class="fa fa-check"></i><b>18.3.1</b> <code>nltk.tokenize.sent_tokenize()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="18.4" data-path="nlp.html"><a href="nlp.html#n-gram"><i class="fa fa-check"></i><b>18.4</b> N-Gram</a></li>
+<li class="chapter" data-level="18.5" data-path="nlp.html"><a href="nlp.html#stopwords"><i class="fa fa-check"></i><b>18.5</b> Stopwords</a><ul>
+<li class="chapter" data-level="18.5.1" data-path="nlp.html"><a href="nlp.html#custom-stop-words"><i class="fa fa-check"></i><b>18.5.1</b> Custom Stop Words</a></li>
+<li class="chapter" data-level="18.5.2" data-path="nlp.html"><a href="nlp.html#nltk-stop-words"><i class="fa fa-check"></i><b>18.5.2</b> NLTK Stop Words</a></li>
+<li class="chapter" data-level="18.5.3" data-path="nlp.html"><a href="nlp.html#sklearn-stop-words"><i class="fa fa-check"></i><b>18.5.3</b> SKLearn Stop Words</a></li>
+<li class="chapter" data-level="18.5.4" data-path="nlp.html"><a href="nlp.html#combined-nltk-and-sklearn-stop-words"><i class="fa fa-check"></i><b>18.5.4</b> Combined NLTK and SKLearn Stop Words</a></li>
+</ul></li>
+<li class="chapter" data-level="18.6" data-path="nlp.html"><a href="nlp.html#normalizing"><i class="fa fa-check"></i><b>18.6</b> Normalizing</a><ul>
+<li class="chapter" data-level="18.6.1" data-path="nlp.html"><a href="nlp.html#case-folding"><i class="fa fa-check"></i><b>18.6.1</b> Case Folding</a></li>
+<li class="chapter" data-level="18.6.2" data-path="nlp.html"><a href="nlp.html#stemming"><i class="fa fa-check"></i><b>18.6.2</b> Stemming</a></li>
+<li class="chapter" data-level="18.6.3" data-path="nlp.html"><a href="nlp.html#lemmatization"><i class="fa fa-check"></i><b>18.6.3</b> Lemmatization</a></li>
+<li class="chapter" data-level="18.6.4" data-path="nlp.html"><a href="nlp.html#comparing-stemming-and-lemmatization"><i class="fa fa-check"></i><b>18.6.4</b> Comparing Stemming and Lemmatization</a></li>
+</ul></li>
+<li class="chapter" data-level="18.7" data-path="nlp.html"><a href="nlp.html#pos-tagging"><i class="fa fa-check"></i><b>18.7</b> POS Tagging</a></li>
+<li class="chapter" data-level="18.8" data-path="nlp.html"><a href="nlp.html#sentiment"><i class="fa fa-check"></i><b>18.8</b> Sentiment</a><ul>
+<li class="chapter" data-level="18.8.1" data-path="nlp.html"><a href="nlp.html#vader"><i class="fa fa-check"></i><b>18.8.1</b> Vader</a><ul>
+<li class="chapter" data-level="18.8.1.1" data-path="nlp.html"><a href="nlp.html#vader-lexicon"><i class="fa fa-check"></i><b>18.8.1.1</b> Vader Lexicon</a></li>
+<li class="chapter" data-level="18.8.1.2" data-path="nlp.html"><a href="nlp.html#polarity-scoring"><i class="fa fa-check"></i><b>18.8.1.2</b> Polarity Scoring</a></li>
+</ul></li>
+<li class="chapter" data-level="18.8.2" data-path="nlp.html"><a href="nlp.html#sentiwordnet"><i class="fa fa-check"></i><b>18.8.2</b> SentiWordNet</a></li>
+</ul></li>
+<li class="chapter" data-level="18.9" data-path="nlp.html"><a href="nlp.html#feature-representation"><i class="fa fa-check"></i><b>18.9</b> Feature Representation</a><ul>
+<li class="chapter" data-level="18.9.1" data-path="nlp.html"><a href="nlp.html#the-data-1"><i class="fa fa-check"></i><b>18.9.1</b> The Data</a></li>
+<li class="chapter" data-level="18.9.2" data-path="nlp.html"><a href="nlp.html#frequency-count-1"><i class="fa fa-check"></i><b>18.9.2</b> Frequency Count</a><ul>
+<li class="chapter" data-level="18.9.2.1" data-path="nlp.html"><a href="nlp.html#tokenizer"><i class="fa fa-check"></i><b>18.9.2.1</b> + Tokenizer</a></li>
+<li class="chapter" data-level="18.9.2.2" data-path="nlp.html"><a href="nlp.html#stop-words"><i class="fa fa-check"></i><b>18.9.2.2</b> + Stop Words</a></li>
+</ul></li>
+<li class="chapter" data-level="18.9.3" data-path="nlp.html"><a href="nlp.html#tfidf"><i class="fa fa-check"></i><b>18.9.3</b> TFIDF</a><ul>
+<li class="chapter" data-level="18.9.3.1" data-path="nlp.html"><a href="nlp.html#equation"><i class="fa fa-check"></i><b>18.9.3.1</b> Equation</a></li>
+<li class="chapter" data-level="18.9.3.2" data-path="nlp.html"><a href="nlp.html#tfidftransformer"><i class="fa fa-check"></i><b>18.9.3.2</b> <code>TfidfTransformer</code></a></li>
+<li class="chapter" data-level="18.9.3.3" data-path="nlp.html"><a href="nlp.html#tfidfvectorizer"><i class="fa fa-check"></i><b>18.9.3.3</b> <code>TfidfVectorizer</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="18.10" data-path="nlp.html"><a href="nlp.html#appliction"><i class="fa fa-check"></i><b>18.10</b> Appliction</a><ul>
+<li class="chapter" data-level="18.10.1" data-path="nlp.html"><a href="nlp.html#document-similarity"><i class="fa fa-check"></i><b>18.10.1</b> Document Similarity</a></li>
+</ul></li>
+<li class="chapter" data-level="18.11" data-path="nlp.html"><a href="nlp.html#naive-bayes"><i class="fa fa-check"></i><b>18.11</b> Naive Bayes</a><ul>
+<li class="chapter" data-level="18.11.1" data-path="nlp.html"><a href="nlp.html#libraries-1"><i class="fa fa-check"></i><b>18.11.1</b> Libraries</a></li>
+<li class="chapter" data-level="18.11.2" data-path="nlp.html"><a href="nlp.html#the-data-2"><i class="fa fa-check"></i><b>18.11.2</b> The Data</a></li>
+<li class="chapter" data-level="18.11.3" data-path="nlp.html"><a href="nlp.html#bag-of-words"><i class="fa fa-check"></i><b>18.11.3</b> Bag of Words</a></li>
+<li class="chapter" data-level="18.11.4" data-path="nlp.html"><a href="nlp.html#build-the-model"><i class="fa fa-check"></i><b>18.11.4</b> Build The Model</a></li>
+<li class="chapter" data-level="18.11.5" data-path="nlp.html"><a href="nlp.html#train-set-prediction"><i class="fa fa-check"></i><b>18.11.5</b> Train Set Prediction</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -982,9 +994,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">16.1.1</span> 1xNumeric</h3>
 <pre><code>plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( bins=10 )
 plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth=? )</code></pre>
-<div class="sourceCode" id="cb1809"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1809-1"><a href="plotnine.html#cb1809-1"></a>plotnine.options.figure_size <span class="op">=</span> (<span class="dv">3</span>, <span class="dv">3</span>)</span>
-<span id="cb1809-2"><a href="plotnine.html#cb1809-2"></a>ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>)) <span class="op">+</span> geom_histogram()  <span class="co"># default bins = 10</span></span></code></pre></div>
-<pre><code>## &lt;ggplot: (46694846)&gt;
+<div class="sourceCode" id="cb1783"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1783-1" title="1">plotnine.options.figure_size <span class="op">=</span> (<span class="dv">3</span>, <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb1783-2" title="2">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>)) <span class="op">+</span> geom_histogram()  <span class="co"># default bins = 10</span></a></code></pre></div>
+<pre><code>## &lt;ggplot: (7292210)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
@@ -997,8 +1009,8 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
 ##   return cbook.iterable(var) and not is_string(var)</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-672-1.png" /><!-- --></p>
-<div class="sourceCode" id="cb1811"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1811-1"><a href="plotnine.html#cb1811-1"></a>ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>)) <span class="op">+</span> geom_histogram(bins <span class="op">=</span> <span class="dv">15</span>)</span></code></pre></div>
-<pre><code>## &lt;ggplot: (-9223372036808172074)&gt;
+<div class="sourceCode" id="cb1785"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1785-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>)) <span class="op">+</span> geom_histogram(bins <span class="op">=</span> <span class="dv">15</span>)</a></code></pre></div>
+<pre><code>## &lt;ggplot: (-9223372036847505997)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
@@ -1009,8 +1021,8 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
 ##   return cbook.iterable(var) and not is_string(var)</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-673-1.png" /><!-- --></p>
-<div class="sourceCode" id="cb1813"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1813-1"><a href="plotnine.html#cb1813-1"></a>ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>)) <span class="op">+</span> geom_histogram(binwidth <span class="op">=</span> <span class="dv">3</span>)</span></code></pre></div>
-<pre><code>## &lt;ggplot: (6995376)&gt;
+<div class="sourceCode" id="cb1787"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1787-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>)) <span class="op">+</span> geom_histogram(binwidth <span class="op">=</span> <span class="dv">3</span>)</a></code></pre></div>
+<pre><code>## &lt;ggplot: (10157807)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
@@ -1028,8 +1040,8 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
                     aes(x=&#39;colName&#39;), 
                     fill=&#39;categorical-alike-colName&#39;) 
 + geom_histogram()</code></pre>
-<div class="sourceCode" id="cb1816"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1816-1"><a href="plotnine.html#cb1816-1"></a>ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, fill<span class="op">=</span><span class="st">&#39;grp&#39;</span>)) <span class="op">+</span> geom_histogram(bins<span class="op">=</span><span class="dv">15</span>)</span></code></pre></div>
-<pre><code>## &lt;ggplot: (46552317)&gt;
+<div class="sourceCode" id="cb1790"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1790-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, fill<span class="op">=</span><span class="st">&#39;grp&#39;</span>)) <span class="op">+</span> geom_histogram(bins<span class="op">=</span><span class="dv">15</span>)</a></code></pre></div>
+<pre><code>## &lt;ggplot: (10087979)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
@@ -1046,8 +1058,8 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 <h2><span class="header-section-number">16.2</span> Scatter Plot</h2>
 <div id="x-numeric-2" class="section level3">
 <h3><span class="header-section-number">16.2.1</span> 2x Numeric</h3>
-<div class="sourceCode" id="cb1818"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1818-1"><a href="plotnine.html#cb1818-1"></a>ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>,y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> geom_point()</span></code></pre></div>
-<pre><code>## &lt;ggplot: (-9223372036847654747)&gt;
+<div class="sourceCode" id="cb1792"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1792-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>,y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> geom_point()</a></code></pre></div>
+<pre><code>## &lt;ggplot: (10128125)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
@@ -1066,8 +1078,8 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
         color=&#39;categorical-alike-colName&#39;,
         size=&#39;numberColName&#39;
     ))</code></pre>
-<div class="sourceCode" id="cb1821"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1821-1"><a href="plotnine.html#cb1821-1"></a>ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>,y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> geom_point(aes(color<span class="op">=</span><span class="st">&#39;grp&#39;</span>))</span></code></pre></div>
-<pre><code>## &lt;ggplot: (-9223372036808165972)&gt;
+<div class="sourceCode" id="cb1795"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1795-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>,y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> geom_point(aes(color<span class="op">=</span><span class="st">&#39;grp&#39;</span>))</a></code></pre></div>
+<pre><code>## &lt;ggplot: (10274487)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
@@ -1078,8 +1090,8 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
 ##   return cbook.iterable(var) and not is_string(var)</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-677-1.png" /><!-- --></p>
-<div class="sourceCode" id="cb1823"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1823-1"><a href="plotnine.html#cb1823-1"></a>ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>,y<span class="op">=</span><span class="st">&#39;value2&#39;</span>,color<span class="op">=</span><span class="st">&#39;grp&#39;</span>)) <span class="op">+</span> geom_point()</span></code></pre></div>
-<pre><code>## &lt;ggplot: (6695211)&gt;
+<div class="sourceCode" id="cb1797"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1797-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>,y<span class="op">=</span><span class="st">&#39;value2&#39;</span>,color<span class="op">=</span><span class="st">&#39;grp&#39;</span>)) <span class="op">+</span> geom_point()</a></code></pre></div>
+<pre><code>## &lt;ggplot: (7512875)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
@@ -1090,11 +1102,11 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
 ##   return cbook.iterable(var) and not is_string(var)</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-678-1.png" /><!-- --></p>
-<div class="sourceCode" id="cb1825"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1825-1"><a href="plotnine.html#cb1825-1"></a>ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>,y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> <span class="op">\</span></span>
-<span id="cb1825-2"><a href="plotnine.html#cb1825-2"></a>    geom_point(aes(</span>
-<span id="cb1825-3"><a href="plotnine.html#cb1825-3"></a>        color<span class="op">=</span><span class="st">&#39;grp&#39;</span></span>
-<span id="cb1825-4"><a href="plotnine.html#cb1825-4"></a>    ))</span></code></pre></div>
-<pre><code>## &lt;ggplot: (7684451)&gt;
+<div class="sourceCode" id="cb1799"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1799-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>,y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> <span class="op">\</span></a>
+<a class="sourceLine" id="cb1799-2" title="2">    geom_point(aes(</a>
+<a class="sourceLine" id="cb1799-3" title="3">        color<span class="op">=</span><span class="st">&#39;grp&#39;</span></a>
+<a class="sourceLine" id="cb1799-4" title="4">    ))</a></code></pre></div>
+<pre><code>## &lt;ggplot: (-9223372036844652905)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
@@ -1108,11 +1120,11 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 </div>
 <div id="x-numeric-1x-numeric-1x-categorical" class="section level3">
 <h3><span class="header-section-number">16.2.3</span> 2x Numeric + 1x Numeric + 1x Categorical</h3>
-<div class="sourceCode" id="cb1827"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1827-1"><a href="plotnine.html#cb1827-1"></a>ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>,y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> <span class="op">\</span></span>
-<span id="cb1827-2"><a href="plotnine.html#cb1827-2"></a>    geom_point(aes( </span>
-<span id="cb1827-3"><a href="plotnine.html#cb1827-3"></a>        color<span class="op">=</span><span class="st">&#39;grp&#39;</span>, size<span class="op">=</span><span class="st">&#39;value3&#39;</span></span>
-<span id="cb1827-4"><a href="plotnine.html#cb1827-4"></a>    ))</span></code></pre></div>
-<pre><code>## &lt;ggplot: (7050809)&gt;
+<div class="sourceCode" id="cb1801"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1801-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>,y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> <span class="op">\</span></a>
+<a class="sourceLine" id="cb1801-2" title="2">    geom_point(aes( </a>
+<a class="sourceLine" id="cb1801-3" title="3">        color<span class="op">=</span><span class="st">&#39;grp&#39;</span>, size<span class="op">=</span><span class="st">&#39;value3&#39;</span></a>
+<a class="sourceLine" id="cb1801-4" title="4">    ))</a></code></pre></div>
+<pre><code>## &lt;ggplot: (-9223372036844730820)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
@@ -1126,10 +1138,10 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 </div>
 <div id="overlay-smooth-line" class="section level3">
 <h3><span class="header-section-number">16.2.4</span> Overlay Smooth Line</h3>
-<div class="sourceCode" id="cb1829"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1829-1"><a href="plotnine.html#cb1829-1"></a>ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> <span class="op">\</span></span>
-<span id="cb1829-2"><a href="plotnine.html#cb1829-2"></a>    geom_point() <span class="op">+</span> <span class="op">\</span></span>
-<span id="cb1829-3"><a href="plotnine.html#cb1829-3"></a>    geom_smooth()          <span class="co"># default method=&#39;loess&#39;</span></span></code></pre></div>
-<pre><code>## &lt;ggplot: (46653560)&gt;
+<div class="sourceCode" id="cb1803"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1803-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> <span class="op">\</span></a>
+<a class="sourceLine" id="cb1803-2" title="2">    geom_point() <span class="op">+</span> <span class="op">\</span></a>
+<a class="sourceLine" id="cb1803-3" title="3">    geom_smooth()          <span class="co"># default method=&#39;loess&#39;</span></a></code></pre></div>
+<pre><code>## &lt;ggplot: (-9223372036847337735)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
@@ -1142,14 +1154,14 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
 ##   return cbook.iterable(var) and not is_string(var)</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-681-1.png" /><!-- --></p>
-<div class="sourceCode" id="cb1831"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1831-1"><a href="plotnine.html#cb1831-1"></a>ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>,fill<span class="op">=</span><span class="st">&#39;grp&#39;</span>)) <span class="op">+</span> <span class="op">\</span></span>
-<span id="cb1831-2"><a href="plotnine.html#cb1831-2"></a>    geom_point() <span class="op">+</span> <span class="op">\</span></span>
-<span id="cb1831-3"><a href="plotnine.html#cb1831-3"></a>    geom_smooth(</span>
-<span id="cb1831-4"><a href="plotnine.html#cb1831-4"></a>        se<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb1831-5"><a href="plotnine.html#cb1831-5"></a>        color<span class="op">=</span><span class="st">&#39;red&#39;</span>,</span>
-<span id="cb1831-6"><a href="plotnine.html#cb1831-6"></a>        method<span class="op">=</span><span class="st">&#39;lm&#39;</span>, </span>
-<span id="cb1831-7"><a href="plotnine.html#cb1831-7"></a>        level<span class="op">=</span><span class="fl">0.75</span>)</span></code></pre></div>
-<pre><code>## &lt;ggplot: (46597075)&gt;
+<div class="sourceCode" id="cb1805"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1805-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>,fill<span class="op">=</span><span class="st">&#39;grp&#39;</span>)) <span class="op">+</span> <span class="op">\</span></a>
+<a class="sourceLine" id="cb1805-2" title="2">    geom_point() <span class="op">+</span> <span class="op">\</span></a>
+<a class="sourceLine" id="cb1805-3" title="3">    geom_smooth(</a>
+<a class="sourceLine" id="cb1805-4" title="4">        se<span class="op">=</span><span class="va">True</span>,</a>
+<a class="sourceLine" id="cb1805-5" title="5">        color<span class="op">=</span><span class="st">&#39;red&#39;</span>,</a>
+<a class="sourceLine" id="cb1805-6" title="6">        method<span class="op">=</span><span class="st">&#39;lm&#39;</span>, </a>
+<a class="sourceLine" id="cb1805-7" title="7">        level<span class="op">=</span><span class="fl">0.75</span>)</a></code></pre></div>
+<pre><code>## &lt;ggplot: (12632861)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
@@ -1166,8 +1178,8 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 <h2><span class="header-section-number">16.3</span> Line Chart</h2>
 <div id="x-numeric-data" class="section level3">
 <h3><span class="header-section-number">16.3.1</span> 2x Numeric Data</h3>
-<div class="sourceCode" id="cb1833"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1833-1"><a href="plotnine.html#cb1833-1"></a>ggplot (mydf.head(<span class="dv">15</span>), aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> geom_line()</span></code></pre></div>
-<pre><code>## &lt;ggplot: (-9223372036847730793)&gt;
+<div class="sourceCode" id="cb1807"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1807-1" title="1">ggplot (mydf.head(<span class="dv">15</span>), aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> geom_line()</a></code></pre></div>
+<pre><code>## &lt;ggplot: (-9223372036844851631)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
@@ -1181,8 +1193,8 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 </div>
 <div id="x-numeric-1x-categorical-1" class="section level3">
 <h3><span class="header-section-number">16.3.2</span> 1x Numeric, 1x Categorical</h3>
-<div class="sourceCode" id="cb1835"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1835-1"><a href="plotnine.html#cb1835-1"></a>ggplot (mydf.head(<span class="dv">15</span>), aes(x<span class="op">=</span><span class="st">&#39;dept&#39;</span>, y<span class="op">=</span><span class="st">&#39;value1&#39;</span>)) <span class="op">+</span> geom_line()</span></code></pre></div>
-<pre><code>## &lt;ggplot: (-9223372036847993442)&gt;
+<div class="sourceCode" id="cb1809"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1809-1" title="1">ggplot (mydf.head(<span class="dv">15</span>), aes(x<span class="op">=</span><span class="st">&#39;dept&#39;</span>, y<span class="op">=</span><span class="st">&#39;value1&#39;</span>)) <span class="op">+</span> geom_line()</a></code></pre></div>
+<pre><code>## &lt;ggplot: (10682930)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
@@ -1193,8 +1205,8 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
 ##   return cbook.iterable(var) and not is_string(var)</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-684-1.png" /><!-- --></p>
-<div class="sourceCode" id="cb1837"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1837-1"><a href="plotnine.html#cb1837-1"></a>ggplot (mydf.head(<span class="dv">30</span>), aes(x<span class="op">=</span><span class="st">&#39;dept&#39;</span>, y<span class="op">=</span><span class="st">&#39;value1&#39;</span>)) <span class="op">+</span> geom_line( aes(group<span class="op">=</span><span class="dv">1</span>))</span></code></pre></div>
-<pre><code>## &lt;ggplot: (-9223372036845789815)&gt;
+<div class="sourceCode" id="cb1811"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1811-1" title="1">ggplot (mydf.head(<span class="dv">30</span>), aes(x<span class="op">=</span><span class="st">&#39;dept&#39;</span>, y<span class="op">=</span><span class="st">&#39;value1&#39;</span>)) <span class="op">+</span> geom_line( aes(group<span class="op">=</span><span class="dv">1</span>))</a></code></pre></div>
+<pre><code>## &lt;ggplot: (10650937)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\layer.py:517: MatplotlibDeprecationWarning: 
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
@@ -1214,8 +1226,8 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 </div>
 <div id="x-numeric-1x-categorical-2" class="section level3">
 <h3><span class="header-section-number">16.3.3</span> 2x Numeric, 1x Categorical</h3>
-<div class="sourceCode" id="cb1839"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1839-1"><a href="plotnine.html#cb1839-1"></a>ggplot (mydf.head(<span class="dv">15</span>), aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> geom_line( aes(color<span class="op">=</span><span class="st">&#39;grp&#39;</span>),size<span class="op">=</span><span class="dv">2</span>)</span></code></pre></div>
-<pre><code>## &lt;ggplot: (-9223372036847655357)&gt;
+<div class="sourceCode" id="cb1813"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1813-1" title="1">ggplot (mydf.head(<span class="dv">15</span>), aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> geom_line( aes(color<span class="op">=</span><span class="st">&#39;grp&#39;</span>),size<span class="op">=</span><span class="dv">2</span>)</a></code></pre></div>
+<pre><code>## &lt;ggplot: (-9223372036844597062)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
@@ -1233,13 +1245,13 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 <div id="x-categorical" class="section level4">
 <h4><span class="header-section-number">16.4.0.1</span> 1x Categorical</h4>
 <p>Single categorical variable produces frequency chart.</p>
-<div class="sourceCode" id="cb1841"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1841-1"><a href="plotnine.html#cb1841-1"></a>tmpdf <span class="op">=</span> mydf.groupby([<span class="st">&#39;comp&#39;</span>],as_index<span class="op">=</span><span class="va">False</span>).count()</span>
-<span id="cb1841-2"><a href="plotnine.html#cb1841-2"></a>tmpdf</span></code></pre></div>
+<div class="sourceCode" id="cb1815"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1815-1" title="1">tmpdf <span class="op">=</span> mydf.groupby([<span class="st">&#39;comp&#39;</span>],as_index<span class="op">=</span><span class="va">False</span>).count()</a>
+<a class="sourceLine" id="cb1815-2" title="2">tmpdf</a></code></pre></div>
 <pre><code>##   comp  dept  grp  value1  value2  value3
 ## 0   C1    27   27      27      27      27
 ## 1   C2    37   37      37      37      37
 ## 2   C3    36   36      36      36      36</code></pre>
-<div class="sourceCode" id="cb1843"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1843-1"><a href="plotnine.html#cb1843-1"></a>tmpdf.info()</span></code></pre></div>
+<div class="sourceCode" id="cb1817"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1817-1" title="1">tmpdf.info()</a></code></pre></div>
 <pre><code>## &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 ## Int64Index: 3 entries, 0 to 2
 ## Data columns (total 6 columns):
@@ -1251,8 +1263,8 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 ## value3    3 non-null int64
 ## dtypes: int64(5), object(1)
 ## memory usage: 168.0+ bytes</code></pre>
-<div class="sourceCode" id="cb1845"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1845-1"><a href="plotnine.html#cb1845-1"></a>ggplot (tmpdf, aes(x<span class="op">=</span><span class="st">&#39;comp&#39;</span>, y<span class="op">=</span><span class="st">&#39;grp&#39;</span>)) <span class="op">+</span>geom_col()</span></code></pre></div>
-<pre><code>## &lt;ggplot: (6761571)&gt;
+<div class="sourceCode" id="cb1819"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1819-1" title="1">ggplot (tmpdf, aes(x<span class="op">=</span><span class="st">&#39;comp&#39;</span>, y<span class="op">=</span><span class="st">&#39;grp&#39;</span>)) <span class="op">+</span>geom_col()</a></code></pre></div>
+<pre><code>## &lt;ggplot: (-9223372036847257575)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.

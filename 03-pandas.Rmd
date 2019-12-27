@@ -1,18 +1,25 @@
 
-<!-- jupyter_markdown, jupyter_meta = list(`toc-hr-collapsed` = FALSE) -->
 # pandas
 
-<!-- jupyter_markdown, jupyter_meta = list(tags = "remove_cell", `toc-hr-collapsed` = TRUE) -->
-## Environment Setup <a class="tocSkip">
+```{r include=FALSE}
+library(reticulate)
+use_condaenv('Anaconda3')    #conda_list() - to find out the name of conda environment
+```
 
-```{python, jupyter_meta = list(tags = "remove_cell")}
+```{python include=FALSE, results='hide'}
+import numpy as np
+import pandas as pd
 from IPython.core.display import display, HTML
-display(HTML("<style>.container { width:70% !important; margin-left:350px; }</style>"))
+display(HTML("<style>.container { width:75% !important; margin-left:350px; }</style>"))
+pd.set_option( 'display.notebook_repr_html', False)  # render Series and DataFrame as text, not HTML
+pd.set_option( 'display.max_column', 10)    # number of columns
+pd.set_option( 'display.max_rows', 10)      # number of rows
+pd.set_option( 'display.width', 90)         # number of characters per row
 ```
 
 ## Modules Import
 
-```{python, jupyter_meta = list(tags = "remove_cell")}
+```{python}
 import pandas as pd
 
 ## Other Libraries
@@ -22,18 +29,8 @@ from datetime import datetime
 from datetime import date
 ```
 
-### Display Setup
-It is good idea to configure output setup as prefered 
-
-```{python}
-pd.set_option( 'display.notebook_repr_html', False)  # render Series and DataFrame as text, not HTML
-pd.set_option( 'display.max_column', 10)    # number of columns
-pd.set_option( 'display.max_rows', 10)     # number of rows
-pd.set_option( 'display.width', 80)        # number of characters per row
-```
-
-
 ## Pandas Objects
+
 ### Pandas Data Types
 - pandas.Timestamp
 - pandas.Timedelta
@@ -57,7 +54,11 @@ pd.set_option( 'display.width', 80)        # number of characters per row
 ## Class Method
 
 ### Conversion: ```to_datetime()```
-Source can be **string, date, datetime object**
+Pandas `to_datetime()` can:  
+- Convert list of dates to **DateTimeIndex**  
+- Convert list of dates to **Series of Timestamps**  
+- Convert single date into **Timestamp** Object
+. Source can be **string, date, datetime object**
 
 #### From List to ```DateTimeIndex```
 
@@ -66,43 +67,40 @@ dti = pd.to_datetime(['2011-01-03',             # from string
                        date(2018,4,13),         # from date
                        datetime(2018,3,1,7,30)] # from datetime
               )
-print(dti)
-print('\nObject Type:  ',type(dti))
-print('Object dtype: ', dti.dtype)
-print('\nElement Type: ',type(dti[1]))
+print( dti,
+      '\nObject Type:  ', type(dti),
+      '\nObject dtype: ', dti.dtype,
+      '\nElement Type: ', type(dti[1]))
 ```
 
-#### From List to Series to Series
+#### From List to Series
 
 ```{python}
 sdt = pd.to_datetime(pd.Series(['2011-01-03',      # from string
                                 date(2018,4,13),        # from date
                                 datetime(2018,3,1,7,30)]# from datetime
               ))
-print(sdt)
-print('\nObject Type:  ',type(sdt))
-print('Object dtype: ', sdt.dtype)
-print('\nElement Type: ',type(sdt[1]))
+print(sdt,
+      '\nObject Type:  ',type(sdt),
+      '\nObject dtype: ', sdt.dtype,
+      '\nElement Type: ',type(sdt[1]))
 ```
 
 #### From Scalar to Timestamp
 
 ```{python}
-print( pd.to_datetime('2011-01-03'))    # from string
-print( pd.to_datetime(date(2011,1,3)))  # from date
-print( pd.to_datetime(datetime(2011,1,3,5,30))) # from datetime
-print('\nElement Type: ', type(pd.to_datetime(datetime(2011,1,3,5,30))))
+print( pd.to_datetime('2011-01-03'), '\n',
+       pd.to_datetime(date(2011,1,3)), '\n',
+       pd.to_datetime(datetime(2011,1,3,5,30)), '\n',
+       '\nElement Type: ', type(pd.to_datetime(datetime(2011,1,3,5,30))))
 ```
-
 
 ### Generate Timestamp Sequence
 
+#### `date_range()`
+Return `DateTimeIndex` object
 
-#### ```date_range()```
-Return ```DateTimeIndex``` object
-
-
-Generate **sequence of HOURS**
+Generate **sequence by HOURS**
 
 ```{python}
 ## Specify start, Periods, Frequency
@@ -112,20 +110,15 @@ pd.date_range('2018-01-01', periods=3, freq='H')
 
 ```{python}
 ## Start from DateTime
-dti = pd.date_range(datetime(2018,1,1,12,30), periods=3, freq='H')
-print(dti)
-print(type(dti))
-print(dti.dtype)
-print(type(dti[1]))
+pd.date_range(datetime(2018,1,1,12,30), periods=3, freq='H')
 ```
 
 ```{python}
 ## Specify start, End and Frequency
-dti = pd.date_range(start='2018-01-03-1230', end='2018-01-03-18:30', freq='H')
-print(dti)
+pd.date_range(start='2018-01-03-1230', end='2018-01-03-18:30', freq='H')
 ```
 
-Generate **sequence of DAYS**
+Generate **sequence by DAYS**
 
 ```{python}
 pd.date_range(date(2018,1,2), periods=3, freq='D')

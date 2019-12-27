@@ -24,7 +24,7 @@
 <meta name="author" content="Yong Keh Soon" />
 
 
-<meta name="date" content="2019-12-24" />
+<meta name="date" content="2019-12-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -53,9 +53,9 @@
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -64,16 +64,14 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -82,9 +80,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  background-color: #f8f8f8; }
+  { background-color: #f8f8f8; }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -480,266 +478,263 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.7" data-path="numpy-1.html"><a href="numpy-1.html#nan-missing-numerical-data"><i class="fa fa-check"></i><b>12.7</b> NaN : Missing Numerical Data</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="pandas-1.html"><a href="pandas-1.html"><i class="fa fa-check"></i><b>13</b> pandas</a><ul>
-<li class="chapter" data-level="13.1" data-path="pandas-1.html"><a href="pandas-1.html#environment-setup-2"><i class="fa fa-check"></i><b>13.1</b> Environment Setup <a class="tocSkip"></a></li>
-<li class="chapter" data-level="13.2" data-path="pandas-1.html"><a href="pandas-1.html#modules-import"><i class="fa fa-check"></i><b>13.2</b> Modules Import</a><ul>
-<li class="chapter" data-level="13.2.1" data-path="pandas-1.html"><a href="pandas-1.html#display-setup"><i class="fa fa-check"></i><b>13.2.1</b> Display Setup</a></li>
+<li class="chapter" data-level="13.1" data-path="pandas-1.html"><a href="pandas-1.html#modules-import"><i class="fa fa-check"></i><b>13.1</b> Modules Import</a></li>
+<li class="chapter" data-level="13.2" data-path="pandas-1.html"><a href="pandas-1.html#pandas-objects"><i class="fa fa-check"></i><b>13.2</b> Pandas Objects</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="pandas-1.html"><a href="pandas-1.html#pandas-data-types"><i class="fa fa-check"></i><b>13.2.1</b> Pandas Data Types</a></li>
+<li class="chapter" data-level="13.2.2" data-path="pandas-1.html"><a href="pandas-1.html#pandas-data-structure"><i class="fa fa-check"></i><b>13.2.2</b> Pandas Data Structure</a></li>
 </ul></li>
-<li class="chapter" data-level="13.3" data-path="pandas-1.html"><a href="pandas-1.html#pandas-objects"><i class="fa fa-check"></i><b>13.3</b> Pandas Objects</a><ul>
-<li class="chapter" data-level="13.3.1" data-path="pandas-1.html"><a href="pandas-1.html#pandas-data-types"><i class="fa fa-check"></i><b>13.3.1</b> Pandas Data Types</a></li>
-<li class="chapter" data-level="13.3.2" data-path="pandas-1.html"><a href="pandas-1.html#pandas-data-structure"><i class="fa fa-check"></i><b>13.3.2</b> Pandas Data Structure</a></li>
+<li class="chapter" data-level="13.3" data-path="pandas-1.html"><a href="pandas-1.html#class-method-4"><i class="fa fa-check"></i><b>13.3</b> Class Method</a><ul>
+<li class="chapter" data-level="13.3.1" data-path="pandas-1.html"><a href="pandas-1.html#conversion-to_datetime"><i class="fa fa-check"></i><b>13.3.1</b> Conversion: <code>to_datetime()</code></a><ul>
+<li class="chapter" data-level="13.3.1.1" data-path="pandas-1.html"><a href="pandas-1.html#from-list-to-datetimeindex"><i class="fa fa-check"></i><b>13.3.1.1</b> From List to <code>DateTimeIndex</code></a></li>
+<li class="chapter" data-level="13.3.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-list-to-series"><i class="fa fa-check"></i><b>13.3.1.2</b> From List to Series</a></li>
+<li class="chapter" data-level="13.3.1.3" data-path="pandas-1.html"><a href="pandas-1.html#from-scalar-to-timestamp"><i class="fa fa-check"></i><b>13.3.1.3</b> From Scalar to Timestamp</a></li>
 </ul></li>
-<li class="chapter" data-level="13.4" data-path="pandas-1.html"><a href="pandas-1.html#class-method-4"><i class="fa fa-check"></i><b>13.4</b> Class Method</a><ul>
-<li class="chapter" data-level="13.4.1" data-path="pandas-1.html"><a href="pandas-1.html#conversion-to_datetime"><i class="fa fa-check"></i><b>13.4.1</b> Conversion: <code>to_datetime()</code></a><ul>
-<li class="chapter" data-level="13.4.1.1" data-path="pandas-1.html"><a href="pandas-1.html#from-list-to-datetimeindex"><i class="fa fa-check"></i><b>13.4.1.1</b> From List to <code>DateTimeIndex</code></a></li>
-<li class="chapter" data-level="13.4.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-list-to-series-to-series"><i class="fa fa-check"></i><b>13.4.1.2</b> From List to Series to Series</a></li>
-<li class="chapter" data-level="13.4.1.3" data-path="pandas-1.html"><a href="pandas-1.html#from-scalar-to-timestamp"><i class="fa fa-check"></i><b>13.4.1.3</b> From Scalar to Timestamp</a></li>
+<li class="chapter" data-level="13.3.2" data-path="pandas-1.html"><a href="pandas-1.html#generate-timestamp-sequence"><i class="fa fa-check"></i><b>13.3.2</b> Generate Timestamp Sequence</a><ul>
+<li class="chapter" data-level="13.3.2.1" data-path="pandas-1.html"><a href="pandas-1.html#date_range"><i class="fa fa-check"></i><b>13.3.2.1</b> <code>date_range()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="13.4.2" data-path="pandas-1.html"><a href="pandas-1.html#generate-timestamp-sequence"><i class="fa fa-check"></i><b>13.4.2</b> Generate Timestamp Sequence</a><ul>
-<li class="chapter" data-level="13.4.2.1" data-path="pandas-1.html"><a href="pandas-1.html#date_range"><i class="fa fa-check"></i><b>13.4.2.1</b> <code>date_range()</code></a></li>
-</ul></li>
-<li class="chapter" data-level="13.4.3" data-path="pandas-1.html"><a href="pandas-1.html#frequency-table-crosstab"><i class="fa fa-check"></i><b>13.4.3</b> Frequency Table (crosstab)</a><ul>
-<li class="chapter" data-level="13.4.3.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-2"><i class="fa fa-check"></i><b>13.4.3.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.4.3.2" data-path="pandas-1.html"><a href="pandas-1.html#one-dimensiontable"><i class="fa fa-check"></i><b>13.4.3.2</b> One DimensionTable</a></li>
-<li class="chapter" data-level="13.4.3.3" data-path="pandas-1.html"><a href="pandas-1.html#two-dimension-table"><i class="fa fa-check"></i><b>13.4.3.3</b> Two Dimension Table</a></li>
-<li class="chapter" data-level="13.4.3.4" data-path="pandas-1.html"><a href="pandas-1.html#higher-dimension-table"><i class="fa fa-check"></i><b>13.4.3.4</b> Higher Dimension Table</a></li>
-<li class="chapter" data-level="13.4.3.5" data-path="pandas-1.html"><a href="pandas-1.html#getting-margin"><i class="fa fa-check"></i><b>13.4.3.5</b> Getting Margin</a></li>
-<li class="chapter" data-level="13.4.3.6" data-path="pandas-1.html"><a href="pandas-1.html#getting-proportion"><i class="fa fa-check"></i><b>13.4.3.6</b> Getting Proportion</a></li>
-<li class="chapter" data-level="13.4.3.7" data-path="pandas-1.html"><a href="pandas-1.html#reseting-index"><i class="fa fa-check"></i><b>13.4.3.7</b> Reseting Index</a></li>
+<li class="chapter" data-level="13.3.3" data-path="pandas-1.html"><a href="pandas-1.html#frequency-table-crosstab"><i class="fa fa-check"></i><b>13.3.3</b> Frequency Table (crosstab)</a><ul>
+<li class="chapter" data-level="13.3.3.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-2"><i class="fa fa-check"></i><b>13.3.3.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.3.3.2" data-path="pandas-1.html"><a href="pandas-1.html#one-dimensiontable"><i class="fa fa-check"></i><b>13.3.3.2</b> One DimensionTable</a></li>
+<li class="chapter" data-level="13.3.3.3" data-path="pandas-1.html"><a href="pandas-1.html#two-dimension-table"><i class="fa fa-check"></i><b>13.3.3.3</b> Two Dimension Table</a></li>
+<li class="chapter" data-level="13.3.3.4" data-path="pandas-1.html"><a href="pandas-1.html#higher-dimension-table"><i class="fa fa-check"></i><b>13.3.3.4</b> Higher Dimension Table</a></li>
+<li class="chapter" data-level="13.3.3.5" data-path="pandas-1.html"><a href="pandas-1.html#getting-margin"><i class="fa fa-check"></i><b>13.3.3.5</b> Getting Margin</a></li>
+<li class="chapter" data-level="13.3.3.6" data-path="pandas-1.html"><a href="pandas-1.html#getting-proportion"><i class="fa fa-check"></i><b>13.3.3.6</b> Getting Proportion</a></li>
+<li class="chapter" data-level="13.3.3.7" data-path="pandas-1.html"><a href="pandas-1.html#reseting-index"><i class="fa fa-check"></i><b>13.3.3.7</b> Reseting Index</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="13.5" data-path="pandas-1.html"><a href="pandas-1.html#timestamp"><i class="fa fa-check"></i><b>13.5</b> Timestamp</a><ul>
-<li class="chapter" data-level="13.5.1" data-path="pandas-1.html"><a href="pandas-1.html#constructor-6"><i class="fa fa-check"></i><b>13.5.1</b> Constructor</a><ul>
-<li class="chapter" data-level="13.5.1.1" data-path="pandas-1.html"><a href="pandas-1.html#from-number"><i class="fa fa-check"></i><b>13.5.1.1</b> From Number</a></li>
-<li class="chapter" data-level="13.5.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-string"><i class="fa fa-check"></i><b>13.5.1.2</b> From String</a></li>
-<li class="chapter" data-level="13.5.1.3" data-path="pandas-1.html"><a href="pandas-1.html#from-standard-library-datetime-and-date-object"><i class="fa fa-check"></i><b>13.5.1.3</b> From Standard Library <code>datetime</code> and <code>date</code> Object</a></li>
+<li class="chapter" data-level="13.4" data-path="pandas-1.html"><a href="pandas-1.html#timestamp"><i class="fa fa-check"></i><b>13.4</b> Timestamp</a><ul>
+<li class="chapter" data-level="13.4.1" data-path="pandas-1.html"><a href="pandas-1.html#constructor-6"><i class="fa fa-check"></i><b>13.4.1</b> Constructor</a><ul>
+<li class="chapter" data-level="13.4.1.1" data-path="pandas-1.html"><a href="pandas-1.html#from-number"><i class="fa fa-check"></i><b>13.4.1.1</b> From Number</a></li>
+<li class="chapter" data-level="13.4.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-string"><i class="fa fa-check"></i><b>13.4.1.2</b> From String</a></li>
+<li class="chapter" data-level="13.4.1.3" data-path="pandas-1.html"><a href="pandas-1.html#from-standard-library-datetime-and-date-object"><i class="fa fa-check"></i><b>13.4.1.3</b> From Standard Library <code>datetime</code> and <code>date</code> Object</a></li>
 </ul></li>
-<li class="chapter" data-level="13.5.2" data-path="pandas-1.html"><a href="pandas-1.html#attributes-4"><i class="fa fa-check"></i><b>13.5.2</b> Attributes</a></li>
-<li class="chapter" data-level="13.5.3" data-path="pandas-1.html"><a href="pandas-1.html#operator-2"><i class="fa fa-check"></i><b>13.5.3</b> Operator</a></li>
-<li class="chapter" data-level="13.5.4" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods-1"><i class="fa fa-check"></i><b>13.5.4</b> Instance Methods</a><ul>
-<li class="chapter" data-level="13.5.4.1" data-path="pandas-1.html"><a href="pandas-1.html#useful-methods"><i class="fa fa-check"></i><b>13.5.4.1</b> Useful Methods</a></li>
-<li class="chapter" data-level="13.5.4.2" data-path="pandas-1.html"><a href="pandas-1.html#convert-to-datetime"><i class="fa fa-check"></i><b>13.5.4.2</b> Convert To datetime</a></li>
-<li class="chapter" data-level="13.5.4.3" data-path="pandas-1.html"><a href="pandas-1.html#convert-to-numpy"><i class="fa fa-check"></i><b>13.5.4.3</b> Convert To <code>numpy</code></a></li>
-<li class="chapter" data-level="13.5.4.4" data-path="pandas-1.html"><a href="pandas-1.html#formatting-with-strftime"><i class="fa fa-check"></i><b>13.5.4.4</b> Formatting with <code>strftime</code></a></li>
-<li class="chapter" data-level="13.5.4.5" data-path="pandas-1.html"><a href="pandas-1.html#add-timezone"><i class="fa fa-check"></i><b>13.5.4.5</b> Add Timezone</a></li>
-<li class="chapter" data-level="13.5.4.6" data-path="pandas-1.html"><a href="pandas-1.html#convert-timezone"><i class="fa fa-check"></i><b>13.5.4.6</b> Convert Timezone</a></li>
-<li class="chapter" data-level="13.5.4.7" data-path="pandas-1.html"><a href="pandas-1.html#removing-timezone"><i class="fa fa-check"></i><b>13.5.4.7</b> Removing TImezone</a></li>
-<li class="chapter" data-level="13.5.4.8" data-path="pandas-1.html"><a href="pandas-1.html#formatting-with-isoformat"><i class="fa fa-check"></i><b>13.5.4.8</b> Formatting with <code>isoformat</code></a></li>
-<li class="chapter" data-level="13.5.4.9" data-path="pandas-1.html"><a href="pandas-1.html#ceil"><i class="fa fa-check"></i><b>13.5.4.9</b> <code>ceil</code></a></li>
-<li class="chapter" data-level="13.5.4.10" data-path="pandas-1.html"><a href="pandas-1.html#replace-2"><i class="fa fa-check"></i><b>13.5.4.10</b> <code>replace()</code></a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="13.6" data-path="pandas-1.html"><a href="pandas-1.html#series"><i class="fa fa-check"></i><b>13.6</b> Series</a><ul>
-<li class="chapter" data-level="13.6.1" data-path="pandas-1.html"><a href="pandas-1.html#constructor-7"><i class="fa fa-check"></i><b>13.6.1</b> Constructor</a><ul>
-<li class="chapter" data-level="13.6.1.1" data-path="pandas-1.html"><a href="pandas-1.html#empty-series"><i class="fa fa-check"></i><b>13.6.1.1</b> Empty Series</a></li>
-<li class="chapter" data-level="13.6.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-scalar"><i class="fa fa-check"></i><b>13.6.1.2</b> From Scalar</a></li>
-<li class="chapter" data-level="13.6.1.3" data-path="pandas-1.html"><a href="pandas-1.html#from-array-like"><i class="fa fa-check"></i><b>13.6.1.3</b> From array-like</a></li>
-<li class="chapter" data-level="13.6.1.4" data-path="pandas-1.html"><a href="pandas-1.html#from-dictionary"><i class="fa fa-check"></i><b>13.6.1.4</b> From Dictionary</a></li>
-<li class="chapter" data-level="13.6.1.5" data-path="pandas-1.html"><a href="pandas-1.html#specify-index"><i class="fa fa-check"></i><b>13.6.1.5</b> Specify Index</a></li>
-<li class="chapter" data-level="13.6.1.6" data-path="pandas-1.html"><a href="pandas-1.html#mix-element-types"><i class="fa fa-check"></i><b>13.6.1.6</b> Mix Element Types</a></li>
-<li class="chapter" data-level="13.6.1.7" data-path="pandas-1.html"><a href="pandas-1.html#specify-data-types"><i class="fa fa-check"></i><b>13.6.1.7</b> Specify Data Types</a></li>
-</ul></li>
-<li class="chapter" data-level="13.6.2" data-path="pandas-1.html"><a href="pandas-1.html#accessing-series"><i class="fa fa-check"></i><b>13.6.2</b> Accessing Series</a><ul>
-<li class="chapter" data-level="13.6.2.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-3"><i class="fa fa-check"></i><b>13.6.2.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.6.2.2" data-path="pandas-1.html"><a href="pandas-1.html#by-row-numbers"><i class="fa fa-check"></i><b>13.6.2.2</b> by Row Number(s)</a></li>
-<li class="chapter" data-level="13.6.2.3" data-path="pandas-1.html"><a href="pandas-1.html#by-indexes"><i class="fa fa-check"></i><b>13.6.2.3</b> by Index(es)</a></li>
-<li class="chapter" data-level="13.6.2.4" data-path="pandas-1.html"><a href="pandas-1.html#filtering-criteria"><i class="fa fa-check"></i><b>13.6.2.4</b> Filtering Criteria</a></li>
-</ul></li>
-<li class="chapter" data-level="13.6.3" data-path="pandas-1.html"><a href="pandas-1.html#modifying-series"><i class="fa fa-check"></i><b>13.6.3</b> Modifying Series</a><ul>
-<li class="chapter" data-level="13.6.3.1" data-path="pandas-1.html"><a href="pandas-1.html#by-row-numbers-1"><i class="fa fa-check"></i><b>13.6.3.1</b> by Row Number(s)</a></li>
-<li class="chapter" data-level="13.6.3.2" data-path="pandas-1.html"><a href="pandas-1.html#by-indexes-1"><i class="fa fa-check"></i><b>13.6.3.2</b> by Index(es)</a></li>
-</ul></li>
-<li class="chapter" data-level="13.6.4" data-path="pandas-1.html"><a href="pandas-1.html#series-attributes"><i class="fa fa-check"></i><b>13.6.4</b> Series Attributes</a><ul>
-<li class="chapter" data-level="13.6.4.1" data-path="pandas-1.html"><a href="pandas-1.html#the-data"><i class="fa fa-check"></i><b>13.6.4.1</b> The Data</a></li>
-<li class="chapter" data-level="13.6.4.2" data-path="pandas-1.html"><a href="pandas-1.html#index"><i class="fa fa-check"></i><b>13.6.4.2</b> <code>index</code></a></li>
-<li class="chapter" data-level="13.6.4.3" data-path="pandas-1.html"><a href="pandas-1.html#dtype-1"><i class="fa fa-check"></i><b>13.6.4.3</b> <code>dtype</code></a></li>
-<li class="chapter" data-level="13.6.4.4" data-path="pandas-1.html"><a href="pandas-1.html#dimensions-1"><i class="fa fa-check"></i><b>13.6.4.4</b> Dimensions</a></li>
-<li class="chapter" data-level="13.6.4.5" data-path="pandas-1.html"><a href="pandas-1.html#name"><i class="fa fa-check"></i><b>13.6.4.5</b> <code>.name</code></a></li>
-</ul></li>
-<li class="chapter" data-level="13.6.5" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods-2"><i class="fa fa-check"></i><b>13.6.5</b> Instance Methods</a><ul>
-<li class="chapter" data-level="13.6.5.1" data-path="pandas-1.html"><a href="pandas-1.html#reset_index"><i class="fa fa-check"></i><b>13.6.5.1</b> .reset_index ()</a></li>
-<li class="chapter" data-level="13.6.5.2" data-path="pandas-1.html"><a href="pandas-1.html#structure-conversion"><i class="fa fa-check"></i><b>13.6.5.2</b> Structure Conversion</a></li>
-<li class="chapter" data-level="13.6.5.3" data-path="pandas-1.html"><a href="pandas-1.html#datatype-conversion"><i class="fa fa-check"></i><b>13.6.5.3</b> DataType Conversion</a></li>
-</ul></li>
-<li class="chapter" data-level="13.6.6" data-path="pandas-1.html"><a href="pandas-1.html#series-operators"><i class="fa fa-check"></i><b>13.6.6</b> Series Operators</a><ul>
-<li class="chapter" data-level="13.6.6.1" data-path="pandas-1.html"><a href="pandas-1.html#arithmetic-operator"><i class="fa fa-check"></i><b>13.6.6.1</b> Arithmetic Operator</a></li>
-<li class="chapter" data-level="13.6.6.2" data-path="pandas-1.html"><a href="pandas-1.html#logic-operator"><i class="fa fa-check"></i><b>13.6.6.2</b> Logic Operator</a></li>
-</ul></li>
-<li class="chapter" data-level="13.6.7" data-path="pandas-1.html"><a href="pandas-1.html#series-string-accesor-.str"><i class="fa fa-check"></i><b>13.6.7</b> Series String Accesor <code>.str</code></a><ul>
-<li class="chapter" data-level="13.6.7.1" data-path="pandas-1.html"><a href="pandas-1.html#splitting"><i class="fa fa-check"></i><b>13.6.7.1</b> Splitting</a></li>
-<li class="chapter" data-level="13.6.7.2" data-path="pandas-1.html"><a href="pandas-1.html#matching"><i class="fa fa-check"></i><b>13.6.7.2</b> Matching</a></li>
-<li class="chapter" data-level="13.6.7.3" data-path="pandas-1.html"><a href="pandas-1.html#case-conversion"><i class="fa fa-check"></i><b>13.6.7.3</b> Case Conversion</a></li>
-<li class="chapter" data-level="13.6.7.4" data-path="pandas-1.html"><a href="pandas-1.html#number-of-characters"><i class="fa fa-check"></i><b>13.6.7.4</b> Number of Characters</a></li>
-<li class="chapter" data-level="13.6.7.5" data-path="pandas-1.html"><a href="pandas-1.html#string-indexing"><i class="fa fa-check"></i><b>13.6.7.5</b> String Indexing</a></li>
-<li class="chapter" data-level="13.6.7.6" data-path="pandas-1.html"><a href="pandas-1.html#splitting-1"><i class="fa fa-check"></i><b>13.6.7.6</b> Splitting</a></li>
-<li class="chapter" data-level="13.6.7.7" data-path="pandas-1.html"><a href="pandas-1.html#split-and-expand-into-dataframe"><i class="fa fa-check"></i><b>13.6.7.7</b> Split and Expand Into DataFrame</a></li>
-<li class="chapter" data-level="13.6.7.8" data-path="pandas-1.html"><a href="pandas-1.html#series-substring-extraction"><i class="fa fa-check"></i><b>13.6.7.8</b> Series Substring Extraction</a></li>
-</ul></li>
-<li class="chapter" data-level="13.6.8" data-path="pandas-1.html"><a href="pandas-1.html#series-datetime-accessor-.dt"><i class="fa fa-check"></i><b>13.6.8</b> Series DateTime Accessor <code>.dt</code></a><ul>
-<li class="chapter" data-level="13.6.8.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-4"><i class="fa fa-check"></i><b>13.6.8.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.6.8.2" data-path="pandas-1.html"><a href="pandas-1.html#convert-to"><i class="fa fa-check"></i><b>13.6.8.2</b> Convert To</a></li>
-<li class="chapter" data-level="13.6.8.3" data-path="pandas-1.html"><a href="pandas-1.html#timestamp-attributes"><i class="fa fa-check"></i><b>13.6.8.3</b> Timestamp Attributes</a></li>
+<li class="chapter" data-level="13.4.2" data-path="pandas-1.html"><a href="pandas-1.html#attributes-4"><i class="fa fa-check"></i><b>13.4.2</b> Attributes</a></li>
+<li class="chapter" data-level="13.4.3" data-path="pandas-1.html"><a href="pandas-1.html#operator-2"><i class="fa fa-check"></i><b>13.4.3</b> Operator</a></li>
+<li class="chapter" data-level="13.4.4" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods-1"><i class="fa fa-check"></i><b>13.4.4</b> Instance Methods</a><ul>
+<li class="chapter" data-level="13.4.4.1" data-path="pandas-1.html"><a href="pandas-1.html#useful-methods"><i class="fa fa-check"></i><b>13.4.4.1</b> Useful Methods</a></li>
+<li class="chapter" data-level="13.4.4.2" data-path="pandas-1.html"><a href="pandas-1.html#convert-to-datetime"><i class="fa fa-check"></i><b>13.4.4.2</b> Convert To datetime</a></li>
+<li class="chapter" data-level="13.4.4.3" data-path="pandas-1.html"><a href="pandas-1.html#convert-to-numpy"><i class="fa fa-check"></i><b>13.4.4.3</b> Convert To <code>numpy</code></a></li>
+<li class="chapter" data-level="13.4.4.4" data-path="pandas-1.html"><a href="pandas-1.html#formatting-with-strftime"><i class="fa fa-check"></i><b>13.4.4.4</b> Formatting with <code>strftime</code></a></li>
+<li class="chapter" data-level="13.4.4.5" data-path="pandas-1.html"><a href="pandas-1.html#add-timezone"><i class="fa fa-check"></i><b>13.4.4.5</b> Add Timezone</a></li>
+<li class="chapter" data-level="13.4.4.6" data-path="pandas-1.html"><a href="pandas-1.html#convert-timezone"><i class="fa fa-check"></i><b>13.4.4.6</b> Convert Timezone</a></li>
+<li class="chapter" data-level="13.4.4.7" data-path="pandas-1.html"><a href="pandas-1.html#removing-timezone"><i class="fa fa-check"></i><b>13.4.4.7</b> Removing TImezone</a></li>
+<li class="chapter" data-level="13.4.4.8" data-path="pandas-1.html"><a href="pandas-1.html#formatting-with-isoformat"><i class="fa fa-check"></i><b>13.4.4.8</b> Formatting with <code>isoformat</code></a></li>
+<li class="chapter" data-level="13.4.4.9" data-path="pandas-1.html"><a href="pandas-1.html#ceil"><i class="fa fa-check"></i><b>13.4.4.9</b> <code>ceil</code></a></li>
+<li class="chapter" data-level="13.4.4.10" data-path="pandas-1.html"><a href="pandas-1.html#replace-2"><i class="fa fa-check"></i><b>13.4.4.10</b> <code>replace()</code></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="13.7" data-path="pandas-1.html"><a href="pandas-1.html#dataframe"><i class="fa fa-check"></i><b>13.7</b> DataFrame</a><ul>
-<li class="chapter" data-level="13.7.1" data-path="pandas-1.html"><a href="pandas-1.html#constructor-8"><i class="fa fa-check"></i><b>13.7.1</b> Constructor</a><ul>
-<li class="chapter" data-level="13.7.1.1" data-path="pandas-1.html"><a href="pandas-1.html#from-row-oriented-data-list-of-lists"><i class="fa fa-check"></i><b>13.7.1.1</b> From Row Oriented Data (List of Lists)</a></li>
-<li class="chapter" data-level="13.7.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-row-oriented-data-list-of-dictionary"><i class="fa fa-check"></i><b>13.7.1.2</b> From Row Oriented Data (List of Dictionary)</a></li>
-<li class="chapter" data-level="13.7.1.3" data-path="pandas-1.html"><a href="pandas-1.html#from-column-oriented-data"><i class="fa fa-check"></i><b>13.7.1.3</b> From Column Oriented Data</a></li>
+<li class="chapter" data-level="13.5" data-path="pandas-1.html"><a href="pandas-1.html#series"><i class="fa fa-check"></i><b>13.5</b> Series</a><ul>
+<li class="chapter" data-level="13.5.1" data-path="pandas-1.html"><a href="pandas-1.html#constructor-7"><i class="fa fa-check"></i><b>13.5.1</b> Constructor</a><ul>
+<li class="chapter" data-level="13.5.1.1" data-path="pandas-1.html"><a href="pandas-1.html#empty-series"><i class="fa fa-check"></i><b>13.5.1.1</b> Empty Series</a></li>
+<li class="chapter" data-level="13.5.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-scalar"><i class="fa fa-check"></i><b>13.5.1.2</b> From Scalar</a></li>
+<li class="chapter" data-level="13.5.1.3" data-path="pandas-1.html"><a href="pandas-1.html#from-array-like"><i class="fa fa-check"></i><b>13.5.1.3</b> From array-like</a></li>
+<li class="chapter" data-level="13.5.1.4" data-path="pandas-1.html"><a href="pandas-1.html#from-dictionary"><i class="fa fa-check"></i><b>13.5.1.4</b> From Dictionary</a></li>
+<li class="chapter" data-level="13.5.1.5" data-path="pandas-1.html"><a href="pandas-1.html#specify-index"><i class="fa fa-check"></i><b>13.5.1.5</b> Specify Index</a></li>
+<li class="chapter" data-level="13.5.1.6" data-path="pandas-1.html"><a href="pandas-1.html#mix-element-types"><i class="fa fa-check"></i><b>13.5.1.6</b> Mix Element Types</a></li>
+<li class="chapter" data-level="13.5.1.7" data-path="pandas-1.html"><a href="pandas-1.html#specify-data-types"><i class="fa fa-check"></i><b>13.5.1.7</b> Specify Data Types</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.2" data-path="pandas-1.html"><a href="pandas-1.html#attributes-5"><i class="fa fa-check"></i><b>13.7.2</b> Attributes</a><ul>
-<li class="chapter" data-level="13.7.2.1" data-path="pandas-1.html"><a href="pandas-1.html#dimensions-2"><i class="fa fa-check"></i><b>13.7.2.1</b> Dimensions</a></li>
-<li class="chapter" data-level="13.7.2.2" data-path="pandas-1.html"><a href="pandas-1.html#index-1"><i class="fa fa-check"></i><b>13.7.2.2</b> Index</a></li>
-<li class="chapter" data-level="13.7.2.3" data-path="pandas-1.html"><a href="pandas-1.html#columns"><i class="fa fa-check"></i><b>13.7.2.3</b> Columns</a></li>
-<li class="chapter" data-level="13.7.2.4" data-path="pandas-1.html"><a href="pandas-1.html#values"><i class="fa fa-check"></i><b>13.7.2.4</b> Values</a></li>
+<li class="chapter" data-level="13.5.2" data-path="pandas-1.html"><a href="pandas-1.html#accessing-series"><i class="fa fa-check"></i><b>13.5.2</b> Accessing Series</a><ul>
+<li class="chapter" data-level="13.5.2.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-3"><i class="fa fa-check"></i><b>13.5.2.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.5.2.2" data-path="pandas-1.html"><a href="pandas-1.html#by-row-numbers"><i class="fa fa-check"></i><b>13.5.2.2</b> by Row Number(s)</a></li>
+<li class="chapter" data-level="13.5.2.3" data-path="pandas-1.html"><a href="pandas-1.html#by-indexes"><i class="fa fa-check"></i><b>13.5.2.3</b> by Index(es)</a></li>
+<li class="chapter" data-level="13.5.2.4" data-path="pandas-1.html"><a href="pandas-1.html#filtering-criteria"><i class="fa fa-check"></i><b>13.5.2.4</b> Filtering Criteria</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.3" data-path="pandas-1.html"><a href="pandas-1.html#index-manipulation"><i class="fa fa-check"></i><b>13.7.3</b> Index Manipulation</a><ul>
-<li class="chapter" data-level="13.7.3.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-5"><i class="fa fa-check"></i><b>13.7.3.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.7.3.2" data-path="pandas-1.html"><a href="pandas-1.html#convert-column-to-index"><i class="fa fa-check"></i><b>13.7.3.2</b> Convert Column To Index</a></li>
-<li class="chapter" data-level="13.7.3.3" data-path="pandas-1.html"><a href="pandas-1.html#convert-index-back-to-column"><i class="fa fa-check"></i><b>13.7.3.3</b> Convert Index Back To Column</a></li>
-<li class="chapter" data-level="13.7.3.4" data-path="pandas-1.html"><a href="pandas-1.html#updating-index-.index"><i class="fa fa-check"></i><b>13.7.3.4</b> Updating Index ( .index= )</a></li>
-<li class="chapter" data-level="13.7.3.5" data-path="pandas-1.html"><a href="pandas-1.html#reordering-index-.-reindex"><i class="fa fa-check"></i><b>13.7.3.5</b> Reordering Index (. reindex )</a></li>
+<li class="chapter" data-level="13.5.3" data-path="pandas-1.html"><a href="pandas-1.html#modifying-series"><i class="fa fa-check"></i><b>13.5.3</b> Modifying Series</a><ul>
+<li class="chapter" data-level="13.5.3.1" data-path="pandas-1.html"><a href="pandas-1.html#by-row-numbers-1"><i class="fa fa-check"></i><b>13.5.3.1</b> by Row Number(s)</a></li>
+<li class="chapter" data-level="13.5.3.2" data-path="pandas-1.html"><a href="pandas-1.html#by-indexes-1"><i class="fa fa-check"></i><b>13.5.3.2</b> by Index(es)</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.4" data-path="pandas-1.html"><a href="pandas-1.html#subsetting-columns"><i class="fa fa-check"></i><b>13.7.4</b> Subsetting Columns</a><ul>
-<li class="chapter" data-level="13.7.4.1" data-path="pandas-1.html"><a href="pandas-1.html#select-single-column"><i class="fa fa-check"></i><b>13.7.4.1</b> Select Single Column</a></li>
-<li class="chapter" data-level="13.7.4.2" data-path="pandas-1.html"><a href="pandas-1.html#select-multiple-columns"><i class="fa fa-check"></i><b>13.7.4.2</b> Select Multiple Columns</a></li>
-<li class="chapter" data-level="13.7.4.3" data-path="pandas-1.html"><a href="pandas-1.html#selection-by-data-type"><i class="fa fa-check"></i><b>13.7.4.3</b> Selection by Data Type</a></li>
-<li class="chapter" data-level="13.7.4.4" data-path="pandas-1.html"><a href="pandas-1.html#subset-by-filter"><i class="fa fa-check"></i><b>13.7.4.4</b> Subset by <code>filter()</code></a></li>
+<li class="chapter" data-level="13.5.4" data-path="pandas-1.html"><a href="pandas-1.html#series-attributes"><i class="fa fa-check"></i><b>13.5.4</b> Series Attributes</a><ul>
+<li class="chapter" data-level="13.5.4.1" data-path="pandas-1.html"><a href="pandas-1.html#the-data"><i class="fa fa-check"></i><b>13.5.4.1</b> The Data</a></li>
+<li class="chapter" data-level="13.5.4.2" data-path="pandas-1.html"><a href="pandas-1.html#index"><i class="fa fa-check"></i><b>13.5.4.2</b> <code>index</code></a></li>
+<li class="chapter" data-level="13.5.4.3" data-path="pandas-1.html"><a href="pandas-1.html#dtype-1"><i class="fa fa-check"></i><b>13.5.4.3</b> <code>dtype</code></a></li>
+<li class="chapter" data-level="13.5.4.4" data-path="pandas-1.html"><a href="pandas-1.html#dimensions-1"><i class="fa fa-check"></i><b>13.5.4.4</b> Dimensions</a></li>
+<li class="chapter" data-level="13.5.4.5" data-path="pandas-1.html"><a href="pandas-1.html#name"><i class="fa fa-check"></i><b>13.5.4.5</b> <code>.name</code></a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.5" data-path="pandas-1.html"><a href="pandas-1.html#column-manipulation-1"><i class="fa fa-check"></i><b>13.7.5</b> Column Manipulation</a><ul>
-<li class="chapter" data-level="13.7.5.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-6"><i class="fa fa-check"></i><b>13.7.5.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.7.5.2" data-path="pandas-1.html"><a href="pandas-1.html#renaming-columns"><i class="fa fa-check"></i><b>13.7.5.2</b> Renaming Columns</a></li>
-<li class="chapter" data-level="13.7.5.3" data-path="pandas-1.html"><a href="pandas-1.html#reordering-columns"><i class="fa fa-check"></i><b>13.7.5.3</b> Reordering Columns</a></li>
-<li class="chapter" data-level="13.7.5.4" data-path="pandas-1.html"><a href="pandas-1.html#duplicating-or-replacing-column"><i class="fa fa-check"></i><b>13.7.5.4</b> Duplicating or Replacing Column</a></li>
-<li class="chapter" data-level="13.7.5.5" data-path="pandas-1.html"><a href="pandas-1.html#dropping-columns-.drop"><i class="fa fa-check"></i><b>13.7.5.5</b> Dropping Columns (.drop)</a></li>
+<li class="chapter" data-level="13.5.5" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods-2"><i class="fa fa-check"></i><b>13.5.5</b> Instance Methods</a><ul>
+<li class="chapter" data-level="13.5.5.1" data-path="pandas-1.html"><a href="pandas-1.html#reset_index"><i class="fa fa-check"></i><b>13.5.5.1</b> .reset_index ()</a></li>
+<li class="chapter" data-level="13.5.5.2" data-path="pandas-1.html"><a href="pandas-1.html#structure-conversion"><i class="fa fa-check"></i><b>13.5.5.2</b> Structure Conversion</a></li>
+<li class="chapter" data-level="13.5.5.3" data-path="pandas-1.html"><a href="pandas-1.html#datatype-conversion"><i class="fa fa-check"></i><b>13.5.5.3</b> DataType Conversion</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.6" data-path="pandas-1.html"><a href="pandas-1.html#subsetting-rows"><i class="fa fa-check"></i><b>13.7.6</b> Subsetting Rows</a><ul>
-<li class="chapter" data-level="13.7.6.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-7"><i class="fa fa-check"></i><b>13.7.6.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.7.6.2" data-path="pandas-1.html"><a href="pandas-1.html#by-index-or-boolean"><i class="fa fa-check"></i><b>13.7.6.2</b> By Index or Boolean</a></li>
-<li class="chapter" data-level="13.7.6.3" data-path="pandas-1.html"><a href="pandas-1.html#by-row-number"><i class="fa fa-check"></i><b>13.7.6.3</b> By Row Number</a></li>
-<li class="chapter" data-level="13.7.6.4" data-path="pandas-1.html"><a href="pandas-1.html#query"><i class="fa fa-check"></i><b>13.7.6.4</b> <code>query()</code></a></li>
-<li class="chapter" data-level="13.7.6.5" data-path="pandas-1.html"><a href="pandas-1.html#sample"><i class="fa fa-check"></i><b>13.7.6.5</b> <code>sample()</code></a></li>
+<li class="chapter" data-level="13.5.6" data-path="pandas-1.html"><a href="pandas-1.html#series-operators"><i class="fa fa-check"></i><b>13.5.6</b> Series Operators</a><ul>
+<li class="chapter" data-level="13.5.6.1" data-path="pandas-1.html"><a href="pandas-1.html#arithmetic-operator"><i class="fa fa-check"></i><b>13.5.6.1</b> Arithmetic Operator</a></li>
+<li class="chapter" data-level="13.5.6.2" data-path="pandas-1.html"><a href="pandas-1.html#logic-operator"><i class="fa fa-check"></i><b>13.5.6.2</b> Logic Operator</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.7" data-path="pandas-1.html"><a href="pandas-1.html#row-manipulation"><i class="fa fa-check"></i><b>13.7.7</b> Row Manipulation</a><ul>
-<li class="chapter" data-level="13.7.7.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-8"><i class="fa fa-check"></i><b>13.7.7.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.7.7.2" data-path="pandas-1.html"><a href="pandas-1.html#dropping-rows-.drop"><i class="fa fa-check"></i><b>13.7.7.2</b> Dropping Rows (.drop)</a></li>
+<li class="chapter" data-level="13.5.7" data-path="pandas-1.html"><a href="pandas-1.html#series-string-accesor-.str"><i class="fa fa-check"></i><b>13.5.7</b> Series String Accesor <code>.str</code></a><ul>
+<li class="chapter" data-level="13.5.7.1" data-path="pandas-1.html"><a href="pandas-1.html#splitting"><i class="fa fa-check"></i><b>13.5.7.1</b> Splitting</a></li>
+<li class="chapter" data-level="13.5.7.2" data-path="pandas-1.html"><a href="pandas-1.html#matching"><i class="fa fa-check"></i><b>13.5.7.2</b> Matching</a></li>
+<li class="chapter" data-level="13.5.7.3" data-path="pandas-1.html"><a href="pandas-1.html#case-conversion"><i class="fa fa-check"></i><b>13.5.7.3</b> Case Conversion</a></li>
+<li class="chapter" data-level="13.5.7.4" data-path="pandas-1.html"><a href="pandas-1.html#number-of-characters"><i class="fa fa-check"></i><b>13.5.7.4</b> Number of Characters</a></li>
+<li class="chapter" data-level="13.5.7.5" data-path="pandas-1.html"><a href="pandas-1.html#string-indexing"><i class="fa fa-check"></i><b>13.5.7.5</b> String Indexing</a></li>
+<li class="chapter" data-level="13.5.7.6" data-path="pandas-1.html"><a href="pandas-1.html#splitting-1"><i class="fa fa-check"></i><b>13.5.7.6</b> Splitting</a></li>
+<li class="chapter" data-level="13.5.7.7" data-path="pandas-1.html"><a href="pandas-1.html#split-and-expand-into-dataframe"><i class="fa fa-check"></i><b>13.5.7.7</b> Split and Expand Into DataFrame</a></li>
+<li class="chapter" data-level="13.5.7.8" data-path="pandas-1.html"><a href="pandas-1.html#series-substring-extraction"><i class="fa fa-check"></i><b>13.5.7.8</b> Series Substring Extraction</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.8" data-path="pandas-1.html"><a href="pandas-1.html#slicing"><i class="fa fa-check"></i><b>13.7.8</b> Slicing</a><ul>
-<li class="chapter" data-level="13.7.8.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-9"><i class="fa fa-check"></i><b>13.7.8.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.7.8.2" data-path="pandas-1.html"><a href="pandas-1.html#getting-one-cell"><i class="fa fa-check"></i><b>13.7.8.2</b> Getting One Cell</a></li>
-<li class="chapter" data-level="13.7.8.3" data-path="pandas-1.html"><a href="pandas-1.html#getting-multiple-cells"><i class="fa fa-check"></i><b>13.7.8.3</b> Getting Multiple Cells</a></li>
-</ul></li>
-<li class="chapter" data-level="13.7.9" data-path="pandas-1.html"><a href="pandas-1.html#chained-indexing"><i class="fa fa-check"></i><b>13.7.9</b> Chained Indexing</a></li>
-<li class="chapter" data-level="13.7.10" data-path="pandas-1.html"><a href="pandas-1.html#data-structure"><i class="fa fa-check"></i><b>13.7.10</b> Data Structure</a><ul>
-<li class="chapter" data-level="13.7.10.1" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods---structure"><i class="fa fa-check"></i><b>13.7.10.1</b> Instance Methods - Structure</a></li>
-<li class="chapter" data-level="13.7.10.2" data-path="pandas-1.html"><a href="pandas-1.html#conversion-to-other-format"><i class="fa fa-check"></i><b>13.7.10.2</b> Conversion To Other Format</a></li>
-</ul></li>
-<li class="chapter" data-level="13.7.11" data-path="pandas-1.html"><a href="pandas-1.html#exploratory-analysis"><i class="fa fa-check"></i><b>13.7.11</b> Exploratory Analysis</a><ul>
-<li class="chapter" data-level="13.7.11.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-10"><i class="fa fa-check"></i><b>13.7.11.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.7.11.2" data-path="pandas-1.html"><a href="pandas-1.html#all-stats-in-one---.describe"><i class="fa fa-check"></i><b>13.7.11.2</b> All Stats in One - .describe()</a></li>
-<li class="chapter" data-level="13.7.11.3" data-path="pandas-1.html"><a href="pandas-1.html#minmaxmeanmedian"><i class="fa fa-check"></i><b>13.7.11.3</b> min/max/mean/median</a></li>
-</ul></li>
-<li class="chapter" data-level="13.7.12" data-path="pandas-1.html"><a href="pandas-1.html#plotting"><i class="fa fa-check"></i><b>13.7.12</b> Plotting</a></li>
-</ul></li>
-<li class="chapter" data-level="13.8" data-path="pandas-1.html"><a href="pandas-1.html#categories"><i class="fa fa-check"></i><b>13.8</b> Categories</a><ul>
-<li class="chapter" data-level="13.8.1" data-path="pandas-1.html"><a href="pandas-1.html#creating"><i class="fa fa-check"></i><b>13.8.1</b> Creating</a><ul>
-<li class="chapter" data-level="13.8.1.1" data-path="pandas-1.html"><a href="pandas-1.html#from-list"><i class="fa fa-check"></i><b>13.8.1.1</b> From List</a></li>
-<li class="chapter" data-level="13.8.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-series"><i class="fa fa-check"></i><b>13.8.1.2</b> From Series</a></li>
-<li class="chapter" data-level="13.8.1.3" data-path="pandas-1.html"><a href="pandas-1.html#ordering-category"><i class="fa fa-check"></i><b>13.8.1.3</b> Ordering Category</a></li>
-</ul></li>
-<li class="chapter" data-level="13.8.2" data-path="pandas-1.html"><a href="pandas-1.html#properties"><i class="fa fa-check"></i><b>13.8.2</b> Properties</a><ul>
-<li class="chapter" data-level="13.8.2.1" data-path="pandas-1.html"><a href="pandas-1.html#categories-1"><i class="fa fa-check"></i><b>13.8.2.1</b> .categories</a></li>
-<li class="chapter" data-level="13.8.2.2" data-path="pandas-1.html"><a href="pandas-1.html#codes"><i class="fa fa-check"></i><b>13.8.2.2</b> .codes</a></li>
-</ul></li>
-<li class="chapter" data-level="13.8.3" data-path="pandas-1.html"><a href="pandas-1.html#rename-category"><i class="fa fa-check"></i><b>13.8.3</b> Rename Category</a><ul>
-<li class="chapter" data-level="13.8.3.1" data-path="pandas-1.html"><a href="pandas-1.html#renamce-to-new-category-object"><i class="fa fa-check"></i><b>13.8.3.1</b> Renamce To New Category Object</a></li>
-<li class="chapter" data-level="13.8.3.2" data-path="pandas-1.html"><a href="pandas-1.html#rename-inplace"><i class="fa fa-check"></i><b>13.8.3.2</b> Rename Inplace</a></li>
-</ul></li>
-<li class="chapter" data-level="13.8.4" data-path="pandas-1.html"><a href="pandas-1.html#adding-new-category"><i class="fa fa-check"></i><b>13.8.4</b> Adding New Category</a></li>
-<li class="chapter" data-level="13.8.5" data-path="pandas-1.html"><a href="pandas-1.html#removing-category"><i class="fa fa-check"></i><b>13.8.5</b> Removing Category</a><ul>
-<li class="chapter" data-level="13.8.5.1" data-path="pandas-1.html"><a href="pandas-1.html#remove-specific-categories"><i class="fa fa-check"></i><b>13.8.5.1</b> Remove Specific Categor(ies)</a></li>
-<li class="chapter" data-level="13.8.5.2" data-path="pandas-1.html"><a href="pandas-1.html#remove-unused-category"><i class="fa fa-check"></i><b>13.8.5.2</b> Remove Unused Category</a></li>
-</ul></li>
-<li class="chapter" data-level="13.8.6" data-path="pandas-1.html"><a href="pandas-1.html#add-and-remove-categories-in-one-step---set"><i class="fa fa-check"></i><b>13.8.6</b> Add and Remove Categories In One Step - Set()</a></li>
-<li class="chapter" data-level="13.8.7" data-path="pandas-1.html"><a href="pandas-1.html#categorical-descriptive-analysis"><i class="fa fa-check"></i><b>13.8.7</b> Categorical Descriptive Analysis</a><ul>
-<li class="chapter" data-level="13.8.7.1" data-path="pandas-1.html"><a href="pandas-1.html#at-one-glance"><i class="fa fa-check"></i><b>13.8.7.1</b> At One Glance</a></li>
-<li class="chapter" data-level="13.8.7.2" data-path="pandas-1.html"><a href="pandas-1.html#frequency-count"><i class="fa fa-check"></i><b>13.8.7.2</b> Frequency Count</a></li>
-<li class="chapter" data-level="13.8.7.3" data-path="pandas-1.html"><a href="pandas-1.html#least-frequent-category-most-frequent-category-and-most-frequent-category"><i class="fa fa-check"></i><b>13.8.7.3</b> Least Frequent Category, Most Frequent Category, and Most Frequent Category</a></li>
-</ul></li>
-<li class="chapter" data-level="13.8.8" data-path="pandas-1.html"><a href="pandas-1.html#other-methods-1"><i class="fa fa-check"></i><b>13.8.8</b> Other Methods</a><ul>
-<li class="chapter" data-level="13.8.8.1" data-path="pandas-1.html"><a href="pandas-1.html#get_values"><i class="fa fa-check"></i><b>13.8.8.1</b> .get_values()</a></li>
+<li class="chapter" data-level="13.5.8" data-path="pandas-1.html"><a href="pandas-1.html#series-datetime-accessor-.dt"><i class="fa fa-check"></i><b>13.5.8</b> Series DateTime Accessor <code>.dt</code></a><ul>
+<li class="chapter" data-level="13.5.8.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-4"><i class="fa fa-check"></i><b>13.5.8.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.5.8.2" data-path="pandas-1.html"><a href="pandas-1.html#convert-to"><i class="fa fa-check"></i><b>13.5.8.2</b> Convert To</a></li>
+<li class="chapter" data-level="13.5.8.3" data-path="pandas-1.html"><a href="pandas-1.html#timestamp-attributes"><i class="fa fa-check"></i><b>13.5.8.3</b> Timestamp Attributes</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="13.9" data-path="pandas-1.html"><a href="pandas-1.html#dummies"><i class="fa fa-check"></i><b>13.9</b> Dummies</a><ul>
-<li class="chapter" data-level="13.9.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-11"><i class="fa fa-check"></i><b>13.9.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.9.2" data-path="pandas-1.html"><a href="pandas-1.html#dummies-on-array-like-data"><i class="fa fa-check"></i><b>13.9.2</b> Dummies on Array-Like Data</a></li>
-<li class="chapter" data-level="13.9.3" data-path="pandas-1.html"><a href="pandas-1.html#dummies-on-dataframe-multiple-columns"><i class="fa fa-check"></i><b>13.9.3</b> Dummies on DataFrame (multiple columns)</a><ul>
-<li class="chapter" data-level="13.9.3.1" data-path="pandas-1.html"><a href="pandas-1.html#all-columns"><i class="fa fa-check"></i><b>13.9.3.1</b> All Columns</a></li>
-<li class="chapter" data-level="13.9.3.2" data-path="pandas-1.html"><a href="pandas-1.html#selected-columns"><i class="fa fa-check"></i><b>13.9.3.2</b> Selected Columns</a></li>
+<li class="chapter" data-level="13.6" data-path="pandas-1.html"><a href="pandas-1.html#dataframe"><i class="fa fa-check"></i><b>13.6</b> DataFrame</a><ul>
+<li class="chapter" data-level="13.6.1" data-path="pandas-1.html"><a href="pandas-1.html#constructor-8"><i class="fa fa-check"></i><b>13.6.1</b> Constructor</a><ul>
+<li class="chapter" data-level="13.6.1.1" data-path="pandas-1.html"><a href="pandas-1.html#from-row-oriented-data-list-of-lists"><i class="fa fa-check"></i><b>13.6.1.1</b> From Row Oriented Data (List of Lists)</a></li>
+<li class="chapter" data-level="13.6.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-row-oriented-data-list-of-dictionary"><i class="fa fa-check"></i><b>13.6.1.2</b> From Row Oriented Data (List of Dictionary)</a></li>
+<li class="chapter" data-level="13.6.1.3" data-path="pandas-1.html"><a href="pandas-1.html#from-column-oriented-data"><i class="fa fa-check"></i><b>13.6.1.3</b> From Column Oriented Data</a></li>
 </ul></li>
-<li class="chapter" data-level="13.9.4" data-path="pandas-1.html"><a href="pandas-1.html#dummies-with-na"><i class="fa fa-check"></i><b>13.9.4</b> Dummies with na</a></li>
-<li class="chapter" data-level="13.9.5" data-path="pandas-1.html"><a href="pandas-1.html#specify-prefixes"><i class="fa fa-check"></i><b>13.9.5</b> Specify Prefixes</a></li>
-<li class="chapter" data-level="13.9.6" data-path="pandas-1.html"><a href="pandas-1.html#dropping-first-column"><i class="fa fa-check"></i><b>13.9.6</b> Dropping First Column</a></li>
+<li class="chapter" data-level="13.6.2" data-path="pandas-1.html"><a href="pandas-1.html#attributes-5"><i class="fa fa-check"></i><b>13.6.2</b> Attributes</a><ul>
+<li class="chapter" data-level="13.6.2.1" data-path="pandas-1.html"><a href="pandas-1.html#dimensions-2"><i class="fa fa-check"></i><b>13.6.2.1</b> Dimensions</a></li>
+<li class="chapter" data-level="13.6.2.2" data-path="pandas-1.html"><a href="pandas-1.html#index-1"><i class="fa fa-check"></i><b>13.6.2.2</b> Index</a></li>
+<li class="chapter" data-level="13.6.2.3" data-path="pandas-1.html"><a href="pandas-1.html#columns"><i class="fa fa-check"></i><b>13.6.2.3</b> Columns</a></li>
+<li class="chapter" data-level="13.6.2.4" data-path="pandas-1.html"><a href="pandas-1.html#values"><i class="fa fa-check"></i><b>13.6.2.4</b> Values</a></li>
 </ul></li>
-<li class="chapter" data-level="13.10" data-path="pandas-1.html"><a href="pandas-1.html#getting-external-data-1"><i class="fa fa-check"></i><b>13.10</b> Getting External Data</a><ul>
-<li class="chapter" data-level="13.10.1" data-path="pandas-1.html"><a href="pandas-1.html#html_table-parser"><i class="fa fa-check"></i><b>13.10.1</b> html_table parser</a></li>
-<li class="chapter" data-level="13.10.2" data-path="pandas-1.html"><a href="pandas-1.html#csv-import"><i class="fa fa-check"></i><b>13.10.2</b> CSV Import</a><ul>
-<li class="chapter" data-level="13.10.2.1" data-path="pandas-1.html"><a href="pandas-1.html#syntax"><i class="fa fa-check"></i><b>13.10.2.1</b> Syntax</a></li>
-<li class="chapter" data-level="13.10.2.2" data-path="pandas-1.html"><a href="pandas-1.html#default-import"><i class="fa fa-check"></i><b>13.10.2.2</b> Default Import</a></li>
-<li class="chapter" data-level="13.10.2.3" data-path="pandas-1.html"><a href="pandas-1.html#specify-data-types-1"><i class="fa fa-check"></i><b>13.10.2.3</b> Specify Data Types</a></li>
-<li class="chapter" data-level="13.10.2.4" data-path="pandas-1.html"><a href="pandas-1.html#on-the-fly-date-parsing-and-indexing"><i class="fa fa-check"></i><b>13.10.2.4</b> On The Fly Date Parsing and Indexing</a></li>
-<li class="chapter" data-level="13.10.2.5" data-path="pandas-1.html"><a href="pandas-1.html#parse-date-then-set-as-index"><i class="fa fa-check"></i><b>13.10.2.5</b> Parse Date, Then Set as Index</a></li>
+<li class="chapter" data-level="13.6.3" data-path="pandas-1.html"><a href="pandas-1.html#index-manipulation"><i class="fa fa-check"></i><b>13.6.3</b> Index Manipulation</a><ul>
+<li class="chapter" data-level="13.6.3.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-5"><i class="fa fa-check"></i><b>13.6.3.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.6.3.2" data-path="pandas-1.html"><a href="pandas-1.html#convert-column-to-index"><i class="fa fa-check"></i><b>13.6.3.2</b> Convert Column To Index</a></li>
+<li class="chapter" data-level="13.6.3.3" data-path="pandas-1.html"><a href="pandas-1.html#convert-index-back-to-column"><i class="fa fa-check"></i><b>13.6.3.3</b> Convert Index Back To Column</a></li>
+<li class="chapter" data-level="13.6.3.4" data-path="pandas-1.html"><a href="pandas-1.html#updating-index-.index"><i class="fa fa-check"></i><b>13.6.3.4</b> Updating Index ( .index= )</a></li>
+<li class="chapter" data-level="13.6.3.5" data-path="pandas-1.html"><a href="pandas-1.html#reordering-index-.-reindex"><i class="fa fa-check"></i><b>13.6.3.5</b> Reordering Index (. reindex )</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6.4" data-path="pandas-1.html"><a href="pandas-1.html#subsetting-columns"><i class="fa fa-check"></i><b>13.6.4</b> Subsetting Columns</a><ul>
+<li class="chapter" data-level="13.6.4.1" data-path="pandas-1.html"><a href="pandas-1.html#select-single-column"><i class="fa fa-check"></i><b>13.6.4.1</b> Select Single Column</a></li>
+<li class="chapter" data-level="13.6.4.2" data-path="pandas-1.html"><a href="pandas-1.html#select-multiple-columns"><i class="fa fa-check"></i><b>13.6.4.2</b> Select Multiple Columns</a></li>
+<li class="chapter" data-level="13.6.4.3" data-path="pandas-1.html"><a href="pandas-1.html#selection-by-data-type"><i class="fa fa-check"></i><b>13.6.4.3</b> Selection by Data Type</a></li>
+<li class="chapter" data-level="13.6.4.4" data-path="pandas-1.html"><a href="pandas-1.html#subset-by-filter"><i class="fa fa-check"></i><b>13.6.4.4</b> Subset by <code>filter()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="13.6.5" data-path="pandas-1.html"><a href="pandas-1.html#column-manipulation-1"><i class="fa fa-check"></i><b>13.6.5</b> Column Manipulation</a><ul>
+<li class="chapter" data-level="13.6.5.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-6"><i class="fa fa-check"></i><b>13.6.5.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.6.5.2" data-path="pandas-1.html"><a href="pandas-1.html#renaming-columns"><i class="fa fa-check"></i><b>13.6.5.2</b> Renaming Columns</a></li>
+<li class="chapter" data-level="13.6.5.3" data-path="pandas-1.html"><a href="pandas-1.html#reordering-columns"><i class="fa fa-check"></i><b>13.6.5.3</b> Reordering Columns</a></li>
+<li class="chapter" data-level="13.6.5.4" data-path="pandas-1.html"><a href="pandas-1.html#duplicating-or-replacing-column"><i class="fa fa-check"></i><b>13.6.5.4</b> Duplicating or Replacing Column</a></li>
+<li class="chapter" data-level="13.6.5.5" data-path="pandas-1.html"><a href="pandas-1.html#dropping-columns-.drop"><i class="fa fa-check"></i><b>13.6.5.5</b> Dropping Columns (.drop)</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6.6" data-path="pandas-1.html"><a href="pandas-1.html#subsetting-rows"><i class="fa fa-check"></i><b>13.6.6</b> Subsetting Rows</a><ul>
+<li class="chapter" data-level="13.6.6.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-7"><i class="fa fa-check"></i><b>13.6.6.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.6.6.2" data-path="pandas-1.html"><a href="pandas-1.html#by-index-or-boolean"><i class="fa fa-check"></i><b>13.6.6.2</b> By Index or Boolean</a></li>
+<li class="chapter" data-level="13.6.6.3" data-path="pandas-1.html"><a href="pandas-1.html#by-row-number"><i class="fa fa-check"></i><b>13.6.6.3</b> By Row Number</a></li>
+<li class="chapter" data-level="13.6.6.4" data-path="pandas-1.html"><a href="pandas-1.html#query"><i class="fa fa-check"></i><b>13.6.6.4</b> <code>query()</code></a></li>
+<li class="chapter" data-level="13.6.6.5" data-path="pandas-1.html"><a href="pandas-1.html#sample"><i class="fa fa-check"></i><b>13.6.6.5</b> <code>sample()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="13.6.7" data-path="pandas-1.html"><a href="pandas-1.html#row-manipulation"><i class="fa fa-check"></i><b>13.6.7</b> Row Manipulation</a><ul>
+<li class="chapter" data-level="13.6.7.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-8"><i class="fa fa-check"></i><b>13.6.7.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.6.7.2" data-path="pandas-1.html"><a href="pandas-1.html#dropping-rows-.drop"><i class="fa fa-check"></i><b>13.6.7.2</b> Dropping Rows (.drop)</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6.8" data-path="pandas-1.html"><a href="pandas-1.html#slicing"><i class="fa fa-check"></i><b>13.6.8</b> Slicing</a><ul>
+<li class="chapter" data-level="13.6.8.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-9"><i class="fa fa-check"></i><b>13.6.8.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.6.8.2" data-path="pandas-1.html"><a href="pandas-1.html#getting-one-cell"><i class="fa fa-check"></i><b>13.6.8.2</b> Getting One Cell</a></li>
+<li class="chapter" data-level="13.6.8.3" data-path="pandas-1.html"><a href="pandas-1.html#getting-multiple-cells"><i class="fa fa-check"></i><b>13.6.8.3</b> Getting Multiple Cells</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6.9" data-path="pandas-1.html"><a href="pandas-1.html#chained-indexing"><i class="fa fa-check"></i><b>13.6.9</b> Chained Indexing</a></li>
+<li class="chapter" data-level="13.6.10" data-path="pandas-1.html"><a href="pandas-1.html#data-structure"><i class="fa fa-check"></i><b>13.6.10</b> Data Structure</a><ul>
+<li class="chapter" data-level="13.6.10.1" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods---structure"><i class="fa fa-check"></i><b>13.6.10.1</b> Instance Methods - Structure</a></li>
+<li class="chapter" data-level="13.6.10.2" data-path="pandas-1.html"><a href="pandas-1.html#conversion-to-other-format"><i class="fa fa-check"></i><b>13.6.10.2</b> Conversion To Other Format</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6.11" data-path="pandas-1.html"><a href="pandas-1.html#exploratory-analysis"><i class="fa fa-check"></i><b>13.6.11</b> Exploratory Analysis</a><ul>
+<li class="chapter" data-level="13.6.11.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-10"><i class="fa fa-check"></i><b>13.6.11.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.6.11.2" data-path="pandas-1.html"><a href="pandas-1.html#all-stats-in-one---.describe"><i class="fa fa-check"></i><b>13.6.11.2</b> All Stats in One - .describe()</a></li>
+<li class="chapter" data-level="13.6.11.3" data-path="pandas-1.html"><a href="pandas-1.html#minmaxmeanmedian"><i class="fa fa-check"></i><b>13.6.11.3</b> min/max/mean/median</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6.12" data-path="pandas-1.html"><a href="pandas-1.html#plotting"><i class="fa fa-check"></i><b>13.6.12</b> Plotting</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7" data-path="pandas-1.html"><a href="pandas-1.html#categories"><i class="fa fa-check"></i><b>13.7</b> Categories</a><ul>
+<li class="chapter" data-level="13.7.1" data-path="pandas-1.html"><a href="pandas-1.html#creating"><i class="fa fa-check"></i><b>13.7.1</b> Creating</a><ul>
+<li class="chapter" data-level="13.7.1.1" data-path="pandas-1.html"><a href="pandas-1.html#from-list"><i class="fa fa-check"></i><b>13.7.1.1</b> From List</a></li>
+<li class="chapter" data-level="13.7.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-series"><i class="fa fa-check"></i><b>13.7.1.2</b> From Series</a></li>
+<li class="chapter" data-level="13.7.1.3" data-path="pandas-1.html"><a href="pandas-1.html#ordering-category"><i class="fa fa-check"></i><b>13.7.1.3</b> Ordering Category</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7.2" data-path="pandas-1.html"><a href="pandas-1.html#properties"><i class="fa fa-check"></i><b>13.7.2</b> Properties</a><ul>
+<li class="chapter" data-level="13.7.2.1" data-path="pandas-1.html"><a href="pandas-1.html#categories-1"><i class="fa fa-check"></i><b>13.7.2.1</b> .categories</a></li>
+<li class="chapter" data-level="13.7.2.2" data-path="pandas-1.html"><a href="pandas-1.html#codes"><i class="fa fa-check"></i><b>13.7.2.2</b> .codes</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7.3" data-path="pandas-1.html"><a href="pandas-1.html#rename-category"><i class="fa fa-check"></i><b>13.7.3</b> Rename Category</a><ul>
+<li class="chapter" data-level="13.7.3.1" data-path="pandas-1.html"><a href="pandas-1.html#renamce-to-new-category-object"><i class="fa fa-check"></i><b>13.7.3.1</b> Renamce To New Category Object</a></li>
+<li class="chapter" data-level="13.7.3.2" data-path="pandas-1.html"><a href="pandas-1.html#rename-inplace"><i class="fa fa-check"></i><b>13.7.3.2</b> Rename Inplace</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7.4" data-path="pandas-1.html"><a href="pandas-1.html#adding-new-category"><i class="fa fa-check"></i><b>13.7.4</b> Adding New Category</a></li>
+<li class="chapter" data-level="13.7.5" data-path="pandas-1.html"><a href="pandas-1.html#removing-category"><i class="fa fa-check"></i><b>13.7.5</b> Removing Category</a><ul>
+<li class="chapter" data-level="13.7.5.1" data-path="pandas-1.html"><a href="pandas-1.html#remove-specific-categories"><i class="fa fa-check"></i><b>13.7.5.1</b> Remove Specific Categor(ies)</a></li>
+<li class="chapter" data-level="13.7.5.2" data-path="pandas-1.html"><a href="pandas-1.html#remove-unused-category"><i class="fa fa-check"></i><b>13.7.5.2</b> Remove Unused Category</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7.6" data-path="pandas-1.html"><a href="pandas-1.html#add-and-remove-categories-in-one-step---set"><i class="fa fa-check"></i><b>13.7.6</b> Add and Remove Categories In One Step - Set()</a></li>
+<li class="chapter" data-level="13.7.7" data-path="pandas-1.html"><a href="pandas-1.html#categorical-descriptive-analysis"><i class="fa fa-check"></i><b>13.7.7</b> Categorical Descriptive Analysis</a><ul>
+<li class="chapter" data-level="13.7.7.1" data-path="pandas-1.html"><a href="pandas-1.html#at-one-glance"><i class="fa fa-check"></i><b>13.7.7.1</b> At One Glance</a></li>
+<li class="chapter" data-level="13.7.7.2" data-path="pandas-1.html"><a href="pandas-1.html#frequency-count"><i class="fa fa-check"></i><b>13.7.7.2</b> Frequency Count</a></li>
+<li class="chapter" data-level="13.7.7.3" data-path="pandas-1.html"><a href="pandas-1.html#least-frequent-category-most-frequent-category-and-most-frequent-category"><i class="fa fa-check"></i><b>13.7.7.3</b> Least Frequent Category, Most Frequent Category, and Most Frequent Category</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7.8" data-path="pandas-1.html"><a href="pandas-1.html#other-methods-1"><i class="fa fa-check"></i><b>13.7.8</b> Other Methods</a><ul>
+<li class="chapter" data-level="13.7.8.1" data-path="pandas-1.html"><a href="pandas-1.html#get_values"><i class="fa fa-check"></i><b>13.7.8.1</b> .get_values()</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="13.11" data-path="pandas-1.html"><a href="pandas-1.html#groupby"><i class="fa fa-check"></i><b>13.11</b> GroupBy</a><ul>
-<li class="chapter" data-level="13.11.1" data-path="pandas-1.html"><a href="pandas-1.html#creating-groups"><i class="fa fa-check"></i><b>13.11.1</b> Creating Groups</a></li>
-<li class="chapter" data-level="13.11.2" data-path="pandas-1.html"><a href="pandas-1.html#properties-1"><i class="fa fa-check"></i><b>13.11.2</b> Properties</a><ul>
-<li class="chapter" data-level="13.11.2.1" data-path="pandas-1.html"><a href="pandas-1.html#number-of-groups-created"><i class="fa fa-check"></i><b>13.11.2.1</b> Number of Groups Created</a></li>
-<li class="chapter" data-level="13.11.2.2" data-path="pandas-1.html"><a href="pandas-1.html#row-numbers-associated-for-each-group"><i class="fa fa-check"></i><b>13.11.2.2</b> Row Numbers Associated For Each Group</a></li>
+<li class="chapter" data-level="13.8" data-path="pandas-1.html"><a href="pandas-1.html#dummies"><i class="fa fa-check"></i><b>13.8</b> Dummies</a><ul>
+<li class="chapter" data-level="13.8.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-11"><i class="fa fa-check"></i><b>13.8.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.8.2" data-path="pandas-1.html"><a href="pandas-1.html#dummies-on-array-like-data"><i class="fa fa-check"></i><b>13.8.2</b> Dummies on Array-Like Data</a></li>
+<li class="chapter" data-level="13.8.3" data-path="pandas-1.html"><a href="pandas-1.html#dummies-on-dataframe-multiple-columns"><i class="fa fa-check"></i><b>13.8.3</b> Dummies on DataFrame (multiple columns)</a><ul>
+<li class="chapter" data-level="13.8.3.1" data-path="pandas-1.html"><a href="pandas-1.html#all-columns"><i class="fa fa-check"></i><b>13.8.3.1</b> All Columns</a></li>
+<li class="chapter" data-level="13.8.3.2" data-path="pandas-1.html"><a href="pandas-1.html#selected-columns"><i class="fa fa-check"></i><b>13.8.3.2</b> Selected Columns</a></li>
 </ul></li>
-<li class="chapter" data-level="13.11.3" data-path="pandas-1.html"><a href="pandas-1.html#methods-1"><i class="fa fa-check"></i><b>13.11.3</b> Methods</a><ul>
-<li class="chapter" data-level="13.11.3.1" data-path="pandas-1.html"><a href="pandas-1.html#number-of-rows-in-each-group"><i class="fa fa-check"></i><b>13.11.3.1</b> Number of Rows In Each Group</a></li>
-<li class="chapter" data-level="13.11.3.2" data-path="pandas-1.html"><a href="pandas-1.html#valid-not-null-data-count-for-each-fields-in-the-group"><i class="fa fa-check"></i><b>13.11.3.2</b> Valid (not Null) Data Count For Each Fields In The Group</a></li>
+<li class="chapter" data-level="13.8.4" data-path="pandas-1.html"><a href="pandas-1.html#dummies-with-na"><i class="fa fa-check"></i><b>13.8.4</b> Dummies with na</a></li>
+<li class="chapter" data-level="13.8.5" data-path="pandas-1.html"><a href="pandas-1.html#specify-prefixes"><i class="fa fa-check"></i><b>13.8.5</b> Specify Prefixes</a></li>
+<li class="chapter" data-level="13.8.6" data-path="pandas-1.html"><a href="pandas-1.html#dropping-first-column"><i class="fa fa-check"></i><b>13.8.6</b> Dropping First Column</a></li>
 </ul></li>
-<li class="chapter" data-level="13.11.4" data-path="pandas-1.html"><a href="pandas-1.html#retrieve-rows"><i class="fa fa-check"></i><b>13.11.4</b> Retrieve Rows</a><ul>
-<li class="chapter" data-level="13.11.4.1" data-path="pandas-1.html"><a href="pandas-1.html#retrieve-n-rows-for-each-groups"><i class="fa fa-check"></i><b>13.11.4.1</b> Retrieve N Rows For Each Groups</a></li>
-<li class="chapter" data-level="13.11.4.2" data-path="pandas-1.html"><a href="pandas-1.html#retrieve-rows-in-one-specific-group"><i class="fa fa-check"></i><b>13.11.4.2</b> Retrieve Rows In One Specific Group</a></li>
-<li class="chapter" data-level="13.11.4.3" data-path="pandas-1.html"><a href="pandas-1.html#retrieve-n-th-row-from-each-group"><i class="fa fa-check"></i><b>13.11.4.3</b> Retrieve n-th Row From Each Group</a></li>
+<li class="chapter" data-level="13.9" data-path="pandas-1.html"><a href="pandas-1.html#getting-external-data-1"><i class="fa fa-check"></i><b>13.9</b> Getting External Data</a><ul>
+<li class="chapter" data-level="13.9.1" data-path="pandas-1.html"><a href="pandas-1.html#html_table-parser"><i class="fa fa-check"></i><b>13.9.1</b> html_table parser</a></li>
+<li class="chapter" data-level="13.9.2" data-path="pandas-1.html"><a href="pandas-1.html#csv-import"><i class="fa fa-check"></i><b>13.9.2</b> CSV Import</a><ul>
+<li class="chapter" data-level="13.9.2.1" data-path="pandas-1.html"><a href="pandas-1.html#syntax"><i class="fa fa-check"></i><b>13.9.2.1</b> Syntax</a></li>
+<li class="chapter" data-level="13.9.2.2" data-path="pandas-1.html"><a href="pandas-1.html#default-import"><i class="fa fa-check"></i><b>13.9.2.2</b> Default Import</a></li>
+<li class="chapter" data-level="13.9.2.3" data-path="pandas-1.html"><a href="pandas-1.html#specify-data-types-1"><i class="fa fa-check"></i><b>13.9.2.3</b> Specify Data Types</a></li>
+<li class="chapter" data-level="13.9.2.4" data-path="pandas-1.html"><a href="pandas-1.html#on-the-fly-date-parsing-and-indexing"><i class="fa fa-check"></i><b>13.9.2.4</b> On The Fly Date Parsing and Indexing</a></li>
+<li class="chapter" data-level="13.9.2.5" data-path="pandas-1.html"><a href="pandas-1.html#parse-date-then-set-as-index"><i class="fa fa-check"></i><b>13.9.2.5</b> Parse Date, Then Set as Index</a></li>
 </ul></li>
-<li class="chapter" data-level="13.11.5" data-path="pandas-1.html"><a href="pandas-1.html#iteration"><i class="fa fa-check"></i><b>13.11.5</b> Iteration</a></li>
-<li class="chapter" data-level="13.11.6" data-path="pandas-1.html"><a href="pandas-1.html#apply-aggregate-functions-to-groups"><i class="fa fa-check"></i><b>13.11.6</b> Apply Aggregate Functions to Groups</a><ul>
-<li class="chapter" data-level="13.11.6.1" data-path="pandas-1.html"><a href="pandas-1.html#apply-one-function-to-one-or-more-columns"><i class="fa fa-check"></i><b>13.11.6.1</b> Apply One Function to One or More Columns</a></li>
-<li class="chapter" data-level="13.11.6.2" data-path="pandas-1.html"><a href="pandas-1.html#apply-one-or-more-functions-to-all-columns"><i class="fa fa-check"></i><b>13.11.6.2</b> Apply One or More Functions To All Columns</a></li>
-<li class="chapter" data-level="13.11.6.3" data-path="pandas-1.html"><a href="pandas-1.html#apply-different-functions-to-different-columns"><i class="fa fa-check"></i><b>13.11.6.3</b> Apply Different Functions To Different Columns</a></li>
 </ul></li>
-<li class="chapter" data-level="13.11.7" data-path="pandas-1.html"><a href="pandas-1.html#transform"><i class="fa fa-check"></i><b>13.11.7</b> Transform</a></li>
+<li class="chapter" data-level="13.10" data-path="pandas-1.html"><a href="pandas-1.html#groupby"><i class="fa fa-check"></i><b>13.10</b> GroupBy</a><ul>
+<li class="chapter" data-level="13.10.1" data-path="pandas-1.html"><a href="pandas-1.html#creating-groups"><i class="fa fa-check"></i><b>13.10.1</b> Creating Groups</a></li>
+<li class="chapter" data-level="13.10.2" data-path="pandas-1.html"><a href="pandas-1.html#properties-1"><i class="fa fa-check"></i><b>13.10.2</b> Properties</a><ul>
+<li class="chapter" data-level="13.10.2.1" data-path="pandas-1.html"><a href="pandas-1.html#number-of-groups-created"><i class="fa fa-check"></i><b>13.10.2.1</b> Number of Groups Created</a></li>
+<li class="chapter" data-level="13.10.2.2" data-path="pandas-1.html"><a href="pandas-1.html#row-numbers-associated-for-each-group"><i class="fa fa-check"></i><b>13.10.2.2</b> Row Numbers Associated For Each Group</a></li>
 </ul></li>
-<li class="chapter" data-level="13.12" data-path="pandas-1.html"><a href="pandas-1.html#concat"><i class="fa fa-check"></i><b>13.12</b> Concat</a><ul>
-<li class="chapter" data-level="13.12.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-12"><i class="fa fa-check"></i><b>13.12.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.12.2" data-path="pandas-1.html"><a href="pandas-1.html#column-wise"><i class="fa fa-check"></i><b>13.12.2</b> Column-Wise</a><ul>
-<li class="chapter" data-level="13.12.2.1" data-path="pandas-1.html"><a href="pandas-1.html#multiple-arraysseries"><i class="fa fa-check"></i><b>13.12.2.1</b> Multiple Arrays/Series</a></li>
-<li class="chapter" data-level="13.12.2.2" data-path="pandas-1.html"><a href="pandas-1.html#dataframe-and-series"><i class="fa fa-check"></i><b>13.12.2.2</b> DataFrame and Series</a></li>
+<li class="chapter" data-level="13.10.3" data-path="pandas-1.html"><a href="pandas-1.html#methods-1"><i class="fa fa-check"></i><b>13.10.3</b> Methods</a><ul>
+<li class="chapter" data-level="13.10.3.1" data-path="pandas-1.html"><a href="pandas-1.html#number-of-rows-in-each-group"><i class="fa fa-check"></i><b>13.10.3.1</b> Number of Rows In Each Group</a></li>
+<li class="chapter" data-level="13.10.3.2" data-path="pandas-1.html"><a href="pandas-1.html#valid-not-null-data-count-for-each-fields-in-the-group"><i class="fa fa-check"></i><b>13.10.3.2</b> Valid (not Null) Data Count For Each Fields In The Group</a></li>
 </ul></li>
-<li class="chapter" data-level="13.12.3" data-path="pandas-1.html"><a href="pandas-1.html#row-wise"><i class="fa fa-check"></i><b>13.12.3</b> Row-Wise</a></li>
+<li class="chapter" data-level="13.10.4" data-path="pandas-1.html"><a href="pandas-1.html#retrieve-rows"><i class="fa fa-check"></i><b>13.10.4</b> Retrieve Rows</a><ul>
+<li class="chapter" data-level="13.10.4.1" data-path="pandas-1.html"><a href="pandas-1.html#retrieve-n-rows-for-each-groups"><i class="fa fa-check"></i><b>13.10.4.1</b> Retrieve N Rows For Each Groups</a></li>
+<li class="chapter" data-level="13.10.4.2" data-path="pandas-1.html"><a href="pandas-1.html#retrieve-rows-in-one-specific-group"><i class="fa fa-check"></i><b>13.10.4.2</b> Retrieve Rows In One Specific Group</a></li>
+<li class="chapter" data-level="13.10.4.3" data-path="pandas-1.html"><a href="pandas-1.html#retrieve-n-th-row-from-each-group"><i class="fa fa-check"></i><b>13.10.4.3</b> Retrieve n-th Row From Each Group</a></li>
 </ul></li>
-<li class="chapter" data-level="13.13" data-path="pandas-1.html"><a href="pandas-1.html#fundamental-analysis"><i class="fa fa-check"></i><b>13.13</b> Fundamental Analysis</a><ul>
-<li class="chapter" data-level="13.13.1" data-path="pandas-1.html"><a href="pandas-1.html#structure-of-the-dataframe-.info"><i class="fa fa-check"></i><b>13.13.1</b> Structure of the Dataframe (.info())</a></li>
-<li class="chapter" data-level="13.13.2" data-path="pandas-1.html"><a href="pandas-1.html#first-few-rows-.head"><i class="fa fa-check"></i><b>13.13.2</b> First Few Rows (.head())</a></li>
+<li class="chapter" data-level="13.10.5" data-path="pandas-1.html"><a href="pandas-1.html#iteration"><i class="fa fa-check"></i><b>13.10.5</b> Iteration</a></li>
+<li class="chapter" data-level="13.10.6" data-path="pandas-1.html"><a href="pandas-1.html#apply-aggregate-functions-to-groups"><i class="fa fa-check"></i><b>13.10.6</b> Apply Aggregate Functions to Groups</a><ul>
+<li class="chapter" data-level="13.10.6.1" data-path="pandas-1.html"><a href="pandas-1.html#apply-one-function-to-one-or-more-columns"><i class="fa fa-check"></i><b>13.10.6.1</b> Apply One Function to One or More Columns</a></li>
+<li class="chapter" data-level="13.10.6.2" data-path="pandas-1.html"><a href="pandas-1.html#apply-one-or-more-functions-to-all-columns"><i class="fa fa-check"></i><b>13.10.6.2</b> Apply One or More Functions To All Columns</a></li>
+<li class="chapter" data-level="13.10.6.3" data-path="pandas-1.html"><a href="pandas-1.html#apply-different-functions-to-different-columns"><i class="fa fa-check"></i><b>13.10.6.3</b> Apply Different Functions To Different Columns</a></li>
 </ul></li>
-<li class="chapter" data-level="13.14" data-path="pandas-1.html"><a href="pandas-1.html#missing-data"><i class="fa fa-check"></i><b>13.14</b> Missing Data</a><ul>
-<li class="chapter" data-level="13.14.1" data-path="pandas-1.html"><a href="pandas-1.html#what-is-considered-missing-data"><i class="fa fa-check"></i><b>13.14.1</b> What Is Considered Missing Data ?</a></li>
-<li class="chapter" data-level="13.14.2" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-13"><i class="fa fa-check"></i><b>13.14.2</b> Sample Data</a></li>
+<li class="chapter" data-level="13.10.7" data-path="pandas-1.html"><a href="pandas-1.html#transform"><i class="fa fa-check"></i><b>13.10.7</b> Transform</a></li>
 </ul></li>
-<li class="chapter" data-level="13.15" data-path="pandas-1.html"><a href="pandas-1.html#pandas-datetime"><i class="fa fa-check"></i><b>13.15</b> Pandas DateTime</a></li>
-<li class="chapter" data-level="13.16" data-path="pandas-1.html"><a href="pandas-1.html#datetimeindex"><i class="fa fa-check"></i><b>13.16</b> DateTimeIndex</a><ul>
-<li class="chapter" data-level="13.16.1" data-path="pandas-1.html"><a href="pandas-1.html#creating-1"><i class="fa fa-check"></i><b>13.16.1</b> Creating</a><ul>
-<li class="chapter" data-level="13.16.1.1" data-path="pandas-1.html"><a href="pandas-1.html#convert-from"><i class="fa fa-check"></i><b>13.16.1.1</b> Convert From</a></li>
+<li class="chapter" data-level="13.11" data-path="pandas-1.html"><a href="pandas-1.html#concat"><i class="fa fa-check"></i><b>13.11</b> Concat</a><ul>
+<li class="chapter" data-level="13.11.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-12"><i class="fa fa-check"></i><b>13.11.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.11.2" data-path="pandas-1.html"><a href="pandas-1.html#column-wise"><i class="fa fa-check"></i><b>13.11.2</b> Column-Wise</a><ul>
+<li class="chapter" data-level="13.11.2.1" data-path="pandas-1.html"><a href="pandas-1.html#multiple-arraysseries"><i class="fa fa-check"></i><b>13.11.2.1</b> Multiple Arrays/Series</a></li>
+<li class="chapter" data-level="13.11.2.2" data-path="pandas-1.html"><a href="pandas-1.html#dataframe-and-series"><i class="fa fa-check"></i><b>13.11.2.2</b> DataFrame and Series</a></li>
 </ul></li>
-<li class="chapter" data-level="13.16.2" data-path="pandas-1.html"><a href="pandas-1.html#instance-method-4"><i class="fa fa-check"></i><b>13.16.2</b> Instance Method</a><ul>
-<li class="chapter" data-level="13.16.2.1" data-path="pandas-1.html"><a href="pandas-1.html#conversion-to-datetime.datetime"><i class="fa fa-check"></i><b>13.16.2.1</b> Conversion to: datetime.datetime</a></li>
-<li class="chapter" data-level="13.16.2.2" data-path="pandas-1.html"><a href="pandas-1.html#converion-to_series"><i class="fa fa-check"></i><b>13.16.2.2</b> Converion: <code>to_series</code></a></li>
-<li class="chapter" data-level="13.16.2.3" data-path="pandas-1.html"><a href="pandas-1.html#converion-to_frame"><i class="fa fa-check"></i><b>13.16.2.3</b> Converion: <code>to_frame()</code></a></li>
+<li class="chapter" data-level="13.11.3" data-path="pandas-1.html"><a href="pandas-1.html#row-wise"><i class="fa fa-check"></i><b>13.11.3</b> Row-Wise</a></li>
 </ul></li>
-<li class="chapter" data-level="13.16.3" data-path="pandas-1.html"><a href="pandas-1.html#properties-2"><i class="fa fa-check"></i><b>13.16.3</b> Properties</a></li>
+<li class="chapter" data-level="13.12" data-path="pandas-1.html"><a href="pandas-1.html#fundamental-analysis"><i class="fa fa-check"></i><b>13.12</b> Fundamental Analysis</a><ul>
+<li class="chapter" data-level="13.12.1" data-path="pandas-1.html"><a href="pandas-1.html#structure-of-the-dataframe-.info"><i class="fa fa-check"></i><b>13.12.1</b> Structure of the Dataframe (.info())</a></li>
+<li class="chapter" data-level="13.12.2" data-path="pandas-1.html"><a href="pandas-1.html#first-few-rows-.head"><i class="fa fa-check"></i><b>13.12.2</b> First Few Rows (.head())</a></li>
+</ul></li>
+<li class="chapter" data-level="13.13" data-path="pandas-1.html"><a href="pandas-1.html#missing-data"><i class="fa fa-check"></i><b>13.13</b> Missing Data</a><ul>
+<li class="chapter" data-level="13.13.1" data-path="pandas-1.html"><a href="pandas-1.html#what-is-considered-missing-data"><i class="fa fa-check"></i><b>13.13.1</b> What Is Considered Missing Data ?</a></li>
+<li class="chapter" data-level="13.13.2" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-13"><i class="fa fa-check"></i><b>13.13.2</b> Sample Data</a></li>
+</ul></li>
+<li class="chapter" data-level="13.14" data-path="pandas-1.html"><a href="pandas-1.html#pandas-datetime"><i class="fa fa-check"></i><b>13.14</b> Pandas DateTime</a></li>
+<li class="chapter" data-level="13.15" data-path="pandas-1.html"><a href="pandas-1.html#datetimeindex"><i class="fa fa-check"></i><b>13.15</b> DateTimeIndex</a><ul>
+<li class="chapter" data-level="13.15.1" data-path="pandas-1.html"><a href="pandas-1.html#creating-1"><i class="fa fa-check"></i><b>13.15.1</b> Creating</a><ul>
+<li class="chapter" data-level="13.15.1.1" data-path="pandas-1.html"><a href="pandas-1.html#convert-from"><i class="fa fa-check"></i><b>13.15.1.1</b> Convert From</a></li>
+</ul></li>
+<li class="chapter" data-level="13.15.2" data-path="pandas-1.html"><a href="pandas-1.html#instance-method-4"><i class="fa fa-check"></i><b>13.15.2</b> Instance Method</a><ul>
+<li class="chapter" data-level="13.15.2.1" data-path="pandas-1.html"><a href="pandas-1.html#conversion-to-datetime.datetime"><i class="fa fa-check"></i><b>13.15.2.1</b> Conversion to: datetime.datetime</a></li>
+<li class="chapter" data-level="13.15.2.2" data-path="pandas-1.html"><a href="pandas-1.html#converion-to_series"><i class="fa fa-check"></i><b>13.15.2.2</b> Converion: <code>to_series</code></a></li>
+<li class="chapter" data-level="13.15.2.3" data-path="pandas-1.html"><a href="pandas-1.html#converion-to_frame"><i class="fa fa-check"></i><b>13.15.2.3</b> Converion: <code>to_frame()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="13.15.3" data-path="pandas-1.html"><a href="pandas-1.html#properties-2"><i class="fa fa-check"></i><b>13.15.3</b> Properties</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="matplotlib-2.html"><a href="matplotlib-2.html"><i class="fa fa-check"></i><b>14</b> matplotlib</a><ul>
@@ -900,61 +895,78 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="18" data-path="nlp.html"><a href="nlp.html"><i class="fa fa-check"></i><b>18</b> NLP</a><ul>
-<li class="chapter" data-level="18.1" data-path="nlp.html"><a href="nlp.html#word-tokenizer"><i class="fa fa-check"></i><b>18.1</b> Word Tokenizer</a><ul>
-<li class="chapter" data-level="18.1.1" data-path="nlp.html"><a href="nlp.html#custom-tokenizer"><i class="fa fa-check"></i><b>18.1.1</b> Custom Tokenizer</a><ul>
-<li class="chapter" data-level="18.1.1.1" data-path="nlp.html"><a href="nlp.html#split-by-regex-pattern"><i class="fa fa-check"></i><b>18.1.1.1</b> Split By Regex Pattern</a></li>
-<li class="chapter" data-level="18.1.1.2" data-path="nlp.html"><a href="nlp.html#pick-by-regex-pattern-nltk.tokenize.regexptokenizer"><i class="fa fa-check"></i><b>18.1.1.2</b> Pick By Regex Pattern <code>nltk.tokenize.RegexpTokenizer</code></a></li>
+<li class="chapter" data-level="18.1" data-path="nlp.html"><a href="nlp.html#regular-expression"><i class="fa fa-check"></i><b>18.1</b> Regular Expression</a><ul>
+<li class="chapter" data-level="18.1.1" data-path="nlp.html"><a href="nlp.html#syntax-1"><i class="fa fa-check"></i><b>18.1.1</b> Syntax</a></li>
+<li class="chapter" data-level="18.1.2" data-path="nlp.html"><a href="nlp.html#finding"><i class="fa fa-check"></i><b>18.1.2</b> Finding</a><ul>
+<li class="chapter" data-level="18.1.2.1" data-path="nlp.html"><a href="nlp.html#find-the-first-match"><i class="fa fa-check"></i><b>18.1.2.1</b> Find The First Match</a></li>
+<li class="chapter" data-level="18.1.2.2" data-path="nlp.html"><a href="nlp.html#find-all-matches"><i class="fa fa-check"></i><b>18.1.2.2</b> Find All Matches</a></li>
 </ul></li>
-<li class="chapter" data-level="18.1.2" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.word_tokenize"><i class="fa fa-check"></i><b>18.1.2</b> <code>nltk.tokenize.word_tokenize()</code></a></li>
-<li class="chapter" data-level="18.1.3" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.casual.casual_tokenize"><i class="fa fa-check"></i><b>18.1.3</b> <code>nltk.tokenize.casual.casual_tokenize()</code></a></li>
-<li class="chapter" data-level="18.1.4" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.treebank.treebankwordtokenizer.tokenize"><i class="fa fa-check"></i><b>18.1.4</b> <code>nltk.tokenize.treebank.TreebankWordTokenizer().tokenize()</code></a></li>
-<li class="chapter" data-level="18.1.5" data-path="nlp.html"><a href="nlp.html#corpus-token-extractor"><i class="fa fa-check"></i><b>18.1.5</b> Corpus Token Extractor</a></li>
+<li class="chapter" data-level="18.1.3" data-path="nlp.html"><a href="nlp.html#matching-condition"><i class="fa fa-check"></i><b>18.1.3</b> Matching Condition</a><ul>
+<li class="chapter" data-level="18.1.3.1" data-path="nlp.html"><a href="nlp.html#meta-characters"><i class="fa fa-check"></i><b>18.1.3.1</b> Meta Characters</a></li>
+<li class="chapter" data-level="18.1.3.2" data-path="nlp.html"><a href="nlp.html#special-sequence"><i class="fa fa-check"></i><b>18.1.3.2</b> Special Sequence</a></li>
+<li class="chapter" data-level="18.1.3.3" data-path="nlp.html"><a href="nlp.html#repetition"><i class="fa fa-check"></i><b>18.1.3.3</b> Repetition</a></li>
 </ul></li>
-<li class="chapter" data-level="18.2" data-path="nlp.html"><a href="nlp.html#sentence-tokenizer"><i class="fa fa-check"></i><b>18.2</b> Sentence Tokenizer</a><ul>
-<li class="chapter" data-level="18.2.1" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.sent_tokenize"><i class="fa fa-check"></i><b>18.2.1</b> <code>nltk.tokenize.sent_tokenize()</code></a></li>
-</ul></li>
-<li class="chapter" data-level="18.3" data-path="nlp.html"><a href="nlp.html#n-gram"><i class="fa fa-check"></i><b>18.3</b> N-Gram</a></li>
-<li class="chapter" data-level="18.4" data-path="nlp.html"><a href="nlp.html#stopwords"><i class="fa fa-check"></i><b>18.4</b> Stopwords</a><ul>
-<li class="chapter" data-level="18.4.1" data-path="nlp.html"><a href="nlp.html#custom-stop-words"><i class="fa fa-check"></i><b>18.4.1</b> Custom Stop Words</a></li>
-<li class="chapter" data-level="18.4.2" data-path="nlp.html"><a href="nlp.html#nltk-stop-words"><i class="fa fa-check"></i><b>18.4.2</b> NLTK Stop Words</a></li>
-<li class="chapter" data-level="18.4.3" data-path="nlp.html"><a href="nlp.html#sklearn-stop-words"><i class="fa fa-check"></i><b>18.4.3</b> SKLearn Stop Words</a></li>
-<li class="chapter" data-level="18.4.4" data-path="nlp.html"><a href="nlp.html#combined-nltk-and-sklearn-stop-words"><i class="fa fa-check"></i><b>18.4.4</b> Combined NLTK and SKLearn Stop Words</a></li>
-</ul></li>
-<li class="chapter" data-level="18.5" data-path="nlp.html"><a href="nlp.html#normalizing"><i class="fa fa-check"></i><b>18.5</b> Normalizing</a><ul>
-<li class="chapter" data-level="18.5.1" data-path="nlp.html"><a href="nlp.html#case-folding"><i class="fa fa-check"></i><b>18.5.1</b> Case Folding</a></li>
-<li class="chapter" data-level="18.5.2" data-path="nlp.html"><a href="nlp.html#stemming"><i class="fa fa-check"></i><b>18.5.2</b> Stemming</a></li>
-<li class="chapter" data-level="18.5.3" data-path="nlp.html"><a href="nlp.html#lemmatization"><i class="fa fa-check"></i><b>18.5.3</b> Lemmatization</a></li>
-<li class="chapter" data-level="18.5.4" data-path="nlp.html"><a href="nlp.html#comparing-stemming-and-lemmatization"><i class="fa fa-check"></i><b>18.5.4</b> Comparing Stemming and Lemmatization</a></li>
-</ul></li>
-<li class="chapter" data-level="18.6" data-path="nlp.html"><a href="nlp.html#pos-tagging"><i class="fa fa-check"></i><b>18.6</b> POS Tagging</a></li>
-<li class="chapter" data-level="18.7" data-path="nlp.html"><a href="nlp.html#sentiment"><i class="fa fa-check"></i><b>18.7</b> Sentiment</a><ul>
-<li class="chapter" data-level="18.7.1" data-path="nlp.html"><a href="nlp.html#vader"><i class="fa fa-check"></i><b>18.7.1</b> Vader</a><ul>
-<li class="chapter" data-level="18.7.1.1" data-path="nlp.html"><a href="nlp.html#vader-lexicon"><i class="fa fa-check"></i><b>18.7.1.1</b> Vader Lexicon</a></li>
-<li class="chapter" data-level="18.7.1.2" data-path="nlp.html"><a href="nlp.html#polarity-scoring"><i class="fa fa-check"></i><b>18.7.1.2</b> Polarity Scoring</a></li>
-</ul></li>
-<li class="chapter" data-level="18.7.2" data-path="nlp.html"><a href="nlp.html#sentiwordnet"><i class="fa fa-check"></i><b>18.7.2</b> SentiWordNet</a></li>
-</ul></li>
-<li class="chapter" data-level="18.8" data-path="nlp.html"><a href="nlp.html#feature-representation"><i class="fa fa-check"></i><b>18.8</b> Feature Representation</a><ul>
-<li class="chapter" data-level="18.8.1" data-path="nlp.html"><a href="nlp.html#the-data-1"><i class="fa fa-check"></i><b>18.8.1</b> The Data</a></li>
-<li class="chapter" data-level="18.8.2" data-path="nlp.html"><a href="nlp.html#frequency-count-1"><i class="fa fa-check"></i><b>18.8.2</b> Frequency Count</a><ul>
-<li class="chapter" data-level="18.8.2.1" data-path="nlp.html"><a href="nlp.html#tokenizer"><i class="fa fa-check"></i><b>18.8.2.1</b> + Tokenizer</a></li>
-<li class="chapter" data-level="18.8.2.2" data-path="nlp.html"><a href="nlp.html#stop-words"><i class="fa fa-check"></i><b>18.8.2.2</b> + Stop Words</a></li>
-</ul></li>
-<li class="chapter" data-level="18.8.3" data-path="nlp.html"><a href="nlp.html#tfidf"><i class="fa fa-check"></i><b>18.8.3</b> TFIDF</a><ul>
-<li class="chapter" data-level="18.8.3.1" data-path="nlp.html"><a href="nlp.html#equation"><i class="fa fa-check"></i><b>18.8.3.1</b> Equation</a></li>
-<li class="chapter" data-level="18.8.3.2" data-path="nlp.html"><a href="nlp.html#tfidftransformer"><i class="fa fa-check"></i><b>18.8.3.2</b> <code>TfidfTransformer</code></a></li>
-<li class="chapter" data-level="18.8.3.3" data-path="nlp.html"><a href="nlp.html#tfidfvectorizer"><i class="fa fa-check"></i><b>18.8.3.3</b> <code>TfidfVectorizer</code></a></li>
+<li class="chapter" data-level="18.1.4" data-path="nlp.html"><a href="nlp.html#grouping-1"><i class="fa fa-check"></i><b>18.1.4</b> Grouping</a></li>
+<li class="chapter" data-level="18.1.5" data-path="nlp.html"><a href="nlp.html#splittitng"><i class="fa fa-check"></i><b>18.1.5</b> Splittitng</a><ul>
+<li class="chapter" data-level="18.1.5.1" data-path="nlp.html"><a href="nlp.html#use-re.split"><i class="fa fa-check"></i><b>18.1.5.1</b> Use <code>re.split()</code></a></li>
+<li class="chapter" data-level="18.1.5.2" data-path="nlp.html"><a href="nlp.html#use-re.comple.split"><i class="fa fa-check"></i><b>18.1.5.2</b> Use <code>re.comple().split()</code></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="18.9" data-path="nlp.html"><a href="nlp.html#appliction"><i class="fa fa-check"></i><b>18.9</b> Appliction</a><ul>
-<li class="chapter" data-level="18.9.1" data-path="nlp.html"><a href="nlp.html#document-similarity"><i class="fa fa-check"></i><b>18.9.1</b> Document Similarity</a></li>
+<li class="chapter" data-level="18.2" data-path="nlp.html"><a href="nlp.html#word-tokenizer"><i class="fa fa-check"></i><b>18.2</b> Word Tokenizer</a><ul>
+<li class="chapter" data-level="18.2.1" data-path="nlp.html"><a href="nlp.html#custom-tokenizer"><i class="fa fa-check"></i><b>18.2.1</b> Custom Tokenizer</a><ul>
+<li class="chapter" data-level="18.2.1.1" data-path="nlp.html"><a href="nlp.html#split-by-regex-pattern"><i class="fa fa-check"></i><b>18.2.1.1</b> Split By Regex Pattern</a></li>
+<li class="chapter" data-level="18.2.1.2" data-path="nlp.html"><a href="nlp.html#pick-by-regex-pattern-nltk.tokenize.regexptokenizer"><i class="fa fa-check"></i><b>18.2.1.2</b> Pick By Regex Pattern <code>nltk.tokenize.RegexpTokenizer</code></a></li>
 </ul></li>
-<li class="chapter" data-level="18.10" data-path="nlp.html"><a href="nlp.html#naive-bayes"><i class="fa fa-check"></i><b>18.10</b> Naive Bayes</a><ul>
-<li class="chapter" data-level="18.10.1" data-path="nlp.html"><a href="nlp.html#libraries-1"><i class="fa fa-check"></i><b>18.10.1</b> Libraries</a></li>
-<li class="chapter" data-level="18.10.2" data-path="nlp.html"><a href="nlp.html#the-data-2"><i class="fa fa-check"></i><b>18.10.2</b> The Data</a></li>
-<li class="chapter" data-level="18.10.3" data-path="nlp.html"><a href="nlp.html#bag-of-words"><i class="fa fa-check"></i><b>18.10.3</b> Bag of Words</a></li>
-<li class="chapter" data-level="18.10.4" data-path="nlp.html"><a href="nlp.html#build-the-model"><i class="fa fa-check"></i><b>18.10.4</b> Build The Model</a></li>
-<li class="chapter" data-level="18.10.5" data-path="nlp.html"><a href="nlp.html#train-set-prediction"><i class="fa fa-check"></i><b>18.10.5</b> Train Set Prediction</a></li>
+<li class="chapter" data-level="18.2.2" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.word_tokenize"><i class="fa fa-check"></i><b>18.2.2</b> <code>nltk.tokenize.word_tokenize()</code></a></li>
+<li class="chapter" data-level="18.2.3" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.casual.casual_tokenize"><i class="fa fa-check"></i><b>18.2.3</b> <code>nltk.tokenize.casual.casual_tokenize()</code></a></li>
+<li class="chapter" data-level="18.2.4" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.treebank.treebankwordtokenizer.tokenize"><i class="fa fa-check"></i><b>18.2.4</b> <code>nltk.tokenize.treebank.TreebankWordTokenizer().tokenize()</code></a></li>
+<li class="chapter" data-level="18.2.5" data-path="nlp.html"><a href="nlp.html#corpus-token-extractor"><i class="fa fa-check"></i><b>18.2.5</b> Corpus Token Extractor</a></li>
+</ul></li>
+<li class="chapter" data-level="18.3" data-path="nlp.html"><a href="nlp.html#sentence-tokenizer"><i class="fa fa-check"></i><b>18.3</b> Sentence Tokenizer</a><ul>
+<li class="chapter" data-level="18.3.1" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.sent_tokenize"><i class="fa fa-check"></i><b>18.3.1</b> <code>nltk.tokenize.sent_tokenize()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="18.4" data-path="nlp.html"><a href="nlp.html#n-gram"><i class="fa fa-check"></i><b>18.4</b> N-Gram</a></li>
+<li class="chapter" data-level="18.5" data-path="nlp.html"><a href="nlp.html#stopwords"><i class="fa fa-check"></i><b>18.5</b> Stopwords</a><ul>
+<li class="chapter" data-level="18.5.1" data-path="nlp.html"><a href="nlp.html#custom-stop-words"><i class="fa fa-check"></i><b>18.5.1</b> Custom Stop Words</a></li>
+<li class="chapter" data-level="18.5.2" data-path="nlp.html"><a href="nlp.html#nltk-stop-words"><i class="fa fa-check"></i><b>18.5.2</b> NLTK Stop Words</a></li>
+<li class="chapter" data-level="18.5.3" data-path="nlp.html"><a href="nlp.html#sklearn-stop-words"><i class="fa fa-check"></i><b>18.5.3</b> SKLearn Stop Words</a></li>
+<li class="chapter" data-level="18.5.4" data-path="nlp.html"><a href="nlp.html#combined-nltk-and-sklearn-stop-words"><i class="fa fa-check"></i><b>18.5.4</b> Combined NLTK and SKLearn Stop Words</a></li>
+</ul></li>
+<li class="chapter" data-level="18.6" data-path="nlp.html"><a href="nlp.html#normalizing"><i class="fa fa-check"></i><b>18.6</b> Normalizing</a><ul>
+<li class="chapter" data-level="18.6.1" data-path="nlp.html"><a href="nlp.html#case-folding"><i class="fa fa-check"></i><b>18.6.1</b> Case Folding</a></li>
+<li class="chapter" data-level="18.6.2" data-path="nlp.html"><a href="nlp.html#stemming"><i class="fa fa-check"></i><b>18.6.2</b> Stemming</a></li>
+<li class="chapter" data-level="18.6.3" data-path="nlp.html"><a href="nlp.html#lemmatization"><i class="fa fa-check"></i><b>18.6.3</b> Lemmatization</a></li>
+<li class="chapter" data-level="18.6.4" data-path="nlp.html"><a href="nlp.html#comparing-stemming-and-lemmatization"><i class="fa fa-check"></i><b>18.6.4</b> Comparing Stemming and Lemmatization</a></li>
+</ul></li>
+<li class="chapter" data-level="18.7" data-path="nlp.html"><a href="nlp.html#pos-tagging"><i class="fa fa-check"></i><b>18.7</b> POS Tagging</a></li>
+<li class="chapter" data-level="18.8" data-path="nlp.html"><a href="nlp.html#sentiment"><i class="fa fa-check"></i><b>18.8</b> Sentiment</a><ul>
+<li class="chapter" data-level="18.8.1" data-path="nlp.html"><a href="nlp.html#vader"><i class="fa fa-check"></i><b>18.8.1</b> Vader</a><ul>
+<li class="chapter" data-level="18.8.1.1" data-path="nlp.html"><a href="nlp.html#vader-lexicon"><i class="fa fa-check"></i><b>18.8.1.1</b> Vader Lexicon</a></li>
+<li class="chapter" data-level="18.8.1.2" data-path="nlp.html"><a href="nlp.html#polarity-scoring"><i class="fa fa-check"></i><b>18.8.1.2</b> Polarity Scoring</a></li>
+</ul></li>
+<li class="chapter" data-level="18.8.2" data-path="nlp.html"><a href="nlp.html#sentiwordnet"><i class="fa fa-check"></i><b>18.8.2</b> SentiWordNet</a></li>
+</ul></li>
+<li class="chapter" data-level="18.9" data-path="nlp.html"><a href="nlp.html#feature-representation"><i class="fa fa-check"></i><b>18.9</b> Feature Representation</a><ul>
+<li class="chapter" data-level="18.9.1" data-path="nlp.html"><a href="nlp.html#the-data-1"><i class="fa fa-check"></i><b>18.9.1</b> The Data</a></li>
+<li class="chapter" data-level="18.9.2" data-path="nlp.html"><a href="nlp.html#frequency-count-1"><i class="fa fa-check"></i><b>18.9.2</b> Frequency Count</a><ul>
+<li class="chapter" data-level="18.9.2.1" data-path="nlp.html"><a href="nlp.html#tokenizer"><i class="fa fa-check"></i><b>18.9.2.1</b> + Tokenizer</a></li>
+<li class="chapter" data-level="18.9.2.2" data-path="nlp.html"><a href="nlp.html#stop-words"><i class="fa fa-check"></i><b>18.9.2.2</b> + Stop Words</a></li>
+</ul></li>
+<li class="chapter" data-level="18.9.3" data-path="nlp.html"><a href="nlp.html#tfidf"><i class="fa fa-check"></i><b>18.9.3</b> TFIDF</a><ul>
+<li class="chapter" data-level="18.9.3.1" data-path="nlp.html"><a href="nlp.html#equation"><i class="fa fa-check"></i><b>18.9.3.1</b> Equation</a></li>
+<li class="chapter" data-level="18.9.3.2" data-path="nlp.html"><a href="nlp.html#tfidftransformer"><i class="fa fa-check"></i><b>18.9.3.2</b> <code>TfidfTransformer</code></a></li>
+<li class="chapter" data-level="18.9.3.3" data-path="nlp.html"><a href="nlp.html#tfidfvectorizer"><i class="fa fa-check"></i><b>18.9.3.3</b> <code>TfidfVectorizer</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="18.10" data-path="nlp.html"><a href="nlp.html#appliction"><i class="fa fa-check"></i><b>18.10</b> Appliction</a><ul>
+<li class="chapter" data-level="18.10.1" data-path="nlp.html"><a href="nlp.html#document-similarity"><i class="fa fa-check"></i><b>18.10.1</b> Document Similarity</a></li>
+</ul></li>
+<li class="chapter" data-level="18.11" data-path="nlp.html"><a href="nlp.html#naive-bayes"><i class="fa fa-check"></i><b>18.11</b> Naive Bayes</a><ul>
+<li class="chapter" data-level="18.11.1" data-path="nlp.html"><a href="nlp.html#libraries-1"><i class="fa fa-check"></i><b>18.11.1</b> Libraries</a></li>
+<li class="chapter" data-level="18.11.2" data-path="nlp.html"><a href="nlp.html#the-data-2"><i class="fa fa-check"></i><b>18.11.2</b> The Data</a></li>
+<li class="chapter" data-level="18.11.3" data-path="nlp.html"><a href="nlp.html#bag-of-words"><i class="fa fa-check"></i><b>18.11.3</b> Bag of Words</a></li>
+<li class="chapter" data-level="18.11.4" data-path="nlp.html"><a href="nlp.html#build-the-model"><i class="fa fa-check"></i><b>18.11.4</b> Build The Model</a></li>
+<li class="chapter" data-level="18.11.5" data-path="nlp.html"><a href="nlp.html#train-set-prediction"><i class="fa fa-check"></i><b>18.11.5</b> Train Set Prediction</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -991,10 +1003,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="module-import" class="section level2">
 <h2><span class="header-section-number">9.2</span> Module Import</h2>
-<div class="sourceCode" id="cb463"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb463-1"><a href="datetime-standard-library.html#cb463-1"></a><span class="im">from</span> datetime <span class="im">import</span> date     <span class="co"># module for date object</span></span>
-<span id="cb463-2"><a href="datetime-standard-library.html#cb463-2"></a><span class="im">from</span> datetime <span class="im">import</span> time     <span class="co"># module for time object</span></span>
-<span id="cb463-3"><a href="datetime-standard-library.html#cb463-3"></a><span class="im">from</span> datetime <span class="im">import</span> datetime <span class="co"># module for datetime object</span></span>
-<span id="cb463-4"><a href="datetime-standard-library.html#cb463-4"></a><span class="im">from</span> datetime <span class="im">import</span> timedelta</span></code></pre></div>
+<div class="sourceCode" id="cb463"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb463-1" title="1"><span class="im">from</span> datetime <span class="im">import</span> date     <span class="co"># module for date object</span></a>
+<a class="sourceLine" id="cb463-2" title="2"><span class="im">from</span> datetime <span class="im">import</span> time     <span class="co"># module for time object</span></a>
+<a class="sourceLine" id="cb463-3" title="3"><span class="im">from</span> datetime <span class="im">import</span> datetime <span class="co"># module for datetime object</span></a>
+<a class="sourceLine" id="cb463-4" title="4"><span class="im">from</span> datetime <span class="im">import</span> timedelta</a></code></pre></div>
 </div>
 <div id="class" class="section level2">
 <h2><span class="header-section-number">9.3</span> Class</h2>
@@ -1008,11 +1020,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">9.4</span> date</h2>
 <div id="constructor-1" class="section level3">
 <h3><span class="header-section-number">9.4.1</span> Constructor</h3>
-<div class="sourceCode" id="cb464"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb464-1"><a href="datetime-standard-library.html#cb464-1"></a><span class="bu">print</span>( date(<span class="dv">2000</span>,<span class="dv">1</span>,<span class="dv">1</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb464"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb464-1" title="1"><span class="bu">print</span>( date(<span class="dv">2000</span>,<span class="dv">1</span>,<span class="dv">1</span>) )</a></code></pre></div>
 <pre><code>## 2000-01-01</code></pre>
-<div class="sourceCode" id="cb466"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb466-1"><a href="datetime-standard-library.html#cb466-1"></a><span class="bu">print</span>( date(year<span class="op">=</span><span class="dv">2000</span>,month<span class="op">=</span><span class="dv">1</span>,day<span class="op">=</span><span class="dv">1</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb466"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb466-1" title="1"><span class="bu">print</span>( date(year<span class="op">=</span><span class="dv">2000</span>,month<span class="op">=</span><span class="dv">1</span>,day<span class="op">=</span><span class="dv">1</span>) )</a></code></pre></div>
 <pre><code>## 2000-01-01</code></pre>
-<div class="sourceCode" id="cb468"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb468-1"><a href="datetime-standard-library.html#cb468-1"></a><span class="bu">print</span>( <span class="bu">type</span>(date(year<span class="op">=</span><span class="dv">2000</span>,month<span class="op">=</span><span class="dv">1</span>,day<span class="op">=</span><span class="dv">1</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb468"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb468-1" title="1"><span class="bu">print</span>( <span class="bu">type</span>(date(year<span class="op">=</span><span class="dv">2000</span>,month<span class="op">=</span><span class="dv">1</span>,day<span class="op">=</span><span class="dv">1</span>)))</a></code></pre></div>
 <pre><code>## &lt;class &#39;datetime.date&#39;&gt;</code></pre>
 </div>
 <div id="class-method" class="section level3">
@@ -1020,15 +1032,15 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="today" class="section level4">
 <h4><span class="header-section-number">9.4.2.1</span> <code>today</code></h4>
 <p>This is <strong>local date</strong> (not UTC)</p>
-<div class="sourceCode" id="cb470"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb470-1"><a href="datetime-standard-library.html#cb470-1"></a>date.today()</span></code></pre></div>
-<pre><code>## datetime.date(2019, 12, 24)</code></pre>
-<div class="sourceCode" id="cb472"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb472-1"><a href="datetime-standard-library.html#cb472-1"></a><span class="bu">print</span>( date.today() )</span></code></pre></div>
-<pre><code>## 2019-12-24</code></pre>
+<div class="sourceCode" id="cb470"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb470-1" title="1">date.today()</a></code></pre></div>
+<pre><code>## datetime.date(2019, 12, 28)</code></pre>
+<div class="sourceCode" id="cb472"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb472-1" title="1"><span class="bu">print</span>( date.today() )</a></code></pre></div>
+<pre><code>## 2019-12-28</code></pre>
 </div>
 <div id="convert-from-iso-fromisoformat" class="section level4">
 <h4><span class="header-section-number">9.4.2.2</span> Convert From ISO <code>fromisoformat</code></h4>
 <p><code>strptime</code> is <strong>not available for date</strong> conversion. It is only for datetime conversion</p>
-<div class="sourceCode" id="cb474"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb474-1"><a href="datetime-standard-library.html#cb474-1"></a>date.fromisoformat(<span class="st">&#39;2011-11-11&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb474"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb474-1" title="1">date.fromisoformat(<span class="st">&#39;2011-11-11&#39;</span>)</a></code></pre></div>
 <pre><code>## datetime.date(2011, 11, 11)</code></pre>
 <p>To convert <strong>non-iso format</strong> date string to date object, <strong>convert to datetime first</strong>, then to date</p>
 </div>
@@ -1042,66 +1054,66 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </li>
 <li>Example below change only month. You can change year or day in combination</li>
 </ul>
-<div class="sourceCode" id="cb476"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb476-1"><a href="datetime-standard-library.html#cb476-1"></a><span class="bu">print</span>( date.today() )</span></code></pre></div>
-<pre><code>## 2019-12-24</code></pre>
-<div class="sourceCode" id="cb478"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb478-1"><a href="datetime-standard-library.html#cb478-1"></a><span class="bu">print</span>( date.today().replace(month<span class="op">=</span><span class="dv">8</span>) )</span></code></pre></div>
-<pre><code>## 2019-08-24</code></pre>
+<div class="sourceCode" id="cb476"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb476-1" title="1"><span class="bu">print</span>( date.today() )</a></code></pre></div>
+<pre><code>## 2019-12-28</code></pre>
+<div class="sourceCode" id="cb478"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb478-1" title="1"><span class="bu">print</span>( date.today().replace(month<span class="op">=</span><span class="dv">8</span>) )</a></code></pre></div>
+<pre><code>## 2019-08-28</code></pre>
 </div>
 <div id="weekday-isoweekday" class="section level4">
 <h4><span class="header-section-number">9.4.3.2</span> <code>weekday(), isoweekday()</code></h4>
 <p>For <code>weekday()</code>, Zero being Monday<br />
 For <code>isoweekday()</code>, Zero being Sunday</p>
-<div class="sourceCode" id="cb480"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb480-1"><a href="datetime-standard-library.html#cb480-1"></a><span class="bu">print</span>( date.today().weekday() )</span></code></pre></div>
-<pre><code>## 1</code></pre>
-<div class="sourceCode" id="cb482"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb482-1"><a href="datetime-standard-library.html#cb482-1"></a><span class="bu">print</span>( date.today().isoweekday() )</span></code></pre></div>
-<pre><code>## 2</code></pre>
-<div class="sourceCode" id="cb484"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb484-1"><a href="datetime-standard-library.html#cb484-1"></a>weekdays <span class="op">=</span> [<span class="st">&#39;Mon&#39;</span>,<span class="st">&#39;Tue&#39;</span>,<span class="st">&#39;Wed&#39;</span>,<span class="st">&#39;Thu&#39;</span>,<span class="st">&#39;Fri&#39;</span>,<span class="st">&#39;Sat&#39;</span>,<span class="st">&#39;Sun&#39;</span>]</span>
-<span id="cb484-2"><a href="datetime-standard-library.html#cb484-2"></a>wd <span class="op">=</span> date.today().weekday()</span>
-<span id="cb484-3"><a href="datetime-standard-library.html#cb484-3"></a><span class="bu">print</span>( date.today(), <span class="st">&quot;is day&quot;</span>, wd ,<span class="st">&quot;which is&quot;</span>, weekdays[wd] )</span></code></pre></div>
-<pre><code>## 2019-12-24 is day 1 which is Tue</code></pre>
+<div class="sourceCode" id="cb480"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb480-1" title="1"><span class="bu">print</span>( date.today().weekday() )</a></code></pre></div>
+<pre><code>## 5</code></pre>
+<div class="sourceCode" id="cb482"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb482-1" title="1"><span class="bu">print</span>( date.today().isoweekday() )</a></code></pre></div>
+<pre><code>## 6</code></pre>
+<div class="sourceCode" id="cb484"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb484-1" title="1">weekdays <span class="op">=</span> [<span class="st">&#39;Mon&#39;</span>,<span class="st">&#39;Tue&#39;</span>,<span class="st">&#39;Wed&#39;</span>,<span class="st">&#39;Thu&#39;</span>,<span class="st">&#39;Fri&#39;</span>,<span class="st">&#39;Sat&#39;</span>,<span class="st">&#39;Sun&#39;</span>]</a>
+<a class="sourceLine" id="cb484-2" title="2">wd <span class="op">=</span> date.today().weekday()</a>
+<a class="sourceLine" id="cb484-3" title="3"><span class="bu">print</span>( date.today(), <span class="st">&quot;is day&quot;</span>, wd ,<span class="st">&quot;which is&quot;</span>, weekdays[wd] )</a></code></pre></div>
+<pre><code>## 2019-12-28 is day 5 which is Sat</code></pre>
 </div>
 <div id="formating-with-isoformat" class="section level4">
 <h4><span class="header-section-number">9.4.3.3</span> Formating with <code>isoformat()</code></h4>
 <p><code>isoformat()</code> return <strong>ISO 8601 String (YYYY-MM-DD)</strong></p>
-<div class="sourceCode" id="cb486"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb486-1"><a href="datetime-standard-library.html#cb486-1"></a>date.today().isoformat() <span class="co"># return string</span></span></code></pre></div>
-<pre><code>## &#39;2019-12-24&#39;</code></pre>
+<div class="sourceCode" id="cb486"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb486-1" title="1">date.today().isoformat() <span class="co"># return string</span></a></code></pre></div>
+<pre><code>## &#39;2019-12-28&#39;</code></pre>
 </div>
 <div id="formating-with-strftime" class="section level4">
 <h4><span class="header-section-number">9.4.3.4</span> Formating with <code>strftime</code></h4>
 <p>For complete directive, see below:<br />
 <a href="https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior" class="uri">https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior</a></p>
-<div class="sourceCode" id="cb488"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb488-1"><a href="datetime-standard-library.html#cb488-1"></a>date.today().strftime(<span class="st">&quot;%m/</span><span class="sc">%d</span><span class="st">&quot;</span>)</span></code></pre></div>
-<pre><code>## &#39;12/24&#39;</code></pre>
+<div class="sourceCode" id="cb488"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb488-1" title="1">date.today().strftime(<span class="st">&quot;%m/</span><span class="sc">%d</span><span class="st">&quot;</span>)</a></code></pre></div>
+<pre><code>## &#39;12/28&#39;</code></pre>
 </div>
 <div id="isocalendar" class="section level4">
 <h4><span class="header-section-number">9.4.3.5</span> <code>isocalendar()</code></h4>
 <p><code>isocalendar</code> return a 3-tuple, <strong>(ISO year, ISO week number, ISO weekday)</strong>.</p>
-<div class="sourceCode" id="cb490"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb490-1"><a href="datetime-standard-library.html#cb490-1"></a>date.today().isocalendar() <span class="co">## return tuple </span></span></code></pre></div>
-<pre><code>## (2019, 52, 2)</code></pre>
+<div class="sourceCode" id="cb490"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb490-1" title="1">date.today().isocalendar() <span class="co">## return tuple </span></a></code></pre></div>
+<pre><code>## (2019, 52, 6)</code></pre>
 </div>
 </div>
 <div id="attributes" class="section level3">
 <h3><span class="header-section-number">9.4.4</span> Attributes</h3>
-<div class="sourceCode" id="cb492"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb492-1"><a href="datetime-standard-library.html#cb492-1"></a><span class="bu">print</span>( date.today().year )</span></code></pre></div>
+<div class="sourceCode" id="cb492"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb492-1" title="1"><span class="bu">print</span>( date.today().year )</a></code></pre></div>
 <pre><code>## 2019</code></pre>
-<div class="sourceCode" id="cb494"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb494-1"><a href="datetime-standard-library.html#cb494-1"></a><span class="bu">print</span>( date.today().month )</span></code></pre></div>
+<div class="sourceCode" id="cb494"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb494-1" title="1"><span class="bu">print</span>( date.today().month )</a></code></pre></div>
 <pre><code>## 12</code></pre>
-<div class="sourceCode" id="cb496"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb496-1"><a href="datetime-standard-library.html#cb496-1"></a><span class="bu">print</span>( date.today().day )</span></code></pre></div>
-<pre><code>## 24</code></pre>
+<div class="sourceCode" id="cb496"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb496-1" title="1"><span class="bu">print</span>( date.today().day )</a></code></pre></div>
+<pre><code>## 28</code></pre>
 </div>
 </div>
 <div id="date-and-datetime" class="section level2">
 <h2><span class="header-section-number">9.5</span> date and datetime</h2>
 <div id="constructor-2" class="section level3">
 <h3><span class="header-section-number">9.5.1</span> Constructor</h3>
-<div class="sourceCode" id="cb498"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb498-1"><a href="datetime-standard-library.html#cb498-1"></a><span class="im">import</span> datetime <span class="im">as</span> dt</span>
-<span id="cb498-2"><a href="datetime-standard-library.html#cb498-2"></a></span>
-<span id="cb498-3"><a href="datetime-standard-library.html#cb498-3"></a><span class="bu">print</span>( </span>
-<span id="cb498-4"><a href="datetime-standard-library.html#cb498-4"></a>    dt.date(<span class="dv">2000</span>,<span class="dv">1</span>,<span class="dv">1</span>,), <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</span>
-<span id="cb498-5"><a href="datetime-standard-library.html#cb498-5"></a>    dt.datetime(<span class="dv">2000</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>), <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</span>
-<span id="cb498-6"><a href="datetime-standard-library.html#cb498-6"></a>    dt.datetime(year<span class="op">=</span><span class="dv">2000</span>,month<span class="op">=</span><span class="dv">1</span>,day<span class="op">=</span><span class="dv">1</span>,hour<span class="op">=</span><span class="dv">23</span>,minute<span class="op">=</span><span class="dv">15</span>,second<span class="op">=</span><span class="dv">55</span>),<span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</span>
-<span id="cb498-7"><a href="datetime-standard-library.html#cb498-7"></a>    <span class="bu">type</span>(dt.date(<span class="dv">2000</span>,<span class="dv">1</span>,<span class="dv">1</span>)),<span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</span>
-<span id="cb498-8"><a href="datetime-standard-library.html#cb498-8"></a>    <span class="bu">type</span>(dt.datetime(<span class="dv">2000</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb498"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb498-1" title="1"><span class="im">import</span> datetime <span class="im">as</span> dt</a>
+<a class="sourceLine" id="cb498-2" title="2"></a>
+<a class="sourceLine" id="cb498-3" title="3"><span class="bu">print</span>( </a>
+<a class="sourceLine" id="cb498-4" title="4">    dt.date(<span class="dv">2000</span>,<span class="dv">1</span>,<span class="dv">1</span>,), <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</a>
+<a class="sourceLine" id="cb498-5" title="5">    dt.datetime(<span class="dv">2000</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>), <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</a>
+<a class="sourceLine" id="cb498-6" title="6">    dt.datetime(year<span class="op">=</span><span class="dv">2000</span>,month<span class="op">=</span><span class="dv">1</span>,day<span class="op">=</span><span class="dv">1</span>,hour<span class="op">=</span><span class="dv">23</span>,minute<span class="op">=</span><span class="dv">15</span>,second<span class="op">=</span><span class="dv">55</span>),<span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</a>
+<a class="sourceLine" id="cb498-7" title="7">    <span class="bu">type</span>(dt.date(<span class="dv">2000</span>,<span class="dv">1</span>,<span class="dv">1</span>)),<span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</a>
+<a class="sourceLine" id="cb498-8" title="8">    <span class="bu">type</span>(dt.datetime(<span class="dv">2000</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>)))</a></code></pre></div>
 <pre><code>## 2000-01-01 
 ##  2000-01-01 00:00:00 
 ##  2000-01-01 23:15:55 
@@ -1113,24 +1125,24 @@ For <code>isoweekday()</code>, Zero being Sunday</p>
 <div id="now-and-today" class="section level4">
 <h4><span class="header-section-number">9.5.2.1</span> <code>now</code> and <code>today</code></h4>
 <p>Both <code>now()</code> and <code>today()</code> return current <strong>system local</strong> datetime, no timezone</p>
-<div class="sourceCode" id="cb500"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb500-1"><a href="datetime-standard-library.html#cb500-1"></a><span class="bu">print</span>(  dt.datetime.now(), <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</span>
-<span id="cb500-2"><a href="datetime-standard-library.html#cb500-2"></a>        dt.datetime.now().date())</span></code></pre></div>
-<pre><code>## 2019-12-24 18:14:34.705351 
-##  2019-12-24</code></pre>
-<div class="sourceCode" id="cb502"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb502-1"><a href="datetime-standard-library.html#cb502-1"></a>dt.datetime.today()</span></code></pre></div>
-<pre><code>## datetime.datetime(2019, 12, 24, 18, 14, 34, 721353)</code></pre>
+<div class="sourceCode" id="cb500"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb500-1" title="1"><span class="bu">print</span>(  dt.datetime.now(), <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</a>
+<a class="sourceLine" id="cb500-2" title="2">        dt.datetime.now().date())</a></code></pre></div>
+<pre><code>## 2019-12-28 07:53:19.056779 
+##  2019-12-28</code></pre>
+<div class="sourceCode" id="cb502"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb502-1" title="1">dt.datetime.today()</a></code></pre></div>
+<pre><code>## datetime.datetime(2019, 12, 28, 7, 53, 19, 92778)</code></pre>
 </div>
 <div id="utcnow" class="section level4">
 <h4><span class="header-section-number">9.5.2.2</span> <code>utcnow</code></h4>
-<div class="sourceCode" id="cb504"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb504-1"><a href="datetime-standard-library.html#cb504-1"></a>dt.datetime.utcnow()</span></code></pre></div>
-<pre><code>## datetime.datetime(2019, 12, 24, 10, 14, 34, 748351)</code></pre>
+<div class="sourceCode" id="cb504"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb504-1" title="1">dt.datetime.utcnow()</a></code></pre></div>
+<pre><code>## datetime.datetime(2019, 12, 27, 23, 53, 19, 118777)</code></pre>
 </div>
 <div id="combine-date-and-time" class="section level4">
 <h4><span class="header-section-number">9.5.2.3</span> <code>combine()</code> date and time</h4>
 <p>Apply <code>datetime.combine()</code> module method on both <strong>date and time</strong> object to get <strong>datetime</strong></p>
-<div class="sourceCode" id="cb506"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb506-1"><a href="datetime-standard-library.html#cb506-1"></a>now <span class="op">=</span> dt.datetime.now()</span>
-<span id="cb506-2"><a href="datetime-standard-library.html#cb506-2"></a>dt.datetime.combine(now.date(), now.time())</span></code></pre></div>
-<pre><code>## datetime.datetime(2019, 12, 24, 18, 14, 34, 761347)</code></pre>
+<div class="sourceCode" id="cb506"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb506-1" title="1">now <span class="op">=</span> dt.datetime.now()</a>
+<a class="sourceLine" id="cb506-2" title="2">dt.datetime.combine(now.date(), now.time())</a></code></pre></div>
+<pre><code>## datetime.datetime(2019, 12, 28, 7, 53, 19, 160781)</code></pre>
 </div>
 <div id="convert-from-string-strptime" class="section level4">
 <h4><span class="header-section-number">9.5.2.4</span> Convert from String <code>strptime()</code></h4>
@@ -1144,13 +1156,13 @@ For <code>isoweekday()</code>, Zero being Sunday</p>
 %b : Mar
 %m : month (1 to 12)
 %d : day</code></pre>
-<div class="sourceCode" id="cb509"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb509-1"><a href="datetime-standard-library.html#cb509-1"></a>datetime.strptime(<span class="st">&#39;2011-02-25&#39;</span>,<span class="st">&#39;%Y-%m-</span><span class="sc">%d</span><span class="st">&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb509"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb509-1" title="1">datetime.strptime(<span class="st">&#39;2011-02-25&#39;</span>,<span class="st">&#39;%Y-%m-</span><span class="sc">%d</span><span class="st">&#39;</span>)</a></code></pre></div>
 <pre><code>## datetime.datetime(2011, 2, 25, 0, 0)</code></pre>
-<div class="sourceCode" id="cb511"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb511-1"><a href="datetime-standard-library.html#cb511-1"></a>datetime.strptime(<span class="st">&#39;9-01-18&#39;</span>,<span class="st">&#39;</span><span class="sc">%d</span><span class="st">-%m-%y&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb511"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb511-1" title="1">datetime.strptime(<span class="st">&#39;9-01-18&#39;</span>,<span class="st">&#39;</span><span class="sc">%d</span><span class="st">-%m-%y&#39;</span>)</a></code></pre></div>
 <pre><code>## datetime.datetime(2018, 1, 9, 0, 0)</code></pre>
-<div class="sourceCode" id="cb513"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb513-1"><a href="datetime-standard-library.html#cb513-1"></a>datetime.strptime(<span class="st">&#39;09-Mar-2018&#39;</span>,<span class="st">&#39;</span><span class="sc">%d</span><span class="st">-%b-%Y&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb513"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb513-1" title="1">datetime.strptime(<span class="st">&#39;09-Mar-2018&#39;</span>,<span class="st">&#39;</span><span class="sc">%d</span><span class="st">-%b-%Y&#39;</span>)</a></code></pre></div>
 <pre><code>## datetime.datetime(2018, 3, 9, 0, 0)</code></pre>
-<div class="sourceCode" id="cb515"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb515-1"><a href="datetime-standard-library.html#cb515-1"></a>datetime.strptime(<span class="st">&#39;2/5/2018 4:49 PM&#39;</span>, <span class="st">&#39;%m/</span><span class="sc">%d</span><span class="st">/%Y %I:%M %p&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb515"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb515-1" title="1">datetime.strptime(<span class="st">&#39;2/5/2018 4:49 PM&#39;</span>, <span class="st">&#39;%m/</span><span class="sc">%d</span><span class="st">/%Y %I:%M %p&#39;</span>)</a></code></pre></div>
 <pre><code>## datetime.datetime(2018, 2, 5, 16, 49)</code></pre>
 </div>
 <div id="convert-from-iso-fromisoformat-1" class="section level4">
@@ -1160,8 +1172,8 @@ For <code>isoweekday()</code>, Zero being Sunday</p>
 </li>
 <li>It actually <strong>not ISO compliance</strong>: when Z or +8 is included at the end of the string, error occur</li>
 </ul>
-<div class="sourceCode" id="cb517"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb517-1"><a href="datetime-standard-library.html#cb517-1"></a><span class="co">#s = dt.datetime.now().isoformat()</span></span>
-<span id="cb517-2"><a href="datetime-standard-library.html#cb517-2"></a>dt.datetime.fromisoformat(<span class="st">&quot;2019-02-05T10:22:33&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb517"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb517-1" title="1"><span class="co">#s = dt.datetime.now().isoformat()</span></a>
+<a class="sourceLine" id="cb517-2" title="2">dt.datetime.fromisoformat(<span class="st">&quot;2019-02-05T10:22:33&quot;</span>)</a></code></pre></div>
 <pre><code>## datetime.datetime(2019, 2, 5, 10, 22, 33)</code></pre>
 </div>
 </div>
@@ -1169,62 +1181,62 @@ For <code>isoweekday()</code>, Zero being Sunday</p>
 <h3><span class="header-section-number">9.5.3</span> Instance Method</h3>
 <div id="weekday" class="section level4">
 <h4><span class="header-section-number">9.5.3.1</span> <code>weekday</code></h4>
-<div class="sourceCode" id="cb519"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb519-1"><a href="datetime-standard-library.html#cb519-1"></a>datetime.now().weekday()</span></code></pre></div>
-<pre><code>## 1</code></pre>
+<div class="sourceCode" id="cb519"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb519-1" title="1">datetime.now().weekday()</a></code></pre></div>
+<pre><code>## 5</code></pre>
 </div>
 <div id="replace-1" class="section level4">
 <h4><span class="header-section-number">9.5.3.2</span> <code>replace</code></h4>
-<div class="sourceCode" id="cb521"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb521-1"><a href="datetime-standard-library.html#cb521-1"></a>datetime.now().replace(year<span class="op">=</span><span class="dv">1999</span>)</span></code></pre></div>
-<pre><code>## datetime.datetime(1999, 12, 24, 18, 14, 34, 917382)</code></pre>
+<div class="sourceCode" id="cb521"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb521-1" title="1">datetime.now().replace(year<span class="op">=</span><span class="dv">1999</span>)</a></code></pre></div>
+<pre><code>## datetime.datetime(1999, 12, 28, 7, 53, 19, 475779)</code></pre>
 </div>
 <div id="convert-to-.time" class="section level4">
 <h4><span class="header-section-number">9.5.3.3</span> convert to <code>.time()</code></h4>
-<div class="sourceCode" id="cb523"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb523-1"><a href="datetime-standard-library.html#cb523-1"></a>datetime.now().time()</span></code></pre></div>
-<pre><code>## datetime.time(18, 14, 34, 933381)</code></pre>
+<div class="sourceCode" id="cb523"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb523-1" title="1">datetime.now().time()</a></code></pre></div>
+<pre><code>## datetime.time(7, 53, 19, 502782)</code></pre>
 </div>
 <div id="convert-to-.date" class="section level4">
 <h4><span class="header-section-number">9.5.3.4</span> Convert to <code>.date()</code></h4>
-<div class="sourceCode" id="cb525"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb525-1"><a href="datetime-standard-library.html#cb525-1"></a>datetime.now().date()</span></code></pre></div>
-<pre><code>## datetime.date(2019, 12, 24)</code></pre>
+<div class="sourceCode" id="cb525"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb525-1" title="1">datetime.now().date()</a></code></pre></div>
+<pre><code>## datetime.date(2019, 12, 28)</code></pre>
 </div>
 <div id="convert-to-string" class="section level4">
 <h4><span class="header-section-number">9.5.3.5</span> Convert to String</h4>
 <p><strong><code>str</code></strong></p>
-<div class="sourceCode" id="cb527"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb527-1"><a href="datetime-standard-library.html#cb527-1"></a><span class="bu">str</span>( datetime.now() )</span></code></pre></div>
-<pre><code>## &#39;2019-12-24 18:14:34.959386&#39;</code></pre>
+<div class="sourceCode" id="cb527"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb527-1" title="1"><span class="bu">str</span>( datetime.now() )</a></code></pre></div>
+<pre><code>## &#39;2019-12-28 07:53:19.619779&#39;</code></pre>
 <p><strong>Use <code>strftime()</code></strong></p>
-<div class="sourceCode" id="cb529"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb529-1"><a href="datetime-standard-library.html#cb529-1"></a>dt.datetime.now().strftime(<span class="st">&#39;</span><span class="sc">%d</span><span class="st">-%b-%Y&#39;</span>)</span></code></pre></div>
-<pre><code>## &#39;24-Dec-2019&#39;</code></pre>
-<div class="sourceCode" id="cb531"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb531-1"><a href="datetime-standard-library.html#cb531-1"></a>dt.datetime.utcnow().strftime(<span class="st">&#39;%Y-%m-</span><span class="sc">%d</span><span class="st">T%H:%M:%S.</span><span class="sc">%f</span><span class="st">Z&#39;</span>)  <span class="co">## ISO 8601 UTC</span></span></code></pre></div>
-<pre><code>## &#39;2019-12-24T10:14:35.002430Z&#39;</code></pre>
+<div class="sourceCode" id="cb529"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb529-1" title="1">dt.datetime.now().strftime(<span class="st">&#39;</span><span class="sc">%d</span><span class="st">-%b-%Y&#39;</span>)</a></code></pre></div>
+<pre><code>## &#39;28-Dec-2019&#39;</code></pre>
+<div class="sourceCode" id="cb531"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb531-1" title="1">dt.datetime.utcnow().strftime(<span class="st">&#39;%Y-%m-</span><span class="sc">%d</span><span class="st">T%H:%M:%S.</span><span class="sc">%f</span><span class="st">Z&#39;</span>)  <span class="co">## ISO 8601 UTC</span></a></code></pre></div>
+<pre><code>## &#39;2019-12-27T23:53:19.678778Z&#39;</code></pre>
 <p><strong>Use <code>isoformat()</code></strong></p>
-<div class="sourceCode" id="cb533"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb533-1"><a href="datetime-standard-library.html#cb533-1"></a>dt.datetime.utcnow().isoformat()</span></code></pre></div>
-<pre><code>## &#39;2019-12-24T10:14:35.013447&#39;</code></pre>
+<div class="sourceCode" id="cb533"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb533-1" title="1">dt.datetime.utcnow().isoformat()</a></code></pre></div>
+<pre><code>## &#39;2019-12-27T23:53:19.709779&#39;</code></pre>
 </div>
 </div>
 <div id="attributes-1" class="section level3">
 <h3><span class="header-section-number">9.5.4</span> Attributes</h3>
-<div class="sourceCode" id="cb535"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb535-1"><a href="datetime-standard-library.html#cb535-1"></a><span class="bu">print</span>( datetime.now().year )</span></code></pre></div>
+<div class="sourceCode" id="cb535"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb535-1" title="1"><span class="bu">print</span>( datetime.now().year )</a></code></pre></div>
 <pre><code>## 2019</code></pre>
-<div class="sourceCode" id="cb537"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb537-1"><a href="datetime-standard-library.html#cb537-1"></a><span class="bu">print</span>( datetime.now().month )</span></code></pre></div>
+<div class="sourceCode" id="cb537"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb537-1" title="1"><span class="bu">print</span>( datetime.now().month )</a></code></pre></div>
 <pre><code>## 12</code></pre>
-<div class="sourceCode" id="cb539"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb539-1"><a href="datetime-standard-library.html#cb539-1"></a><span class="bu">print</span>( datetime.now().day )</span></code></pre></div>
-<pre><code>## 24</code></pre>
-<div class="sourceCode" id="cb541"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb541-1"><a href="datetime-standard-library.html#cb541-1"></a><span class="bu">print</span>( datetime.now().hour )</span></code></pre></div>
-<pre><code>## 18</code></pre>
-<div class="sourceCode" id="cb543"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb543-1"><a href="datetime-standard-library.html#cb543-1"></a><span class="bu">print</span>( datetime.now().minute )</span></code></pre></div>
-<pre><code>## 14</code></pre>
+<div class="sourceCode" id="cb539"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb539-1" title="1"><span class="bu">print</span>( datetime.now().day )</a></code></pre></div>
+<pre><code>## 28</code></pre>
+<div class="sourceCode" id="cb541"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb541-1" title="1"><span class="bu">print</span>( datetime.now().hour )</a></code></pre></div>
+<pre><code>## 7</code></pre>
+<div class="sourceCode" id="cb543"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb543-1" title="1"><span class="bu">print</span>( datetime.now().minute )</a></code></pre></div>
+<pre><code>## 53</code></pre>
 </div>
 </div>
 <div id="time" class="section level2">
 <h2><span class="header-section-number">9.6</span> time</h2>
 <div id="constructor-3" class="section level3">
 <h3><span class="header-section-number">9.6.1</span> Constructor</h3>
-<div class="sourceCode" id="cb545"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb545-1"><a href="datetime-standard-library.html#cb545-1"></a><span class="bu">print</span>( time(<span class="dv">2</span>) )    <span class="co">#default single arugement, hour</span></span></code></pre></div>
+<div class="sourceCode" id="cb545"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb545-1" title="1"><span class="bu">print</span>( time(<span class="dv">2</span>) )    <span class="co">#default single arugement, hour</span></a></code></pre></div>
 <pre><code>## 02:00:00</code></pre>
-<div class="sourceCode" id="cb547"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb547-1"><a href="datetime-standard-library.html#cb547-1"></a><span class="bu">print</span>( time(<span class="dv">2</span>,<span class="dv">15</span>) ) <span class="co">#default two arguments, hour, minute</span></span></code></pre></div>
+<div class="sourceCode" id="cb547"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb547-1" title="1"><span class="bu">print</span>( time(<span class="dv">2</span>,<span class="dv">15</span>) ) <span class="co">#default two arguments, hour, minute</span></a></code></pre></div>
 <pre><code>## 02:15:00</code></pre>
-<div class="sourceCode" id="cb549"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb549-1"><a href="datetime-standard-library.html#cb549-1"></a><span class="bu">print</span>( time(hour<span class="op">=</span><span class="dv">2</span>,minute<span class="op">=</span><span class="dv">15</span>,second<span class="op">=</span><span class="dv">30</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb549"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb549-1" title="1"><span class="bu">print</span>( time(hour<span class="op">=</span><span class="dv">2</span>,minute<span class="op">=</span><span class="dv">15</span>,second<span class="op">=</span><span class="dv">30</span>) )</a></code></pre></div>
 <pre><code>## 02:15:30</code></pre>
 </div>
 <div id="class-method-2" class="section level3">
@@ -1232,18 +1244,18 @@ For <code>isoweekday()</code>, Zero being Sunday</p>
 <div id="now" class="section level4">
 <h4><span class="header-section-number">9.6.2.1</span> <code>now()</code></h4>
 <p>There is unfortunately no single function to extract the current time. Use <strong>time()</strong> function of an <strong>datetime</strong> object</p>
-<div class="sourceCode" id="cb551"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb551-1"><a href="datetime-standard-library.html#cb551-1"></a>datetime.now().time()</span></code></pre></div>
-<pre><code>## datetime.time(18, 14, 35, 108414)</code></pre>
+<div class="sourceCode" id="cb551"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb551-1" title="1">datetime.now().time()</a></code></pre></div>
+<pre><code>## datetime.time(7, 53, 19, 901778)</code></pre>
 </div>
 </div>
 <div id="attributes-2" class="section level3">
 <h3><span class="header-section-number">9.6.3</span> Attributes</h3>
-<div class="sourceCode" id="cb553"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb553-1"><a href="datetime-standard-library.html#cb553-1"></a><span class="bu">print</span>( datetime.now().time().hour )</span></code></pre></div>
-<pre><code>## 18</code></pre>
-<div class="sourceCode" id="cb555"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb555-1"><a href="datetime-standard-library.html#cb555-1"></a><span class="bu">print</span>( datetime.now().time().minute )</span></code></pre></div>
-<pre><code>## 14</code></pre>
-<div class="sourceCode" id="cb557"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb557-1"><a href="datetime-standard-library.html#cb557-1"></a><span class="bu">print</span>( datetime.now().time().second )</span></code></pre></div>
-<pre><code>## 35</code></pre>
+<div class="sourceCode" id="cb553"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb553-1" title="1"><span class="bu">print</span>( datetime.now().time().hour )</a></code></pre></div>
+<pre><code>## 7</code></pre>
+<div class="sourceCode" id="cb555"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb555-1" title="1"><span class="bu">print</span>( datetime.now().time().minute )</a></code></pre></div>
+<pre><code>## 53</code></pre>
+<div class="sourceCode" id="cb557"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb557-1" title="1"><span class="bu">print</span>( datetime.now().time().second )</a></code></pre></div>
+<pre><code>## 19</code></pre>
 </div>
 </div>
 <div id="timedelta" class="section level2">
@@ -1255,10 +1267,10 @@ For <code>isoweekday()</code>, Zero being Sunday</p>
 </li>
 <li>timedelta <strong>cannot</strong> be applied on <strong>time object</strong> , because timedelta potentially go beyond single day (24H)</li>
 </ul>
-<div class="sourceCode" id="cb559"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb559-1"><a href="datetime-standard-library.html#cb559-1"></a>delt <span class="op">=</span> timedelta(days<span class="op">=</span><span class="dv">365</span>,minutes<span class="op">=</span><span class="dv">33</span>,seconds<span class="op">=</span><span class="dv">15</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb560"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb560-1"><a href="datetime-standard-library.html#cb560-1"></a>now <span class="op">=</span> datetime.now()</span>
-<span id="cb560-2"><a href="datetime-standard-library.html#cb560-2"></a><span class="bu">print</span> (<span class="st">&#39;delt+now : &#39;</span>, now<span class="op">+</span>delt)</span></code></pre></div>
-<pre><code>## delt+now :  2020-12-23 18:47:50.168432</code></pre>
+<div class="sourceCode" id="cb559"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb559-1" title="1">delt <span class="op">=</span> timedelta(days<span class="op">=</span><span class="dv">365</span>,minutes<span class="op">=</span><span class="dv">33</span>,seconds<span class="op">=</span><span class="dv">15</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb560"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb560-1" title="1">now <span class="op">=</span> datetime.now()</a>
+<a class="sourceLine" id="cb560-2" title="2"><span class="bu">print</span> (<span class="st">&#39;delt+now : &#39;</span>, now<span class="op">+</span>delt)</a></code></pre></div>
+<pre><code>## delt+now :  2020-12-27 08:26:35.050777</code></pre>
 </div>
 </div>
             </section>

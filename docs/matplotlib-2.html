@@ -24,7 +24,7 @@
 <meta name="author" content="Yong Keh Soon" />
 
 
-<meta name="date" content="2019-12-24" />
+<meta name="date" content="2019-12-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -53,9 +53,9 @@
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -64,16 +64,14 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -82,9 +80,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  background-color: #f8f8f8; }
+  { background-color: #f8f8f8; }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -480,266 +478,263 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.7" data-path="numpy-1.html"><a href="numpy-1.html#nan-missing-numerical-data"><i class="fa fa-check"></i><b>12.7</b> NaN : Missing Numerical Data</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="pandas-1.html"><a href="pandas-1.html"><i class="fa fa-check"></i><b>13</b> pandas</a><ul>
-<li class="chapter" data-level="13.1" data-path="pandas-1.html"><a href="pandas-1.html#environment-setup-2"><i class="fa fa-check"></i><b>13.1</b> Environment Setup <a class="tocSkip"></a></li>
-<li class="chapter" data-level="13.2" data-path="pandas-1.html"><a href="pandas-1.html#modules-import"><i class="fa fa-check"></i><b>13.2</b> Modules Import</a><ul>
-<li class="chapter" data-level="13.2.1" data-path="pandas-1.html"><a href="pandas-1.html#display-setup"><i class="fa fa-check"></i><b>13.2.1</b> Display Setup</a></li>
+<li class="chapter" data-level="13.1" data-path="pandas-1.html"><a href="pandas-1.html#modules-import"><i class="fa fa-check"></i><b>13.1</b> Modules Import</a></li>
+<li class="chapter" data-level="13.2" data-path="pandas-1.html"><a href="pandas-1.html#pandas-objects"><i class="fa fa-check"></i><b>13.2</b> Pandas Objects</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="pandas-1.html"><a href="pandas-1.html#pandas-data-types"><i class="fa fa-check"></i><b>13.2.1</b> Pandas Data Types</a></li>
+<li class="chapter" data-level="13.2.2" data-path="pandas-1.html"><a href="pandas-1.html#pandas-data-structure"><i class="fa fa-check"></i><b>13.2.2</b> Pandas Data Structure</a></li>
 </ul></li>
-<li class="chapter" data-level="13.3" data-path="pandas-1.html"><a href="pandas-1.html#pandas-objects"><i class="fa fa-check"></i><b>13.3</b> Pandas Objects</a><ul>
-<li class="chapter" data-level="13.3.1" data-path="pandas-1.html"><a href="pandas-1.html#pandas-data-types"><i class="fa fa-check"></i><b>13.3.1</b> Pandas Data Types</a></li>
-<li class="chapter" data-level="13.3.2" data-path="pandas-1.html"><a href="pandas-1.html#pandas-data-structure"><i class="fa fa-check"></i><b>13.3.2</b> Pandas Data Structure</a></li>
+<li class="chapter" data-level="13.3" data-path="pandas-1.html"><a href="pandas-1.html#class-method-4"><i class="fa fa-check"></i><b>13.3</b> Class Method</a><ul>
+<li class="chapter" data-level="13.3.1" data-path="pandas-1.html"><a href="pandas-1.html#conversion-to_datetime"><i class="fa fa-check"></i><b>13.3.1</b> Conversion: <code>to_datetime()</code></a><ul>
+<li class="chapter" data-level="13.3.1.1" data-path="pandas-1.html"><a href="pandas-1.html#from-list-to-datetimeindex"><i class="fa fa-check"></i><b>13.3.1.1</b> From List to <code>DateTimeIndex</code></a></li>
+<li class="chapter" data-level="13.3.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-list-to-series"><i class="fa fa-check"></i><b>13.3.1.2</b> From List to Series</a></li>
+<li class="chapter" data-level="13.3.1.3" data-path="pandas-1.html"><a href="pandas-1.html#from-scalar-to-timestamp"><i class="fa fa-check"></i><b>13.3.1.3</b> From Scalar to Timestamp</a></li>
 </ul></li>
-<li class="chapter" data-level="13.4" data-path="pandas-1.html"><a href="pandas-1.html#class-method-4"><i class="fa fa-check"></i><b>13.4</b> Class Method</a><ul>
-<li class="chapter" data-level="13.4.1" data-path="pandas-1.html"><a href="pandas-1.html#conversion-to_datetime"><i class="fa fa-check"></i><b>13.4.1</b> Conversion: <code>to_datetime()</code></a><ul>
-<li class="chapter" data-level="13.4.1.1" data-path="pandas-1.html"><a href="pandas-1.html#from-list-to-datetimeindex"><i class="fa fa-check"></i><b>13.4.1.1</b> From List to <code>DateTimeIndex</code></a></li>
-<li class="chapter" data-level="13.4.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-list-to-series-to-series"><i class="fa fa-check"></i><b>13.4.1.2</b> From List to Series to Series</a></li>
-<li class="chapter" data-level="13.4.1.3" data-path="pandas-1.html"><a href="pandas-1.html#from-scalar-to-timestamp"><i class="fa fa-check"></i><b>13.4.1.3</b> From Scalar to Timestamp</a></li>
+<li class="chapter" data-level="13.3.2" data-path="pandas-1.html"><a href="pandas-1.html#generate-timestamp-sequence"><i class="fa fa-check"></i><b>13.3.2</b> Generate Timestamp Sequence</a><ul>
+<li class="chapter" data-level="13.3.2.1" data-path="pandas-1.html"><a href="pandas-1.html#date_range"><i class="fa fa-check"></i><b>13.3.2.1</b> <code>date_range()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="13.4.2" data-path="pandas-1.html"><a href="pandas-1.html#generate-timestamp-sequence"><i class="fa fa-check"></i><b>13.4.2</b> Generate Timestamp Sequence</a><ul>
-<li class="chapter" data-level="13.4.2.1" data-path="pandas-1.html"><a href="pandas-1.html#date_range"><i class="fa fa-check"></i><b>13.4.2.1</b> <code>date_range()</code></a></li>
-</ul></li>
-<li class="chapter" data-level="13.4.3" data-path="pandas-1.html"><a href="pandas-1.html#frequency-table-crosstab"><i class="fa fa-check"></i><b>13.4.3</b> Frequency Table (crosstab)</a><ul>
-<li class="chapter" data-level="13.4.3.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-2"><i class="fa fa-check"></i><b>13.4.3.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.4.3.2" data-path="pandas-1.html"><a href="pandas-1.html#one-dimensiontable"><i class="fa fa-check"></i><b>13.4.3.2</b> One DimensionTable</a></li>
-<li class="chapter" data-level="13.4.3.3" data-path="pandas-1.html"><a href="pandas-1.html#two-dimension-table"><i class="fa fa-check"></i><b>13.4.3.3</b> Two Dimension Table</a></li>
-<li class="chapter" data-level="13.4.3.4" data-path="pandas-1.html"><a href="pandas-1.html#higher-dimension-table"><i class="fa fa-check"></i><b>13.4.3.4</b> Higher Dimension Table</a></li>
-<li class="chapter" data-level="13.4.3.5" data-path="pandas-1.html"><a href="pandas-1.html#getting-margin"><i class="fa fa-check"></i><b>13.4.3.5</b> Getting Margin</a></li>
-<li class="chapter" data-level="13.4.3.6" data-path="pandas-1.html"><a href="pandas-1.html#getting-proportion"><i class="fa fa-check"></i><b>13.4.3.6</b> Getting Proportion</a></li>
-<li class="chapter" data-level="13.4.3.7" data-path="pandas-1.html"><a href="pandas-1.html#reseting-index"><i class="fa fa-check"></i><b>13.4.3.7</b> Reseting Index</a></li>
+<li class="chapter" data-level="13.3.3" data-path="pandas-1.html"><a href="pandas-1.html#frequency-table-crosstab"><i class="fa fa-check"></i><b>13.3.3</b> Frequency Table (crosstab)</a><ul>
+<li class="chapter" data-level="13.3.3.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-2"><i class="fa fa-check"></i><b>13.3.3.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.3.3.2" data-path="pandas-1.html"><a href="pandas-1.html#one-dimensiontable"><i class="fa fa-check"></i><b>13.3.3.2</b> One DimensionTable</a></li>
+<li class="chapter" data-level="13.3.3.3" data-path="pandas-1.html"><a href="pandas-1.html#two-dimension-table"><i class="fa fa-check"></i><b>13.3.3.3</b> Two Dimension Table</a></li>
+<li class="chapter" data-level="13.3.3.4" data-path="pandas-1.html"><a href="pandas-1.html#higher-dimension-table"><i class="fa fa-check"></i><b>13.3.3.4</b> Higher Dimension Table</a></li>
+<li class="chapter" data-level="13.3.3.5" data-path="pandas-1.html"><a href="pandas-1.html#getting-margin"><i class="fa fa-check"></i><b>13.3.3.5</b> Getting Margin</a></li>
+<li class="chapter" data-level="13.3.3.6" data-path="pandas-1.html"><a href="pandas-1.html#getting-proportion"><i class="fa fa-check"></i><b>13.3.3.6</b> Getting Proportion</a></li>
+<li class="chapter" data-level="13.3.3.7" data-path="pandas-1.html"><a href="pandas-1.html#reseting-index"><i class="fa fa-check"></i><b>13.3.3.7</b> Reseting Index</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="13.5" data-path="pandas-1.html"><a href="pandas-1.html#timestamp"><i class="fa fa-check"></i><b>13.5</b> Timestamp</a><ul>
-<li class="chapter" data-level="13.5.1" data-path="pandas-1.html"><a href="pandas-1.html#constructor-6"><i class="fa fa-check"></i><b>13.5.1</b> Constructor</a><ul>
-<li class="chapter" data-level="13.5.1.1" data-path="pandas-1.html"><a href="pandas-1.html#from-number"><i class="fa fa-check"></i><b>13.5.1.1</b> From Number</a></li>
-<li class="chapter" data-level="13.5.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-string"><i class="fa fa-check"></i><b>13.5.1.2</b> From String</a></li>
-<li class="chapter" data-level="13.5.1.3" data-path="pandas-1.html"><a href="pandas-1.html#from-standard-library-datetime-and-date-object"><i class="fa fa-check"></i><b>13.5.1.3</b> From Standard Library <code>datetime</code> and <code>date</code> Object</a></li>
+<li class="chapter" data-level="13.4" data-path="pandas-1.html"><a href="pandas-1.html#timestamp"><i class="fa fa-check"></i><b>13.4</b> Timestamp</a><ul>
+<li class="chapter" data-level="13.4.1" data-path="pandas-1.html"><a href="pandas-1.html#constructor-6"><i class="fa fa-check"></i><b>13.4.1</b> Constructor</a><ul>
+<li class="chapter" data-level="13.4.1.1" data-path="pandas-1.html"><a href="pandas-1.html#from-number"><i class="fa fa-check"></i><b>13.4.1.1</b> From Number</a></li>
+<li class="chapter" data-level="13.4.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-string"><i class="fa fa-check"></i><b>13.4.1.2</b> From String</a></li>
+<li class="chapter" data-level="13.4.1.3" data-path="pandas-1.html"><a href="pandas-1.html#from-standard-library-datetime-and-date-object"><i class="fa fa-check"></i><b>13.4.1.3</b> From Standard Library <code>datetime</code> and <code>date</code> Object</a></li>
 </ul></li>
-<li class="chapter" data-level="13.5.2" data-path="pandas-1.html"><a href="pandas-1.html#attributes-4"><i class="fa fa-check"></i><b>13.5.2</b> Attributes</a></li>
-<li class="chapter" data-level="13.5.3" data-path="pandas-1.html"><a href="pandas-1.html#operator-2"><i class="fa fa-check"></i><b>13.5.3</b> Operator</a></li>
-<li class="chapter" data-level="13.5.4" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods-1"><i class="fa fa-check"></i><b>13.5.4</b> Instance Methods</a><ul>
-<li class="chapter" data-level="13.5.4.1" data-path="pandas-1.html"><a href="pandas-1.html#useful-methods"><i class="fa fa-check"></i><b>13.5.4.1</b> Useful Methods</a></li>
-<li class="chapter" data-level="13.5.4.2" data-path="pandas-1.html"><a href="pandas-1.html#convert-to-datetime"><i class="fa fa-check"></i><b>13.5.4.2</b> Convert To datetime</a></li>
-<li class="chapter" data-level="13.5.4.3" data-path="pandas-1.html"><a href="pandas-1.html#convert-to-numpy"><i class="fa fa-check"></i><b>13.5.4.3</b> Convert To <code>numpy</code></a></li>
-<li class="chapter" data-level="13.5.4.4" data-path="pandas-1.html"><a href="pandas-1.html#formatting-with-strftime"><i class="fa fa-check"></i><b>13.5.4.4</b> Formatting with <code>strftime</code></a></li>
-<li class="chapter" data-level="13.5.4.5" data-path="pandas-1.html"><a href="pandas-1.html#add-timezone"><i class="fa fa-check"></i><b>13.5.4.5</b> Add Timezone</a></li>
-<li class="chapter" data-level="13.5.4.6" data-path="pandas-1.html"><a href="pandas-1.html#convert-timezone"><i class="fa fa-check"></i><b>13.5.4.6</b> Convert Timezone</a></li>
-<li class="chapter" data-level="13.5.4.7" data-path="pandas-1.html"><a href="pandas-1.html#removing-timezone"><i class="fa fa-check"></i><b>13.5.4.7</b> Removing TImezone</a></li>
-<li class="chapter" data-level="13.5.4.8" data-path="pandas-1.html"><a href="pandas-1.html#formatting-with-isoformat"><i class="fa fa-check"></i><b>13.5.4.8</b> Formatting with <code>isoformat</code></a></li>
-<li class="chapter" data-level="13.5.4.9" data-path="pandas-1.html"><a href="pandas-1.html#ceil"><i class="fa fa-check"></i><b>13.5.4.9</b> <code>ceil</code></a></li>
-<li class="chapter" data-level="13.5.4.10" data-path="pandas-1.html"><a href="pandas-1.html#replace-2"><i class="fa fa-check"></i><b>13.5.4.10</b> <code>replace()</code></a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="13.6" data-path="pandas-1.html"><a href="pandas-1.html#series"><i class="fa fa-check"></i><b>13.6</b> Series</a><ul>
-<li class="chapter" data-level="13.6.1" data-path="pandas-1.html"><a href="pandas-1.html#constructor-7"><i class="fa fa-check"></i><b>13.6.1</b> Constructor</a><ul>
-<li class="chapter" data-level="13.6.1.1" data-path="pandas-1.html"><a href="pandas-1.html#empty-series"><i class="fa fa-check"></i><b>13.6.1.1</b> Empty Series</a></li>
-<li class="chapter" data-level="13.6.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-scalar"><i class="fa fa-check"></i><b>13.6.1.2</b> From Scalar</a></li>
-<li class="chapter" data-level="13.6.1.3" data-path="pandas-1.html"><a href="pandas-1.html#from-array-like"><i class="fa fa-check"></i><b>13.6.1.3</b> From array-like</a></li>
-<li class="chapter" data-level="13.6.1.4" data-path="pandas-1.html"><a href="pandas-1.html#from-dictionary"><i class="fa fa-check"></i><b>13.6.1.4</b> From Dictionary</a></li>
-<li class="chapter" data-level="13.6.1.5" data-path="pandas-1.html"><a href="pandas-1.html#specify-index"><i class="fa fa-check"></i><b>13.6.1.5</b> Specify Index</a></li>
-<li class="chapter" data-level="13.6.1.6" data-path="pandas-1.html"><a href="pandas-1.html#mix-element-types"><i class="fa fa-check"></i><b>13.6.1.6</b> Mix Element Types</a></li>
-<li class="chapter" data-level="13.6.1.7" data-path="pandas-1.html"><a href="pandas-1.html#specify-data-types"><i class="fa fa-check"></i><b>13.6.1.7</b> Specify Data Types</a></li>
-</ul></li>
-<li class="chapter" data-level="13.6.2" data-path="pandas-1.html"><a href="pandas-1.html#accessing-series"><i class="fa fa-check"></i><b>13.6.2</b> Accessing Series</a><ul>
-<li class="chapter" data-level="13.6.2.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-3"><i class="fa fa-check"></i><b>13.6.2.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.6.2.2" data-path="pandas-1.html"><a href="pandas-1.html#by-row-numbers"><i class="fa fa-check"></i><b>13.6.2.2</b> by Row Number(s)</a></li>
-<li class="chapter" data-level="13.6.2.3" data-path="pandas-1.html"><a href="pandas-1.html#by-indexes"><i class="fa fa-check"></i><b>13.6.2.3</b> by Index(es)</a></li>
-<li class="chapter" data-level="13.6.2.4" data-path="pandas-1.html"><a href="pandas-1.html#filtering-criteria"><i class="fa fa-check"></i><b>13.6.2.4</b> Filtering Criteria</a></li>
-</ul></li>
-<li class="chapter" data-level="13.6.3" data-path="pandas-1.html"><a href="pandas-1.html#modifying-series"><i class="fa fa-check"></i><b>13.6.3</b> Modifying Series</a><ul>
-<li class="chapter" data-level="13.6.3.1" data-path="pandas-1.html"><a href="pandas-1.html#by-row-numbers-1"><i class="fa fa-check"></i><b>13.6.3.1</b> by Row Number(s)</a></li>
-<li class="chapter" data-level="13.6.3.2" data-path="pandas-1.html"><a href="pandas-1.html#by-indexes-1"><i class="fa fa-check"></i><b>13.6.3.2</b> by Index(es)</a></li>
-</ul></li>
-<li class="chapter" data-level="13.6.4" data-path="pandas-1.html"><a href="pandas-1.html#series-attributes"><i class="fa fa-check"></i><b>13.6.4</b> Series Attributes</a><ul>
-<li class="chapter" data-level="13.6.4.1" data-path="pandas-1.html"><a href="pandas-1.html#the-data"><i class="fa fa-check"></i><b>13.6.4.1</b> The Data</a></li>
-<li class="chapter" data-level="13.6.4.2" data-path="pandas-1.html"><a href="pandas-1.html#index"><i class="fa fa-check"></i><b>13.6.4.2</b> <code>index</code></a></li>
-<li class="chapter" data-level="13.6.4.3" data-path="pandas-1.html"><a href="pandas-1.html#dtype-1"><i class="fa fa-check"></i><b>13.6.4.3</b> <code>dtype</code></a></li>
-<li class="chapter" data-level="13.6.4.4" data-path="pandas-1.html"><a href="pandas-1.html#dimensions-1"><i class="fa fa-check"></i><b>13.6.4.4</b> Dimensions</a></li>
-<li class="chapter" data-level="13.6.4.5" data-path="pandas-1.html"><a href="pandas-1.html#name"><i class="fa fa-check"></i><b>13.6.4.5</b> <code>.name</code></a></li>
-</ul></li>
-<li class="chapter" data-level="13.6.5" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods-2"><i class="fa fa-check"></i><b>13.6.5</b> Instance Methods</a><ul>
-<li class="chapter" data-level="13.6.5.1" data-path="pandas-1.html"><a href="pandas-1.html#reset_index"><i class="fa fa-check"></i><b>13.6.5.1</b> .reset_index ()</a></li>
-<li class="chapter" data-level="13.6.5.2" data-path="pandas-1.html"><a href="pandas-1.html#structure-conversion"><i class="fa fa-check"></i><b>13.6.5.2</b> Structure Conversion</a></li>
-<li class="chapter" data-level="13.6.5.3" data-path="pandas-1.html"><a href="pandas-1.html#datatype-conversion"><i class="fa fa-check"></i><b>13.6.5.3</b> DataType Conversion</a></li>
-</ul></li>
-<li class="chapter" data-level="13.6.6" data-path="pandas-1.html"><a href="pandas-1.html#series-operators"><i class="fa fa-check"></i><b>13.6.6</b> Series Operators</a><ul>
-<li class="chapter" data-level="13.6.6.1" data-path="pandas-1.html"><a href="pandas-1.html#arithmetic-operator"><i class="fa fa-check"></i><b>13.6.6.1</b> Arithmetic Operator</a></li>
-<li class="chapter" data-level="13.6.6.2" data-path="pandas-1.html"><a href="pandas-1.html#logic-operator"><i class="fa fa-check"></i><b>13.6.6.2</b> Logic Operator</a></li>
-</ul></li>
-<li class="chapter" data-level="13.6.7" data-path="pandas-1.html"><a href="pandas-1.html#series-string-accesor-.str"><i class="fa fa-check"></i><b>13.6.7</b> Series String Accesor <code>.str</code></a><ul>
-<li class="chapter" data-level="13.6.7.1" data-path="pandas-1.html"><a href="pandas-1.html#splitting"><i class="fa fa-check"></i><b>13.6.7.1</b> Splitting</a></li>
-<li class="chapter" data-level="13.6.7.2" data-path="pandas-1.html"><a href="pandas-1.html#matching"><i class="fa fa-check"></i><b>13.6.7.2</b> Matching</a></li>
-<li class="chapter" data-level="13.6.7.3" data-path="pandas-1.html"><a href="pandas-1.html#case-conversion"><i class="fa fa-check"></i><b>13.6.7.3</b> Case Conversion</a></li>
-<li class="chapter" data-level="13.6.7.4" data-path="pandas-1.html"><a href="pandas-1.html#number-of-characters"><i class="fa fa-check"></i><b>13.6.7.4</b> Number of Characters</a></li>
-<li class="chapter" data-level="13.6.7.5" data-path="pandas-1.html"><a href="pandas-1.html#string-indexing"><i class="fa fa-check"></i><b>13.6.7.5</b> String Indexing</a></li>
-<li class="chapter" data-level="13.6.7.6" data-path="pandas-1.html"><a href="pandas-1.html#splitting-1"><i class="fa fa-check"></i><b>13.6.7.6</b> Splitting</a></li>
-<li class="chapter" data-level="13.6.7.7" data-path="pandas-1.html"><a href="pandas-1.html#split-and-expand-into-dataframe"><i class="fa fa-check"></i><b>13.6.7.7</b> Split and Expand Into DataFrame</a></li>
-<li class="chapter" data-level="13.6.7.8" data-path="pandas-1.html"><a href="pandas-1.html#series-substring-extraction"><i class="fa fa-check"></i><b>13.6.7.8</b> Series Substring Extraction</a></li>
-</ul></li>
-<li class="chapter" data-level="13.6.8" data-path="pandas-1.html"><a href="pandas-1.html#series-datetime-accessor-.dt"><i class="fa fa-check"></i><b>13.6.8</b> Series DateTime Accessor <code>.dt</code></a><ul>
-<li class="chapter" data-level="13.6.8.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-4"><i class="fa fa-check"></i><b>13.6.8.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.6.8.2" data-path="pandas-1.html"><a href="pandas-1.html#convert-to"><i class="fa fa-check"></i><b>13.6.8.2</b> Convert To</a></li>
-<li class="chapter" data-level="13.6.8.3" data-path="pandas-1.html"><a href="pandas-1.html#timestamp-attributes"><i class="fa fa-check"></i><b>13.6.8.3</b> Timestamp Attributes</a></li>
+<li class="chapter" data-level="13.4.2" data-path="pandas-1.html"><a href="pandas-1.html#attributes-4"><i class="fa fa-check"></i><b>13.4.2</b> Attributes</a></li>
+<li class="chapter" data-level="13.4.3" data-path="pandas-1.html"><a href="pandas-1.html#operator-2"><i class="fa fa-check"></i><b>13.4.3</b> Operator</a></li>
+<li class="chapter" data-level="13.4.4" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods-1"><i class="fa fa-check"></i><b>13.4.4</b> Instance Methods</a><ul>
+<li class="chapter" data-level="13.4.4.1" data-path="pandas-1.html"><a href="pandas-1.html#useful-methods"><i class="fa fa-check"></i><b>13.4.4.1</b> Useful Methods</a></li>
+<li class="chapter" data-level="13.4.4.2" data-path="pandas-1.html"><a href="pandas-1.html#convert-to-datetime"><i class="fa fa-check"></i><b>13.4.4.2</b> Convert To datetime</a></li>
+<li class="chapter" data-level="13.4.4.3" data-path="pandas-1.html"><a href="pandas-1.html#convert-to-numpy"><i class="fa fa-check"></i><b>13.4.4.3</b> Convert To <code>numpy</code></a></li>
+<li class="chapter" data-level="13.4.4.4" data-path="pandas-1.html"><a href="pandas-1.html#formatting-with-strftime"><i class="fa fa-check"></i><b>13.4.4.4</b> Formatting with <code>strftime</code></a></li>
+<li class="chapter" data-level="13.4.4.5" data-path="pandas-1.html"><a href="pandas-1.html#add-timezone"><i class="fa fa-check"></i><b>13.4.4.5</b> Add Timezone</a></li>
+<li class="chapter" data-level="13.4.4.6" data-path="pandas-1.html"><a href="pandas-1.html#convert-timezone"><i class="fa fa-check"></i><b>13.4.4.6</b> Convert Timezone</a></li>
+<li class="chapter" data-level="13.4.4.7" data-path="pandas-1.html"><a href="pandas-1.html#removing-timezone"><i class="fa fa-check"></i><b>13.4.4.7</b> Removing TImezone</a></li>
+<li class="chapter" data-level="13.4.4.8" data-path="pandas-1.html"><a href="pandas-1.html#formatting-with-isoformat"><i class="fa fa-check"></i><b>13.4.4.8</b> Formatting with <code>isoformat</code></a></li>
+<li class="chapter" data-level="13.4.4.9" data-path="pandas-1.html"><a href="pandas-1.html#ceil"><i class="fa fa-check"></i><b>13.4.4.9</b> <code>ceil</code></a></li>
+<li class="chapter" data-level="13.4.4.10" data-path="pandas-1.html"><a href="pandas-1.html#replace-2"><i class="fa fa-check"></i><b>13.4.4.10</b> <code>replace()</code></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="13.7" data-path="pandas-1.html"><a href="pandas-1.html#dataframe"><i class="fa fa-check"></i><b>13.7</b> DataFrame</a><ul>
-<li class="chapter" data-level="13.7.1" data-path="pandas-1.html"><a href="pandas-1.html#constructor-8"><i class="fa fa-check"></i><b>13.7.1</b> Constructor</a><ul>
-<li class="chapter" data-level="13.7.1.1" data-path="pandas-1.html"><a href="pandas-1.html#from-row-oriented-data-list-of-lists"><i class="fa fa-check"></i><b>13.7.1.1</b> From Row Oriented Data (List of Lists)</a></li>
-<li class="chapter" data-level="13.7.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-row-oriented-data-list-of-dictionary"><i class="fa fa-check"></i><b>13.7.1.2</b> From Row Oriented Data (List of Dictionary)</a></li>
-<li class="chapter" data-level="13.7.1.3" data-path="pandas-1.html"><a href="pandas-1.html#from-column-oriented-data"><i class="fa fa-check"></i><b>13.7.1.3</b> From Column Oriented Data</a></li>
+<li class="chapter" data-level="13.5" data-path="pandas-1.html"><a href="pandas-1.html#series"><i class="fa fa-check"></i><b>13.5</b> Series</a><ul>
+<li class="chapter" data-level="13.5.1" data-path="pandas-1.html"><a href="pandas-1.html#constructor-7"><i class="fa fa-check"></i><b>13.5.1</b> Constructor</a><ul>
+<li class="chapter" data-level="13.5.1.1" data-path="pandas-1.html"><a href="pandas-1.html#empty-series"><i class="fa fa-check"></i><b>13.5.1.1</b> Empty Series</a></li>
+<li class="chapter" data-level="13.5.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-scalar"><i class="fa fa-check"></i><b>13.5.1.2</b> From Scalar</a></li>
+<li class="chapter" data-level="13.5.1.3" data-path="pandas-1.html"><a href="pandas-1.html#from-array-like"><i class="fa fa-check"></i><b>13.5.1.3</b> From array-like</a></li>
+<li class="chapter" data-level="13.5.1.4" data-path="pandas-1.html"><a href="pandas-1.html#from-dictionary"><i class="fa fa-check"></i><b>13.5.1.4</b> From Dictionary</a></li>
+<li class="chapter" data-level="13.5.1.5" data-path="pandas-1.html"><a href="pandas-1.html#specify-index"><i class="fa fa-check"></i><b>13.5.1.5</b> Specify Index</a></li>
+<li class="chapter" data-level="13.5.1.6" data-path="pandas-1.html"><a href="pandas-1.html#mix-element-types"><i class="fa fa-check"></i><b>13.5.1.6</b> Mix Element Types</a></li>
+<li class="chapter" data-level="13.5.1.7" data-path="pandas-1.html"><a href="pandas-1.html#specify-data-types"><i class="fa fa-check"></i><b>13.5.1.7</b> Specify Data Types</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.2" data-path="pandas-1.html"><a href="pandas-1.html#attributes-5"><i class="fa fa-check"></i><b>13.7.2</b> Attributes</a><ul>
-<li class="chapter" data-level="13.7.2.1" data-path="pandas-1.html"><a href="pandas-1.html#dimensions-2"><i class="fa fa-check"></i><b>13.7.2.1</b> Dimensions</a></li>
-<li class="chapter" data-level="13.7.2.2" data-path="pandas-1.html"><a href="pandas-1.html#index-1"><i class="fa fa-check"></i><b>13.7.2.2</b> Index</a></li>
-<li class="chapter" data-level="13.7.2.3" data-path="pandas-1.html"><a href="pandas-1.html#columns"><i class="fa fa-check"></i><b>13.7.2.3</b> Columns</a></li>
-<li class="chapter" data-level="13.7.2.4" data-path="pandas-1.html"><a href="pandas-1.html#values"><i class="fa fa-check"></i><b>13.7.2.4</b> Values</a></li>
+<li class="chapter" data-level="13.5.2" data-path="pandas-1.html"><a href="pandas-1.html#accessing-series"><i class="fa fa-check"></i><b>13.5.2</b> Accessing Series</a><ul>
+<li class="chapter" data-level="13.5.2.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-3"><i class="fa fa-check"></i><b>13.5.2.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.5.2.2" data-path="pandas-1.html"><a href="pandas-1.html#by-row-numbers"><i class="fa fa-check"></i><b>13.5.2.2</b> by Row Number(s)</a></li>
+<li class="chapter" data-level="13.5.2.3" data-path="pandas-1.html"><a href="pandas-1.html#by-indexes"><i class="fa fa-check"></i><b>13.5.2.3</b> by Index(es)</a></li>
+<li class="chapter" data-level="13.5.2.4" data-path="pandas-1.html"><a href="pandas-1.html#filtering-criteria"><i class="fa fa-check"></i><b>13.5.2.4</b> Filtering Criteria</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.3" data-path="pandas-1.html"><a href="pandas-1.html#index-manipulation"><i class="fa fa-check"></i><b>13.7.3</b> Index Manipulation</a><ul>
-<li class="chapter" data-level="13.7.3.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-5"><i class="fa fa-check"></i><b>13.7.3.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.7.3.2" data-path="pandas-1.html"><a href="pandas-1.html#convert-column-to-index"><i class="fa fa-check"></i><b>13.7.3.2</b> Convert Column To Index</a></li>
-<li class="chapter" data-level="13.7.3.3" data-path="pandas-1.html"><a href="pandas-1.html#convert-index-back-to-column"><i class="fa fa-check"></i><b>13.7.3.3</b> Convert Index Back To Column</a></li>
-<li class="chapter" data-level="13.7.3.4" data-path="pandas-1.html"><a href="pandas-1.html#updating-index-.index"><i class="fa fa-check"></i><b>13.7.3.4</b> Updating Index ( .index= )</a></li>
-<li class="chapter" data-level="13.7.3.5" data-path="pandas-1.html"><a href="pandas-1.html#reordering-index-.-reindex"><i class="fa fa-check"></i><b>13.7.3.5</b> Reordering Index (. reindex )</a></li>
+<li class="chapter" data-level="13.5.3" data-path="pandas-1.html"><a href="pandas-1.html#modifying-series"><i class="fa fa-check"></i><b>13.5.3</b> Modifying Series</a><ul>
+<li class="chapter" data-level="13.5.3.1" data-path="pandas-1.html"><a href="pandas-1.html#by-row-numbers-1"><i class="fa fa-check"></i><b>13.5.3.1</b> by Row Number(s)</a></li>
+<li class="chapter" data-level="13.5.3.2" data-path="pandas-1.html"><a href="pandas-1.html#by-indexes-1"><i class="fa fa-check"></i><b>13.5.3.2</b> by Index(es)</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.4" data-path="pandas-1.html"><a href="pandas-1.html#subsetting-columns"><i class="fa fa-check"></i><b>13.7.4</b> Subsetting Columns</a><ul>
-<li class="chapter" data-level="13.7.4.1" data-path="pandas-1.html"><a href="pandas-1.html#select-single-column"><i class="fa fa-check"></i><b>13.7.4.1</b> Select Single Column</a></li>
-<li class="chapter" data-level="13.7.4.2" data-path="pandas-1.html"><a href="pandas-1.html#select-multiple-columns"><i class="fa fa-check"></i><b>13.7.4.2</b> Select Multiple Columns</a></li>
-<li class="chapter" data-level="13.7.4.3" data-path="pandas-1.html"><a href="pandas-1.html#selection-by-data-type"><i class="fa fa-check"></i><b>13.7.4.3</b> Selection by Data Type</a></li>
-<li class="chapter" data-level="13.7.4.4" data-path="pandas-1.html"><a href="pandas-1.html#subset-by-filter"><i class="fa fa-check"></i><b>13.7.4.4</b> Subset by <code>filter()</code></a></li>
+<li class="chapter" data-level="13.5.4" data-path="pandas-1.html"><a href="pandas-1.html#series-attributes"><i class="fa fa-check"></i><b>13.5.4</b> Series Attributes</a><ul>
+<li class="chapter" data-level="13.5.4.1" data-path="pandas-1.html"><a href="pandas-1.html#the-data"><i class="fa fa-check"></i><b>13.5.4.1</b> The Data</a></li>
+<li class="chapter" data-level="13.5.4.2" data-path="pandas-1.html"><a href="pandas-1.html#index"><i class="fa fa-check"></i><b>13.5.4.2</b> <code>index</code></a></li>
+<li class="chapter" data-level="13.5.4.3" data-path="pandas-1.html"><a href="pandas-1.html#dtype-1"><i class="fa fa-check"></i><b>13.5.4.3</b> <code>dtype</code></a></li>
+<li class="chapter" data-level="13.5.4.4" data-path="pandas-1.html"><a href="pandas-1.html#dimensions-1"><i class="fa fa-check"></i><b>13.5.4.4</b> Dimensions</a></li>
+<li class="chapter" data-level="13.5.4.5" data-path="pandas-1.html"><a href="pandas-1.html#name"><i class="fa fa-check"></i><b>13.5.4.5</b> <code>.name</code></a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.5" data-path="pandas-1.html"><a href="pandas-1.html#column-manipulation-1"><i class="fa fa-check"></i><b>13.7.5</b> Column Manipulation</a><ul>
-<li class="chapter" data-level="13.7.5.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-6"><i class="fa fa-check"></i><b>13.7.5.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.7.5.2" data-path="pandas-1.html"><a href="pandas-1.html#renaming-columns"><i class="fa fa-check"></i><b>13.7.5.2</b> Renaming Columns</a></li>
-<li class="chapter" data-level="13.7.5.3" data-path="pandas-1.html"><a href="pandas-1.html#reordering-columns"><i class="fa fa-check"></i><b>13.7.5.3</b> Reordering Columns</a></li>
-<li class="chapter" data-level="13.7.5.4" data-path="pandas-1.html"><a href="pandas-1.html#duplicating-or-replacing-column"><i class="fa fa-check"></i><b>13.7.5.4</b> Duplicating or Replacing Column</a></li>
-<li class="chapter" data-level="13.7.5.5" data-path="pandas-1.html"><a href="pandas-1.html#dropping-columns-.drop"><i class="fa fa-check"></i><b>13.7.5.5</b> Dropping Columns (.drop)</a></li>
+<li class="chapter" data-level="13.5.5" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods-2"><i class="fa fa-check"></i><b>13.5.5</b> Instance Methods</a><ul>
+<li class="chapter" data-level="13.5.5.1" data-path="pandas-1.html"><a href="pandas-1.html#reset_index"><i class="fa fa-check"></i><b>13.5.5.1</b> .reset_index ()</a></li>
+<li class="chapter" data-level="13.5.5.2" data-path="pandas-1.html"><a href="pandas-1.html#structure-conversion"><i class="fa fa-check"></i><b>13.5.5.2</b> Structure Conversion</a></li>
+<li class="chapter" data-level="13.5.5.3" data-path="pandas-1.html"><a href="pandas-1.html#datatype-conversion"><i class="fa fa-check"></i><b>13.5.5.3</b> DataType Conversion</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.6" data-path="pandas-1.html"><a href="pandas-1.html#subsetting-rows"><i class="fa fa-check"></i><b>13.7.6</b> Subsetting Rows</a><ul>
-<li class="chapter" data-level="13.7.6.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-7"><i class="fa fa-check"></i><b>13.7.6.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.7.6.2" data-path="pandas-1.html"><a href="pandas-1.html#by-index-or-boolean"><i class="fa fa-check"></i><b>13.7.6.2</b> By Index or Boolean</a></li>
-<li class="chapter" data-level="13.7.6.3" data-path="pandas-1.html"><a href="pandas-1.html#by-row-number"><i class="fa fa-check"></i><b>13.7.6.3</b> By Row Number</a></li>
-<li class="chapter" data-level="13.7.6.4" data-path="pandas-1.html"><a href="pandas-1.html#query"><i class="fa fa-check"></i><b>13.7.6.4</b> <code>query()</code></a></li>
-<li class="chapter" data-level="13.7.6.5" data-path="pandas-1.html"><a href="pandas-1.html#sample"><i class="fa fa-check"></i><b>13.7.6.5</b> <code>sample()</code></a></li>
+<li class="chapter" data-level="13.5.6" data-path="pandas-1.html"><a href="pandas-1.html#series-operators"><i class="fa fa-check"></i><b>13.5.6</b> Series Operators</a><ul>
+<li class="chapter" data-level="13.5.6.1" data-path="pandas-1.html"><a href="pandas-1.html#arithmetic-operator"><i class="fa fa-check"></i><b>13.5.6.1</b> Arithmetic Operator</a></li>
+<li class="chapter" data-level="13.5.6.2" data-path="pandas-1.html"><a href="pandas-1.html#logic-operator"><i class="fa fa-check"></i><b>13.5.6.2</b> Logic Operator</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.7" data-path="pandas-1.html"><a href="pandas-1.html#row-manipulation"><i class="fa fa-check"></i><b>13.7.7</b> Row Manipulation</a><ul>
-<li class="chapter" data-level="13.7.7.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-8"><i class="fa fa-check"></i><b>13.7.7.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.7.7.2" data-path="pandas-1.html"><a href="pandas-1.html#dropping-rows-.drop"><i class="fa fa-check"></i><b>13.7.7.2</b> Dropping Rows (.drop)</a></li>
+<li class="chapter" data-level="13.5.7" data-path="pandas-1.html"><a href="pandas-1.html#series-string-accesor-.str"><i class="fa fa-check"></i><b>13.5.7</b> Series String Accesor <code>.str</code></a><ul>
+<li class="chapter" data-level="13.5.7.1" data-path="pandas-1.html"><a href="pandas-1.html#splitting"><i class="fa fa-check"></i><b>13.5.7.1</b> Splitting</a></li>
+<li class="chapter" data-level="13.5.7.2" data-path="pandas-1.html"><a href="pandas-1.html#matching"><i class="fa fa-check"></i><b>13.5.7.2</b> Matching</a></li>
+<li class="chapter" data-level="13.5.7.3" data-path="pandas-1.html"><a href="pandas-1.html#case-conversion"><i class="fa fa-check"></i><b>13.5.7.3</b> Case Conversion</a></li>
+<li class="chapter" data-level="13.5.7.4" data-path="pandas-1.html"><a href="pandas-1.html#number-of-characters"><i class="fa fa-check"></i><b>13.5.7.4</b> Number of Characters</a></li>
+<li class="chapter" data-level="13.5.7.5" data-path="pandas-1.html"><a href="pandas-1.html#string-indexing"><i class="fa fa-check"></i><b>13.5.7.5</b> String Indexing</a></li>
+<li class="chapter" data-level="13.5.7.6" data-path="pandas-1.html"><a href="pandas-1.html#splitting-1"><i class="fa fa-check"></i><b>13.5.7.6</b> Splitting</a></li>
+<li class="chapter" data-level="13.5.7.7" data-path="pandas-1.html"><a href="pandas-1.html#split-and-expand-into-dataframe"><i class="fa fa-check"></i><b>13.5.7.7</b> Split and Expand Into DataFrame</a></li>
+<li class="chapter" data-level="13.5.7.8" data-path="pandas-1.html"><a href="pandas-1.html#series-substring-extraction"><i class="fa fa-check"></i><b>13.5.7.8</b> Series Substring Extraction</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.8" data-path="pandas-1.html"><a href="pandas-1.html#slicing"><i class="fa fa-check"></i><b>13.7.8</b> Slicing</a><ul>
-<li class="chapter" data-level="13.7.8.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-9"><i class="fa fa-check"></i><b>13.7.8.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.7.8.2" data-path="pandas-1.html"><a href="pandas-1.html#getting-one-cell"><i class="fa fa-check"></i><b>13.7.8.2</b> Getting One Cell</a></li>
-<li class="chapter" data-level="13.7.8.3" data-path="pandas-1.html"><a href="pandas-1.html#getting-multiple-cells"><i class="fa fa-check"></i><b>13.7.8.3</b> Getting Multiple Cells</a></li>
-</ul></li>
-<li class="chapter" data-level="13.7.9" data-path="pandas-1.html"><a href="pandas-1.html#chained-indexing"><i class="fa fa-check"></i><b>13.7.9</b> Chained Indexing</a></li>
-<li class="chapter" data-level="13.7.10" data-path="pandas-1.html"><a href="pandas-1.html#data-structure"><i class="fa fa-check"></i><b>13.7.10</b> Data Structure</a><ul>
-<li class="chapter" data-level="13.7.10.1" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods---structure"><i class="fa fa-check"></i><b>13.7.10.1</b> Instance Methods - Structure</a></li>
-<li class="chapter" data-level="13.7.10.2" data-path="pandas-1.html"><a href="pandas-1.html#conversion-to-other-format"><i class="fa fa-check"></i><b>13.7.10.2</b> Conversion To Other Format</a></li>
-</ul></li>
-<li class="chapter" data-level="13.7.11" data-path="pandas-1.html"><a href="pandas-1.html#exploratory-analysis"><i class="fa fa-check"></i><b>13.7.11</b> Exploratory Analysis</a><ul>
-<li class="chapter" data-level="13.7.11.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-10"><i class="fa fa-check"></i><b>13.7.11.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.7.11.2" data-path="pandas-1.html"><a href="pandas-1.html#all-stats-in-one---.describe"><i class="fa fa-check"></i><b>13.7.11.2</b> All Stats in One - .describe()</a></li>
-<li class="chapter" data-level="13.7.11.3" data-path="pandas-1.html"><a href="pandas-1.html#minmaxmeanmedian"><i class="fa fa-check"></i><b>13.7.11.3</b> min/max/mean/median</a></li>
-</ul></li>
-<li class="chapter" data-level="13.7.12" data-path="pandas-1.html"><a href="pandas-1.html#plotting"><i class="fa fa-check"></i><b>13.7.12</b> Plotting</a></li>
-</ul></li>
-<li class="chapter" data-level="13.8" data-path="pandas-1.html"><a href="pandas-1.html#categories"><i class="fa fa-check"></i><b>13.8</b> Categories</a><ul>
-<li class="chapter" data-level="13.8.1" data-path="pandas-1.html"><a href="pandas-1.html#creating"><i class="fa fa-check"></i><b>13.8.1</b> Creating</a><ul>
-<li class="chapter" data-level="13.8.1.1" data-path="pandas-1.html"><a href="pandas-1.html#from-list"><i class="fa fa-check"></i><b>13.8.1.1</b> From List</a></li>
-<li class="chapter" data-level="13.8.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-series"><i class="fa fa-check"></i><b>13.8.1.2</b> From Series</a></li>
-<li class="chapter" data-level="13.8.1.3" data-path="pandas-1.html"><a href="pandas-1.html#ordering-category"><i class="fa fa-check"></i><b>13.8.1.3</b> Ordering Category</a></li>
-</ul></li>
-<li class="chapter" data-level="13.8.2" data-path="pandas-1.html"><a href="pandas-1.html#properties"><i class="fa fa-check"></i><b>13.8.2</b> Properties</a><ul>
-<li class="chapter" data-level="13.8.2.1" data-path="pandas-1.html"><a href="pandas-1.html#categories-1"><i class="fa fa-check"></i><b>13.8.2.1</b> .categories</a></li>
-<li class="chapter" data-level="13.8.2.2" data-path="pandas-1.html"><a href="pandas-1.html#codes"><i class="fa fa-check"></i><b>13.8.2.2</b> .codes</a></li>
-</ul></li>
-<li class="chapter" data-level="13.8.3" data-path="pandas-1.html"><a href="pandas-1.html#rename-category"><i class="fa fa-check"></i><b>13.8.3</b> Rename Category</a><ul>
-<li class="chapter" data-level="13.8.3.1" data-path="pandas-1.html"><a href="pandas-1.html#renamce-to-new-category-object"><i class="fa fa-check"></i><b>13.8.3.1</b> Renamce To New Category Object</a></li>
-<li class="chapter" data-level="13.8.3.2" data-path="pandas-1.html"><a href="pandas-1.html#rename-inplace"><i class="fa fa-check"></i><b>13.8.3.2</b> Rename Inplace</a></li>
-</ul></li>
-<li class="chapter" data-level="13.8.4" data-path="pandas-1.html"><a href="pandas-1.html#adding-new-category"><i class="fa fa-check"></i><b>13.8.4</b> Adding New Category</a></li>
-<li class="chapter" data-level="13.8.5" data-path="pandas-1.html"><a href="pandas-1.html#removing-category"><i class="fa fa-check"></i><b>13.8.5</b> Removing Category</a><ul>
-<li class="chapter" data-level="13.8.5.1" data-path="pandas-1.html"><a href="pandas-1.html#remove-specific-categories"><i class="fa fa-check"></i><b>13.8.5.1</b> Remove Specific Categor(ies)</a></li>
-<li class="chapter" data-level="13.8.5.2" data-path="pandas-1.html"><a href="pandas-1.html#remove-unused-category"><i class="fa fa-check"></i><b>13.8.5.2</b> Remove Unused Category</a></li>
-</ul></li>
-<li class="chapter" data-level="13.8.6" data-path="pandas-1.html"><a href="pandas-1.html#add-and-remove-categories-in-one-step---set"><i class="fa fa-check"></i><b>13.8.6</b> Add and Remove Categories In One Step - Set()</a></li>
-<li class="chapter" data-level="13.8.7" data-path="pandas-1.html"><a href="pandas-1.html#categorical-descriptive-analysis"><i class="fa fa-check"></i><b>13.8.7</b> Categorical Descriptive Analysis</a><ul>
-<li class="chapter" data-level="13.8.7.1" data-path="pandas-1.html"><a href="pandas-1.html#at-one-glance"><i class="fa fa-check"></i><b>13.8.7.1</b> At One Glance</a></li>
-<li class="chapter" data-level="13.8.7.2" data-path="pandas-1.html"><a href="pandas-1.html#frequency-count"><i class="fa fa-check"></i><b>13.8.7.2</b> Frequency Count</a></li>
-<li class="chapter" data-level="13.8.7.3" data-path="pandas-1.html"><a href="pandas-1.html#least-frequent-category-most-frequent-category-and-most-frequent-category"><i class="fa fa-check"></i><b>13.8.7.3</b> Least Frequent Category, Most Frequent Category, and Most Frequent Category</a></li>
-</ul></li>
-<li class="chapter" data-level="13.8.8" data-path="pandas-1.html"><a href="pandas-1.html#other-methods-1"><i class="fa fa-check"></i><b>13.8.8</b> Other Methods</a><ul>
-<li class="chapter" data-level="13.8.8.1" data-path="pandas-1.html"><a href="pandas-1.html#get_values"><i class="fa fa-check"></i><b>13.8.8.1</b> .get_values()</a></li>
+<li class="chapter" data-level="13.5.8" data-path="pandas-1.html"><a href="pandas-1.html#series-datetime-accessor-.dt"><i class="fa fa-check"></i><b>13.5.8</b> Series DateTime Accessor <code>.dt</code></a><ul>
+<li class="chapter" data-level="13.5.8.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-4"><i class="fa fa-check"></i><b>13.5.8.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.5.8.2" data-path="pandas-1.html"><a href="pandas-1.html#convert-to"><i class="fa fa-check"></i><b>13.5.8.2</b> Convert To</a></li>
+<li class="chapter" data-level="13.5.8.3" data-path="pandas-1.html"><a href="pandas-1.html#timestamp-attributes"><i class="fa fa-check"></i><b>13.5.8.3</b> Timestamp Attributes</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="13.9" data-path="pandas-1.html"><a href="pandas-1.html#dummies"><i class="fa fa-check"></i><b>13.9</b> Dummies</a><ul>
-<li class="chapter" data-level="13.9.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-11"><i class="fa fa-check"></i><b>13.9.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.9.2" data-path="pandas-1.html"><a href="pandas-1.html#dummies-on-array-like-data"><i class="fa fa-check"></i><b>13.9.2</b> Dummies on Array-Like Data</a></li>
-<li class="chapter" data-level="13.9.3" data-path="pandas-1.html"><a href="pandas-1.html#dummies-on-dataframe-multiple-columns"><i class="fa fa-check"></i><b>13.9.3</b> Dummies on DataFrame (multiple columns)</a><ul>
-<li class="chapter" data-level="13.9.3.1" data-path="pandas-1.html"><a href="pandas-1.html#all-columns"><i class="fa fa-check"></i><b>13.9.3.1</b> All Columns</a></li>
-<li class="chapter" data-level="13.9.3.2" data-path="pandas-1.html"><a href="pandas-1.html#selected-columns"><i class="fa fa-check"></i><b>13.9.3.2</b> Selected Columns</a></li>
+<li class="chapter" data-level="13.6" data-path="pandas-1.html"><a href="pandas-1.html#dataframe"><i class="fa fa-check"></i><b>13.6</b> DataFrame</a><ul>
+<li class="chapter" data-level="13.6.1" data-path="pandas-1.html"><a href="pandas-1.html#constructor-8"><i class="fa fa-check"></i><b>13.6.1</b> Constructor</a><ul>
+<li class="chapter" data-level="13.6.1.1" data-path="pandas-1.html"><a href="pandas-1.html#from-row-oriented-data-list-of-lists"><i class="fa fa-check"></i><b>13.6.1.1</b> From Row Oriented Data (List of Lists)</a></li>
+<li class="chapter" data-level="13.6.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-row-oriented-data-list-of-dictionary"><i class="fa fa-check"></i><b>13.6.1.2</b> From Row Oriented Data (List of Dictionary)</a></li>
+<li class="chapter" data-level="13.6.1.3" data-path="pandas-1.html"><a href="pandas-1.html#from-column-oriented-data"><i class="fa fa-check"></i><b>13.6.1.3</b> From Column Oriented Data</a></li>
 </ul></li>
-<li class="chapter" data-level="13.9.4" data-path="pandas-1.html"><a href="pandas-1.html#dummies-with-na"><i class="fa fa-check"></i><b>13.9.4</b> Dummies with na</a></li>
-<li class="chapter" data-level="13.9.5" data-path="pandas-1.html"><a href="pandas-1.html#specify-prefixes"><i class="fa fa-check"></i><b>13.9.5</b> Specify Prefixes</a></li>
-<li class="chapter" data-level="13.9.6" data-path="pandas-1.html"><a href="pandas-1.html#dropping-first-column"><i class="fa fa-check"></i><b>13.9.6</b> Dropping First Column</a></li>
+<li class="chapter" data-level="13.6.2" data-path="pandas-1.html"><a href="pandas-1.html#attributes-5"><i class="fa fa-check"></i><b>13.6.2</b> Attributes</a><ul>
+<li class="chapter" data-level="13.6.2.1" data-path="pandas-1.html"><a href="pandas-1.html#dimensions-2"><i class="fa fa-check"></i><b>13.6.2.1</b> Dimensions</a></li>
+<li class="chapter" data-level="13.6.2.2" data-path="pandas-1.html"><a href="pandas-1.html#index-1"><i class="fa fa-check"></i><b>13.6.2.2</b> Index</a></li>
+<li class="chapter" data-level="13.6.2.3" data-path="pandas-1.html"><a href="pandas-1.html#columns"><i class="fa fa-check"></i><b>13.6.2.3</b> Columns</a></li>
+<li class="chapter" data-level="13.6.2.4" data-path="pandas-1.html"><a href="pandas-1.html#values"><i class="fa fa-check"></i><b>13.6.2.4</b> Values</a></li>
 </ul></li>
-<li class="chapter" data-level="13.10" data-path="pandas-1.html"><a href="pandas-1.html#getting-external-data-1"><i class="fa fa-check"></i><b>13.10</b> Getting External Data</a><ul>
-<li class="chapter" data-level="13.10.1" data-path="pandas-1.html"><a href="pandas-1.html#html_table-parser"><i class="fa fa-check"></i><b>13.10.1</b> html_table parser</a></li>
-<li class="chapter" data-level="13.10.2" data-path="pandas-1.html"><a href="pandas-1.html#csv-import"><i class="fa fa-check"></i><b>13.10.2</b> CSV Import</a><ul>
-<li class="chapter" data-level="13.10.2.1" data-path="pandas-1.html"><a href="pandas-1.html#syntax"><i class="fa fa-check"></i><b>13.10.2.1</b> Syntax</a></li>
-<li class="chapter" data-level="13.10.2.2" data-path="pandas-1.html"><a href="pandas-1.html#default-import"><i class="fa fa-check"></i><b>13.10.2.2</b> Default Import</a></li>
-<li class="chapter" data-level="13.10.2.3" data-path="pandas-1.html"><a href="pandas-1.html#specify-data-types-1"><i class="fa fa-check"></i><b>13.10.2.3</b> Specify Data Types</a></li>
-<li class="chapter" data-level="13.10.2.4" data-path="pandas-1.html"><a href="pandas-1.html#on-the-fly-date-parsing-and-indexing"><i class="fa fa-check"></i><b>13.10.2.4</b> On The Fly Date Parsing and Indexing</a></li>
-<li class="chapter" data-level="13.10.2.5" data-path="pandas-1.html"><a href="pandas-1.html#parse-date-then-set-as-index"><i class="fa fa-check"></i><b>13.10.2.5</b> Parse Date, Then Set as Index</a></li>
+<li class="chapter" data-level="13.6.3" data-path="pandas-1.html"><a href="pandas-1.html#index-manipulation"><i class="fa fa-check"></i><b>13.6.3</b> Index Manipulation</a><ul>
+<li class="chapter" data-level="13.6.3.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-5"><i class="fa fa-check"></i><b>13.6.3.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.6.3.2" data-path="pandas-1.html"><a href="pandas-1.html#convert-column-to-index"><i class="fa fa-check"></i><b>13.6.3.2</b> Convert Column To Index</a></li>
+<li class="chapter" data-level="13.6.3.3" data-path="pandas-1.html"><a href="pandas-1.html#convert-index-back-to-column"><i class="fa fa-check"></i><b>13.6.3.3</b> Convert Index Back To Column</a></li>
+<li class="chapter" data-level="13.6.3.4" data-path="pandas-1.html"><a href="pandas-1.html#updating-index-.index"><i class="fa fa-check"></i><b>13.6.3.4</b> Updating Index ( .index= )</a></li>
+<li class="chapter" data-level="13.6.3.5" data-path="pandas-1.html"><a href="pandas-1.html#reordering-index-.-reindex"><i class="fa fa-check"></i><b>13.6.3.5</b> Reordering Index (. reindex )</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6.4" data-path="pandas-1.html"><a href="pandas-1.html#subsetting-columns"><i class="fa fa-check"></i><b>13.6.4</b> Subsetting Columns</a><ul>
+<li class="chapter" data-level="13.6.4.1" data-path="pandas-1.html"><a href="pandas-1.html#select-single-column"><i class="fa fa-check"></i><b>13.6.4.1</b> Select Single Column</a></li>
+<li class="chapter" data-level="13.6.4.2" data-path="pandas-1.html"><a href="pandas-1.html#select-multiple-columns"><i class="fa fa-check"></i><b>13.6.4.2</b> Select Multiple Columns</a></li>
+<li class="chapter" data-level="13.6.4.3" data-path="pandas-1.html"><a href="pandas-1.html#selection-by-data-type"><i class="fa fa-check"></i><b>13.6.4.3</b> Selection by Data Type</a></li>
+<li class="chapter" data-level="13.6.4.4" data-path="pandas-1.html"><a href="pandas-1.html#subset-by-filter"><i class="fa fa-check"></i><b>13.6.4.4</b> Subset by <code>filter()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="13.6.5" data-path="pandas-1.html"><a href="pandas-1.html#column-manipulation-1"><i class="fa fa-check"></i><b>13.6.5</b> Column Manipulation</a><ul>
+<li class="chapter" data-level="13.6.5.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-6"><i class="fa fa-check"></i><b>13.6.5.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.6.5.2" data-path="pandas-1.html"><a href="pandas-1.html#renaming-columns"><i class="fa fa-check"></i><b>13.6.5.2</b> Renaming Columns</a></li>
+<li class="chapter" data-level="13.6.5.3" data-path="pandas-1.html"><a href="pandas-1.html#reordering-columns"><i class="fa fa-check"></i><b>13.6.5.3</b> Reordering Columns</a></li>
+<li class="chapter" data-level="13.6.5.4" data-path="pandas-1.html"><a href="pandas-1.html#duplicating-or-replacing-column"><i class="fa fa-check"></i><b>13.6.5.4</b> Duplicating or Replacing Column</a></li>
+<li class="chapter" data-level="13.6.5.5" data-path="pandas-1.html"><a href="pandas-1.html#dropping-columns-.drop"><i class="fa fa-check"></i><b>13.6.5.5</b> Dropping Columns (.drop)</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6.6" data-path="pandas-1.html"><a href="pandas-1.html#subsetting-rows"><i class="fa fa-check"></i><b>13.6.6</b> Subsetting Rows</a><ul>
+<li class="chapter" data-level="13.6.6.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-7"><i class="fa fa-check"></i><b>13.6.6.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.6.6.2" data-path="pandas-1.html"><a href="pandas-1.html#by-index-or-boolean"><i class="fa fa-check"></i><b>13.6.6.2</b> By Index or Boolean</a></li>
+<li class="chapter" data-level="13.6.6.3" data-path="pandas-1.html"><a href="pandas-1.html#by-row-number"><i class="fa fa-check"></i><b>13.6.6.3</b> By Row Number</a></li>
+<li class="chapter" data-level="13.6.6.4" data-path="pandas-1.html"><a href="pandas-1.html#query"><i class="fa fa-check"></i><b>13.6.6.4</b> <code>query()</code></a></li>
+<li class="chapter" data-level="13.6.6.5" data-path="pandas-1.html"><a href="pandas-1.html#sample"><i class="fa fa-check"></i><b>13.6.6.5</b> <code>sample()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="13.6.7" data-path="pandas-1.html"><a href="pandas-1.html#row-manipulation"><i class="fa fa-check"></i><b>13.6.7</b> Row Manipulation</a><ul>
+<li class="chapter" data-level="13.6.7.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-8"><i class="fa fa-check"></i><b>13.6.7.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.6.7.2" data-path="pandas-1.html"><a href="pandas-1.html#dropping-rows-.drop"><i class="fa fa-check"></i><b>13.6.7.2</b> Dropping Rows (.drop)</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6.8" data-path="pandas-1.html"><a href="pandas-1.html#slicing"><i class="fa fa-check"></i><b>13.6.8</b> Slicing</a><ul>
+<li class="chapter" data-level="13.6.8.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-9"><i class="fa fa-check"></i><b>13.6.8.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.6.8.2" data-path="pandas-1.html"><a href="pandas-1.html#getting-one-cell"><i class="fa fa-check"></i><b>13.6.8.2</b> Getting One Cell</a></li>
+<li class="chapter" data-level="13.6.8.3" data-path="pandas-1.html"><a href="pandas-1.html#getting-multiple-cells"><i class="fa fa-check"></i><b>13.6.8.3</b> Getting Multiple Cells</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6.9" data-path="pandas-1.html"><a href="pandas-1.html#chained-indexing"><i class="fa fa-check"></i><b>13.6.9</b> Chained Indexing</a></li>
+<li class="chapter" data-level="13.6.10" data-path="pandas-1.html"><a href="pandas-1.html#data-structure"><i class="fa fa-check"></i><b>13.6.10</b> Data Structure</a><ul>
+<li class="chapter" data-level="13.6.10.1" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods---structure"><i class="fa fa-check"></i><b>13.6.10.1</b> Instance Methods - Structure</a></li>
+<li class="chapter" data-level="13.6.10.2" data-path="pandas-1.html"><a href="pandas-1.html#conversion-to-other-format"><i class="fa fa-check"></i><b>13.6.10.2</b> Conversion To Other Format</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6.11" data-path="pandas-1.html"><a href="pandas-1.html#exploratory-analysis"><i class="fa fa-check"></i><b>13.6.11</b> Exploratory Analysis</a><ul>
+<li class="chapter" data-level="13.6.11.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-10"><i class="fa fa-check"></i><b>13.6.11.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.6.11.2" data-path="pandas-1.html"><a href="pandas-1.html#all-stats-in-one---.describe"><i class="fa fa-check"></i><b>13.6.11.2</b> All Stats in One - .describe()</a></li>
+<li class="chapter" data-level="13.6.11.3" data-path="pandas-1.html"><a href="pandas-1.html#minmaxmeanmedian"><i class="fa fa-check"></i><b>13.6.11.3</b> min/max/mean/median</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6.12" data-path="pandas-1.html"><a href="pandas-1.html#plotting"><i class="fa fa-check"></i><b>13.6.12</b> Plotting</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7" data-path="pandas-1.html"><a href="pandas-1.html#categories"><i class="fa fa-check"></i><b>13.7</b> Categories</a><ul>
+<li class="chapter" data-level="13.7.1" data-path="pandas-1.html"><a href="pandas-1.html#creating"><i class="fa fa-check"></i><b>13.7.1</b> Creating</a><ul>
+<li class="chapter" data-level="13.7.1.1" data-path="pandas-1.html"><a href="pandas-1.html#from-list"><i class="fa fa-check"></i><b>13.7.1.1</b> From List</a></li>
+<li class="chapter" data-level="13.7.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-series"><i class="fa fa-check"></i><b>13.7.1.2</b> From Series</a></li>
+<li class="chapter" data-level="13.7.1.3" data-path="pandas-1.html"><a href="pandas-1.html#ordering-category"><i class="fa fa-check"></i><b>13.7.1.3</b> Ordering Category</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7.2" data-path="pandas-1.html"><a href="pandas-1.html#properties"><i class="fa fa-check"></i><b>13.7.2</b> Properties</a><ul>
+<li class="chapter" data-level="13.7.2.1" data-path="pandas-1.html"><a href="pandas-1.html#categories-1"><i class="fa fa-check"></i><b>13.7.2.1</b> .categories</a></li>
+<li class="chapter" data-level="13.7.2.2" data-path="pandas-1.html"><a href="pandas-1.html#codes"><i class="fa fa-check"></i><b>13.7.2.2</b> .codes</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7.3" data-path="pandas-1.html"><a href="pandas-1.html#rename-category"><i class="fa fa-check"></i><b>13.7.3</b> Rename Category</a><ul>
+<li class="chapter" data-level="13.7.3.1" data-path="pandas-1.html"><a href="pandas-1.html#renamce-to-new-category-object"><i class="fa fa-check"></i><b>13.7.3.1</b> Renamce To New Category Object</a></li>
+<li class="chapter" data-level="13.7.3.2" data-path="pandas-1.html"><a href="pandas-1.html#rename-inplace"><i class="fa fa-check"></i><b>13.7.3.2</b> Rename Inplace</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7.4" data-path="pandas-1.html"><a href="pandas-1.html#adding-new-category"><i class="fa fa-check"></i><b>13.7.4</b> Adding New Category</a></li>
+<li class="chapter" data-level="13.7.5" data-path="pandas-1.html"><a href="pandas-1.html#removing-category"><i class="fa fa-check"></i><b>13.7.5</b> Removing Category</a><ul>
+<li class="chapter" data-level="13.7.5.1" data-path="pandas-1.html"><a href="pandas-1.html#remove-specific-categories"><i class="fa fa-check"></i><b>13.7.5.1</b> Remove Specific Categor(ies)</a></li>
+<li class="chapter" data-level="13.7.5.2" data-path="pandas-1.html"><a href="pandas-1.html#remove-unused-category"><i class="fa fa-check"></i><b>13.7.5.2</b> Remove Unused Category</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7.6" data-path="pandas-1.html"><a href="pandas-1.html#add-and-remove-categories-in-one-step---set"><i class="fa fa-check"></i><b>13.7.6</b> Add and Remove Categories In One Step - Set()</a></li>
+<li class="chapter" data-level="13.7.7" data-path="pandas-1.html"><a href="pandas-1.html#categorical-descriptive-analysis"><i class="fa fa-check"></i><b>13.7.7</b> Categorical Descriptive Analysis</a><ul>
+<li class="chapter" data-level="13.7.7.1" data-path="pandas-1.html"><a href="pandas-1.html#at-one-glance"><i class="fa fa-check"></i><b>13.7.7.1</b> At One Glance</a></li>
+<li class="chapter" data-level="13.7.7.2" data-path="pandas-1.html"><a href="pandas-1.html#frequency-count"><i class="fa fa-check"></i><b>13.7.7.2</b> Frequency Count</a></li>
+<li class="chapter" data-level="13.7.7.3" data-path="pandas-1.html"><a href="pandas-1.html#least-frequent-category-most-frequent-category-and-most-frequent-category"><i class="fa fa-check"></i><b>13.7.7.3</b> Least Frequent Category, Most Frequent Category, and Most Frequent Category</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7.8" data-path="pandas-1.html"><a href="pandas-1.html#other-methods-1"><i class="fa fa-check"></i><b>13.7.8</b> Other Methods</a><ul>
+<li class="chapter" data-level="13.7.8.1" data-path="pandas-1.html"><a href="pandas-1.html#get_values"><i class="fa fa-check"></i><b>13.7.8.1</b> .get_values()</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="13.11" data-path="pandas-1.html"><a href="pandas-1.html#groupby"><i class="fa fa-check"></i><b>13.11</b> GroupBy</a><ul>
-<li class="chapter" data-level="13.11.1" data-path="pandas-1.html"><a href="pandas-1.html#creating-groups"><i class="fa fa-check"></i><b>13.11.1</b> Creating Groups</a></li>
-<li class="chapter" data-level="13.11.2" data-path="pandas-1.html"><a href="pandas-1.html#properties-1"><i class="fa fa-check"></i><b>13.11.2</b> Properties</a><ul>
-<li class="chapter" data-level="13.11.2.1" data-path="pandas-1.html"><a href="pandas-1.html#number-of-groups-created"><i class="fa fa-check"></i><b>13.11.2.1</b> Number of Groups Created</a></li>
-<li class="chapter" data-level="13.11.2.2" data-path="pandas-1.html"><a href="pandas-1.html#row-numbers-associated-for-each-group"><i class="fa fa-check"></i><b>13.11.2.2</b> Row Numbers Associated For Each Group</a></li>
+<li class="chapter" data-level="13.8" data-path="pandas-1.html"><a href="pandas-1.html#dummies"><i class="fa fa-check"></i><b>13.8</b> Dummies</a><ul>
+<li class="chapter" data-level="13.8.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-11"><i class="fa fa-check"></i><b>13.8.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.8.2" data-path="pandas-1.html"><a href="pandas-1.html#dummies-on-array-like-data"><i class="fa fa-check"></i><b>13.8.2</b> Dummies on Array-Like Data</a></li>
+<li class="chapter" data-level="13.8.3" data-path="pandas-1.html"><a href="pandas-1.html#dummies-on-dataframe-multiple-columns"><i class="fa fa-check"></i><b>13.8.3</b> Dummies on DataFrame (multiple columns)</a><ul>
+<li class="chapter" data-level="13.8.3.1" data-path="pandas-1.html"><a href="pandas-1.html#all-columns"><i class="fa fa-check"></i><b>13.8.3.1</b> All Columns</a></li>
+<li class="chapter" data-level="13.8.3.2" data-path="pandas-1.html"><a href="pandas-1.html#selected-columns"><i class="fa fa-check"></i><b>13.8.3.2</b> Selected Columns</a></li>
 </ul></li>
-<li class="chapter" data-level="13.11.3" data-path="pandas-1.html"><a href="pandas-1.html#methods-1"><i class="fa fa-check"></i><b>13.11.3</b> Methods</a><ul>
-<li class="chapter" data-level="13.11.3.1" data-path="pandas-1.html"><a href="pandas-1.html#number-of-rows-in-each-group"><i class="fa fa-check"></i><b>13.11.3.1</b> Number of Rows In Each Group</a></li>
-<li class="chapter" data-level="13.11.3.2" data-path="pandas-1.html"><a href="pandas-1.html#valid-not-null-data-count-for-each-fields-in-the-group"><i class="fa fa-check"></i><b>13.11.3.2</b> Valid (not Null) Data Count For Each Fields In The Group</a></li>
+<li class="chapter" data-level="13.8.4" data-path="pandas-1.html"><a href="pandas-1.html#dummies-with-na"><i class="fa fa-check"></i><b>13.8.4</b> Dummies with na</a></li>
+<li class="chapter" data-level="13.8.5" data-path="pandas-1.html"><a href="pandas-1.html#specify-prefixes"><i class="fa fa-check"></i><b>13.8.5</b> Specify Prefixes</a></li>
+<li class="chapter" data-level="13.8.6" data-path="pandas-1.html"><a href="pandas-1.html#dropping-first-column"><i class="fa fa-check"></i><b>13.8.6</b> Dropping First Column</a></li>
 </ul></li>
-<li class="chapter" data-level="13.11.4" data-path="pandas-1.html"><a href="pandas-1.html#retrieve-rows"><i class="fa fa-check"></i><b>13.11.4</b> Retrieve Rows</a><ul>
-<li class="chapter" data-level="13.11.4.1" data-path="pandas-1.html"><a href="pandas-1.html#retrieve-n-rows-for-each-groups"><i class="fa fa-check"></i><b>13.11.4.1</b> Retrieve N Rows For Each Groups</a></li>
-<li class="chapter" data-level="13.11.4.2" data-path="pandas-1.html"><a href="pandas-1.html#retrieve-rows-in-one-specific-group"><i class="fa fa-check"></i><b>13.11.4.2</b> Retrieve Rows In One Specific Group</a></li>
-<li class="chapter" data-level="13.11.4.3" data-path="pandas-1.html"><a href="pandas-1.html#retrieve-n-th-row-from-each-group"><i class="fa fa-check"></i><b>13.11.4.3</b> Retrieve n-th Row From Each Group</a></li>
+<li class="chapter" data-level="13.9" data-path="pandas-1.html"><a href="pandas-1.html#getting-external-data-1"><i class="fa fa-check"></i><b>13.9</b> Getting External Data</a><ul>
+<li class="chapter" data-level="13.9.1" data-path="pandas-1.html"><a href="pandas-1.html#html_table-parser"><i class="fa fa-check"></i><b>13.9.1</b> html_table parser</a></li>
+<li class="chapter" data-level="13.9.2" data-path="pandas-1.html"><a href="pandas-1.html#csv-import"><i class="fa fa-check"></i><b>13.9.2</b> CSV Import</a><ul>
+<li class="chapter" data-level="13.9.2.1" data-path="pandas-1.html"><a href="pandas-1.html#syntax"><i class="fa fa-check"></i><b>13.9.2.1</b> Syntax</a></li>
+<li class="chapter" data-level="13.9.2.2" data-path="pandas-1.html"><a href="pandas-1.html#default-import"><i class="fa fa-check"></i><b>13.9.2.2</b> Default Import</a></li>
+<li class="chapter" data-level="13.9.2.3" data-path="pandas-1.html"><a href="pandas-1.html#specify-data-types-1"><i class="fa fa-check"></i><b>13.9.2.3</b> Specify Data Types</a></li>
+<li class="chapter" data-level="13.9.2.4" data-path="pandas-1.html"><a href="pandas-1.html#on-the-fly-date-parsing-and-indexing"><i class="fa fa-check"></i><b>13.9.2.4</b> On The Fly Date Parsing and Indexing</a></li>
+<li class="chapter" data-level="13.9.2.5" data-path="pandas-1.html"><a href="pandas-1.html#parse-date-then-set-as-index"><i class="fa fa-check"></i><b>13.9.2.5</b> Parse Date, Then Set as Index</a></li>
 </ul></li>
-<li class="chapter" data-level="13.11.5" data-path="pandas-1.html"><a href="pandas-1.html#iteration"><i class="fa fa-check"></i><b>13.11.5</b> Iteration</a></li>
-<li class="chapter" data-level="13.11.6" data-path="pandas-1.html"><a href="pandas-1.html#apply-aggregate-functions-to-groups"><i class="fa fa-check"></i><b>13.11.6</b> Apply Aggregate Functions to Groups</a><ul>
-<li class="chapter" data-level="13.11.6.1" data-path="pandas-1.html"><a href="pandas-1.html#apply-one-function-to-one-or-more-columns"><i class="fa fa-check"></i><b>13.11.6.1</b> Apply One Function to One or More Columns</a></li>
-<li class="chapter" data-level="13.11.6.2" data-path="pandas-1.html"><a href="pandas-1.html#apply-one-or-more-functions-to-all-columns"><i class="fa fa-check"></i><b>13.11.6.2</b> Apply One or More Functions To All Columns</a></li>
-<li class="chapter" data-level="13.11.6.3" data-path="pandas-1.html"><a href="pandas-1.html#apply-different-functions-to-different-columns"><i class="fa fa-check"></i><b>13.11.6.3</b> Apply Different Functions To Different Columns</a></li>
 </ul></li>
-<li class="chapter" data-level="13.11.7" data-path="pandas-1.html"><a href="pandas-1.html#transform"><i class="fa fa-check"></i><b>13.11.7</b> Transform</a></li>
+<li class="chapter" data-level="13.10" data-path="pandas-1.html"><a href="pandas-1.html#groupby"><i class="fa fa-check"></i><b>13.10</b> GroupBy</a><ul>
+<li class="chapter" data-level="13.10.1" data-path="pandas-1.html"><a href="pandas-1.html#creating-groups"><i class="fa fa-check"></i><b>13.10.1</b> Creating Groups</a></li>
+<li class="chapter" data-level="13.10.2" data-path="pandas-1.html"><a href="pandas-1.html#properties-1"><i class="fa fa-check"></i><b>13.10.2</b> Properties</a><ul>
+<li class="chapter" data-level="13.10.2.1" data-path="pandas-1.html"><a href="pandas-1.html#number-of-groups-created"><i class="fa fa-check"></i><b>13.10.2.1</b> Number of Groups Created</a></li>
+<li class="chapter" data-level="13.10.2.2" data-path="pandas-1.html"><a href="pandas-1.html#row-numbers-associated-for-each-group"><i class="fa fa-check"></i><b>13.10.2.2</b> Row Numbers Associated For Each Group</a></li>
 </ul></li>
-<li class="chapter" data-level="13.12" data-path="pandas-1.html"><a href="pandas-1.html#concat"><i class="fa fa-check"></i><b>13.12</b> Concat</a><ul>
-<li class="chapter" data-level="13.12.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-12"><i class="fa fa-check"></i><b>13.12.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.12.2" data-path="pandas-1.html"><a href="pandas-1.html#column-wise"><i class="fa fa-check"></i><b>13.12.2</b> Column-Wise</a><ul>
-<li class="chapter" data-level="13.12.2.1" data-path="pandas-1.html"><a href="pandas-1.html#multiple-arraysseries"><i class="fa fa-check"></i><b>13.12.2.1</b> Multiple Arrays/Series</a></li>
-<li class="chapter" data-level="13.12.2.2" data-path="pandas-1.html"><a href="pandas-1.html#dataframe-and-series"><i class="fa fa-check"></i><b>13.12.2.2</b> DataFrame and Series</a></li>
+<li class="chapter" data-level="13.10.3" data-path="pandas-1.html"><a href="pandas-1.html#methods-1"><i class="fa fa-check"></i><b>13.10.3</b> Methods</a><ul>
+<li class="chapter" data-level="13.10.3.1" data-path="pandas-1.html"><a href="pandas-1.html#number-of-rows-in-each-group"><i class="fa fa-check"></i><b>13.10.3.1</b> Number of Rows In Each Group</a></li>
+<li class="chapter" data-level="13.10.3.2" data-path="pandas-1.html"><a href="pandas-1.html#valid-not-null-data-count-for-each-fields-in-the-group"><i class="fa fa-check"></i><b>13.10.3.2</b> Valid (not Null) Data Count For Each Fields In The Group</a></li>
 </ul></li>
-<li class="chapter" data-level="13.12.3" data-path="pandas-1.html"><a href="pandas-1.html#row-wise"><i class="fa fa-check"></i><b>13.12.3</b> Row-Wise</a></li>
+<li class="chapter" data-level="13.10.4" data-path="pandas-1.html"><a href="pandas-1.html#retrieve-rows"><i class="fa fa-check"></i><b>13.10.4</b> Retrieve Rows</a><ul>
+<li class="chapter" data-level="13.10.4.1" data-path="pandas-1.html"><a href="pandas-1.html#retrieve-n-rows-for-each-groups"><i class="fa fa-check"></i><b>13.10.4.1</b> Retrieve N Rows For Each Groups</a></li>
+<li class="chapter" data-level="13.10.4.2" data-path="pandas-1.html"><a href="pandas-1.html#retrieve-rows-in-one-specific-group"><i class="fa fa-check"></i><b>13.10.4.2</b> Retrieve Rows In One Specific Group</a></li>
+<li class="chapter" data-level="13.10.4.3" data-path="pandas-1.html"><a href="pandas-1.html#retrieve-n-th-row-from-each-group"><i class="fa fa-check"></i><b>13.10.4.3</b> Retrieve n-th Row From Each Group</a></li>
 </ul></li>
-<li class="chapter" data-level="13.13" data-path="pandas-1.html"><a href="pandas-1.html#fundamental-analysis"><i class="fa fa-check"></i><b>13.13</b> Fundamental Analysis</a><ul>
-<li class="chapter" data-level="13.13.1" data-path="pandas-1.html"><a href="pandas-1.html#structure-of-the-dataframe-.info"><i class="fa fa-check"></i><b>13.13.1</b> Structure of the Dataframe (.info())</a></li>
-<li class="chapter" data-level="13.13.2" data-path="pandas-1.html"><a href="pandas-1.html#first-few-rows-.head"><i class="fa fa-check"></i><b>13.13.2</b> First Few Rows (.head())</a></li>
+<li class="chapter" data-level="13.10.5" data-path="pandas-1.html"><a href="pandas-1.html#iteration"><i class="fa fa-check"></i><b>13.10.5</b> Iteration</a></li>
+<li class="chapter" data-level="13.10.6" data-path="pandas-1.html"><a href="pandas-1.html#apply-aggregate-functions-to-groups"><i class="fa fa-check"></i><b>13.10.6</b> Apply Aggregate Functions to Groups</a><ul>
+<li class="chapter" data-level="13.10.6.1" data-path="pandas-1.html"><a href="pandas-1.html#apply-one-function-to-one-or-more-columns"><i class="fa fa-check"></i><b>13.10.6.1</b> Apply One Function to One or More Columns</a></li>
+<li class="chapter" data-level="13.10.6.2" data-path="pandas-1.html"><a href="pandas-1.html#apply-one-or-more-functions-to-all-columns"><i class="fa fa-check"></i><b>13.10.6.2</b> Apply One or More Functions To All Columns</a></li>
+<li class="chapter" data-level="13.10.6.3" data-path="pandas-1.html"><a href="pandas-1.html#apply-different-functions-to-different-columns"><i class="fa fa-check"></i><b>13.10.6.3</b> Apply Different Functions To Different Columns</a></li>
 </ul></li>
-<li class="chapter" data-level="13.14" data-path="pandas-1.html"><a href="pandas-1.html#missing-data"><i class="fa fa-check"></i><b>13.14</b> Missing Data</a><ul>
-<li class="chapter" data-level="13.14.1" data-path="pandas-1.html"><a href="pandas-1.html#what-is-considered-missing-data"><i class="fa fa-check"></i><b>13.14.1</b> What Is Considered Missing Data ?</a></li>
-<li class="chapter" data-level="13.14.2" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-13"><i class="fa fa-check"></i><b>13.14.2</b> Sample Data</a></li>
+<li class="chapter" data-level="13.10.7" data-path="pandas-1.html"><a href="pandas-1.html#transform"><i class="fa fa-check"></i><b>13.10.7</b> Transform</a></li>
 </ul></li>
-<li class="chapter" data-level="13.15" data-path="pandas-1.html"><a href="pandas-1.html#pandas-datetime"><i class="fa fa-check"></i><b>13.15</b> Pandas DateTime</a></li>
-<li class="chapter" data-level="13.16" data-path="pandas-1.html"><a href="pandas-1.html#datetimeindex"><i class="fa fa-check"></i><b>13.16</b> DateTimeIndex</a><ul>
-<li class="chapter" data-level="13.16.1" data-path="pandas-1.html"><a href="pandas-1.html#creating-1"><i class="fa fa-check"></i><b>13.16.1</b> Creating</a><ul>
-<li class="chapter" data-level="13.16.1.1" data-path="pandas-1.html"><a href="pandas-1.html#convert-from"><i class="fa fa-check"></i><b>13.16.1.1</b> Convert From</a></li>
+<li class="chapter" data-level="13.11" data-path="pandas-1.html"><a href="pandas-1.html#concat"><i class="fa fa-check"></i><b>13.11</b> Concat</a><ul>
+<li class="chapter" data-level="13.11.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-12"><i class="fa fa-check"></i><b>13.11.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.11.2" data-path="pandas-1.html"><a href="pandas-1.html#column-wise"><i class="fa fa-check"></i><b>13.11.2</b> Column-Wise</a><ul>
+<li class="chapter" data-level="13.11.2.1" data-path="pandas-1.html"><a href="pandas-1.html#multiple-arraysseries"><i class="fa fa-check"></i><b>13.11.2.1</b> Multiple Arrays/Series</a></li>
+<li class="chapter" data-level="13.11.2.2" data-path="pandas-1.html"><a href="pandas-1.html#dataframe-and-series"><i class="fa fa-check"></i><b>13.11.2.2</b> DataFrame and Series</a></li>
 </ul></li>
-<li class="chapter" data-level="13.16.2" data-path="pandas-1.html"><a href="pandas-1.html#instance-method-4"><i class="fa fa-check"></i><b>13.16.2</b> Instance Method</a><ul>
-<li class="chapter" data-level="13.16.2.1" data-path="pandas-1.html"><a href="pandas-1.html#conversion-to-datetime.datetime"><i class="fa fa-check"></i><b>13.16.2.1</b> Conversion to: datetime.datetime</a></li>
-<li class="chapter" data-level="13.16.2.2" data-path="pandas-1.html"><a href="pandas-1.html#converion-to_series"><i class="fa fa-check"></i><b>13.16.2.2</b> Converion: <code>to_series</code></a></li>
-<li class="chapter" data-level="13.16.2.3" data-path="pandas-1.html"><a href="pandas-1.html#converion-to_frame"><i class="fa fa-check"></i><b>13.16.2.3</b> Converion: <code>to_frame()</code></a></li>
+<li class="chapter" data-level="13.11.3" data-path="pandas-1.html"><a href="pandas-1.html#row-wise"><i class="fa fa-check"></i><b>13.11.3</b> Row-Wise</a></li>
 </ul></li>
-<li class="chapter" data-level="13.16.3" data-path="pandas-1.html"><a href="pandas-1.html#properties-2"><i class="fa fa-check"></i><b>13.16.3</b> Properties</a></li>
+<li class="chapter" data-level="13.12" data-path="pandas-1.html"><a href="pandas-1.html#fundamental-analysis"><i class="fa fa-check"></i><b>13.12</b> Fundamental Analysis</a><ul>
+<li class="chapter" data-level="13.12.1" data-path="pandas-1.html"><a href="pandas-1.html#structure-of-the-dataframe-.info"><i class="fa fa-check"></i><b>13.12.1</b> Structure of the Dataframe (.info())</a></li>
+<li class="chapter" data-level="13.12.2" data-path="pandas-1.html"><a href="pandas-1.html#first-few-rows-.head"><i class="fa fa-check"></i><b>13.12.2</b> First Few Rows (.head())</a></li>
+</ul></li>
+<li class="chapter" data-level="13.13" data-path="pandas-1.html"><a href="pandas-1.html#missing-data"><i class="fa fa-check"></i><b>13.13</b> Missing Data</a><ul>
+<li class="chapter" data-level="13.13.1" data-path="pandas-1.html"><a href="pandas-1.html#what-is-considered-missing-data"><i class="fa fa-check"></i><b>13.13.1</b> What Is Considered Missing Data ?</a></li>
+<li class="chapter" data-level="13.13.2" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-13"><i class="fa fa-check"></i><b>13.13.2</b> Sample Data</a></li>
+</ul></li>
+<li class="chapter" data-level="13.14" data-path="pandas-1.html"><a href="pandas-1.html#pandas-datetime"><i class="fa fa-check"></i><b>13.14</b> Pandas DateTime</a></li>
+<li class="chapter" data-level="13.15" data-path="pandas-1.html"><a href="pandas-1.html#datetimeindex"><i class="fa fa-check"></i><b>13.15</b> DateTimeIndex</a><ul>
+<li class="chapter" data-level="13.15.1" data-path="pandas-1.html"><a href="pandas-1.html#creating-1"><i class="fa fa-check"></i><b>13.15.1</b> Creating</a><ul>
+<li class="chapter" data-level="13.15.1.1" data-path="pandas-1.html"><a href="pandas-1.html#convert-from"><i class="fa fa-check"></i><b>13.15.1.1</b> Convert From</a></li>
+</ul></li>
+<li class="chapter" data-level="13.15.2" data-path="pandas-1.html"><a href="pandas-1.html#instance-method-4"><i class="fa fa-check"></i><b>13.15.2</b> Instance Method</a><ul>
+<li class="chapter" data-level="13.15.2.1" data-path="pandas-1.html"><a href="pandas-1.html#conversion-to-datetime.datetime"><i class="fa fa-check"></i><b>13.15.2.1</b> Conversion to: datetime.datetime</a></li>
+<li class="chapter" data-level="13.15.2.2" data-path="pandas-1.html"><a href="pandas-1.html#converion-to_series"><i class="fa fa-check"></i><b>13.15.2.2</b> Converion: <code>to_series</code></a></li>
+<li class="chapter" data-level="13.15.2.3" data-path="pandas-1.html"><a href="pandas-1.html#converion-to_frame"><i class="fa fa-check"></i><b>13.15.2.3</b> Converion: <code>to_frame()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="13.15.3" data-path="pandas-1.html"><a href="pandas-1.html#properties-2"><i class="fa fa-check"></i><b>13.15.3</b> Properties</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="matplotlib-2.html"><a href="matplotlib-2.html"><i class="fa fa-check"></i><b>14</b> matplotlib</a><ul>
@@ -900,61 +895,78 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="18" data-path="nlp.html"><a href="nlp.html"><i class="fa fa-check"></i><b>18</b> NLP</a><ul>
-<li class="chapter" data-level="18.1" data-path="nlp.html"><a href="nlp.html#word-tokenizer"><i class="fa fa-check"></i><b>18.1</b> Word Tokenizer</a><ul>
-<li class="chapter" data-level="18.1.1" data-path="nlp.html"><a href="nlp.html#custom-tokenizer"><i class="fa fa-check"></i><b>18.1.1</b> Custom Tokenizer</a><ul>
-<li class="chapter" data-level="18.1.1.1" data-path="nlp.html"><a href="nlp.html#split-by-regex-pattern"><i class="fa fa-check"></i><b>18.1.1.1</b> Split By Regex Pattern</a></li>
-<li class="chapter" data-level="18.1.1.2" data-path="nlp.html"><a href="nlp.html#pick-by-regex-pattern-nltk.tokenize.regexptokenizer"><i class="fa fa-check"></i><b>18.1.1.2</b> Pick By Regex Pattern <code>nltk.tokenize.RegexpTokenizer</code></a></li>
+<li class="chapter" data-level="18.1" data-path="nlp.html"><a href="nlp.html#regular-expression"><i class="fa fa-check"></i><b>18.1</b> Regular Expression</a><ul>
+<li class="chapter" data-level="18.1.1" data-path="nlp.html"><a href="nlp.html#syntax-1"><i class="fa fa-check"></i><b>18.1.1</b> Syntax</a></li>
+<li class="chapter" data-level="18.1.2" data-path="nlp.html"><a href="nlp.html#finding"><i class="fa fa-check"></i><b>18.1.2</b> Finding</a><ul>
+<li class="chapter" data-level="18.1.2.1" data-path="nlp.html"><a href="nlp.html#find-the-first-match"><i class="fa fa-check"></i><b>18.1.2.1</b> Find The First Match</a></li>
+<li class="chapter" data-level="18.1.2.2" data-path="nlp.html"><a href="nlp.html#find-all-matches"><i class="fa fa-check"></i><b>18.1.2.2</b> Find All Matches</a></li>
 </ul></li>
-<li class="chapter" data-level="18.1.2" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.word_tokenize"><i class="fa fa-check"></i><b>18.1.2</b> <code>nltk.tokenize.word_tokenize()</code></a></li>
-<li class="chapter" data-level="18.1.3" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.casual.casual_tokenize"><i class="fa fa-check"></i><b>18.1.3</b> <code>nltk.tokenize.casual.casual_tokenize()</code></a></li>
-<li class="chapter" data-level="18.1.4" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.treebank.treebankwordtokenizer.tokenize"><i class="fa fa-check"></i><b>18.1.4</b> <code>nltk.tokenize.treebank.TreebankWordTokenizer().tokenize()</code></a></li>
-<li class="chapter" data-level="18.1.5" data-path="nlp.html"><a href="nlp.html#corpus-token-extractor"><i class="fa fa-check"></i><b>18.1.5</b> Corpus Token Extractor</a></li>
+<li class="chapter" data-level="18.1.3" data-path="nlp.html"><a href="nlp.html#matching-condition"><i class="fa fa-check"></i><b>18.1.3</b> Matching Condition</a><ul>
+<li class="chapter" data-level="18.1.3.1" data-path="nlp.html"><a href="nlp.html#meta-characters"><i class="fa fa-check"></i><b>18.1.3.1</b> Meta Characters</a></li>
+<li class="chapter" data-level="18.1.3.2" data-path="nlp.html"><a href="nlp.html#special-sequence"><i class="fa fa-check"></i><b>18.1.3.2</b> Special Sequence</a></li>
+<li class="chapter" data-level="18.1.3.3" data-path="nlp.html"><a href="nlp.html#repetition"><i class="fa fa-check"></i><b>18.1.3.3</b> Repetition</a></li>
 </ul></li>
-<li class="chapter" data-level="18.2" data-path="nlp.html"><a href="nlp.html#sentence-tokenizer"><i class="fa fa-check"></i><b>18.2</b> Sentence Tokenizer</a><ul>
-<li class="chapter" data-level="18.2.1" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.sent_tokenize"><i class="fa fa-check"></i><b>18.2.1</b> <code>nltk.tokenize.sent_tokenize()</code></a></li>
-</ul></li>
-<li class="chapter" data-level="18.3" data-path="nlp.html"><a href="nlp.html#n-gram"><i class="fa fa-check"></i><b>18.3</b> N-Gram</a></li>
-<li class="chapter" data-level="18.4" data-path="nlp.html"><a href="nlp.html#stopwords"><i class="fa fa-check"></i><b>18.4</b> Stopwords</a><ul>
-<li class="chapter" data-level="18.4.1" data-path="nlp.html"><a href="nlp.html#custom-stop-words"><i class="fa fa-check"></i><b>18.4.1</b> Custom Stop Words</a></li>
-<li class="chapter" data-level="18.4.2" data-path="nlp.html"><a href="nlp.html#nltk-stop-words"><i class="fa fa-check"></i><b>18.4.2</b> NLTK Stop Words</a></li>
-<li class="chapter" data-level="18.4.3" data-path="nlp.html"><a href="nlp.html#sklearn-stop-words"><i class="fa fa-check"></i><b>18.4.3</b> SKLearn Stop Words</a></li>
-<li class="chapter" data-level="18.4.4" data-path="nlp.html"><a href="nlp.html#combined-nltk-and-sklearn-stop-words"><i class="fa fa-check"></i><b>18.4.4</b> Combined NLTK and SKLearn Stop Words</a></li>
-</ul></li>
-<li class="chapter" data-level="18.5" data-path="nlp.html"><a href="nlp.html#normalizing"><i class="fa fa-check"></i><b>18.5</b> Normalizing</a><ul>
-<li class="chapter" data-level="18.5.1" data-path="nlp.html"><a href="nlp.html#case-folding"><i class="fa fa-check"></i><b>18.5.1</b> Case Folding</a></li>
-<li class="chapter" data-level="18.5.2" data-path="nlp.html"><a href="nlp.html#stemming"><i class="fa fa-check"></i><b>18.5.2</b> Stemming</a></li>
-<li class="chapter" data-level="18.5.3" data-path="nlp.html"><a href="nlp.html#lemmatization"><i class="fa fa-check"></i><b>18.5.3</b> Lemmatization</a></li>
-<li class="chapter" data-level="18.5.4" data-path="nlp.html"><a href="nlp.html#comparing-stemming-and-lemmatization"><i class="fa fa-check"></i><b>18.5.4</b> Comparing Stemming and Lemmatization</a></li>
-</ul></li>
-<li class="chapter" data-level="18.6" data-path="nlp.html"><a href="nlp.html#pos-tagging"><i class="fa fa-check"></i><b>18.6</b> POS Tagging</a></li>
-<li class="chapter" data-level="18.7" data-path="nlp.html"><a href="nlp.html#sentiment"><i class="fa fa-check"></i><b>18.7</b> Sentiment</a><ul>
-<li class="chapter" data-level="18.7.1" data-path="nlp.html"><a href="nlp.html#vader"><i class="fa fa-check"></i><b>18.7.1</b> Vader</a><ul>
-<li class="chapter" data-level="18.7.1.1" data-path="nlp.html"><a href="nlp.html#vader-lexicon"><i class="fa fa-check"></i><b>18.7.1.1</b> Vader Lexicon</a></li>
-<li class="chapter" data-level="18.7.1.2" data-path="nlp.html"><a href="nlp.html#polarity-scoring"><i class="fa fa-check"></i><b>18.7.1.2</b> Polarity Scoring</a></li>
-</ul></li>
-<li class="chapter" data-level="18.7.2" data-path="nlp.html"><a href="nlp.html#sentiwordnet"><i class="fa fa-check"></i><b>18.7.2</b> SentiWordNet</a></li>
-</ul></li>
-<li class="chapter" data-level="18.8" data-path="nlp.html"><a href="nlp.html#feature-representation"><i class="fa fa-check"></i><b>18.8</b> Feature Representation</a><ul>
-<li class="chapter" data-level="18.8.1" data-path="nlp.html"><a href="nlp.html#the-data-1"><i class="fa fa-check"></i><b>18.8.1</b> The Data</a></li>
-<li class="chapter" data-level="18.8.2" data-path="nlp.html"><a href="nlp.html#frequency-count-1"><i class="fa fa-check"></i><b>18.8.2</b> Frequency Count</a><ul>
-<li class="chapter" data-level="18.8.2.1" data-path="nlp.html"><a href="nlp.html#tokenizer"><i class="fa fa-check"></i><b>18.8.2.1</b> + Tokenizer</a></li>
-<li class="chapter" data-level="18.8.2.2" data-path="nlp.html"><a href="nlp.html#stop-words"><i class="fa fa-check"></i><b>18.8.2.2</b> + Stop Words</a></li>
-</ul></li>
-<li class="chapter" data-level="18.8.3" data-path="nlp.html"><a href="nlp.html#tfidf"><i class="fa fa-check"></i><b>18.8.3</b> TFIDF</a><ul>
-<li class="chapter" data-level="18.8.3.1" data-path="nlp.html"><a href="nlp.html#equation"><i class="fa fa-check"></i><b>18.8.3.1</b> Equation</a></li>
-<li class="chapter" data-level="18.8.3.2" data-path="nlp.html"><a href="nlp.html#tfidftransformer"><i class="fa fa-check"></i><b>18.8.3.2</b> <code>TfidfTransformer</code></a></li>
-<li class="chapter" data-level="18.8.3.3" data-path="nlp.html"><a href="nlp.html#tfidfvectorizer"><i class="fa fa-check"></i><b>18.8.3.3</b> <code>TfidfVectorizer</code></a></li>
+<li class="chapter" data-level="18.1.4" data-path="nlp.html"><a href="nlp.html#grouping-1"><i class="fa fa-check"></i><b>18.1.4</b> Grouping</a></li>
+<li class="chapter" data-level="18.1.5" data-path="nlp.html"><a href="nlp.html#splittitng"><i class="fa fa-check"></i><b>18.1.5</b> Splittitng</a><ul>
+<li class="chapter" data-level="18.1.5.1" data-path="nlp.html"><a href="nlp.html#use-re.split"><i class="fa fa-check"></i><b>18.1.5.1</b> Use <code>re.split()</code></a></li>
+<li class="chapter" data-level="18.1.5.2" data-path="nlp.html"><a href="nlp.html#use-re.comple.split"><i class="fa fa-check"></i><b>18.1.5.2</b> Use <code>re.comple().split()</code></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="18.9" data-path="nlp.html"><a href="nlp.html#appliction"><i class="fa fa-check"></i><b>18.9</b> Appliction</a><ul>
-<li class="chapter" data-level="18.9.1" data-path="nlp.html"><a href="nlp.html#document-similarity"><i class="fa fa-check"></i><b>18.9.1</b> Document Similarity</a></li>
+<li class="chapter" data-level="18.2" data-path="nlp.html"><a href="nlp.html#word-tokenizer"><i class="fa fa-check"></i><b>18.2</b> Word Tokenizer</a><ul>
+<li class="chapter" data-level="18.2.1" data-path="nlp.html"><a href="nlp.html#custom-tokenizer"><i class="fa fa-check"></i><b>18.2.1</b> Custom Tokenizer</a><ul>
+<li class="chapter" data-level="18.2.1.1" data-path="nlp.html"><a href="nlp.html#split-by-regex-pattern"><i class="fa fa-check"></i><b>18.2.1.1</b> Split By Regex Pattern</a></li>
+<li class="chapter" data-level="18.2.1.2" data-path="nlp.html"><a href="nlp.html#pick-by-regex-pattern-nltk.tokenize.regexptokenizer"><i class="fa fa-check"></i><b>18.2.1.2</b> Pick By Regex Pattern <code>nltk.tokenize.RegexpTokenizer</code></a></li>
 </ul></li>
-<li class="chapter" data-level="18.10" data-path="nlp.html"><a href="nlp.html#naive-bayes"><i class="fa fa-check"></i><b>18.10</b> Naive Bayes</a><ul>
-<li class="chapter" data-level="18.10.1" data-path="nlp.html"><a href="nlp.html#libraries-1"><i class="fa fa-check"></i><b>18.10.1</b> Libraries</a></li>
-<li class="chapter" data-level="18.10.2" data-path="nlp.html"><a href="nlp.html#the-data-2"><i class="fa fa-check"></i><b>18.10.2</b> The Data</a></li>
-<li class="chapter" data-level="18.10.3" data-path="nlp.html"><a href="nlp.html#bag-of-words"><i class="fa fa-check"></i><b>18.10.3</b> Bag of Words</a></li>
-<li class="chapter" data-level="18.10.4" data-path="nlp.html"><a href="nlp.html#build-the-model"><i class="fa fa-check"></i><b>18.10.4</b> Build The Model</a></li>
-<li class="chapter" data-level="18.10.5" data-path="nlp.html"><a href="nlp.html#train-set-prediction"><i class="fa fa-check"></i><b>18.10.5</b> Train Set Prediction</a></li>
+<li class="chapter" data-level="18.2.2" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.word_tokenize"><i class="fa fa-check"></i><b>18.2.2</b> <code>nltk.tokenize.word_tokenize()</code></a></li>
+<li class="chapter" data-level="18.2.3" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.casual.casual_tokenize"><i class="fa fa-check"></i><b>18.2.3</b> <code>nltk.tokenize.casual.casual_tokenize()</code></a></li>
+<li class="chapter" data-level="18.2.4" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.treebank.treebankwordtokenizer.tokenize"><i class="fa fa-check"></i><b>18.2.4</b> <code>nltk.tokenize.treebank.TreebankWordTokenizer().tokenize()</code></a></li>
+<li class="chapter" data-level="18.2.5" data-path="nlp.html"><a href="nlp.html#corpus-token-extractor"><i class="fa fa-check"></i><b>18.2.5</b> Corpus Token Extractor</a></li>
+</ul></li>
+<li class="chapter" data-level="18.3" data-path="nlp.html"><a href="nlp.html#sentence-tokenizer"><i class="fa fa-check"></i><b>18.3</b> Sentence Tokenizer</a><ul>
+<li class="chapter" data-level="18.3.1" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.sent_tokenize"><i class="fa fa-check"></i><b>18.3.1</b> <code>nltk.tokenize.sent_tokenize()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="18.4" data-path="nlp.html"><a href="nlp.html#n-gram"><i class="fa fa-check"></i><b>18.4</b> N-Gram</a></li>
+<li class="chapter" data-level="18.5" data-path="nlp.html"><a href="nlp.html#stopwords"><i class="fa fa-check"></i><b>18.5</b> Stopwords</a><ul>
+<li class="chapter" data-level="18.5.1" data-path="nlp.html"><a href="nlp.html#custom-stop-words"><i class="fa fa-check"></i><b>18.5.1</b> Custom Stop Words</a></li>
+<li class="chapter" data-level="18.5.2" data-path="nlp.html"><a href="nlp.html#nltk-stop-words"><i class="fa fa-check"></i><b>18.5.2</b> NLTK Stop Words</a></li>
+<li class="chapter" data-level="18.5.3" data-path="nlp.html"><a href="nlp.html#sklearn-stop-words"><i class="fa fa-check"></i><b>18.5.3</b> SKLearn Stop Words</a></li>
+<li class="chapter" data-level="18.5.4" data-path="nlp.html"><a href="nlp.html#combined-nltk-and-sklearn-stop-words"><i class="fa fa-check"></i><b>18.5.4</b> Combined NLTK and SKLearn Stop Words</a></li>
+</ul></li>
+<li class="chapter" data-level="18.6" data-path="nlp.html"><a href="nlp.html#normalizing"><i class="fa fa-check"></i><b>18.6</b> Normalizing</a><ul>
+<li class="chapter" data-level="18.6.1" data-path="nlp.html"><a href="nlp.html#case-folding"><i class="fa fa-check"></i><b>18.6.1</b> Case Folding</a></li>
+<li class="chapter" data-level="18.6.2" data-path="nlp.html"><a href="nlp.html#stemming"><i class="fa fa-check"></i><b>18.6.2</b> Stemming</a></li>
+<li class="chapter" data-level="18.6.3" data-path="nlp.html"><a href="nlp.html#lemmatization"><i class="fa fa-check"></i><b>18.6.3</b> Lemmatization</a></li>
+<li class="chapter" data-level="18.6.4" data-path="nlp.html"><a href="nlp.html#comparing-stemming-and-lemmatization"><i class="fa fa-check"></i><b>18.6.4</b> Comparing Stemming and Lemmatization</a></li>
+</ul></li>
+<li class="chapter" data-level="18.7" data-path="nlp.html"><a href="nlp.html#pos-tagging"><i class="fa fa-check"></i><b>18.7</b> POS Tagging</a></li>
+<li class="chapter" data-level="18.8" data-path="nlp.html"><a href="nlp.html#sentiment"><i class="fa fa-check"></i><b>18.8</b> Sentiment</a><ul>
+<li class="chapter" data-level="18.8.1" data-path="nlp.html"><a href="nlp.html#vader"><i class="fa fa-check"></i><b>18.8.1</b> Vader</a><ul>
+<li class="chapter" data-level="18.8.1.1" data-path="nlp.html"><a href="nlp.html#vader-lexicon"><i class="fa fa-check"></i><b>18.8.1.1</b> Vader Lexicon</a></li>
+<li class="chapter" data-level="18.8.1.2" data-path="nlp.html"><a href="nlp.html#polarity-scoring"><i class="fa fa-check"></i><b>18.8.1.2</b> Polarity Scoring</a></li>
+</ul></li>
+<li class="chapter" data-level="18.8.2" data-path="nlp.html"><a href="nlp.html#sentiwordnet"><i class="fa fa-check"></i><b>18.8.2</b> SentiWordNet</a></li>
+</ul></li>
+<li class="chapter" data-level="18.9" data-path="nlp.html"><a href="nlp.html#feature-representation"><i class="fa fa-check"></i><b>18.9</b> Feature Representation</a><ul>
+<li class="chapter" data-level="18.9.1" data-path="nlp.html"><a href="nlp.html#the-data-1"><i class="fa fa-check"></i><b>18.9.1</b> The Data</a></li>
+<li class="chapter" data-level="18.9.2" data-path="nlp.html"><a href="nlp.html#frequency-count-1"><i class="fa fa-check"></i><b>18.9.2</b> Frequency Count</a><ul>
+<li class="chapter" data-level="18.9.2.1" data-path="nlp.html"><a href="nlp.html#tokenizer"><i class="fa fa-check"></i><b>18.9.2.1</b> + Tokenizer</a></li>
+<li class="chapter" data-level="18.9.2.2" data-path="nlp.html"><a href="nlp.html#stop-words"><i class="fa fa-check"></i><b>18.9.2.2</b> + Stop Words</a></li>
+</ul></li>
+<li class="chapter" data-level="18.9.3" data-path="nlp.html"><a href="nlp.html#tfidf"><i class="fa fa-check"></i><b>18.9.3</b> TFIDF</a><ul>
+<li class="chapter" data-level="18.9.3.1" data-path="nlp.html"><a href="nlp.html#equation"><i class="fa fa-check"></i><b>18.9.3.1</b> Equation</a></li>
+<li class="chapter" data-level="18.9.3.2" data-path="nlp.html"><a href="nlp.html#tfidftransformer"><i class="fa fa-check"></i><b>18.9.3.2</b> <code>TfidfTransformer</code></a></li>
+<li class="chapter" data-level="18.9.3.3" data-path="nlp.html"><a href="nlp.html#tfidfvectorizer"><i class="fa fa-check"></i><b>18.9.3.3</b> <code>TfidfVectorizer</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="18.10" data-path="nlp.html"><a href="nlp.html#appliction"><i class="fa fa-check"></i><b>18.10</b> Appliction</a><ul>
+<li class="chapter" data-level="18.10.1" data-path="nlp.html"><a href="nlp.html#document-similarity"><i class="fa fa-check"></i><b>18.10.1</b> Document Similarity</a></li>
+</ul></li>
+<li class="chapter" data-level="18.11" data-path="nlp.html"><a href="nlp.html#naive-bayes"><i class="fa fa-check"></i><b>18.11</b> Naive Bayes</a><ul>
+<li class="chapter" data-level="18.11.1" data-path="nlp.html"><a href="nlp.html#libraries-1"><i class="fa fa-check"></i><b>18.11.1</b> Libraries</a></li>
+<li class="chapter" data-level="18.11.2" data-path="nlp.html"><a href="nlp.html#the-data-2"><i class="fa fa-check"></i><b>18.11.2</b> The Data</a></li>
+<li class="chapter" data-level="18.11.3" data-path="nlp.html"><a href="nlp.html#bag-of-words"><i class="fa fa-check"></i><b>18.11.3</b> Bag of Words</a></li>
+<li class="chapter" data-level="18.11.4" data-path="nlp.html"><a href="nlp.html#build-the-model"><i class="fa fa-check"></i><b>18.11.4</b> Build The Model</a></li>
+<li class="chapter" data-level="18.11.5" data-path="nlp.html"><a href="nlp.html#train-set-prediction"><i class="fa fa-check"></i><b>18.11.5</b> Train Set Prediction</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -976,30 +988,30 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="matplotlib-2" class="section level1">
 <h1><span class="header-section-number">14</span> matplotlib</h1>
-<div class="sourceCode" id="cb1608"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1608-1"><a href="matplotlib-2.html#cb1608-1"></a><span class="im">from</span> IPython.core.display <span class="im">import</span> display, HTML</span>
-<span id="cb1608-2"><a href="matplotlib-2.html#cb1608-2"></a>display(HTML(<span class="st">&quot;&lt;style&gt;.container { width:75% !important; margin-left:350px; }&lt;/style&gt;&quot;</span>))</span>
-<span id="cb1608-3"><a href="matplotlib-2.html#cb1608-3"></a><span class="co">#%matplotlib inline</span></span></code></pre></div>
+<div class="sourceCode" id="cb1581"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1581-1" title="1"><span class="im">from</span> IPython.core.display <span class="im">import</span> display, HTML</a>
+<a class="sourceLine" id="cb1581-2" title="2">display(HTML(<span class="st">&quot;&lt;style&gt;.container { width:75% !important; margin-left:350px; }&lt;/style&gt;&quot;</span>))</a>
+<a class="sourceLine" id="cb1581-3" title="3"><span class="co">#%matplotlib inline</span></a></code></pre></div>
 <pre><code>## &lt;IPython.core.display.HTML object&gt;</code></pre>
-<div class="sourceCode" id="cb1610"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1610-1"><a href="matplotlib-2.html#cb1610-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1610-2"><a href="matplotlib-2.html#cb1610-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1610-3"><a href="matplotlib-2.html#cb1610-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1610-4"><a href="matplotlib-2.html#cb1610-4"></a><span class="im">import</span> math</span>
-<span id="cb1610-5"><a href="matplotlib-2.html#cb1610-5"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb1610-6"><a href="matplotlib-2.html#cb1610-6"></a>pd.set_option( <span class="st">&#39;display.notebook_repr_html&#39;</span>, <span class="va">False</span>)  <span class="co"># render Series and DataFrame as text, not HTML</span></span>
-<span id="cb1610-7"><a href="matplotlib-2.html#cb1610-7"></a>pd.set_option( <span class="st">&#39;display.max_column&#39;</span>, <span class="dv">10</span>)    <span class="co"># number of columns</span></span>
-<span id="cb1610-8"><a href="matplotlib-2.html#cb1610-8"></a>pd.set_option( <span class="st">&#39;display.max_rows&#39;</span>, <span class="dv">10</span>)     <span class="co"># number of rows</span></span>
-<span id="cb1610-9"><a href="matplotlib-2.html#cb1610-9"></a>pd.set_option( <span class="st">&#39;display.width&#39;</span>, <span class="dv">90</span>)        <span class="co"># number of characters per row</span></span></code></pre></div>
+<div class="sourceCode" id="cb1583"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1583-1" title="1"><span class="im">import</span> numpy <span class="im">as</span> np</a>
+<a class="sourceLine" id="cb1583-2" title="2"><span class="im">import</span> pandas <span class="im">as</span> pd</a>
+<a class="sourceLine" id="cb1583-3" title="3"><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</a>
+<a class="sourceLine" id="cb1583-4" title="4"><span class="im">import</span> math</a>
+<a class="sourceLine" id="cb1583-5" title="5"><span class="im">import</span> seaborn <span class="im">as</span> sns</a>
+<a class="sourceLine" id="cb1583-6" title="6">pd.set_option( <span class="st">&#39;display.notebook_repr_html&#39;</span>, <span class="va">False</span>)  <span class="co"># render Series and DataFrame as text, not HTML</span></a>
+<a class="sourceLine" id="cb1583-7" title="7">pd.set_option( <span class="st">&#39;display.max_column&#39;</span>, <span class="dv">10</span>)    <span class="co"># number of columns</span></a>
+<a class="sourceLine" id="cb1583-8" title="8">pd.set_option( <span class="st">&#39;display.max_rows&#39;</span>, <span class="dv">10</span>)     <span class="co"># number of rows</span></a>
+<a class="sourceLine" id="cb1583-9" title="9">pd.set_option( <span class="st">&#39;display.width&#39;</span>, <span class="dv">90</span>)        <span class="co"># number of characters per row</span></a></code></pre></div>
 <div id="library" class="section level2">
 <h2><span class="header-section-number">14.1</span> Library</h2>
-<div class="sourceCode" id="cb1611"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1611-1"><a href="matplotlib-2.html#cb1611-1"></a><span class="im">import</span> matplotlib</span>
-<span id="cb1611-2"><a href="matplotlib-2.html#cb1611-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1611-3"><a href="matplotlib-2.html#cb1611-3"></a></span>
-<span id="cb1611-4"><a href="matplotlib-2.html#cb1611-4"></a><span class="im">from</span> plydata <span class="im">import</span> define, query, select, group_by, summarize, arrange, head, rename</span>
-<span id="cb1611-5"><a href="matplotlib-2.html#cb1611-5"></a><span class="im">import</span> plotnine</span>
-<span id="cb1611-6"><a href="matplotlib-2.html#cb1611-6"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span>
-<span id="cb1611-7"><a href="matplotlib-2.html#cb1611-7"></a></span>
-<span id="cb1611-8"><a href="matplotlib-2.html#cb1611-8"></a><span class="im">import</span> os</span>
-<span id="cb1611-9"><a href="matplotlib-2.html#cb1611-9"></a>os.environ[<span class="st">&#39;QT_QPA_PLATFORM_PLUGIN_PATH&#39;</span>] <span class="op">=</span> <span class="st">&quot;C:\ProgramData\Anaconda3\Library\plugins\platforms&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb1584"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1584-1" title="1"><span class="im">import</span> matplotlib</a>
+<a class="sourceLine" id="cb1584-2" title="2"><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</a>
+<a class="sourceLine" id="cb1584-3" title="3"></a>
+<a class="sourceLine" id="cb1584-4" title="4"><span class="im">from</span> plydata <span class="im">import</span> define, query, select, group_by, summarize, arrange, head, rename</a>
+<a class="sourceLine" id="cb1584-5" title="5"><span class="im">import</span> plotnine</a>
+<a class="sourceLine" id="cb1584-6" title="6"><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></a>
+<a class="sourceLine" id="cb1584-7" title="7"></a>
+<a class="sourceLine" id="cb1584-8" title="8"><span class="im">import</span> os</a>
+<a class="sourceLine" id="cb1584-9" title="9">os.environ[<span class="st">&#39;QT_QPA_PLATFORM_PLUGIN_PATH&#39;</span>] <span class="op">=</span> <span class="st">&quot;C:\ProgramData\Anaconda3\Library\plugins\platforms&quot;</span></a></code></pre></div>
 </div>
 <div id="sample-data-14" class="section level2">
 <h2><span class="header-section-number">14.2</span> Sample Data</h2>
@@ -1015,29 +1027,29 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </li>
 <li>value2 is numeric value, normally distributed at mean 25</li>
 </ul>
-<div class="sourceCode" id="cb1612"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1612-1"><a href="matplotlib-2.html#cb1612-1"></a>n <span class="op">=</span> <span class="dv">200</span></span>
-<span id="cb1612-2"><a href="matplotlib-2.html#cb1612-2"></a>comp <span class="op">=</span> [<span class="st">&#39;C&#39;</span> <span class="op">+</span> i <span class="cf">for</span> i <span class="kw">in</span> np.random.randint( <span class="dv">1</span>,<span class="dv">4</span>, size  <span class="op">=</span> n).astype(<span class="bu">str</span>)] <span class="co"># 3x Company</span></span>
-<span id="cb1612-3"><a href="matplotlib-2.html#cb1612-3"></a>dept <span class="op">=</span> [<span class="st">&#39;D&#39;</span> <span class="op">+</span> i <span class="cf">for</span> i <span class="kw">in</span> np.random.randint( <span class="dv">1</span>,<span class="dv">6</span>, size  <span class="op">=</span> n).astype(<span class="bu">str</span>)] <span class="co"># 5x Department</span></span>
-<span id="cb1612-4"><a href="matplotlib-2.html#cb1612-4"></a>grp <span class="op">=</span>  [<span class="st">&#39;G&#39;</span> <span class="op">+</span> i <span class="cf">for</span> i <span class="kw">in</span> np.random.randint( <span class="dv">1</span>,<span class="dv">3</span>, size  <span class="op">=</span> n).astype(<span class="bu">str</span>)] <span class="co"># 2x Groups</span></span>
-<span id="cb1612-5"><a href="matplotlib-2.html#cb1612-5"></a>value1 <span class="op">=</span> np.random.normal( loc<span class="op">=</span><span class="dv">50</span> , scale<span class="op">=</span><span class="dv">5</span> , size <span class="op">=</span> n)</span>
-<span id="cb1612-6"><a href="matplotlib-2.html#cb1612-6"></a>value2 <span class="op">=</span> np.random.normal( loc<span class="op">=</span><span class="dv">20</span> , scale<span class="op">=</span><span class="dv">3</span> , size <span class="op">=</span> n)</span>
-<span id="cb1612-7"><a href="matplotlib-2.html#cb1612-7"></a>value3 <span class="op">=</span> np.random.normal( loc<span class="op">=</span><span class="dv">5</span> , scale<span class="op">=</span><span class="dv">30</span> , size <span class="op">=</span> n)</span>
-<span id="cb1612-8"><a href="matplotlib-2.html#cb1612-8"></a></span>
-<span id="cb1612-9"><a href="matplotlib-2.html#cb1612-9"></a>mydf <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb1612-10"><a href="matplotlib-2.html#cb1612-10"></a>    <span class="st">&#39;comp&#39;</span>:comp, </span>
-<span id="cb1612-11"><a href="matplotlib-2.html#cb1612-11"></a>    <span class="st">&#39;dept&#39;</span>:dept, </span>
-<span id="cb1612-12"><a href="matplotlib-2.html#cb1612-12"></a>    <span class="st">&#39;grp&#39;</span>: grp,</span>
-<span id="cb1612-13"><a href="matplotlib-2.html#cb1612-13"></a>    <span class="st">&#39;value1&#39;</span>:value1, </span>
-<span id="cb1612-14"><a href="matplotlib-2.html#cb1612-14"></a>    <span class="st">&#39;value2&#39;</span>:value2,</span>
-<span id="cb1612-15"><a href="matplotlib-2.html#cb1612-15"></a>    <span class="st">&#39;value3&#39;</span>:value3 })</span>
-<span id="cb1612-16"><a href="matplotlib-2.html#cb1612-16"></a>mydf.head()</span></code></pre></div>
+<div class="sourceCode" id="cb1585"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1585-1" title="1">n <span class="op">=</span> <span class="dv">200</span></a>
+<a class="sourceLine" id="cb1585-2" title="2">comp <span class="op">=</span> [<span class="st">&#39;C&#39;</span> <span class="op">+</span> i <span class="cf">for</span> i <span class="kw">in</span> np.random.randint( <span class="dv">1</span>,<span class="dv">4</span>, size  <span class="op">=</span> n).astype(<span class="bu">str</span>)] <span class="co"># 3x Company</span></a>
+<a class="sourceLine" id="cb1585-3" title="3">dept <span class="op">=</span> [<span class="st">&#39;D&#39;</span> <span class="op">+</span> i <span class="cf">for</span> i <span class="kw">in</span> np.random.randint( <span class="dv">1</span>,<span class="dv">6</span>, size  <span class="op">=</span> n).astype(<span class="bu">str</span>)] <span class="co"># 5x Department</span></a>
+<a class="sourceLine" id="cb1585-4" title="4">grp <span class="op">=</span>  [<span class="st">&#39;G&#39;</span> <span class="op">+</span> i <span class="cf">for</span> i <span class="kw">in</span> np.random.randint( <span class="dv">1</span>,<span class="dv">3</span>, size  <span class="op">=</span> n).astype(<span class="bu">str</span>)] <span class="co"># 2x Groups</span></a>
+<a class="sourceLine" id="cb1585-5" title="5">value1 <span class="op">=</span> np.random.normal( loc<span class="op">=</span><span class="dv">50</span> , scale<span class="op">=</span><span class="dv">5</span> , size <span class="op">=</span> n)</a>
+<a class="sourceLine" id="cb1585-6" title="6">value2 <span class="op">=</span> np.random.normal( loc<span class="op">=</span><span class="dv">20</span> , scale<span class="op">=</span><span class="dv">3</span> , size <span class="op">=</span> n)</a>
+<a class="sourceLine" id="cb1585-7" title="7">value3 <span class="op">=</span> np.random.normal( loc<span class="op">=</span><span class="dv">5</span> , scale<span class="op">=</span><span class="dv">30</span> , size <span class="op">=</span> n)</a>
+<a class="sourceLine" id="cb1585-8" title="8"></a>
+<a class="sourceLine" id="cb1585-9" title="9">mydf <span class="op">=</span> pd.DataFrame({</a>
+<a class="sourceLine" id="cb1585-10" title="10">    <span class="st">&#39;comp&#39;</span>:comp, </a>
+<a class="sourceLine" id="cb1585-11" title="11">    <span class="st">&#39;dept&#39;</span>:dept, </a>
+<a class="sourceLine" id="cb1585-12" title="12">    <span class="st">&#39;grp&#39;</span>: grp,</a>
+<a class="sourceLine" id="cb1585-13" title="13">    <span class="st">&#39;value1&#39;</span>:value1, </a>
+<a class="sourceLine" id="cb1585-14" title="14">    <span class="st">&#39;value2&#39;</span>:value2,</a>
+<a class="sourceLine" id="cb1585-15" title="15">    <span class="st">&#39;value3&#39;</span>:value3 })</a>
+<a class="sourceLine" id="cb1585-16" title="16">mydf.head()</a></code></pre></div>
 <pre><code>##   comp dept grp     value1     value2     value3
 ## 0   C3   D1  G2  58.001073  20.797796   4.565181
 ## 1   C2   D4  G2  47.122054  20.691133  36.084163
 ## 2   C3   D5  G1  49.497686  15.715835   7.232685
 ## 3   C1   D3  G2  50.129623  26.790262  -6.875583
 ## 4   C3   D3  G1  51.620032  23.704337  11.909618</code></pre>
-<div class="sourceCode" id="cb1614"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1614-1"><a href="matplotlib-2.html#cb1614-1"></a>mydf.info()</span></code></pre></div>
+<div class="sourceCode" id="cb1587"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1587-1" title="1">mydf.info()</a></code></pre></div>
 <pre><code>## &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 ## RangeIndex: 200 entries, 0 to 199
 ## Data columns (total 6 columns):
@@ -1061,33 +1073,33 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <div id="sample-data-15" class="section level3">
 <h3><span class="header-section-number">14.3.1</span> Sample Data</h3>
-<div class="sourceCode" id="cb1616"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1616-1"><a href="matplotlib-2.html#cb1616-1"></a><span class="co"># Sample Data</span></span>
-<span id="cb1616-2"><a href="matplotlib-2.html#cb1616-2"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">5</span>,<span class="dv">10</span>)</span>
-<span id="cb1616-3"><a href="matplotlib-2.html#cb1616-3"></a>y <span class="op">=</span> x <span class="op">**</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb1589"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1589-1" title="1"><span class="co"># Sample Data</span></a>
+<a class="sourceLine" id="cb1589-2" title="2">x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">5</span>,<span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb1589-3" title="3">y <span class="op">=</span> x <span class="op">**</span> <span class="dv">2</span></a></code></pre></div>
 </div>
 <div id="single-plot" class="section level3">
 <h3><span class="header-section-number">14.3.2</span> Single Plot</h3>
-<div class="sourceCode" id="cb1617"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1617-1"><a href="matplotlib-2.html#cb1617-1"></a><span class="co">#plt.figure()</span></span>
-<span id="cb1617-2"><a href="matplotlib-2.html#cb1617-2"></a><span class="co">#plt.xlabel(&#39;x&#39;)</span></span>
-<span id="cb1617-3"><a href="matplotlib-2.html#cb1617-3"></a><span class="co">#plt.ylabel(&#39;y&#39;)</span></span>
-<span id="cb1617-4"><a href="matplotlib-2.html#cb1617-4"></a><span class="co">#plt.plot(x,y,&#39;red&#39;)</span></span>
-<span id="cb1617-5"><a href="matplotlib-2.html#cb1617-5"></a><span class="co">#plt.title(&#39;My Good Data&#39;)</span></span>
-<span id="cb1617-6"><a href="matplotlib-2.html#cb1617-6"></a><span class="co">#plt.show()</span></span></code></pre></div>
+<div class="sourceCode" id="cb1590"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1590-1" title="1"><span class="co">#plt.figure()</span></a>
+<a class="sourceLine" id="cb1590-2" title="2"><span class="co">#plt.xlabel(&#39;x&#39;)</span></a>
+<a class="sourceLine" id="cb1590-3" title="3"><span class="co">#plt.ylabel(&#39;y&#39;)</span></a>
+<a class="sourceLine" id="cb1590-4" title="4"><span class="co">#plt.plot(x,y,&#39;red&#39;)</span></a>
+<a class="sourceLine" id="cb1590-5" title="5"><span class="co">#plt.title(&#39;My Good Data&#39;)</span></a>
+<a class="sourceLine" id="cb1590-6" title="6"><span class="co">#plt.show()</span></a></code></pre></div>
 </div>
 <div id="multiple-subplots" class="section level3">
 <h3><span class="header-section-number">14.3.3</span> Multiple Subplots</h3>
 <p>Each call lto <strong>subplot()</strong> will create a new container for subsequent plot command</p>
-<div class="sourceCode" id="cb1618"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1618-1"><a href="matplotlib-2.html#cb1618-1"></a>plt.figure()</span></code></pre></div>
+<div class="sourceCode" id="cb1591"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1591-1" title="1">plt.figure()</a></code></pre></div>
 <pre><code>## &lt;Figure size 267.36x250 with 0 Axes&gt;</code></pre>
-<div class="sourceCode" id="cb1620"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1620-1"><a href="matplotlib-2.html#cb1620-1"></a>plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>) <span class="co"># 1 row, 2 cols, at first box</span></span></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x00000000183EDC50&gt;</code></pre>
-<div class="sourceCode" id="cb1622"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1622-1"><a href="matplotlib-2.html#cb1622-1"></a>plt.plot(x,y,<span class="st">&#39;r--&#39;</span>)</span></code></pre></div>
-<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002B54D0B8&gt;]</code></pre>
-<div class="sourceCode" id="cb1624"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1624-1"><a href="matplotlib-2.html#cb1624-1"></a>plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>) <span class="co"># 1 row, 2 cols, at second box</span></span></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002B53FEF0&gt;</code></pre>
-<div class="sourceCode" id="cb1626"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1626-1"><a href="matplotlib-2.html#cb1626-1"></a>plt.plot(y,x,<span class="st">&#39;g*-&#39;</span>)</span></code></pre></div>
-<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002B581978&gt;]</code></pre>
-<div class="sourceCode" id="cb1628"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1628-1"><a href="matplotlib-2.html#cb1628-1"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb1593"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1593-1" title="1">plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>) <span class="co"># 1 row, 2 cols, at first box</span></a></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000000680CCF8&gt;</code></pre>
+<div class="sourceCode" id="cb1595"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1595-1" title="1">plt.plot(x,y,<span class="st">&#39;r--&#39;</span>)</a></code></pre></div>
+<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000000871B470&gt;]</code></pre>
+<div class="sourceCode" id="cb1597"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1597-1" title="1">plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>) <span class="co"># 1 row, 2 cols, at second box</span></a></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000000871B2B0&gt;</code></pre>
+<div class="sourceCode" id="cb1599"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1599-1" title="1">plt.plot(y,x,<span class="st">&#39;g*-&#39;</span>)</a></code></pre></div>
+<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x0000000008754D68&gt;]</code></pre>
+<div class="sourceCode" id="cb1601"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1601-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-630-1.png" /><!-- --></p>
 </div>
 </div>
@@ -1095,24 +1107,24 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">14.4</span> Object-Oriented API</h2>
 <div id="sample-data-16" class="section level3">
 <h3><span class="header-section-number">14.4.1</span> Sample Data</h3>
-<div class="sourceCode" id="cb1629"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1629-1"><a href="matplotlib-2.html#cb1629-1"></a><span class="co"># Sample Data</span></span>
-<span id="cb1629-2"><a href="matplotlib-2.html#cb1629-2"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">5</span>,<span class="dv">10</span>)</span>
-<span id="cb1629-3"><a href="matplotlib-2.html#cb1629-3"></a>y <span class="op">=</span> x <span class="op">**</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb1602"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1602-1" title="1"><span class="co"># Sample Data</span></a>
+<a class="sourceLine" id="cb1602-2" title="2">x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">5</span>,<span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb1602-3" title="3">y <span class="op">=</span> x <span class="op">**</span> <span class="dv">2</span></a></code></pre></div>
 </div>
 <div id="single-plot-1" class="section level3">
 <h3><span class="header-section-number">14.4.2</span> Single Plot</h3>
 <p><strong>One figure, one axes</strong></p>
-<div class="sourceCode" id="cb1630"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1630-1"><a href="matplotlib-2.html#cb1630-1"></a>fig <span class="op">=</span> plt.figure()</span>
-<span id="cb1630-2"><a href="matplotlib-2.html#cb1630-2"></a>axes <span class="op">=</span> fig.add_axes([<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>]) <span class="co"># left, bottom, width, height (range 0 to 1)</span></span>
-<span id="cb1630-3"><a href="matplotlib-2.html#cb1630-3"></a>axes.plot(x, y, <span class="st">&#39;r&#39;</span>)</span></code></pre></div>
-<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002B53FFD0&gt;]</code></pre>
-<div class="sourceCode" id="cb1632"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1632-1"><a href="matplotlib-2.html#cb1632-1"></a>axes.set_xlabel(<span class="st">&#39;x&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1603"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1603-1" title="1">fig <span class="op">=</span> plt.figure()</a>
+<a class="sourceLine" id="cb1603-2" title="2">axes <span class="op">=</span> fig.add_axes([<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>]) <span class="co"># left, bottom, width, height (range 0 to 1)</span></a>
+<a class="sourceLine" id="cb1603-3" title="3">axes.plot(x, y, <span class="st">&#39;r&#39;</span>)</a></code></pre></div>
+<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000000873F6A0&gt;]</code></pre>
+<div class="sourceCode" id="cb1605"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1605-1" title="1">axes.set_xlabel(<span class="st">&#39;x&#39;</span>)</a></code></pre></div>
 <pre><code>## Text(0.5, 0, &#39;x&#39;)</code></pre>
-<div class="sourceCode" id="cb1634"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1634-1"><a href="matplotlib-2.html#cb1634-1"></a>axes.set_ylabel(<span class="st">&#39;y&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1607"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1607-1" title="1">axes.set_ylabel(<span class="st">&#39;y&#39;</span>)</a></code></pre></div>
 <pre><code>## Text(0, 0.5, &#39;y&#39;)</code></pre>
-<div class="sourceCode" id="cb1636"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1636-1"><a href="matplotlib-2.html#cb1636-1"></a>axes.set_title(<span class="st">&#39;title&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1609"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1609-1" title="1">axes.set_title(<span class="st">&#39;title&#39;</span>)</a></code></pre></div>
 <pre><code>## Text(0.5, 1.0, &#39;title&#39;)</code></pre>
-<div class="sourceCode" id="cb1638"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1638-1"><a href="matplotlib-2.html#cb1638-1"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb1611"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1611-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-632-1.png" /><!-- --></p>
 </div>
 <div id="multiple-axes-in-one-plot" class="section level3">
@@ -1120,25 +1132,25 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>This is still considered a <strong>single plot</strong>, but with <strong>multiple axes</strong></li>
 </ul>
-<div class="sourceCode" id="cb1639"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1639-1"><a href="matplotlib-2.html#cb1639-1"></a>fig <span class="op">=</span> plt.figure()</span>
-<span id="cb1639-2"><a href="matplotlib-2.html#cb1639-2"></a>ax1 <span class="op">=</span> fig.add_axes([<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>])         <span class="co"># main axes</span></span>
-<span id="cb1639-3"><a href="matplotlib-2.html#cb1639-3"></a>ax2 <span class="op">=</span> fig.add_axes([<span class="fl">0.2</span>, <span class="fl">0.5</span>, <span class="fl">0.4</span>, <span class="fl">0.3</span>]) <span class="co"># inset axes</span></span>
-<span id="cb1639-4"><a href="matplotlib-2.html#cb1639-4"></a></span>
-<span id="cb1639-5"><a href="matplotlib-2.html#cb1639-5"></a>ax1.plot(x,y,<span class="st">&#39;r&#39;</span>)</span></code></pre></div>
-<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002C622AC8&gt;]</code></pre>
-<div class="sourceCode" id="cb1641"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1641-1"><a href="matplotlib-2.html#cb1641-1"></a>ax1.set_xlabel(<span class="st">&#39;x&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1612"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1612-1" title="1">fig <span class="op">=</span> plt.figure()</a>
+<a class="sourceLine" id="cb1612-2" title="2">ax1 <span class="op">=</span> fig.add_axes([<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>])         <span class="co"># main axes</span></a>
+<a class="sourceLine" id="cb1612-3" title="3">ax2 <span class="op">=</span> fig.add_axes([<span class="fl">0.2</span>, <span class="fl">0.5</span>, <span class="fl">0.4</span>, <span class="fl">0.3</span>]) <span class="co"># inset axes</span></a>
+<a class="sourceLine" id="cb1612-4" title="4"></a>
+<a class="sourceLine" id="cb1612-5" title="5">ax1.plot(x,y,<span class="st">&#39;r&#39;</span>)</a></code></pre></div>
+<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x0000000006EF9208&gt;]</code></pre>
+<div class="sourceCode" id="cb1614"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1614-1" title="1">ax1.set_xlabel(<span class="st">&#39;x&#39;</span>)</a></code></pre></div>
 <pre><code>## Text(0.5, 0, &#39;x&#39;)</code></pre>
-<div class="sourceCode" id="cb1643"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1643-1"><a href="matplotlib-2.html#cb1643-1"></a>ax1.set_ylabel(<span class="st">&#39;y&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1616"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1616-1" title="1">ax1.set_ylabel(<span class="st">&#39;y&#39;</span>)</a></code></pre></div>
 <pre><code>## Text(0, 0.5, &#39;y&#39;)</code></pre>
-<div class="sourceCode" id="cb1645"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1645-1"><a href="matplotlib-2.html#cb1645-1"></a>ax2.plot(y, x, <span class="st">&#39;g&#39;</span>)</span></code></pre></div>
-<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002B54D208&gt;]</code></pre>
-<div class="sourceCode" id="cb1647"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1647-1"><a href="matplotlib-2.html#cb1647-1"></a>ax2.set_xlabel(<span class="st">&#39;y&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1618"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1618-1" title="1">ax2.plot(y, x, <span class="st">&#39;g&#39;</span>)</a></code></pre></div>
+<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x0000000009787470&gt;]</code></pre>
+<div class="sourceCode" id="cb1620"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1620-1" title="1">ax2.set_xlabel(<span class="st">&#39;y&#39;</span>)</a></code></pre></div>
 <pre><code>## Text(0.5, 0, &#39;y&#39;)</code></pre>
-<div class="sourceCode" id="cb1649"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1649-1"><a href="matplotlib-2.html#cb1649-1"></a>ax2.set_ylabel(<span class="st">&#39;x&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1622"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1622-1" title="1">ax2.set_ylabel(<span class="st">&#39;x&#39;</span>)</a></code></pre></div>
 <pre><code>## Text(0, 0.5, &#39;x&#39;)</code></pre>
-<div class="sourceCode" id="cb1651"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1651-1"><a href="matplotlib-2.html#cb1651-1"></a>ax2.set_title(<span class="st">&#39;insert title&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1624"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1624-1" title="1">ax2.set_title(<span class="st">&#39;insert title&#39;</span>)</a></code></pre></div>
 <pre><code>## Text(0.5, 1.0, &#39;insert title&#39;)</code></pre>
-<div class="sourceCode" id="cb1653"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1653-1"><a href="matplotlib-2.html#cb1653-1"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb1626"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1626-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-633-1.png" /><!-- --></p>
 </div>
 <div id="multiple-subplots-1" class="section level3">
@@ -1155,48 +1167,48 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p><strong>Single Row Grid</strong><br />
 Single row grid means axes is an 1-D array. Hence can use <strong>for</strong> to iterate through axes</p>
-<div class="sourceCode" id="cb1654"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1654-1"><a href="matplotlib-2.html#cb1654-1"></a>fig, axes <span class="op">=</span> plt.subplots( nrows<span class="op">=</span><span class="dv">1</span>,ncols<span class="op">=</span><span class="dv">3</span> )</span>
-<span id="cb1654-2"><a href="matplotlib-2.html#cb1654-2"></a><span class="bu">print</span> (axes.shape)</span></code></pre></div>
+<div class="sourceCode" id="cb1627"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1627-1" title="1">fig, axes <span class="op">=</span> plt.subplots( nrows<span class="op">=</span><span class="dv">1</span>,ncols<span class="op">=</span><span class="dv">3</span> )</a>
+<a class="sourceLine" id="cb1627-2" title="2"><span class="bu">print</span> (axes.shape)</a></code></pre></div>
 <pre><code>## (3,)</code></pre>
-<div class="sourceCode" id="cb1656"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1656-1"><a href="matplotlib-2.html#cb1656-1"></a><span class="cf">for</span> ax <span class="kw">in</span> axes:</span>
-<span id="cb1656-2"><a href="matplotlib-2.html#cb1656-2"></a>    ax.plot(x, y, <span class="st">&#39;r&#39;</span>)</span>
-<span id="cb1656-3"><a href="matplotlib-2.html#cb1656-3"></a>    ax.set_xlabel(<span class="st">&#39;x&#39;</span>)</span>
-<span id="cb1656-4"><a href="matplotlib-2.html#cb1656-4"></a>    ax.set_ylabel(<span class="st">&#39;y&#39;</span>)</span>
-<span id="cb1656-5"><a href="matplotlib-2.html#cb1656-5"></a>    ax.set_title(<span class="st">&#39;title&#39;</span>)</span>
-<span id="cb1656-6"><a href="matplotlib-2.html#cb1656-6"></a>    ax.text(<span class="fl">0.2</span>,<span class="fl">0.5</span>,<span class="st">&#39;One&#39;</span>)</span></code></pre></div>
-<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002C70D198&gt;]
+<div class="sourceCode" id="cb1629"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1629-1" title="1"><span class="cf">for</span> ax <span class="kw">in</span> axes:</a>
+<a class="sourceLine" id="cb1629-2" title="2">    ax.plot(x, y, <span class="st">&#39;r&#39;</span>)</a>
+<a class="sourceLine" id="cb1629-3" title="3">    ax.set_xlabel(<span class="st">&#39;x&#39;</span>)</a>
+<a class="sourceLine" id="cb1629-4" title="4">    ax.set_ylabel(<span class="st">&#39;y&#39;</span>)</a>
+<a class="sourceLine" id="cb1629-5" title="5">    ax.set_title(<span class="st">&#39;title&#39;</span>)</a>
+<a class="sourceLine" id="cb1629-6" title="6">    ax.text(<span class="fl">0.2</span>,<span class="fl">0.5</span>,<span class="st">&#39;One&#39;</span>)</a></code></pre></div>
+<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x0000000006FE0C50&gt;]
 ## Text(0.5, 0, &#39;x&#39;)
 ## Text(0, 0.5, &#39;y&#39;)
 ## Text(0.5, 1.0, &#39;title&#39;)
 ## Text(0.2, 0.5, &#39;One&#39;)
-## [&lt;matplotlib.lines.Line2D object at 0x000000002C70D780&gt;]
+## [&lt;matplotlib.lines.Line2D object at 0x0000000006FEC240&gt;]
 ## Text(0.5, 0, &#39;x&#39;)
 ## Text(0, 0.5, &#39;y&#39;)
 ## Text(0.5, 1.0, &#39;title&#39;)
 ## Text(0.2, 0.5, &#39;One&#39;)
-## [&lt;matplotlib.lines.Line2D object at 0x000000002C70DCF8&gt;]
+## [&lt;matplotlib.lines.Line2D object at 0x0000000006FEC7B8&gt;]
 ## Text(0.5, 0, &#39;x&#39;)
 ## Text(0, 0.5, &#39;y&#39;)
 ## Text(0.5, 1.0, &#39;title&#39;)
 ## Text(0.2, 0.5, &#39;One&#39;)</code></pre>
-<div class="sourceCode" id="cb1658"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1658-1"><a href="matplotlib-2.html#cb1658-1"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb1631"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1631-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-634-1.png" /><!-- --></p>
 <p><strong>Multiple Row Grid</strong><br />
 Multile row grid means axes is an 2-D array. Hence can use two levels of <strong>for</strong> loop to iterate through each row and column</p>
-<div class="sourceCode" id="cb1659"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1659-1"><a href="matplotlib-2.html#cb1659-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, sharex<span class="op">=</span><span class="st">&#39;col&#39;</span>, sharey<span class="op">=</span><span class="st">&#39;row&#39;</span>)</span>
-<span id="cb1659-2"><a href="matplotlib-2.html#cb1659-2"></a><span class="bu">print</span> (axes.shape)</span></code></pre></div>
+<div class="sourceCode" id="cb1632"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1632-1" title="1">fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, sharex<span class="op">=</span><span class="st">&#39;col&#39;</span>, sharey<span class="op">=</span><span class="st">&#39;row&#39;</span>)</a>
+<a class="sourceLine" id="cb1632-2" title="2"><span class="bu">print</span> (axes.shape)</a></code></pre></div>
 <pre><code>## (2, 3)</code></pre>
-<div class="sourceCode" id="cb1661"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1661-1"><a href="matplotlib-2.html#cb1661-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(axes.shape[<span class="dv">0</span>]):</span>
-<span id="cb1661-2"><a href="matplotlib-2.html#cb1661-2"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(axes.shape[<span class="dv">1</span>]):</span>
-<span id="cb1661-3"><a href="matplotlib-2.html#cb1661-3"></a>        axes[i, j].text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="bu">str</span>((i, j)),</span>
-<span id="cb1661-4"><a href="matplotlib-2.html#cb1661-4"></a>                      fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1634"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1634-1" title="1"><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(axes.shape[<span class="dv">0</span>]):</a>
+<a class="sourceLine" id="cb1634-2" title="2">    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(axes.shape[<span class="dv">1</span>]):</a>
+<a class="sourceLine" id="cb1634-3" title="3">        axes[i, j].text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="bu">str</span>((i, j)),</a>
+<a class="sourceLine" id="cb1634-4" title="4">                      fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)</a></code></pre></div>
 <pre><code>## Text(0.5, 0.5, &#39;(0, 0)&#39;)
 ## Text(0.5, 0.5, &#39;(0, 1)&#39;)
 ## Text(0.5, 0.5, &#39;(0, 2)&#39;)
 ## Text(0.5, 0.5, &#39;(1, 0)&#39;)
 ## Text(0.5, 0.5, &#39;(1, 1)&#39;)
 ## Text(0.5, 0.5, &#39;(1, 2)&#39;)</code></pre>
-<div class="sourceCode" id="cb1663"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1663-1"><a href="matplotlib-2.html#cb1663-1"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb1636"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1636-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-635-1.png" /><!-- --></p>
 </div>
 <div id="complicated-subplots---different-size" class="section level4">
@@ -1206,41 +1218,41 @@ Multile row grid means axes is an 2-D array. Hence can use two levels of <strong
 </li>
 <li>Manually specify each subplot and their relevant grid position and size</li>
 </ul>
-<div class="sourceCode" id="cb1664"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1664-1"><a href="matplotlib-2.html#cb1664-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1637"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1637-1" title="1">plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))</a></code></pre></div>
 <pre><code>## &lt;Figure size 500x500 with 0 Axes&gt;</code></pre>
-<div class="sourceCode" id="cb1666"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1666-1"><a href="matplotlib-2.html#cb1666-1"></a>grid <span class="op">=</span> plt.GridSpec(<span class="dv">2</span>, <span class="dv">3</span>, hspace<span class="op">=</span><span class="fl">0.4</span>, wspace<span class="op">=</span><span class="fl">0.4</span>)</span>
-<span id="cb1666-2"><a href="matplotlib-2.html#cb1666-2"></a>plt.subplot(grid[<span class="dv">0</span>, <span class="dv">0</span>])  <span class="co">#row 0, col 0</span></span></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000002C89A7B8&gt;</code></pre>
-<div class="sourceCode" id="cb1668"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1668-1"><a href="matplotlib-2.html#cb1668-1"></a>plt.subplot(grid[<span class="dv">0</span>, <span class="dv">1</span>:]) <span class="co">#row 0, col 1 to :</span></span></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000000662EC18&gt;</code></pre>
-<div class="sourceCode" id="cb1670"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1670-1"><a href="matplotlib-2.html#cb1670-1"></a>plt.subplot(grid[<span class="dv">1</span>, :<span class="dv">2</span>]) <span class="co">#row 1, col 0:2 </span></span></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000000006662F28&gt;</code></pre>
-<div class="sourceCode" id="cb1672"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1672-1"><a href="matplotlib-2.html#cb1672-1"></a>plt.subplot(grid[<span class="dv">1</span>, <span class="dv">2</span>])<span class="op">;</span> <span class="co">#row 1, col 2</span></span></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000000669E518&gt;</code></pre>
-<div class="sourceCode" id="cb1674"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1674-1"><a href="matplotlib-2.html#cb1674-1"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb1639"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1639-1" title="1">grid <span class="op">=</span> plt.GridSpec(<span class="dv">2</span>, <span class="dv">3</span>, hspace<span class="op">=</span><span class="fl">0.4</span>, wspace<span class="op">=</span><span class="fl">0.4</span>)</a>
+<a class="sourceLine" id="cb1639-2" title="2">plt.subplot(grid[<span class="dv">0</span>, <span class="dv">0</span>])  <span class="co">#row 0, col 0</span></a></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000000007168DD8&gt;</code></pre>
+<div class="sourceCode" id="cb1641"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1641-1" title="1">plt.subplot(grid[<span class="dv">0</span>, <span class="dv">1</span>:]) <span class="co">#row 0, col 1 to :</span></a></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000000007195F60&gt;</code></pre>
+<div class="sourceCode" id="cb1643"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1643-1" title="1">plt.subplot(grid[<span class="dv">1</span>, :<span class="dv">2</span>]) <span class="co">#row 1, col 0:2 </span></a></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x00000000071D32B0&gt;</code></pre>
+<div class="sourceCode" id="cb1645"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1645-1" title="1">plt.subplot(grid[<span class="dv">1</span>, <span class="dv">2</span>])<span class="op">;</span> <span class="co">#row 1, col 2</span></a></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000000006FD5B00&gt;</code></pre>
+<div class="sourceCode" id="cb1647"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1647-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-636-1.png" /><!-- --></p>
-<div class="sourceCode" id="cb1675"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1675-1"><a href="matplotlib-2.html#cb1675-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1648"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1648-1" title="1">plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))</a></code></pre></div>
 <pre><code>## &lt;Figure size 500x500 with 0 Axes&gt;</code></pre>
-<div class="sourceCode" id="cb1677"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1677-1"><a href="matplotlib-2.html#cb1677-1"></a>grid <span class="op">=</span> plt.GridSpec(<span class="dv">4</span>, <span class="dv">4</span>, hspace<span class="op">=</span><span class="fl">0.8</span>, wspace<span class="op">=</span><span class="fl">0.4</span>)</span>
-<span id="cb1677-2"><a href="matplotlib-2.html#cb1677-2"></a>plt.subplot(grid[:<span class="dv">3</span>, <span class="dv">0</span>])    <span class="co"># row 0:3, col 0</span></span></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x00000000066B36D8&gt;</code></pre>
-<div class="sourceCode" id="cb1679"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1679-1"><a href="matplotlib-2.html#cb1679-1"></a>plt.subplot(grid[:<span class="dv">3</span>, <span class="dv">1</span>: ])  <span class="co"># row 0:3, col 1:</span></span></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000000006AB8FD0&gt;</code></pre>
-<div class="sourceCode" id="cb1681"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1681-1"><a href="matplotlib-2.html#cb1681-1"></a>plt.subplot(grid[<span class="dv">3</span>, <span class="dv">1</span>: ])<span class="op">;</span>  <span class="co"># row 3,   col 1:</span></span></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000000006716AC8&gt;</code></pre>
-<div class="sourceCode" id="cb1683"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1683-1"><a href="matplotlib-2.html#cb1683-1"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb1650"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1650-1" title="1">grid <span class="op">=</span> plt.GridSpec(<span class="dv">4</span>, <span class="dv">4</span>, hspace<span class="op">=</span><span class="fl">0.8</span>, wspace<span class="op">=</span><span class="fl">0.4</span>)</a>
+<a class="sourceLine" id="cb1650-2" title="2">plt.subplot(grid[:<span class="dv">3</span>, <span class="dv">0</span>])    <span class="co"># row 0:3, col 0</span></a></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000000007617DA0&gt;</code></pre>
+<div class="sourceCode" id="cb1652"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1652-1" title="1">plt.subplot(grid[:<span class="dv">3</span>, <span class="dv">1</span>: ])  <span class="co"># row 0:3, col 1:</span></a></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x00000000076360F0&gt;</code></pre>
+<div class="sourceCode" id="cb1654"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1654-1" title="1">plt.subplot(grid[<span class="dv">3</span>, <span class="dv">1</span>: ])<span class="op">;</span>  <span class="co"># row 3,   col 1:</span></a></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000000007663588&gt;</code></pre>
+<div class="sourceCode" id="cb1656"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1656-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-637-1.png" /><!-- --></p>
 <p><strong>-1 means last row or column</strong></p>
-<div class="sourceCode" id="cb1684"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1684-1"><a href="matplotlib-2.html#cb1684-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">6</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb1657"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1657-1" title="1">plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">6</span>))</a></code></pre></div>
 <pre><code>## &lt;Figure size 600x600 with 0 Axes&gt;</code></pre>
-<div class="sourceCode" id="cb1686"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1686-1"><a href="matplotlib-2.html#cb1686-1"></a>grid <span class="op">=</span> plt.GridSpec(<span class="dv">4</span>, <span class="dv">4</span>, hspace<span class="op">=</span><span class="fl">0.4</span>, wspace<span class="op">=</span><span class="fl">1.2</span>)</span>
-<span id="cb1686-2"><a href="matplotlib-2.html#cb1686-2"></a>plt.subplot(grid[:<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span> ])  <span class="co"># row 0 till last row (not including last row), col 0</span></span></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x00000000066BBC18&gt;</code></pre>
-<div class="sourceCode" id="cb1688"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1688-1"><a href="matplotlib-2.html#cb1688-1"></a>plt.subplot(grid[:<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>:])  <span class="co"># row 0 till last row (not including last row), col 1 till end</span></span></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x00000000066BB5C0&gt;</code></pre>
-<div class="sourceCode" id="cb1690"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1690-1"><a href="matplotlib-2.html#cb1690-1"></a>plt.subplot(grid[<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>: ])<span class="op">;</span> <span class="co"># row last row, col 1 till end</span></span></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x00000000066F3828&gt;</code></pre>
-<div class="sourceCode" id="cb1692"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1692-1"><a href="matplotlib-2.html#cb1692-1"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb1659"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1659-1" title="1">grid <span class="op">=</span> plt.GridSpec(<span class="dv">4</span>, <span class="dv">4</span>, hspace<span class="op">=</span><span class="fl">0.4</span>, wspace<span class="op">=</span><span class="fl">1.2</span>)</a>
+<a class="sourceLine" id="cb1659-2" title="2">plt.subplot(grid[:<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span> ])  <span class="co"># row 0 till last row (not including last row), col 0</span></a></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000000762D5C0&gt;</code></pre>
+<div class="sourceCode" id="cb1661"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1661-1" title="1">plt.subplot(grid[:<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>:])  <span class="co"># row 0 till last row (not including last row), col 1 till end</span></a></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x000000000760E668&gt;</code></pre>
+<div class="sourceCode" id="cb1663"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1663-1" title="1">plt.subplot(grid[<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>: ])<span class="op">;</span> <span class="co"># row last row, col 1 till end</span></a></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x00000000071C8DD8&gt;</code></pre>
+<div class="sourceCode" id="cb1665"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1665-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-638-1.png" /><!-- --></p>
 </div>
 </div>
@@ -1251,50 +1263,72 @@ Multile row grid means axes is an 2-D array. Hence can use two levels of <strong
 <p>Sometimes when the figure size is too small, plots will overlap each other.
 - <strong>tight_layout()</strong> will introduce extra white space in between the subplots to avoid overlap.<br />
 - The figure became wider.</p>
-<div class="sourceCode" id="cb1693"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1693-1"><a href="matplotlib-2.html#cb1693-1"></a>fig, axes <span class="op">=</span> plt.subplots( nrows<span class="op">=</span><span class="dv">1</span>,ncols<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb1693-2"><a href="matplotlib-2.html#cb1693-2"></a><span class="cf">for</span> ax <span class="kw">in</span> axes:</span>
-<span id="cb1693-3"><a href="matplotlib-2.html#cb1693-3"></a>    ax.plot(x, y, <span class="st">&#39;r&#39;</span>)</span>
-<span id="cb1693-4"><a href="matplotlib-2.html#cb1693-4"></a>    ax.set_xlabel(<span class="st">&#39;x&#39;</span>)</span>
-<span id="cb1693-5"><a href="matplotlib-2.html#cb1693-5"></a>    ax.set_ylabel(<span class="st">&#39;y&#39;</span>)</span>
-<span id="cb1693-6"><a href="matplotlib-2.html#cb1693-6"></a>    ax.set_title(<span class="st">&#39;title&#39;</span>)</span></code></pre></div>
-<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x000000002C5CB8D0&gt;]
+<div class="sourceCode" id="cb1666"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1666-1" title="1">fig, axes <span class="op">=</span> plt.subplots( nrows<span class="op">=</span><span class="dv">1</span>,ncols<span class="op">=</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb1666-2" title="2"><span class="cf">for</span> ax <span class="kw">in</span> axes:</a>
+<a class="sourceLine" id="cb1666-3" title="3">    ax.plot(x, y, <span class="st">&#39;r&#39;</span>)</a>
+<a class="sourceLine" id="cb1666-4" title="4">    ax.set_xlabel(<span class="st">&#39;x&#39;</span>)</a>
+<a class="sourceLine" id="cb1666-5" title="5">    ax.set_ylabel(<span class="st">&#39;y&#39;</span>)</a>
+<a class="sourceLine" id="cb1666-6" title="6">    ax.set_title(<span class="st">&#39;title&#39;</span>)</a></code></pre></div>
+<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x00000000097D5AC8&gt;]
 ## Text(0.5, 0, &#39;x&#39;)
 ## Text(0, 0.5, &#39;y&#39;)
 ## Text(0.5, 1.0, &#39;title&#39;)
-## [&lt;matplotlib.lines.Line2D object at 0x00000000066CFF98&gt;]
+## [&lt;matplotlib.lines.Line2D object at 0x0000000007025940&gt;]
 ## Text(0.5, 0, &#39;x&#39;)
 ## Text(0, 0.5, &#39;y&#39;)
 ## Text(0.5, 1.0, &#39;title&#39;)</code></pre>
-<div class="sourceCode" id="cb1695"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1695-1"><a href="matplotlib-2.html#cb1695-1"></a>fig.tight_layout() <span class="co"># adjust the positions of axes so that there is no overlap</span></span>
-<span id="cb1695-2"><a href="matplotlib-2.html#cb1695-2"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb1668"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1668-1" title="1">fig.tight_layout() <span class="co"># adjust the positions of axes so that there is no overlap</span></a>
+<a class="sourceLine" id="cb1668-2" title="2">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-639-1.png" /><!-- --></p>
 </div>
 <div id="avoid-overlap---change-figure-size" class="section level4">
 <h4><span class="header-section-number">14.4.5.2</span> Avoid Overlap - Change Figure Size</h4>
-<div class="sourceCode" id="cb1696"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1696-1"><a href="matplotlib-2.html#cb1696-1"></a>fig, axes <span class="op">=</span> plt.subplots( nrows<span class="op">=</span><span class="dv">1</span>,ncols<span class="op">=</span><span class="dv">2</span>,figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">3</span>))</span>
-<span id="cb1696-2"><a href="matplotlib-2.html#cb1696-2"></a><span class="cf">for</span> ax <span class="kw">in</span> axes:</span>
-<span id="cb1696-3"><a href="matplotlib-2.html#cb1696-3"></a>    ax.plot(x, y, <span class="st">&#39;r&#39;</span>)</span>
-<span id="cb1696-4"><a href="matplotlib-2.html#cb1696-4"></a>    ax.set_xlabel(<span class="st">&#39;x&#39;</span>)</span>
-<span id="cb1696-5"><a href="matplotlib-2.html#cb1696-5"></a>    ax.set_ylabel(<span class="st">&#39;y&#39;</span>)</span>
-<span id="cb1696-6"><a href="matplotlib-2.html#cb1696-6"></a>    ax.set_title(<span class="st">&#39;title&#39;</span>)</span></code></pre></div>
-<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x00000000297B5710&gt;]
+<div class="sourceCode" id="cb1669"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1669-1" title="1">fig, axes <span class="op">=</span> plt.subplots( nrows<span class="op">=</span><span class="dv">1</span>,ncols<span class="op">=</span><span class="dv">2</span>,figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb1669-2" title="2"><span class="cf">for</span> ax <span class="kw">in</span> axes:</a>
+<a class="sourceLine" id="cb1669-3" title="3">    ax.plot(x, y, <span class="st">&#39;r&#39;</span>)</a>
+<a class="sourceLine" id="cb1669-4" title="4">    ax.set_xlabel(<span class="st">&#39;x&#39;</span>)</a>
+<a class="sourceLine" id="cb1669-5" title="5">    ax.set_ylabel(<span class="st">&#39;y&#39;</span>)</a>
+<a class="sourceLine" id="cb1669-6" title="6">    ax.set_title(<span class="st">&#39;title&#39;</span>)</a></code></pre></div>
+<pre><code>## [&lt;matplotlib.lines.Line2D object at 0x0000000007168F98&gt;]
 ## Text(0.5, 0, &#39;x&#39;)
 ## Text(0, 0.5, &#39;y&#39;)
 ## Text(0.5, 1.0, &#39;title&#39;)
-## [&lt;matplotlib.lines.Line2D object at 0x0000000029836A90&gt;]
+## [&lt;matplotlib.lines.Line2D object at 0x00000000097CE198&gt;]
 ## Text(0.5, 0, &#39;x&#39;)
 ## Text(0, 0.5, &#39;y&#39;)
 ## Text(0.5, 1.0, &#39;title&#39;)</code></pre>
-<div class="sourceCode" id="cb1698"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1698-1"><a href="matplotlib-2.html#cb1698-1"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb1671"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1671-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-640-1.png" /><!-- --></p>
 </div>
 <div id="text-within-figure" class="section level4">
 <h4><span class="header-section-number">14.4.5.3</span> Text Within Figure</h4>
-<div class="sourceCode" id="cb1699"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1699-1"><a href="matplotlib-2.html#cb1699-1"></a>fig <span class="op">=</span> plt.figure()</span>
-<span id="cb1699-2"><a href="matplotlib-2.html#cb1699-2"></a>fig.text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="st">&#39;This Is A Sample&#39;</span>,fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb1672"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1672-1" title="1">fig <span class="op">=</span> plt.figure()</a>
+<a class="sourceLine" id="cb1672-2" title="2">fig.text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="st">&#39;This Is A Sample&#39;</span>,fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)<span class="op">;</span></a></code></pre></div>
 <pre><code>## Text(0.5, 0.5, &#39;This Is A Sample&#39;)</code></pre>
-<div class="sourceCode" id="cb1701"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1701-1"><a href="matplotlib-2.html#cb1701-1"></a>axes <span class="op">=</span> fig.add_axes([<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>]) <span class="co"># left, bottom, width, height (range 0 to 1)</span></span>
-<span id="cb1701-2"><a href="matplotlib-2.html#cb1701-2"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb1674"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1674-1" title="1">axes <span class="op">=</span> fig.add_axes([<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>]) <span class="co"># left, bottom, width, height (range 0 to 1)</span></a>
+<a class="sourceLine" id="cb1674-2" title="2">plt.show()</a></code></pre></div>
+<pre><code>## Traceback (most recent call last):
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\backends\backend_qt5.py&quot;, line 505, in _draw_idle
+##     self.draw()
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\backends\backend_agg.py&quot;, line 388, in draw
+##     self.figure.draw(self.renderer)
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\artist.py&quot;, line 38, in draw_wrapper
+##     return draw(artist, renderer, *args, **kwargs)
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\figure.py&quot;, line 1709, in draw
+##     renderer, self, artists, self.suppressComposite)
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\image.py&quot;, line 135, in _draw_list_compositing_images
+##     a.draw(renderer)
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\artist.py&quot;, line 38, in draw_wrapper
+##     return draw(artist, renderer, *args, **kwargs)
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\axes\_base.py&quot;, line 2607, in draw
+##     self._update_title_position(renderer)
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\axes\_base.py&quot;, line 2548, in _update_title_position
+##     ax.xaxis.get_ticks_position() in choices):
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\axis.py&quot;, line 2146, in get_ticks_position
+##     self._get_ticks_position()]
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\axis.py&quot;, line 1832, in _get_ticks_position
+##     major = self.majorTicks[0]
+## IndexError: list index out of range</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-641-1.png" /><!-- --></p>
 </div>
 </div>
@@ -1302,100 +1336,100 @@ Multile row grid means axes is an 2-D array. Hence can use two levels of <strong
 <h3><span class="header-section-number">14.4.6</span> Axes Customization</h3>
 <div id="y-axis-limit" class="section level4">
 <h4><span class="header-section-number">14.4.6.1</span> Y-Axis Limit</h4>
-<div class="sourceCode" id="cb1702"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1702-1"><a href="matplotlib-2.html#cb1702-1"></a>fig <span class="op">=</span> plt.figure()</span>
-<span id="cb1702-2"><a href="matplotlib-2.html#cb1702-2"></a>fig.add_axes([<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>], ylim<span class="op">=</span>(<span class="op">-</span><span class="dv">2</span>,<span class="dv">5</span>))<span class="op">;</span></span></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._axes.Axes object at 0x000000002C72E080&gt;</code></pre>
-<div class="sourceCode" id="cb1704"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1704-1"><a href="matplotlib-2.html#cb1704-1"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb1676"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1676-1" title="1">fig <span class="op">=</span> plt.figure()</a>
+<a class="sourceLine" id="cb1676-2" title="2">fig.add_axes([<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>], ylim<span class="op">=</span>(<span class="op">-</span><span class="dv">2</span>,<span class="dv">5</span>))<span class="op">;</span></a></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._axes.Axes object at 0x0000000007136588&gt;</code></pre>
+<div class="sourceCode" id="cb1678"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1678-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-642-1.png" /><!-- --></p>
 </div>
 <div id="text-within-axes" class="section level4">
 <h4><span class="header-section-number">14.4.6.2</span> Text Within Axes</h4>
-<div class="sourceCode" id="cb1705"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1705-1"><a href="matplotlib-2.html#cb1705-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, sharex<span class="op">=</span><span class="st">&#39;col&#39;</span>, sharey<span class="op">=</span><span class="st">&#39;row&#39;</span>)</span>
-<span id="cb1705-2"><a href="matplotlib-2.html#cb1705-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
-<span id="cb1705-3"><a href="matplotlib-2.html#cb1705-3"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>):</span>
-<span id="cb1705-4"><a href="matplotlib-2.html#cb1705-4"></a>        ax[i, j].text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="bu">str</span>((i, j)),</span>
-<span id="cb1705-5"><a href="matplotlib-2.html#cb1705-5"></a>                      fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1679"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1679-1" title="1">fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, sharex<span class="op">=</span><span class="st">&#39;col&#39;</span>, sharey<span class="op">=</span><span class="st">&#39;row&#39;</span>)</a>
+<a class="sourceLine" id="cb1679-2" title="2"><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</a>
+<a class="sourceLine" id="cb1679-3" title="3">    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>):</a>
+<a class="sourceLine" id="cb1679-4" title="4">        ax[i, j].text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="bu">str</span>((i, j)),</a>
+<a class="sourceLine" id="cb1679-5" title="5">                      fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)</a></code></pre></div>
 <pre><code>## Text(0.5, 0.5, &#39;(0, 0)&#39;)
 ## Text(0.5, 0.5, &#39;(0, 1)&#39;)
 ## Text(0.5, 0.5, &#39;(0, 2)&#39;)
 ## Text(0.5, 0.5, &#39;(1, 0)&#39;)
 ## Text(0.5, 0.5, &#39;(1, 1)&#39;)
 ## Text(0.5, 0.5, &#39;(1, 2)&#39;)</code></pre>
-<div class="sourceCode" id="cb1707"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1707-1"><a href="matplotlib-2.html#cb1707-1"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb1681"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1681-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-643-1.png" /><!-- --></p>
-<div class="sourceCode" id="cb1708"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1708-1"><a href="matplotlib-2.html#cb1708-1"></a>plt.text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="st">&#39;one&#39;</span>,fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1682"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1682-1" title="1">plt.text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="st">&#39;one&#39;</span>,fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)</a></code></pre></div>
 <pre><code>## Text(0.5, 0.5, &#39;one&#39;)</code></pre>
-<div class="sourceCode" id="cb1710"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1710-1"><a href="matplotlib-2.html#cb1710-1"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb1684"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1684-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-644-1.png" /><!-- --></p>
 </div>
 <div id="share-y-axis-label" class="section level4">
 <h4><span class="header-section-number">14.4.6.3</span> Share Y Axis Label</h4>
-<div class="sourceCode" id="cb1711"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1711-1"><a href="matplotlib-2.html#cb1711-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, sharex<span class="op">=</span><span class="st">&#39;col&#39;</span>, sharey<span class="op">=</span><span class="st">&#39;row&#39;</span>) <span class="co"># removed inner label</span></span>
-<span id="cb1711-2"><a href="matplotlib-2.html#cb1711-2"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb1685"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1685-1" title="1">fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, sharex<span class="op">=</span><span class="st">&#39;col&#39;</span>, sharey<span class="op">=</span><span class="st">&#39;row&#39;</span>) <span class="co"># removed inner label</span></a>
+<a class="sourceLine" id="cb1685-2" title="2">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-645-1.png" /><!-- --></p>
 </div>
 <div id="create-subplot-individually" class="section level4">
 <h4><span class="header-section-number">14.4.6.4</span> Create Subplot Individually</h4>
 <p>Each call lto <strong>subplot()</strong> will create a new container for subsequent plot command</p>
-<div class="sourceCode" id="cb1712"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1712-1"><a href="matplotlib-2.html#cb1712-1"></a>plt.subplot(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">1</span>)</span></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000000006D47358&gt;</code></pre>
-<div class="sourceCode" id="cb1714"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1714-1"><a href="matplotlib-2.html#cb1714-1"></a>plt.text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="st">&#39;one&#39;</span>,fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1686"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1686-1" title="1">plt.subplot(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000000006C50908&gt;</code></pre>
+<div class="sourceCode" id="cb1688"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1688-1" title="1">plt.text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="st">&#39;one&#39;</span>,fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)</a></code></pre></div>
 <pre><code>## Text(0.5, 0.5, &#39;one&#39;)</code></pre>
-<div class="sourceCode" id="cb1716"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1716-1"><a href="matplotlib-2.html#cb1716-1"></a>plt.subplot(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">8</span>)</span></code></pre></div>
-<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000000006D6F358&gt;</code></pre>
-<div class="sourceCode" id="cb1718"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1718-1"><a href="matplotlib-2.html#cb1718-1"></a>plt.text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="st">&#39;eight&#39;</span>,fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1690"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1690-1" title="1">plt.subplot(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">8</span>)</a></code></pre></div>
+<pre><code>## &lt;matplotlib.axes._subplots.AxesSubplot object at 0x0000000009AE2A20&gt;</code></pre>
+<div class="sourceCode" id="cb1692"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1692-1" title="1">plt.text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="st">&#39;eight&#39;</span>,fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)</a></code></pre></div>
 <pre><code>## Text(0.5, 0.5, &#39;eight&#39;)</code></pre>
-<div class="sourceCode" id="cb1720"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1720-1"><a href="matplotlib-2.html#cb1720-1"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb1694"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1694-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-646-1.png" /><!-- --></p>
 <p><strong>Iterate through subplots (ax) to populate them</strong></p>
-<div class="sourceCode" id="cb1721"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1721-1"><a href="matplotlib-2.html#cb1721-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, sharex<span class="op">=</span><span class="st">&#39;col&#39;</span>, sharey<span class="op">=</span><span class="st">&#39;row&#39;</span>)</span>
-<span id="cb1721-2"><a href="matplotlib-2.html#cb1721-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
-<span id="cb1721-3"><a href="matplotlib-2.html#cb1721-3"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>):</span>
-<span id="cb1721-4"><a href="matplotlib-2.html#cb1721-4"></a>        ax[i, j].text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="bu">str</span>((i, j)),</span>
-<span id="cb1721-5"><a href="matplotlib-2.html#cb1721-5"></a>                      fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1695"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1695-1" title="1">fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, sharex<span class="op">=</span><span class="st">&#39;col&#39;</span>, sharey<span class="op">=</span><span class="st">&#39;row&#39;</span>)</a>
+<a class="sourceLine" id="cb1695-2" title="2"><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</a>
+<a class="sourceLine" id="cb1695-3" title="3">    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>):</a>
+<a class="sourceLine" id="cb1695-4" title="4">        ax[i, j].text(<span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="bu">str</span>((i, j)),</a>
+<a class="sourceLine" id="cb1695-5" title="5">                      fontsize<span class="op">=</span><span class="dv">18</span>, ha<span class="op">=</span><span class="st">&#39;center&#39;</span>)</a></code></pre></div>
 <pre><code>## Text(0.5, 0.5, &#39;(0, 0)&#39;)
 ## Text(0.5, 0.5, &#39;(0, 1)&#39;)
 ## Text(0.5, 0.5, &#39;(0, 2)&#39;)
 ## Text(0.5, 0.5, &#39;(1, 0)&#39;)
 ## Text(0.5, 0.5, &#39;(1, 1)&#39;)
 ## Text(0.5, 0.5, &#39;(1, 2)&#39;)</code></pre>
-<div class="sourceCode" id="cb1723"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1723-1"><a href="matplotlib-2.html#cb1723-1"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb1697"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1697-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-647-1.png" /><!-- --></p>
 </div>
 </div>
 </div>
 <div id="histogram" class="section level2">
 <h2><span class="header-section-number">14.5</span> Histogram</h2>
-<div class="sourceCode" id="cb1724"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1724-1"><a href="matplotlib-2.html#cb1724-1"></a>plt.hist(mydf.value1, bins<span class="op">=</span><span class="dv">12</span>)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb1698"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1698-1" title="1">plt.hist(mydf.value1, bins<span class="op">=</span><span class="dv">12</span>)<span class="op">;</span></a></code></pre></div>
 <pre><code>## (array([ 2.,  4., 10., 16., 35., 38., 31., 27., 22.,  6.,  6.,  3.]), array([37.09329803, 39.25349925, 41.41370047, 43.57390169, 45.73410291,
 ##        47.89430413, 50.05450535, 52.21470657, 54.37490779, 56.53510901,
 ##        58.69531023, 60.85551145, 63.01571267]), &lt;a list of 12 Patch objects&gt;)</code></pre>
-<div class="sourceCode" id="cb1726"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1726-1"><a href="matplotlib-2.html#cb1726-1"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb1700"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1700-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-648-1.png" /><!-- --></p>
 </div>
 <div id="scatter-plot" class="section level2">
 <h2><span class="header-section-number">14.6</span> Scatter Plot</h2>
-<div class="sourceCode" id="cb1727"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1727-1"><a href="matplotlib-2.html#cb1727-1"></a>plt.scatter(mydf.value1, mydf.value2)</span></code></pre></div>
-<pre><code>## &lt;matplotlib.collections.PathCollection object at 0x0000000006C95B70&gt;</code></pre>
-<div class="sourceCode" id="cb1729"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1729-1"><a href="matplotlib-2.html#cb1729-1"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb1701"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1701-1" title="1">plt.scatter(mydf.value1, mydf.value2)</a></code></pre></div>
+<pre><code>## &lt;matplotlib.collections.PathCollection object at 0x0000000009990EB8&gt;</code></pre>
+<div class="sourceCode" id="cb1703"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1703-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-649-1.png" /><!-- --></p>
 </div>
 <div id="bar-chart" class="section level2">
 <h2><span class="header-section-number">14.7</span> Bar Chart</h2>
-<div class="sourceCode" id="cb1730"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1730-1"><a href="matplotlib-2.html#cb1730-1"></a>com_grp <span class="op">=</span> mydf.groupby(<span class="st">&#39;comp&#39;</span>)</span>
-<span id="cb1730-2"><a href="matplotlib-2.html#cb1730-2"></a>grpdf <span class="op">=</span> com_grp[<span class="st">&#39;value1&#39;</span>].<span class="bu">sum</span>().reset_index()</span>
-<span id="cb1730-3"><a href="matplotlib-2.html#cb1730-3"></a>grpdf</span></code></pre></div>
+<div class="sourceCode" id="cb1704"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1704-1" title="1">com_grp <span class="op">=</span> mydf.groupby(<span class="st">&#39;comp&#39;</span>)</a>
+<a class="sourceLine" id="cb1704-2" title="2">grpdf <span class="op">=</span> com_grp[<span class="st">&#39;value1&#39;</span>].<span class="bu">sum</span>().reset_index()</a>
+<a class="sourceLine" id="cb1704-3" title="3">grpdf</a></code></pre></div>
 <pre><code>##   comp       value1
 ## 0   C1  3988.891405
 ## 1   C2  3007.230028
 ## 2   C3  3017.883718</code></pre>
-<div class="sourceCode" id="cb1732"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1732-1"><a href="matplotlib-2.html#cb1732-1"></a>plt.bar(grpdf.comp, grpdf.value1)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb1706"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1706-1" title="1">plt.bar(grpdf.comp, grpdf.value1)<span class="op">;</span></a></code></pre></div>
 <pre><code>## &lt;BarContainer object of 3 artists&gt;</code></pre>
-<div class="sourceCode" id="cb1734"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1734-1"><a href="matplotlib-2.html#cb1734-1"></a>plt.xlabel(<span class="st">&#39;Company&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1708"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1708-1" title="1">plt.xlabel(<span class="st">&#39;Company&#39;</span>)</a></code></pre></div>
 <pre><code>## Text(0.5, 0, &#39;Company&#39;)</code></pre>
-<div class="sourceCode" id="cb1736"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1736-1"><a href="matplotlib-2.html#cb1736-1"></a>plt.ylabel(<span class="st">&#39;Sum of Value 1&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1710"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1710-1" title="1">plt.ylabel(<span class="st">&#39;Sum of Value 1&#39;</span>)</a></code></pre></div>
 <pre><code>## Text(0, 0.5, &#39;Sum of Value 1&#39;)</code></pre>
-<div class="sourceCode" id="cb1738"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1738-1"><a href="matplotlib-2.html#cb1738-1"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb1712"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1712-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-651-1.png" /><!-- --></p>
 </div>
 </div>

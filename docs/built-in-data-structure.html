@@ -24,7 +24,7 @@
 <meta name="author" content="Yong Keh Soon" />
 
 
-<meta name="date" content="2019-12-24" />
+<meta name="date" content="2019-12-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -53,9 +53,9 @@
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
@@ -64,16 +64,14 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -82,9 +80,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  background-color: #f8f8f8; }
+  { background-color: #f8f8f8; }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
@@ -480,266 +478,263 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.7" data-path="numpy-1.html"><a href="numpy-1.html#nan-missing-numerical-data"><i class="fa fa-check"></i><b>12.7</b> NaN : Missing Numerical Data</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="pandas-1.html"><a href="pandas-1.html"><i class="fa fa-check"></i><b>13</b> pandas</a><ul>
-<li class="chapter" data-level="13.1" data-path="pandas-1.html"><a href="pandas-1.html#environment-setup-2"><i class="fa fa-check"></i><b>13.1</b> Environment Setup <a class="tocSkip"></a></li>
-<li class="chapter" data-level="13.2" data-path="pandas-1.html"><a href="pandas-1.html#modules-import"><i class="fa fa-check"></i><b>13.2</b> Modules Import</a><ul>
-<li class="chapter" data-level="13.2.1" data-path="pandas-1.html"><a href="pandas-1.html#display-setup"><i class="fa fa-check"></i><b>13.2.1</b> Display Setup</a></li>
+<li class="chapter" data-level="13.1" data-path="pandas-1.html"><a href="pandas-1.html#modules-import"><i class="fa fa-check"></i><b>13.1</b> Modules Import</a></li>
+<li class="chapter" data-level="13.2" data-path="pandas-1.html"><a href="pandas-1.html#pandas-objects"><i class="fa fa-check"></i><b>13.2</b> Pandas Objects</a><ul>
+<li class="chapter" data-level="13.2.1" data-path="pandas-1.html"><a href="pandas-1.html#pandas-data-types"><i class="fa fa-check"></i><b>13.2.1</b> Pandas Data Types</a></li>
+<li class="chapter" data-level="13.2.2" data-path="pandas-1.html"><a href="pandas-1.html#pandas-data-structure"><i class="fa fa-check"></i><b>13.2.2</b> Pandas Data Structure</a></li>
 </ul></li>
-<li class="chapter" data-level="13.3" data-path="pandas-1.html"><a href="pandas-1.html#pandas-objects"><i class="fa fa-check"></i><b>13.3</b> Pandas Objects</a><ul>
-<li class="chapter" data-level="13.3.1" data-path="pandas-1.html"><a href="pandas-1.html#pandas-data-types"><i class="fa fa-check"></i><b>13.3.1</b> Pandas Data Types</a></li>
-<li class="chapter" data-level="13.3.2" data-path="pandas-1.html"><a href="pandas-1.html#pandas-data-structure"><i class="fa fa-check"></i><b>13.3.2</b> Pandas Data Structure</a></li>
+<li class="chapter" data-level="13.3" data-path="pandas-1.html"><a href="pandas-1.html#class-method-4"><i class="fa fa-check"></i><b>13.3</b> Class Method</a><ul>
+<li class="chapter" data-level="13.3.1" data-path="pandas-1.html"><a href="pandas-1.html#conversion-to_datetime"><i class="fa fa-check"></i><b>13.3.1</b> Conversion: <code>to_datetime()</code></a><ul>
+<li class="chapter" data-level="13.3.1.1" data-path="pandas-1.html"><a href="pandas-1.html#from-list-to-datetimeindex"><i class="fa fa-check"></i><b>13.3.1.1</b> From List to <code>DateTimeIndex</code></a></li>
+<li class="chapter" data-level="13.3.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-list-to-series"><i class="fa fa-check"></i><b>13.3.1.2</b> From List to Series</a></li>
+<li class="chapter" data-level="13.3.1.3" data-path="pandas-1.html"><a href="pandas-1.html#from-scalar-to-timestamp"><i class="fa fa-check"></i><b>13.3.1.3</b> From Scalar to Timestamp</a></li>
 </ul></li>
-<li class="chapter" data-level="13.4" data-path="pandas-1.html"><a href="pandas-1.html#class-method-4"><i class="fa fa-check"></i><b>13.4</b> Class Method</a><ul>
-<li class="chapter" data-level="13.4.1" data-path="pandas-1.html"><a href="pandas-1.html#conversion-to_datetime"><i class="fa fa-check"></i><b>13.4.1</b> Conversion: <code>to_datetime()</code></a><ul>
-<li class="chapter" data-level="13.4.1.1" data-path="pandas-1.html"><a href="pandas-1.html#from-list-to-datetimeindex"><i class="fa fa-check"></i><b>13.4.1.1</b> From List to <code>DateTimeIndex</code></a></li>
-<li class="chapter" data-level="13.4.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-list-to-series-to-series"><i class="fa fa-check"></i><b>13.4.1.2</b> From List to Series to Series</a></li>
-<li class="chapter" data-level="13.4.1.3" data-path="pandas-1.html"><a href="pandas-1.html#from-scalar-to-timestamp"><i class="fa fa-check"></i><b>13.4.1.3</b> From Scalar to Timestamp</a></li>
+<li class="chapter" data-level="13.3.2" data-path="pandas-1.html"><a href="pandas-1.html#generate-timestamp-sequence"><i class="fa fa-check"></i><b>13.3.2</b> Generate Timestamp Sequence</a><ul>
+<li class="chapter" data-level="13.3.2.1" data-path="pandas-1.html"><a href="pandas-1.html#date_range"><i class="fa fa-check"></i><b>13.3.2.1</b> <code>date_range()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="13.4.2" data-path="pandas-1.html"><a href="pandas-1.html#generate-timestamp-sequence"><i class="fa fa-check"></i><b>13.4.2</b> Generate Timestamp Sequence</a><ul>
-<li class="chapter" data-level="13.4.2.1" data-path="pandas-1.html"><a href="pandas-1.html#date_range"><i class="fa fa-check"></i><b>13.4.2.1</b> <code>date_range()</code></a></li>
-</ul></li>
-<li class="chapter" data-level="13.4.3" data-path="pandas-1.html"><a href="pandas-1.html#frequency-table-crosstab"><i class="fa fa-check"></i><b>13.4.3</b> Frequency Table (crosstab)</a><ul>
-<li class="chapter" data-level="13.4.3.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-2"><i class="fa fa-check"></i><b>13.4.3.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.4.3.2" data-path="pandas-1.html"><a href="pandas-1.html#one-dimensiontable"><i class="fa fa-check"></i><b>13.4.3.2</b> One DimensionTable</a></li>
-<li class="chapter" data-level="13.4.3.3" data-path="pandas-1.html"><a href="pandas-1.html#two-dimension-table"><i class="fa fa-check"></i><b>13.4.3.3</b> Two Dimension Table</a></li>
-<li class="chapter" data-level="13.4.3.4" data-path="pandas-1.html"><a href="pandas-1.html#higher-dimension-table"><i class="fa fa-check"></i><b>13.4.3.4</b> Higher Dimension Table</a></li>
-<li class="chapter" data-level="13.4.3.5" data-path="pandas-1.html"><a href="pandas-1.html#getting-margin"><i class="fa fa-check"></i><b>13.4.3.5</b> Getting Margin</a></li>
-<li class="chapter" data-level="13.4.3.6" data-path="pandas-1.html"><a href="pandas-1.html#getting-proportion"><i class="fa fa-check"></i><b>13.4.3.6</b> Getting Proportion</a></li>
-<li class="chapter" data-level="13.4.3.7" data-path="pandas-1.html"><a href="pandas-1.html#reseting-index"><i class="fa fa-check"></i><b>13.4.3.7</b> Reseting Index</a></li>
+<li class="chapter" data-level="13.3.3" data-path="pandas-1.html"><a href="pandas-1.html#frequency-table-crosstab"><i class="fa fa-check"></i><b>13.3.3</b> Frequency Table (crosstab)</a><ul>
+<li class="chapter" data-level="13.3.3.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-2"><i class="fa fa-check"></i><b>13.3.3.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.3.3.2" data-path="pandas-1.html"><a href="pandas-1.html#one-dimensiontable"><i class="fa fa-check"></i><b>13.3.3.2</b> One DimensionTable</a></li>
+<li class="chapter" data-level="13.3.3.3" data-path="pandas-1.html"><a href="pandas-1.html#two-dimension-table"><i class="fa fa-check"></i><b>13.3.3.3</b> Two Dimension Table</a></li>
+<li class="chapter" data-level="13.3.3.4" data-path="pandas-1.html"><a href="pandas-1.html#higher-dimension-table"><i class="fa fa-check"></i><b>13.3.3.4</b> Higher Dimension Table</a></li>
+<li class="chapter" data-level="13.3.3.5" data-path="pandas-1.html"><a href="pandas-1.html#getting-margin"><i class="fa fa-check"></i><b>13.3.3.5</b> Getting Margin</a></li>
+<li class="chapter" data-level="13.3.3.6" data-path="pandas-1.html"><a href="pandas-1.html#getting-proportion"><i class="fa fa-check"></i><b>13.3.3.6</b> Getting Proportion</a></li>
+<li class="chapter" data-level="13.3.3.7" data-path="pandas-1.html"><a href="pandas-1.html#reseting-index"><i class="fa fa-check"></i><b>13.3.3.7</b> Reseting Index</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="13.5" data-path="pandas-1.html"><a href="pandas-1.html#timestamp"><i class="fa fa-check"></i><b>13.5</b> Timestamp</a><ul>
-<li class="chapter" data-level="13.5.1" data-path="pandas-1.html"><a href="pandas-1.html#constructor-6"><i class="fa fa-check"></i><b>13.5.1</b> Constructor</a><ul>
-<li class="chapter" data-level="13.5.1.1" data-path="pandas-1.html"><a href="pandas-1.html#from-number"><i class="fa fa-check"></i><b>13.5.1.1</b> From Number</a></li>
-<li class="chapter" data-level="13.5.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-string"><i class="fa fa-check"></i><b>13.5.1.2</b> From String</a></li>
-<li class="chapter" data-level="13.5.1.3" data-path="pandas-1.html"><a href="pandas-1.html#from-standard-library-datetime-and-date-object"><i class="fa fa-check"></i><b>13.5.1.3</b> From Standard Library <code>datetime</code> and <code>date</code> Object</a></li>
+<li class="chapter" data-level="13.4" data-path="pandas-1.html"><a href="pandas-1.html#timestamp"><i class="fa fa-check"></i><b>13.4</b> Timestamp</a><ul>
+<li class="chapter" data-level="13.4.1" data-path="pandas-1.html"><a href="pandas-1.html#constructor-6"><i class="fa fa-check"></i><b>13.4.1</b> Constructor</a><ul>
+<li class="chapter" data-level="13.4.1.1" data-path="pandas-1.html"><a href="pandas-1.html#from-number"><i class="fa fa-check"></i><b>13.4.1.1</b> From Number</a></li>
+<li class="chapter" data-level="13.4.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-string"><i class="fa fa-check"></i><b>13.4.1.2</b> From String</a></li>
+<li class="chapter" data-level="13.4.1.3" data-path="pandas-1.html"><a href="pandas-1.html#from-standard-library-datetime-and-date-object"><i class="fa fa-check"></i><b>13.4.1.3</b> From Standard Library <code>datetime</code> and <code>date</code> Object</a></li>
 </ul></li>
-<li class="chapter" data-level="13.5.2" data-path="pandas-1.html"><a href="pandas-1.html#attributes-4"><i class="fa fa-check"></i><b>13.5.2</b> Attributes</a></li>
-<li class="chapter" data-level="13.5.3" data-path="pandas-1.html"><a href="pandas-1.html#operator-2"><i class="fa fa-check"></i><b>13.5.3</b> Operator</a></li>
-<li class="chapter" data-level="13.5.4" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods-1"><i class="fa fa-check"></i><b>13.5.4</b> Instance Methods</a><ul>
-<li class="chapter" data-level="13.5.4.1" data-path="pandas-1.html"><a href="pandas-1.html#useful-methods"><i class="fa fa-check"></i><b>13.5.4.1</b> Useful Methods</a></li>
-<li class="chapter" data-level="13.5.4.2" data-path="pandas-1.html"><a href="pandas-1.html#convert-to-datetime"><i class="fa fa-check"></i><b>13.5.4.2</b> Convert To datetime</a></li>
-<li class="chapter" data-level="13.5.4.3" data-path="pandas-1.html"><a href="pandas-1.html#convert-to-numpy"><i class="fa fa-check"></i><b>13.5.4.3</b> Convert To <code>numpy</code></a></li>
-<li class="chapter" data-level="13.5.4.4" data-path="pandas-1.html"><a href="pandas-1.html#formatting-with-strftime"><i class="fa fa-check"></i><b>13.5.4.4</b> Formatting with <code>strftime</code></a></li>
-<li class="chapter" data-level="13.5.4.5" data-path="pandas-1.html"><a href="pandas-1.html#add-timezone"><i class="fa fa-check"></i><b>13.5.4.5</b> Add Timezone</a></li>
-<li class="chapter" data-level="13.5.4.6" data-path="pandas-1.html"><a href="pandas-1.html#convert-timezone"><i class="fa fa-check"></i><b>13.5.4.6</b> Convert Timezone</a></li>
-<li class="chapter" data-level="13.5.4.7" data-path="pandas-1.html"><a href="pandas-1.html#removing-timezone"><i class="fa fa-check"></i><b>13.5.4.7</b> Removing TImezone</a></li>
-<li class="chapter" data-level="13.5.4.8" data-path="pandas-1.html"><a href="pandas-1.html#formatting-with-isoformat"><i class="fa fa-check"></i><b>13.5.4.8</b> Formatting with <code>isoformat</code></a></li>
-<li class="chapter" data-level="13.5.4.9" data-path="pandas-1.html"><a href="pandas-1.html#ceil"><i class="fa fa-check"></i><b>13.5.4.9</b> <code>ceil</code></a></li>
-<li class="chapter" data-level="13.5.4.10" data-path="pandas-1.html"><a href="pandas-1.html#replace-2"><i class="fa fa-check"></i><b>13.5.4.10</b> <code>replace()</code></a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="13.6" data-path="pandas-1.html"><a href="pandas-1.html#series"><i class="fa fa-check"></i><b>13.6</b> Series</a><ul>
-<li class="chapter" data-level="13.6.1" data-path="pandas-1.html"><a href="pandas-1.html#constructor-7"><i class="fa fa-check"></i><b>13.6.1</b> Constructor</a><ul>
-<li class="chapter" data-level="13.6.1.1" data-path="pandas-1.html"><a href="pandas-1.html#empty-series"><i class="fa fa-check"></i><b>13.6.1.1</b> Empty Series</a></li>
-<li class="chapter" data-level="13.6.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-scalar"><i class="fa fa-check"></i><b>13.6.1.2</b> From Scalar</a></li>
-<li class="chapter" data-level="13.6.1.3" data-path="pandas-1.html"><a href="pandas-1.html#from-array-like"><i class="fa fa-check"></i><b>13.6.1.3</b> From array-like</a></li>
-<li class="chapter" data-level="13.6.1.4" data-path="pandas-1.html"><a href="pandas-1.html#from-dictionary"><i class="fa fa-check"></i><b>13.6.1.4</b> From Dictionary</a></li>
-<li class="chapter" data-level="13.6.1.5" data-path="pandas-1.html"><a href="pandas-1.html#specify-index"><i class="fa fa-check"></i><b>13.6.1.5</b> Specify Index</a></li>
-<li class="chapter" data-level="13.6.1.6" data-path="pandas-1.html"><a href="pandas-1.html#mix-element-types"><i class="fa fa-check"></i><b>13.6.1.6</b> Mix Element Types</a></li>
-<li class="chapter" data-level="13.6.1.7" data-path="pandas-1.html"><a href="pandas-1.html#specify-data-types"><i class="fa fa-check"></i><b>13.6.1.7</b> Specify Data Types</a></li>
-</ul></li>
-<li class="chapter" data-level="13.6.2" data-path="pandas-1.html"><a href="pandas-1.html#accessing-series"><i class="fa fa-check"></i><b>13.6.2</b> Accessing Series</a><ul>
-<li class="chapter" data-level="13.6.2.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-3"><i class="fa fa-check"></i><b>13.6.2.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.6.2.2" data-path="pandas-1.html"><a href="pandas-1.html#by-row-numbers"><i class="fa fa-check"></i><b>13.6.2.2</b> by Row Number(s)</a></li>
-<li class="chapter" data-level="13.6.2.3" data-path="pandas-1.html"><a href="pandas-1.html#by-indexes"><i class="fa fa-check"></i><b>13.6.2.3</b> by Index(es)</a></li>
-<li class="chapter" data-level="13.6.2.4" data-path="pandas-1.html"><a href="pandas-1.html#filtering-criteria"><i class="fa fa-check"></i><b>13.6.2.4</b> Filtering Criteria</a></li>
-</ul></li>
-<li class="chapter" data-level="13.6.3" data-path="pandas-1.html"><a href="pandas-1.html#modifying-series"><i class="fa fa-check"></i><b>13.6.3</b> Modifying Series</a><ul>
-<li class="chapter" data-level="13.6.3.1" data-path="pandas-1.html"><a href="pandas-1.html#by-row-numbers-1"><i class="fa fa-check"></i><b>13.6.3.1</b> by Row Number(s)</a></li>
-<li class="chapter" data-level="13.6.3.2" data-path="pandas-1.html"><a href="pandas-1.html#by-indexes-1"><i class="fa fa-check"></i><b>13.6.3.2</b> by Index(es)</a></li>
-</ul></li>
-<li class="chapter" data-level="13.6.4" data-path="pandas-1.html"><a href="pandas-1.html#series-attributes"><i class="fa fa-check"></i><b>13.6.4</b> Series Attributes</a><ul>
-<li class="chapter" data-level="13.6.4.1" data-path="pandas-1.html"><a href="pandas-1.html#the-data"><i class="fa fa-check"></i><b>13.6.4.1</b> The Data</a></li>
-<li class="chapter" data-level="13.6.4.2" data-path="pandas-1.html"><a href="pandas-1.html#index"><i class="fa fa-check"></i><b>13.6.4.2</b> <code>index</code></a></li>
-<li class="chapter" data-level="13.6.4.3" data-path="pandas-1.html"><a href="pandas-1.html#dtype-1"><i class="fa fa-check"></i><b>13.6.4.3</b> <code>dtype</code></a></li>
-<li class="chapter" data-level="13.6.4.4" data-path="pandas-1.html"><a href="pandas-1.html#dimensions-1"><i class="fa fa-check"></i><b>13.6.4.4</b> Dimensions</a></li>
-<li class="chapter" data-level="13.6.4.5" data-path="pandas-1.html"><a href="pandas-1.html#name"><i class="fa fa-check"></i><b>13.6.4.5</b> <code>.name</code></a></li>
-</ul></li>
-<li class="chapter" data-level="13.6.5" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods-2"><i class="fa fa-check"></i><b>13.6.5</b> Instance Methods</a><ul>
-<li class="chapter" data-level="13.6.5.1" data-path="pandas-1.html"><a href="pandas-1.html#reset_index"><i class="fa fa-check"></i><b>13.6.5.1</b> .reset_index ()</a></li>
-<li class="chapter" data-level="13.6.5.2" data-path="pandas-1.html"><a href="pandas-1.html#structure-conversion"><i class="fa fa-check"></i><b>13.6.5.2</b> Structure Conversion</a></li>
-<li class="chapter" data-level="13.6.5.3" data-path="pandas-1.html"><a href="pandas-1.html#datatype-conversion"><i class="fa fa-check"></i><b>13.6.5.3</b> DataType Conversion</a></li>
-</ul></li>
-<li class="chapter" data-level="13.6.6" data-path="pandas-1.html"><a href="pandas-1.html#series-operators"><i class="fa fa-check"></i><b>13.6.6</b> Series Operators</a><ul>
-<li class="chapter" data-level="13.6.6.1" data-path="pandas-1.html"><a href="pandas-1.html#arithmetic-operator"><i class="fa fa-check"></i><b>13.6.6.1</b> Arithmetic Operator</a></li>
-<li class="chapter" data-level="13.6.6.2" data-path="pandas-1.html"><a href="pandas-1.html#logic-operator"><i class="fa fa-check"></i><b>13.6.6.2</b> Logic Operator</a></li>
-</ul></li>
-<li class="chapter" data-level="13.6.7" data-path="pandas-1.html"><a href="pandas-1.html#series-string-accesor-.str"><i class="fa fa-check"></i><b>13.6.7</b> Series String Accesor <code>.str</code></a><ul>
-<li class="chapter" data-level="13.6.7.1" data-path="pandas-1.html"><a href="pandas-1.html#splitting"><i class="fa fa-check"></i><b>13.6.7.1</b> Splitting</a></li>
-<li class="chapter" data-level="13.6.7.2" data-path="pandas-1.html"><a href="pandas-1.html#matching"><i class="fa fa-check"></i><b>13.6.7.2</b> Matching</a></li>
-<li class="chapter" data-level="13.6.7.3" data-path="pandas-1.html"><a href="pandas-1.html#case-conversion"><i class="fa fa-check"></i><b>13.6.7.3</b> Case Conversion</a></li>
-<li class="chapter" data-level="13.6.7.4" data-path="pandas-1.html"><a href="pandas-1.html#number-of-characters"><i class="fa fa-check"></i><b>13.6.7.4</b> Number of Characters</a></li>
-<li class="chapter" data-level="13.6.7.5" data-path="pandas-1.html"><a href="pandas-1.html#string-indexing"><i class="fa fa-check"></i><b>13.6.7.5</b> String Indexing</a></li>
-<li class="chapter" data-level="13.6.7.6" data-path="pandas-1.html"><a href="pandas-1.html#splitting-1"><i class="fa fa-check"></i><b>13.6.7.6</b> Splitting</a></li>
-<li class="chapter" data-level="13.6.7.7" data-path="pandas-1.html"><a href="pandas-1.html#split-and-expand-into-dataframe"><i class="fa fa-check"></i><b>13.6.7.7</b> Split and Expand Into DataFrame</a></li>
-<li class="chapter" data-level="13.6.7.8" data-path="pandas-1.html"><a href="pandas-1.html#series-substring-extraction"><i class="fa fa-check"></i><b>13.6.7.8</b> Series Substring Extraction</a></li>
-</ul></li>
-<li class="chapter" data-level="13.6.8" data-path="pandas-1.html"><a href="pandas-1.html#series-datetime-accessor-.dt"><i class="fa fa-check"></i><b>13.6.8</b> Series DateTime Accessor <code>.dt</code></a><ul>
-<li class="chapter" data-level="13.6.8.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-4"><i class="fa fa-check"></i><b>13.6.8.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.6.8.2" data-path="pandas-1.html"><a href="pandas-1.html#convert-to"><i class="fa fa-check"></i><b>13.6.8.2</b> Convert To</a></li>
-<li class="chapter" data-level="13.6.8.3" data-path="pandas-1.html"><a href="pandas-1.html#timestamp-attributes"><i class="fa fa-check"></i><b>13.6.8.3</b> Timestamp Attributes</a></li>
+<li class="chapter" data-level="13.4.2" data-path="pandas-1.html"><a href="pandas-1.html#attributes-4"><i class="fa fa-check"></i><b>13.4.2</b> Attributes</a></li>
+<li class="chapter" data-level="13.4.3" data-path="pandas-1.html"><a href="pandas-1.html#operator-2"><i class="fa fa-check"></i><b>13.4.3</b> Operator</a></li>
+<li class="chapter" data-level="13.4.4" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods-1"><i class="fa fa-check"></i><b>13.4.4</b> Instance Methods</a><ul>
+<li class="chapter" data-level="13.4.4.1" data-path="pandas-1.html"><a href="pandas-1.html#useful-methods"><i class="fa fa-check"></i><b>13.4.4.1</b> Useful Methods</a></li>
+<li class="chapter" data-level="13.4.4.2" data-path="pandas-1.html"><a href="pandas-1.html#convert-to-datetime"><i class="fa fa-check"></i><b>13.4.4.2</b> Convert To datetime</a></li>
+<li class="chapter" data-level="13.4.4.3" data-path="pandas-1.html"><a href="pandas-1.html#convert-to-numpy"><i class="fa fa-check"></i><b>13.4.4.3</b> Convert To <code>numpy</code></a></li>
+<li class="chapter" data-level="13.4.4.4" data-path="pandas-1.html"><a href="pandas-1.html#formatting-with-strftime"><i class="fa fa-check"></i><b>13.4.4.4</b> Formatting with <code>strftime</code></a></li>
+<li class="chapter" data-level="13.4.4.5" data-path="pandas-1.html"><a href="pandas-1.html#add-timezone"><i class="fa fa-check"></i><b>13.4.4.5</b> Add Timezone</a></li>
+<li class="chapter" data-level="13.4.4.6" data-path="pandas-1.html"><a href="pandas-1.html#convert-timezone"><i class="fa fa-check"></i><b>13.4.4.6</b> Convert Timezone</a></li>
+<li class="chapter" data-level="13.4.4.7" data-path="pandas-1.html"><a href="pandas-1.html#removing-timezone"><i class="fa fa-check"></i><b>13.4.4.7</b> Removing TImezone</a></li>
+<li class="chapter" data-level="13.4.4.8" data-path="pandas-1.html"><a href="pandas-1.html#formatting-with-isoformat"><i class="fa fa-check"></i><b>13.4.4.8</b> Formatting with <code>isoformat</code></a></li>
+<li class="chapter" data-level="13.4.4.9" data-path="pandas-1.html"><a href="pandas-1.html#ceil"><i class="fa fa-check"></i><b>13.4.4.9</b> <code>ceil</code></a></li>
+<li class="chapter" data-level="13.4.4.10" data-path="pandas-1.html"><a href="pandas-1.html#replace-2"><i class="fa fa-check"></i><b>13.4.4.10</b> <code>replace()</code></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="13.7" data-path="pandas-1.html"><a href="pandas-1.html#dataframe"><i class="fa fa-check"></i><b>13.7</b> DataFrame</a><ul>
-<li class="chapter" data-level="13.7.1" data-path="pandas-1.html"><a href="pandas-1.html#constructor-8"><i class="fa fa-check"></i><b>13.7.1</b> Constructor</a><ul>
-<li class="chapter" data-level="13.7.1.1" data-path="pandas-1.html"><a href="pandas-1.html#from-row-oriented-data-list-of-lists"><i class="fa fa-check"></i><b>13.7.1.1</b> From Row Oriented Data (List of Lists)</a></li>
-<li class="chapter" data-level="13.7.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-row-oriented-data-list-of-dictionary"><i class="fa fa-check"></i><b>13.7.1.2</b> From Row Oriented Data (List of Dictionary)</a></li>
-<li class="chapter" data-level="13.7.1.3" data-path="pandas-1.html"><a href="pandas-1.html#from-column-oriented-data"><i class="fa fa-check"></i><b>13.7.1.3</b> From Column Oriented Data</a></li>
+<li class="chapter" data-level="13.5" data-path="pandas-1.html"><a href="pandas-1.html#series"><i class="fa fa-check"></i><b>13.5</b> Series</a><ul>
+<li class="chapter" data-level="13.5.1" data-path="pandas-1.html"><a href="pandas-1.html#constructor-7"><i class="fa fa-check"></i><b>13.5.1</b> Constructor</a><ul>
+<li class="chapter" data-level="13.5.1.1" data-path="pandas-1.html"><a href="pandas-1.html#empty-series"><i class="fa fa-check"></i><b>13.5.1.1</b> Empty Series</a></li>
+<li class="chapter" data-level="13.5.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-scalar"><i class="fa fa-check"></i><b>13.5.1.2</b> From Scalar</a></li>
+<li class="chapter" data-level="13.5.1.3" data-path="pandas-1.html"><a href="pandas-1.html#from-array-like"><i class="fa fa-check"></i><b>13.5.1.3</b> From array-like</a></li>
+<li class="chapter" data-level="13.5.1.4" data-path="pandas-1.html"><a href="pandas-1.html#from-dictionary"><i class="fa fa-check"></i><b>13.5.1.4</b> From Dictionary</a></li>
+<li class="chapter" data-level="13.5.1.5" data-path="pandas-1.html"><a href="pandas-1.html#specify-index"><i class="fa fa-check"></i><b>13.5.1.5</b> Specify Index</a></li>
+<li class="chapter" data-level="13.5.1.6" data-path="pandas-1.html"><a href="pandas-1.html#mix-element-types"><i class="fa fa-check"></i><b>13.5.1.6</b> Mix Element Types</a></li>
+<li class="chapter" data-level="13.5.1.7" data-path="pandas-1.html"><a href="pandas-1.html#specify-data-types"><i class="fa fa-check"></i><b>13.5.1.7</b> Specify Data Types</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.2" data-path="pandas-1.html"><a href="pandas-1.html#attributes-5"><i class="fa fa-check"></i><b>13.7.2</b> Attributes</a><ul>
-<li class="chapter" data-level="13.7.2.1" data-path="pandas-1.html"><a href="pandas-1.html#dimensions-2"><i class="fa fa-check"></i><b>13.7.2.1</b> Dimensions</a></li>
-<li class="chapter" data-level="13.7.2.2" data-path="pandas-1.html"><a href="pandas-1.html#index-1"><i class="fa fa-check"></i><b>13.7.2.2</b> Index</a></li>
-<li class="chapter" data-level="13.7.2.3" data-path="pandas-1.html"><a href="pandas-1.html#columns"><i class="fa fa-check"></i><b>13.7.2.3</b> Columns</a></li>
-<li class="chapter" data-level="13.7.2.4" data-path="pandas-1.html"><a href="pandas-1.html#values"><i class="fa fa-check"></i><b>13.7.2.4</b> Values</a></li>
+<li class="chapter" data-level="13.5.2" data-path="pandas-1.html"><a href="pandas-1.html#accessing-series"><i class="fa fa-check"></i><b>13.5.2</b> Accessing Series</a><ul>
+<li class="chapter" data-level="13.5.2.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-3"><i class="fa fa-check"></i><b>13.5.2.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.5.2.2" data-path="pandas-1.html"><a href="pandas-1.html#by-row-numbers"><i class="fa fa-check"></i><b>13.5.2.2</b> by Row Number(s)</a></li>
+<li class="chapter" data-level="13.5.2.3" data-path="pandas-1.html"><a href="pandas-1.html#by-indexes"><i class="fa fa-check"></i><b>13.5.2.3</b> by Index(es)</a></li>
+<li class="chapter" data-level="13.5.2.4" data-path="pandas-1.html"><a href="pandas-1.html#filtering-criteria"><i class="fa fa-check"></i><b>13.5.2.4</b> Filtering Criteria</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.3" data-path="pandas-1.html"><a href="pandas-1.html#index-manipulation"><i class="fa fa-check"></i><b>13.7.3</b> Index Manipulation</a><ul>
-<li class="chapter" data-level="13.7.3.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-5"><i class="fa fa-check"></i><b>13.7.3.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.7.3.2" data-path="pandas-1.html"><a href="pandas-1.html#convert-column-to-index"><i class="fa fa-check"></i><b>13.7.3.2</b> Convert Column To Index</a></li>
-<li class="chapter" data-level="13.7.3.3" data-path="pandas-1.html"><a href="pandas-1.html#convert-index-back-to-column"><i class="fa fa-check"></i><b>13.7.3.3</b> Convert Index Back To Column</a></li>
-<li class="chapter" data-level="13.7.3.4" data-path="pandas-1.html"><a href="pandas-1.html#updating-index-.index"><i class="fa fa-check"></i><b>13.7.3.4</b> Updating Index ( .index= )</a></li>
-<li class="chapter" data-level="13.7.3.5" data-path="pandas-1.html"><a href="pandas-1.html#reordering-index-.-reindex"><i class="fa fa-check"></i><b>13.7.3.5</b> Reordering Index (. reindex )</a></li>
+<li class="chapter" data-level="13.5.3" data-path="pandas-1.html"><a href="pandas-1.html#modifying-series"><i class="fa fa-check"></i><b>13.5.3</b> Modifying Series</a><ul>
+<li class="chapter" data-level="13.5.3.1" data-path="pandas-1.html"><a href="pandas-1.html#by-row-numbers-1"><i class="fa fa-check"></i><b>13.5.3.1</b> by Row Number(s)</a></li>
+<li class="chapter" data-level="13.5.3.2" data-path="pandas-1.html"><a href="pandas-1.html#by-indexes-1"><i class="fa fa-check"></i><b>13.5.3.2</b> by Index(es)</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.4" data-path="pandas-1.html"><a href="pandas-1.html#subsetting-columns"><i class="fa fa-check"></i><b>13.7.4</b> Subsetting Columns</a><ul>
-<li class="chapter" data-level="13.7.4.1" data-path="pandas-1.html"><a href="pandas-1.html#select-single-column"><i class="fa fa-check"></i><b>13.7.4.1</b> Select Single Column</a></li>
-<li class="chapter" data-level="13.7.4.2" data-path="pandas-1.html"><a href="pandas-1.html#select-multiple-columns"><i class="fa fa-check"></i><b>13.7.4.2</b> Select Multiple Columns</a></li>
-<li class="chapter" data-level="13.7.4.3" data-path="pandas-1.html"><a href="pandas-1.html#selection-by-data-type"><i class="fa fa-check"></i><b>13.7.4.3</b> Selection by Data Type</a></li>
-<li class="chapter" data-level="13.7.4.4" data-path="pandas-1.html"><a href="pandas-1.html#subset-by-filter"><i class="fa fa-check"></i><b>13.7.4.4</b> Subset by <code>filter()</code></a></li>
+<li class="chapter" data-level="13.5.4" data-path="pandas-1.html"><a href="pandas-1.html#series-attributes"><i class="fa fa-check"></i><b>13.5.4</b> Series Attributes</a><ul>
+<li class="chapter" data-level="13.5.4.1" data-path="pandas-1.html"><a href="pandas-1.html#the-data"><i class="fa fa-check"></i><b>13.5.4.1</b> The Data</a></li>
+<li class="chapter" data-level="13.5.4.2" data-path="pandas-1.html"><a href="pandas-1.html#index"><i class="fa fa-check"></i><b>13.5.4.2</b> <code>index</code></a></li>
+<li class="chapter" data-level="13.5.4.3" data-path="pandas-1.html"><a href="pandas-1.html#dtype-1"><i class="fa fa-check"></i><b>13.5.4.3</b> <code>dtype</code></a></li>
+<li class="chapter" data-level="13.5.4.4" data-path="pandas-1.html"><a href="pandas-1.html#dimensions-1"><i class="fa fa-check"></i><b>13.5.4.4</b> Dimensions</a></li>
+<li class="chapter" data-level="13.5.4.5" data-path="pandas-1.html"><a href="pandas-1.html#name"><i class="fa fa-check"></i><b>13.5.4.5</b> <code>.name</code></a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.5" data-path="pandas-1.html"><a href="pandas-1.html#column-manipulation-1"><i class="fa fa-check"></i><b>13.7.5</b> Column Manipulation</a><ul>
-<li class="chapter" data-level="13.7.5.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-6"><i class="fa fa-check"></i><b>13.7.5.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.7.5.2" data-path="pandas-1.html"><a href="pandas-1.html#renaming-columns"><i class="fa fa-check"></i><b>13.7.5.2</b> Renaming Columns</a></li>
-<li class="chapter" data-level="13.7.5.3" data-path="pandas-1.html"><a href="pandas-1.html#reordering-columns"><i class="fa fa-check"></i><b>13.7.5.3</b> Reordering Columns</a></li>
-<li class="chapter" data-level="13.7.5.4" data-path="pandas-1.html"><a href="pandas-1.html#duplicating-or-replacing-column"><i class="fa fa-check"></i><b>13.7.5.4</b> Duplicating or Replacing Column</a></li>
-<li class="chapter" data-level="13.7.5.5" data-path="pandas-1.html"><a href="pandas-1.html#dropping-columns-.drop"><i class="fa fa-check"></i><b>13.7.5.5</b> Dropping Columns (.drop)</a></li>
+<li class="chapter" data-level="13.5.5" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods-2"><i class="fa fa-check"></i><b>13.5.5</b> Instance Methods</a><ul>
+<li class="chapter" data-level="13.5.5.1" data-path="pandas-1.html"><a href="pandas-1.html#reset_index"><i class="fa fa-check"></i><b>13.5.5.1</b> .reset_index ()</a></li>
+<li class="chapter" data-level="13.5.5.2" data-path="pandas-1.html"><a href="pandas-1.html#structure-conversion"><i class="fa fa-check"></i><b>13.5.5.2</b> Structure Conversion</a></li>
+<li class="chapter" data-level="13.5.5.3" data-path="pandas-1.html"><a href="pandas-1.html#datatype-conversion"><i class="fa fa-check"></i><b>13.5.5.3</b> DataType Conversion</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.6" data-path="pandas-1.html"><a href="pandas-1.html#subsetting-rows"><i class="fa fa-check"></i><b>13.7.6</b> Subsetting Rows</a><ul>
-<li class="chapter" data-level="13.7.6.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-7"><i class="fa fa-check"></i><b>13.7.6.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.7.6.2" data-path="pandas-1.html"><a href="pandas-1.html#by-index-or-boolean"><i class="fa fa-check"></i><b>13.7.6.2</b> By Index or Boolean</a></li>
-<li class="chapter" data-level="13.7.6.3" data-path="pandas-1.html"><a href="pandas-1.html#by-row-number"><i class="fa fa-check"></i><b>13.7.6.3</b> By Row Number</a></li>
-<li class="chapter" data-level="13.7.6.4" data-path="pandas-1.html"><a href="pandas-1.html#query"><i class="fa fa-check"></i><b>13.7.6.4</b> <code>query()</code></a></li>
-<li class="chapter" data-level="13.7.6.5" data-path="pandas-1.html"><a href="pandas-1.html#sample"><i class="fa fa-check"></i><b>13.7.6.5</b> <code>sample()</code></a></li>
+<li class="chapter" data-level="13.5.6" data-path="pandas-1.html"><a href="pandas-1.html#series-operators"><i class="fa fa-check"></i><b>13.5.6</b> Series Operators</a><ul>
+<li class="chapter" data-level="13.5.6.1" data-path="pandas-1.html"><a href="pandas-1.html#arithmetic-operator"><i class="fa fa-check"></i><b>13.5.6.1</b> Arithmetic Operator</a></li>
+<li class="chapter" data-level="13.5.6.2" data-path="pandas-1.html"><a href="pandas-1.html#logic-operator"><i class="fa fa-check"></i><b>13.5.6.2</b> Logic Operator</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.7" data-path="pandas-1.html"><a href="pandas-1.html#row-manipulation"><i class="fa fa-check"></i><b>13.7.7</b> Row Manipulation</a><ul>
-<li class="chapter" data-level="13.7.7.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-8"><i class="fa fa-check"></i><b>13.7.7.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.7.7.2" data-path="pandas-1.html"><a href="pandas-1.html#dropping-rows-.drop"><i class="fa fa-check"></i><b>13.7.7.2</b> Dropping Rows (.drop)</a></li>
+<li class="chapter" data-level="13.5.7" data-path="pandas-1.html"><a href="pandas-1.html#series-string-accesor-.str"><i class="fa fa-check"></i><b>13.5.7</b> Series String Accesor <code>.str</code></a><ul>
+<li class="chapter" data-level="13.5.7.1" data-path="pandas-1.html"><a href="pandas-1.html#splitting"><i class="fa fa-check"></i><b>13.5.7.1</b> Splitting</a></li>
+<li class="chapter" data-level="13.5.7.2" data-path="pandas-1.html"><a href="pandas-1.html#matching"><i class="fa fa-check"></i><b>13.5.7.2</b> Matching</a></li>
+<li class="chapter" data-level="13.5.7.3" data-path="pandas-1.html"><a href="pandas-1.html#case-conversion"><i class="fa fa-check"></i><b>13.5.7.3</b> Case Conversion</a></li>
+<li class="chapter" data-level="13.5.7.4" data-path="pandas-1.html"><a href="pandas-1.html#number-of-characters"><i class="fa fa-check"></i><b>13.5.7.4</b> Number of Characters</a></li>
+<li class="chapter" data-level="13.5.7.5" data-path="pandas-1.html"><a href="pandas-1.html#string-indexing"><i class="fa fa-check"></i><b>13.5.7.5</b> String Indexing</a></li>
+<li class="chapter" data-level="13.5.7.6" data-path="pandas-1.html"><a href="pandas-1.html#splitting-1"><i class="fa fa-check"></i><b>13.5.7.6</b> Splitting</a></li>
+<li class="chapter" data-level="13.5.7.7" data-path="pandas-1.html"><a href="pandas-1.html#split-and-expand-into-dataframe"><i class="fa fa-check"></i><b>13.5.7.7</b> Split and Expand Into DataFrame</a></li>
+<li class="chapter" data-level="13.5.7.8" data-path="pandas-1.html"><a href="pandas-1.html#series-substring-extraction"><i class="fa fa-check"></i><b>13.5.7.8</b> Series Substring Extraction</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.8" data-path="pandas-1.html"><a href="pandas-1.html#slicing"><i class="fa fa-check"></i><b>13.7.8</b> Slicing</a><ul>
-<li class="chapter" data-level="13.7.8.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-9"><i class="fa fa-check"></i><b>13.7.8.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.7.8.2" data-path="pandas-1.html"><a href="pandas-1.html#getting-one-cell"><i class="fa fa-check"></i><b>13.7.8.2</b> Getting One Cell</a></li>
-<li class="chapter" data-level="13.7.8.3" data-path="pandas-1.html"><a href="pandas-1.html#getting-multiple-cells"><i class="fa fa-check"></i><b>13.7.8.3</b> Getting Multiple Cells</a></li>
-</ul></li>
-<li class="chapter" data-level="13.7.9" data-path="pandas-1.html"><a href="pandas-1.html#chained-indexing"><i class="fa fa-check"></i><b>13.7.9</b> Chained Indexing</a></li>
-<li class="chapter" data-level="13.7.10" data-path="pandas-1.html"><a href="pandas-1.html#data-structure"><i class="fa fa-check"></i><b>13.7.10</b> Data Structure</a><ul>
-<li class="chapter" data-level="13.7.10.1" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods---structure"><i class="fa fa-check"></i><b>13.7.10.1</b> Instance Methods - Structure</a></li>
-<li class="chapter" data-level="13.7.10.2" data-path="pandas-1.html"><a href="pandas-1.html#conversion-to-other-format"><i class="fa fa-check"></i><b>13.7.10.2</b> Conversion To Other Format</a></li>
-</ul></li>
-<li class="chapter" data-level="13.7.11" data-path="pandas-1.html"><a href="pandas-1.html#exploratory-analysis"><i class="fa fa-check"></i><b>13.7.11</b> Exploratory Analysis</a><ul>
-<li class="chapter" data-level="13.7.11.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-10"><i class="fa fa-check"></i><b>13.7.11.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.7.11.2" data-path="pandas-1.html"><a href="pandas-1.html#all-stats-in-one---.describe"><i class="fa fa-check"></i><b>13.7.11.2</b> All Stats in One - .describe()</a></li>
-<li class="chapter" data-level="13.7.11.3" data-path="pandas-1.html"><a href="pandas-1.html#minmaxmeanmedian"><i class="fa fa-check"></i><b>13.7.11.3</b> min/max/mean/median</a></li>
-</ul></li>
-<li class="chapter" data-level="13.7.12" data-path="pandas-1.html"><a href="pandas-1.html#plotting"><i class="fa fa-check"></i><b>13.7.12</b> Plotting</a></li>
-</ul></li>
-<li class="chapter" data-level="13.8" data-path="pandas-1.html"><a href="pandas-1.html#categories"><i class="fa fa-check"></i><b>13.8</b> Categories</a><ul>
-<li class="chapter" data-level="13.8.1" data-path="pandas-1.html"><a href="pandas-1.html#creating"><i class="fa fa-check"></i><b>13.8.1</b> Creating</a><ul>
-<li class="chapter" data-level="13.8.1.1" data-path="pandas-1.html"><a href="pandas-1.html#from-list"><i class="fa fa-check"></i><b>13.8.1.1</b> From List</a></li>
-<li class="chapter" data-level="13.8.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-series"><i class="fa fa-check"></i><b>13.8.1.2</b> From Series</a></li>
-<li class="chapter" data-level="13.8.1.3" data-path="pandas-1.html"><a href="pandas-1.html#ordering-category"><i class="fa fa-check"></i><b>13.8.1.3</b> Ordering Category</a></li>
-</ul></li>
-<li class="chapter" data-level="13.8.2" data-path="pandas-1.html"><a href="pandas-1.html#properties"><i class="fa fa-check"></i><b>13.8.2</b> Properties</a><ul>
-<li class="chapter" data-level="13.8.2.1" data-path="pandas-1.html"><a href="pandas-1.html#categories-1"><i class="fa fa-check"></i><b>13.8.2.1</b> .categories</a></li>
-<li class="chapter" data-level="13.8.2.2" data-path="pandas-1.html"><a href="pandas-1.html#codes"><i class="fa fa-check"></i><b>13.8.2.2</b> .codes</a></li>
-</ul></li>
-<li class="chapter" data-level="13.8.3" data-path="pandas-1.html"><a href="pandas-1.html#rename-category"><i class="fa fa-check"></i><b>13.8.3</b> Rename Category</a><ul>
-<li class="chapter" data-level="13.8.3.1" data-path="pandas-1.html"><a href="pandas-1.html#renamce-to-new-category-object"><i class="fa fa-check"></i><b>13.8.3.1</b> Renamce To New Category Object</a></li>
-<li class="chapter" data-level="13.8.3.2" data-path="pandas-1.html"><a href="pandas-1.html#rename-inplace"><i class="fa fa-check"></i><b>13.8.3.2</b> Rename Inplace</a></li>
-</ul></li>
-<li class="chapter" data-level="13.8.4" data-path="pandas-1.html"><a href="pandas-1.html#adding-new-category"><i class="fa fa-check"></i><b>13.8.4</b> Adding New Category</a></li>
-<li class="chapter" data-level="13.8.5" data-path="pandas-1.html"><a href="pandas-1.html#removing-category"><i class="fa fa-check"></i><b>13.8.5</b> Removing Category</a><ul>
-<li class="chapter" data-level="13.8.5.1" data-path="pandas-1.html"><a href="pandas-1.html#remove-specific-categories"><i class="fa fa-check"></i><b>13.8.5.1</b> Remove Specific Categor(ies)</a></li>
-<li class="chapter" data-level="13.8.5.2" data-path="pandas-1.html"><a href="pandas-1.html#remove-unused-category"><i class="fa fa-check"></i><b>13.8.5.2</b> Remove Unused Category</a></li>
-</ul></li>
-<li class="chapter" data-level="13.8.6" data-path="pandas-1.html"><a href="pandas-1.html#add-and-remove-categories-in-one-step---set"><i class="fa fa-check"></i><b>13.8.6</b> Add and Remove Categories In One Step - Set()</a></li>
-<li class="chapter" data-level="13.8.7" data-path="pandas-1.html"><a href="pandas-1.html#categorical-descriptive-analysis"><i class="fa fa-check"></i><b>13.8.7</b> Categorical Descriptive Analysis</a><ul>
-<li class="chapter" data-level="13.8.7.1" data-path="pandas-1.html"><a href="pandas-1.html#at-one-glance"><i class="fa fa-check"></i><b>13.8.7.1</b> At One Glance</a></li>
-<li class="chapter" data-level="13.8.7.2" data-path="pandas-1.html"><a href="pandas-1.html#frequency-count"><i class="fa fa-check"></i><b>13.8.7.2</b> Frequency Count</a></li>
-<li class="chapter" data-level="13.8.7.3" data-path="pandas-1.html"><a href="pandas-1.html#least-frequent-category-most-frequent-category-and-most-frequent-category"><i class="fa fa-check"></i><b>13.8.7.3</b> Least Frequent Category, Most Frequent Category, and Most Frequent Category</a></li>
-</ul></li>
-<li class="chapter" data-level="13.8.8" data-path="pandas-1.html"><a href="pandas-1.html#other-methods-1"><i class="fa fa-check"></i><b>13.8.8</b> Other Methods</a><ul>
-<li class="chapter" data-level="13.8.8.1" data-path="pandas-1.html"><a href="pandas-1.html#get_values"><i class="fa fa-check"></i><b>13.8.8.1</b> .get_values()</a></li>
+<li class="chapter" data-level="13.5.8" data-path="pandas-1.html"><a href="pandas-1.html#series-datetime-accessor-.dt"><i class="fa fa-check"></i><b>13.5.8</b> Series DateTime Accessor <code>.dt</code></a><ul>
+<li class="chapter" data-level="13.5.8.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-4"><i class="fa fa-check"></i><b>13.5.8.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.5.8.2" data-path="pandas-1.html"><a href="pandas-1.html#convert-to"><i class="fa fa-check"></i><b>13.5.8.2</b> Convert To</a></li>
+<li class="chapter" data-level="13.5.8.3" data-path="pandas-1.html"><a href="pandas-1.html#timestamp-attributes"><i class="fa fa-check"></i><b>13.5.8.3</b> Timestamp Attributes</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="13.9" data-path="pandas-1.html"><a href="pandas-1.html#dummies"><i class="fa fa-check"></i><b>13.9</b> Dummies</a><ul>
-<li class="chapter" data-level="13.9.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-11"><i class="fa fa-check"></i><b>13.9.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.9.2" data-path="pandas-1.html"><a href="pandas-1.html#dummies-on-array-like-data"><i class="fa fa-check"></i><b>13.9.2</b> Dummies on Array-Like Data</a></li>
-<li class="chapter" data-level="13.9.3" data-path="pandas-1.html"><a href="pandas-1.html#dummies-on-dataframe-multiple-columns"><i class="fa fa-check"></i><b>13.9.3</b> Dummies on DataFrame (multiple columns)</a><ul>
-<li class="chapter" data-level="13.9.3.1" data-path="pandas-1.html"><a href="pandas-1.html#all-columns"><i class="fa fa-check"></i><b>13.9.3.1</b> All Columns</a></li>
-<li class="chapter" data-level="13.9.3.2" data-path="pandas-1.html"><a href="pandas-1.html#selected-columns"><i class="fa fa-check"></i><b>13.9.3.2</b> Selected Columns</a></li>
+<li class="chapter" data-level="13.6" data-path="pandas-1.html"><a href="pandas-1.html#dataframe"><i class="fa fa-check"></i><b>13.6</b> DataFrame</a><ul>
+<li class="chapter" data-level="13.6.1" data-path="pandas-1.html"><a href="pandas-1.html#constructor-8"><i class="fa fa-check"></i><b>13.6.1</b> Constructor</a><ul>
+<li class="chapter" data-level="13.6.1.1" data-path="pandas-1.html"><a href="pandas-1.html#from-row-oriented-data-list-of-lists"><i class="fa fa-check"></i><b>13.6.1.1</b> From Row Oriented Data (List of Lists)</a></li>
+<li class="chapter" data-level="13.6.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-row-oriented-data-list-of-dictionary"><i class="fa fa-check"></i><b>13.6.1.2</b> From Row Oriented Data (List of Dictionary)</a></li>
+<li class="chapter" data-level="13.6.1.3" data-path="pandas-1.html"><a href="pandas-1.html#from-column-oriented-data"><i class="fa fa-check"></i><b>13.6.1.3</b> From Column Oriented Data</a></li>
 </ul></li>
-<li class="chapter" data-level="13.9.4" data-path="pandas-1.html"><a href="pandas-1.html#dummies-with-na"><i class="fa fa-check"></i><b>13.9.4</b> Dummies with na</a></li>
-<li class="chapter" data-level="13.9.5" data-path="pandas-1.html"><a href="pandas-1.html#specify-prefixes"><i class="fa fa-check"></i><b>13.9.5</b> Specify Prefixes</a></li>
-<li class="chapter" data-level="13.9.6" data-path="pandas-1.html"><a href="pandas-1.html#dropping-first-column"><i class="fa fa-check"></i><b>13.9.6</b> Dropping First Column</a></li>
+<li class="chapter" data-level="13.6.2" data-path="pandas-1.html"><a href="pandas-1.html#attributes-5"><i class="fa fa-check"></i><b>13.6.2</b> Attributes</a><ul>
+<li class="chapter" data-level="13.6.2.1" data-path="pandas-1.html"><a href="pandas-1.html#dimensions-2"><i class="fa fa-check"></i><b>13.6.2.1</b> Dimensions</a></li>
+<li class="chapter" data-level="13.6.2.2" data-path="pandas-1.html"><a href="pandas-1.html#index-1"><i class="fa fa-check"></i><b>13.6.2.2</b> Index</a></li>
+<li class="chapter" data-level="13.6.2.3" data-path="pandas-1.html"><a href="pandas-1.html#columns"><i class="fa fa-check"></i><b>13.6.2.3</b> Columns</a></li>
+<li class="chapter" data-level="13.6.2.4" data-path="pandas-1.html"><a href="pandas-1.html#values"><i class="fa fa-check"></i><b>13.6.2.4</b> Values</a></li>
 </ul></li>
-<li class="chapter" data-level="13.10" data-path="pandas-1.html"><a href="pandas-1.html#getting-external-data-1"><i class="fa fa-check"></i><b>13.10</b> Getting External Data</a><ul>
-<li class="chapter" data-level="13.10.1" data-path="pandas-1.html"><a href="pandas-1.html#html_table-parser"><i class="fa fa-check"></i><b>13.10.1</b> html_table parser</a></li>
-<li class="chapter" data-level="13.10.2" data-path="pandas-1.html"><a href="pandas-1.html#csv-import"><i class="fa fa-check"></i><b>13.10.2</b> CSV Import</a><ul>
-<li class="chapter" data-level="13.10.2.1" data-path="pandas-1.html"><a href="pandas-1.html#syntax"><i class="fa fa-check"></i><b>13.10.2.1</b> Syntax</a></li>
-<li class="chapter" data-level="13.10.2.2" data-path="pandas-1.html"><a href="pandas-1.html#default-import"><i class="fa fa-check"></i><b>13.10.2.2</b> Default Import</a></li>
-<li class="chapter" data-level="13.10.2.3" data-path="pandas-1.html"><a href="pandas-1.html#specify-data-types-1"><i class="fa fa-check"></i><b>13.10.2.3</b> Specify Data Types</a></li>
-<li class="chapter" data-level="13.10.2.4" data-path="pandas-1.html"><a href="pandas-1.html#on-the-fly-date-parsing-and-indexing"><i class="fa fa-check"></i><b>13.10.2.4</b> On The Fly Date Parsing and Indexing</a></li>
-<li class="chapter" data-level="13.10.2.5" data-path="pandas-1.html"><a href="pandas-1.html#parse-date-then-set-as-index"><i class="fa fa-check"></i><b>13.10.2.5</b> Parse Date, Then Set as Index</a></li>
+<li class="chapter" data-level="13.6.3" data-path="pandas-1.html"><a href="pandas-1.html#index-manipulation"><i class="fa fa-check"></i><b>13.6.3</b> Index Manipulation</a><ul>
+<li class="chapter" data-level="13.6.3.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-5"><i class="fa fa-check"></i><b>13.6.3.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.6.3.2" data-path="pandas-1.html"><a href="pandas-1.html#convert-column-to-index"><i class="fa fa-check"></i><b>13.6.3.2</b> Convert Column To Index</a></li>
+<li class="chapter" data-level="13.6.3.3" data-path="pandas-1.html"><a href="pandas-1.html#convert-index-back-to-column"><i class="fa fa-check"></i><b>13.6.3.3</b> Convert Index Back To Column</a></li>
+<li class="chapter" data-level="13.6.3.4" data-path="pandas-1.html"><a href="pandas-1.html#updating-index-.index"><i class="fa fa-check"></i><b>13.6.3.4</b> Updating Index ( .index= )</a></li>
+<li class="chapter" data-level="13.6.3.5" data-path="pandas-1.html"><a href="pandas-1.html#reordering-index-.-reindex"><i class="fa fa-check"></i><b>13.6.3.5</b> Reordering Index (. reindex )</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6.4" data-path="pandas-1.html"><a href="pandas-1.html#subsetting-columns"><i class="fa fa-check"></i><b>13.6.4</b> Subsetting Columns</a><ul>
+<li class="chapter" data-level="13.6.4.1" data-path="pandas-1.html"><a href="pandas-1.html#select-single-column"><i class="fa fa-check"></i><b>13.6.4.1</b> Select Single Column</a></li>
+<li class="chapter" data-level="13.6.4.2" data-path="pandas-1.html"><a href="pandas-1.html#select-multiple-columns"><i class="fa fa-check"></i><b>13.6.4.2</b> Select Multiple Columns</a></li>
+<li class="chapter" data-level="13.6.4.3" data-path="pandas-1.html"><a href="pandas-1.html#selection-by-data-type"><i class="fa fa-check"></i><b>13.6.4.3</b> Selection by Data Type</a></li>
+<li class="chapter" data-level="13.6.4.4" data-path="pandas-1.html"><a href="pandas-1.html#subset-by-filter"><i class="fa fa-check"></i><b>13.6.4.4</b> Subset by <code>filter()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="13.6.5" data-path="pandas-1.html"><a href="pandas-1.html#column-manipulation-1"><i class="fa fa-check"></i><b>13.6.5</b> Column Manipulation</a><ul>
+<li class="chapter" data-level="13.6.5.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-6"><i class="fa fa-check"></i><b>13.6.5.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.6.5.2" data-path="pandas-1.html"><a href="pandas-1.html#renaming-columns"><i class="fa fa-check"></i><b>13.6.5.2</b> Renaming Columns</a></li>
+<li class="chapter" data-level="13.6.5.3" data-path="pandas-1.html"><a href="pandas-1.html#reordering-columns"><i class="fa fa-check"></i><b>13.6.5.3</b> Reordering Columns</a></li>
+<li class="chapter" data-level="13.6.5.4" data-path="pandas-1.html"><a href="pandas-1.html#duplicating-or-replacing-column"><i class="fa fa-check"></i><b>13.6.5.4</b> Duplicating or Replacing Column</a></li>
+<li class="chapter" data-level="13.6.5.5" data-path="pandas-1.html"><a href="pandas-1.html#dropping-columns-.drop"><i class="fa fa-check"></i><b>13.6.5.5</b> Dropping Columns (.drop)</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6.6" data-path="pandas-1.html"><a href="pandas-1.html#subsetting-rows"><i class="fa fa-check"></i><b>13.6.6</b> Subsetting Rows</a><ul>
+<li class="chapter" data-level="13.6.6.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-7"><i class="fa fa-check"></i><b>13.6.6.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.6.6.2" data-path="pandas-1.html"><a href="pandas-1.html#by-index-or-boolean"><i class="fa fa-check"></i><b>13.6.6.2</b> By Index or Boolean</a></li>
+<li class="chapter" data-level="13.6.6.3" data-path="pandas-1.html"><a href="pandas-1.html#by-row-number"><i class="fa fa-check"></i><b>13.6.6.3</b> By Row Number</a></li>
+<li class="chapter" data-level="13.6.6.4" data-path="pandas-1.html"><a href="pandas-1.html#query"><i class="fa fa-check"></i><b>13.6.6.4</b> <code>query()</code></a></li>
+<li class="chapter" data-level="13.6.6.5" data-path="pandas-1.html"><a href="pandas-1.html#sample"><i class="fa fa-check"></i><b>13.6.6.5</b> <code>sample()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="13.6.7" data-path="pandas-1.html"><a href="pandas-1.html#row-manipulation"><i class="fa fa-check"></i><b>13.6.7</b> Row Manipulation</a><ul>
+<li class="chapter" data-level="13.6.7.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-8"><i class="fa fa-check"></i><b>13.6.7.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.6.7.2" data-path="pandas-1.html"><a href="pandas-1.html#dropping-rows-.drop"><i class="fa fa-check"></i><b>13.6.7.2</b> Dropping Rows (.drop)</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6.8" data-path="pandas-1.html"><a href="pandas-1.html#slicing"><i class="fa fa-check"></i><b>13.6.8</b> Slicing</a><ul>
+<li class="chapter" data-level="13.6.8.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-9"><i class="fa fa-check"></i><b>13.6.8.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.6.8.2" data-path="pandas-1.html"><a href="pandas-1.html#getting-one-cell"><i class="fa fa-check"></i><b>13.6.8.2</b> Getting One Cell</a></li>
+<li class="chapter" data-level="13.6.8.3" data-path="pandas-1.html"><a href="pandas-1.html#getting-multiple-cells"><i class="fa fa-check"></i><b>13.6.8.3</b> Getting Multiple Cells</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6.9" data-path="pandas-1.html"><a href="pandas-1.html#chained-indexing"><i class="fa fa-check"></i><b>13.6.9</b> Chained Indexing</a></li>
+<li class="chapter" data-level="13.6.10" data-path="pandas-1.html"><a href="pandas-1.html#data-structure"><i class="fa fa-check"></i><b>13.6.10</b> Data Structure</a><ul>
+<li class="chapter" data-level="13.6.10.1" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods---structure"><i class="fa fa-check"></i><b>13.6.10.1</b> Instance Methods - Structure</a></li>
+<li class="chapter" data-level="13.6.10.2" data-path="pandas-1.html"><a href="pandas-1.html#conversion-to-other-format"><i class="fa fa-check"></i><b>13.6.10.2</b> Conversion To Other Format</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6.11" data-path="pandas-1.html"><a href="pandas-1.html#exploratory-analysis"><i class="fa fa-check"></i><b>13.6.11</b> Exploratory Analysis</a><ul>
+<li class="chapter" data-level="13.6.11.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-10"><i class="fa fa-check"></i><b>13.6.11.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.6.11.2" data-path="pandas-1.html"><a href="pandas-1.html#all-stats-in-one---.describe"><i class="fa fa-check"></i><b>13.6.11.2</b> All Stats in One - .describe()</a></li>
+<li class="chapter" data-level="13.6.11.3" data-path="pandas-1.html"><a href="pandas-1.html#minmaxmeanmedian"><i class="fa fa-check"></i><b>13.6.11.3</b> min/max/mean/median</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6.12" data-path="pandas-1.html"><a href="pandas-1.html#plotting"><i class="fa fa-check"></i><b>13.6.12</b> Plotting</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7" data-path="pandas-1.html"><a href="pandas-1.html#categories"><i class="fa fa-check"></i><b>13.7</b> Categories</a><ul>
+<li class="chapter" data-level="13.7.1" data-path="pandas-1.html"><a href="pandas-1.html#creating"><i class="fa fa-check"></i><b>13.7.1</b> Creating</a><ul>
+<li class="chapter" data-level="13.7.1.1" data-path="pandas-1.html"><a href="pandas-1.html#from-list"><i class="fa fa-check"></i><b>13.7.1.1</b> From List</a></li>
+<li class="chapter" data-level="13.7.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-series"><i class="fa fa-check"></i><b>13.7.1.2</b> From Series</a></li>
+<li class="chapter" data-level="13.7.1.3" data-path="pandas-1.html"><a href="pandas-1.html#ordering-category"><i class="fa fa-check"></i><b>13.7.1.3</b> Ordering Category</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7.2" data-path="pandas-1.html"><a href="pandas-1.html#properties"><i class="fa fa-check"></i><b>13.7.2</b> Properties</a><ul>
+<li class="chapter" data-level="13.7.2.1" data-path="pandas-1.html"><a href="pandas-1.html#categories-1"><i class="fa fa-check"></i><b>13.7.2.1</b> .categories</a></li>
+<li class="chapter" data-level="13.7.2.2" data-path="pandas-1.html"><a href="pandas-1.html#codes"><i class="fa fa-check"></i><b>13.7.2.2</b> .codes</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7.3" data-path="pandas-1.html"><a href="pandas-1.html#rename-category"><i class="fa fa-check"></i><b>13.7.3</b> Rename Category</a><ul>
+<li class="chapter" data-level="13.7.3.1" data-path="pandas-1.html"><a href="pandas-1.html#renamce-to-new-category-object"><i class="fa fa-check"></i><b>13.7.3.1</b> Renamce To New Category Object</a></li>
+<li class="chapter" data-level="13.7.3.2" data-path="pandas-1.html"><a href="pandas-1.html#rename-inplace"><i class="fa fa-check"></i><b>13.7.3.2</b> Rename Inplace</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7.4" data-path="pandas-1.html"><a href="pandas-1.html#adding-new-category"><i class="fa fa-check"></i><b>13.7.4</b> Adding New Category</a></li>
+<li class="chapter" data-level="13.7.5" data-path="pandas-1.html"><a href="pandas-1.html#removing-category"><i class="fa fa-check"></i><b>13.7.5</b> Removing Category</a><ul>
+<li class="chapter" data-level="13.7.5.1" data-path="pandas-1.html"><a href="pandas-1.html#remove-specific-categories"><i class="fa fa-check"></i><b>13.7.5.1</b> Remove Specific Categor(ies)</a></li>
+<li class="chapter" data-level="13.7.5.2" data-path="pandas-1.html"><a href="pandas-1.html#remove-unused-category"><i class="fa fa-check"></i><b>13.7.5.2</b> Remove Unused Category</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7.6" data-path="pandas-1.html"><a href="pandas-1.html#add-and-remove-categories-in-one-step---set"><i class="fa fa-check"></i><b>13.7.6</b> Add and Remove Categories In One Step - Set()</a></li>
+<li class="chapter" data-level="13.7.7" data-path="pandas-1.html"><a href="pandas-1.html#categorical-descriptive-analysis"><i class="fa fa-check"></i><b>13.7.7</b> Categorical Descriptive Analysis</a><ul>
+<li class="chapter" data-level="13.7.7.1" data-path="pandas-1.html"><a href="pandas-1.html#at-one-glance"><i class="fa fa-check"></i><b>13.7.7.1</b> At One Glance</a></li>
+<li class="chapter" data-level="13.7.7.2" data-path="pandas-1.html"><a href="pandas-1.html#frequency-count"><i class="fa fa-check"></i><b>13.7.7.2</b> Frequency Count</a></li>
+<li class="chapter" data-level="13.7.7.3" data-path="pandas-1.html"><a href="pandas-1.html#least-frequent-category-most-frequent-category-and-most-frequent-category"><i class="fa fa-check"></i><b>13.7.7.3</b> Least Frequent Category, Most Frequent Category, and Most Frequent Category</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7.8" data-path="pandas-1.html"><a href="pandas-1.html#other-methods-1"><i class="fa fa-check"></i><b>13.7.8</b> Other Methods</a><ul>
+<li class="chapter" data-level="13.7.8.1" data-path="pandas-1.html"><a href="pandas-1.html#get_values"><i class="fa fa-check"></i><b>13.7.8.1</b> .get_values()</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="13.11" data-path="pandas-1.html"><a href="pandas-1.html#groupby"><i class="fa fa-check"></i><b>13.11</b> GroupBy</a><ul>
-<li class="chapter" data-level="13.11.1" data-path="pandas-1.html"><a href="pandas-1.html#creating-groups"><i class="fa fa-check"></i><b>13.11.1</b> Creating Groups</a></li>
-<li class="chapter" data-level="13.11.2" data-path="pandas-1.html"><a href="pandas-1.html#properties-1"><i class="fa fa-check"></i><b>13.11.2</b> Properties</a><ul>
-<li class="chapter" data-level="13.11.2.1" data-path="pandas-1.html"><a href="pandas-1.html#number-of-groups-created"><i class="fa fa-check"></i><b>13.11.2.1</b> Number of Groups Created</a></li>
-<li class="chapter" data-level="13.11.2.2" data-path="pandas-1.html"><a href="pandas-1.html#row-numbers-associated-for-each-group"><i class="fa fa-check"></i><b>13.11.2.2</b> Row Numbers Associated For Each Group</a></li>
+<li class="chapter" data-level="13.8" data-path="pandas-1.html"><a href="pandas-1.html#dummies"><i class="fa fa-check"></i><b>13.8</b> Dummies</a><ul>
+<li class="chapter" data-level="13.8.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-11"><i class="fa fa-check"></i><b>13.8.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.8.2" data-path="pandas-1.html"><a href="pandas-1.html#dummies-on-array-like-data"><i class="fa fa-check"></i><b>13.8.2</b> Dummies on Array-Like Data</a></li>
+<li class="chapter" data-level="13.8.3" data-path="pandas-1.html"><a href="pandas-1.html#dummies-on-dataframe-multiple-columns"><i class="fa fa-check"></i><b>13.8.3</b> Dummies on DataFrame (multiple columns)</a><ul>
+<li class="chapter" data-level="13.8.3.1" data-path="pandas-1.html"><a href="pandas-1.html#all-columns"><i class="fa fa-check"></i><b>13.8.3.1</b> All Columns</a></li>
+<li class="chapter" data-level="13.8.3.2" data-path="pandas-1.html"><a href="pandas-1.html#selected-columns"><i class="fa fa-check"></i><b>13.8.3.2</b> Selected Columns</a></li>
 </ul></li>
-<li class="chapter" data-level="13.11.3" data-path="pandas-1.html"><a href="pandas-1.html#methods-1"><i class="fa fa-check"></i><b>13.11.3</b> Methods</a><ul>
-<li class="chapter" data-level="13.11.3.1" data-path="pandas-1.html"><a href="pandas-1.html#number-of-rows-in-each-group"><i class="fa fa-check"></i><b>13.11.3.1</b> Number of Rows In Each Group</a></li>
-<li class="chapter" data-level="13.11.3.2" data-path="pandas-1.html"><a href="pandas-1.html#valid-not-null-data-count-for-each-fields-in-the-group"><i class="fa fa-check"></i><b>13.11.3.2</b> Valid (not Null) Data Count For Each Fields In The Group</a></li>
+<li class="chapter" data-level="13.8.4" data-path="pandas-1.html"><a href="pandas-1.html#dummies-with-na"><i class="fa fa-check"></i><b>13.8.4</b> Dummies with na</a></li>
+<li class="chapter" data-level="13.8.5" data-path="pandas-1.html"><a href="pandas-1.html#specify-prefixes"><i class="fa fa-check"></i><b>13.8.5</b> Specify Prefixes</a></li>
+<li class="chapter" data-level="13.8.6" data-path="pandas-1.html"><a href="pandas-1.html#dropping-first-column"><i class="fa fa-check"></i><b>13.8.6</b> Dropping First Column</a></li>
 </ul></li>
-<li class="chapter" data-level="13.11.4" data-path="pandas-1.html"><a href="pandas-1.html#retrieve-rows"><i class="fa fa-check"></i><b>13.11.4</b> Retrieve Rows</a><ul>
-<li class="chapter" data-level="13.11.4.1" data-path="pandas-1.html"><a href="pandas-1.html#retrieve-n-rows-for-each-groups"><i class="fa fa-check"></i><b>13.11.4.1</b> Retrieve N Rows For Each Groups</a></li>
-<li class="chapter" data-level="13.11.4.2" data-path="pandas-1.html"><a href="pandas-1.html#retrieve-rows-in-one-specific-group"><i class="fa fa-check"></i><b>13.11.4.2</b> Retrieve Rows In One Specific Group</a></li>
-<li class="chapter" data-level="13.11.4.3" data-path="pandas-1.html"><a href="pandas-1.html#retrieve-n-th-row-from-each-group"><i class="fa fa-check"></i><b>13.11.4.3</b> Retrieve n-th Row From Each Group</a></li>
+<li class="chapter" data-level="13.9" data-path="pandas-1.html"><a href="pandas-1.html#getting-external-data-1"><i class="fa fa-check"></i><b>13.9</b> Getting External Data</a><ul>
+<li class="chapter" data-level="13.9.1" data-path="pandas-1.html"><a href="pandas-1.html#html_table-parser"><i class="fa fa-check"></i><b>13.9.1</b> html_table parser</a></li>
+<li class="chapter" data-level="13.9.2" data-path="pandas-1.html"><a href="pandas-1.html#csv-import"><i class="fa fa-check"></i><b>13.9.2</b> CSV Import</a><ul>
+<li class="chapter" data-level="13.9.2.1" data-path="pandas-1.html"><a href="pandas-1.html#syntax"><i class="fa fa-check"></i><b>13.9.2.1</b> Syntax</a></li>
+<li class="chapter" data-level="13.9.2.2" data-path="pandas-1.html"><a href="pandas-1.html#default-import"><i class="fa fa-check"></i><b>13.9.2.2</b> Default Import</a></li>
+<li class="chapter" data-level="13.9.2.3" data-path="pandas-1.html"><a href="pandas-1.html#specify-data-types-1"><i class="fa fa-check"></i><b>13.9.2.3</b> Specify Data Types</a></li>
+<li class="chapter" data-level="13.9.2.4" data-path="pandas-1.html"><a href="pandas-1.html#on-the-fly-date-parsing-and-indexing"><i class="fa fa-check"></i><b>13.9.2.4</b> On The Fly Date Parsing and Indexing</a></li>
+<li class="chapter" data-level="13.9.2.5" data-path="pandas-1.html"><a href="pandas-1.html#parse-date-then-set-as-index"><i class="fa fa-check"></i><b>13.9.2.5</b> Parse Date, Then Set as Index</a></li>
 </ul></li>
-<li class="chapter" data-level="13.11.5" data-path="pandas-1.html"><a href="pandas-1.html#iteration"><i class="fa fa-check"></i><b>13.11.5</b> Iteration</a></li>
-<li class="chapter" data-level="13.11.6" data-path="pandas-1.html"><a href="pandas-1.html#apply-aggregate-functions-to-groups"><i class="fa fa-check"></i><b>13.11.6</b> Apply Aggregate Functions to Groups</a><ul>
-<li class="chapter" data-level="13.11.6.1" data-path="pandas-1.html"><a href="pandas-1.html#apply-one-function-to-one-or-more-columns"><i class="fa fa-check"></i><b>13.11.6.1</b> Apply One Function to One or More Columns</a></li>
-<li class="chapter" data-level="13.11.6.2" data-path="pandas-1.html"><a href="pandas-1.html#apply-one-or-more-functions-to-all-columns"><i class="fa fa-check"></i><b>13.11.6.2</b> Apply One or More Functions To All Columns</a></li>
-<li class="chapter" data-level="13.11.6.3" data-path="pandas-1.html"><a href="pandas-1.html#apply-different-functions-to-different-columns"><i class="fa fa-check"></i><b>13.11.6.3</b> Apply Different Functions To Different Columns</a></li>
 </ul></li>
-<li class="chapter" data-level="13.11.7" data-path="pandas-1.html"><a href="pandas-1.html#transform"><i class="fa fa-check"></i><b>13.11.7</b> Transform</a></li>
+<li class="chapter" data-level="13.10" data-path="pandas-1.html"><a href="pandas-1.html#groupby"><i class="fa fa-check"></i><b>13.10</b> GroupBy</a><ul>
+<li class="chapter" data-level="13.10.1" data-path="pandas-1.html"><a href="pandas-1.html#creating-groups"><i class="fa fa-check"></i><b>13.10.1</b> Creating Groups</a></li>
+<li class="chapter" data-level="13.10.2" data-path="pandas-1.html"><a href="pandas-1.html#properties-1"><i class="fa fa-check"></i><b>13.10.2</b> Properties</a><ul>
+<li class="chapter" data-level="13.10.2.1" data-path="pandas-1.html"><a href="pandas-1.html#number-of-groups-created"><i class="fa fa-check"></i><b>13.10.2.1</b> Number of Groups Created</a></li>
+<li class="chapter" data-level="13.10.2.2" data-path="pandas-1.html"><a href="pandas-1.html#row-numbers-associated-for-each-group"><i class="fa fa-check"></i><b>13.10.2.2</b> Row Numbers Associated For Each Group</a></li>
 </ul></li>
-<li class="chapter" data-level="13.12" data-path="pandas-1.html"><a href="pandas-1.html#concat"><i class="fa fa-check"></i><b>13.12</b> Concat</a><ul>
-<li class="chapter" data-level="13.12.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-12"><i class="fa fa-check"></i><b>13.12.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.12.2" data-path="pandas-1.html"><a href="pandas-1.html#column-wise"><i class="fa fa-check"></i><b>13.12.2</b> Column-Wise</a><ul>
-<li class="chapter" data-level="13.12.2.1" data-path="pandas-1.html"><a href="pandas-1.html#multiple-arraysseries"><i class="fa fa-check"></i><b>13.12.2.1</b> Multiple Arrays/Series</a></li>
-<li class="chapter" data-level="13.12.2.2" data-path="pandas-1.html"><a href="pandas-1.html#dataframe-and-series"><i class="fa fa-check"></i><b>13.12.2.2</b> DataFrame and Series</a></li>
+<li class="chapter" data-level="13.10.3" data-path="pandas-1.html"><a href="pandas-1.html#methods-1"><i class="fa fa-check"></i><b>13.10.3</b> Methods</a><ul>
+<li class="chapter" data-level="13.10.3.1" data-path="pandas-1.html"><a href="pandas-1.html#number-of-rows-in-each-group"><i class="fa fa-check"></i><b>13.10.3.1</b> Number of Rows In Each Group</a></li>
+<li class="chapter" data-level="13.10.3.2" data-path="pandas-1.html"><a href="pandas-1.html#valid-not-null-data-count-for-each-fields-in-the-group"><i class="fa fa-check"></i><b>13.10.3.2</b> Valid (not Null) Data Count For Each Fields In The Group</a></li>
 </ul></li>
-<li class="chapter" data-level="13.12.3" data-path="pandas-1.html"><a href="pandas-1.html#row-wise"><i class="fa fa-check"></i><b>13.12.3</b> Row-Wise</a></li>
+<li class="chapter" data-level="13.10.4" data-path="pandas-1.html"><a href="pandas-1.html#retrieve-rows"><i class="fa fa-check"></i><b>13.10.4</b> Retrieve Rows</a><ul>
+<li class="chapter" data-level="13.10.4.1" data-path="pandas-1.html"><a href="pandas-1.html#retrieve-n-rows-for-each-groups"><i class="fa fa-check"></i><b>13.10.4.1</b> Retrieve N Rows For Each Groups</a></li>
+<li class="chapter" data-level="13.10.4.2" data-path="pandas-1.html"><a href="pandas-1.html#retrieve-rows-in-one-specific-group"><i class="fa fa-check"></i><b>13.10.4.2</b> Retrieve Rows In One Specific Group</a></li>
+<li class="chapter" data-level="13.10.4.3" data-path="pandas-1.html"><a href="pandas-1.html#retrieve-n-th-row-from-each-group"><i class="fa fa-check"></i><b>13.10.4.3</b> Retrieve n-th Row From Each Group</a></li>
 </ul></li>
-<li class="chapter" data-level="13.13" data-path="pandas-1.html"><a href="pandas-1.html#fundamental-analysis"><i class="fa fa-check"></i><b>13.13</b> Fundamental Analysis</a><ul>
-<li class="chapter" data-level="13.13.1" data-path="pandas-1.html"><a href="pandas-1.html#structure-of-the-dataframe-.info"><i class="fa fa-check"></i><b>13.13.1</b> Structure of the Dataframe (.info())</a></li>
-<li class="chapter" data-level="13.13.2" data-path="pandas-1.html"><a href="pandas-1.html#first-few-rows-.head"><i class="fa fa-check"></i><b>13.13.2</b> First Few Rows (.head())</a></li>
+<li class="chapter" data-level="13.10.5" data-path="pandas-1.html"><a href="pandas-1.html#iteration"><i class="fa fa-check"></i><b>13.10.5</b> Iteration</a></li>
+<li class="chapter" data-level="13.10.6" data-path="pandas-1.html"><a href="pandas-1.html#apply-aggregate-functions-to-groups"><i class="fa fa-check"></i><b>13.10.6</b> Apply Aggregate Functions to Groups</a><ul>
+<li class="chapter" data-level="13.10.6.1" data-path="pandas-1.html"><a href="pandas-1.html#apply-one-function-to-one-or-more-columns"><i class="fa fa-check"></i><b>13.10.6.1</b> Apply One Function to One or More Columns</a></li>
+<li class="chapter" data-level="13.10.6.2" data-path="pandas-1.html"><a href="pandas-1.html#apply-one-or-more-functions-to-all-columns"><i class="fa fa-check"></i><b>13.10.6.2</b> Apply One or More Functions To All Columns</a></li>
+<li class="chapter" data-level="13.10.6.3" data-path="pandas-1.html"><a href="pandas-1.html#apply-different-functions-to-different-columns"><i class="fa fa-check"></i><b>13.10.6.3</b> Apply Different Functions To Different Columns</a></li>
 </ul></li>
-<li class="chapter" data-level="13.14" data-path="pandas-1.html"><a href="pandas-1.html#missing-data"><i class="fa fa-check"></i><b>13.14</b> Missing Data</a><ul>
-<li class="chapter" data-level="13.14.1" data-path="pandas-1.html"><a href="pandas-1.html#what-is-considered-missing-data"><i class="fa fa-check"></i><b>13.14.1</b> What Is Considered Missing Data ?</a></li>
-<li class="chapter" data-level="13.14.2" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-13"><i class="fa fa-check"></i><b>13.14.2</b> Sample Data</a></li>
+<li class="chapter" data-level="13.10.7" data-path="pandas-1.html"><a href="pandas-1.html#transform"><i class="fa fa-check"></i><b>13.10.7</b> Transform</a></li>
 </ul></li>
-<li class="chapter" data-level="13.15" data-path="pandas-1.html"><a href="pandas-1.html#pandas-datetime"><i class="fa fa-check"></i><b>13.15</b> Pandas DateTime</a></li>
-<li class="chapter" data-level="13.16" data-path="pandas-1.html"><a href="pandas-1.html#datetimeindex"><i class="fa fa-check"></i><b>13.16</b> DateTimeIndex</a><ul>
-<li class="chapter" data-level="13.16.1" data-path="pandas-1.html"><a href="pandas-1.html#creating-1"><i class="fa fa-check"></i><b>13.16.1</b> Creating</a><ul>
-<li class="chapter" data-level="13.16.1.1" data-path="pandas-1.html"><a href="pandas-1.html#convert-from"><i class="fa fa-check"></i><b>13.16.1.1</b> Convert From</a></li>
+<li class="chapter" data-level="13.11" data-path="pandas-1.html"><a href="pandas-1.html#concat"><i class="fa fa-check"></i><b>13.11</b> Concat</a><ul>
+<li class="chapter" data-level="13.11.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-12"><i class="fa fa-check"></i><b>13.11.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.11.2" data-path="pandas-1.html"><a href="pandas-1.html#column-wise"><i class="fa fa-check"></i><b>13.11.2</b> Column-Wise</a><ul>
+<li class="chapter" data-level="13.11.2.1" data-path="pandas-1.html"><a href="pandas-1.html#multiple-arraysseries"><i class="fa fa-check"></i><b>13.11.2.1</b> Multiple Arrays/Series</a></li>
+<li class="chapter" data-level="13.11.2.2" data-path="pandas-1.html"><a href="pandas-1.html#dataframe-and-series"><i class="fa fa-check"></i><b>13.11.2.2</b> DataFrame and Series</a></li>
 </ul></li>
-<li class="chapter" data-level="13.16.2" data-path="pandas-1.html"><a href="pandas-1.html#instance-method-4"><i class="fa fa-check"></i><b>13.16.2</b> Instance Method</a><ul>
-<li class="chapter" data-level="13.16.2.1" data-path="pandas-1.html"><a href="pandas-1.html#conversion-to-datetime.datetime"><i class="fa fa-check"></i><b>13.16.2.1</b> Conversion to: datetime.datetime</a></li>
-<li class="chapter" data-level="13.16.2.2" data-path="pandas-1.html"><a href="pandas-1.html#converion-to_series"><i class="fa fa-check"></i><b>13.16.2.2</b> Converion: <code>to_series</code></a></li>
-<li class="chapter" data-level="13.16.2.3" data-path="pandas-1.html"><a href="pandas-1.html#converion-to_frame"><i class="fa fa-check"></i><b>13.16.2.3</b> Converion: <code>to_frame()</code></a></li>
+<li class="chapter" data-level="13.11.3" data-path="pandas-1.html"><a href="pandas-1.html#row-wise"><i class="fa fa-check"></i><b>13.11.3</b> Row-Wise</a></li>
 </ul></li>
-<li class="chapter" data-level="13.16.3" data-path="pandas-1.html"><a href="pandas-1.html#properties-2"><i class="fa fa-check"></i><b>13.16.3</b> Properties</a></li>
+<li class="chapter" data-level="13.12" data-path="pandas-1.html"><a href="pandas-1.html#fundamental-analysis"><i class="fa fa-check"></i><b>13.12</b> Fundamental Analysis</a><ul>
+<li class="chapter" data-level="13.12.1" data-path="pandas-1.html"><a href="pandas-1.html#structure-of-the-dataframe-.info"><i class="fa fa-check"></i><b>13.12.1</b> Structure of the Dataframe (.info())</a></li>
+<li class="chapter" data-level="13.12.2" data-path="pandas-1.html"><a href="pandas-1.html#first-few-rows-.head"><i class="fa fa-check"></i><b>13.12.2</b> First Few Rows (.head())</a></li>
+</ul></li>
+<li class="chapter" data-level="13.13" data-path="pandas-1.html"><a href="pandas-1.html#missing-data"><i class="fa fa-check"></i><b>13.13</b> Missing Data</a><ul>
+<li class="chapter" data-level="13.13.1" data-path="pandas-1.html"><a href="pandas-1.html#what-is-considered-missing-data"><i class="fa fa-check"></i><b>13.13.1</b> What Is Considered Missing Data ?</a></li>
+<li class="chapter" data-level="13.13.2" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-13"><i class="fa fa-check"></i><b>13.13.2</b> Sample Data</a></li>
+</ul></li>
+<li class="chapter" data-level="13.14" data-path="pandas-1.html"><a href="pandas-1.html#pandas-datetime"><i class="fa fa-check"></i><b>13.14</b> Pandas DateTime</a></li>
+<li class="chapter" data-level="13.15" data-path="pandas-1.html"><a href="pandas-1.html#datetimeindex"><i class="fa fa-check"></i><b>13.15</b> DateTimeIndex</a><ul>
+<li class="chapter" data-level="13.15.1" data-path="pandas-1.html"><a href="pandas-1.html#creating-1"><i class="fa fa-check"></i><b>13.15.1</b> Creating</a><ul>
+<li class="chapter" data-level="13.15.1.1" data-path="pandas-1.html"><a href="pandas-1.html#convert-from"><i class="fa fa-check"></i><b>13.15.1.1</b> Convert From</a></li>
+</ul></li>
+<li class="chapter" data-level="13.15.2" data-path="pandas-1.html"><a href="pandas-1.html#instance-method-4"><i class="fa fa-check"></i><b>13.15.2</b> Instance Method</a><ul>
+<li class="chapter" data-level="13.15.2.1" data-path="pandas-1.html"><a href="pandas-1.html#conversion-to-datetime.datetime"><i class="fa fa-check"></i><b>13.15.2.1</b> Conversion to: datetime.datetime</a></li>
+<li class="chapter" data-level="13.15.2.2" data-path="pandas-1.html"><a href="pandas-1.html#converion-to_series"><i class="fa fa-check"></i><b>13.15.2.2</b> Converion: <code>to_series</code></a></li>
+<li class="chapter" data-level="13.15.2.3" data-path="pandas-1.html"><a href="pandas-1.html#converion-to_frame"><i class="fa fa-check"></i><b>13.15.2.3</b> Converion: <code>to_frame()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="13.15.3" data-path="pandas-1.html"><a href="pandas-1.html#properties-2"><i class="fa fa-check"></i><b>13.15.3</b> Properties</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="matplotlib-2.html"><a href="matplotlib-2.html"><i class="fa fa-check"></i><b>14</b> matplotlib</a><ul>
@@ -900,61 +895,78 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="18" data-path="nlp.html"><a href="nlp.html"><i class="fa fa-check"></i><b>18</b> NLP</a><ul>
-<li class="chapter" data-level="18.1" data-path="nlp.html"><a href="nlp.html#word-tokenizer"><i class="fa fa-check"></i><b>18.1</b> Word Tokenizer</a><ul>
-<li class="chapter" data-level="18.1.1" data-path="nlp.html"><a href="nlp.html#custom-tokenizer"><i class="fa fa-check"></i><b>18.1.1</b> Custom Tokenizer</a><ul>
-<li class="chapter" data-level="18.1.1.1" data-path="nlp.html"><a href="nlp.html#split-by-regex-pattern"><i class="fa fa-check"></i><b>18.1.1.1</b> Split By Regex Pattern</a></li>
-<li class="chapter" data-level="18.1.1.2" data-path="nlp.html"><a href="nlp.html#pick-by-regex-pattern-nltk.tokenize.regexptokenizer"><i class="fa fa-check"></i><b>18.1.1.2</b> Pick By Regex Pattern <code>nltk.tokenize.RegexpTokenizer</code></a></li>
+<li class="chapter" data-level="18.1" data-path="nlp.html"><a href="nlp.html#regular-expression"><i class="fa fa-check"></i><b>18.1</b> Regular Expression</a><ul>
+<li class="chapter" data-level="18.1.1" data-path="nlp.html"><a href="nlp.html#syntax-1"><i class="fa fa-check"></i><b>18.1.1</b> Syntax</a></li>
+<li class="chapter" data-level="18.1.2" data-path="nlp.html"><a href="nlp.html#finding"><i class="fa fa-check"></i><b>18.1.2</b> Finding</a><ul>
+<li class="chapter" data-level="18.1.2.1" data-path="nlp.html"><a href="nlp.html#find-the-first-match"><i class="fa fa-check"></i><b>18.1.2.1</b> Find The First Match</a></li>
+<li class="chapter" data-level="18.1.2.2" data-path="nlp.html"><a href="nlp.html#find-all-matches"><i class="fa fa-check"></i><b>18.1.2.2</b> Find All Matches</a></li>
 </ul></li>
-<li class="chapter" data-level="18.1.2" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.word_tokenize"><i class="fa fa-check"></i><b>18.1.2</b> <code>nltk.tokenize.word_tokenize()</code></a></li>
-<li class="chapter" data-level="18.1.3" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.casual.casual_tokenize"><i class="fa fa-check"></i><b>18.1.3</b> <code>nltk.tokenize.casual.casual_tokenize()</code></a></li>
-<li class="chapter" data-level="18.1.4" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.treebank.treebankwordtokenizer.tokenize"><i class="fa fa-check"></i><b>18.1.4</b> <code>nltk.tokenize.treebank.TreebankWordTokenizer().tokenize()</code></a></li>
-<li class="chapter" data-level="18.1.5" data-path="nlp.html"><a href="nlp.html#corpus-token-extractor"><i class="fa fa-check"></i><b>18.1.5</b> Corpus Token Extractor</a></li>
+<li class="chapter" data-level="18.1.3" data-path="nlp.html"><a href="nlp.html#matching-condition"><i class="fa fa-check"></i><b>18.1.3</b> Matching Condition</a><ul>
+<li class="chapter" data-level="18.1.3.1" data-path="nlp.html"><a href="nlp.html#meta-characters"><i class="fa fa-check"></i><b>18.1.3.1</b> Meta Characters</a></li>
+<li class="chapter" data-level="18.1.3.2" data-path="nlp.html"><a href="nlp.html#special-sequence"><i class="fa fa-check"></i><b>18.1.3.2</b> Special Sequence</a></li>
+<li class="chapter" data-level="18.1.3.3" data-path="nlp.html"><a href="nlp.html#repetition"><i class="fa fa-check"></i><b>18.1.3.3</b> Repetition</a></li>
 </ul></li>
-<li class="chapter" data-level="18.2" data-path="nlp.html"><a href="nlp.html#sentence-tokenizer"><i class="fa fa-check"></i><b>18.2</b> Sentence Tokenizer</a><ul>
-<li class="chapter" data-level="18.2.1" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.sent_tokenize"><i class="fa fa-check"></i><b>18.2.1</b> <code>nltk.tokenize.sent_tokenize()</code></a></li>
-</ul></li>
-<li class="chapter" data-level="18.3" data-path="nlp.html"><a href="nlp.html#n-gram"><i class="fa fa-check"></i><b>18.3</b> N-Gram</a></li>
-<li class="chapter" data-level="18.4" data-path="nlp.html"><a href="nlp.html#stopwords"><i class="fa fa-check"></i><b>18.4</b> Stopwords</a><ul>
-<li class="chapter" data-level="18.4.1" data-path="nlp.html"><a href="nlp.html#custom-stop-words"><i class="fa fa-check"></i><b>18.4.1</b> Custom Stop Words</a></li>
-<li class="chapter" data-level="18.4.2" data-path="nlp.html"><a href="nlp.html#nltk-stop-words"><i class="fa fa-check"></i><b>18.4.2</b> NLTK Stop Words</a></li>
-<li class="chapter" data-level="18.4.3" data-path="nlp.html"><a href="nlp.html#sklearn-stop-words"><i class="fa fa-check"></i><b>18.4.3</b> SKLearn Stop Words</a></li>
-<li class="chapter" data-level="18.4.4" data-path="nlp.html"><a href="nlp.html#combined-nltk-and-sklearn-stop-words"><i class="fa fa-check"></i><b>18.4.4</b> Combined NLTK and SKLearn Stop Words</a></li>
-</ul></li>
-<li class="chapter" data-level="18.5" data-path="nlp.html"><a href="nlp.html#normalizing"><i class="fa fa-check"></i><b>18.5</b> Normalizing</a><ul>
-<li class="chapter" data-level="18.5.1" data-path="nlp.html"><a href="nlp.html#case-folding"><i class="fa fa-check"></i><b>18.5.1</b> Case Folding</a></li>
-<li class="chapter" data-level="18.5.2" data-path="nlp.html"><a href="nlp.html#stemming"><i class="fa fa-check"></i><b>18.5.2</b> Stemming</a></li>
-<li class="chapter" data-level="18.5.3" data-path="nlp.html"><a href="nlp.html#lemmatization"><i class="fa fa-check"></i><b>18.5.3</b> Lemmatization</a></li>
-<li class="chapter" data-level="18.5.4" data-path="nlp.html"><a href="nlp.html#comparing-stemming-and-lemmatization"><i class="fa fa-check"></i><b>18.5.4</b> Comparing Stemming and Lemmatization</a></li>
-</ul></li>
-<li class="chapter" data-level="18.6" data-path="nlp.html"><a href="nlp.html#pos-tagging"><i class="fa fa-check"></i><b>18.6</b> POS Tagging</a></li>
-<li class="chapter" data-level="18.7" data-path="nlp.html"><a href="nlp.html#sentiment"><i class="fa fa-check"></i><b>18.7</b> Sentiment</a><ul>
-<li class="chapter" data-level="18.7.1" data-path="nlp.html"><a href="nlp.html#vader"><i class="fa fa-check"></i><b>18.7.1</b> Vader</a><ul>
-<li class="chapter" data-level="18.7.1.1" data-path="nlp.html"><a href="nlp.html#vader-lexicon"><i class="fa fa-check"></i><b>18.7.1.1</b> Vader Lexicon</a></li>
-<li class="chapter" data-level="18.7.1.2" data-path="nlp.html"><a href="nlp.html#polarity-scoring"><i class="fa fa-check"></i><b>18.7.1.2</b> Polarity Scoring</a></li>
-</ul></li>
-<li class="chapter" data-level="18.7.2" data-path="nlp.html"><a href="nlp.html#sentiwordnet"><i class="fa fa-check"></i><b>18.7.2</b> SentiWordNet</a></li>
-</ul></li>
-<li class="chapter" data-level="18.8" data-path="nlp.html"><a href="nlp.html#feature-representation"><i class="fa fa-check"></i><b>18.8</b> Feature Representation</a><ul>
-<li class="chapter" data-level="18.8.1" data-path="nlp.html"><a href="nlp.html#the-data-1"><i class="fa fa-check"></i><b>18.8.1</b> The Data</a></li>
-<li class="chapter" data-level="18.8.2" data-path="nlp.html"><a href="nlp.html#frequency-count-1"><i class="fa fa-check"></i><b>18.8.2</b> Frequency Count</a><ul>
-<li class="chapter" data-level="18.8.2.1" data-path="nlp.html"><a href="nlp.html#tokenizer"><i class="fa fa-check"></i><b>18.8.2.1</b> + Tokenizer</a></li>
-<li class="chapter" data-level="18.8.2.2" data-path="nlp.html"><a href="nlp.html#stop-words"><i class="fa fa-check"></i><b>18.8.2.2</b> + Stop Words</a></li>
-</ul></li>
-<li class="chapter" data-level="18.8.3" data-path="nlp.html"><a href="nlp.html#tfidf"><i class="fa fa-check"></i><b>18.8.3</b> TFIDF</a><ul>
-<li class="chapter" data-level="18.8.3.1" data-path="nlp.html"><a href="nlp.html#equation"><i class="fa fa-check"></i><b>18.8.3.1</b> Equation</a></li>
-<li class="chapter" data-level="18.8.3.2" data-path="nlp.html"><a href="nlp.html#tfidftransformer"><i class="fa fa-check"></i><b>18.8.3.2</b> <code>TfidfTransformer</code></a></li>
-<li class="chapter" data-level="18.8.3.3" data-path="nlp.html"><a href="nlp.html#tfidfvectorizer"><i class="fa fa-check"></i><b>18.8.3.3</b> <code>TfidfVectorizer</code></a></li>
+<li class="chapter" data-level="18.1.4" data-path="nlp.html"><a href="nlp.html#grouping-1"><i class="fa fa-check"></i><b>18.1.4</b> Grouping</a></li>
+<li class="chapter" data-level="18.1.5" data-path="nlp.html"><a href="nlp.html#splittitng"><i class="fa fa-check"></i><b>18.1.5</b> Splittitng</a><ul>
+<li class="chapter" data-level="18.1.5.1" data-path="nlp.html"><a href="nlp.html#use-re.split"><i class="fa fa-check"></i><b>18.1.5.1</b> Use <code>re.split()</code></a></li>
+<li class="chapter" data-level="18.1.5.2" data-path="nlp.html"><a href="nlp.html#use-re.comple.split"><i class="fa fa-check"></i><b>18.1.5.2</b> Use <code>re.comple().split()</code></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="18.9" data-path="nlp.html"><a href="nlp.html#appliction"><i class="fa fa-check"></i><b>18.9</b> Appliction</a><ul>
-<li class="chapter" data-level="18.9.1" data-path="nlp.html"><a href="nlp.html#document-similarity"><i class="fa fa-check"></i><b>18.9.1</b> Document Similarity</a></li>
+<li class="chapter" data-level="18.2" data-path="nlp.html"><a href="nlp.html#word-tokenizer"><i class="fa fa-check"></i><b>18.2</b> Word Tokenizer</a><ul>
+<li class="chapter" data-level="18.2.1" data-path="nlp.html"><a href="nlp.html#custom-tokenizer"><i class="fa fa-check"></i><b>18.2.1</b> Custom Tokenizer</a><ul>
+<li class="chapter" data-level="18.2.1.1" data-path="nlp.html"><a href="nlp.html#split-by-regex-pattern"><i class="fa fa-check"></i><b>18.2.1.1</b> Split By Regex Pattern</a></li>
+<li class="chapter" data-level="18.2.1.2" data-path="nlp.html"><a href="nlp.html#pick-by-regex-pattern-nltk.tokenize.regexptokenizer"><i class="fa fa-check"></i><b>18.2.1.2</b> Pick By Regex Pattern <code>nltk.tokenize.RegexpTokenizer</code></a></li>
 </ul></li>
-<li class="chapter" data-level="18.10" data-path="nlp.html"><a href="nlp.html#naive-bayes"><i class="fa fa-check"></i><b>18.10</b> Naive Bayes</a><ul>
-<li class="chapter" data-level="18.10.1" data-path="nlp.html"><a href="nlp.html#libraries-1"><i class="fa fa-check"></i><b>18.10.1</b> Libraries</a></li>
-<li class="chapter" data-level="18.10.2" data-path="nlp.html"><a href="nlp.html#the-data-2"><i class="fa fa-check"></i><b>18.10.2</b> The Data</a></li>
-<li class="chapter" data-level="18.10.3" data-path="nlp.html"><a href="nlp.html#bag-of-words"><i class="fa fa-check"></i><b>18.10.3</b> Bag of Words</a></li>
-<li class="chapter" data-level="18.10.4" data-path="nlp.html"><a href="nlp.html#build-the-model"><i class="fa fa-check"></i><b>18.10.4</b> Build The Model</a></li>
-<li class="chapter" data-level="18.10.5" data-path="nlp.html"><a href="nlp.html#train-set-prediction"><i class="fa fa-check"></i><b>18.10.5</b> Train Set Prediction</a></li>
+<li class="chapter" data-level="18.2.2" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.word_tokenize"><i class="fa fa-check"></i><b>18.2.2</b> <code>nltk.tokenize.word_tokenize()</code></a></li>
+<li class="chapter" data-level="18.2.3" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.casual.casual_tokenize"><i class="fa fa-check"></i><b>18.2.3</b> <code>nltk.tokenize.casual.casual_tokenize()</code></a></li>
+<li class="chapter" data-level="18.2.4" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.treebank.treebankwordtokenizer.tokenize"><i class="fa fa-check"></i><b>18.2.4</b> <code>nltk.tokenize.treebank.TreebankWordTokenizer().tokenize()</code></a></li>
+<li class="chapter" data-level="18.2.5" data-path="nlp.html"><a href="nlp.html#corpus-token-extractor"><i class="fa fa-check"></i><b>18.2.5</b> Corpus Token Extractor</a></li>
+</ul></li>
+<li class="chapter" data-level="18.3" data-path="nlp.html"><a href="nlp.html#sentence-tokenizer"><i class="fa fa-check"></i><b>18.3</b> Sentence Tokenizer</a><ul>
+<li class="chapter" data-level="18.3.1" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.sent_tokenize"><i class="fa fa-check"></i><b>18.3.1</b> <code>nltk.tokenize.sent_tokenize()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="18.4" data-path="nlp.html"><a href="nlp.html#n-gram"><i class="fa fa-check"></i><b>18.4</b> N-Gram</a></li>
+<li class="chapter" data-level="18.5" data-path="nlp.html"><a href="nlp.html#stopwords"><i class="fa fa-check"></i><b>18.5</b> Stopwords</a><ul>
+<li class="chapter" data-level="18.5.1" data-path="nlp.html"><a href="nlp.html#custom-stop-words"><i class="fa fa-check"></i><b>18.5.1</b> Custom Stop Words</a></li>
+<li class="chapter" data-level="18.5.2" data-path="nlp.html"><a href="nlp.html#nltk-stop-words"><i class="fa fa-check"></i><b>18.5.2</b> NLTK Stop Words</a></li>
+<li class="chapter" data-level="18.5.3" data-path="nlp.html"><a href="nlp.html#sklearn-stop-words"><i class="fa fa-check"></i><b>18.5.3</b> SKLearn Stop Words</a></li>
+<li class="chapter" data-level="18.5.4" data-path="nlp.html"><a href="nlp.html#combined-nltk-and-sklearn-stop-words"><i class="fa fa-check"></i><b>18.5.4</b> Combined NLTK and SKLearn Stop Words</a></li>
+</ul></li>
+<li class="chapter" data-level="18.6" data-path="nlp.html"><a href="nlp.html#normalizing"><i class="fa fa-check"></i><b>18.6</b> Normalizing</a><ul>
+<li class="chapter" data-level="18.6.1" data-path="nlp.html"><a href="nlp.html#case-folding"><i class="fa fa-check"></i><b>18.6.1</b> Case Folding</a></li>
+<li class="chapter" data-level="18.6.2" data-path="nlp.html"><a href="nlp.html#stemming"><i class="fa fa-check"></i><b>18.6.2</b> Stemming</a></li>
+<li class="chapter" data-level="18.6.3" data-path="nlp.html"><a href="nlp.html#lemmatization"><i class="fa fa-check"></i><b>18.6.3</b> Lemmatization</a></li>
+<li class="chapter" data-level="18.6.4" data-path="nlp.html"><a href="nlp.html#comparing-stemming-and-lemmatization"><i class="fa fa-check"></i><b>18.6.4</b> Comparing Stemming and Lemmatization</a></li>
+</ul></li>
+<li class="chapter" data-level="18.7" data-path="nlp.html"><a href="nlp.html#pos-tagging"><i class="fa fa-check"></i><b>18.7</b> POS Tagging</a></li>
+<li class="chapter" data-level="18.8" data-path="nlp.html"><a href="nlp.html#sentiment"><i class="fa fa-check"></i><b>18.8</b> Sentiment</a><ul>
+<li class="chapter" data-level="18.8.1" data-path="nlp.html"><a href="nlp.html#vader"><i class="fa fa-check"></i><b>18.8.1</b> Vader</a><ul>
+<li class="chapter" data-level="18.8.1.1" data-path="nlp.html"><a href="nlp.html#vader-lexicon"><i class="fa fa-check"></i><b>18.8.1.1</b> Vader Lexicon</a></li>
+<li class="chapter" data-level="18.8.1.2" data-path="nlp.html"><a href="nlp.html#polarity-scoring"><i class="fa fa-check"></i><b>18.8.1.2</b> Polarity Scoring</a></li>
+</ul></li>
+<li class="chapter" data-level="18.8.2" data-path="nlp.html"><a href="nlp.html#sentiwordnet"><i class="fa fa-check"></i><b>18.8.2</b> SentiWordNet</a></li>
+</ul></li>
+<li class="chapter" data-level="18.9" data-path="nlp.html"><a href="nlp.html#feature-representation"><i class="fa fa-check"></i><b>18.9</b> Feature Representation</a><ul>
+<li class="chapter" data-level="18.9.1" data-path="nlp.html"><a href="nlp.html#the-data-1"><i class="fa fa-check"></i><b>18.9.1</b> The Data</a></li>
+<li class="chapter" data-level="18.9.2" data-path="nlp.html"><a href="nlp.html#frequency-count-1"><i class="fa fa-check"></i><b>18.9.2</b> Frequency Count</a><ul>
+<li class="chapter" data-level="18.9.2.1" data-path="nlp.html"><a href="nlp.html#tokenizer"><i class="fa fa-check"></i><b>18.9.2.1</b> + Tokenizer</a></li>
+<li class="chapter" data-level="18.9.2.2" data-path="nlp.html"><a href="nlp.html#stop-words"><i class="fa fa-check"></i><b>18.9.2.2</b> + Stop Words</a></li>
+</ul></li>
+<li class="chapter" data-level="18.9.3" data-path="nlp.html"><a href="nlp.html#tfidf"><i class="fa fa-check"></i><b>18.9.3</b> TFIDF</a><ul>
+<li class="chapter" data-level="18.9.3.1" data-path="nlp.html"><a href="nlp.html#equation"><i class="fa fa-check"></i><b>18.9.3.1</b> Equation</a></li>
+<li class="chapter" data-level="18.9.3.2" data-path="nlp.html"><a href="nlp.html#tfidftransformer"><i class="fa fa-check"></i><b>18.9.3.2</b> <code>TfidfTransformer</code></a></li>
+<li class="chapter" data-level="18.9.3.3" data-path="nlp.html"><a href="nlp.html#tfidfvectorizer"><i class="fa fa-check"></i><b>18.9.3.3</b> <code>TfidfVectorizer</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="18.10" data-path="nlp.html"><a href="nlp.html#appliction"><i class="fa fa-check"></i><b>18.10</b> Appliction</a><ul>
+<li class="chapter" data-level="18.10.1" data-path="nlp.html"><a href="nlp.html#document-similarity"><i class="fa fa-check"></i><b>18.10.1</b> Document Similarity</a></li>
+</ul></li>
+<li class="chapter" data-level="18.11" data-path="nlp.html"><a href="nlp.html#naive-bayes"><i class="fa fa-check"></i><b>18.11</b> Naive Bayes</a><ul>
+<li class="chapter" data-level="18.11.1" data-path="nlp.html"><a href="nlp.html#libraries-1"><i class="fa fa-check"></i><b>18.11.1</b> Libraries</a></li>
+<li class="chapter" data-level="18.11.2" data-path="nlp.html"><a href="nlp.html#the-data-2"><i class="fa fa-check"></i><b>18.11.2</b> The Data</a></li>
+<li class="chapter" data-level="18.11.3" data-path="nlp.html"><a href="nlp.html#bag-of-words"><i class="fa fa-check"></i><b>18.11.3</b> Bag of Words</a></li>
+<li class="chapter" data-level="18.11.4" data-path="nlp.html"><a href="nlp.html#build-the-model"><i class="fa fa-check"></i><b>18.11.4</b> Build The Model</a></li>
+<li class="chapter" data-level="18.11.5" data-path="nlp.html"><a href="nlp.html#train-set-prediction"><i class="fa fa-check"></i><b>18.11.5</b> Train Set Prediction</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -988,10 +1000,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="item1-item2-item3" class="section level4">
 <h4><span class="header-section-number">4.1.1.1</span> (item1, item2, item3)</h4>
 <p>This is a formal syntax for defining tuple, items inside ( ) notation</p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb163-1"><a href="built-in-data-structure.html#cb163-1"></a>t <span class="op">=</span> (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="st">&#39;o&#39;</span>,<span class="st">&#39;apple&#39;</span>)</span>
-<span id="cb163-2"><a href="built-in-data-structure.html#cb163-2"></a>t</span></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb163-1" title="1">t <span class="op">=</span> (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="st">&#39;o&#39;</span>,<span class="st">&#39;apple&#39;</span>)</a>
+<a class="sourceLine" id="cb163-2" title="2">t</a></code></pre></div>
 <pre><code>## (1, 2, 3, &#39;o&#39;, &#39;apple&#39;)</code></pre>
-<div class="sourceCode" id="cb165"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb165-1"><a href="built-in-data-structure.html#cb165-1"></a><span class="bu">type</span>(t)</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb165-1" title="1"><span class="bu">type</span>(t)</a></code></pre></div>
 <pre><code>## &lt;class &#39;tuple&#39;&gt;</code></pre>
 </div>
 <div id="item1-item2-item3-1" class="section level4">
@@ -1001,33 +1013,33 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </li>
 <li>However, some functions may not consider this method</li>
 </ul>
-<div class="sourceCode" id="cb167"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb167-1"><a href="built-in-data-structure.html#cb167-1"></a><span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="st">&#39;o&#39;</span>,<span class="st">&#39;apple&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb167-1" title="1"><span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="st">&#39;o&#39;</span>,<span class="st">&#39;apple&#39;</span></a></code></pre></div>
 <pre><code>## (1, 2, 3, &#39;o&#39;, &#39;apple&#39;)</code></pre>
 </div>
 </div>
 <div id="accessing" class="section level3">
 <h3><span class="header-section-number">4.1.2</span> Accessing</h3>
-<div class="sourceCode" id="cb169"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb169-1"><a href="built-in-data-structure.html#cb169-1"></a><span class="bu">print</span> (t[<span class="dv">1</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb169-1" title="1"><span class="bu">print</span> (t[<span class="dv">1</span>])</a></code></pre></div>
 <pre><code>## 2</code></pre>
-<div class="sourceCode" id="cb171"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb171-1"><a href="built-in-data-structure.html#cb171-1"></a><span class="bu">print</span> (<span class="bu">type</span>(t[<span class="dv">1</span>]))</span></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb171-1" title="1"><span class="bu">print</span> (<span class="bu">type</span>(t[<span class="dv">1</span>]))</a></code></pre></div>
 <pre><code>## &lt;class &#39;int&#39;&gt;</code></pre>
-<div class="sourceCode" id="cb173"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb173-1"><a href="built-in-data-structure.html#cb173-1"></a><span class="bu">print</span> (t[<span class="dv">1</span>:<span class="dv">3</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb173-1" title="1"><span class="bu">print</span> (t[<span class="dv">1</span>:<span class="dv">3</span>])</a></code></pre></div>
 <pre><code>## (2, 3)</code></pre>
-<div class="sourceCode" id="cb175"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb175-1"><a href="built-in-data-structure.html#cb175-1"></a><span class="bu">type</span> ([t[<span class="dv">1</span>:<span class="dv">3</span>]])</span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb175-1" title="1"><span class="bu">type</span> ([t[<span class="dv">1</span>:<span class="dv">3</span>]])</a></code></pre></div>
 <pre><code>## &lt;class &#39;list&#39;&gt;</code></pre>
 </div>
 <div id="duplicating-tuple" class="section level3">
 <h3><span class="header-section-number">4.1.3</span> Duplicating Tuple</h3>
-<div class="sourceCode" id="cb177"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb177-1"><a href="built-in-data-structure.html#cb177-1"></a>original <span class="op">=</span> (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</span>
-<span id="cb177-2"><a href="built-in-data-structure.html#cb177-2"></a>copy_test <span class="op">=</span> original</span>
-<span id="cb177-3"><a href="built-in-data-structure.html#cb177-3"></a><span class="bu">print</span>(original)</span></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb177-1" title="1">original <span class="op">=</span> (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb177-2" title="2">copy_test <span class="op">=</span> original</a>
+<a class="sourceLine" id="cb177-3" title="3"><span class="bu">print</span>(original)</a></code></pre></div>
 <pre><code>## (1, 2, 3, 4, 5)</code></pre>
-<div class="sourceCode" id="cb179"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb179-1"><a href="built-in-data-structure.html#cb179-1"></a><span class="bu">print</span>(copy_test)</span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb179-1" title="1"><span class="bu">print</span>(copy_test)</a></code></pre></div>
 <pre><code>## (1, 2, 3, 4, 5)</code></pre>
-<div class="sourceCode" id="cb181"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb181-1"><a href="built-in-data-structure.html#cb181-1"></a><span class="bu">print</span>(<span class="st">&#39;Original ID: &#39;</span>, <span class="bu">id</span>(original))</span></code></pre></div>
-<pre><code>## Original ID:  694221552</code></pre>
-<div class="sourceCode" id="cb183"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb183-1"><a href="built-in-data-structure.html#cb183-1"></a><span class="bu">print</span>(<span class="st">&#39;Copy ID:     &#39;</span>, <span class="bu">id</span>(copy_test))</span></code></pre></div>
-<pre><code>## Copy ID:      694221552</code></pre>
+<div class="sourceCode" id="cb181"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb181-1" title="1"><span class="bu">print</span>(<span class="st">&#39;Original ID: &#39;</span>, <span class="bu">id</span>(original))</a></code></pre></div>
+<pre><code>## Original ID:  605035424</code></pre>
+<div class="sourceCode" id="cb183"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb183-1" title="1"><span class="bu">print</span>(<span class="st">&#39;Copy ID:     &#39;</span>, <span class="bu">id</span>(copy_test))</a></code></pre></div>
+<pre><code>## Copy ID:      605035424</code></pre>
 </div>
 </div>
 <div id="list" class="section level2">
@@ -1043,9 +1055,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">4.2.1</span> Creating List</h3>
 <div id="empty-list" class="section level4">
 <h4><span class="header-section-number">4.2.1.1</span> Empty List</h4>
-<div class="sourceCode" id="cb185"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb185-1"><a href="built-in-data-structure.html#cb185-1"></a>empty <span class="op">=</span> []      <span class="co"># literal assignment method</span></span>
-<span id="cb185-2"><a href="built-in-data-structure.html#cb185-2"></a>empty <span class="op">=</span> <span class="bu">list</span>()  <span class="co"># constructor method</span></span>
-<span id="cb185-3"><a href="built-in-data-structure.html#cb185-3"></a><span class="bu">print</span> (empty)</span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb185-1" title="1">empty <span class="op">=</span> []      <span class="co"># literal assignment method</span></a>
+<a class="sourceLine" id="cb185-2" title="2">empty <span class="op">=</span> <span class="bu">list</span>()  <span class="co"># constructor method</span></a>
+<a class="sourceLine" id="cb185-3" title="3"><span class="bu">print</span> (empty)</a></code></pre></div>
 <pre><code>## []</code></pre>
 </div>
 <div id="literal-assignment" class="section level4">
@@ -1053,34 +1065,34 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><strong>Multiple data types</strong> is allowed in a list</li>
 </ul>
-<div class="sourceCode" id="cb187"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb187-1"><a href="built-in-data-structure.html#cb187-1"></a>[<span class="dv">123</span>,<span class="st">&#39;abc&#39;</span>,<span class="dv">456</span>, <span class="va">None</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb187-1" title="1">[<span class="dv">123</span>,<span class="st">&#39;abc&#39;</span>,<span class="dv">456</span>, <span class="va">None</span>]</a></code></pre></div>
 <pre><code>## [123, &#39;abc&#39;, 456, None]</code></pre>
 <p><strong>Constructor</strong></p>
 <ul>
 <li>Note that <strong>list(string)</strong> will split the string into letters</li>
 </ul>
-<div class="sourceCode" id="cb189"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb189-1"><a href="built-in-data-structure.html#cb189-1"></a><span class="bu">list</span>(<span class="st">&#39;hello&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb189-1" title="1"><span class="bu">list</span>(<span class="st">&#39;hello&#39;</span>)</a></code></pre></div>
 <pre><code>## [&#39;h&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39;]</code></pre>
 </div>
 </div>
 <div id="accessing-items" class="section level3">
 <h3><span class="header-section-number">4.2.2</span> Accessing Items</h3>
 <p><strong>Access specific index number</strong></p>
-<div class="sourceCode" id="cb191"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb191-1"><a href="built-in-data-structure.html#cb191-1"></a>food <span class="op">=</span> [<span class="st">&#39;bread&#39;</span>, <span class="st">&#39;noodle&#39;</span>, <span class="st">&#39;rice&#39;</span>, <span class="st">&#39;biscuit&#39;</span>,<span class="st">&#39;jelly&#39;</span>,<span class="st">&#39;cake&#39;</span>]</span>
-<span id="cb191-2"><a href="built-in-data-structure.html#cb191-2"></a><span class="bu">print</span> (food[<span class="dv">2</span>])  <span class="co"># 3rd item</span></span></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb191-1" title="1">food <span class="op">=</span> [<span class="st">&#39;bread&#39;</span>, <span class="st">&#39;noodle&#39;</span>, <span class="st">&#39;rice&#39;</span>, <span class="st">&#39;biscuit&#39;</span>,<span class="st">&#39;jelly&#39;</span>,<span class="st">&#39;cake&#39;</span>]</a>
+<a class="sourceLine" id="cb191-2" title="2"><span class="bu">print</span> (food[<span class="dv">2</span>])  <span class="co"># 3rd item</span></a></code></pre></div>
 <pre><code>## rice</code></pre>
-<div class="sourceCode" id="cb193"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb193-1"><a href="built-in-data-structure.html#cb193-1"></a><span class="bu">print</span> (food[<span class="op">-</span><span class="dv">1</span>]) <span class="co"># last item</span></span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb193-1" title="1"><span class="bu">print</span> (food[<span class="op">-</span><span class="dv">1</span>]) <span class="co"># last item</span></a></code></pre></div>
 <pre><code>## cake</code></pre>
 <p><strong>Access range of indexes</strong></p>
-<div class="sourceCode" id="cb195"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb195-1"><a href="built-in-data-structure.html#cb195-1"></a><span class="bu">print</span> (food[:<span class="dv">4</span>])     <span class="co"># first 3 items</span></span></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb195-1" title="1"><span class="bu">print</span> (food[:<span class="dv">4</span>])     <span class="co"># first 3 items</span></a></code></pre></div>
 <pre><code>## [&#39;bread&#39;, &#39;noodle&#39;, &#39;rice&#39;, &#39;biscuit&#39;]</code></pre>
-<div class="sourceCode" id="cb197"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb197-1"><a href="built-in-data-structure.html#cb197-1"></a><span class="bu">print</span> (food[<span class="op">-</span><span class="dv">3</span>:])    <span class="co"># last 3 items</span></span></code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb197-1" title="1"><span class="bu">print</span> (food[<span class="op">-</span><span class="dv">3</span>:])    <span class="co"># last 3 items</span></a></code></pre></div>
 <pre><code>## [&#39;biscuit&#39;, &#39;jelly&#39;, &#39;cake&#39;]</code></pre>
-<div class="sourceCode" id="cb199"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb199-1"><a href="built-in-data-structure.html#cb199-1"></a><span class="bu">print</span> (food[<span class="dv">1</span>:<span class="dv">5</span>])    <span class="co"># item 1 to 4</span></span></code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb199-1" title="1"><span class="bu">print</span> (food[<span class="dv">1</span>:<span class="dv">5</span>])    <span class="co"># item 1 to 4</span></a></code></pre></div>
 <pre><code>## [&#39;noodle&#39;, &#39;rice&#39;, &#39;biscuit&#39;, &#39;jelly&#39;]</code></pre>
-<div class="sourceCode" id="cb201"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb201-1"><a href="built-in-data-structure.html#cb201-1"></a><span class="bu">print</span> (food[<span class="dv">5</span>:<span class="dv">2</span>:<span class="op">-</span><span class="dv">1</span>]) <span class="co"># item 3 to 5, reverse order</span></span></code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb201-1" title="1"><span class="bu">print</span> (food[<span class="dv">5</span>:<span class="dv">2</span>:<span class="op">-</span><span class="dv">1</span>]) <span class="co"># item 3 to 5, reverse order</span></a></code></pre></div>
 <pre><code>## [&#39;cake&#39;, &#39;jelly&#39;, &#39;biscuit&#39;]</code></pre>
-<div class="sourceCode" id="cb203"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb203-1"><a href="built-in-data-structure.html#cb203-1"></a><span class="bu">print</span> (food[::<span class="op">-</span><span class="dv">1</span>])   <span class="co"># reverse order</span></span></code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb203-1" title="1"><span class="bu">print</span> (food[::<span class="op">-</span><span class="dv">1</span>])   <span class="co"># reverse order</span></a></code></pre></div>
 <pre><code>## [&#39;cake&#39;, &#39;jelly&#39;, &#39;biscuit&#39;, &#39;rice&#39;, &#39;noodle&#39;, &#39;bread&#39;]</code></pre>
 </div>
 <div id="methods" class="section level3">
@@ -1089,51 +1101,51 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">4.2.3.1</span> Remove Item(s)</h4>
 <p>Removal of non-existance item will result in error</p>
 <p><strong>Search and remove first occurance</strong> of an item</p>
-<div class="sourceCode" id="cb205"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb205-1"><a href="built-in-data-structure.html#cb205-1"></a>food <span class="op">=</span> <span class="bu">list</span>([<span class="st">&#39;bread&#39;</span>, <span class="st">&#39;noodle&#39;</span>, <span class="st">&#39;rice&#39;</span>, <span class="st">&#39;biscuit&#39;</span>,<span class="st">&#39;jelly&#39;</span>,<span class="st">&#39;cake&#39;</span>,<span class="st">&#39;noodle&#39;</span>])</span>
-<span id="cb205-2"><a href="built-in-data-structure.html#cb205-2"></a>food.remove(<span class="st">&#39;noodle&#39;</span>)</span>
-<span id="cb205-3"><a href="built-in-data-structure.html#cb205-3"></a><span class="bu">print</span> (food)</span></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb205-1" title="1">food <span class="op">=</span> <span class="bu">list</span>([<span class="st">&#39;bread&#39;</span>, <span class="st">&#39;noodle&#39;</span>, <span class="st">&#39;rice&#39;</span>, <span class="st">&#39;biscuit&#39;</span>,<span class="st">&#39;jelly&#39;</span>,<span class="st">&#39;cake&#39;</span>,<span class="st">&#39;noodle&#39;</span>])</a>
+<a class="sourceLine" id="cb205-2" title="2">food.remove(<span class="st">&#39;noodle&#39;</span>)</a>
+<a class="sourceLine" id="cb205-3" title="3"><span class="bu">print</span> (food)</a></code></pre></div>
 <pre><code>## [&#39;bread&#39;, &#39;rice&#39;, &#39;biscuit&#39;, &#39;jelly&#39;, &#39;cake&#39;, &#39;noodle&#39;]</code></pre>
 <p><strong>Remove last item</strong></p>
-<div class="sourceCode" id="cb207"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb207-1"><a href="built-in-data-structure.html#cb207-1"></a>food.pop()</span></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb207-1" title="1">food.pop()</a></code></pre></div>
 <pre><code>## &#39;noodle&#39;</code></pre>
-<div class="sourceCode" id="cb209"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb209-1"><a href="built-in-data-structure.html#cb209-1"></a><span class="bu">print</span> (food)</span></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb209-1" title="1"><span class="bu">print</span> (food)</a></code></pre></div>
 <pre><code>## [&#39;bread&#39;, &#39;rice&#39;, &#39;biscuit&#39;, &#39;jelly&#39;, &#39;cake&#39;]</code></pre>
 <p><strong>Remove item at specific position</strong></p>
-<div class="sourceCode" id="cb211"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb211-1"><a href="built-in-data-structure.html#cb211-1"></a>food.pop(<span class="dv">1</span>)  <span class="co"># counter start from 0</span></span></code></pre></div>
+<div class="sourceCode" id="cb211"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb211-1" title="1">food.pop(<span class="dv">1</span>)  <span class="co"># counter start from 0</span></a></code></pre></div>
 <pre><code>## &#39;rice&#39;</code></pre>
-<div class="sourceCode" id="cb213"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb213-1"><a href="built-in-data-structure.html#cb213-1"></a><span class="bu">print</span>(food)</span></code></pre></div>
+<div class="sourceCode" id="cb213"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb213-1" title="1"><span class="bu">print</span>(food)</a></code></pre></div>
 <pre><code>## [&#39;bread&#39;, &#39;biscuit&#39;, &#39;jelly&#39;, &#39;cake&#39;]</code></pre>
-<div class="sourceCode" id="cb215"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb215-1"><a href="built-in-data-structure.html#cb215-1"></a>food.remove(<span class="st">&#39;jelly&#39;</span>)</span>
-<span id="cb215-2"><a href="built-in-data-structure.html#cb215-2"></a><span class="bu">print</span>(food)</span></code></pre></div>
+<div class="sourceCode" id="cb215"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb215-1" title="1">food.remove(<span class="st">&#39;jelly&#39;</span>)</a>
+<a class="sourceLine" id="cb215-2" title="2"><span class="bu">print</span>(food)</a></code></pre></div>
 <pre><code>## [&#39;bread&#39;, &#39;biscuit&#39;, &#39;cake&#39;]</code></pre>
 </div>
 <div id="appending-item-s" class="section level4">
 <h4><span class="header-section-number">4.2.3.2</span> Appending Item (s)</h4>
 <p><strong>Append One Item</strong></p>
-<div class="sourceCode" id="cb217"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb217-1"><a href="built-in-data-structure.html#cb217-1"></a>food.append(<span class="st">&#39;jelly&#39;</span>)</span>
-<span id="cb217-2"><a href="built-in-data-structure.html#cb217-2"></a><span class="bu">print</span> (food)</span></code></pre></div>
+<div class="sourceCode" id="cb217"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb217-1" title="1">food.append(<span class="st">&#39;jelly&#39;</span>)</a>
+<a class="sourceLine" id="cb217-2" title="2"><span class="bu">print</span> (food)</a></code></pre></div>
 <pre><code>## [&#39;bread&#39;, &#39;biscuit&#39;, &#39;cake&#39;, &#39;jelly&#39;]</code></pre>
 <p><strong>Append Multiple Items</strong> <strong><code>extend()</code></strong> will expand the list/tupple argument and append as multiple items</p>
-<div class="sourceCode" id="cb219"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb219-1"><a href="built-in-data-structure.html#cb219-1"></a>food.extend([<span class="st">&#39;nand&#39;</span>,<span class="st">&#39;puff&#39;</span>])</span>
-<span id="cb219-2"><a href="built-in-data-structure.html#cb219-2"></a><span class="bu">print</span> (food)</span></code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb219-1" title="1">food.extend([<span class="st">&#39;nand&#39;</span>,<span class="st">&#39;puff&#39;</span>])</a>
+<a class="sourceLine" id="cb219-2" title="2"><span class="bu">print</span> (food)</a></code></pre></div>
 <pre><code>## [&#39;bread&#39;, &#39;biscuit&#39;, &#39;cake&#39;, &#39;jelly&#39;, &#39;nand&#39;, &#39;puff&#39;]</code></pre>
 </div>
 <div id="other-methods" class="section level4">
 <h4><span class="header-section-number">4.2.3.3</span> Other Methods</h4>
 <p><strong>Reversing the order of the items</strong></p>
-<div class="sourceCode" id="cb221"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb221-1"><a href="built-in-data-structure.html#cb221-1"></a>food.reverse()</span>
-<span id="cb221-2"><a href="built-in-data-structure.html#cb221-2"></a>food</span></code></pre></div>
+<div class="sourceCode" id="cb221"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb221-1" title="1">food.reverse()</a>
+<a class="sourceLine" id="cb221-2" title="2">food</a></code></pre></div>
 <pre><code>## [&#39;puff&#39;, &#39;nand&#39;, &#39;jelly&#39;, &#39;cake&#39;, &#39;biscuit&#39;, &#39;bread&#39;]</code></pre>
 <p><strong>Locating the Index Number of An Item</strong></p>
-<div class="sourceCode" id="cb223"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb223-1"><a href="built-in-data-structure.html#cb223-1"></a>food.index(<span class="st">&#39;biscuit&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb223-1" title="1">food.index(<span class="st">&#39;biscuit&#39;</span>)</a></code></pre></div>
 <pre><code>## 4</code></pre>
 <p><strong>Count occurance</strong></p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb225-1"><a href="built-in-data-structure.html#cb225-1"></a>test <span class="op">=</span> [<span class="st">&#39;a&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>]</span>
-<span id="cb225-2"><a href="built-in-data-structure.html#cb225-2"></a>test.count(<span class="st">&#39;a&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb225-1" title="1">test <span class="op">=</span> [<span class="st">&#39;a&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>]</a>
+<a class="sourceLine" id="cb225-2" title="2">test.count(<span class="st">&#39;a&#39;</span>)</a></code></pre></div>
 <pre><code>## 3</code></pre>
 <p><strong>Sorting The Order of Items</strong></p>
-<div class="sourceCode" id="cb227"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb227-1"><a href="built-in-data-structure.html#cb227-1"></a>food.sort()</span>
-<span id="cb227-2"><a href="built-in-data-structure.html#cb227-2"></a><span class="bu">print</span> (food)</span></code></pre></div>
+<div class="sourceCode" id="cb227"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb227-1" title="1">food.sort()</a>
+<a class="sourceLine" id="cb227-2" title="2"><span class="bu">print</span> (food)</a></code></pre></div>
 <pre><code>## [&#39;biscuit&#39;, &#39;bread&#39;, &#39;cake&#39;, &#39;jelly&#39;, &#39;nand&#39;, &#39;puff&#39;]</code></pre>
 </div>
 </div>
@@ -1143,122 +1155,122 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">4.2.4.1</span> Concatenation</h4>
 <p><strong>Concatenating Lists</strong></p>
 <p>Two lists can be concatenanted using ‘+’ operator.</p>
-<div class="sourceCode" id="cb229"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb229-1"><a href="built-in-data-structure.html#cb229-1"></a>[<span class="st">&#39;dog&#39;</span>,<span class="st">&#39;cat&#39;</span>,<span class="st">&#39;horse&#39;</span>] <span class="op">+</span> [<span class="st">&#39;elephant&#39;</span>,<span class="st">&#39;tiger&#39;</span>] <span class="op">+</span> [<span class="st">&#39;sheep&#39;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb229-1" title="1">[<span class="st">&#39;dog&#39;</span>,<span class="st">&#39;cat&#39;</span>,<span class="st">&#39;horse&#39;</span>] <span class="op">+</span> [<span class="st">&#39;elephant&#39;</span>,<span class="st">&#39;tiger&#39;</span>] <span class="op">+</span> [<span class="st">&#39;sheep&#39;</span>]</a></code></pre></div>
 <pre><code>## [&#39;dog&#39;, &#39;cat&#39;, &#39;horse&#39;, &#39;elephant&#39;, &#39;tiger&#39;, &#39;sheep&#39;]</code></pre>
 </div>
 </div>
 <div id="list-is-mutable" class="section level3">
 <h3><span class="header-section-number">4.2.5</span> List is Mutable</h3>
 <p>The reference of list variable won’t change after adding/removing its item</p>
-<div class="sourceCode" id="cb231"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb231-1"><a href="built-in-data-structure.html#cb231-1"></a>food <span class="op">=</span> [<span class="st">&#39;cake&#39;</span>,<span class="st">&#39;jelly&#39;</span>,<span class="st">&#39;roti&#39;</span>,<span class="st">&#39;noodle&#39;</span>]</span>
-<span id="cb231-2"><a href="built-in-data-structure.html#cb231-2"></a><span class="bu">print</span> (<span class="st">&#39;food : &#39;</span>,<span class="bu">id</span>(food))</span></code></pre></div>
-<pre><code>## food :  629051016</code></pre>
-<div class="sourceCode" id="cb233"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb233-1"><a href="built-in-data-structure.html#cb233-1"></a>food <span class="op">+=</span> [<span class="st">&#39;salad&#39;</span>,<span class="st">&#39;chicken&#39;</span>]</span>
-<span id="cb233-2"><a href="built-in-data-structure.html#cb233-2"></a><span class="bu">print</span> (<span class="st">&#39;food : &#39;</span>,<span class="bu">id</span>(food))</span></code></pre></div>
-<pre><code>## food :  629051016</code></pre>
+<div class="sourceCode" id="cb231"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb231-1" title="1">food <span class="op">=</span> [<span class="st">&#39;cake&#39;</span>,<span class="st">&#39;jelly&#39;</span>,<span class="st">&#39;roti&#39;</span>,<span class="st">&#39;noodle&#39;</span>]</a>
+<a class="sourceLine" id="cb231-2" title="2"><span class="bu">print</span> (<span class="st">&#39;food : &#39;</span>,<span class="bu">id</span>(food))</a></code></pre></div>
+<pre><code>## food :  605272264</code></pre>
+<div class="sourceCode" id="cb233"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb233-1" title="1">food <span class="op">+=</span> [<span class="st">&#39;salad&#39;</span>,<span class="st">&#39;chicken&#39;</span>]</a>
+<a class="sourceLine" id="cb233-2" title="2"><span class="bu">print</span> (<span class="st">&#39;food : &#39;</span>,<span class="bu">id</span>(food))</a></code></pre></div>
+<pre><code>## food :  605272264</code></pre>
 <p>A function is actually an <strong>object</strong>, which reference never change, hence <strong>mutable</strong></p>
-<div class="sourceCode" id="cb235"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb235-1"><a href="built-in-data-structure.html#cb235-1"></a><span class="kw">def</span> spam (elem, some_list<span class="op">=</span>[<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>]):</span>
-<span id="cb235-2"><a href="built-in-data-structure.html#cb235-2"></a>    some_list.append(elem)</span>
-<span id="cb235-3"><a href="built-in-data-structure.html#cb235-3"></a>    <span class="cf">return</span> some_list</span>
-<span id="cb235-4"><a href="built-in-data-structure.html#cb235-4"></a></span>
-<span id="cb235-5"><a href="built-in-data-structure.html#cb235-5"></a><span class="bu">print</span> (spam(<span class="dv">1</span>,[<span class="st">&#39;x&#39;</span>]))</span></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb235-1" title="1"><span class="kw">def</span> spam (elem, some_list<span class="op">=</span>[<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>]):</a>
+<a class="sourceLine" id="cb235-2" title="2">    some_list.append(elem)</a>
+<a class="sourceLine" id="cb235-3" title="3">    <span class="cf">return</span> some_list</a>
+<a class="sourceLine" id="cb235-4" title="4"></a>
+<a class="sourceLine" id="cb235-5" title="5"><span class="bu">print</span> (spam(<span class="dv">1</span>,[<span class="st">&#39;x&#39;</span>]))</a></code></pre></div>
 <pre><code>## [&#39;x&#39;, 1]</code></pre>
-<div class="sourceCode" id="cb237"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb237-1"><a href="built-in-data-structure.html#cb237-1"></a><span class="bu">print</span> (spam(<span class="dv">2</span>)) <span class="co">## second parameter is not passed</span></span></code></pre></div>
+<div class="sourceCode" id="cb237"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb237-1" title="1"><span class="bu">print</span> (spam(<span class="dv">2</span>)) <span class="co">## second parameter is not passed</span></a></code></pre></div>
 <pre><code>## [&#39;a&#39;, &#39;b&#39;, 2]</code></pre>
-<div class="sourceCode" id="cb239"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb239-1"><a href="built-in-data-structure.html#cb239-1"></a><span class="bu">print</span> (spam(<span class="dv">3</span>)) <span class="co">##  notice the default was remembered</span></span></code></pre></div>
+<div class="sourceCode" id="cb239"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb239-1" title="1"><span class="bu">print</span> (spam(<span class="dv">3</span>)) <span class="co">##  notice the default was remembered</span></a></code></pre></div>
 <pre><code>## [&#39;a&#39;, &#39;b&#39;, 2, 3]</code></pre>
 </div>
 <div id="duplicate-or-reference" class="section level3">
 <h3><span class="header-section-number">4.2.6</span> Duplicate or Reference</h3>
 <p><strong>Use =</strong> : It just copy the refernce. IDs are similar</p>
-<div class="sourceCode" id="cb241"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb241-1"><a href="built-in-data-structure.html#cb241-1"></a>original <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]</span>
-<span id="cb241-2"><a href="built-in-data-structure.html#cb241-2"></a>copy_test <span class="op">=</span> original</span>
-<span id="cb241-3"><a href="built-in-data-structure.html#cb241-3"></a><span class="bu">print</span>(<span class="st">&#39;Original ID: &#39;</span>, <span class="bu">id</span>(original))</span></code></pre></div>
-<pre><code>## Original ID:  694378696</code></pre>
-<div class="sourceCode" id="cb243"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb243-1"><a href="built-in-data-structure.html#cb243-1"></a><span class="bu">print</span>(<span class="st">&#39;Copy ID:     &#39;</span>, <span class="bu">id</span>(copy_test))                          </span></code></pre></div>
-<pre><code>## Copy ID:      694378696</code></pre>
-<div class="sourceCode" id="cb245"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb245-1"><a href="built-in-data-structure.html#cb245-1"></a>original[<span class="dv">0</span>]<span class="op">=</span><span class="dv">999</span>   <span class="co">## change original</span></span>
-<span id="cb245-2"><a href="built-in-data-structure.html#cb245-2"></a><span class="bu">print</span>(original)</span></code></pre></div>
+<div class="sourceCode" id="cb241"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb241-1" title="1">original <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]</a>
+<a class="sourceLine" id="cb241-2" title="2">copy_test <span class="op">=</span> original</a>
+<a class="sourceLine" id="cb241-3" title="3"><span class="bu">print</span>(<span class="st">&#39;Original ID: &#39;</span>, <span class="bu">id</span>(original))</a></code></pre></div>
+<pre><code>## Original ID:  605273096</code></pre>
+<div class="sourceCode" id="cb243"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb243-1" title="1"><span class="bu">print</span>(<span class="st">&#39;Copy ID:     &#39;</span>, <span class="bu">id</span>(copy_test))                          </a></code></pre></div>
+<pre><code>## Copy ID:      605273096</code></pre>
+<div class="sourceCode" id="cb245"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb245-1" title="1">original[<span class="dv">0</span>]<span class="op">=</span><span class="dv">999</span>   <span class="co">## change original</span></a>
+<a class="sourceLine" id="cb245-2" title="2"><span class="bu">print</span>(original)</a></code></pre></div>
 <pre><code>## [999, 2, 3, 4, 5]</code></pre>
-<div class="sourceCode" id="cb247"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb247-1"><a href="built-in-data-structure.html#cb247-1"></a><span class="bu">print</span>(copy_test)  <span class="co">## copy affected</span></span></code></pre></div>
+<div class="sourceCode" id="cb247"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb247-1" title="1"><span class="bu">print</span>(copy_test)  <span class="co">## copy affected</span></a></code></pre></div>
 <pre><code>## [999, 2, 3, 4, 5]</code></pre>
 <p><strong>Duplicate A List Object</strong> with <strong><code>copy()</code></strong>. Resulting IDs are different</p>
-<div class="sourceCode" id="cb249"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb249-1"><a href="built-in-data-structure.html#cb249-1"></a>original <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]</span>
-<span id="cb249-2"><a href="built-in-data-structure.html#cb249-2"></a>copy_test <span class="op">=</span> original.copy()</span>
-<span id="cb249-3"><a href="built-in-data-structure.html#cb249-3"></a><span class="bu">print</span>(original)</span></code></pre></div>
+<div class="sourceCode" id="cb249"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb249-1" title="1">original <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]</a>
+<a class="sourceLine" id="cb249-2" title="2">copy_test <span class="op">=</span> original.copy()</a>
+<a class="sourceLine" id="cb249-3" title="3"><span class="bu">print</span>(original)</a></code></pre></div>
 <pre><code>## [1, 2, 3, 4, 5]</code></pre>
-<div class="sourceCode" id="cb251"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb251-1"><a href="built-in-data-structure.html#cb251-1"></a><span class="bu">print</span>(copy_test)</span></code></pre></div>
+<div class="sourceCode" id="cb251"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb251-1" title="1"><span class="bu">print</span>(copy_test)</a></code></pre></div>
 <pre><code>## [1, 2, 3, 4, 5]</code></pre>
-<div class="sourceCode" id="cb253"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb253-1"><a href="built-in-data-structure.html#cb253-1"></a><span class="bu">print</span>(<span class="st">&#39;Original ID: &#39;</span>, <span class="bu">id</span>(original))</span></code></pre></div>
-<pre><code>## Original ID:  694328456</code></pre>
-<div class="sourceCode" id="cb255"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb255-1"><a href="built-in-data-structure.html#cb255-1"></a><span class="bu">print</span>(<span class="st">&#39;Copy ID:     &#39;</span>, <span class="bu">id</span>(copy_test))</span></code></pre></div>
-<pre><code>## Copy ID:      694296072</code></pre>
-<div class="sourceCode" id="cb257"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb257-1"><a href="built-in-data-structure.html#cb257-1"></a>original[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">999</span>  <span class="co">## change original</span></span>
-<span id="cb257-2"><a href="built-in-data-structure.html#cb257-2"></a><span class="bu">print</span>(original)    </span></code></pre></div>
+<div class="sourceCode" id="cb253"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb253-1" title="1"><span class="bu">print</span>(<span class="st">&#39;Original ID: &#39;</span>, <span class="bu">id</span>(original))</a></code></pre></div>
+<pre><code>## Original ID:  605273608</code></pre>
+<div class="sourceCode" id="cb255"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb255-1" title="1"><span class="bu">print</span>(<span class="st">&#39;Copy ID:     &#39;</span>, <span class="bu">id</span>(copy_test))</a></code></pre></div>
+<pre><code>## Copy ID:      605139080</code></pre>
+<div class="sourceCode" id="cb257"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb257-1" title="1">original[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">999</span>  <span class="co">## change original</span></a>
+<a class="sourceLine" id="cb257-2" title="2"><span class="bu">print</span>(original)    </a></code></pre></div>
 <pre><code>## [999, 2, 3, 4, 5]</code></pre>
-<div class="sourceCode" id="cb259"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb259-1"><a href="built-in-data-structure.html#cb259-1"></a><span class="bu">print</span>(copy_test)   <span class="co">## copy not affected</span></span></code></pre></div>
+<div class="sourceCode" id="cb259"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb259-1" title="1"><span class="bu">print</span>(copy_test)   <span class="co">## copy not affected</span></a></code></pre></div>
 <pre><code>## [1, 2, 3, 4, 5]</code></pre>
 <p><strong>Passing To Function As Reference</strong></p>
-<div class="sourceCode" id="cb261"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb261-1"><a href="built-in-data-structure.html#cb261-1"></a><span class="kw">def</span> func(x):</span>
-<span id="cb261-2"><a href="built-in-data-structure.html#cb261-2"></a>    <span class="bu">print</span> (x)</span>
-<span id="cb261-3"><a href="built-in-data-structure.html#cb261-3"></a>    <span class="bu">print</span>(<span class="st">&#39;ID in Function:      &#39;</span>, <span class="bu">id</span>(x))</span>
-<span id="cb261-4"><a href="built-in-data-structure.html#cb261-4"></a>    x.append(<span class="dv">6</span>)    <span class="co">## modify the refrence</span></span>
-<span id="cb261-5"><a href="built-in-data-structure.html#cb261-5"></a>    </span>
-<span id="cb261-6"><a href="built-in-data-structure.html#cb261-6"></a>my_list <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]</span>
-<span id="cb261-7"><a href="built-in-data-structure.html#cb261-7"></a><span class="bu">print</span>(<span class="st">&#39;ID outside Function: &#39;</span>, <span class="bu">id</span>(my_list))</span></code></pre></div>
-<pre><code>## ID outside Function:  694325512</code></pre>
-<div class="sourceCode" id="cb263"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb263-1"><a href="built-in-data-structure.html#cb263-1"></a>func(my_list)  <span class="co">## call the function, pass the reference</span></span></code></pre></div>
+<div class="sourceCode" id="cb261"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb261-1" title="1"><span class="kw">def</span> func(x):</a>
+<a class="sourceLine" id="cb261-2" title="2">    <span class="bu">print</span> (x)</a>
+<a class="sourceLine" id="cb261-3" title="3">    <span class="bu">print</span>(<span class="st">&#39;ID in Function:      &#39;</span>, <span class="bu">id</span>(x))</a>
+<a class="sourceLine" id="cb261-4" title="4">    x.append(<span class="dv">6</span>)    <span class="co">## modify the refrence</span></a>
+<a class="sourceLine" id="cb261-5" title="5">    </a>
+<a class="sourceLine" id="cb261-6" title="6">my_list <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]</a>
+<a class="sourceLine" id="cb261-7" title="7"><span class="bu">print</span>(<span class="st">&#39;ID outside Function: &#39;</span>, <span class="bu">id</span>(my_list))</a></code></pre></div>
+<pre><code>## ID outside Function:  605272904</code></pre>
+<div class="sourceCode" id="cb263"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb263-1" title="1">func(my_list)  <span class="co">## call the function, pass the reference</span></a></code></pre></div>
 <pre><code>## [1, 2, 3, 4, 5]
-## ID in Function:       694325512</code></pre>
-<div class="sourceCode" id="cb265"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb265-1"><a href="built-in-data-structure.html#cb265-1"></a><span class="bu">print</span>(my_list) <span class="co">## content was altered</span></span></code></pre></div>
+## ID in Function:       605272904</code></pre>
+<div class="sourceCode" id="cb265"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb265-1" title="1"><span class="bu">print</span>(my_list) <span class="co">## content was altered</span></a></code></pre></div>
 <pre><code>## [1, 2, 3, 4, 5, 6]</code></pre>
 </div>
 <div id="list-is-iterable" class="section level3">
 <h3><span class="header-section-number">4.2.7</span> List Is Iterable</h3>
 <div id="for-loop" class="section level4">
 <h4><span class="header-section-number">4.2.7.1</span> For Loop</h4>
-<div class="sourceCode" id="cb267"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb267-1"><a href="built-in-data-structure.html#cb267-1"></a>s <span class="op">=</span> [<span class="st">&#39;abc&#39;</span>,<span class="st">&#39;abcd&#39;</span>,<span class="st">&#39;bcde&#39;</span>,<span class="st">&#39;bcdee&#39;</span>,<span class="st">&#39;cdefg&#39;</span>]</span>
-<span id="cb267-2"><a href="built-in-data-structure.html#cb267-2"></a><span class="cf">for</span> x <span class="kw">in</span> s:</span>
-<span id="cb267-3"><a href="built-in-data-structure.html#cb267-3"></a>    <span class="cf">if</span> <span class="st">&#39;abc&#39;</span> <span class="kw">in</span> x:</span>
-<span id="cb267-4"><a href="built-in-data-structure.html#cb267-4"></a>        <span class="bu">print</span> (x)</span></code></pre></div>
+<div class="sourceCode" id="cb267"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb267-1" title="1">s <span class="op">=</span> [<span class="st">&#39;abc&#39;</span>,<span class="st">&#39;abcd&#39;</span>,<span class="st">&#39;bcde&#39;</span>,<span class="st">&#39;bcdee&#39;</span>,<span class="st">&#39;cdefg&#39;</span>]</a>
+<a class="sourceLine" id="cb267-2" title="2"><span class="cf">for</span> x <span class="kw">in</span> s:</a>
+<a class="sourceLine" id="cb267-3" title="3">    <span class="cf">if</span> <span class="st">&#39;abc&#39;</span> <span class="kw">in</span> x:</a>
+<a class="sourceLine" id="cb267-4" title="4">        <span class="bu">print</span> (x)</a></code></pre></div>
 <pre><code>## abc
 ## abcd</code></pre>
 </div>
 <div id="list-comprehension" class="section level4">
 <h4><span class="header-section-number">4.2.7.2</span> List Comprehension</h4>
 <p>This code below is a shorform method of <strong>for loop and if</strong>.</p>
-<div class="sourceCode" id="cb269"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb269-1"><a href="built-in-data-structure.html#cb269-1"></a>old_list <span class="op">=</span> [<span class="st">&#39;abc&#39;</span>,<span class="st">&#39;abcd&#39;</span>,<span class="st">&#39;bcde&#39;</span>,<span class="st">&#39;bcdee&#39;</span>,<span class="st">&#39;cdefg&#39;</span>]</span>
-<span id="cb269-2"><a href="built-in-data-structure.html#cb269-2"></a>[x <span class="cf">for</span> x <span class="kw">in</span> old_list <span class="cf">if</span> <span class="st">&#39;abc&#39;</span> <span class="kw">in</span> x]</span></code></pre></div>
+<div class="sourceCode" id="cb269"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb269-1" title="1">old_list <span class="op">=</span> [<span class="st">&#39;abc&#39;</span>,<span class="st">&#39;abcd&#39;</span>,<span class="st">&#39;bcde&#39;</span>,<span class="st">&#39;bcdee&#39;</span>,<span class="st">&#39;cdefg&#39;</span>]</a>
+<a class="sourceLine" id="cb269-2" title="2">[x <span class="cf">for</span> x <span class="kw">in</span> old_list <span class="cf">if</span> <span class="st">&#39;abc&#39;</span> <span class="kw">in</span> x]</a></code></pre></div>
 <pre><code>## [&#39;abc&#39;, &#39;abcd&#39;]</code></pre>
 <p>Compare to traditional version of code below:</p>
-<div class="sourceCode" id="cb271"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb271-1"><a href="built-in-data-structure.html#cb271-1"></a>new_list <span class="op">=</span> []</span>
-<span id="cb271-2"><a href="built-in-data-structure.html#cb271-2"></a>old_list <span class="op">=</span> [<span class="st">&#39;abc&#39;</span>,<span class="st">&#39;abcd&#39;</span>,<span class="st">&#39;bcde&#39;</span>,<span class="st">&#39;bcdee&#39;</span>,<span class="st">&#39;cdefg&#39;</span>]</span>
-<span id="cb271-3"><a href="built-in-data-structure.html#cb271-3"></a><span class="cf">for</span> x <span class="kw">in</span> old_list:</span>
-<span id="cb271-4"><a href="built-in-data-structure.html#cb271-4"></a>    <span class="cf">if</span> <span class="st">&#39;abc&#39;</span> <span class="kw">in</span> x:</span>
-<span id="cb271-5"><a href="built-in-data-structure.html#cb271-5"></a>        new_list.append(x)</span>
-<span id="cb271-6"><a href="built-in-data-structure.html#cb271-6"></a>        </span>
-<span id="cb271-7"><a href="built-in-data-structure.html#cb271-7"></a><span class="bu">print</span>( new_list )</span></code></pre></div>
+<div class="sourceCode" id="cb271"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb271-1" title="1">new_list <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb271-2" title="2">old_list <span class="op">=</span> [<span class="st">&#39;abc&#39;</span>,<span class="st">&#39;abcd&#39;</span>,<span class="st">&#39;bcde&#39;</span>,<span class="st">&#39;bcdee&#39;</span>,<span class="st">&#39;cdefg&#39;</span>]</a>
+<a class="sourceLine" id="cb271-3" title="3"><span class="cf">for</span> x <span class="kw">in</span> old_list:</a>
+<a class="sourceLine" id="cb271-4" title="4">    <span class="cf">if</span> <span class="st">&#39;abc&#39;</span> <span class="kw">in</span> x:</a>
+<a class="sourceLine" id="cb271-5" title="5">        new_list.append(x)</a>
+<a class="sourceLine" id="cb271-6" title="6">        </a>
+<a class="sourceLine" id="cb271-7" title="7"><span class="bu">print</span>( new_list )</a></code></pre></div>
 <pre><code>## [&#39;abc&#39;, &#39;abcd&#39;]</code></pre>
 </div>
 </div>
 <div id="conversion" class="section level3">
 <h3><span class="header-section-number">4.2.8</span> Conversion</h3>
 <p>Convert mutable list to immutable <strong>tuple</strong> with <strong><code>tuple()</code></strong></p>
-<div class="sourceCode" id="cb273"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb273-1"><a href="built-in-data-structure.html#cb273-1"></a>original <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
-<span id="cb273-2"><a href="built-in-data-structure.html#cb273-2"></a>original_tuple <span class="op">=</span> <span class="bu">tuple</span>(original)</span>
-<span id="cb273-3"><a href="built-in-data-structure.html#cb273-3"></a><span class="bu">print</span>( <span class="bu">id</span>(original),</span>
-<span id="cb273-4"><a href="built-in-data-structure.html#cb273-4"></a>       <span class="bu">id</span>(original_tuple))</span></code></pre></div>
-<pre><code>## 694544584 694275456</code></pre>
+<div class="sourceCode" id="cb273"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb273-1" title="1">original <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</a>
+<a class="sourceLine" id="cb273-2" title="2">original_tuple <span class="op">=</span> <span class="bu">tuple</span>(original)</a>
+<a class="sourceLine" id="cb273-3" title="3"><span class="bu">print</span>( <span class="bu">id</span>(original),</a>
+<a class="sourceLine" id="cb273-4" title="4">       <span class="bu">id</span>(original_tuple))</a></code></pre></div>
+<pre><code>## 613764168 485241048</code></pre>
 </div>
 <div id="built-in-functions-applicable-to-list" class="section level3">
 <h3><span class="header-section-number">4.2.9</span> Built-In Functions Applicable To List</h3>
 <p><strong>Number of Elements</strong></p>
-<div class="sourceCode" id="cb275"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb275-1"><a href="built-in-data-structure.html#cb275-1"></a><span class="bu">len</span>(food)</span></code></pre></div>
+<div class="sourceCode" id="cb275"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb275-1" title="1"><span class="bu">len</span>(food)</a></code></pre></div>
 <pre><code>## 6</code></pre>
 <p><strong>Max Value</strong></p>
-<div class="sourceCode" id="cb277"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb277-1"><a href="built-in-data-structure.html#cb277-1"></a>test <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">1</span>]</span>
-<span id="cb277-2"><a href="built-in-data-structure.html#cb277-2"></a>m <span class="op">=</span> <span class="bu">max</span>(test)</span>
-<span id="cb277-3"><a href="built-in-data-structure.html#cb277-3"></a>test.index(m)  <span class="co">## only first occurance is found</span></span></code></pre></div>
+<div class="sourceCode" id="cb277"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb277-1" title="1">test <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb277-2" title="2">m <span class="op">=</span> <span class="bu">max</span>(test)</a>
+<a class="sourceLine" id="cb277-3" title="3">test.index(m)  <span class="co">## only first occurance is found</span></a></code></pre></div>
 <pre><code>## 3</code></pre>
 </div>
 </div>
@@ -1269,55 +1281,55 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">4.3.1</span> Creating dict</h3>
 <p><strong>Creating dict with literals</strong></p>
 <p>Simple Dictionary</p>
-<div class="sourceCode" id="cb279"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb279-1"><a href="built-in-data-structure.html#cb279-1"></a>animal_counts <span class="op">=</span> { <span class="st">&#39;cats&#39;</span> : <span class="dv">2</span>, <span class="st">&#39;dogs&#39;</span> : <span class="dv">5</span>, <span class="st">&#39;horses&#39;</span>:<span class="dv">4</span>}</span>
-<span id="cb279-2"><a href="built-in-data-structure.html#cb279-2"></a><span class="bu">print</span> (animal_counts)</span></code></pre></div>
+<div class="sourceCode" id="cb279"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb279-1" title="1">animal_counts <span class="op">=</span> { <span class="st">&#39;cats&#39;</span> : <span class="dv">2</span>, <span class="st">&#39;dogs&#39;</span> : <span class="dv">5</span>, <span class="st">&#39;horses&#39;</span>:<span class="dv">4</span>}</a>
+<a class="sourceLine" id="cb279-2" title="2"><span class="bu">print</span> (animal_counts)</a></code></pre></div>
 <pre><code>## {&#39;cats&#39;: 2, &#39;dogs&#39;: 5, &#39;horses&#39;: 4}</code></pre>
-<div class="sourceCode" id="cb281"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb281-1"><a href="built-in-data-structure.html#cb281-1"></a><span class="bu">print</span>( <span class="bu">type</span>(animal_counts) )</span></code></pre></div>
+<div class="sourceCode" id="cb281"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb281-1" title="1"><span class="bu">print</span>( <span class="bu">type</span>(animal_counts) )</a></code></pre></div>
 <pre><code>## &lt;class &#39;dict&#39;&gt;</code></pre>
 <p>Dictionary with list</p>
-<div class="sourceCode" id="cb283"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb283-1"><a href="built-in-data-structure.html#cb283-1"></a>animal_names <span class="op">=</span> {<span class="st">&#39;cats&#39;</span>:   [<span class="st">&#39;Walter&#39;</span>,<span class="st">&#39;Ra&#39;</span>],</span>
-<span id="cb283-2"><a href="built-in-data-structure.html#cb283-2"></a>                <span class="st">&#39;dogs&#39;</span>:   [<span class="st">&#39;Jim&#39;</span>,<span class="st">&#39;Roy&#39;</span>,<span class="st">&#39;John&#39;</span>,<span class="st">&#39;Lucky&#39;</span>,<span class="st">&#39;Row&#39;</span>],</span>
-<span id="cb283-3"><a href="built-in-data-structure.html#cb283-3"></a>                <span class="st">&#39;horses&#39;</span>: [<span class="st">&#39;Sax&#39;</span>,<span class="st">&#39;Jack&#39;</span>,<span class="st">&#39;Ann&#39;</span>,<span class="st">&#39;Jeep&#39;</span>]</span>
-<span id="cb283-4"><a href="built-in-data-structure.html#cb283-4"></a>               }</span>
-<span id="cb283-5"><a href="built-in-data-structure.html#cb283-5"></a>animal_names</span></code></pre></div>
+<div class="sourceCode" id="cb283"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb283-1" title="1">animal_names <span class="op">=</span> {<span class="st">&#39;cats&#39;</span>:   [<span class="st">&#39;Walter&#39;</span>,<span class="st">&#39;Ra&#39;</span>],</a>
+<a class="sourceLine" id="cb283-2" title="2">                <span class="st">&#39;dogs&#39;</span>:   [<span class="st">&#39;Jim&#39;</span>,<span class="st">&#39;Roy&#39;</span>,<span class="st">&#39;John&#39;</span>,<span class="st">&#39;Lucky&#39;</span>,<span class="st">&#39;Row&#39;</span>],</a>
+<a class="sourceLine" id="cb283-3" title="3">                <span class="st">&#39;horses&#39;</span>: [<span class="st">&#39;Sax&#39;</span>,<span class="st">&#39;Jack&#39;</span>,<span class="st">&#39;Ann&#39;</span>,<span class="st">&#39;Jeep&#39;</span>]</a>
+<a class="sourceLine" id="cb283-4" title="4">               }</a>
+<a class="sourceLine" id="cb283-5" title="5">animal_names</a></code></pre></div>
 <pre><code>## {&#39;cats&#39;: [&#39;Walter&#39;, &#39;Ra&#39;], &#39;dogs&#39;: [&#39;Jim&#39;, &#39;Roy&#39;, &#39;John&#39;, &#39;Lucky&#39;, &#39;Row&#39;], &#39;horses&#39;: [&#39;Sax&#39;, &#39;Jack&#39;, &#39;Ann&#39;, &#39;Jeep&#39;]}</code></pre>
 <p><strong>Creating dict From variables</strong></p>
-<div class="sourceCode" id="cb285"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb285-1"><a href="built-in-data-structure.html#cb285-1"></a>cat_names <span class="op">=</span> [<span class="st">&#39;Walter&#39;</span>,<span class="st">&#39;Ra&#39;</span>,<span class="st">&#39;Jim&#39;</span>]</span>
-<span id="cb285-2"><a href="built-in-data-structure.html#cb285-2"></a>dog_names <span class="op">=</span> [<span class="st">&#39;Jim&#39;</span>,<span class="st">&#39;Roy&#39;</span>,<span class="st">&#39;John&#39;</span>,<span class="st">&#39;Lucky&#39;</span>,<span class="st">&#39;Row&#39;</span>]</span>
-<span id="cb285-3"><a href="built-in-data-structure.html#cb285-3"></a>horse_names<span class="op">=</span> [<span class="st">&#39;Sax&#39;</span>,<span class="st">&#39;Jack&#39;</span>,<span class="st">&#39;Ann&#39;</span>,<span class="st">&#39;Jeep&#39;</span>]</span>
-<span id="cb285-4"><a href="built-in-data-structure.html#cb285-4"></a>animal_names <span class="op">=</span> {<span class="st">&#39;cats&#39;</span>: cat_names, <span class="st">&#39;dogs&#39;</span>: dog_names, <span class="st">&#39;horses&#39;</span>: horse_names}</span>
-<span id="cb285-5"><a href="built-in-data-structure.html#cb285-5"></a>animal_names</span></code></pre></div>
+<div class="sourceCode" id="cb285"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb285-1" title="1">cat_names <span class="op">=</span> [<span class="st">&#39;Walter&#39;</span>,<span class="st">&#39;Ra&#39;</span>,<span class="st">&#39;Jim&#39;</span>]</a>
+<a class="sourceLine" id="cb285-2" title="2">dog_names <span class="op">=</span> [<span class="st">&#39;Jim&#39;</span>,<span class="st">&#39;Roy&#39;</span>,<span class="st">&#39;John&#39;</span>,<span class="st">&#39;Lucky&#39;</span>,<span class="st">&#39;Row&#39;</span>]</a>
+<a class="sourceLine" id="cb285-3" title="3">horse_names<span class="op">=</span> [<span class="st">&#39;Sax&#39;</span>,<span class="st">&#39;Jack&#39;</span>,<span class="st">&#39;Ann&#39;</span>,<span class="st">&#39;Jeep&#39;</span>]</a>
+<a class="sourceLine" id="cb285-4" title="4">animal_names <span class="op">=</span> {<span class="st">&#39;cats&#39;</span>: cat_names, <span class="st">&#39;dogs&#39;</span>: dog_names, <span class="st">&#39;horses&#39;</span>: horse_names}</a>
+<a class="sourceLine" id="cb285-5" title="5">animal_names</a></code></pre></div>
 <pre><code>## {&#39;cats&#39;: [&#39;Walter&#39;, &#39;Ra&#39;, &#39;Jim&#39;], &#39;dogs&#39;: [&#39;Jim&#39;, &#39;Roy&#39;, &#39;John&#39;, &#39;Lucky&#39;, &#39;Row&#39;], &#39;horses&#39;: [&#39;Sax&#39;, &#39;Jack&#39;, &#39;Ann&#39;, &#39;Jeep&#39;]}</code></pre>
 </div>
 <div id="accessing-dict" class="section level3">
 <h3><span class="header-section-number">4.3.2</span> Accessing dict</h3>
 <p>Find out the list of keys using <strong>keys()</strong></p>
-<div class="sourceCode" id="cb287"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb287-1"><a href="built-in-data-structure.html#cb287-1"></a><span class="bu">print</span> (animal_names.keys())</span></code></pre></div>
+<div class="sourceCode" id="cb287"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb287-1" title="1"><span class="bu">print</span> (animal_names.keys())</a></code></pre></div>
 <pre><code>## dict_keys([&#39;cats&#39;, &#39;dogs&#39;, &#39;horses&#39;])</code></pre>
-<div class="sourceCode" id="cb289"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb289-1"><a href="built-in-data-structure.html#cb289-1"></a><span class="bu">print</span> (<span class="bu">sorted</span>(animal_names.keys()))</span></code></pre></div>
+<div class="sourceCode" id="cb289"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb289-1" title="1"><span class="bu">print</span> (<span class="bu">sorted</span>(animal_names.keys()))</a></code></pre></div>
 <pre><code>## [&#39;cats&#39;, &#39;dogs&#39;, &#39;horses&#39;]</code></pre>
 <p>Find out the list of values using <strong>values()</strong></p>
-<div class="sourceCode" id="cb291"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb291-1"><a href="built-in-data-structure.html#cb291-1"></a><span class="bu">print</span> (animal_names.values())</span></code></pre></div>
+<div class="sourceCode" id="cb291"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb291-1" title="1"><span class="bu">print</span> (animal_names.values())</a></code></pre></div>
 <pre><code>## dict_values([[&#39;Walter&#39;, &#39;Ra&#39;, &#39;Jim&#39;], [&#39;Jim&#39;, &#39;Roy&#39;, &#39;John&#39;, &#39;Lucky&#39;, &#39;Row&#39;], [&#39;Sax&#39;, &#39;Jack&#39;, &#39;Ann&#39;, &#39;Jeep&#39;]])</code></pre>
-<div class="sourceCode" id="cb293"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb293-1"><a href="built-in-data-structure.html#cb293-1"></a><span class="bu">print</span> (<span class="bu">sorted</span>(animal_names.values()))</span></code></pre></div>
+<div class="sourceCode" id="cb293"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb293-1" title="1"><span class="bu">print</span> (<span class="bu">sorted</span>(animal_names.values()))</a></code></pre></div>
 <pre><code>## [[&#39;Jim&#39;, &#39;Roy&#39;, &#39;John&#39;, &#39;Lucky&#39;, &#39;Row&#39;], [&#39;Sax&#39;, &#39;Jack&#39;, &#39;Ann&#39;, &#39;Jeep&#39;], [&#39;Walter&#39;, &#39;Ra&#39;, &#39;Jim&#39;]]</code></pre>
 <p><strong>Refer a dictionary item using index</strong></p>
-<div class="sourceCode" id="cb295"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb295-1"><a href="built-in-data-structure.html#cb295-1"></a>animal_names[<span class="st">&#39;dogs&#39;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb295"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb295-1" title="1">animal_names[<span class="st">&#39;dogs&#39;</span>]</a></code></pre></div>
 <pre><code>## [&#39;Jim&#39;, &#39;Roy&#39;, &#39;John&#39;, &#39;Lucky&#39;, &#39;Row&#39;]</code></pre>
 <p><strong>Accessing non-existance key natively will return Error</strong></p>
-<div class="sourceCode" id="cb297"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb297-1"><a href="built-in-data-structure.html#cb297-1"></a><span class="co">##animal_count[&#39;cow&#39;]</span></span></code></pre></div>
+<div class="sourceCode" id="cb297"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb297-1" title="1"><span class="co">##animal_count[&#39;cow&#39;]</span></a></code></pre></div>
 <p><strong>Accessing non-existance key</strong> with <strong>get()</strong> will return None</p>
-<div class="sourceCode" id="cb298"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb298-1"><a href="built-in-data-structure.html#cb298-1"></a><span class="bu">print</span> (animal_counts.get(<span class="st">&#39;cow&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb298"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb298-1" title="1"><span class="bu">print</span> (animal_counts.get(<span class="st">&#39;cow&#39;</span>))</a></code></pre></div>
 <pre><code>## None</code></pre>
 </div>
 <div id="dict-are-mutable" class="section level3">
 <h3><span class="header-section-number">4.3.3</span> Dict are Mutable</h3>
 <p>Use <strong>[key]</strong> notation to update the content of element. However, if the key is non-existance, this will return error.</p>
-<div class="sourceCode" id="cb300"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb300-1"><a href="built-in-data-structure.html#cb300-1"></a>animal_names[<span class="st">&#39;dogs&#39;</span>] <span class="op">=</span> [<span class="st">&#39;Ali&#39;</span>,<span class="st">&#39;Abu&#39;</span>,<span class="st">&#39;Bakar&#39;</span>]</span>
-<span id="cb300-2"><a href="built-in-data-structure.html#cb300-2"></a>animal_names</span></code></pre></div>
+<div class="sourceCode" id="cb300"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb300-1" title="1">animal_names[<span class="st">&#39;dogs&#39;</span>] <span class="op">=</span> [<span class="st">&#39;Ali&#39;</span>,<span class="st">&#39;Abu&#39;</span>,<span class="st">&#39;Bakar&#39;</span>]</a>
+<a class="sourceLine" id="cb300-2" title="2">animal_names</a></code></pre></div>
 <pre><code>## {&#39;cats&#39;: [&#39;Walter&#39;, &#39;Ra&#39;, &#39;Jim&#39;], &#39;dogs&#39;: [&#39;Ali&#39;, &#39;Abu&#39;, &#39;Bakar&#39;], &#39;horses&#39;: [&#39;Sax&#39;, &#39;Jack&#39;, &#39;Ann&#39;, &#39;Jeep&#39;]}</code></pre>
 <p>Use <strong><code>clear()</code></strong> to erase all elements</p>
-<div class="sourceCode" id="cb302"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb302-1"><a href="built-in-data-structure.html#cb302-1"></a>animal_names.clear()</span></code></pre></div>
+<div class="sourceCode" id="cb302"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb302-1" title="1">animal_names.clear()</a></code></pre></div>
 </div>
 </div>
 <div id="sets" class="section level2">
@@ -1326,58 +1338,58 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="creation" class="section level3">
 <h3><span class="header-section-number">4.4.1</span> Creation</h3>
 <p>Set can be declared with <code>{}</code>, unlike list creation uses ‘[]’.</p>
-<div class="sourceCode" id="cb303"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb303-1"><a href="built-in-data-structure.html#cb303-1"></a>myset <span class="op">=</span> {<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;e&#39;</span>,<span class="st">&#39;f&#39;</span>,<span class="st">&#39;g&#39;</span>}</span>
-<span id="cb303-2"><a href="built-in-data-structure.html#cb303-2"></a><span class="bu">print</span> (myset) <span class="co"># notice no repetition values</span></span></code></pre></div>
-<pre><code>## {&#39;a&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;, &#39;g&#39;, &#39;b&#39;}</code></pre>
+<div class="sourceCode" id="cb303"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb303-1" title="1">myset <span class="op">=</span> {<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;e&#39;</span>,<span class="st">&#39;f&#39;</span>,<span class="st">&#39;g&#39;</span>}</a>
+<a class="sourceLine" id="cb303-2" title="2"><span class="bu">print</span> (myset) <span class="co"># notice no repetition values</span></a></code></pre></div>
+<pre><code>## {&#39;d&#39;, &#39;e&#39;, &#39;g&#39;, &#39;f&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;}</code></pre>
 <p>Set can be created from list, and then converted back to list</p>
-<div class="sourceCode" id="cb305"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb305-1"><a href="built-in-data-structure.html#cb305-1"></a>mylist <span class="op">=</span> [<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;e&#39;</span>,<span class="st">&#39;f&#39;</span>,<span class="st">&#39;g&#39;</span>]</span>
-<span id="cb305-2"><a href="built-in-data-structure.html#cb305-2"></a>myset <span class="op">=</span> <span class="bu">set</span>(mylist)</span>
-<span id="cb305-3"><a href="built-in-data-structure.html#cb305-3"></a>my_unique_list <span class="op">=</span> <span class="bu">list</span>(myset)</span>
-<span id="cb305-4"><a href="built-in-data-structure.html#cb305-4"></a><span class="bu">print</span> (</span>
-<span id="cb305-5"><a href="built-in-data-structure.html#cb305-5"></a>  <span class="st">&#39;Original List       : &#39;</span>, mylist,</span>
-<span id="cb305-6"><a href="built-in-data-structure.html#cb305-6"></a>  <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Convert to set      : &#39;</span>, myset,</span>
-<span id="cb305-7"><a href="built-in-data-structure.html#cb305-7"></a>  <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Convert back to list: &#39;</span>, my_unique_list) <span class="co"># notice no repetition values</span></span></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb305-1" title="1">mylist <span class="op">=</span> [<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;e&#39;</span>,<span class="st">&#39;f&#39;</span>,<span class="st">&#39;g&#39;</span>]</a>
+<a class="sourceLine" id="cb305-2" title="2">myset <span class="op">=</span> <span class="bu">set</span>(mylist)</a>
+<a class="sourceLine" id="cb305-3" title="3">my_unique_list <span class="op">=</span> <span class="bu">list</span>(myset)</a>
+<a class="sourceLine" id="cb305-4" title="4"><span class="bu">print</span> (</a>
+<a class="sourceLine" id="cb305-5" title="5">  <span class="st">&#39;Original List       : &#39;</span>, mylist,</a>
+<a class="sourceLine" id="cb305-6" title="6">  <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Convert to set      : &#39;</span>, myset,</a>
+<a class="sourceLine" id="cb305-7" title="7">  <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Convert back to list: &#39;</span>, my_unique_list) <span class="co"># notice no repetition values</span></a></code></pre></div>
 <pre><code>## Original List       :  [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;a&#39;, &#39;b&#39;, &#39;e&#39;, &#39;f&#39;, &#39;g&#39;] 
-## Convert to set      :  {&#39;a&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;, &#39;g&#39;, &#39;b&#39;} 
-## Convert back to list:  [&#39;a&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;, &#39;g&#39;, &#39;b&#39;]</code></pre>
+## Convert to set      :  {&#39;d&#39;, &#39;e&#39;, &#39;g&#39;, &#39;f&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;} 
+## Convert back to list:  [&#39;d&#39;, &#39;e&#39;, &#39;g&#39;, &#39;f&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;]</code></pre>
 </div>
 <div id="membership-test" class="section level3">
 <h3><span class="header-section-number">4.4.2</span> Membership Test</h3>
-<div class="sourceCode" id="cb307"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb307-1"><a href="built-in-data-structure.html#cb307-1"></a><span class="bu">print</span> (<span class="st">&#39;a&#39;</span> <span class="kw">in</span> myset)      <span class="co"># is member ?</span></span></code></pre></div>
+<div class="sourceCode" id="cb307"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb307-1" title="1"><span class="bu">print</span> (<span class="st">&#39;a&#39;</span> <span class="kw">in</span> myset)      <span class="co"># is member ?</span></a></code></pre></div>
 <pre><code>## True</code></pre>
-<div class="sourceCode" id="cb309"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb309-1"><a href="built-in-data-structure.html#cb309-1"></a><span class="bu">print</span> (<span class="st">&#39;f&#39;</span> <span class="kw">not</span> <span class="kw">in</span> myset)  <span class="co"># is not member ?</span></span></code></pre></div>
+<div class="sourceCode" id="cb309"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb309-1" title="1"><span class="bu">print</span> (<span class="st">&#39;f&#39;</span> <span class="kw">not</span> <span class="kw">in</span> myset)  <span class="co"># is not member ?</span></a></code></pre></div>
 <pre><code>## False</code></pre>
 </div>
 <div id="subset-test" class="section level3">
 <h3><span class="header-section-number">4.4.3</span> Subset Test</h3>
 <p>Subset Test : &lt;=<br />
 Proper Subset Test : &lt;</p>
-<div class="sourceCode" id="cb311"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb311-1"><a href="built-in-data-structure.html#cb311-1"></a>mysubset <span class="op">=</span> {<span class="st">&#39;d&#39;</span>,<span class="st">&#39;g&#39;</span>}</span>
-<span id="cb311-2"><a href="built-in-data-structure.html#cb311-2"></a>mysubset <span class="op">&lt;=</span> myset</span></code></pre></div>
+<div class="sourceCode" id="cb311"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb311-1" title="1">mysubset <span class="op">=</span> {<span class="st">&#39;d&#39;</span>,<span class="st">&#39;g&#39;</span>}</a>
+<a class="sourceLine" id="cb311-2" title="2">mysubset <span class="op">&lt;=</span> myset</a></code></pre></div>
 <pre><code>## True</code></pre>
 <p>Proper Subset test that the master set <strong>contain at least one element</strong> which is not in the subset</p>
-<div class="sourceCode" id="cb313"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb313-1"><a href="built-in-data-structure.html#cb313-1"></a>mysubset <span class="op">=</span> {<span class="st">&#39;b&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;e&#39;</span>,<span class="st">&#39;f&#39;</span>,<span class="st">&#39;g&#39;</span>}</span>
-<span id="cb313-2"><a href="built-in-data-structure.html#cb313-2"></a><span class="bu">print</span> (<span class="st">&#39;Is Subset : &#39;</span>, mysubset <span class="op">&lt;=</span> myset)</span></code></pre></div>
+<div class="sourceCode" id="cb313"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb313-1" title="1">mysubset <span class="op">=</span> {<span class="st">&#39;b&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;e&#39;</span>,<span class="st">&#39;f&#39;</span>,<span class="st">&#39;g&#39;</span>}</a>
+<a class="sourceLine" id="cb313-2" title="2"><span class="bu">print</span> (<span class="st">&#39;Is Subset : &#39;</span>, mysubset <span class="op">&lt;=</span> myset)</a></code></pre></div>
 <pre><code>## Is Subset :  True</code></pre>
-<div class="sourceCode" id="cb315"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb315-1"><a href="built-in-data-structure.html#cb315-1"></a><span class="bu">print</span> (<span class="st">&#39;Is Proper Subet : &#39;</span>, mysubset <span class="op">&lt;</span> myset)</span></code></pre></div>
+<div class="sourceCode" id="cb315"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb315-1" title="1"><span class="bu">print</span> (<span class="st">&#39;Is Proper Subet : &#39;</span>, mysubset <span class="op">&lt;</span> myset)</a></code></pre></div>
 <pre><code>## Is Proper Subet :  False</code></pre>
 </div>
 <div id="union-using" class="section level3">
 <h3><span class="header-section-number">4.4.4</span> Union using <code>|</code></h3>
-<div class="sourceCode" id="cb317"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb317-1"><a href="built-in-data-structure.html#cb317-1"></a>{<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>} <span class="op">|</span> {<span class="st">&#39;a&#39;</span>,<span class="st">&#39;e&#39;</span>,<span class="st">&#39;f&#39;</span>}</span></code></pre></div>
-<pre><code>## {&#39;a&#39;, &#39;c&#39;, &#39;e&#39;, &#39;b&#39;, &#39;f&#39;}</code></pre>
+<div class="sourceCode" id="cb317"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb317-1" title="1">{<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>} <span class="op">|</span> {<span class="st">&#39;a&#39;</span>,<span class="st">&#39;e&#39;</span>,<span class="st">&#39;f&#39;</span>}</a></code></pre></div>
+<pre><code>## {&#39;f&#39;, &#39;c&#39;, &#39;a&#39;, &#39;e&#39;, &#39;b&#39;}</code></pre>
 </div>
 <div id="intersection-using" class="section level3">
 <h3><span class="header-section-number">4.4.5</span> Intersection using <code>&amp;</code></h3>
 <p>Any elments that exist in both left and right set</p>
-<div class="sourceCode" id="cb319"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb319-1"><a href="built-in-data-structure.html#cb319-1"></a>{<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>} <span class="op">&amp;</span> {<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;e&#39;</span>,<span class="st">&#39;f&#39;</span>}</span></code></pre></div>
+<div class="sourceCode" id="cb319"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb319-1" title="1">{<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>} <span class="op">&amp;</span> {<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;e&#39;</span>,<span class="st">&#39;f&#39;</span>}</a></code></pre></div>
 <pre><code>## {&#39;c&#39;, &#39;d&#39;}</code></pre>
 </div>
 <div id="difference-using--" class="section level3">
 <h3><span class="header-section-number">4.4.6</span> Difference using <code>-</code></h3>
 <p>Remove <strong>right</strong> from <strong>left</strong></p>
-<div class="sourceCode" id="cb321"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb321-1"><a href="built-in-data-structure.html#cb321-1"></a>{<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>} <span class="op">-</span> {<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;e&#39;</span>,<span class="st">&#39;f&#39;</span>}</span></code></pre></div>
-<pre><code>## {&#39;a&#39;, &#39;b&#39;}</code></pre>
+<div class="sourceCode" id="cb321"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb321-1" title="1">{<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>} <span class="op">-</span> {<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;e&#39;</span>,<span class="st">&#39;f&#39;</span>}</a></code></pre></div>
+<pre><code>## {&#39;b&#39;, &#39;a&#39;}</code></pre>
 </div>
 </div>
 <div id="range" class="section level2">
@@ -1388,17 +1400,17 @@ Proper Subset Test : &lt;</p>
 # upper bound is not included in result
 # step is optional, default = 1</code></pre>
 <p><strong>Use list() to convert in order to view actual sequence of data</strong></p>
-<div class="sourceCode" id="cb324"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb324-1"><a href="built-in-data-structure.html#cb324-1"></a>r <span class="op">=</span> <span class="bu">range</span>(<span class="dv">10</span>)     <span class="co"># default lower bound =0, step =1</span></span>
-<span id="cb324-2"><a href="built-in-data-structure.html#cb324-2"></a><span class="bu">print</span> (<span class="bu">type</span> (r))</span></code></pre></div>
+<div class="sourceCode" id="cb324"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb324-1" title="1">r <span class="op">=</span> <span class="bu">range</span>(<span class="dv">10</span>)     <span class="co"># default lower bound =0, step =1</span></a>
+<a class="sourceLine" id="cb324-2" title="2"><span class="bu">print</span> (<span class="bu">type</span> (r))</a></code></pre></div>
 <pre><code>## &lt;class &#39;range&#39;&gt;</code></pre>
-<div class="sourceCode" id="cb326"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb326-1"><a href="built-in-data-structure.html#cb326-1"></a><span class="bu">print</span> (r)</span></code></pre></div>
+<div class="sourceCode" id="cb326"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb326-1" title="1"><span class="bu">print</span> (r)</a></code></pre></div>
 <pre><code>## range(0, 10)</code></pre>
-<div class="sourceCode" id="cb328"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb328-1"><a href="built-in-data-structure.html#cb328-1"></a><span class="bu">print</span> (<span class="bu">list</span>(r))</span></code></pre></div>
+<div class="sourceCode" id="cb328"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb328-1" title="1"><span class="bu">print</span> (<span class="bu">list</span>(r))</a></code></pre></div>
 <pre><code>## [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</code></pre>
 <p><strong>More Examples</strong></p>
-<div class="sourceCode" id="cb330"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb330-1"><a href="built-in-data-structure.html#cb330-1"></a><span class="bu">print</span> (<span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">2</span>,<span class="dv">8</span>)))    <span class="co"># step not specified, default 1</span></span></code></pre></div>
+<div class="sourceCode" id="cb330"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb330-1" title="1"><span class="bu">print</span> (<span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">2</span>,<span class="dv">8</span>)))    <span class="co"># step not specified, default 1</span></a></code></pre></div>
 <pre><code>## [2, 3, 4, 5, 6, 7]</code></pre>
-<div class="sourceCode" id="cb332"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb332-1"><a href="built-in-data-structure.html#cb332-1"></a><span class="bu">print</span> (<span class="st">&#39;Odds Number : &#39;</span> , <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">10</span>,<span class="dv">2</span>))) <span class="co"># generate odds number</span></span></code></pre></div>
+<div class="sourceCode" id="cb332"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb332-1" title="1"><span class="bu">print</span> (<span class="st">&#39;Odds Number : &#39;</span> , <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">10</span>,<span class="dv">2</span>))) <span class="co"># generate odds number</span></a></code></pre></div>
 <pre><code>## Odds Number :  [1, 3, 5, 7, 9]</code></pre>
 </div>
 </div>
