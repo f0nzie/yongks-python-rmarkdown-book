@@ -97,59 +97,58 @@ print( pd.to_datetime('2011-01-03'), '\n',
 
 ### Generate Timestamp Sequence
 
-#### `date_range()`
-Return `DateTimeIndex` object
+The function `date_range()` return **`DateTimeIndex`** object. Use `Series()` to convert into Series if desired.
 
-Generate **sequence by HOURS**
+#### Hourly
 
-```{python}
-## Specify start, Periods, Frequency
-## Start from Date Only
-pd.date_range('2018-01-01', periods=3, freq='H')
-```
+If start time not specified, default to 00:00:00.  
+If start time specified, it will be honored on all subsequent Timestamp elements.  
+Specify **start** and **end**, sequence will automatically distribute Timestamp according to **frequency**.  
 
 ```{python}
-## Start from DateTime
-pd.date_range(datetime(2018,1,1,12,30), periods=3, freq='H')
+print(
+  pd.date_range('2018-01-01', periods=3, freq='H'),
+  pd.date_range(datetime(2018,1,1,12,30), periods=3, freq='H'),
+  pd.date_range(start='2018-01-03-1230', end='2018-01-03-18:30', freq='H'))
 ```
+
+#### Daily
+
+When the **frequency is Day and time is not specified**, output is date distributed.  
+When time is specified, output will honor the time.
 
 ```{python}
-## Specify start, End and Frequency
-pd.date_range(start='2018-01-03-1230', end='2018-01-03-18:30', freq='H')
+print(
+  pd.date_range(date(2018,1,2), periods=3, freq='D'),
+  pd.date_range('2018-01-01-1230', periods=4, freq='D'))
 ```
 
-Generate **sequence by DAYS**
+#### First Day Of Month
 
-```{python}
-pd.date_range(date(2018,1,2), periods=3, freq='D')
-```
-
-```{python}
-pd.date_range('2018-01-01-1230', periods=4, freq='D')
-```
-
-Generate **sequence of Start of Month**
+Use `freq=MS`, M stands for montly, S stand for Start. If the **day** specified, the sequence start from first day of following month.
 
 ```{python, jupyter_meta = list(scrolled = TRUE)}
-pd.date_range('2018-01', periods=4, freq='MS')
+print(
+  pd.date_range('2018-01', periods=4, freq='MS'),
+  pd.date_range('2018-01-09', periods=4, freq='MS'),
+  pd.date_range('2018-01-09 12:30:00', periods=4, freq='MS') )
 ```
+#### Last Day of Month
+
+Sequence always starts from the end of the specified month.
 
 ```{python}
-pd.date_range(datetime(2018,1,3,12,30), periods=4, freq='MS')
-```
-
-Generate **sequence of End of Month**
-
-```{python}
-dti = pd.date_range('2018-02', periods=4, freq='M')
-dti
+print(
+  pd.date_range('2018-01', periods=4, freq='M'),
+  pd.date_range('2018-01-09', periods=4, freq='M'),
+  pd.date_range('2018-01-09 12:30:00', periods=4, freq='M'))
 ```
 
 ### Frequency Table (crosstab)
 
 crosstab returns **Dataframe** Object
 ```
-crosstab( index = <SeriesObj>, columns = <new_colName> )                    # one dimension table
+crosstab( index = <SeriesObj>, columns = <new_colName> )                # one dimension table
 crosstab( index = <SeriesObj>, columns = <SeriesObj> )                  # two dimension table
 crosstab( index = <SeriesObj>, columns = [<SeriesObj1>, <SeriesObj2>] ) # multi dimension table   
 crosstab( index = <SeriesObj>, columns = <SeriesObj>, margines=True )   # add column and row margins
@@ -179,8 +178,10 @@ mydf.head()
 #### One DimensionTable
 
 ```{python}
-print( pd.crosstab(index=mydf.comp, columns='counter') )
-type ( pd.crosstab(index=mydf.comp, columns='counter'))
+## Frequency Countn For Company, Department
+print(
+  pd.crosstab(index=mydf.comp, columns='counter'),'\n\n',
+  pd.crosstab(index=mydf.dept, columns='counter'))
 ```
 
 #### Two Dimension Table
@@ -191,20 +192,23 @@ pd.crosstab(index=mydf.comp, columns=mydf.dept)
 
 #### Higher Dimension Table
 
+Crosstab header is **multi-levels index** when more than one column specified.
+
 ```{python}
 tb = pd.crosstab(index=mydf.comp, columns=[mydf.dept, mydf.grp])
-print( tb )
-tb.columns
+print( tb, '\n\n',
+       tb.columns )
 ```
 
-Get the **subdataframe** under D2
+Select **sub-dataframe** using multi-level referencing.
 
 ```{python}
-tb['D2']
+print( 'Under D2:\n', tb['D2'], '\n\n',
+       'Under D2-G2:\n',tb['D2','G1'])
 ```
 
 #### Getting Margin
-Sum of each row and each column is created at the end.
+Extend the crosstab with 'margin=True' to have sum of rows/columns, presented in **new column/row named 'All'**.
 
 ```{python}
 tb = pd.crosstab(index=mydf.dept, columns=mydf.grp, margins=True)
@@ -212,117 +216,105 @@ tb
 ```
 
 ```{python}
-print(tb.loc[:,'All'] )  # row total, return a Series
-print(type(tb.loc[:,'All']))
+print(
+  'Row Sums:     \n', tb.loc[:,'All'],
+  '\n\nColumn Sums:\n', tb.loc['All'])
 ```
-
-```{python}
-print(tb.loc['All']) # column total, return a Series
-print(type(tb.loc['All']))
-```
-
 
 #### Getting Proportion
-Use matrix operation divide for each cells over the margin
+Use matrix operation divide each row with its respective column sum.
 
 ```{python}
 tb/tb.loc['All']
 ```
 
-
 #### Reseting Index
 - When creating a crosstab, **column specified by index** will become index  
 - To convert it to normal column, use **reset_index()**
-```
-DataFrameObj.reset_index( inpalce=False )
-```
 
-
+```{python}
+tb.reset_index()
+```
 
 ## Timestamp
 This is an enhanced version to datetime standard library.  
 https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.html#pandas.Timestamp
 
-
 ### Constructor
 #### From Number
 
 ```{python}
-print( pd.Timestamp(year=2017, month=1, day=1) ) #date-like numbers
-print( pd.Timestamp(2017,1,1) )                  # date-like numbers
-print( pd.Timestamp(2017,12,11,5,45))            # datetime-like numbers
-print( pd.Timestamp(2017,12,11,5,45,55,999))     # + microseconds
-print( pd.Timestamp(2017,12,11,5,45,55,999,8))   # + nanoseconds
-print( type(pd.Timestamp(2017,12,11,5,45,55,999,8)))
+print( pd.Timestamp(year=2017, month=1, day=1),'\n',  #date-like numbers
+       pd.Timestamp(2017,1,1), '\n',                  # date-like numbers
+       pd.Timestamp(2017,12,11,5,45),'\n',            # datetime-like numbers
+       pd.Timestamp(2017,12,11,5,45,55,999),'\n',     # + microseconds
+       pd.Timestamp(2017,12,11,5,45,55,999,8),'\n',   # + nanoseconds
+       type(pd.Timestamp(2017,12,11,5,45,55,999,8)),'\n')
 ```
 
 <!-- jupyter_markdown, jupyter_meta = list(`toc-hr-collapsed` = FALSE) -->
 #### From String
 Observe that pandas support many string input format  
-**Year Month Day**, default no timezone
 
+**Year Month Day**, default has no timezone
 ```{python}
-print( pd.Timestamp('2017-12-11'))      # date-like string: year-month-day
-print( pd.Timestamp('2017 12 11'))      # date-like string: year-month-day
-print( pd.Timestamp('2017 Dec 11'))      # date-like string: year-month-day
-print( pd.Timestamp('Dec 11, 2017'))      # date-like string: year-month-day
+print( pd.Timestamp('2017-12-11'),'\n',   # date-like string: year-month-day
+       pd.Timestamp('2017 12 11'),'\n',   # date-like string: year-month-day
+       pd.Timestamp('2017 Dec 11'),'\n',  # date-like string: year-month-day
+       pd.Timestamp('Dec 11, 2017'))      # date-like string: year-month-day
 ```
-
 
 **YMD Hour Minute Second Ms**
-
 ```{python}
-print( pd.Timestamp('2017-12-11 0545'))     ## hour minute
-print( pd.Timestamp('2017-12-11-05:45'))
-print( pd.Timestamp('2017-12-11T0545'))
-
-print( pd.Timestamp('2017-12-11 054533'))   ## hour minute seconds
-print( pd.Timestamp('2017-12-11 05:45:33'))
+print( pd.Timestamp('2017-12-11 0545'),'\n',     ## hour minute
+       pd.Timestamp('2017-12-11-05:45'),'\n',
+       pd.Timestamp('2017-12-11T0545'),'\n',
+       pd.Timestamp('2017-12-11 054533'),'\n',   ## hour minute seconds
+       pd.Timestamp('2017-12-11 05:45:33'))
 ```
 
-
-**Timezone**
+**With Timezone** can be included in various ways.
 
 ```{python}
-print( pd.Timestamp('2017-01-01T0545Z'))     # GMT 
-print( pd.Timestamp('2017-01-01T0545+9'))    # GMT+9
-print( pd.Timestamp('2017-01-01T0545+0800')) # GMT+0800
+print( pd.Timestamp('2017-01-01T0545Z'),'\n',  # GMT 
+       pd.Timestamp('2017-01-01T0545+9'),'\n', # GMT+9
+       pd.Timestamp('2017-01-01T0545+0800'),'\n',   # GMT+0800
+       pd.Timestamp('2017-01-01 0545', tz='Asia/Singapore'),'\n')
 ```
-
 
 #### From Standard Library ```datetime``` and ```date``` Object
 
 ```{python}
-print( pd.Timestamp(date(2017,3,5)) )           # from date
-print( pd.Timestamp(datetime(2017,3,5,4,30)))   # from datetime
-print( pd.Timestamp(datetime(2017,3,5,4,30), tz='Asia/Kuala_Lumpur'))   # from datetime, + tz
+print( pd.Timestamp(date(2017,3,5)),'\n',           # from date
+       pd.Timestamp(datetime(2017,3,5,4,30)),'\n',  # from datetime
+       pd.Timestamp(datetime(2017,3,5,4,30), tz='Asia/Kuala_Lumpur')) # from datetime, + tz
 ```
 
 ### Attributes
 
 ```{python}
 ts = pd.Timestamp('2017-01-01T054533+0800') # GMT+0800
-print( ts.month )
-print( ts.day   )
-print( ts.year   )
-print( ts.hour  )
-print( ts.minute)
-print( ts.second)
-print( ts.microsecond)
-print( ts.nanosecond)
-print( ts.tz)
+print( ts.month, '\n',
+       ts.day, '\n',
+       ts.year, '\n',
+       ts.hour, '\n',
+       ts.minute, '\n',
+       ts.second, '\n',
+       ts.microsecond, '\n',
+       ts.nanosecond, '\n',
+       ts.tz)
 ```
 
+Note that timezone (tz) is a **pytz object**.
 ```{python}
 ts1 = pd.Timestamp(datetime(2017,3,5,4,30), tz='Asia/Kuala_Lumpur')   # from datetime, + tz
 ts2 = pd.Timestamp('2017-01-01T054533+0800') # GMT+0800
 ts3 = pd.Timestamp('2017-01-01T0545')
 
-print( ts1.tz )
-print( ts2.tz )
-print( ts3.tz )
+print( ts1.tz, 'Type:', type(ts1.tz), '\n',
+       ts2.tz, 'Type:', type(ts2.tz), '\n',
+       ts3.tz, 'Type:', type(ts3.tz)  )
 ```
-
 
 ### Operator
 
