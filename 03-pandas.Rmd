@@ -53,14 +53,15 @@ from datetime import date
 
 ## Class Method
 
-### Conversion: ```to_datetime()```
-Pandas `to_datetime()` can:  
+### Creating Timestamp Objects
+
+Pandas **`to_datetime()`** can:  
 - Convert list of dates to **DateTimeIndex**  
 - Convert list of dates to **Series of Timestamps**  
 - Convert single date into **Timestamp** Object
 . Source can be **string, date, datetime object**
 
-#### From List to ```DateTimeIndex```
+#### From List to `DateTimeIndex`
 
 ```{python}
 dti = pd.to_datetime(['2011-01-03',             # from string
@@ -73,7 +74,7 @@ print( dti,
       '\nElement Type: ', type(dti[1]))
 ```
 
-#### From List to Series
+#### From List to Series of Timestamps
 
 ```{python}
 sdt = pd.to_datetime(pd.Series(['2011-01-03',      # from string
@@ -236,11 +237,113 @@ tb/tb.loc['All']
 tb.reset_index()
 ```
 
-## Timestamp
+### Getting External Data
+
+#### `html_table` Parser
+This method require **html5lib** library.  
+- Read the web page, create a list: which contain one or more dataframes that maps to each html table found  
+- Scrap all detectable html tables  
+- Auto detect column header  
+- Auto create index using number starting from 0  
+
+```
+read_html(url)  # return list of dataframe(s) that maps to web table(s) structure
+```
+
+```{python}
+df_list = pd.read_html('https://www.malaysiastock.biz/Listed-Companies.aspx?type=S&s1=18')  ## read all tables
+df = df_list[6]  ## get the specific table
+
+print ('Total Table(s) Found : ', len(df_list), '\n',
+       'First Table Found:      ',df)
+```
+
+#### `read_csv` Importer
+
+**Syntax**  
+
+```
+pandas.read_csv( 
+    'url or filePath',                     # path to file or url 
+    encoding    = 'utf_8',                 # optional: default is 'utf_8'
+    index_col   = ['colName1', ...],       # optional: specify one or more index column
+    parse_dates = ['dateCol1', ...],       # optional: specify multiple string column to convert to date
+    na_values   = ['.','na','NA','N/A'],   # optional: values that is considered NA
+    names       = ['newColName1', ... ],   # optional: overwrite column names
+    thousands   = '.',                     # optional: thousand seperator symbol
+    nrows       = n,                       # optional: load only first n rows
+    skiprows    = 0,                       # optional: don't load first n rows
+    parse_dates = False,                   # List of date column names
+    infer_datetime_format = False          # automatically parse dates
+)
+```
+Refer to full codec [Python Codec](https://docs.python.org/3/library/codecs.html#standard-encodings).
+
+**Default Import**  
+
+- index is sequence of integer 0,1,2...   
+- only two data types detection; **number (float64/int64) and string (object)**  
+- **date is not parsed**, hence stayed as string  
+
+```{python}
+goo = pd.read_csv('data/goog.csv', encoding='utf_8')
+print(goo.head(), '\n\n',
+      goo.info())
+```
+
+**Specify Data Types**  
+
+- To customize the data type, use **`dtype`** parameter with a **dict** of definition.  
+
+```{python}
+d_types = {'Volume': str}
+pd.read_csv('data/goog.csv', dtype=d_types).info()
+```
+
+**Parse Datetime**
+
+You can specify multiple date-alike column for parsing
+
+```{python}
+pd.read_csv('data/goog.csv', parse_dates=['Date']).info()
+```
+
+**Parse Datetime, Then Set as Index**  
+- Specify names of date column in `parse_dates=`  
+- When date is set as index, the type is **`DateTimeIndex`**  
+
+```{python}
+goo3 = pd.read_csv('data/goog.csv',index_col='Date', parse_dates=['Date'])
+goo3.info()
+```
+
+### Inspection
+
+#### Structure `info`
+
+**info()** is a function that print information to screen. It doesn't return any object
+
+```
+dataframe.info()  # display columns and number of rows (that has no missing data)
+```
+
+```{python, jupyter_meta = list(hidden = TRUE)}
+goo.info()
+```
+
+#### `head`
+
+```{python, jupyter_meta = list(hidden = TRUE)}
+goo.head()
+```
+
+## class: Timestamp
+
 This is an enhanced version to datetime standard library.  
 https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.html#pandas.Timestamp
 
 ### Constructor
+
 #### From Number
 
 ```{python}
@@ -252,8 +355,8 @@ print( pd.Timestamp(year=2017, month=1, day=1),'\n',  #date-like numbers
        type(pd.Timestamp(2017,12,11,5,45,55,999,8)),'\n')
 ```
 
-<!-- jupyter_markdown, jupyter_meta = list(`toc-hr-collapsed` = FALSE) -->
 #### From String
+
 Observe that pandas support many string input format  
 
 **Year Month Day**, default has no timezone
@@ -265,6 +368,7 @@ print( pd.Timestamp('2017-12-11'),'\n',   # date-like string: year-month-day
 ```
 
 **YMD Hour Minute Second Ms**
+
 ```{python}
 print( pd.Timestamp('2017-12-11 0545'),'\n',     ## hour minute
        pd.Timestamp('2017-12-11-05:45'),'\n',
@@ -292,6 +396,8 @@ print( pd.Timestamp(date(2017,3,5)),'\n',           # from date
 
 ### Attributes
 
+We can tell many things about a Timestamp object.
+
 ```{python}
 ts = pd.Timestamp('2017-01-01T054533+0800') # GMT+0800
 print( ts.month, '\n',
@@ -302,10 +408,17 @@ print( ts.month, '\n',
        ts.second, '\n',
        ts.microsecond, '\n',
        ts.nanosecond, '\n',
-       ts.tz)
+       ts.tz, '\n',
+       ts.daysinmonth,'\n',
+       ts.dayofyear, '\n',
+       ts.is_leap_year, '\n',
+       ts.is_month_end, '\n',
+       ts.is_month_start, '\n',
+       ts.dayofweek)
 ```
 
 Note that timezone (tz) is a **pytz object**.
+
 ```{python}
 ts1 = pd.Timestamp(datetime(2017,3,5,4,30), tz='Asia/Kuala_Lumpur')   # from datetime, + tz
 ts2 = pd.Timestamp('2017-01-01T054533+0800') # GMT+0800
@@ -316,84 +429,38 @@ print( ts1.tz, 'Type:', type(ts1.tz), '\n',
        ts3.tz, 'Type:', type(ts3.tz)  )
 ```
 
-### Operator
-
-```{python}
-
-```
-
-```{python}
-
-```
-
-
 ### Instance Methods
-#### Useful Methods
+
+#### Atribute-like Methods
 
 ```{python}
 ts = pd.Timestamp(2017,1,1)
-print( ts.weekday()  )
-print( ts.isoweekday() )
+print( ' Weekday:    ', ts.weekday(), '\n',
+       'ISO Weekday:',  ts.isoweekday(), '\n',
+       'Day Name:   ',  ts.day_name(), '\n',
+       'ISO Calendar:',  ts.isocalendar()
+       )
 ```
 
-#### Convert To datetime
+#### Timezones
 
-Use ```to_pydatetime()``` to convert into standard library ```datetime.datetime```, optionally to ```datetime.date```
+**Adding Timezones and Clock Shifting**  
 
-```{python}
-ts = pd.Timestamp(2017,1,10,7,30,52)  # to datetime.datetime
-ts.to_pydatetime()
-```
-
-```{python}
-ts = pd.Timestamp(2017,1,10,7,30,52)  # to datetime.date
-ts.to_pydatetime().date()
-```
-
-#### Convert To ```numpy```
-
-Use ```to_datetime64()``` to convert into ```numpy.datetime64```
-
-```{python}
-ts = pd.Timestamp(2017,1,10,7,30,52)
-ts.to_datetime64()
-```
-
-
-#### Formatting with ```strftime```
-
-
-Use **```strftime()```** to customize string format. For complete directive, see below:  
-https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior
-
-```{python}
-ts = pd.Timestamp(2017,1,10,7,30,52)
-ts.strftime("%m/%d")
-```
-
-
-#### Add Timezone
-Add timezone to tz-naive or tz-non-existance object. Clock will not be shifted as there is no original offset
-
-```{python}
-ts = pd.Timestamp(2017,1,10,10,34)   ## No timezone
-ts = ts.tz_localize('Asia/Kuala_Lumpur')  ## Add timezone
-ts
-```
-
-
-#### Convert Timezone
-Convert timezone to tz-aware object. The clock will be shifted according to the offset
+- `tz_localize` will add the timezone, however will not shift the clock.  
+- Once a timestamp had gotten a timezone, you can easily shift the clock to another timezone using `tz_convert()`  
 
 ```{python}
 ts = pd.Timestamp(2017,1,10,10,34)        ## No timezone
-ts = ts.tz_localize('Asia/Kuala_Lumpur')  ## Add timezone
-ts = ts.tz_convert('UTC')                 ## Convert timezone
-ts
+ts1 = ts.tz_localize('Asia/Kuala_Lumpur')  ## Add timezone
+ts2 = ts1.tz_convert('UTC')                 ## Convert timezone
+print(' Origininal Timestamp           :', ts,  '\n',
+      'Loacalized Timestamp (added TZ):', ts1, '\n',
+      'Converted Timestamp (shifted)  :',ts2)
 ```
 
+**Removing Timezone**
 
-#### Removing TImezone
+Just apply **None with `tz_localize`** to remove TZ infomration.
 
 ```{python}
 ts = pd.Timestamp(2017,1,10,10,34)        ## No timezone
@@ -402,14 +469,49 @@ ts = ts.tz_localize(None)                 ## Convert timezone
 ts
 ```
 
+#### Formatting 
 
-#### Formatting with ```isoformat```
+**`strftime`**  
 
+Use **```strftime()```** to customize string format. For complete directive, see below: https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior
+
+```{python}
+ts = pd.Timestamp(2017,1,10,10,34)        ## No timezone
+ts = ts.tz_localize('Asia/Kuala_Lumpur')  ## Add timezone
+ts.strftime("%m/%d")
+```
+
+**`isoformat`**  
 
 Use **```isoformat()```** to format ISO string (**without timezone**)
 
 ```{python}
-ts.isoformat()
+ts = pd.Timestamp(2017,1,10,10,34)        
+ts1 = ts.tz_localize('Asia/Kuala_Lumpur') 
+print( ' ISO Format without TZ:', ts.isoformat(), '\n',
+       'ISO Format with TZ   :', ts1.isoformat())
+```
+
+#### Type Conversion
+
+**Convert To `datetime.datetime/date`**
+
+Use `to_pydatetime()` to convert into standard library **`datetime.datetime`**.  From the 'datetime' object, apply `date()` to get **`datetime.date`**
+
+```{python}
+ts = pd.Timestamp(2017,1,10,7,30,52)
+print(
+  'Datetime:',  ts.to_pydatetime(), '\n',
+  'Date Only:', ts.to_pydatetime().date())
+```
+
+**Convert To `numpy.datetime64`**
+
+Use `to_datetime64()` to convert into ```numpy.datetime64```
+
+```{python}
+ts = pd.Timestamp(2017,1,10,7,30,52)
+ts.to_datetime64()
 ```
 
 
@@ -419,41 +521,90 @@ ts.isoformat()
 print( ts.ceil(freq='D') ) # ceiling to day
 ```
 
+#### Updating
 
-#### ```replace()```
+`replace()`
 
 ```{python}
 ts.replace(year=2000, month=1,day=1)
 ```
 
+## class: DateTimeIndex
 
-## Series
+### Creating 
+
+Refer to Pandas class method above.
+
+### Instance Method
+
+#### Data Type Conversion
+
+**Convert To datetime.datetime**  
+Use **```to_pydatetime```** to convert into python standard **datetime.datetime** object
+
+```{python}
+print('Converted to List:', dti.to_pydatetime(), '\n\n',
+      'Converted Type:',    type(dti.to_pydatetime()))
+```
+
+#### Structure Conversion
+
+**Convert To Series: `to_series`**  
+This creates a Series where **index and data** with the same value
+
+```{python}
+#dti = pd.date_range('2018-02', periods=4, freq='M')
+dti.to_series()
+```
+
+**Convert To DataFrame: `to_frame()`**  
+This convert to **single column DataFrame** with index as the same value
+
+```{python}
+dti.to_frame()
+```
+
+### Attributes
+
+**All Timestamp Attributes** can be used upon DateTimeIndex.
+
+```{python}
+print( dti.weekday, '\n',
+       dti.month, '\n',
+       dti.daysinmonth)
+```
+
+## class: Series
+
 Series allows different data types (object class) as its element
 
+```
+pandas.Series(data=None, index=None, dtype=None, name=None, copy=False, fastpath=False)
+- data array-like, iterable, dict or scalar
+- If dtype not specified, it will infer from data.
+```
 
 ### Constructor
 
-
 #### Empty Series
-Passing empty parameter result in empty series
+
+Passing no data to constructor will result in empty series. By default, empty series dtype is float.
 
 ```{python}
-s = pd.Series()
-print (s)
-type(s)
+s = pd.Series(dtype='object')
+print (s, '\n',
+       type(s))
 ```
 
-
 #### From Scalar
+
 If data is a scalar value, an **index must be provided**. The **value will be repeated** to match the length of index
 
 ```{python}
 pd.Series( 99, index = ['a','b','c','d'])
 ```
 
-
 #### From array-like
-
 
 **From list**
 
@@ -466,16 +617,10 @@ pd.Series(['a','b','c','d','e'])           # from Python list
 If index is not specified, default to 0 and continue incrementally
 
 ```{python}
-pd.Series(np.array(['a','b','c','d','e']))  # from np.array
+pd.Series(np.array(['a','b','c','d','e']))
 ```
-
 
 **From DateTimeIndex**
-
-```{python}
-dti = pd.date_range('2011-1-1','2011-1-3')
-dti
-```
 
 ```{python}
 pd.Series(pd.date_range('2011-1-1','2011-1-3'))
@@ -483,23 +628,18 @@ pd.Series(pd.date_range('2011-1-1','2011-1-3'))
 
 
 #### From Dictionary
-The **dictionary key** will be the index
-
-
-If **index sequence is not specified**, then the Series will be **automatically sorted** according to the key
+The **dictionary key** will be the index. Order is **not sorted**.
 
 ```{python}
-pd.Series({'a' : 0., 'c' : 1., 'b' : 2.})  # from Python dict, autosort by default key
+pd.Series({'a' : 0., 'c' : 5., 'b' : 2.})
 ```
-
 
 If **index sequence** is specifeid, then Series will forllow the index order  
 Objerve that **missing data** (index without value) will be marked as NaN
 
 ```{python}
-pd.Series({'a' : 0., 'c' : 1., 'b' : 2.},index = ['a','b','c','d'])  # from Python Dict, index specified, no auto sort
+pd.Series({'a' : 0., 'c' : 1., 'b' : 2.},index = ['a','b','c','d'])
 ```
-
 
 #### Specify Index
 
@@ -507,39 +647,38 @@ pd.Series({'a' : 0., 'c' : 1., 'b' : 2.},index = ['a','b','c','d'])  # from Pyth
 pd.Series(['a','b','c','d','e'], index=[10,20,30,40,50])
 ```
 
-
 #### Mix Element Types
+
 dType will be **'object'** when there were mixture of classes
 
 ```{python}
 ser = pd.Series(['a',1,2,3])
-print('Object Type :  ', type(ser))
-print('Object dType:  ', ser.dtype)
-print('Element 1 Type: ',type(ser[0]))
-print('Elmeent 2 Type: ',type(ser[1]))
+print('Object Type :  ', type(ser),'\n',
+      'Object dType:  ', ser.dtype,'\n',
+      'Element 1 Type: ',type(ser[0]),'\n',
+      'Elmeent 2 Type: ',type(ser[1]))
 ```
 
-
 #### Specify Data Types
+By default, dtype is **inferred** from data.
 
 ```{python}
 ser1 = pd.Series([1,2,3])
 ser2 = pd.Series([1,2,3], dtype="int8")
 ser3 = pd.Series([1,2,3], dtype="object")
 
-print(ser1, ser1.dtype)
-print(ser2, ser2.dtype)
-print(ser3, ser3.dtype)
+print(' Inferred:        ',ser1.dtype, '\n',
+      'Specified int8:  ',ser2.dtype, '\n',
+      'Specified object:',ser3.dtype)
 ```
 
-
 ### Accessing Series
+
 ```
 series     ( single/list/range_of_row_label/number ) # can cause confusion
 series.loc ( single/list/range_of_row_label )
 series.iloc( single/list/range_of_row_number )
 ```
-
 
 #### Sample Data
 
@@ -548,14 +687,14 @@ s = pd.Series([1,2,3,4,5],index=['a','b','c','d','e'])
 s
 ```
 
-
 #### by Row Number(s)
 
-
-**Single Item**
+**Single Item**. 
+Notice that inputing a number and list of number give different result.
 
 ```{python}
-s.iloc[1]
+print( 'Referencing by number:',s.iloc[1],'\n\n',
+       '\nReferencing by list of number:\n',s.iloc[[1]])
 ```
 
 
@@ -579,31 +718,29 @@ s.iloc[:3]
 s.iloc[-3:]
 ```
 
-
 **Range (in between)**
 
 ```{python}
 s.iloc[2:3]
 ```
 
-
 #### by Index(es)
 
-
-**Single Label**
+**Single Label**. Notice the difference referencing input: single index and list of index.  
+**Warning**: if index is invalid, this will result in error.
 
 ```{python}
-s.loc['c'] 
-# or  ... s[['c']]
+print( s.loc['c'], '\n',
+       s[['c']])
 ```
-
 
 **Multiple Labels**
 
-```{python}
-s.loc[['b','c']]
-```
+If index is not found, it will return **NaN**
 
+```{python}
+s.loc[['k','c']]
+```
 
 ** Range of Labels **
 
@@ -611,27 +748,29 @@ s.loc[['b','c']]
 s.loc['b':'d']
 ```
 
+#### Filtering
 
-#### Filtering Criteria
-Use logical array to filter
+Use **logical array** to filter
 
 ```{python}
 s = pd.Series(range(1,8))
 s[s<5]
 ```
 
-Use **logical array** with **where**
+Use **where**  
+The where method is an application of the if-then idiom. For each element in the calling Series, if `cond` is True the element is used; otherwise `other` is used.
 
-```{python}
-s.where(s>4)
+```
+.where(cond, other=nan, inplace=False)
 ```
 
 ```{python}
-s.where(s>4,None)
+print(s.where(s<4),'\n\n',
+      s.where(s<4,other=None) )
 ```
 
+### Updating Series
 
-### Modifying Series
 #### by Row Number(s)
 
 ```{python}
@@ -640,7 +779,6 @@ s[2] = 999
 s[[3,4]] = 888,777
 s
 ```
-
 
 #### by Index(es)
 
@@ -651,51 +789,26 @@ s[['c','d']] = 777,888
 s
 ```
 
-
 ### Series Attributes
+
 #### The Data
 
 ```{python}
 s = pd.Series([1,2,3,4,5],index=['a','b','c','d','e'],name='SuperHero') 
+s
 ```
 
-
-#### ```index```
+#### The Attributes
 
 ```{python}
-s.index
+print( ' Series Index:    ',s.index, '\n',
+       'Series dType:    ', s.dtype, '\n',
+       'Series Size:     ', s.size, '\n',
+       'Series Shape:    ', s.shape, '\n',
+       'Series Dimension:', s.ndim)
 ```
 
-
-#### ```dtype```
-
-```{python}
-s.dtype
-```
-
-
-#### Dimensions
-
-```{python}
-print(s)
-print( s.size  )
-```
-
-```{python}
-print( s.shape )
-print( s.ndim  )
-```
-
-
-#### ```.name```
-
-```{python}
-s.name
-```
-
-<!-- jupyter_markdown, jupyter_meta = list(`toc-hr-collapsed` = FALSE) -->
 ### Instance Methods
-
 
 #### .reset_index ()
 Resetting index will:  
@@ -708,41 +821,36 @@ print(s)
 print(s.reset_index())
 ```
 
-
 #### Structure Conversion
-Use **```values()```** to convert into ```numpy.ndarray``
+
+A series structure contain **`value`** (in numpy array), its **`dtype`** (data type of the numpy array).    
+Use **```values```** to retrieve into ```numpy.ndarray``. Use **`dtype`** to understand the data type.  
 
 ```{python}
-type(s.values)
+s = pd.Series([1,2,3,4,5])
+print(' Series value:      ', s.values, '\n', 
+      'Series value type: ', type(s.values), '\n',
+      'Series dtype:      ',s.dtype)
 ```
 
-
-Use **```to_list()```** to convert into standard python ```list``
+Use **`pandas.Series.tolist()`** to convert into standard python ```list``
 
 ```{python}
-##
+pd.Series.tolist(s)
 ```
-
 
 #### DataType Conversion
-Use **```astype()```** to convert to another numpy supproted datatypes  
-Warning: casting to incompatible type will result in **error**
+
+Use **```astype()```** to convert to another numpy supproted datatypes, results in a new Series.  
+**Warning**: casting to incompatible type will result in **error**
 
 ```{python}
-ser = pd.Series([1, 2], dtype='int32')
-ser
+s.astype('int8')
 ```
-
-```{python}
-ser.astype('int8')
-```
-
 
 ### Series Operators
 
-
 The result of applying operator (arithmetic or logic) to Series object **returns a new Series object**
-
 
 #### Arithmetic Operator
 
@@ -754,7 +862,7 @@ s2 = pd.Series( [10, 20, 30, 40, 50] )
 **Apply To One Series Object**
 
 ```{python}
-100 - s2
+s1 - 100
 ```
 
 **Apply To Two Series Objects**
@@ -763,38 +871,29 @@ s2 = pd.Series( [10, 20, 30, 40, 50] )
 s1 - s2
 ```
 
-
 #### Logic Operator
+
 - Apply logic operator to a Series return a **new Series** of boolean result  
 - This can be used for **Series or DataFrame filtering**
 
 ```{python}
 bs = pd.Series(range(0,10))
-bs
+bs>3
 ```
 
 ```{python}
-print (bs>3)
-print (type (bs>3))
+~((bs>3) & (bs<8) | (bs>7))
 ```
 
-```{python}
-~((bs>3) & (bs<8))
-```
+### Series `.str` Accesor
 
+If the underlying data is **str** type, then pandas exposed various properties and methos through **`str` accessor**. 
 
-### Series String Accesor ```.str```
-
-If the underlying data is **str** type, then pandas exposed various properties and methos through **```str``` accessor**. 
-
-- This chapter focus on various functions that can be applied to entire Series data  
 ```
 SeriesObj.str.operatorFunction()
 ``` 
 
-
-**Pandas ```str``` Method**
-
+**Available Functions**
 
 Nearly all Python's built-in string methods are mirrored by a Pandas vectorized string method. Here is a list of Pandas str methods that mirror Python string methods:  
 
@@ -807,47 +906,79 @@ strip()	rindex()	isdigit()	rsplit()
 rstrip()	capitalize()	isspace()	partition()
 lstrip()	swapcase()	istitle()	rpartition()
 
+#### Regex Extractor
+
+Extract capture **groups** in the regex pattern, by default in DataFrame (`expand=True`).
+
+```
+Series.str.extract(self, pat, flags=0, expand=True)
+- expand=True: if result is single column, make it a Series instead of Dataframe.
+```
+
+```{python}
+s = pd.Series(['a1', 'b2', 'c3'])
+print( 
+  ' Extracted Dataframe:\n', s.str.extract(r'([ab])(\d)'),'\n\n',
+  'Extracted Dataframe witn Names:\n', s.str.extract(r'(?P<Letter>[ab])(\d)'))
+```
+
+Below ouptut single columne, use **`expand=False`** to make the result a **Series**, instead of DataFrame.
+
+```{python}
+r = s.str.extract(r'[ab](\d)', expand=False)
+print( r, '\n\n', type(r) )
+```
+#### Character Extractor
+
+```{python}
+monte = pd.Series(['Graham Chapman', 'John Cleese', 'Terry Gilliam',
+                   'Eric Idle', 'Terry Jones', 'Michael Palin'])
+monte
+```
+
+**```startwith```**
+
+```{python}
+monte.str.startswith('T')
+```
+
+**```Slicing```**
+
+```{python}
+monte.str[0:3]
+```
 
 #### Splitting
+
+Split strings around given separator/delimiter in either string or regex.
+
+```
+Series.str.split(self, pat=None, n=-1, expand=False)
+- pat: can be string or regex
+```
 
 ```{python}
 s = pd.Series(['a_b_c', 'c_d_e', np.nan, 'f_g_h_i_j'])
 s
 ```
 
-
-**```str.split()```**
-By default, split will split the string into **array**
+**```str.split()```** by default, split will split each item into **array**
 
 ```{python}
 s.str.split('_')
 ```
 
-
-After split, **select rows** to return
-
-```{python}
-print( s.str.split('_').get(1) )
-print( s.str.split('_')[1] )
-```
-
-
-**```str.split( expand=True, n= )```**
-
-
-**```split```** and **```expand=True```** will return a **dataframe** instead of series
+**```expand=True```** will return a **dataframe** instead of series. By default, expand split into all possible columns.
 
 ```{python}
 print( s.str.split('_', expand=True) )
 ```
-
 
 It is possible to limit the number of columns splitted
 
 ```{python}
 print( s.str.split('_', expand=True, n=1) )
 ```
-
 
 **```str.rsplit()```**
 
@@ -859,51 +990,19 @@ print( s.str.rsplit('_', expand=True, n=1) )
 ```
 
 
-#### Matching
-
-```{python}
-monte = pd.Series(['Graham Chapman', 'John Cleese', 'Terry Gilliam',
-                   'Eric Idle', 'Terry Jones', 'Michael Palin'])
-monte
-```
-
-
-**```startwith```**
-
-```{python}
-monte.str.startswith('T')
-```
-
-```{python}
-monte.str.split()
-```
-
-
-**```Slicing```**
-
-```{python}
-monte.str[0:3]
-```
-
-```{python}
-monte.str[0:-1]
-```
-
-```{python}
-s = pd.Series(['A', 'B', 'C', 'Aaba', 'Baca', np.nan, 'CABA', 'dog', 'cat'])
-```
-
-
 #### Case Conversion
+
 ```
 SeriesObj.str.upper()
 SeriesObj.str.lower()
+SeriesObj.str.capitalize()
 ```
 
 ```{python}
-s.str.upper()
+s = pd.Series(['A', 'B', 'C', 'aAba', 'bBaca', np.nan, 'cCABA', 'dog', 'cat'])
+print( s.str.upper(), '\n',
+       s.str.capitalize())
 ```
-
 
 #### Number of Characters
 
@@ -911,68 +1010,17 @@ s.str.upper()
 s.str.len()
 ```
 
-```{python}
-d=['a','b','c']
-names = pd.Series(data=d)
-names.str.capitalize()
-```
-
-
 #### String Indexing
+
+This return specified character from each item.
 
 ```{python}
 s = pd.Series(['A', 'B', 'C', 'Aaba', 'Baca', np.nan,'CABA', 'dog', 'cat'])
-s
+s.str[0].values    # first char
+s.str[0:2].values  # first and second char
 ```
-
-```{python}
-s.str[1]  # return char-1 (second char) of every item
-```
-
-
-#### Splitting
-
-
-**Sample Data**
-
-```{python}
-s = pd.Series(['a_b_c', 'c_d_e', np.nan, 'f_g_h'])
-```
-
-
-**Splitting base on a a delimieter**
-Result is a SeriesObj with list of splitted characters
-
-```{python}
-sp = s.str.split('_')
-sp
-```
-
-
-**Retrieving Split Result**  
-Use **.str.get()** to retrieve splitted elments 
-
-```{python}
-sp.str.get(-1) 
-```
-
-
-Alternatively, use **str[ ]** for the same result
-
-```{python}
-sp.str[-1]
-```
-
-
-#### Split and Expand Into DataFrame
-
-```{python}
-s.str.split('_',expand=True, n=5)  # limit expansion into n columns
-```
-
 
 #### Series Substring Extraction
-
 
 **Sample Data**
 
@@ -1091,11 +1139,9 @@ s.dt.minute # extract minute as integer
 ```
 
 
-## DataFrame
-
+## class: DataFrame
 
 ### Constructor
-
 
 #### From Row Oriented Data (List of Lists)
 Create from **List of Lists**
@@ -1885,11 +1931,9 @@ df.sum(1)
 ```
 
 
-## Categories
-
+## class: Categories
 
 ### Creating
-
 
 #### From List
 **Basic (Auto Category Mapping)**  
@@ -2171,113 +2215,6 @@ pd.get_dummies(df[cols],drop_first=True)
 ```
 
 
-## Getting External Data
-
-
-### html_table parser
-
-
-- Read the web page, create a list: which contain one or more dataframes that maps to each html table found
-- Auto detect column header
-- Auto create index using number starting from 0
-```
-read_html(url)  # return list of dataframe(s) that maps to web table(s) structure
-```
-
-```{python}
-#df_list = pd.read_html('https://www.bloomberg.com/markets/currencies')
-#print ('Total Table(s) Found : ', len(df_list))
-#df = df_list[0]
-#print (df)
-```
-
-
-### CSV Import
-
-
-#### Syntax
-```
-pandas.read_csv( 
-    'url or filePath',                     # path to file or url 
-    encoding    = 'utf_8',                 # optional: default is 'utf_8'
-    index_col   = ['colName1', ...],       # optional: specify one or more index column
-    parse_dates = ['dateCol1', ...],       # optional: specify multiple string column to convert to date
-    na_values   = ['.','na','NA','N/A'],   # optional: values that is considered NA
-    names       = ['newColName1', ... ],   # optional: overwrite column names
-    thousands   = '.',                     # optional: thousand seperator symbol
-    nrows       = n,                       # optional: load only first n rows
-    skiprows    = 0                        # optional: don't load first n rows
-)
-```
-Refer to full codec [Python Codec](https://docs.python.org/3/library/codecs.html#standard-encodings).
-
-
-#### Default Import
-**By default:**  
-- index is sequence of integer 0,1,2...  
-- only two data type: number and string (auto detection)
-- **date is not parsed**, hence stayed as string
-
-```{python}
-goo = pd.read_csv('data/goog.csv', encoding='utf_8')
-```
-
-```{python, jupyter_meta = list(scrolled = TRUE)}
-goo.head()
-```
-
-```{python}
-goo.info()
-```
-
-
-#### Specify Data Types
-By default ```read_csv``` only import data types of float64 and **object(str)**. This is done through auto detection.  
-To customize the data type, use **```dtype```** parameter with a **dict** of definition.
-
-```{python}
-d_types = {'Volume': str}
-pd.read_csv('data/goog.csv', dtype=d_types).head()
-```
-
-```{python}
-pd.read_csv('data/goog.csv', dtype=d_types).info()
-```
-
-
-#### On The Fly Date Parsing and Indexing
-You can specify multiple date-alike column for parsing
-
-```{python}
-pd.read_csv('data/goog.csv', parse_dates=['Date']).head()
-```
-
-```{python}
-pd.read_csv('data/goog.csv', parse_dates=['Date']).info()
-```
-
-
-#### Parse Date, Then Set as Index
-When date is set as index, the type is **```DateTimeIndex```**
-
-```{python}
-goo3 = pd.read_csv('data/goog.csv',index_col='Date', parse_dates=['Date'])
-```
-
-```{python}
-goo3.head()
-```
-
-
-**Observe index is now DateTime data type**
-
-```{python}
-type(goo3.index)
-```
-
-```{python}
-tb.reset_index()
-```
 
 
 ## GroupBy
@@ -2297,9 +2234,7 @@ com_grp = company.groupby(['Company','Department'])
 com_grp
 ```
 
-
 ### Properties
-
 
 #### Number of Groups Created
 
@@ -2316,7 +2251,6 @@ com_grp.groups  # return Dictionary
 
 
 ### Methods
-
 
 #### Number of Rows In Each Group
 
@@ -2434,7 +2368,6 @@ grp.transform( lambda x:x+10 )
 
 ## Concat
 
-
 ### Sample Data
 
 ```{python}
@@ -2447,7 +2380,6 @@ df
 
 
 ### Column-Wise
-
 
 #### Multiple Arrays/Series
 - Added series will have 0,1,2,... column names
@@ -2480,36 +2412,14 @@ pd.concat([df,s3,s1],axis=1)
 
 ```
 
-<!-- jupyter_markdown, jupyter_meta = list(heading_collapsed = TRUE, `toc-hr-collapsed` = TRUE) -->
 ## Fundamental Analysis
 
-<!-- jupyter_markdown, jupyter_meta = list(hidden = TRUE) -->
-### Structure of the Dataframe (.info())
-**info()** is a function that print information to screen. It doesn't return any object
-```
-dataframe.info()  # display columns and number of rows (that has no missing data)
-```
 
-```{python, jupyter_meta = list(hidden = TRUE)}
-df.info()
-```
-
-<!-- jupyter_markdown, jupyter_meta = list(hidden = TRUE) -->
-### First Few Rows (.head())
-```
-dataframe.head (n) # return dataframe of first n rows, default n = 5
-```
-
-```{python, jupyter_meta = list(hidden = TRUE)}
-df.head()
-```
 
 
 ## Missing Data
 
-
 ### What Is Considered Missing Data ? 
-
 
 ### Sample Data
 
@@ -2519,14 +2429,13 @@ df = pd.DataFrame( np.random.randn(5, 3),
                    columns =['one', 'two', 'three'])
 df['four'] = 'bar'
 df['five'] = df['one'] > 0
-df
+#df
 df.reindex(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'])
 ```
 
 **How Missing Data For Each Column ?**
 
 ```{python}
-
 df.count()
 ```
 
@@ -2542,78 +2451,4 @@ df.isnull()
 df.describe()
 ```
 
-## Pandas DateTime
-pandas contains **extensive capabilities and features** for working with time series data for all domains. Using the NumPy **datetime64 and timedelta64** dtypes  
 
-**```panda.Timestamp```**, a subclass of **datetime.datetime**, is pandas? scalar type for timezone-naive or timezone-aware datetime data. It mimics datetime.datime
-
-
-## DateTimeIndex
-### Creating 
-Source can be **string, date, datetime object**
-
-
-#### Convert From
-When the input is **list-like**, **```to_datetime```** convert to **DateTimeIndex**
-
-```{python}
-dti = pd.to_datetime(['2011-01-03',      # from string
-                date(2018,4,13),        # from date
-                datetime(2018,3,1,7,30)]# from datetime
-              )
-dti
-```
-
-```{python}
-dti[1]
-```
-
-
-### Instance Method
-
-
-#### Conversion to: datetime.datetime 
-Use **```to_pydatetime```** to convert into python standard datetime object
-
-```{python}
-print(dti.to_pydatetime())
-print(type(dti.to_pydatetime()))
-```
-
-#### Converion: ```to_series```
-This creates **index and data** with the same value
-
-```{python}
-dti = pd.date_range('2018-02', periods=4, freq='M')
-dts = dti.to_series()
-print( dts)
-print(type(dts))
-```
-
-```{python}
-
-```
-
-
-#### Converion: ```to_frame()```
-This convert to **single column** dataframe with index as the same value
-
-```{python}
-dtf = dti.to_frame()
-dtf
-```
-
-```{python}
-dtf.info()
-```
-
-### Properties
-
-```{python}
-dti = pd.date_range('2018-02', periods=4, freq='D')
-```
-
-```{python}
-print( dti.weekday )
-print( dti.month   )
-```
