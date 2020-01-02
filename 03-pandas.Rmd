@@ -229,17 +229,39 @@ Use matrix operation divide each row with its respective column sum.
 tb/tb.loc['All']
 ```
 
-#### Reseting Index
-- When creating a crosstab, **column specified by index** will become index  
-- To convert it to normal column, use **reset_index()**
+### Concatination
+
+#### Sample Data
 
 ```{python}
-tb.reset_index()
+s1 = pd.Series(['A1','A2','A3','A4'])
+s2 = pd.Series(['B1','B2','B3','B4'], name='B')
+s3 = pd.Series(['C1','C2','C3','C4'], name='C')
+df
 ```
 
-### Getting External Data
+#### Column-Wise
+
+**Combinining Multiple Series Into One DataFrame**  
+- Added series will have 0,1,2,... column names (if Series are not named originally)
+
+```{python}
+pd.concat([s1,s2,s3], axis=1)
+```
+
+**Add Multiple Series Into A DataFrame**  
+- No change to original data frame column name  
+- Added columns from series will have 0,1,2,3,.. column name
+
+```{python}
+df = pd.DataFrame({ 'A': s1, 'B': s2})
+pd.concat([df,s3,s1],axis=1)
+```
+
+### External Data
 
 #### `html_table` Parser
+
 This method require **html5lib** library.  
 - Read the web page, create a list: which contain one or more dataframes that maps to each html table found  
 - Scrap all detectable html tables  
@@ -258,7 +280,59 @@ print ('Total Table(s) Found : ', len(df_list), '\n',
        'First Table Found:      ',df)
 ```
 
-#### `read_csv` Importer
+#### CSV Writing
+
+**Syntax**  
+
+```
+DataFrame.to_csv(
+  path_or_buf=None,   ## if not provided, result is returned as string
+  sep=', ', 
+  na_rep='', 
+  float_format=None, 
+  columns=None,       ## list of columns name to write, if not provided, all columns are written
+  header=True,        ## write out column names
+  index=True,         ## write row label
+  index_label=None, 
+  mode='w', 
+  encoding=None,      ## if not provided, default to 'utf-8'
+  quoting=None, quotechar='"', 
+  line_terminator=None, 
+  chunksize=None, 
+  date_format=None, 
+  doublequote=True, 
+  escapechar=None, 
+  decimal='.')
+
+```
+
+Example below shows column value containing different special character. Note that pandas handles these very well by default.
+
+```{python}
+mydf = pd.DataFrame({'Id':[10,20,30,40], 
+                     'Name':  ['Aaa','Bbb','Ccc','Ddd'],
+                     'Funny': ["world's most \clever", 
+                     "Bloody, damn, good", 
+                     "many\nmany\nline", 
+                     'Quoting "is" tough']})
+mydf.set_index('Id', inplace=True)
+mydf.to_csv('data/csv_test.csv', index=True)
+mydf
+```
+
+**This is the file saved**
+
+```{r}
+system('more data\\csv_test.csv')
+```
+
+**All content retained when reading back by Pandas**
+
+```{python}
+pd.read_csv('data/csv_test.csv', index_col='Id')
+```
+
+#### CSV Reading
 
 **Syntax**  
 
@@ -2366,56 +2440,10 @@ grp.transform( lambda x:x+10 )
 ```
 
 
-## Concat
-
-### Sample Data
-
-```{python}
-s1 = pd.Series(['A1','A2','A3','A4'])
-s2 = pd.Series(['B1','B2','B3','B4'])
-s3 = pd.Series(['C1','C2','C3','C4'])
-df = pd.DataFrame({ 'A': s1, 'B': s2})
-df
-```
 
 
-### Column-Wise
-
-#### Multiple Arrays/Series
-- Added series will have 0,1,2,... column names
-
-```{python}
-pd.concat([s1,s2,s3],axis=1)
-```
-
-
-#### DataFrame and Series
-- No change to original data frame column name
-- Added columns from series will have 0,1,2,3,.. column name
-
-```{python}
-pd.concat([df,s3,s1],axis=1)
-```
-
-
-### Row-Wise
-
-```{python}
-
-```
-
-```{python}
-
-```
-
-```{python}
-
-```
 
 ## Fundamental Analysis
-
-
-
 
 ## Missing Data
 

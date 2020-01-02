@@ -454,6 +454,19 @@ animals.split(',')
 '-'.join(['1', '2', '3', '4'])
 ```
 
+#### Replacement: `.replace()`
+
+```{python}
+string = "geeks for geeks geeks geeks geeks" 
+   
+# Prints the string by replacing geeks by Geeks  
+print(string.replace("geeks", "Geeks"))  
+  
+# Prints the string by replacing only 3 occurrence of Geeks   
+print(string.replace("geeks", "GeeksforGeeks", 3)) 
+```
+ 
+
 ### Operator
 
 #### ```%``` Old Style Substitution
@@ -1149,8 +1162,8 @@ print ('Odds Number : ' , list(range(1,10,2))) # generate odds number
 
 # Control and Loops
 
-
 ## If Statement
+
 ### Multiline If.. Statements
 
 ```{python}
@@ -1166,13 +1179,18 @@ else:
 print('end of programming')
 ```
 
-
 ### Single Line If .. Statement
+
+#### if ... In One Statement
 
 ```{python}
 price = 70
 if price<80: print('buy')
 ```
+
+#### Ternary Statemnt
+
+This statement return a value with simple condition
 
 ```{python}
 price = 85
@@ -1181,7 +1199,6 @@ price = 85
 
 
 ## For Loops
-
 
 ### Loop thorugh 'range'
 
@@ -1669,53 +1686,101 @@ foo(1,2,3,4,5,c=6,d=7)
 ```
 
 
-# Object Oriented Programming
+# Exception Handling
 
+The try statement works as follows:  
+- First, the try clause (the statement(s) between the try and except keywords) is executed  
+- If no exception occurs, the except clause is skipped and execution of the try statement is finished  
+- If an exception occurs during execution of the try clause, the rest of the clause is skipped. Then if its type matches the exception named after the except keyword, the except clause is executed, and then execution continues after the try statement  
+- If an exception occurs which does not match the exception named in the except clause, it is passed on to outer try statements; if no handler is found, it is an unhandled exception and execution stops with a message as shown above  
+
+A try statement may have more than one except clause, to specify handlers for different exceptions. 
+
+## Catching Error
+
+```{python}
+try:
+  a = 1 + 'a'
+  
+## known error  
+except TypeError as err:
+  print('I know this error !!!!',
+        '\n Error: ', err,
+        '\n Args:  ', err.args,
+        '\n Type:  ', type(err))
+
+## all other error
+except Exception as err:
+  print( 'Error: ', err,
+         '\nArgs:  ', err.args,
+         '\nType:  ', type(err))
+```
+
+## Custom Exception
+
+```{python}
+try:
+  raise Exception('bloody', 'hell')  #simulate exception
+except Exception as err:
+  print( 'Error: ', err,
+         '\nArgs:  ', err.args,
+         '\nType:  ', type(err))
+```
+
+# Object Oriented Programming
 
 ## Defining Class
 
-
-- Every function within a class **must have** at least one parameter - **self**, accept it
+- Every function within a class **must have** at least one parameter - **self**  
 - Use **init** as the constructor function. **init** is optional
 
 ```{python}
 class Person:
-    wallet = 0  # 
-    def __init__(self, myname,money=0):   # constructor
-        self.name = myname
-        self.wallet=money
-    def say_hi(self):
-        print('Hello, my name is : ', self.name)
-    def say_bye(self):
-        print('Goodbye', Person.ID)
-    def take(self,amount):
-        self.wallet+=amount
-    def balance(self):
-        print('Wallet Balance:',self.wallet)
+  wallet = 0  # 
+  def __init__(self, myname,money=0):   # constructor
+      self.name = myname
+      self.wallet=money
+      print('I\'m in Person Constructor: {}'.format(myname))
+  def say_hi(self):
+      print('Hello, my name is : ', self.name)
+  def say_bye(self):
+      print('Goodbye', Person.ID)
+  def take(self,amount):
+      self.wallet+=amount
+  def balance(self):
+      print('Wallet Balance:',self.wallet)
+  def MakeCry(self):
+      self.Cry()
+      
+class Kid(Person):
+  def __init__(self, myname, money=0):
+      print('I\'m in Kid Constructor: {}'.format(myname))
+      super().__init__(myname=myname, money=money)
+  def Cry(self):
+      print('Kid is crying')
 ```
 
-
-## Object Class Assignment
+## Constructor
 
 ```{python}
-#p = Person() ## this will fail, as the constructor expect a parameter
 p1 = Person('Yong')  
 p2 = Person('Gan',200)
+p3 = Kid('Jolin',50)
 ```
-
 
 ## Calling Method
 
 ```{python}
 p1.say_hi()
 p1.balance()
+p3.Cry()
+p3.MakeCry()
 ```
 
 ```{python}
 p2.say_hi()
 p2.balance()
 ```
-
 
 ## Getting Property
 
