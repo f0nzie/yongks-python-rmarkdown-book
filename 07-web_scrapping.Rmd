@@ -29,7 +29,6 @@ from urllib3.util.retry import Retry
 import random
 
 
-
 _retries = Retry(connect=10,read=10,backoff_factor=1)   # backoff is incremental interval in seconds between retries
 _timeout = (10,10)  ## connect, read timeout in seconds
 
@@ -85,5 +84,101 @@ _USER_AGENTS = [
     'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)']
 
 ```
+
+
+## `BeautifulSoup`
+
+### Module Import
+
+```{python}
+from bs4 import BeautifulSoup
+```
+
+### HTML Tag Parsing 
+
+### Sample Data
+
+```{python}
+my_html = '''
+<div id="my-id1" class='title'> 
+    <p>This Is My Title</p>
+    
+    <div id="my-id2" class='subtitle' custom_attr='funny')
+        <p>This is Subtitle</p>
+    </div>
+    
+    <div id="my-id3" class='title', custom_atr='funny')
+        <p>This is Subtitle</p>
+    </div>
+</div>
+'''
+soup = BeautifulSoup(my_html)
+```
+
+#### First Match
+
+**ID Selector**
+
+```{python}
+soup.find(id='my-id1')
+```
+
+**Class Selector**
+
+```{python}
+soup.find(class_='subtitle')
+```
+
+**Attribute Selector**
+
+```{python}
+soup.find(custom_attr='funny')
+```
+
+#### Find All Matches
+
+**`find_all`**  
+
+```{python}
+soup = BeautifulSoup(my_html)
+multiple_result = soup.find_all(class_='title')
+print( 'Item 0: \n',     multiple_result[0],
+       '\n\nItem 1: \n', multiple_result[1])
+```
+
+**CSS Selector using `select()`**  
+
+Above can be achieved using css selector. It return an array of result (multiple matches).
+
+```{python}
+multiple_result = soup.select('.title')
+print( 'Item 0: \n',     multiple_result[0],
+       '\n\nItem 1: \n', multiple_result[1])
+```
+
+More granular exmaple of css selector.
+
+```{python}
+soup.select('#my-id1 div.subtitle')
+```
+
+### Meta Parsing
+
+```{python}
+my_html = '''
+<meta property="description"   content="KUALA LUMPUR: blah blah"   category="Malaysia">
+<meta property="publish-date"  content="2012-01-03">
+'''
+soup = BeautifulSoup(my_html)
+soup.find('meta', property='description')['content']
+soup.find('meta', property='description')['category']
+soup.find('meta', property='publish-date')['content']
+soup.find('meta', category='Malaysia')['property']
+```
+
+
+
+
+
 
 
