@@ -1,0 +1,89 @@
+# Web Scrapping
+
+```{r include=FALSE}
+library(reticulate)
+use_condaenv('Anaconda3')    #conda_list() - to find out the name of conda environment
+```
+
+```{python include=FALSE, results='hide'}
+import numpy as np
+import pandas as pd
+from IPython.core.display import display, HTML
+display(HTML("<style>.container { width:75% !important; margin-left:350px; }</style>"))
+pd.set_option( 'display.notebook_repr_html', False)  # render Series and DataFrame as text, not HTML
+pd.set_option( 'display.max_column', 10)    # number of columns
+pd.set_option( 'display.max_rows', 10)      # number of rows
+pd.set_option( 'display.width', 90)         # number of characters per row
+```
+
+
+## `requests`
+
+
+### Creating A Session
+
+```{python}
+import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
+import random
+
+
+
+_retries = Retry(connect=10,read=10,backoff_factor=1)   # backoff is incremental interval in seconds between retries
+_timeout = (10,10)  ## connect, read timeout in seconds
+
+rqs = requests.Session()
+rqs.mount( 'http://' ,  HTTPAdapter(max_retries= _retries))
+rqs.mount( 'https://' , HTTPAdapter(max_retries= _retries))
+```
+
+
+```{python}
+link1 = 'https://www.yahoo.com'
+link2 = 'http://mamamia777.com.au'
+#user_agent = {'User-Agent': random.choice(_USER_AGENTS)}
+response1  = rqs.get(link1, timeout=_timeout)
+response2  = rqs.get(link2, timeout=_timeout)  
+
+
+```
+
+
+```{python}
+print (page1.status_code)
+```
+
+### Rotating Broswer
+
+```{python}
+_USER_AGENTS = [
+   #Chrome
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+    'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36',
+    'Mozilla/5.0 (Windows NT 5.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36',
+    'Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36',
+    'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36',
+    'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36',
+    'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36',
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+    'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+    #Firefox
+    'Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.1)',
+    'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko',
+    'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)',
+    'Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko',
+    'Mozilla/5.0 (Windows NT 6.2; WOW64; Trident/7.0; rv:11.0) like Gecko',
+    'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko',
+    'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.0; Trident/5.0)',
+    'Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko',
+    'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)',
+    'Mozilla/5.0 (Windows NT 6.1; Win64; x64; Trident/7.0; rv:11.0) like Gecko',
+    'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0)',
+    'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)',
+    'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)']
+
+```
+
+

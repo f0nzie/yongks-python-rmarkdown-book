@@ -242,21 +242,30 @@ df
 
 #### Column-Wise
 
-**Combinining Multiple Series Into One DataFrame**  
-- Added series will have 0,1,2,... column names (if Series are not named originally)
+**Combinining Multiple Series Into A New DataFrame**  
+- Added series will have 0,1,2,... column names (if Series are not named originally)  
+- None series will be ignored  
+- `axis=1` means column-wise
 
 ```{python}
-pd.concat([s1,s2,s3], axis=1)
+pd.concat([s1,s2,s3, None], axis=1)
 ```
 
-**Add Multiple Series Into A DataFrame**  
+**Add Multiple Series Into An Existing DataFrame**  
 - No change to original data frame column name  
 - Added columns from series will have 0,1,2,3,.. column name
 
 ```{python}
 df = pd.DataFrame({ 'A': s1, 'B': s2})
-pd.concat([df,s3,s1],axis=1)
+pd.concat([df,s3,s1, None],axis=1)
 ```
+
+#### Row-Wise
+
+```{python}
+
+```
+
 
 ### External Data
 
@@ -1783,13 +1792,93 @@ df.sample(frac=0.6) #randomly pick 60% of rows, without replacement
 
 ### Row Manipulation
 
-
 #### Sample Data
+
+#### Appending Rows
+
+Appending rows is more computaional intensive then concatenate.
+Item can be added as single item or multi-items (list form)
+
+**Append From Another DataFrame**
+
+- When `ignore_index=True`, pandas will **drop the original Index** and recreate with 0,1,2,3...  
+- It is recommended to ignore index IF the data source index is **not unique**.  
+- New columns will be added in the result, with NaN on original dataframe.   
+
+```{python}
+my_df = pd.DataFrame(
+          data= {'Id':   [10,20,30],
+                 'Name': ['Aaa','Bbb','Ccc']})
+#                 .set_index('Id')
+                 
+my_df_new = pd.DataFrame(
+            data= {'Id':   [40,50],
+                   'Name': ['Ddd','Eee'],
+                   'Age':  [12,13]})  
+                   #.set_index('Id')
+                   
+my_df_append  = my_df.append(my_df_new, ignore_index=False)
+my_df_noindex = my_df.append(my_df_new, ignore_index=True)
+
+print("Original DataFrame:\n", my_df,
+      "\n\nTo Be Appended DataFrame:\n", my_df_new,
+      "\n\nAppended DataFrame (index maintained):\n", my_df_append,
+      "\n\nAppended DataFrame (index ignored):\n", my_df_noindex)
+```
+
+**Append From Dictionary**
+
+```{python}
+my_df = pd.DataFrame(
+          data= {'Id':   [10,20,30],
+                 'Name': ['Aaa','Bbb','Ccc']})  \
+                 .set_index('Id')
+
+new_item1 = {'Id':40, 'Name': 'Ddd'}
+new_item2 = {'Id':50, 'Name': 'Eee'}
+new_item3 = {'Id':60, 'Name': 'Fff'}
+
+my_df_one   = my_df.append( new_item1, ignore_index=True )
+my_df_multi = my_df.append( [new_item2, new_item3], ignore_index=True )
+
+print("Original DataFrame:\n", my_df,
+      "\n\nAdd One Item (index ignored):\n", my_df_one,
+      "\n\nAdd Multi Item (index ignored):\n", my_df_multi)
+```
+
+
+**Appending `None` items(s)**
+
+Adding **single None** item has **no effect** (nothing added).   
+Adding **None in list form (multiple items)**  creates rows with None.  
+`ignore_index` is not important here.
+
+```{python}
+single_none = my_df.append( None  )
+multi_none  = my_df.append( [None])
+
+print("Original DataFrame:\n", my_df,
+      "\n\nAdd One None (index ignored):\n", single_none,
+      "\n\nAdd List of None (index ignored):\n", multi_none)
+```
+
+**Appending Items Containing None** results in **ERROR**
+
+```{python}
+my_df.append( [new_item1, None] )
+```
+
+
+#### Concatenate Rows
+
+```{python}
+
+```
+
 
 
 #### Dropping Rows (.drop)
 ```.drop(labels=None, axis=0, index=None, columns=None, level=None, inplace=False, errors='raise')```
-
 
 **By Row Label(s)**
 
