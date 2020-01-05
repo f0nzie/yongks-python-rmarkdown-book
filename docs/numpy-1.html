@@ -24,7 +24,7 @@
 <meta name="author" content="Yong Keh Soon" />
 
 
-<meta name="date" content="2020-01-04" />
+<meta name="date" content="2020-01-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1130,20 +1130,26 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="19.2" data-path="web-scrapping.html"><a href="web-scrapping.html#beautifulsoup"><i class="fa fa-check"></i><b>19.2</b> <code>BeautifulSoup</code></a>
 <ul>
 <li class="chapter" data-level="19.2.1" data-path="web-scrapping.html"><a href="web-scrapping.html#module-import-2"><i class="fa fa-check"></i><b>19.2.1</b> Module Import</a></li>
-<li class="chapter" data-level="19.2.2" data-path="web-scrapping.html"><a href="web-scrapping.html#html-tag-parsing"><i class="fa fa-check"></i><b>19.2.2</b> HTML Tag Parsing</a></li>
-<li class="chapter" data-level="19.2.3" data-path="web-scrapping.html"><a href="web-scrapping.html#sample-data-24"><i class="fa fa-check"></i><b>19.2.3</b> Sample Data</a>
+<li class="chapter" data-level="19.2.2" data-path="web-scrapping.html"><a href="web-scrapping.html#html-tag-parsing"><i class="fa fa-check"></i><b>19.2.2</b> HTML Tag Parsing</a>
 <ul>
-<li class="chapter" data-level="19.2.3.1" data-path="web-scrapping.html"><a href="web-scrapping.html#first-match"><i class="fa fa-check"></i><b>19.2.3.1</b> First Match</a></li>
-<li class="chapter" data-level="19.2.3.2" data-path="web-scrapping.html"><a href="web-scrapping.html#find-all-matches-1"><i class="fa fa-check"></i><b>19.2.3.2</b> Find All Matches</a></li>
+<li class="chapter" data-level="19.2.2.1" data-path="web-scrapping.html"><a href="web-scrapping.html#sample-data-24"><i class="fa fa-check"></i><b>19.2.2.1</b> Sample Data</a></li>
+<li class="chapter" data-level="19.2.2.2" data-path="web-scrapping.html"><a href="web-scrapping.html#first-match"><i class="fa fa-check"></i><b>19.2.2.2</b> First Match</a></li>
+<li class="chapter" data-level="19.2.2.3" data-path="web-scrapping.html"><a href="web-scrapping.html#find-all-matches-1"><i class="fa fa-check"></i><b>19.2.2.3</b> Find All Matches</a></li>
 </ul></li>
-<li class="chapter" data-level="19.2.4" data-path="web-scrapping.html"><a href="web-scrapping.html#meta-parsing"><i class="fa fa-check"></i><b>19.2.4</b> Meta Parsing</a></li>
+<li class="chapter" data-level="19.2.3" data-path="web-scrapping.html"><a href="web-scrapping.html#meta-parsing"><i class="fa fa-check"></i><b>19.2.3</b> Meta Parsing</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="20" data-path="finance.html"><a href="finance.html"><i class="fa fa-check"></i><b>20</b> Finance</a>
 <ul>
-<li class="chapter" data-level="20.1" data-path="finance.html"><a href="finance.html#pandas_datareder"><i class="fa fa-check"></i><b>20.1</b> pandas_datareder</a>
+<li class="chapter" data-level="20.1" data-path="finance.html"><a href="finance.html#getting-data"><i class="fa fa-check"></i><b>20.1</b> Getting Data</a>
 <ul>
-<li class="chapter" data-level="20.1.1" data-path="finance.html"><a href="finance.html#datasource-yahoo"><i class="fa fa-check"></i><b>20.1.1</b> Datasource: Yahoo</a></li>
+<li class="chapter" data-level="20.1.1" data-path="finance.html"><a href="finance.html#pandas_datareder"><i class="fa fa-check"></i><b>20.1.1</b> pandas_datareder</a>
+<ul>
+<li class="chapter" data-level="20.1.1.1" data-path="finance.html"><a href="finance.html#ohlc-eod-pricing"><i class="fa fa-check"></i><b>20.1.1.1</b> OHLC EOD Pricing</a></li>
+<li class="chapter" data-level="20.1.1.2" data-path="finance.html"><a href="finance.html#splits-and-dividends"><i class="fa fa-check"></i><b>20.1.1.2</b> Splits and Dividends</a></li>
+<li class="chapter" data-level="20.1.1.3" data-path="finance.html"><a href="finance.html#merging-ohlc-and-splitsdividends"><i class="fa fa-check"></i><b>20.1.1.3</b> Merging OHLC and Splits/Dividends</a></li>
+<li class="chapter" data-level="20.1.1.4" data-path="finance.html"><a href="finance.html#query-multiple-stocks"><i class="fa fa-check"></i><b>20.1.1.4</b> Query Multiple Stocks</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -1286,9 +1292,9 @@ Note that the input string <strong>cannot be ISO8601 compliance</strong>, meanin
 <!-- jupyter_markdown -->
 <p><strong>From datetime</strong></p>
 <div class="sourceCode" id="cb643"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb643-1"><a href="numpy-1.html#cb643-1"></a>np.datetime64( date.today() )</span></code></pre></div>
-<pre><code>## numpy.datetime64(&#39;2020-01-04&#39;)</code></pre>
+<pre><code>## numpy.datetime64(&#39;2020-01-05&#39;)</code></pre>
 <div class="sourceCode" id="cb645"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb645-1"><a href="numpy-1.html#cb645-1"></a>np.datetime64( datetime.now() )</span></code></pre></div>
-<pre><code>## numpy.datetime64(&#39;2020-01-04T22:44:10.865957&#39;)</code></pre>
+<pre><code>## numpy.datetime64(&#39;2020-01-05T16:30:22.057465&#39;)</code></pre>
 <!-- jupyter_markdown -->
 </div>
 <div id="instance-method-2" class="section level4" number="12.3.6.2">
@@ -1772,15 +1778,15 @@ np.random.randint( low, high )            # generate an integer, i, which  low &
 np.random.randint( low, high, size=1)     # generate an ndarray of integer, single dimension
 np.random.randint( low, high, size=(r,c)) # generate an ndarray of integer, two dimensions </code></pre>
 <div class="sourceCode" id="cb831"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb831-1"><a href="numpy-1.html#cb831-1"></a>np.random.randint( <span class="dv">10</span> )</span></code></pre></div>
-<pre><code>## 8</code></pre>
+<pre><code>## 0</code></pre>
 <div class="sourceCode" id="cb833"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb833-1"><a href="numpy-1.html#cb833-1"></a>np.random.randint( <span class="dv">10</span>, <span class="dv">20</span> )</span></code></pre></div>
-<pre><code>## 11</code></pre>
+<pre><code>## 13</code></pre>
 <div class="sourceCode" id="cb835"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb835-1"><a href="numpy-1.html#cb835-1"></a>np.random.randint( <span class="dv">10</span>, high<span class="op">=</span><span class="dv">20</span>, size<span class="op">=</span><span class="dv">5</span>)   <span class="co"># single dimension</span></span></code></pre></div>
-<pre><code>## array([10, 16, 12, 17, 11])</code></pre>
+<pre><code>## array([10, 16, 19, 14, 15])</code></pre>
 <div class="sourceCode" id="cb837"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb837-1"><a href="numpy-1.html#cb837-1"></a>np.random.randint( <span class="dv">10</span>, <span class="dv">20</span>, (<span class="dv">3</span>,<span class="dv">5</span>) )        <span class="co"># two dimensions</span></span></code></pre></div>
-<pre><code>## array([[11, 13, 16, 15, 18],
-##        [16, 10, 13, 18, 11],
-##        [13, 17, 11, 15, 10]])</code></pre>
+<pre><code>## array([[12, 13, 18, 14, 14],
+##        [14, 15, 11, 15, 19],
+##        [17, 18, 14, 16, 18]])</code></pre>
 <!-- jupyter_markdown -->
 </div>
 <div id="random-integer-with-or-without-replacement" class="section level4" number="12.5.1.2">
@@ -1790,9 +1796,9 @@ np.random.randint( low, high, size=(r,c)) # generate an ndarray of integer, two 
  #   if a is integer, then it is assumed sampling from arange(a)
  #   if a is an 1-D array, then sampling from this array</code></pre>
 <div class="sourceCode" id="cb840"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb840-1"><a href="numpy-1.html#cb840-1"></a>np.random.choice(<span class="dv">10</span>,<span class="dv">5</span>, replace<span class="op">=</span><span class="va">False</span>) <span class="co"># take 5 samples from 0:19, without replacement</span></span></code></pre></div>
-<pre><code>## array([0, 6, 4, 3, 2])</code></pre>
+<pre><code>## array([2, 6, 8, 7, 3])</code></pre>
 <div class="sourceCode" id="cb842"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb842-1"><a href="numpy-1.html#cb842-1"></a>np.random.choice( np.arange(<span class="dv">10</span>,<span class="dv">20</span>), <span class="dv">5</span>, replace<span class="op">=</span><span class="va">False</span>)</span></code></pre></div>
-<pre><code>## array([12, 18, 19, 14, 11])</code></pre>
+<pre><code>## array([11, 17, 10, 19, 15])</code></pre>
 <!-- jupyter_markdown -->
 </div>
 <div id="random-float" class="section level4" number="12.5.1.3">
@@ -1800,7 +1806,7 @@ np.random.randint( low, high, size=(r,c)) # generate an ndarray of integer, two 
 <p><strong>randf()</strong> Generate float numbers in <strong>between 0.0 and 1.0</strong></p>
 <pre><code>np.random.ranf(size=None)</code></pre>
 <div class="sourceCode" id="cb845"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb845-1"><a href="numpy-1.html#cb845-1"></a>np.random.ranf(<span class="dv">4</span>)</span></code></pre></div>
-<pre><code>## array([0.75405519, 0.07850842, 0.30526905, 0.91803133])</code></pre>
+<pre><code>## array([0.90821562, 0.19543331, 0.70154872, 0.12905489])</code></pre>
 <!-- jupyter_markdown -->
 <p><strong>uniform()</strong> Return random float from <strong>low (inclusive) to high (exclusive)</strong></p>
 <pre><code>np.random.uniform( low )                  # generate an float, i, which         f &lt; low
@@ -1808,12 +1814,12 @@ np.random.uniform( low, high )            # generate an float, i, which  low &lt
 np.random.uniform( low, high, size=1)     # generate an array of float, single dimension
 np.random.uniform( low, high, size=(r,c)) # generate an array of float, two dimensions </code></pre>
 <div class="sourceCode" id="cb848"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb848-1"><a href="numpy-1.html#cb848-1"></a>np.random.uniform( <span class="dv">2</span> )</span></code></pre></div>
-<pre><code>## 1.0121970099396136</code></pre>
+<pre><code>## 1.8674959647520182</code></pre>
 <div class="sourceCode" id="cb850"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb850-1"><a href="numpy-1.html#cb850-1"></a>np.random.uniform( <span class="dv">2</span>,<span class="dv">5</span>, size<span class="op">=</span>(<span class="dv">4</span>,<span class="dv">4</span>) )</span></code></pre></div>
-<pre><code>## array([[2.48114709, 2.67142407, 4.46901734, 4.53284366],
-##        [2.88460898, 4.73197134, 2.75476918, 3.23601196],
-##        [3.59440059, 2.06323628, 2.95419209, 2.24970345],
-##        [4.85454143, 3.53122304, 4.52594693, 4.22548384]])</code></pre>
+<pre><code>## array([[2.27585863, 3.51435177, 4.11212708, 2.98805772],
+##        [3.39305991, 2.84927722, 2.34627078, 2.95045205],
+##        [2.14956797, 2.00206327, 4.39480948, 4.4075671 ],
+##        [2.83392098, 2.2168389 , 4.26111571, 2.47302517]])</code></pre>
 <!-- jupyter_markdown -->
 </div>
 </div>
@@ -1830,17 +1836,17 @@ numpy. random.normal         ( loc=0, scale=1, size=None) # loc = mean, scale = 
 <!-- jupyter_markdown -->
 <p><strong>One Dimension</strong></p>
 <div class="sourceCode" id="cb853"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb853-1"><a href="numpy-1.html#cb853-1"></a>np.random.standard_normal(<span class="dv">3</span>)</span></code></pre></div>
-<pre><code>## array([-0.35630239, -1.08574721,  1.82298669])</code></pre>
+<pre><code>## array([-1.09226925,  2.21205626, -1.50924222])</code></pre>
 <div class="sourceCode" id="cb855"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb855-1"><a href="numpy-1.html#cb855-1"></a>np.random.randn(<span class="dv">3</span>)</span></code></pre></div>
-<pre><code>## array([-0.42352662,  0.66236051,  0.02488283])</code></pre>
+<pre><code>## array([ 0.26635928, -1.66664718, -1.27988775])</code></pre>
 <!-- jupyter_markdown -->
 <p><strong>Two Dimensions</strong></p>
 <div class="sourceCode" id="cb857"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb857-1"><a href="numpy-1.html#cb857-1"></a>np.random.randn(<span class="dv">2</span>,<span class="dv">4</span>)</span></code></pre></div>
-<pre><code>## array([[ 0.17041071, -0.73809842, -0.85641964,  0.33315178],
-##        [-0.64955619, -1.21925911,  0.4793281 , -0.67647603]])</code></pre>
+<pre><code>## array([[ 0.72126496, -0.18098059,  1.7571102 , -0.83487886],
+##        [-0.18568462, -1.03639533,  1.67966565,  0.12573356]])</code></pre>
 <div class="sourceCode" id="cb859"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb859-1"><a href="numpy-1.html#cb859-1"></a>np.random.standard_normal((<span class="dv">2</span>,<span class="dv">4</span>))</span></code></pre></div>
-<pre><code>## array([[ 0.29889825,  0.74448469, -0.56571165, -0.10762284],
-##        [-0.91599471, -2.29222844, -0.14526017,  0.33334798]])</code></pre>
+<pre><code>## array([[ 0.62036757, -0.87097805, -1.08113973,  0.8417309 ],
+##        [-0.35854182,  1.32250039, -0.07990736,  0.28347363]])</code></pre>
 <!-- jupyter_markdown -->
 <p><strong>Observe:</strong> randn(), standard_normal() and normal() are able to generate standard normal numbers</p>
 <div class="sourceCode" id="cb861"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb861-1"><a href="numpy-1.html#cb861-1"></a>np.random.seed(<span class="dv">15</span>)</span>

@@ -17,76 +17,90 @@ pd.set_option( 'display.max_rows', 10)      # number of rows
 pd.set_option( 'display.width', 90)         # number of characters per row
 ```
 
-## pandas_datareder
+## Getting Data
 
-### Datasource: Yahoo
+### pandas_datareder
 
+#### OHLC EOD Pricing
 
-```{python}
-
-```
-
-
-
+- HLOC columns are adjusted with splits  
+- 'Adj Close' columns is adjusted with **split and dividends**  
+- 'start' and 'end' date **must be string**
 
 ```{python}
-
+import pandas_datareader as pdr
+from datetime import datetime
+ 
+pdr.data.DataReader('1155.KL',
+                    start='2015-1-1', 
+                    end='2019-12-31', 
+                    data_source='yahoo')
 ```
 
+#### Splits and Dividends
 
-
+This method is similar to getting pricing data, except that different data_sources is used.
 
 ```{python}
-
+pdr.DataReader('AAPL',
+  data_source = 'yahoo-actions',
+  start='2014-01-06', 
+  end='2015-06-15'
+)
 ```
 
-
-
+#### Merging OHLC and Splits/Dividends
 
 ```{python}
+prices = pdr.DataReader('AAPL',
+  data_source = 'yahoo',
+  start='2014-06-06', 
+  end='2014-06-12'
+)
 
+actions = pdr.DataReader('AAPL',
+  data_source = 'yahoo-actions',
+  start='2014-06-06', 
+  end='2014-06-12'
+)
 ```
 
-
-
+Use `pandas.merge()` function to combine both prices and splits dataframe in **a new dataframe**. Non matching line will have NaN.
 
 ```{python}
-
+pd.merge(prices, actions, how='outer', left_index=True, right_index=True) \
+  .loc[:,['High','Low','Open','Close','action','value']]
 ```
 
-
-
+Alternatively, use pandas column assignment from the splits dataframe into price dataframe, it will automatically 'merge' based on the **index**. This approach reuse existing dataframe instead of creating new one.
 
 ```{python}
-
+prices['action'], prices['value'] = actions.action, actions.value
+prices[['High','Low','Open','Close','action','value']]
 ```
 
+#### Query Multiple Stocks
 
-
+** When multiple symbols are supplied to DataReader, dictionary containing multiple stock's result are returned.
 
 ```{python}
+stocks = ['1155.KL', 'AAPL']
+my_dict = pdr.DataReader( stocks,
+  data_source = 'yahoo-actions',
+  start='2014-01-06', 
+  end='2015-06-15'
+)
 
+print(my_dict.keys())
 ```
 
-
-
+Iterate through the dictionary to get the dataframe data
 
 ```{python}
-
+for i in my_dict.items():
+  print('\n\nStock: ', i[0],
+        '\nDataFrame:', i[1])
 ```
 
-
-
-
-```{python}
-
-```
-
-
-
-
-```{python}
-
-```
 
 
