@@ -1143,13 +1143,24 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="20.1" data-path="finance.html"><a href="finance.html#getting-data"><i class="fa fa-check"></i><b>20.1</b> Getting Data</a>
 <ul>
-<li class="chapter" data-level="20.1.1" data-path="finance.html"><a href="finance.html#pandas_datareder"><i class="fa fa-check"></i><b>20.1.1</b> pandas_datareder</a>
+<li class="chapter" data-level="20.1.1" data-path="finance.html"><a href="finance.html#pandas_datareder"><i class="fa fa-check"></i><b>20.1.1</b> <code>pandas_datareder</code></a>
 <ul>
 <li class="chapter" data-level="20.1.1.1" data-path="finance.html"><a href="finance.html#ohlc-eod-pricing"><i class="fa fa-check"></i><b>20.1.1.1</b> OHLC EOD Pricing</a></li>
 <li class="chapter" data-level="20.1.1.2" data-path="finance.html"><a href="finance.html#splits-and-dividends"><i class="fa fa-check"></i><b>20.1.1.2</b> Splits and Dividends</a></li>
 <li class="chapter" data-level="20.1.1.3" data-path="finance.html"><a href="finance.html#merging-ohlc-and-splitsdividends"><i class="fa fa-check"></i><b>20.1.1.3</b> Merging OHLC and Splits/Dividends</a></li>
 <li class="chapter" data-level="20.1.1.4" data-path="finance.html"><a href="finance.html#query-multiple-stocks"><i class="fa fa-check"></i><b>20.1.1.4</b> Query Multiple Stocks</a></li>
 </ul></li>
+<li class="chapter" data-level="20.1.2" data-path="finance.html"><a href="finance.html#yfinance"><i class="fa fa-check"></i><b>20.1.2</b> <code>yfinance</code></a>
+<ul>
+<li class="chapter" data-level="20.1.2.1" data-path="finance.html"><a href="finance.html#stock-info"><i class="fa fa-check"></i><b>20.1.2.1</b> Stock Info</a></li>
+<li class="chapter" data-level="20.1.2.2" data-path="finance.html"><a href="finance.html#ohlc-eod-pricing-1"><i class="fa fa-check"></i><b>20.1.2.2</b> OHLC EOD Pricing</a></li>
+<li class="chapter" data-level="20.1.2.3" data-path="finance.html"><a href="finance.html#splits-and-dividends-1"><i class="fa fa-check"></i><b>20.1.2.3</b> Splits and Dividends</a></li>
+<li class="chapter" data-level="20.1.2.4" data-path="finance.html"><a href="finance.html#query-multiple-stocks-1"><i class="fa fa-check"></i><b>20.1.2.4</b> Query Multiple Stocks</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="20.2" data-path="finance.html"><a href="finance.html#charting"><i class="fa fa-check"></i><b>20.2</b> Charting</a>
+<ul>
+<li class="chapter" data-level="20.2.1" data-path="finance.html"><a href="finance.html#price-comparison"><i class="fa fa-check"></i><b>20.2.1</b> Price Comparison</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -1179,7 +1190,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth=? )</code></pre>
 <div class="sourceCode" id="cb1549"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1549-1"><a href="plotnine.html#cb1549-1"></a>plotnine.options.figure_size <span class="op">=</span> (<span class="dv">3</span>, <span class="dv">3</span>)</span>
 <span id="cb1549-2"><a href="plotnine.html#cb1549-2"></a>ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>)) <span class="op">+</span> geom_histogram()  <span class="co"># default bins = 10</span></span></code></pre></div>
-<pre><code>## &lt;ggplot: (12785349)&gt;
+<pre><code>## &lt;ggplot: (-9223372036842074322)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
@@ -1193,7 +1204,7 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 ##   return cbook.iterable(var) and not is_string(var)</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-634-1.png" /><!-- --></p>
 <div class="sourceCode" id="cb1551"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1551-1"><a href="plotnine.html#cb1551-1"></a>ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>)) <span class="op">+</span> geom_histogram(bins <span class="op">=</span> <span class="dv">15</span>)</span></code></pre></div>
-<pre><code>## &lt;ggplot: (-9223372036842500706)&gt;
+<pre><code>## &lt;ggplot: (12202949)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
@@ -1205,7 +1216,7 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 ##   return cbook.iterable(var) and not is_string(var)</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-635-1.png" /><!-- --></p>
 <div class="sourceCode" id="cb1553"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1553-1"><a href="plotnine.html#cb1553-1"></a>ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>)) <span class="op">+</span> geom_histogram(binwidth <span class="op">=</span> <span class="dv">3</span>)</span></code></pre></div>
-<pre><code>## &lt;ggplot: (-9223372036842175032)&gt;
+<pre><code>## &lt;ggplot: (8878831)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
@@ -1224,7 +1235,7 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
                     fill=&#39;categorical-alike-colName&#39;) 
 + geom_histogram()</code></pre>
 <div class="sourceCode" id="cb1556"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1556-1"><a href="plotnine.html#cb1556-1"></a>ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, fill<span class="op">=</span><span class="st">&#39;grp&#39;</span>)) <span class="op">+</span> geom_histogram(bins<span class="op">=</span><span class="dv">15</span>)</span></code></pre></div>
-<pre><code>## &lt;ggplot: (-9223372036842172107)&gt;
+<pre><code>## &lt;ggplot: (-9223372036846295278)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
@@ -1242,7 +1253,7 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 <div id="x-numeric-2" class="section level3" number="16.2.1">
 <h3 number="16.2.1"><span class="header-section-number">16.2.1</span> 2x Numeric</h3>
 <div class="sourceCode" id="cb1558"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1558-1"><a href="plotnine.html#cb1558-1"></a>ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>,y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> geom_point()</span></code></pre></div>
-<pre><code>## &lt;ggplot: (12636445)&gt;
+<pre><code>## &lt;ggplot: (12295032)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
@@ -1262,7 +1273,7 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
         size=&#39;numberColName&#39;
     ))</code></pre>
 <div class="sourceCode" id="cb1561"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1561-1"><a href="plotnine.html#cb1561-1"></a>ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>,y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> geom_point(aes(color<span class="op">=</span><span class="st">&#39;grp&#39;</span>))</span></code></pre></div>
-<pre><code>## &lt;ggplot: (-9223372036842500755)&gt;
+<pre><code>## &lt;ggplot: (-9223372036845838883)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
@@ -1274,7 +1285,7 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 ##   return cbook.iterable(var) and not is_string(var)</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-639-1.png" /><!-- --></p>
 <div class="sourceCode" id="cb1563"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1563-1"><a href="plotnine.html#cb1563-1"></a>ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>,y<span class="op">=</span><span class="st">&#39;value2&#39;</span>,color<span class="op">=</span><span class="st">&#39;grp&#39;</span>)) <span class="op">+</span> geom_point()</span></code></pre></div>
-<pre><code>## &lt;ggplot: (12661347)&gt;
+<pre><code>## &lt;ggplot: (11847176)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
@@ -1289,7 +1300,7 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 <span id="cb1565-2"><a href="plotnine.html#cb1565-2"></a>    geom_point(aes(</span>
 <span id="cb1565-3"><a href="plotnine.html#cb1565-3"></a>        color<span class="op">=</span><span class="st">&#39;grp&#39;</span></span>
 <span id="cb1565-4"><a href="plotnine.html#cb1565-4"></a>    ))</span></code></pre></div>
-<pre><code>## &lt;ggplot: (-9223372036842082339)&gt;
+<pre><code>## &lt;ggplot: (-9223372036847401931)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
@@ -1307,7 +1318,7 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 <span id="cb1567-2"><a href="plotnine.html#cb1567-2"></a>    geom_point(aes( </span>
 <span id="cb1567-3"><a href="plotnine.html#cb1567-3"></a>        color<span class="op">=</span><span class="st">&#39;grp&#39;</span>, size<span class="op">=</span><span class="st">&#39;value3&#39;</span></span>
 <span id="cb1567-4"><a href="plotnine.html#cb1567-4"></a>    ))</span></code></pre></div>
-<pre><code>## &lt;ggplot: (-9223372036841401491)&gt;
+<pre><code>## &lt;ggplot: (8521501)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
@@ -1324,7 +1335,7 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 <div class="sourceCode" id="cb1569"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1569-1"><a href="plotnine.html#cb1569-1"></a>ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> <span class="op">\</span></span>
 <span id="cb1569-2"><a href="plotnine.html#cb1569-2"></a>    geom_point() <span class="op">+</span> <span class="op">\</span></span>
 <span id="cb1569-3"><a href="plotnine.html#cb1569-3"></a>    geom_smooth()          <span class="co"># default method=&#39;loess&#39;</span></span></code></pre></div>
-<pre><code>## &lt;ggplot: (-9223372036840732784)&gt;
+<pre><code>## &lt;ggplot: (-9223372036842914998)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
@@ -1344,7 +1355,7 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 <span id="cb1571-5"><a href="plotnine.html#cb1571-5"></a>        color<span class="op">=</span><span class="st">&#39;red&#39;</span>,</span>
 <span id="cb1571-6"><a href="plotnine.html#cb1571-6"></a>        method<span class="op">=</span><span class="st">&#39;lm&#39;</span>, </span>
 <span id="cb1571-7"><a href="plotnine.html#cb1571-7"></a>        level<span class="op">=</span><span class="fl">0.75</span>)</span></code></pre></div>
-<pre><code>## &lt;ggplot: (13368419)&gt;
+<pre><code>## &lt;ggplot: (13413419)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
@@ -1364,7 +1375,7 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 <div id="x-numeric-data" class="section level3" number="16.3.1">
 <h3 number="16.3.1"><span class="header-section-number">16.3.1</span> 2x Numeric Data</h3>
 <div class="sourceCode" id="cb1573"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1573-1"><a href="plotnine.html#cb1573-1"></a>ggplot (mydf.head(<span class="dv">15</span>), aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> geom_line()</span></code></pre></div>
-<pre><code>## &lt;ggplot: (-9223372036840223961)&gt;
+<pre><code>## &lt;ggplot: (13414534)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
@@ -1379,7 +1390,7 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 <div id="x-numeric-1x-categorical-1" class="section level3" number="16.3.2">
 <h3 number="16.3.2"><span class="header-section-number">16.3.2</span> 1x Numeric, 1x Categorical</h3>
 <div class="sourceCode" id="cb1575"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1575-1"><a href="plotnine.html#cb1575-1"></a>ggplot (mydf.head(<span class="dv">15</span>), aes(x<span class="op">=</span><span class="st">&#39;dept&#39;</span>, y<span class="op">=</span><span class="st">&#39;value1&#39;</span>)) <span class="op">+</span> geom_line()</span></code></pre></div>
-<pre><code>## &lt;ggplot: (14582469)&gt;
+<pre><code>## &lt;ggplot: (-9223372036841298151)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
@@ -1391,7 +1402,7 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 ##   return cbook.iterable(var) and not is_string(var)</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-646-1.png" /><!-- --></p>
 <div class="sourceCode" id="cb1577"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1577-1"><a href="plotnine.html#cb1577-1"></a>ggplot (mydf.head(<span class="dv">30</span>), aes(x<span class="op">=</span><span class="st">&#39;dept&#39;</span>, y<span class="op">=</span><span class="st">&#39;value1&#39;</span>)) <span class="op">+</span> geom_line( aes(group<span class="op">=</span><span class="dv">1</span>))</span></code></pre></div>
-<pre><code>## &lt;ggplot: (14599751)&gt;
+<pre><code>## &lt;ggplot: (12629589)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\layer.py:517: MatplotlibDeprecationWarning: 
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
@@ -1412,7 +1423,7 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 <div id="x-numeric-1x-categorical-2" class="section level3" number="16.3.3">
 <h3 number="16.3.3"><span class="header-section-number">16.3.3</span> 2x Numeric, 1x Categorical</h3>
 <div class="sourceCode" id="cb1579"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1579-1"><a href="plotnine.html#cb1579-1"></a>ggplot (mydf.head(<span class="dv">15</span>), aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> geom_line( aes(color<span class="op">=</span><span class="st">&#39;grp&#39;</span>),size<span class="op">=</span><span class="dv">2</span>)</span></code></pre></div>
-<pre><code>## &lt;ggplot: (-9223372036842114423)&gt;
+<pre><code>## &lt;ggplot: (13945878)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.
@@ -1449,7 +1460,7 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 ## dtypes: int64(5), object(1)
 ## memory usage: 168.0+ bytes</code></pre>
 <div class="sourceCode" id="cb1585"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1585-1"><a href="plotnine.html#cb1585-1"></a>ggplot (tmpdf, aes(x<span class="op">=</span><span class="st">&#39;comp&#39;</span>, y<span class="op">=</span><span class="st">&#39;grp&#39;</span>)) <span class="op">+</span>geom_col()</span></code></pre></div>
-<pre><code>## &lt;ggplot: (15017925)&gt;
+<pre><code>## &lt;ggplot: (-9223372036840821721)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\scales\scale.py:93: MatplotlibDeprecationWarning: 
 ## The iterable function was deprecated in Matplotlib 3.1 and will be removed in 3.3. Use np.iterable instead.

@@ -1143,13 +1143,24 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="20.1" data-path="finance.html"><a href="finance.html#getting-data"><i class="fa fa-check"></i><b>20.1</b> Getting Data</a>
 <ul>
-<li class="chapter" data-level="20.1.1" data-path="finance.html"><a href="finance.html#pandas_datareder"><i class="fa fa-check"></i><b>20.1.1</b> pandas_datareder</a>
+<li class="chapter" data-level="20.1.1" data-path="finance.html"><a href="finance.html#pandas_datareder"><i class="fa fa-check"></i><b>20.1.1</b> <code>pandas_datareder</code></a>
 <ul>
 <li class="chapter" data-level="20.1.1.1" data-path="finance.html"><a href="finance.html#ohlc-eod-pricing"><i class="fa fa-check"></i><b>20.1.1.1</b> OHLC EOD Pricing</a></li>
 <li class="chapter" data-level="20.1.1.2" data-path="finance.html"><a href="finance.html#splits-and-dividends"><i class="fa fa-check"></i><b>20.1.1.2</b> Splits and Dividends</a></li>
 <li class="chapter" data-level="20.1.1.3" data-path="finance.html"><a href="finance.html#merging-ohlc-and-splitsdividends"><i class="fa fa-check"></i><b>20.1.1.3</b> Merging OHLC and Splits/Dividends</a></li>
 <li class="chapter" data-level="20.1.1.4" data-path="finance.html"><a href="finance.html#query-multiple-stocks"><i class="fa fa-check"></i><b>20.1.1.4</b> Query Multiple Stocks</a></li>
 </ul></li>
+<li class="chapter" data-level="20.1.2" data-path="finance.html"><a href="finance.html#yfinance"><i class="fa fa-check"></i><b>20.1.2</b> <code>yfinance</code></a>
+<ul>
+<li class="chapter" data-level="20.1.2.1" data-path="finance.html"><a href="finance.html#stock-info"><i class="fa fa-check"></i><b>20.1.2.1</b> Stock Info</a></li>
+<li class="chapter" data-level="20.1.2.2" data-path="finance.html"><a href="finance.html#ohlc-eod-pricing-1"><i class="fa fa-check"></i><b>20.1.2.2</b> OHLC EOD Pricing</a></li>
+<li class="chapter" data-level="20.1.2.3" data-path="finance.html"><a href="finance.html#splits-and-dividends-1"><i class="fa fa-check"></i><b>20.1.2.3</b> Splits and Dividends</a></li>
+<li class="chapter" data-level="20.1.2.4" data-path="finance.html"><a href="finance.html#query-multiple-stocks-1"><i class="fa fa-check"></i><b>20.1.2.4</b> Query Multiple Stocks</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="20.2" data-path="finance.html"><a href="finance.html#charting"><i class="fa fa-check"></i><b>20.2</b> Charting</a>
+<ul>
+<li class="chapter" data-level="20.2.1" data-path="finance.html"><a href="finance.html#price-comparison"><i class="fa fa-check"></i><b>20.2.1</b> Price Comparison</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -1174,7 +1185,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="getting-data" class="section level2" number="20.1">
 <h2 number="20.1"><span class="header-section-number">20.1</span> Getting Data</h2>
 <div id="pandas_datareder" class="section level3" number="20.1.1">
-<h3 number="20.1.1"><span class="header-section-number">20.1.1</span> pandas_datareder</h3>
+<h3 number="20.1.1"><span class="header-section-number">20.1.1</span> <code>pandas_datareder</code></h3>
 <div id="ohlc-eod-pricing" class="section level4" number="20.1.1.1">
 <h4 number="20.1.1.1"><span class="header-section-number">20.1.1.1</span> OHLC EOD Pricing</h4>
 <ul>
@@ -1185,27 +1196,25 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li>‘start’ and ‘end’ date <strong>must be string</strong></li>
 </ul>
 <div class="sourceCode" id="cb1893"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1893-1"><a href="finance.html#cb1893-1"></a><span class="im">import</span> pandas_datareader <span class="im">as</span> pdr</span>
-<span id="cb1893-2"><a href="finance.html#cb1893-2"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
-<span id="cb1893-3"><a href="finance.html#cb1893-3"></a> </span>
-<span id="cb1893-4"><a href="finance.html#cb1893-4"></a>pdr.data.DataReader(<span class="st">&#39;1155.KL&#39;</span>,</span>
-<span id="cb1893-5"><a href="finance.html#cb1893-5"></a>                    start<span class="op">=</span><span class="st">&#39;2015-1-1&#39;</span>, </span>
-<span id="cb1893-6"><a href="finance.html#cb1893-6"></a>                    end<span class="op">=</span><span class="st">&#39;2019-12-31&#39;</span>, </span>
-<span id="cb1893-7"><a href="finance.html#cb1893-7"></a>                    data_source<span class="op">=</span><span class="st">&#39;yahoo&#39;</span>)</span></code></pre></div>
-<pre><code>##              High    Low   Open  Close      Volume  Adj Close
-## Date                                                         
-## 2015-01-06   9.00   8.64   8.90   8.80  20485400.0   7.626744
-## 2015-01-08   8.76   8.64   8.64   8.70  13880600.0   7.540075
-## 2015-01-09   8.63   8.49   8.62   8.61  22071800.0   7.462074
-## 2015-01-13   8.66   8.56   8.58   8.62   7419000.0   7.470740
-## 2015-01-14   8.62   8.38   8.62   8.39  24945700.0   7.271406
-## ...           ...    ...    ...    ...         ...        ...
-## 2018-01-23   9.89   9.81   9.85   9.89  11027100.0   9.890000
-## 2018-01-24   9.92   9.88   9.89   9.91  10791600.0   9.910000
-## 2018-01-26  10.08   9.96  10.00  10.08  12715400.0  10.080000
-## 2018-01-29  10.24  10.04  10.04  10.20  11916400.0  10.200000
-## 2018-01-30  10.18  10.02  10.14  10.10  13480900.0  10.100000
+<span id="cb1893-2"><a href="finance.html#cb1893-2"></a>pdr.data.DataReader(<span class="st">&#39;MLYBY&#39;</span>,</span>
+<span id="cb1893-3"><a href="finance.html#cb1893-3"></a>                    start<span class="op">=</span><span class="st">&#39;2015-1-1&#39;</span>, </span>
+<span id="cb1893-4"><a href="finance.html#cb1893-4"></a>                    end<span class="op">=</span><span class="st">&#39;2019-12-31&#39;</span>, </span>
+<span id="cb1893-5"><a href="finance.html#cb1893-5"></a>                    data_source<span class="op">=</span><span class="st">&#39;yahoo&#39;</span>)</span></code></pre></div>
+<pre><code>##             High   Low  Open  Close   Volume  Adj Close
+## Date                                                   
+## 2014-12-31  5.20  5.15  5.20   5.15   7800.0   3.801893
+## 2015-01-02  5.20  5.08  5.08   5.09   1900.0   3.757599
+## 2015-01-05  5.17  4.95  5.05   4.95  11400.0   3.654246
+## 2015-01-06  4.85  4.85  4.85   4.85   4400.0   3.580424
+## 2015-01-07  4.92  4.74  4.74   4.88  12000.0   3.602570
+## ...          ...   ...   ...    ...      ...        ...
+## 2019-12-24  4.26  4.05  4.05   4.26   3800.0   4.260000
+## 2019-12-26  4.26  4.26  4.26   4.26      0.0   4.260000
+## 2019-12-27  4.30  4.30  4.30   4.30   3000.0   4.300000
+## 2019-12-30  4.26  4.15  4.26   4.15   1300.0   4.150000
+## 2019-12-31  4.15  4.15  4.15   4.15      0.0   4.150000
 ## 
-## [700 rows x 6 columns]</code></pre>
+## [1259 rows x 6 columns]</code></pre>
 </div>
 <div id="splits-and-dividends" class="section level4" number="20.1.1.2">
 <h4 number="20.1.1.2"><span class="header-section-number">20.1.1.2</span> Splits and Dividends</h4>
@@ -1262,7 +1271,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="query-multiple-stocks" class="section level4" number="20.1.1.4">
 <h4 number="20.1.1.4"><span class="header-section-number">20.1.1.4</span> Query Multiple Stocks</h4>
 <p>** When multiple symbols are supplied to DataReader, dictionary containing multiple stock’s result are returned.</p>
-<div class="sourceCode" id="cb1902"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1902-1"><a href="finance.html#cb1902-1"></a>stocks <span class="op">=</span> [<span class="st">&#39;1155.KL&#39;</span>, <span class="st">&#39;AAPL&#39;</span>]</span>
+<div class="sourceCode" id="cb1902"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1902-1"><a href="finance.html#cb1902-1"></a>stocks <span class="op">=</span> [<span class="st">&#39;MLYBY&#39;</span>, <span class="st">&#39;AAPL&#39;</span>]</span>
 <span id="cb1902-2"><a href="finance.html#cb1902-2"></a>my_dict <span class="op">=</span> pdr.DataReader( stocks,</span>
 <span id="cb1902-3"><a href="finance.html#cb1902-3"></a>  data_source <span class="op">=</span> <span class="st">&#39;yahoo-actions&#39;</span>,</span>
 <span id="cb1902-4"><a href="finance.html#cb1902-4"></a>  start<span class="op">=</span><span class="st">&#39;2014-01-06&#39;</span>, </span>
@@ -1270,18 +1279,187 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1902-6"><a href="finance.html#cb1902-6"></a>)</span>
 <span id="cb1902-7"><a href="finance.html#cb1902-7"></a></span>
 <span id="cb1902-8"><a href="finance.html#cb1902-8"></a><span class="bu">print</span>(my_dict.keys())</span></code></pre></div>
-<pre><code>## dict_keys([&#39;1155.KL&#39;, &#39;AAPL&#39;])</code></pre>
+<pre><code>## dict_keys([&#39;MLYBY&#39;, &#39;AAPL&#39;])</code></pre>
 <p>Iterate through the dictionary to get the dataframe data</p>
 <div class="sourceCode" id="cb1904"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1904-1"><a href="finance.html#cb1904-1"></a><span class="cf">for</span> i <span class="kw">in</span> my_dict.items():</span>
 <span id="cb1904-2"><a href="finance.html#cb1904-2"></a>  <span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\n\n</span><span class="st">Stock: &#39;</span>, i[<span class="dv">0</span>],</span>
 <span id="cb1904-3"><a href="finance.html#cb1904-3"></a>        <span class="st">&#39;</span><span class="ch">\n</span><span class="st">DataFrame:&#39;</span>, i[<span class="dv">1</span>])</span></code></pre></div>
 <pre><code>## 
 ## 
-## Stock:  1155.KL 
+## Stock:  MLYBY 
 ## DataFrame:               action  value
-## 2015-04-23  DIVIDEND   0.33
-## 2014-09-25  DIVIDEND   0.24
-## 2014-04-29  DIVIDEND   0.35
+## 2015-04-22  DIVIDEND  0.178
+## 2014-09-24  DIVIDEND  0.152
+## 2014-04-29  DIVIDEND  0.192
+## 
+## 
+## Stock:  AAPL 
+## DataFrame:               action     value
+## 2015-05-07  DIVIDEND  0.520000
+## 2015-02-05  DIVIDEND  0.470000
+## 2014-11-06  DIVIDEND  0.470000
+## 2014-08-07  DIVIDEND  0.470000
+## 2014-06-09     SPLIT  0.142857
+## 2014-05-08  DIVIDEND  0.470000
+## 2014-02-06  DIVIDEND  0.435710</code></pre>
+</div>
+</div>
+<div id="yfinance" class="section level3" number="20.1.2">
+<h3 number="20.1.2"><span class="header-section-number">20.1.2</span> <code>yfinance</code></h3>
+<ul>
+<li>Support Yahoo only, <strong>a better alternative</strong><br />
+</li>
+<li>This library has advantage of calculating adjsuted OHLC by <strong>split and dividends</strong>.</li>
+<li>Dividends and Splits are conveniently incorporated into pricing dataframe, so no manual merging necessary.<br />
+</li>
+<li>Multiple symbols are represented in columns<br />
+</li>
+<li>This library provides stock information (not all exchanges are supported though)</li>
+</ul>
+<div id="stock-info" class="section level4" number="20.1.2.1">
+<h4 number="20.1.2.1"><span class="header-section-number">20.1.2.1</span> Stock Info</h4>
+<p>There are plenty of infomration we can get form the dictionary of returend by <code>info</code></p>
+<div class="sourceCode" id="cb1906"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1906-1"><a href="finance.html#cb1906-1"></a><span class="im">import</span> yfinance <span class="im">as</span> yf</span>
+<span id="cb1906-2"><a href="finance.html#cb1906-2"></a>stock <span class="op">=</span> yf.Ticker(<span class="st">&#39;AAPL&#39;</span>)</span>
+<span id="cb1906-3"><a href="finance.html#cb1906-3"></a>stock.info.keys()</span></code></pre></div>
+<pre><code>## dict_keys([&#39;zip&#39;, &#39;sector&#39;, &#39;fullTimeEmployees&#39;, &#39;longBusinessSummary&#39;, &#39;city&#39;, &#39;phone&#39;, &#39;state&#39;, &#39;country&#39;, &#39;companyOfficers&#39;, &#39;website&#39;, &#39;maxAge&#39;, &#39;address1&#39;, &#39;industry&#39;, &#39;previousClose&#39;, &#39;regularMarketOpen&#39;, &#39;twoHundredDayAverage&#39;, &#39;trailingAnnualDividendYield&#39;, &#39;payoutRatio&#39;, &#39;volume24Hr&#39;, &#39;regularMarketDayHigh&#39;, &#39;navPrice&#39;, &#39;averageDailyVolume10Day&#39;, &#39;totalAssets&#39;, &#39;regularMarketPreviousClose&#39;, &#39;fiftyDayAverage&#39;, &#39;trailingAnnualDividendRate&#39;, &#39;open&#39;, &#39;averageVolume10days&#39;, &#39;expireDate&#39;, &#39;yield&#39;, &#39;algorithm&#39;, &#39;dividendRate&#39;, &#39;exDividendDate&#39;, &#39;beta&#39;, &#39;circulatingSupply&#39;, &#39;startDate&#39;, &#39;regularMarketDayLow&#39;, &#39;priceHint&#39;, &#39;currency&#39;, &#39;trailingPE&#39;, &#39;regularMarketVolume&#39;, &#39;lastMarket&#39;, &#39;maxSupply&#39;, &#39;openInterest&#39;, &#39;marketCap&#39;, &#39;volumeAllCurrencies&#39;, &#39;strikePrice&#39;, &#39;averageVolume&#39;, &#39;priceToSalesTrailing12Months&#39;, &#39;dayLow&#39;, &#39;ask&#39;, &#39;ytdReturn&#39;, &#39;askSize&#39;, &#39;volume&#39;, &#39;fiftyTwoWeekHigh&#39;, &#39;forwardPE&#39;, &#39;fromCurrency&#39;, &#39;fiveYearAvgDividendYield&#39;, &#39;fiftyTwoWeekLow&#39;, &#39;bid&#39;, &#39;tradeable&#39;, &#39;dividendYield&#39;, &#39;bidSize&#39;, &#39;dayHigh&#39;, &#39;exchange&#39;, &#39;shortName&#39;, &#39;longName&#39;, &#39;exchangeTimezoneName&#39;, &#39;exchangeTimezoneShortName&#39;, &#39;isEsgPopulated&#39;, &#39;gmtOffSetMilliseconds&#39;, &#39;quoteType&#39;, &#39;symbol&#39;, &#39;messageBoardId&#39;, &#39;market&#39;, &#39;annualHoldingsTurnover&#39;, &#39;enterpriseToRevenue&#39;, &#39;beta3Year&#39;, &#39;profitMargins&#39;, &#39;enterpriseToEbitda&#39;, &#39;52WeekChange&#39;, &#39;morningStarRiskRating&#39;, &#39;forwardEps&#39;, &#39;revenueQuarterlyGrowth&#39;, &#39;sharesOutstanding&#39;, &#39;fundInceptionDate&#39;, &#39;annualReportExpenseRatio&#39;, &#39;bookValue&#39;, &#39;sharesShort&#39;, &#39;sharesPercentSharesOut&#39;, &#39;fundFamily&#39;, &#39;lastFiscalYearEnd&#39;, &#39;heldPercentInstitutions&#39;, &#39;netIncomeToCommon&#39;, &#39;trailingEps&#39;, &#39;lastDividendValue&#39;, &#39;SandP52WeekChange&#39;, &#39;priceToBook&#39;, &#39;heldPercentInsiders&#39;, &#39;nextFiscalYearEnd&#39;, &#39;mostRecentQuarter&#39;, &#39;shortRatio&#39;, &#39;sharesShortPreviousMonthDate&#39;, &#39;floatShares&#39;, &#39;enterpriseValue&#39;, &#39;threeYearAverageReturn&#39;, &#39;lastSplitDate&#39;, &#39;lastSplitFactor&#39;, &#39;legalType&#39;, &#39;morningStarOverallRating&#39;, &#39;earningsQuarterlyGrowth&#39;, &#39;dateShortInterest&#39;, &#39;pegRatio&#39;, &#39;lastCapGain&#39;, &#39;shortPercentOfFloat&#39;, &#39;sharesShortPriorMonth&#39;, &#39;category&#39;, &#39;fiveYearAverageReturn&#39;, &#39;regularMarketPrice&#39;, &#39;logo_url&#39;])</code></pre>
+<div class="sourceCode" id="cb1908"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1908-1"><a href="finance.html#cb1908-1"></a><span class="bu">print</span>(stock.info[<span class="st">&#39;longName&#39;</span>])</span></code></pre></div>
+<pre><code>## Apple Inc.</code></pre>
+</div>
+<div id="ohlc-eod-pricing-1" class="section level4" number="20.1.2.2">
+<h4 number="20.1.2.2"><span class="header-section-number">20.1.2.2</span> OHLC EOD Pricing</h4>
+<p><strong>Split Adjusted</strong></p>
+<ul>
+<li>OHLC columns are adjusted with splits (when <code>auto_adjust=False</code>)</li>
+<li>‘Adj Close’ columns is adjusted with <strong>split and dividends</strong><br />
+</li>
+<li>‘start’ and ‘end’ date <strong>must be string</strong></li>
+</ul>
+<div class="sourceCode" id="cb1910"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1910-1"><a href="finance.html#cb1910-1"></a>stock <span class="op">=</span> yf.Ticker(<span class="st">&#39;AAPL&#39;</span>)</span>
+<span id="cb1910-2"><a href="finance.html#cb1910-2"></a>stock.history(  start<span class="op">=</span><span class="st">&#39;2014-06-06&#39;</span>, end<span class="op">=</span><span class="st">&#39;2015-06-15&#39;</span>, auto_adjust <span class="op">=</span> <span class="va">False</span>)</span></code></pre></div>
+<pre><code>##               Open    High     Low   Close  Adj Close    Volume  Dividends  Stock Splits
+## Date                                                                                    
+## 2014-06-05   92.31   92.77   91.80   92.48      84.19  75951400        0.0           0.0
+## 2014-06-06   92.84   93.04   92.07   92.22      83.95  87484600        0.0           0.0
+## 2014-06-09   92.70   93.88   91.75   93.70      85.30  75415000        0.0           7.0
+## 2014-06-10   94.73   95.05   93.57   94.25      85.80  62777000        0.0           0.0
+## 2014-06-11   94.13   94.76   93.47   93.86      85.44  45681000        0.0           0.0
+## ...            ...     ...     ...     ...        ...       ...        ...           ...
+## 2015-06-08  128.90  129.21  126.83  127.80     118.38  52674800        0.0           0.0
+## 2015-06-09  126.70  128.08  125.62  127.42     118.03  56075400        0.0           0.0
+## 2015-06-10  127.92  129.34  127.85  128.88     119.38  39087300        0.0           0.0
+## 2015-06-11  129.18  130.18  128.48  128.59     119.11  35390900        0.0           0.0
+## 2015-06-12  128.19  128.33  127.11  127.17     117.80  36886200        0.0           0.0
+## 
+## [258 rows x 8 columns]</code></pre>
+<p><strong>Split and Dividends Adjusted</strong></p>
+<ul>
+<li>OHLC columns are adjusted with splits and <strong>dividends</strong> (when <code>auto_adjust=True</code>)<br />
+</li>
+<li>Therefore, ‘Adj Close’ column is redundant, hence removed.</li>
+</ul>
+<div class="sourceCode" id="cb1912"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1912-1"><a href="finance.html#cb1912-1"></a><span class="im">import</span> yfinance <span class="im">as</span> yf</span>
+<span id="cb1912-2"><a href="finance.html#cb1912-2"></a>stock <span class="op">=</span> yf.Ticker(<span class="st">&#39;AAPL&#39;</span>)</span>
+<span id="cb1912-3"><a href="finance.html#cb1912-3"></a>stock.history(  start<span class="op">=</span><span class="st">&#39;2014-06-06&#39;</span>, end<span class="op">=</span><span class="st">&#39;2015-06-15&#39;</span>, auto_adjust <span class="op">=</span> <span class="va">True</span>)</span></code></pre></div>
+<pre><code>##               Open    High     Low   Close    Volume  Dividends  Stock Splits
+## Date                                                                         
+## 2014-06-05   84.04   84.45   83.57   84.19  75951400        0.0           0.0
+## 2014-06-06   84.52   84.69   83.81   83.95  87484600        0.0           0.0
+## 2014-06-09   84.39   85.46   83.52   85.30  75415000        0.0           7.0
+## 2014-06-10   86.23   86.53   85.18   85.80  62777000        0.0           0.0
+## 2014-06-11   85.69   86.26   85.09   85.44  45681000        0.0           0.0
+## ...            ...     ...     ...     ...       ...        ...           ...
+## 2015-06-08  119.40  119.69  117.48  118.38  52674800        0.0           0.0
+## 2015-06-09  117.36  118.64  116.36  118.03  56075400        0.0           0.0
+## 2015-06-10  118.49  119.81  118.43  119.38  39087300        0.0           0.0
+## 2015-06-11  119.66  120.59  119.01  119.11  35390900        0.0           0.0
+## 2015-06-12  118.74  118.87  117.74  117.80  36886200        0.0           0.0
+## 
+## [258 rows x 7 columns]</code></pre>
+</div>
+<div id="splits-and-dividends-1" class="section level4" number="20.1.2.3">
+<h4 number="20.1.2.3"><span class="header-section-number">20.1.2.3</span> Splits and Dividends</h4>
+<p>Getting both Splits and Dividends</p>
+<div class="sourceCode" id="cb1914"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1914-1"><a href="finance.html#cb1914-1"></a>stock.actions</span></code></pre></div>
+<pre><code>##             Dividends  Stock Splits
+## Date                               
+## 2014-06-09       0.00           7.0
+## 2014-08-07       0.47           0.0
+## 2014-11-06       0.47           0.0
+## 2015-02-05       0.47           0.0
+## 2015-05-07       0.52           0.0</code></pre>
+<p>Getting Dividends Only</p>
+<div class="sourceCode" id="cb1916"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1916-1"><a href="finance.html#cb1916-1"></a>stock.dividends</span></code></pre></div>
+<pre><code>## Date
+## 2014-08-07    0.47
+## 2014-11-06    0.47
+## 2015-02-05    0.47
+## 2015-05-07    0.52
+## Name: Dividends, dtype: float64</code></pre>
+<p>Getting Splits Only</p>
+<div class="sourceCode" id="cb1918"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1918-1"><a href="finance.html#cb1918-1"></a>stock.splits</span></code></pre></div>
+<pre><code>## Date
+## 2014-06-09    7.0
+## Name: Stock Splits, dtype: float64</code></pre>
+</div>
+<div id="query-multiple-stocks-1" class="section level4" number="20.1.2.4">
+<h4 number="20.1.2.4"><span class="header-section-number">20.1.2.4</span> Query Multiple Stocks</h4>
+<ul>
+<li>**Use <code>download()</code> function to query multiple stocks.<br />
+</li>
+<li>By default, it is grouped by column. Access data in result[‘Column’][‘Symbol’]<br />
+</li>
+<li>To group by <strong>Symbol</strong>, use <code>group_by</code> parameter. With this, access data in result[‘Symbol’][‘Column’]</li>
+</ul>
+<div class="sourceCode" id="cb1920"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1920-1"><a href="finance.html#cb1920-1"></a>stocks <span class="op">=</span> [<span class="st">&#39;MLYBY&#39;</span>,<span class="st">&#39;AAPL&#39;</span>]</span>
+<span id="cb1920-2"><a href="finance.html#cb1920-2"></a>df1 <span class="op">=</span> yf.download(stocks, start<span class="op">=</span><span class="st">&#39;2014-06-06&#39;</span>, end<span class="op">=</span><span class="st">&#39;2014-06-15&#39;</span>)</span></code></pre></div>
+<pre><code>## 
+[                       0%                       ]
+[*********************100%***********************]  2 of 2 completed</code></pre>
+<div class="sourceCode" id="cb1922"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1922-1"><a href="finance.html#cb1922-1"></a>df2 <span class="op">=</span> yf.download(stocks, start<span class="op">=</span><span class="st">&#39;2014-06-06&#39;</span>, end<span class="op">=</span><span class="st">&#39;2014-06-15&#39;</span>, group_by<span class="op">=</span><span class="st">&#39;ticker&#39;</span>)</span></code></pre></div>
+<pre><code>## 
+[                       0%                       ]
+[*********************100%***********************]  2 of 2 completed</code></pre>
+<div class="sourceCode" id="cb1924"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1924-1"><a href="finance.html#cb1924-1"></a><span class="bu">print</span>(<span class="st">&#39;Group by Column Name:</span><span class="ch">\n</span><span class="st">&#39;</span>, df1[<span class="st">&#39;Close&#39;</span>][<span class="st">&#39;AAPL&#39;</span>], <span class="st">&#39;</span><span class="ch">\n\n</span><span class="st">&#39;</span>,</span>
+<span id="cb1924-2"><a href="finance.html#cb1924-2"></a>      <span class="st">&#39;Group by Symbol:     ]n&#39;</span>, df2[<span class="st">&#39;AAPL&#39;</span>][<span class="st">&#39;Close&#39;</span>])</span></code></pre></div>
+<pre><code>## Group by Column Name:
+##  Date
+## 2014-06-05    92.478569
+## 2014-06-06    92.224289
+## 2014-06-09    93.699997
+## 2014-06-10    94.250000
+## 2014-06-11    93.860001
+## 2014-06-12    92.290001
+## 2014-06-13    91.279999
+## Name: AAPL, dtype: float64 
+## 
+##  Group by Symbol:     ]n Date
+## 2014-06-05    92.478569
+## 2014-06-06    92.224289
+## 2014-06-09    93.699997
+## 2014-06-10    94.250000
+## 2014-06-11    93.860001
+## 2014-06-12    92.290001
+## 2014-06-13    91.279999
+## Name: Close, dtype: float64</code></pre>
+</div>
+</div>
+</div>
+<div id="charting" class="section level2" number="20.2">
+<h2 number="20.2"><span class="header-section-number">20.2</span> Charting</h2>
+<div id="price-comparison" class="section level3" number="20.2.1">
+<h3 number="20.2.1"><span class="header-section-number">20.2.1</span> Price Comparison</h3>
+<div class="sourceCode" id="cb1926"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1926-1"><a href="finance.html#cb1926-1"></a></span>
+<span id="cb1926-2"><a href="finance.html#cb1926-2"></a><span class="cf">for</span> i <span class="kw">in</span> my_dict.items():</span>
+<span id="cb1926-3"><a href="finance.html#cb1926-3"></a>  <span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\n\n</span><span class="st">Stock: &#39;</span>, i[<span class="dv">0</span>],</span>
+<span id="cb1926-4"><a href="finance.html#cb1926-4"></a>        <span class="st">&#39;</span><span class="ch">\n</span><span class="st">DataFrame:&#39;</span>, i[<span class="dv">1</span>])</span></code></pre></div>
+<pre><code>## 
+## 
+## Stock:  MLYBY 
+## DataFrame:               action  value
+## 2015-04-22  DIVIDEND  0.178
+## 2014-09-24  DIVIDEND  0.152
+## 2014-04-29  DIVIDEND  0.192
 ## 
 ## 
 ## Stock:  AAPL 
@@ -1294,7 +1472,6 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 2014-05-08  DIVIDEND  0.470000
 ## 2014-02-06  DIVIDEND  0.435710</code></pre>
 
-</div>
 </div>
 </div>
 </div>
