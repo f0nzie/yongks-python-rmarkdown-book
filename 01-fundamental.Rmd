@@ -1200,6 +1200,32 @@ price = 85
 
 ## For Loops
 
+### For .. Else Construct
+
+**`else`** is only executed when the for loop **completed all cycles**
+
+```{python}
+
+mylist = [1,2,3,4,5]
+
+for i in mylist:
+  print (i)
+else:
+  print('Hooray, the loop is completed successfully')
+```
+
+In below exmaple, for loop encountered **`break`**, hence the **`else`** section is not executed.
+
+```{python}
+for i in mylist:
+  if i < 4:
+    print (i)
+  else:
+    print('Oops, I am breaking out half way in the loop')
+    break
+else:
+  print('Hooray, the loop is completed successfully')
+```
 ### Loop thorugh 'range'
 
 ```{python}
@@ -1209,6 +1235,7 @@ for i in range (1,10,2):
 
 
 ### Loop through 'list'
+
 #### Standard For Loop
 
 ```{python}
@@ -1219,7 +1246,6 @@ for e in letters:
 
 
 #### List Comprehension
-
 
 Iterate through existing list, and **build new list** based on condition  
 ```new_list = [expression(i) for i in old_list]```
@@ -1241,6 +1267,7 @@ print( matching )
 
 
 ### Loop Through 'Dictionary'
+
 Looping through dict will picup **key**
 
 ```{python, jupyter_meta = list(scrolled = TRUE)}

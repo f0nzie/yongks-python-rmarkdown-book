@@ -29,7 +29,7 @@ pd.set_option( 'display.width', 90)         # number of characters per row
 
 ```{python}
 import pandas_datareader as pdr
-pdr.data.DataReader('MLYBY',
+pdr.data.DataReader('PUBM.KL',
                     start='2015-1-1', 
                     end='2019-12-31', 
                     data_source='yahoo')
@@ -102,6 +102,8 @@ for i in my_dict.items():
 
 ### `yfinance`
 
+[yFinance](https://github.com/ranaroussi/yfinance)
+
 - Support Yahoo only, **a better alternative**  
 - This library has advantage of calculating adjsuted OHLC by **split and dividends**. 
 - Dividends and Splits are conveniently incorporated into pricing dataframe, so no manual merging necessary.  
@@ -165,11 +167,20 @@ Getting Splits Only
 stock.splits
 ```
 
+#### Query Using Periods
+
+Available periods are: 1d, 5d, 1mo, 3mo, 6mo, 1y, 2y, 5y, 10y, ytd, **max**
+
+```{python}
+stock = yf.Ticker('AAPL')
+stock.history(periods='max')
+```
 #### Query Multiple Stocks
 
 - **Use `download()` function to query multiple stocks.  
 - By default, it is grouped by column. Access data in result['Column']['Symbol']  
 - To group by **Symbol**, use `group_by` parameter.  With this, access data in result['Symbol']['Column']  
+- By default, `threads=True` for parallel downloading.
 
 ```{python}
 stocks = ['MLYBY','AAPL']
@@ -180,14 +191,46 @@ print('Group by Column Name:\n', df1['Close']['AAPL'], '\n\n',
       'Group by Symbol:     ]n', df2['AAPL']['Close'])
 ```
 
+
+### `world trading`
+
+#### OHLC EOD Pricing
+
+```{python}
+
+```
+
+
 ## Charting
+
+```{python}
+import cufflinks as cf  # Cufflinks
+#cf.set_config_file(offline=True)  # set the plotting mode to offline
+```
+
 
 ### Price Comparison
 
 ```{python}
+stocks = ['AAPL','MLYBY', 'PUBM.KL', 'HLFBF','1295.KL']
+df = yf.download(stocks, start='2019-01-01', end='2019-12-31')
+df['Close']
+df.iplot()
+```
+```{python}
+stock = yf.Ticker('PUBM.KL')
+#stock.history(periods='max')
+stock.history(  start='2014-06-06', end='2015-06-15', auto_adjust = True)
+```
 
-for i in my_dict.items():
-  print('\n\nStock: ', i[0],
-        '\nDataFrame:', i[1])
+```{python}
+stock = yf.Ticker('1295.KL')
+stock.history(  start='2014-06-06', end='2015-06-15', auto_adjust = True)
+```
+
+```{python}
+stocks = ['1295.KL']
+df = yf.download('1295.KL', start='2018-12-03', end='2019-03-21')
+df
 ```
 

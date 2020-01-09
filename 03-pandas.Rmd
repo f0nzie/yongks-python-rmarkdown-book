@@ -1982,6 +1982,28 @@ df  ## notice row label 100 had not been updated, because data was updated on a 
 ```
 
 
+### Iteration
+
+#### `.iterrows()` loop through every **ROW**
+
+```{python}
+df = pd.DataFrame(data=
+    { 'empID':  [100,      101,    102,      103,     104],
+      'Name':   ['Alice',  'Bob',  'Charles','David', 'Eric'],
+      'Year':   [1999,     1988,   2001,     2010,     2020]}).set_index(['empID'])
+
+for idx, row in df.iterrows():
+  print(idx, row.Name)
+```
+
+#### `.items()` loop through every **Column**
+
+```{python}
+for label, content in df.items():
+  print('Label:',            label,   '\n\n', 
+        'Content (Series):\n', content, '\n\n')
+```
+
 ### Data Structure
 
 
