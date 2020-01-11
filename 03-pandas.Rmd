@@ -2034,6 +2034,86 @@ df.to_csv()
 ```
 
 
+### MultiIndexing
+
+#### The Data
+
+```{python}
+df = pd.DataFrame({'myindex': [0, 1, 2],
+     'One_X': [1.1, 1.1, 1.1],
+     'One_Y': [1.2, 1.2, 1.2],
+     'Two_X': [1.11, 1.11, 1.11],
+     'Two_Y': [1.22, 1.22, 1.22]})
+df.set_index('myindex',inplace=True)
+df
+```
+
+#### Creating Multilevle headers
+
+Break each column headers into tuples.  Then, use **`MultiIndex.from_tuples()`** to convert the dataframe into  multiple levels.  The **`.columns`** property is a **MultiIndex** object.
+
+
+```{python}
+my_tuples = [tuple(c.split('_')) for c in df.columns]
+df.columns = pd.MultiIndex.from_tuples(my_tuples)
+
+print(' Column Headers :\n\n ', my_tuples, '\n\n',
+        'Two Layers Header DF: \n\n', df, '\n\n',
+        'Columns:\n\n', df.columns)
+```
+#### `MultiIndex` object
+
+Each level (header) is an index object, use **`MultiIndex.get_level_values()`** to get each level value.
+
+```{python}
+print(df.columns.get_level_values(0), '\n',
+      df.columns.get_level_values(1))
+```
+
+The above is similar to below, using **`MultiIndex.levels`** property.
+
+```{python}
+print(df.columns.levels[0], '\n',
+      df.columns.levels[1])
+```
+
+```{python}
+df.stack()
+```
+
+#### Selecting Column(s)
+
+There are two methods to select specific **level 0** columns
+
+```{python}
+df.loc[ : , ['One']]
+
+All = slice(None)
+df.loc[ : , ('Two', All)]
+```
+
+Select **specific level 2 columns**  
+
+```{python}
+All = slice(None)
+df.loc[ : , (All, ['Y'])]
+```
+
+Select specifc level0 and level1 columns
+
+```{python}
+All = slice(None)
+df.loc[ : , (['Two'], ['Y'])]
+```
+#### Stacking
+
+Stacking with **`DataFrame.stack(level_no)`** is moving wide columns into row.
+
+```{python}
+print('Stacking Header Level 0: \n\n', df.stack(0),
+      '\n\nStacking Header Level 1: \n\n', df.stack(1))
+```
+
 ### Exploratory Analysis
 
 
