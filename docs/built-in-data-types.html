@@ -220,6 +220,18 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="2.4.1" data-path="built-in-data-types.html"><a href="built-in-data-types.html#none-is-an-object"><i class="fa fa-check"></i><b>2.4.1</b> None is an Object</a></li>
 <li class="chapter" data-level="2.4.2" data-path="built-in-data-types.html"><a href="built-in-data-types.html#comparing-none"><i class="fa fa-check"></i><b>2.4.2</b> Comparing None</a></li>
+<li class="chapter" data-level="2.4.3" data-path="built-in-data-types.html"><a href="built-in-data-types.html#operation-on-none"><i class="fa fa-check"></i><b>2.4.3</b> Operation on None</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="built-in-data-types.html"><a href="built-in-data-types.html#nan"><i class="fa fa-check"></i><b>2.5</b> NaN</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="built-in-data-types.html"><a href="built-in-data-types.html#creating-nan"><i class="fa fa-check"></i><b>2.5.1</b> Creating NaN</a></li>
+<li class="chapter" data-level="2.5.2" data-path="built-in-data-types.html"><a href="built-in-data-types.html#detecting-nan"><i class="fa fa-check"></i><b>2.5.2</b> Detecting NaN</a></li>
+<li class="chapter" data-level="2.5.3" data-path="built-in-data-types.html"><a href="built-in-data-types.html#operation"><i class="fa fa-check"></i><b>2.5.3</b> Operation</a>
+<ul>
+<li class="chapter" data-level="2.5.3.1" data-path="built-in-data-types.html"><a href="built-in-data-types.html#logical-operator"><i class="fa fa-check"></i><b>2.5.3.1</b> Logical Operator</a></li>
+<li class="chapter" data-level="2.5.3.2" data-path="built-in-data-types.html"><a href="built-in-data-types.html#comparing"><i class="fa fa-check"></i><b>2.5.3.2</b> Comparing</a></li>
+<li class="chapter" data-level="2.5.3.3" data-path="built-in-data-types.html"><a href="built-in-data-types.html#casting"><i class="fa fa-check"></i><b>2.5.3.3</b> Casting</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html"><i class="fa fa-check"></i><b>3</b> Built-In Data Structure</a>
@@ -746,31 +758,37 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.7.9.3" data-path="pandas-1.html"><a href="pandas-1.html#getting-multiple-cells"><i class="fa fa-check"></i><b>13.7.9.3</b> Getting Multiple Cells</a></li>
 </ul></li>
 <li class="chapter" data-level="13.7.10" data-path="pandas-1.html"><a href="pandas-1.html#chained-indexing"><i class="fa fa-check"></i><b>13.7.10</b> Chained Indexing</a></li>
-<li class="chapter" data-level="13.7.11" data-path="pandas-1.html"><a href="pandas-1.html#iteration"><i class="fa fa-check"></i><b>13.7.11</b> Iteration</a>
+<li class="chapter" data-level="13.7.11" data-path="pandas-1.html"><a href="pandas-1.html#cell-value-replacement"><i class="fa fa-check"></i><b>13.7.11</b> Cell Value Replacement</a>
 <ul>
-<li class="chapter" data-level="13.7.11.1" data-path="pandas-1.html"><a href="pandas-1.html#iterrows-loop-through-every-row"><i class="fa fa-check"></i><b>13.7.11.1</b> <code>.iterrows()</code> loop through every <strong>ROW</strong></a></li>
-<li class="chapter" data-level="13.7.11.2" data-path="pandas-1.html"><a href="pandas-1.html#items-loop-through-every-column"><i class="fa fa-check"></i><b>13.7.11.2</b> <code>.items()</code> loop through every <strong>Column</strong></a></li>
+<li class="chapter" data-level="13.7.11.1" data-path="pandas-1.html"><a href="pandas-1.html#mask"><i class="fa fa-check"></i><b>13.7.11.1</b> <code>mask()</code></a></li>
+<li class="chapter" data-level="13.7.11.2" data-path="pandas-1.html"><a href="pandas-1.html#where-1"><i class="fa fa-check"></i><b>13.7.11.2</b> <code>where()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.12" data-path="pandas-1.html"><a href="pandas-1.html#data-structure"><i class="fa fa-check"></i><b>13.7.12</b> Data Structure</a>
+<li class="chapter" data-level="13.7.12" data-path="pandas-1.html"><a href="pandas-1.html#iteration"><i class="fa fa-check"></i><b>13.7.12</b> Iteration</a>
 <ul>
-<li class="chapter" data-level="13.7.12.1" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods---structure"><i class="fa fa-check"></i><b>13.7.12.1</b> Instance Methods - Structure</a></li>
-<li class="chapter" data-level="13.7.12.2" data-path="pandas-1.html"><a href="pandas-1.html#conversion-to-other-format"><i class="fa fa-check"></i><b>13.7.12.2</b> Conversion To Other Format</a></li>
+<li class="chapter" data-level="13.7.12.1" data-path="pandas-1.html"><a href="pandas-1.html#iterrows-loop-through-every-row"><i class="fa fa-check"></i><b>13.7.12.1</b> <code>.iterrows()</code> loop through every <strong>ROW</strong></a></li>
+<li class="chapter" data-level="13.7.12.2" data-path="pandas-1.html"><a href="pandas-1.html#items-loop-through-every-column"><i class="fa fa-check"></i><b>13.7.12.2</b> <code>.items()</code> loop through every <strong>Column</strong></a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.13" data-path="pandas-1.html"><a href="pandas-1.html#multiindexing"><i class="fa fa-check"></i><b>13.7.13</b> MultiIndexing</a>
+<li class="chapter" data-level="13.7.13" data-path="pandas-1.html"><a href="pandas-1.html#data-structure"><i class="fa fa-check"></i><b>13.7.13</b> Data Structure</a>
 <ul>
-<li class="chapter" data-level="13.7.13.1" data-path="pandas-1.html"><a href="pandas-1.html#the-data-2"><i class="fa fa-check"></i><b>13.7.13.1</b> The Data</a></li>
-<li class="chapter" data-level="13.7.13.2" data-path="pandas-1.html"><a href="pandas-1.html#creating-multiindex-columns"><i class="fa fa-check"></i><b>13.7.13.2</b> Creating MultiIndex Columns</a></li>
-<li class="chapter" data-level="13.7.13.3" data-path="pandas-1.html"><a href="pandas-1.html#multiindex-object"><i class="fa fa-check"></i><b>13.7.13.3</b> <code>MultiIndex</code> object</a></li>
-<li class="chapter" data-level="13.7.13.4" data-path="pandas-1.html"><a href="pandas-1.html#selecting-columns"><i class="fa fa-check"></i><b>13.7.13.4</b> Selecting Column(s)</a></li>
-<li class="chapter" data-level="13.7.13.5" data-path="pandas-1.html"><a href="pandas-1.html#stacking-columns-to-rows"><i class="fa fa-check"></i><b>13.7.13.5</b> Stacking Columns to Rows</a></li>
+<li class="chapter" data-level="13.7.13.1" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods---structure"><i class="fa fa-check"></i><b>13.7.13.1</b> Instance Methods - Structure</a></li>
+<li class="chapter" data-level="13.7.13.2" data-path="pandas-1.html"><a href="pandas-1.html#conversion-to-other-format"><i class="fa fa-check"></i><b>13.7.13.2</b> Conversion To Other Format</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.14" data-path="pandas-1.html"><a href="pandas-1.html#exploratory-analysis"><i class="fa fa-check"></i><b>13.7.14</b> Exploratory Analysis</a>
+<li class="chapter" data-level="13.7.14" data-path="pandas-1.html"><a href="pandas-1.html#multiindexing"><i class="fa fa-check"></i><b>13.7.14</b> MultiIndexing</a>
 <ul>
-<li class="chapter" data-level="13.7.14.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-11"><i class="fa fa-check"></i><b>13.7.14.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.7.14.2" data-path="pandas-1.html"><a href="pandas-1.html#all-stats-in-one---.describe"><i class="fa fa-check"></i><b>13.7.14.2</b> All Stats in One - .describe()</a></li>
-<li class="chapter" data-level="13.7.14.3" data-path="pandas-1.html"><a href="pandas-1.html#minmaxmeanmedian"><i class="fa fa-check"></i><b>13.7.14.3</b> min/max/mean/median</a></li>
+<li class="chapter" data-level="13.7.14.1" data-path="pandas-1.html"><a href="pandas-1.html#the-data-2"><i class="fa fa-check"></i><b>13.7.14.1</b> The Data</a></li>
+<li class="chapter" data-level="13.7.14.2" data-path="pandas-1.html"><a href="pandas-1.html#creating-multiindex-columns"><i class="fa fa-check"></i><b>13.7.14.2</b> Creating MultiIndex Columns</a></li>
+<li class="chapter" data-level="13.7.14.3" data-path="pandas-1.html"><a href="pandas-1.html#multiindex-object"><i class="fa fa-check"></i><b>13.7.14.3</b> <code>MultiIndex</code> object</a></li>
+<li class="chapter" data-level="13.7.14.4" data-path="pandas-1.html"><a href="pandas-1.html#selecting-columns"><i class="fa fa-check"></i><b>13.7.14.4</b> Selecting Column(s)</a></li>
+<li class="chapter" data-level="13.7.14.5" data-path="pandas-1.html"><a href="pandas-1.html#sorting-multiindex"><i class="fa fa-check"></i><b>13.7.14.5</b> Sorting MultiIndex</a></li>
+<li class="chapter" data-level="13.7.14.6" data-path="pandas-1.html"><a href="pandas-1.html#stacking-columns-to-rows"><i class="fa fa-check"></i><b>13.7.14.6</b> Stacking Columns to Rows</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.15" data-path="pandas-1.html"><a href="pandas-1.html#plotting"><i class="fa fa-check"></i><b>13.7.15</b> Plotting</a></li>
+<li class="chapter" data-level="13.7.15" data-path="pandas-1.html"><a href="pandas-1.html#exploratory-analysis"><i class="fa fa-check"></i><b>13.7.15</b> Exploratory Analysis</a>
+<ul>
+<li class="chapter" data-level="13.7.15.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-11"><i class="fa fa-check"></i><b>13.7.15.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.7.15.2" data-path="pandas-1.html"><a href="pandas-1.html#all-stats-in-one---.describe"><i class="fa fa-check"></i><b>13.7.15.2</b> All Stats in One - .describe()</a></li>
+<li class="chapter" data-level="13.7.15.3" data-path="pandas-1.html"><a href="pandas-1.html#minmaxmeanmedian"><i class="fa fa-check"></i><b>13.7.15.3</b> min/max/mean/median</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7.16" data-path="pandas-1.html"><a href="pandas-1.html#plotting"><i class="fa fa-check"></i><b>13.7.16</b> Plotting</a></li>
 </ul></li>
 <li class="chapter" data-level="13.8" data-path="pandas-1.html"><a href="pandas-1.html#class-categories"><i class="fa fa-check"></i><b>13.8</b> class: Categories</a>
 <ul>
@@ -1299,13 +1317,13 @@ Remainder by float return <strong>float</strong></p>
 <div class="sourceCode" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb46-1"><a href="built-in-data-types.html#cb46-1"></a>s <span class="op">=</span> <span class="st">&#39;abcde&#39;</span></span>
 <span id="cb46-2"><a href="built-in-data-types.html#cb46-2"></a><span class="bu">print</span> (<span class="st">&#39;s : &#39;</span>, <span class="bu">id</span>(s))</span>
 <span id="cb46-3"><a href="built-in-data-types.html#cb46-3"></a><span class="co">#s[1] = &#39;z&#39;               # immutable, result in error</span></span></code></pre></div>
-<pre><code>## s :  701097048</code></pre>
+<pre><code>## s :  692250416</code></pre>
 <ul>
 <li>Changing the variable completley change the reference (for new object)</li>
 </ul>
 <div class="sourceCode" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb48-1"><a href="built-in-data-types.html#cb48-1"></a>s <span class="op">=</span> <span class="st">&#39;efgh&#39;</span></span>
 <span id="cb48-2"><a href="built-in-data-types.html#cb48-2"></a><span class="bu">print</span> (<span class="st">&#39;s : &#39;</span>, <span class="bu">id</span>(s))</span></code></pre></div>
-<pre><code>## s :  701125720</code></pre>
+<pre><code>## s :  692219048</code></pre>
 </div>
 </div>
 <div id="class-constants" class="section level3" number="2.2.2">
@@ -1455,8 +1473,8 @@ For partial match, workaround is to <strong>convert list to single string</stron
 <span id="cb105-3"><a href="built-in-data-types.html#cb105-3"></a><span class="bu">print</span>(<span class="st">&#39;id(a) = &#39;</span>, <span class="bu">id</span>(a), </span>
 <span id="cb105-4"><a href="built-in-data-types.html#cb105-4"></a>      <span class="st">&#39;</span><span class="ch">\n</span><span class="st">id(b) = &#39;</span>, <span class="bu">id</span>(b),</span>
 <span id="cb105-5"><a href="built-in-data-types.html#cb105-5"></a>      <span class="st">&#39;</span><span class="ch">\n</span><span class="st">a == b  &#39;</span>, a<span class="op">==</span>b)</span></code></pre></div>
-<pre><code>## id(a) =  546109624 
-## id(b) =  546109624 
+<pre><code>## id(a) =  537524408 
+## id(b) =  537524408 
 ## a == b   True</code></pre>
 </div>
 </div>
@@ -1560,27 +1578,93 @@ For partial match, workaround is to <strong>convert list to single string</stron
 </ul>
 <div class="sourceCode" id="cb145"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb145-1"><a href="built-in-data-types.html#cb145-1"></a><span class="bu">type</span>(<span class="va">None</span>)</span></code></pre></div>
 <pre><code>## &lt;class &#39;NoneType&#39;&gt;</code></pre>
-<div class="sourceCode" id="cb147"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb147-1"><a href="built-in-data-types.html#cb147-1"></a>t <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>])</span>
-<span id="cb147-2"><a href="built-in-data-types.html#cb147-2"></a>t.dtype  <span class="co">#  its an integer</span></span></code></pre></div>
-<pre><code>## dtype(&#39;int32&#39;)</code></pre>
-<div class="sourceCode" id="cb149"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb149-1"><a href="built-in-data-types.html#cb149-1"></a>t1 <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
-<span id="cb149-2"><a href="built-in-data-types.html#cb149-2"></a>t <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="va">None</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
-<span id="cb149-3"><a href="built-in-data-types.html#cb149-3"></a>t.dtype      <span class="co"># it&#39;s an object</span></span></code></pre></div>
-<pre><code>## dtype(&#39;O&#39;)</code></pre>
-<div class="sourceCode" id="cb151"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb151-1"><a href="built-in-data-types.html#cb151-1"></a>t1.dtype</span></code></pre></div>
-<pre><code>## dtype(&#39;int32&#39;)</code></pre>
+<div class="sourceCode" id="cb147"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb147-1"><a href="built-in-data-types.html#cb147-1"></a>t1 <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
+<span id="cb147-2"><a href="built-in-data-types.html#cb147-2"></a>t2<span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="va">None</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
+<span id="cb147-3"><a href="built-in-data-types.html#cb147-3"></a><span class="bu">print</span>( t1.dtype  , <span class="st">&#39;</span><span class="ch">\n\n</span><span class="st">&#39;</span>,    <span class="co"># it&#39;s an object</span></span>
+<span id="cb147-4"><a href="built-in-data-types.html#cb147-4"></a>       t2.dtype)</span></code></pre></div>
+<pre><code>## int32 
+## 
+##  object</code></pre>
 </div>
 <div id="comparing-none" class="section level3" number="2.4.2">
 <h3 number="2.4.2"><span class="header-section-number">2.4.2</span> Comparing None</h3>
 <p><strong>Not Prefered Method</strong></p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb153-1"><a href="built-in-data-types.html#cb153-1"></a>null_variable <span class="op">=</span> <span class="va">None</span></span>
-<span id="cb153-2"><a href="built-in-data-types.html#cb153-2"></a><span class="bu">print</span>( null_variable <span class="op">==</span> <span class="va">None</span> )</span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb149-1"><a href="built-in-data-types.html#cb149-1"></a>null_variable <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb149-2"><a href="built-in-data-types.html#cb149-2"></a><span class="bu">print</span>( null_variable <span class="op">==</span> <span class="va">None</span> )</span></code></pre></div>
 <pre><code>## True</code></pre>
 <p><strong>Prefered</strong></p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb155-1"><a href="built-in-data-types.html#cb155-1"></a><span class="bu">print</span>( null_variable <span class="kw">is</span> <span class="va">None</span> )</span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb151-1"><a href="built-in-data-types.html#cb151-1"></a><span class="bu">print</span>( null_variable <span class="kw">is</span> <span class="va">None</span> )</span></code></pre></div>
 <pre><code>## True</code></pre>
-<div class="sourceCode" id="cb157"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb157-1"><a href="built-in-data-types.html#cb157-1"></a><span class="bu">print</span>( null_variable <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span> )</span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb153-1"><a href="built-in-data-types.html#cb153-1"></a><span class="bu">print</span>( null_variable <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span> )</span></code></pre></div>
 <pre><code>## False</code></pre>
+</div>
+<div id="operation-on-none" class="section level3" number="2.4.3">
+<h3 number="2.4.3"><span class="header-section-number">2.4.3</span> Operation on None</h3>
+<p>Any operator (except <code>is</code>) on None results in error.</p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb155-1"><a href="built-in-data-types.html#cb155-1"></a><span class="va">None</span> <span class="op">&amp;</span> <span class="va">None</span></span></code></pre></div>
+<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): TypeError: unsupported operand type(s) for &amp;: &#39;NoneType&#39; and &#39;NoneType&#39;
+## 
+## Detailed traceback: 
+##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
+</div>
+</div>
+<div id="nan" class="section level2" number="2.5">
+<h2 number="2.5"><span class="header-section-number">2.5</span> NaN</h2>
+<div id="creating-nan" class="section level3" number="2.5.1">
+<h3 number="2.5.1"><span class="header-section-number">2.5.1</span> Creating NaN</h3>
+<p>NaN is <strong>not a number</strong>. HOWEVER, It isan numpy <strong>float</strong> object type. Can be created using two methods below.</p>
+<div class="sourceCode" id="cb157"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb157-1"><a href="built-in-data-types.html#cb157-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb157-2"><a href="built-in-data-types.html#cb157-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb157-3"><a href="built-in-data-types.html#cb157-3"></a><span class="im">import</span> math</span>
+<span id="cb157-4"><a href="built-in-data-types.html#cb157-4"></a></span>
+<span id="cb157-5"><a href="built-in-data-types.html#cb157-5"></a>kosong1 <span class="op">=</span> <span class="bu">float</span>(<span class="st">&#39;NaN&#39;</span>)</span>
+<span id="cb157-6"><a href="built-in-data-types.html#cb157-6"></a>kosong2 <span class="op">=</span> np.nan</span>
+<span id="cb157-7"><a href="built-in-data-types.html#cb157-7"></a></span>
+<span id="cb157-8"><a href="built-in-data-types.html#cb157-8"></a><span class="bu">print</span>(<span class="st">&#39;Type: &#39;</span>, <span class="bu">type</span>(kosong1), <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</span>
+<span id="cb157-9"><a href="built-in-data-types.html#cb157-9"></a>       <span class="st">&#39;Value: &#39;</span>, kosong1)</span></code></pre></div>
+<pre><code>## Type:  &lt;class &#39;float&#39;&gt; 
+##  Value:  nan</code></pre>
+<div class="sourceCode" id="cb159"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb159-1"><a href="built-in-data-types.html#cb159-1"></a><span class="bu">print</span>(<span class="st">&#39;Type: &#39;</span>, <span class="bu">type</span>(kosong2), <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</span>
+<span id="cb159-2"><a href="built-in-data-types.html#cb159-2"></a>       <span class="st">&#39;Value: &#39;</span>, kosong2)</span></code></pre></div>
+<pre><code>## Type:  &lt;class &#39;float&#39;&gt; 
+##  Value:  nan</code></pre>
+</div>
+<div id="detecting-nan" class="section level3" number="2.5.2">
+<h3 number="2.5.2"><span class="header-section-number">2.5.2</span> Detecting NaN</h3>
+<p>Detect nan using various function from panda, numpy and math.</p>
+<div class="sourceCode" id="cb161"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb161-1"><a href="built-in-data-types.html#cb161-1"></a><span class="bu">print</span>(pd.isna(kosong1), <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</span>
+<span id="cb161-2"><a href="built-in-data-types.html#cb161-2"></a>      pd.isna(kosong2), <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</span>
+<span id="cb161-3"><a href="built-in-data-types.html#cb161-3"></a>      np.isnan(kosong1),<span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</span>
+<span id="cb161-4"><a href="built-in-data-types.html#cb161-4"></a>      math.isnan(kosong2))</span></code></pre></div>
+<pre><code>## True 
+##  True 
+##  True 
+##  True</code></pre>
+</div>
+<div id="operation" class="section level3" number="2.5.3">
+<h3 number="2.5.3"><span class="header-section-number">2.5.3</span> Operation</h3>
+<div id="logical-operator" class="section level4" number="2.5.3.1">
+<h4 number="2.5.3.1"><span class="header-section-number">2.5.3.1</span> Logical Operator</h4>
+<div class="sourceCode" id="cb163"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb163-1"><a href="built-in-data-types.html#cb163-1"></a><span class="bu">print</span>( <span class="va">True</span> <span class="kw">and</span> kosong1,</span>
+<span id="cb163-2"><a href="built-in-data-types.html#cb163-2"></a>       kosong1 <span class="kw">and</span> <span class="va">True</span>)</span></code></pre></div>
+<pre><code>## nan True</code></pre>
+<div class="sourceCode" id="cb165"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb165-1"><a href="built-in-data-types.html#cb165-1"></a><span class="bu">print</span>( <span class="va">True</span> <span class="kw">or</span> kosong1,</span>
+<span id="cb165-2"><a href="built-in-data-types.html#cb165-2"></a>       <span class="va">False</span> <span class="kw">or</span> kosong1)</span></code></pre></div>
+<pre><code>## True nan</code></pre>
+</div>
+<div id="comparing" class="section level4" number="2.5.3.2">
+<h4 number="2.5.3.2"><span class="header-section-number">2.5.3.2</span> Comparing</h4>
+<p>Compare nan with <strong>anything results in False</strong>, including itself.</p>
+<div class="sourceCode" id="cb167"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb167-1"><a href="built-in-data-types.html#cb167-1"></a><span class="bu">print</span>(kosong1 <span class="op">&gt;</span> <span class="dv">0</span>, kosong1<span class="op">==</span><span class="dv">0</span>, kosong1<span class="op">&lt;</span><span class="dv">0</span>,</span>
+<span id="cb167-2"><a href="built-in-data-types.html#cb167-2"></a>      kosong1 <span class="op">==</span><span class="dv">1</span>, kosong1<span class="op">==</span>kosong1, kosong1<span class="op">==</span><span class="va">False</span>, kosong1<span class="op">==</span><span class="va">True</span>)</span></code></pre></div>
+<pre><code>## False False False False False False False</code></pre>
+</div>
+<div id="casting" class="section level4" number="2.5.3.3">
+<h4 number="2.5.3.3"><span class="header-section-number">2.5.3.3</span> Casting</h4>
+<p>nan is numpy floating value. It is not a zero value, therefore casting to boolean returns True.</p>
+<div class="sourceCode" id="cb169"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb169-1"><a href="built-in-data-types.html#cb169-1"></a><span class="bu">bool</span>(kosong1)</span></code></pre></div>
+<pre><code>## True</code></pre>
+</div>
 </div>
 </div>
 </div>

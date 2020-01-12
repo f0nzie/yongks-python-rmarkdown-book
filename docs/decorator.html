@@ -220,6 +220,18 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="2.4.1" data-path="built-in-data-types.html"><a href="built-in-data-types.html#none-is-an-object"><i class="fa fa-check"></i><b>2.4.1</b> None is an Object</a></li>
 <li class="chapter" data-level="2.4.2" data-path="built-in-data-types.html"><a href="built-in-data-types.html#comparing-none"><i class="fa fa-check"></i><b>2.4.2</b> Comparing None</a></li>
+<li class="chapter" data-level="2.4.3" data-path="built-in-data-types.html"><a href="built-in-data-types.html#operation-on-none"><i class="fa fa-check"></i><b>2.4.3</b> Operation on None</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="built-in-data-types.html"><a href="built-in-data-types.html#nan"><i class="fa fa-check"></i><b>2.5</b> NaN</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="built-in-data-types.html"><a href="built-in-data-types.html#creating-nan"><i class="fa fa-check"></i><b>2.5.1</b> Creating NaN</a></li>
+<li class="chapter" data-level="2.5.2" data-path="built-in-data-types.html"><a href="built-in-data-types.html#detecting-nan"><i class="fa fa-check"></i><b>2.5.2</b> Detecting NaN</a></li>
+<li class="chapter" data-level="2.5.3" data-path="built-in-data-types.html"><a href="built-in-data-types.html#operation"><i class="fa fa-check"></i><b>2.5.3</b> Operation</a>
+<ul>
+<li class="chapter" data-level="2.5.3.1" data-path="built-in-data-types.html"><a href="built-in-data-types.html#logical-operator"><i class="fa fa-check"></i><b>2.5.3.1</b> Logical Operator</a></li>
+<li class="chapter" data-level="2.5.3.2" data-path="built-in-data-types.html"><a href="built-in-data-types.html#comparing"><i class="fa fa-check"></i><b>2.5.3.2</b> Comparing</a></li>
+<li class="chapter" data-level="2.5.3.3" data-path="built-in-data-types.html"><a href="built-in-data-types.html#casting"><i class="fa fa-check"></i><b>2.5.3.3</b> Casting</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html"><i class="fa fa-check"></i><b>3</b> Built-In Data Structure</a>
@@ -746,31 +758,37 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.7.9.3" data-path="pandas-1.html"><a href="pandas-1.html#getting-multiple-cells"><i class="fa fa-check"></i><b>13.7.9.3</b> Getting Multiple Cells</a></li>
 </ul></li>
 <li class="chapter" data-level="13.7.10" data-path="pandas-1.html"><a href="pandas-1.html#chained-indexing"><i class="fa fa-check"></i><b>13.7.10</b> Chained Indexing</a></li>
-<li class="chapter" data-level="13.7.11" data-path="pandas-1.html"><a href="pandas-1.html#iteration"><i class="fa fa-check"></i><b>13.7.11</b> Iteration</a>
+<li class="chapter" data-level="13.7.11" data-path="pandas-1.html"><a href="pandas-1.html#cell-value-replacement"><i class="fa fa-check"></i><b>13.7.11</b> Cell Value Replacement</a>
 <ul>
-<li class="chapter" data-level="13.7.11.1" data-path="pandas-1.html"><a href="pandas-1.html#iterrows-loop-through-every-row"><i class="fa fa-check"></i><b>13.7.11.1</b> <code>.iterrows()</code> loop through every <strong>ROW</strong></a></li>
-<li class="chapter" data-level="13.7.11.2" data-path="pandas-1.html"><a href="pandas-1.html#items-loop-through-every-column"><i class="fa fa-check"></i><b>13.7.11.2</b> <code>.items()</code> loop through every <strong>Column</strong></a></li>
+<li class="chapter" data-level="13.7.11.1" data-path="pandas-1.html"><a href="pandas-1.html#mask"><i class="fa fa-check"></i><b>13.7.11.1</b> <code>mask()</code></a></li>
+<li class="chapter" data-level="13.7.11.2" data-path="pandas-1.html"><a href="pandas-1.html#where-1"><i class="fa fa-check"></i><b>13.7.11.2</b> <code>where()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.12" data-path="pandas-1.html"><a href="pandas-1.html#data-structure"><i class="fa fa-check"></i><b>13.7.12</b> Data Structure</a>
+<li class="chapter" data-level="13.7.12" data-path="pandas-1.html"><a href="pandas-1.html#iteration"><i class="fa fa-check"></i><b>13.7.12</b> Iteration</a>
 <ul>
-<li class="chapter" data-level="13.7.12.1" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods---structure"><i class="fa fa-check"></i><b>13.7.12.1</b> Instance Methods - Structure</a></li>
-<li class="chapter" data-level="13.7.12.2" data-path="pandas-1.html"><a href="pandas-1.html#conversion-to-other-format"><i class="fa fa-check"></i><b>13.7.12.2</b> Conversion To Other Format</a></li>
+<li class="chapter" data-level="13.7.12.1" data-path="pandas-1.html"><a href="pandas-1.html#iterrows-loop-through-every-row"><i class="fa fa-check"></i><b>13.7.12.1</b> <code>.iterrows()</code> loop through every <strong>ROW</strong></a></li>
+<li class="chapter" data-level="13.7.12.2" data-path="pandas-1.html"><a href="pandas-1.html#items-loop-through-every-column"><i class="fa fa-check"></i><b>13.7.12.2</b> <code>.items()</code> loop through every <strong>Column</strong></a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.13" data-path="pandas-1.html"><a href="pandas-1.html#multiindexing"><i class="fa fa-check"></i><b>13.7.13</b> MultiIndexing</a>
+<li class="chapter" data-level="13.7.13" data-path="pandas-1.html"><a href="pandas-1.html#data-structure"><i class="fa fa-check"></i><b>13.7.13</b> Data Structure</a>
 <ul>
-<li class="chapter" data-level="13.7.13.1" data-path="pandas-1.html"><a href="pandas-1.html#the-data-2"><i class="fa fa-check"></i><b>13.7.13.1</b> The Data</a></li>
-<li class="chapter" data-level="13.7.13.2" data-path="pandas-1.html"><a href="pandas-1.html#creating-multiindex-columns"><i class="fa fa-check"></i><b>13.7.13.2</b> Creating MultiIndex Columns</a></li>
-<li class="chapter" data-level="13.7.13.3" data-path="pandas-1.html"><a href="pandas-1.html#multiindex-object"><i class="fa fa-check"></i><b>13.7.13.3</b> <code>MultiIndex</code> object</a></li>
-<li class="chapter" data-level="13.7.13.4" data-path="pandas-1.html"><a href="pandas-1.html#selecting-columns"><i class="fa fa-check"></i><b>13.7.13.4</b> Selecting Column(s)</a></li>
-<li class="chapter" data-level="13.7.13.5" data-path="pandas-1.html"><a href="pandas-1.html#stacking-columns-to-rows"><i class="fa fa-check"></i><b>13.7.13.5</b> Stacking Columns to Rows</a></li>
+<li class="chapter" data-level="13.7.13.1" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods---structure"><i class="fa fa-check"></i><b>13.7.13.1</b> Instance Methods - Structure</a></li>
+<li class="chapter" data-level="13.7.13.2" data-path="pandas-1.html"><a href="pandas-1.html#conversion-to-other-format"><i class="fa fa-check"></i><b>13.7.13.2</b> Conversion To Other Format</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.14" data-path="pandas-1.html"><a href="pandas-1.html#exploratory-analysis"><i class="fa fa-check"></i><b>13.7.14</b> Exploratory Analysis</a>
+<li class="chapter" data-level="13.7.14" data-path="pandas-1.html"><a href="pandas-1.html#multiindexing"><i class="fa fa-check"></i><b>13.7.14</b> MultiIndexing</a>
 <ul>
-<li class="chapter" data-level="13.7.14.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-11"><i class="fa fa-check"></i><b>13.7.14.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.7.14.2" data-path="pandas-1.html"><a href="pandas-1.html#all-stats-in-one---.describe"><i class="fa fa-check"></i><b>13.7.14.2</b> All Stats in One - .describe()</a></li>
-<li class="chapter" data-level="13.7.14.3" data-path="pandas-1.html"><a href="pandas-1.html#minmaxmeanmedian"><i class="fa fa-check"></i><b>13.7.14.3</b> min/max/mean/median</a></li>
+<li class="chapter" data-level="13.7.14.1" data-path="pandas-1.html"><a href="pandas-1.html#the-data-2"><i class="fa fa-check"></i><b>13.7.14.1</b> The Data</a></li>
+<li class="chapter" data-level="13.7.14.2" data-path="pandas-1.html"><a href="pandas-1.html#creating-multiindex-columns"><i class="fa fa-check"></i><b>13.7.14.2</b> Creating MultiIndex Columns</a></li>
+<li class="chapter" data-level="13.7.14.3" data-path="pandas-1.html"><a href="pandas-1.html#multiindex-object"><i class="fa fa-check"></i><b>13.7.14.3</b> <code>MultiIndex</code> object</a></li>
+<li class="chapter" data-level="13.7.14.4" data-path="pandas-1.html"><a href="pandas-1.html#selecting-columns"><i class="fa fa-check"></i><b>13.7.14.4</b> Selecting Column(s)</a></li>
+<li class="chapter" data-level="13.7.14.5" data-path="pandas-1.html"><a href="pandas-1.html#sorting-multiindex"><i class="fa fa-check"></i><b>13.7.14.5</b> Sorting MultiIndex</a></li>
+<li class="chapter" data-level="13.7.14.6" data-path="pandas-1.html"><a href="pandas-1.html#stacking-columns-to-rows"><i class="fa fa-check"></i><b>13.7.14.6</b> Stacking Columns to Rows</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.15" data-path="pandas-1.html"><a href="pandas-1.html#plotting"><i class="fa fa-check"></i><b>13.7.15</b> Plotting</a></li>
+<li class="chapter" data-level="13.7.15" data-path="pandas-1.html"><a href="pandas-1.html#exploratory-analysis"><i class="fa fa-check"></i><b>13.7.15</b> Exploratory Analysis</a>
+<ul>
+<li class="chapter" data-level="13.7.15.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-11"><i class="fa fa-check"></i><b>13.7.15.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.7.15.2" data-path="pandas-1.html"><a href="pandas-1.html#all-stats-in-one---.describe"><i class="fa fa-check"></i><b>13.7.15.2</b> All Stats in One - .describe()</a></li>
+<li class="chapter" data-level="13.7.15.3" data-path="pandas-1.html"><a href="pandas-1.html#minmaxmeanmedian"><i class="fa fa-check"></i><b>13.7.15.3</b> min/max/mean/median</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7.16" data-path="pandas-1.html"><a href="pandas-1.html#plotting"><i class="fa fa-check"></i><b>13.7.16</b> Plotting</a></li>
 </ul></li>
 <li class="chapter" data-level="13.8" data-path="pandas-1.html"><a href="pandas-1.html#class-categories"><i class="fa fa-check"></i><b>13.8</b> class: Categories</a>
 <ul>
@@ -1224,24 +1242,24 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>register</strong> is a decarator, it accept <strong>decorated</strong> as the only argument</li>
 <li>foo() and bar() are the <strong>decorated function</strong> of <strong>register</strong></li>
 </ul>
-<div class="sourceCode" id="cb447"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb447-1"><a href="decorator.html#cb447-1"></a>registry <span class="op">=</span> []</span>
-<span id="cb447-2"><a href="decorator.html#cb447-2"></a></span>
-<span id="cb447-3"><a href="decorator.html#cb447-3"></a><span class="kw">def</span> register(decorated):</span>
-<span id="cb447-4"><a href="decorator.html#cb447-4"></a>    registry.append(decorated)</span>
-<span id="cb447-5"><a href="decorator.html#cb447-5"></a>    <span class="cf">return</span> decorated</span>
-<span id="cb447-6"><a href="decorator.html#cb447-6"></a></span>
-<span id="cb447-7"><a href="decorator.html#cb447-7"></a><span class="at">@register</span></span>
-<span id="cb447-8"><a href="decorator.html#cb447-8"></a><span class="kw">def</span> foo():</span>
-<span id="cb447-9"><a href="decorator.html#cb447-9"></a>    <span class="cf">return</span> <span class="dv">3</span></span>
-<span id="cb447-10"><a href="decorator.html#cb447-10"></a></span>
-<span id="cb447-11"><a href="decorator.html#cb447-11"></a><span class="at">@register</span></span>
-<span id="cb447-12"><a href="decorator.html#cb447-12"></a><span class="kw">def</span> bar():</span>
-<span id="cb447-13"><a href="decorator.html#cb447-13"></a>    <span class="cf">return</span> <span class="dv">5</span></span></code></pre></div>
-<div class="sourceCode" id="cb448"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb448-1"><a href="decorator.html#cb448-1"></a>registry</span></code></pre></div>
-<pre><code>## [&lt;function foo at 0x0000000029D03510&gt;, &lt;function bar at 0x0000000029CFC9D8&gt;]</code></pre>
-<div class="sourceCode" id="cb450"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb450-1"><a href="decorator.html#cb450-1"></a>registry[<span class="dv">0</span>]()</span></code></pre></div>
+<div class="sourceCode" id="cb459"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb459-1"><a href="decorator.html#cb459-1"></a>registry <span class="op">=</span> []</span>
+<span id="cb459-2"><a href="decorator.html#cb459-2"></a></span>
+<span id="cb459-3"><a href="decorator.html#cb459-3"></a><span class="kw">def</span> register(decorated):</span>
+<span id="cb459-4"><a href="decorator.html#cb459-4"></a>    registry.append(decorated)</span>
+<span id="cb459-5"><a href="decorator.html#cb459-5"></a>    <span class="cf">return</span> decorated</span>
+<span id="cb459-6"><a href="decorator.html#cb459-6"></a></span>
+<span id="cb459-7"><a href="decorator.html#cb459-7"></a><span class="at">@register</span></span>
+<span id="cb459-8"><a href="decorator.html#cb459-8"></a><span class="kw">def</span> foo():</span>
+<span id="cb459-9"><a href="decorator.html#cb459-9"></a>    <span class="cf">return</span> <span class="dv">3</span></span>
+<span id="cb459-10"><a href="decorator.html#cb459-10"></a></span>
+<span id="cb459-11"><a href="decorator.html#cb459-11"></a><span class="at">@register</span></span>
+<span id="cb459-12"><a href="decorator.html#cb459-12"></a><span class="kw">def</span> bar():</span>
+<span id="cb459-13"><a href="decorator.html#cb459-13"></a>    <span class="cf">return</span> <span class="dv">5</span></span></code></pre></div>
+<div class="sourceCode" id="cb460"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb460-1"><a href="decorator.html#cb460-1"></a>registry</span></code></pre></div>
+<pre><code>## [&lt;function foo at 0x0000000029CA1488&gt;, &lt;function bar at 0x0000000029C8B950&gt;]</code></pre>
+<div class="sourceCode" id="cb462"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb462-1"><a href="decorator.html#cb462-1"></a>registry[<span class="dv">0</span>]()</span></code></pre></div>
 <pre><code>## 3</code></pre>
-<div class="sourceCode" id="cb452"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb452-1"><a href="decorator.html#cb452-1"></a>registry[<span class="dv">1</span>]()</span></code></pre></div>
+<div class="sourceCode" id="cb464"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb464-1"><a href="decorator.html#cb464-1"></a>registry[<span class="dv">1</span>]()</span></code></pre></div>
 <pre><code>## 5</code></pre>
 </div>
 <div id="example-2---decorator-with-class" class="section level3" number="8.2.2">
@@ -1250,45 +1268,45 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li>Extending the use case above</li>
 <li>register is the <strong>decarator</strong>, it has only one argument</li>
 </ul>
-<div class="sourceCode" id="cb454"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb454-1"><a href="decorator.html#cb454-1"></a><span class="kw">class</span> Registry(<span class="bu">object</span>):</span>
-<span id="cb454-2"><a href="decorator.html#cb454-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
-<span id="cb454-3"><a href="decorator.html#cb454-3"></a>        <span class="va">self</span>._functions <span class="op">=</span> []</span>
-<span id="cb454-4"><a href="decorator.html#cb454-4"></a>    <span class="kw">def</span> register(<span class="va">self</span>,decorated):</span>
-<span id="cb454-5"><a href="decorator.html#cb454-5"></a>        <span class="va">self</span>._functions.append(decorated)</span>
-<span id="cb454-6"><a href="decorator.html#cb454-6"></a>        <span class="cf">return</span> decorated</span>
-<span id="cb454-7"><a href="decorator.html#cb454-7"></a>    <span class="kw">def</span> run_all(<span class="va">self</span>,<span class="op">*</span>args,<span class="op">**</span>kwargs):</span>
-<span id="cb454-8"><a href="decorator.html#cb454-8"></a>        return_values <span class="op">=</span> []</span>
-<span id="cb454-9"><a href="decorator.html#cb454-9"></a>        <span class="cf">for</span> func <span class="kw">in</span> <span class="va">self</span>._functions:</span>
-<span id="cb454-10"><a href="decorator.html#cb454-10"></a>            return_values.append(func(<span class="op">*</span>args,<span class="op">**</span>kwargs))</span>
-<span id="cb454-11"><a href="decorator.html#cb454-11"></a>        <span class="cf">return</span> return_values</span></code></pre></div>
+<div class="sourceCode" id="cb466"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb466-1"><a href="decorator.html#cb466-1"></a><span class="kw">class</span> Registry(<span class="bu">object</span>):</span>
+<span id="cb466-2"><a href="decorator.html#cb466-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb466-3"><a href="decorator.html#cb466-3"></a>        <span class="va">self</span>._functions <span class="op">=</span> []</span>
+<span id="cb466-4"><a href="decorator.html#cb466-4"></a>    <span class="kw">def</span> register(<span class="va">self</span>,decorated):</span>
+<span id="cb466-5"><a href="decorator.html#cb466-5"></a>        <span class="va">self</span>._functions.append(decorated)</span>
+<span id="cb466-6"><a href="decorator.html#cb466-6"></a>        <span class="cf">return</span> decorated</span>
+<span id="cb466-7"><a href="decorator.html#cb466-7"></a>    <span class="kw">def</span> run_all(<span class="va">self</span>,<span class="op">*</span>args,<span class="op">**</span>kwargs):</span>
+<span id="cb466-8"><a href="decorator.html#cb466-8"></a>        return_values <span class="op">=</span> []</span>
+<span id="cb466-9"><a href="decorator.html#cb466-9"></a>        <span class="cf">for</span> func <span class="kw">in</span> <span class="va">self</span>._functions:</span>
+<span id="cb466-10"><a href="decorator.html#cb466-10"></a>            return_values.append(func(<span class="op">*</span>args,<span class="op">**</span>kwargs))</span>
+<span id="cb466-11"><a href="decorator.html#cb466-11"></a>        <span class="cf">return</span> return_values</span></code></pre></div>
 <p>The decorator will decorate two functions, for both object <strong>a</strong> and <strong>b</strong></p>
-<div class="sourceCode" id="cb455"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb455-1"><a href="decorator.html#cb455-1"></a>a <span class="op">=</span> Registry()</span>
-<span id="cb455-2"><a href="decorator.html#cb455-2"></a>b <span class="op">=</span> Registry()</span>
-<span id="cb455-3"><a href="decorator.html#cb455-3"></a></span>
-<span id="cb455-4"><a href="decorator.html#cb455-4"></a><span class="at">@a.register</span></span>
-<span id="cb455-5"><a href="decorator.html#cb455-5"></a><span class="kw">def</span> foo(x<span class="op">=</span><span class="dv">3</span>):</span>
-<span id="cb455-6"><a href="decorator.html#cb455-6"></a>    <span class="cf">return</span> x</span>
-<span id="cb455-7"><a href="decorator.html#cb455-7"></a></span>
-<span id="cb455-8"><a href="decorator.html#cb455-8"></a><span class="at">@b.register</span></span>
-<span id="cb455-9"><a href="decorator.html#cb455-9"></a><span class="kw">def</span> bar(x<span class="op">=</span><span class="dv">5</span>):</span>
-<span id="cb455-10"><a href="decorator.html#cb455-10"></a>    <span class="cf">return</span> x</span>
-<span id="cb455-11"><a href="decorator.html#cb455-11"></a></span>
-<span id="cb455-12"><a href="decorator.html#cb455-12"></a><span class="at">@a.register</span></span>
-<span id="cb455-13"><a href="decorator.html#cb455-13"></a><span class="at">@b.register</span></span>
-<span id="cb455-14"><a href="decorator.html#cb455-14"></a><span class="kw">def</span> bax(x<span class="op">=</span><span class="dv">7</span>):</span>
-<span id="cb455-15"><a href="decorator.html#cb455-15"></a>    <span class="cf">return</span> x</span></code></pre></div>
+<div class="sourceCode" id="cb467"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb467-1"><a href="decorator.html#cb467-1"></a>a <span class="op">=</span> Registry()</span>
+<span id="cb467-2"><a href="decorator.html#cb467-2"></a>b <span class="op">=</span> Registry()</span>
+<span id="cb467-3"><a href="decorator.html#cb467-3"></a></span>
+<span id="cb467-4"><a href="decorator.html#cb467-4"></a><span class="at">@a.register</span></span>
+<span id="cb467-5"><a href="decorator.html#cb467-5"></a><span class="kw">def</span> foo(x<span class="op">=</span><span class="dv">3</span>):</span>
+<span id="cb467-6"><a href="decorator.html#cb467-6"></a>    <span class="cf">return</span> x</span>
+<span id="cb467-7"><a href="decorator.html#cb467-7"></a></span>
+<span id="cb467-8"><a href="decorator.html#cb467-8"></a><span class="at">@b.register</span></span>
+<span id="cb467-9"><a href="decorator.html#cb467-9"></a><span class="kw">def</span> bar(x<span class="op">=</span><span class="dv">5</span>):</span>
+<span id="cb467-10"><a href="decorator.html#cb467-10"></a>    <span class="cf">return</span> x</span>
+<span id="cb467-11"><a href="decorator.html#cb467-11"></a></span>
+<span id="cb467-12"><a href="decorator.html#cb467-12"></a><span class="at">@a.register</span></span>
+<span id="cb467-13"><a href="decorator.html#cb467-13"></a><span class="at">@b.register</span></span>
+<span id="cb467-14"><a href="decorator.html#cb467-14"></a><span class="kw">def</span> bax(x<span class="op">=</span><span class="dv">7</span>):</span>
+<span id="cb467-15"><a href="decorator.html#cb467-15"></a>    <span class="cf">return</span> x</span></code></pre></div>
 <p>Observe the result</p>
-<div class="sourceCode" id="cb456"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb456-1"><a href="decorator.html#cb456-1"></a><span class="bu">print</span> (a._functions)</span></code></pre></div>
-<pre><code>## [&lt;function foo at 0x0000000029D06268&gt;, &lt;function bax at 0x0000000029D06378&gt;]</code></pre>
-<div class="sourceCode" id="cb458"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb458-1"><a href="decorator.html#cb458-1"></a><span class="bu">print</span> (b._functions)</span></code></pre></div>
-<pre><code>## [&lt;function bar at 0x0000000029D062F0&gt;, &lt;function bax at 0x0000000029D06378&gt;]</code></pre>
-<div class="sourceCode" id="cb460"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb460-1"><a href="decorator.html#cb460-1"></a><span class="bu">print</span> (a.run_all())</span></code></pre></div>
+<div class="sourceCode" id="cb468"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb468-1"><a href="decorator.html#cb468-1"></a><span class="bu">print</span> (a._functions)</span></code></pre></div>
+<pre><code>## [&lt;function foo at 0x0000000029CA61E0&gt;, &lt;function bax at 0x0000000029CA62F0&gt;]</code></pre>
+<div class="sourceCode" id="cb470"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb470-1"><a href="decorator.html#cb470-1"></a><span class="bu">print</span> (b._functions)</span></code></pre></div>
+<pre><code>## [&lt;function bar at 0x0000000029CA6268&gt;, &lt;function bax at 0x0000000029CA62F0&gt;]</code></pre>
+<div class="sourceCode" id="cb472"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb472-1"><a href="decorator.html#cb472-1"></a><span class="bu">print</span> (a.run_all())</span></code></pre></div>
 <pre><code>## [3, 7]</code></pre>
-<div class="sourceCode" id="cb462"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb462-1"><a href="decorator.html#cb462-1"></a><span class="bu">print</span> (b.run_all())</span></code></pre></div>
+<div class="sourceCode" id="cb474"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb474-1"><a href="decorator.html#cb474-1"></a><span class="bu">print</span> (b.run_all())</span></code></pre></div>
 <pre><code>## [5, 7]</code></pre>
-<div class="sourceCode" id="cb464"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb464-1"><a href="decorator.html#cb464-1"></a><span class="bu">print</span> ( a.run_all(x<span class="op">=</span><span class="dv">9</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb476"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb476-1"><a href="decorator.html#cb476-1"></a><span class="bu">print</span> ( a.run_all(x<span class="op">=</span><span class="dv">9</span>) )</span></code></pre></div>
 <pre><code>## [9, 9]</code></pre>
-<div class="sourceCode" id="cb466"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb466-1"><a href="decorator.html#cb466-1"></a><span class="bu">print</span> ( b.run_all(x<span class="op">=</span><span class="dv">9</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb478"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb478-1"><a href="decorator.html#cb478-1"></a><span class="bu">print</span> ( b.run_all(x<span class="op">=</span><span class="dv">9</span>) )</span></code></pre></div>
 <pre><code>## [9, 9]</code></pre>
 </div>
 </div>

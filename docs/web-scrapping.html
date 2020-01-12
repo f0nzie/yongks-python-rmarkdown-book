@@ -220,6 +220,18 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="2.4.1" data-path="built-in-data-types.html"><a href="built-in-data-types.html#none-is-an-object"><i class="fa fa-check"></i><b>2.4.1</b> None is an Object</a></li>
 <li class="chapter" data-level="2.4.2" data-path="built-in-data-types.html"><a href="built-in-data-types.html#comparing-none"><i class="fa fa-check"></i><b>2.4.2</b> Comparing None</a></li>
+<li class="chapter" data-level="2.4.3" data-path="built-in-data-types.html"><a href="built-in-data-types.html#operation-on-none"><i class="fa fa-check"></i><b>2.4.3</b> Operation on None</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="built-in-data-types.html"><a href="built-in-data-types.html#nan"><i class="fa fa-check"></i><b>2.5</b> NaN</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="built-in-data-types.html"><a href="built-in-data-types.html#creating-nan"><i class="fa fa-check"></i><b>2.5.1</b> Creating NaN</a></li>
+<li class="chapter" data-level="2.5.2" data-path="built-in-data-types.html"><a href="built-in-data-types.html#detecting-nan"><i class="fa fa-check"></i><b>2.5.2</b> Detecting NaN</a></li>
+<li class="chapter" data-level="2.5.3" data-path="built-in-data-types.html"><a href="built-in-data-types.html#operation"><i class="fa fa-check"></i><b>2.5.3</b> Operation</a>
+<ul>
+<li class="chapter" data-level="2.5.3.1" data-path="built-in-data-types.html"><a href="built-in-data-types.html#logical-operator"><i class="fa fa-check"></i><b>2.5.3.1</b> Logical Operator</a></li>
+<li class="chapter" data-level="2.5.3.2" data-path="built-in-data-types.html"><a href="built-in-data-types.html#comparing"><i class="fa fa-check"></i><b>2.5.3.2</b> Comparing</a></li>
+<li class="chapter" data-level="2.5.3.3" data-path="built-in-data-types.html"><a href="built-in-data-types.html#casting"><i class="fa fa-check"></i><b>2.5.3.3</b> Casting</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html"><i class="fa fa-check"></i><b>3</b> Built-In Data Structure</a>
@@ -746,31 +758,37 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.7.9.3" data-path="pandas-1.html"><a href="pandas-1.html#getting-multiple-cells"><i class="fa fa-check"></i><b>13.7.9.3</b> Getting Multiple Cells</a></li>
 </ul></li>
 <li class="chapter" data-level="13.7.10" data-path="pandas-1.html"><a href="pandas-1.html#chained-indexing"><i class="fa fa-check"></i><b>13.7.10</b> Chained Indexing</a></li>
-<li class="chapter" data-level="13.7.11" data-path="pandas-1.html"><a href="pandas-1.html#iteration"><i class="fa fa-check"></i><b>13.7.11</b> Iteration</a>
+<li class="chapter" data-level="13.7.11" data-path="pandas-1.html"><a href="pandas-1.html#cell-value-replacement"><i class="fa fa-check"></i><b>13.7.11</b> Cell Value Replacement</a>
 <ul>
-<li class="chapter" data-level="13.7.11.1" data-path="pandas-1.html"><a href="pandas-1.html#iterrows-loop-through-every-row"><i class="fa fa-check"></i><b>13.7.11.1</b> <code>.iterrows()</code> loop through every <strong>ROW</strong></a></li>
-<li class="chapter" data-level="13.7.11.2" data-path="pandas-1.html"><a href="pandas-1.html#items-loop-through-every-column"><i class="fa fa-check"></i><b>13.7.11.2</b> <code>.items()</code> loop through every <strong>Column</strong></a></li>
+<li class="chapter" data-level="13.7.11.1" data-path="pandas-1.html"><a href="pandas-1.html#mask"><i class="fa fa-check"></i><b>13.7.11.1</b> <code>mask()</code></a></li>
+<li class="chapter" data-level="13.7.11.2" data-path="pandas-1.html"><a href="pandas-1.html#where-1"><i class="fa fa-check"></i><b>13.7.11.2</b> <code>where()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.12" data-path="pandas-1.html"><a href="pandas-1.html#data-structure"><i class="fa fa-check"></i><b>13.7.12</b> Data Structure</a>
+<li class="chapter" data-level="13.7.12" data-path="pandas-1.html"><a href="pandas-1.html#iteration"><i class="fa fa-check"></i><b>13.7.12</b> Iteration</a>
 <ul>
-<li class="chapter" data-level="13.7.12.1" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods---structure"><i class="fa fa-check"></i><b>13.7.12.1</b> Instance Methods - Structure</a></li>
-<li class="chapter" data-level="13.7.12.2" data-path="pandas-1.html"><a href="pandas-1.html#conversion-to-other-format"><i class="fa fa-check"></i><b>13.7.12.2</b> Conversion To Other Format</a></li>
+<li class="chapter" data-level="13.7.12.1" data-path="pandas-1.html"><a href="pandas-1.html#iterrows-loop-through-every-row"><i class="fa fa-check"></i><b>13.7.12.1</b> <code>.iterrows()</code> loop through every <strong>ROW</strong></a></li>
+<li class="chapter" data-level="13.7.12.2" data-path="pandas-1.html"><a href="pandas-1.html#items-loop-through-every-column"><i class="fa fa-check"></i><b>13.7.12.2</b> <code>.items()</code> loop through every <strong>Column</strong></a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.13" data-path="pandas-1.html"><a href="pandas-1.html#multiindexing"><i class="fa fa-check"></i><b>13.7.13</b> MultiIndexing</a>
+<li class="chapter" data-level="13.7.13" data-path="pandas-1.html"><a href="pandas-1.html#data-structure"><i class="fa fa-check"></i><b>13.7.13</b> Data Structure</a>
 <ul>
-<li class="chapter" data-level="13.7.13.1" data-path="pandas-1.html"><a href="pandas-1.html#the-data-2"><i class="fa fa-check"></i><b>13.7.13.1</b> The Data</a></li>
-<li class="chapter" data-level="13.7.13.2" data-path="pandas-1.html"><a href="pandas-1.html#creating-multiindex-columns"><i class="fa fa-check"></i><b>13.7.13.2</b> Creating MultiIndex Columns</a></li>
-<li class="chapter" data-level="13.7.13.3" data-path="pandas-1.html"><a href="pandas-1.html#multiindex-object"><i class="fa fa-check"></i><b>13.7.13.3</b> <code>MultiIndex</code> object</a></li>
-<li class="chapter" data-level="13.7.13.4" data-path="pandas-1.html"><a href="pandas-1.html#selecting-columns"><i class="fa fa-check"></i><b>13.7.13.4</b> Selecting Column(s)</a></li>
-<li class="chapter" data-level="13.7.13.5" data-path="pandas-1.html"><a href="pandas-1.html#stacking-columns-to-rows"><i class="fa fa-check"></i><b>13.7.13.5</b> Stacking Columns to Rows</a></li>
+<li class="chapter" data-level="13.7.13.1" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods---structure"><i class="fa fa-check"></i><b>13.7.13.1</b> Instance Methods - Structure</a></li>
+<li class="chapter" data-level="13.7.13.2" data-path="pandas-1.html"><a href="pandas-1.html#conversion-to-other-format"><i class="fa fa-check"></i><b>13.7.13.2</b> Conversion To Other Format</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.14" data-path="pandas-1.html"><a href="pandas-1.html#exploratory-analysis"><i class="fa fa-check"></i><b>13.7.14</b> Exploratory Analysis</a>
+<li class="chapter" data-level="13.7.14" data-path="pandas-1.html"><a href="pandas-1.html#multiindexing"><i class="fa fa-check"></i><b>13.7.14</b> MultiIndexing</a>
 <ul>
-<li class="chapter" data-level="13.7.14.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-11"><i class="fa fa-check"></i><b>13.7.14.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.7.14.2" data-path="pandas-1.html"><a href="pandas-1.html#all-stats-in-one---.describe"><i class="fa fa-check"></i><b>13.7.14.2</b> All Stats in One - .describe()</a></li>
-<li class="chapter" data-level="13.7.14.3" data-path="pandas-1.html"><a href="pandas-1.html#minmaxmeanmedian"><i class="fa fa-check"></i><b>13.7.14.3</b> min/max/mean/median</a></li>
+<li class="chapter" data-level="13.7.14.1" data-path="pandas-1.html"><a href="pandas-1.html#the-data-2"><i class="fa fa-check"></i><b>13.7.14.1</b> The Data</a></li>
+<li class="chapter" data-level="13.7.14.2" data-path="pandas-1.html"><a href="pandas-1.html#creating-multiindex-columns"><i class="fa fa-check"></i><b>13.7.14.2</b> Creating MultiIndex Columns</a></li>
+<li class="chapter" data-level="13.7.14.3" data-path="pandas-1.html"><a href="pandas-1.html#multiindex-object"><i class="fa fa-check"></i><b>13.7.14.3</b> <code>MultiIndex</code> object</a></li>
+<li class="chapter" data-level="13.7.14.4" data-path="pandas-1.html"><a href="pandas-1.html#selecting-columns"><i class="fa fa-check"></i><b>13.7.14.4</b> Selecting Column(s)</a></li>
+<li class="chapter" data-level="13.7.14.5" data-path="pandas-1.html"><a href="pandas-1.html#sorting-multiindex"><i class="fa fa-check"></i><b>13.7.14.5</b> Sorting MultiIndex</a></li>
+<li class="chapter" data-level="13.7.14.6" data-path="pandas-1.html"><a href="pandas-1.html#stacking-columns-to-rows"><i class="fa fa-check"></i><b>13.7.14.6</b> Stacking Columns to Rows</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.15" data-path="pandas-1.html"><a href="pandas-1.html#plotting"><i class="fa fa-check"></i><b>13.7.15</b> Plotting</a></li>
+<li class="chapter" data-level="13.7.15" data-path="pandas-1.html"><a href="pandas-1.html#exploratory-analysis"><i class="fa fa-check"></i><b>13.7.15</b> Exploratory Analysis</a>
+<ul>
+<li class="chapter" data-level="13.7.15.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-11"><i class="fa fa-check"></i><b>13.7.15.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.7.15.2" data-path="pandas-1.html"><a href="pandas-1.html#all-stats-in-one---.describe"><i class="fa fa-check"></i><b>13.7.15.2</b> All Stats in One - .describe()</a></li>
+<li class="chapter" data-level="13.7.15.3" data-path="pandas-1.html"><a href="pandas-1.html#minmaxmeanmedian"><i class="fa fa-check"></i><b>13.7.15.3</b> min/max/mean/median</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7.16" data-path="pandas-1.html"><a href="pandas-1.html#plotting"><i class="fa fa-check"></i><b>13.7.16</b> Plotting</a></li>
 </ul></li>
 <li class="chapter" data-level="13.8" data-path="pandas-1.html"><a href="pandas-1.html#class-categories"><i class="fa fa-check"></i><b>13.8</b> class: Categories</a>
 <ul>
@@ -1211,24 +1229,24 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h2 number="19.1"><span class="header-section-number">19.1</span> <code>requests</code></h2>
 <div id="creating-a-session" class="section level3" number="19.1.1">
 <h3 number="19.1.1"><span class="header-section-number">19.1.1</span> Creating A Session</h3>
-<div class="sourceCode" id="cb1900"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1900-1"><a href="web-scrapping.html#cb1900-1"></a><span class="im">import</span> requests</span>
-<span id="cb1900-2"><a href="web-scrapping.html#cb1900-2"></a><span class="im">from</span> requests.adapters <span class="im">import</span> HTTPAdapter</span>
-<span id="cb1900-3"><a href="web-scrapping.html#cb1900-3"></a><span class="im">from</span> urllib3.util.retry <span class="im">import</span> Retry</span>
-<span id="cb1900-4"><a href="web-scrapping.html#cb1900-4"></a><span class="im">import</span> random</span>
-<span id="cb1900-5"><a href="web-scrapping.html#cb1900-5"></a></span>
-<span id="cb1900-6"><a href="web-scrapping.html#cb1900-6"></a></span>
-<span id="cb1900-7"><a href="web-scrapping.html#cb1900-7"></a>_retries <span class="op">=</span> Retry(<span class="ex">connect</span><span class="op">=</span><span class="dv">10</span>,read<span class="op">=</span><span class="dv">10</span>,backoff_factor<span class="op">=</span><span class="dv">1</span>)   <span class="co"># backoff is incremental interval in seconds between retries</span></span>
-<span id="cb1900-8"><a href="web-scrapping.html#cb1900-8"></a>_timeout <span class="op">=</span> (<span class="dv">10</span>,<span class="dv">10</span>)  <span class="co">## connect, read timeout in seconds</span></span>
-<span id="cb1900-9"><a href="web-scrapping.html#cb1900-9"></a></span>
-<span id="cb1900-10"><a href="web-scrapping.html#cb1900-10"></a>rqs <span class="op">=</span> requests.Session()</span>
-<span id="cb1900-11"><a href="web-scrapping.html#cb1900-11"></a>rqs.mount( <span class="st">&#39;http://&#39;</span> ,  HTTPAdapter(max_retries<span class="op">=</span> _retries))</span>
-<span id="cb1900-12"><a href="web-scrapping.html#cb1900-12"></a>rqs.mount( <span class="st">&#39;https://&#39;</span> , HTTPAdapter(max_retries<span class="op">=</span> _retries))</span></code></pre></div>
-<div class="sourceCode" id="cb1901"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1901-1"><a href="web-scrapping.html#cb1901-1"></a>link1 <span class="op">=</span> <span class="st">&#39;https://www.yahoo.com&#39;</span></span>
-<span id="cb1901-2"><a href="web-scrapping.html#cb1901-2"></a>link2 <span class="op">=</span> <span class="st">&#39;http://mamamia777.com.au&#39;</span></span>
-<span id="cb1901-3"><a href="web-scrapping.html#cb1901-3"></a><span class="co">#user_agent = {&#39;User-Agent&#39;: random.choice(_USER_AGENTS)}</span></span>
-<span id="cb1901-4"><a href="web-scrapping.html#cb1901-4"></a><span class="co">#response1  = rqs.get(link1, timeout=_timeout)</span></span>
-<span id="cb1901-5"><a href="web-scrapping.html#cb1901-5"></a><span class="co">#response2  = rqs.get(link2, timeout=_timeout)  </span></span></code></pre></div>
-<div class="sourceCode" id="cb1902"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1902-1"><a href="web-scrapping.html#cb1902-1"></a><span class="bu">print</span> (page1.status_code)</span></code></pre></div>
+<div class="sourceCode" id="cb1926"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1926-1"><a href="web-scrapping.html#cb1926-1"></a><span class="im">import</span> requests</span>
+<span id="cb1926-2"><a href="web-scrapping.html#cb1926-2"></a><span class="im">from</span> requests.adapters <span class="im">import</span> HTTPAdapter</span>
+<span id="cb1926-3"><a href="web-scrapping.html#cb1926-3"></a><span class="im">from</span> urllib3.util.retry <span class="im">import</span> Retry</span>
+<span id="cb1926-4"><a href="web-scrapping.html#cb1926-4"></a><span class="im">import</span> random</span>
+<span id="cb1926-5"><a href="web-scrapping.html#cb1926-5"></a></span>
+<span id="cb1926-6"><a href="web-scrapping.html#cb1926-6"></a></span>
+<span id="cb1926-7"><a href="web-scrapping.html#cb1926-7"></a>_retries <span class="op">=</span> Retry(<span class="ex">connect</span><span class="op">=</span><span class="dv">10</span>,read<span class="op">=</span><span class="dv">10</span>,backoff_factor<span class="op">=</span><span class="dv">1</span>)   <span class="co"># backoff is incremental interval in seconds between retries</span></span>
+<span id="cb1926-8"><a href="web-scrapping.html#cb1926-8"></a>_timeout <span class="op">=</span> (<span class="dv">10</span>,<span class="dv">10</span>)  <span class="co">## connect, read timeout in seconds</span></span>
+<span id="cb1926-9"><a href="web-scrapping.html#cb1926-9"></a></span>
+<span id="cb1926-10"><a href="web-scrapping.html#cb1926-10"></a>rqs <span class="op">=</span> requests.Session()</span>
+<span id="cb1926-11"><a href="web-scrapping.html#cb1926-11"></a>rqs.mount( <span class="st">&#39;http://&#39;</span> ,  HTTPAdapter(max_retries<span class="op">=</span> _retries))</span>
+<span id="cb1926-12"><a href="web-scrapping.html#cb1926-12"></a>rqs.mount( <span class="st">&#39;https://&#39;</span> , HTTPAdapter(max_retries<span class="op">=</span> _retries))</span></code></pre></div>
+<div class="sourceCode" id="cb1927"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1927-1"><a href="web-scrapping.html#cb1927-1"></a>link1 <span class="op">=</span> <span class="st">&#39;https://www.yahoo.com&#39;</span></span>
+<span id="cb1927-2"><a href="web-scrapping.html#cb1927-2"></a>link2 <span class="op">=</span> <span class="st">&#39;http://mamamia777.com.au&#39;</span></span>
+<span id="cb1927-3"><a href="web-scrapping.html#cb1927-3"></a><span class="co">#user_agent = {&#39;User-Agent&#39;: random.choice(_USER_AGENTS)}</span></span>
+<span id="cb1927-4"><a href="web-scrapping.html#cb1927-4"></a><span class="co">#response1  = rqs.get(link1, timeout=_timeout)</span></span>
+<span id="cb1927-5"><a href="web-scrapping.html#cb1927-5"></a><span class="co">#response2  = rqs.get(link2, timeout=_timeout)  </span></span></code></pre></div>
+<div class="sourceCode" id="cb1928"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1928-1"><a href="web-scrapping.html#cb1928-1"></a><span class="bu">print</span> (page1.status_code)</span></code></pre></div>
 <pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;page1&#39; is not defined
 ## 
 ## Detailed traceback: 
@@ -1236,66 +1254,66 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="rotating-broswer" class="section level3" number="19.1.2">
 <h3 number="19.1.2"><span class="header-section-number">19.1.2</span> Rotating Broswer</h3>
-<div class="sourceCode" id="cb1904"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1904-1"><a href="web-scrapping.html#cb1904-1"></a>_USER_AGENTS <span class="op">=</span> [</span>
-<span id="cb1904-2"><a href="web-scrapping.html#cb1904-2"></a>   <span class="co">#Chrome</span></span>
-<span id="cb1904-3"><a href="web-scrapping.html#cb1904-3"></a>    <span class="st">&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36&#39;</span>,</span>
-<span id="cb1904-4"><a href="web-scrapping.html#cb1904-4"></a>    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36&#39;</span>,</span>
-<span id="cb1904-5"><a href="web-scrapping.html#cb1904-5"></a>    <span class="st">&#39;Mozilla/5.0 (Windows NT 5.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36&#39;</span>,</span>
-<span id="cb1904-6"><a href="web-scrapping.html#cb1904-6"></a>    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36&#39;</span>,</span>
-<span id="cb1904-7"><a href="web-scrapping.html#cb1904-7"></a>    <span class="st">&#39;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36&#39;</span>,</span>
-<span id="cb1904-8"><a href="web-scrapping.html#cb1904-8"></a>    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36&#39;</span>,</span>
-<span id="cb1904-9"><a href="web-scrapping.html#cb1904-9"></a>    <span class="st">&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36&#39;</span>,</span>
-<span id="cb1904-10"><a href="web-scrapping.html#cb1904-10"></a>    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36&#39;</span>,</span>
-<span id="cb1904-11"><a href="web-scrapping.html#cb1904-11"></a>    <span class="st">&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36&#39;</span>,</span>
-<span id="cb1904-12"><a href="web-scrapping.html#cb1904-12"></a>    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36&#39;</span>,</span>
-<span id="cb1904-13"><a href="web-scrapping.html#cb1904-13"></a>    <span class="co">#Firefox</span></span>
-<span id="cb1904-14"><a href="web-scrapping.html#cb1904-14"></a>    <span class="st">&#39;Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.1)&#39;</span>,</span>
-<span id="cb1904-15"><a href="web-scrapping.html#cb1904-15"></a>    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko&#39;</span>,</span>
-<span id="cb1904-16"><a href="web-scrapping.html#cb1904-16"></a>    <span class="st">&#39;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)&#39;</span>,</span>
-<span id="cb1904-17"><a href="web-scrapping.html#cb1904-17"></a>    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko&#39;</span>,</span>
-<span id="cb1904-18"><a href="web-scrapping.html#cb1904-18"></a>    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.2; WOW64; Trident/7.0; rv:11.0) like Gecko&#39;</span>,</span>
-<span id="cb1904-19"><a href="web-scrapping.html#cb1904-19"></a>    <span class="st">&#39;Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko&#39;</span>,</span>
-<span id="cb1904-20"><a href="web-scrapping.html#cb1904-20"></a>    <span class="st">&#39;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.0; Trident/5.0)&#39;</span>,</span>
-<span id="cb1904-21"><a href="web-scrapping.html#cb1904-21"></a>    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko&#39;</span>,</span>
-<span id="cb1904-22"><a href="web-scrapping.html#cb1904-22"></a>    <span class="st">&#39;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)&#39;</span>,</span>
-<span id="cb1904-23"><a href="web-scrapping.html#cb1904-23"></a>    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.1; Win64; x64; Trident/7.0; rv:11.0) like Gecko&#39;</span>,</span>
-<span id="cb1904-24"><a href="web-scrapping.html#cb1904-24"></a>    <span class="st">&#39;Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0)&#39;</span>,</span>
-<span id="cb1904-25"><a href="web-scrapping.html#cb1904-25"></a>    <span class="st">&#39;Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)&#39;</span>,</span>
-<span id="cb1904-26"><a href="web-scrapping.html#cb1904-26"></a>    <span class="st">&#39;Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)&#39;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1930"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1930-1"><a href="web-scrapping.html#cb1930-1"></a>_USER_AGENTS <span class="op">=</span> [</span>
+<span id="cb1930-2"><a href="web-scrapping.html#cb1930-2"></a>   <span class="co">#Chrome</span></span>
+<span id="cb1930-3"><a href="web-scrapping.html#cb1930-3"></a>    <span class="st">&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36&#39;</span>,</span>
+<span id="cb1930-4"><a href="web-scrapping.html#cb1930-4"></a>    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36&#39;</span>,</span>
+<span id="cb1930-5"><a href="web-scrapping.html#cb1930-5"></a>    <span class="st">&#39;Mozilla/5.0 (Windows NT 5.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36&#39;</span>,</span>
+<span id="cb1930-6"><a href="web-scrapping.html#cb1930-6"></a>    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36&#39;</span>,</span>
+<span id="cb1930-7"><a href="web-scrapping.html#cb1930-7"></a>    <span class="st">&#39;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36&#39;</span>,</span>
+<span id="cb1930-8"><a href="web-scrapping.html#cb1930-8"></a>    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36&#39;</span>,</span>
+<span id="cb1930-9"><a href="web-scrapping.html#cb1930-9"></a>    <span class="st">&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36&#39;</span>,</span>
+<span id="cb1930-10"><a href="web-scrapping.html#cb1930-10"></a>    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36&#39;</span>,</span>
+<span id="cb1930-11"><a href="web-scrapping.html#cb1930-11"></a>    <span class="st">&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36&#39;</span>,</span>
+<span id="cb1930-12"><a href="web-scrapping.html#cb1930-12"></a>    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36&#39;</span>,</span>
+<span id="cb1930-13"><a href="web-scrapping.html#cb1930-13"></a>    <span class="co">#Firefox</span></span>
+<span id="cb1930-14"><a href="web-scrapping.html#cb1930-14"></a>    <span class="st">&#39;Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.1)&#39;</span>,</span>
+<span id="cb1930-15"><a href="web-scrapping.html#cb1930-15"></a>    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko&#39;</span>,</span>
+<span id="cb1930-16"><a href="web-scrapping.html#cb1930-16"></a>    <span class="st">&#39;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)&#39;</span>,</span>
+<span id="cb1930-17"><a href="web-scrapping.html#cb1930-17"></a>    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko&#39;</span>,</span>
+<span id="cb1930-18"><a href="web-scrapping.html#cb1930-18"></a>    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.2; WOW64; Trident/7.0; rv:11.0) like Gecko&#39;</span>,</span>
+<span id="cb1930-19"><a href="web-scrapping.html#cb1930-19"></a>    <span class="st">&#39;Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko&#39;</span>,</span>
+<span id="cb1930-20"><a href="web-scrapping.html#cb1930-20"></a>    <span class="st">&#39;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.0; Trident/5.0)&#39;</span>,</span>
+<span id="cb1930-21"><a href="web-scrapping.html#cb1930-21"></a>    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko&#39;</span>,</span>
+<span id="cb1930-22"><a href="web-scrapping.html#cb1930-22"></a>    <span class="st">&#39;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)&#39;</span>,</span>
+<span id="cb1930-23"><a href="web-scrapping.html#cb1930-23"></a>    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.1; Win64; x64; Trident/7.0; rv:11.0) like Gecko&#39;</span>,</span>
+<span id="cb1930-24"><a href="web-scrapping.html#cb1930-24"></a>    <span class="st">&#39;Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0)&#39;</span>,</span>
+<span id="cb1930-25"><a href="web-scrapping.html#cb1930-25"></a>    <span class="st">&#39;Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)&#39;</span>,</span>
+<span id="cb1930-26"><a href="web-scrapping.html#cb1930-26"></a>    <span class="st">&#39;Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)&#39;</span>]</span></code></pre></div>
 </div>
 </div>
 <div id="beautifulsoup" class="section level2" number="19.2">
 <h2 number="19.2"><span class="header-section-number">19.2</span> <code>BeautifulSoup</code></h2>
 <div id="module-import-2" class="section level3" number="19.2.1">
 <h3 number="19.2.1"><span class="header-section-number">19.2.1</span> Module Import</h3>
-<div class="sourceCode" id="cb1905"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1905-1"><a href="web-scrapping.html#cb1905-1"></a><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup</span></code></pre></div>
+<div class="sourceCode" id="cb1931"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1931-1"><a href="web-scrapping.html#cb1931-1"></a><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup</span></code></pre></div>
 </div>
 <div id="html-tag-parsing" class="section level3" number="19.2.2">
 <h3 number="19.2.2"><span class="header-section-number">19.2.2</span> HTML Tag Parsing</h3>
 <div id="sample-data-24" class="section level4" number="19.2.2.1">
 <h4 number="19.2.2.1"><span class="header-section-number">19.2.2.1</span> Sample Data</h4>
-<div class="sourceCode" id="cb1906"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1906-1"><a href="web-scrapping.html#cb1906-1"></a>my_html <span class="op">=</span> <span class="st">&#39;&#39;&#39;</span></span>
-<span id="cb1906-2"><a href="web-scrapping.html#cb1906-2"></a><span class="st">&lt;div id=&quot;my-id1&quot; class=&#39;title&#39;&gt; </span></span>
-<span id="cb1906-3"><a href="web-scrapping.html#cb1906-3"></a><span class="st">    &lt;p&gt;This Is My Title&lt;/p&gt;</span></span>
-<span id="cb1906-4"><a href="web-scrapping.html#cb1906-4"></a><span class="st">    </span></span>
-<span id="cb1906-5"><a href="web-scrapping.html#cb1906-5"></a><span class="st">    &lt;div id=&quot;my-id2&quot; class=&#39;subtitle&#39; custom_attr=&#39;funny&#39;)</span></span>
-<span id="cb1906-6"><a href="web-scrapping.html#cb1906-6"></a><span class="st">        &lt;p&gt;This is Subtitle&lt;/p&gt;</span></span>
-<span id="cb1906-7"><a href="web-scrapping.html#cb1906-7"></a><span class="st">    &lt;/div&gt;</span></span>
-<span id="cb1906-8"><a href="web-scrapping.html#cb1906-8"></a><span class="st">    </span></span>
-<span id="cb1906-9"><a href="web-scrapping.html#cb1906-9"></a><span class="st">    &lt;div id=&quot;my-id3&quot; class=&#39;title&#39;,   custom_atrr=&#39;funny&#39;)</span></span>
-<span id="cb1906-10"><a href="web-scrapping.html#cb1906-10"></a><span class="st">        &lt;p&gt;This is paragraph1&lt;/p&gt;</span></span>
-<span id="cb1906-11"><a href="web-scrapping.html#cb1906-11"></a><span class="st">        &lt;p&gt;This is paragraph2&lt;/p&gt;</span></span>
-<span id="cb1906-12"><a href="web-scrapping.html#cb1906-12"></a><span class="st">        &lt;p&gt;This is paragraph3&lt;/p&gt;</span></span>
-<span id="cb1906-13"><a href="web-scrapping.html#cb1906-13"></a><span class="st">    &lt;/div&gt;</span></span>
-<span id="cb1906-14"><a href="web-scrapping.html#cb1906-14"></a><span class="st">&lt;/div&gt;</span></span>
-<span id="cb1906-15"><a href="web-scrapping.html#cb1906-15"></a><span class="st">&#39;&#39;&#39;</span></span>
-<span id="cb1906-16"><a href="web-scrapping.html#cb1906-16"></a>soup <span class="op">=</span> BeautifulSoup(my_html)</span></code></pre></div>
+<div class="sourceCode" id="cb1932"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1932-1"><a href="web-scrapping.html#cb1932-1"></a>my_html <span class="op">=</span> <span class="st">&#39;&#39;&#39;</span></span>
+<span id="cb1932-2"><a href="web-scrapping.html#cb1932-2"></a><span class="st">&lt;div id=&quot;my-id1&quot; class=&#39;title&#39;&gt; </span></span>
+<span id="cb1932-3"><a href="web-scrapping.html#cb1932-3"></a><span class="st">    &lt;p&gt;This Is My Title&lt;/p&gt;</span></span>
+<span id="cb1932-4"><a href="web-scrapping.html#cb1932-4"></a><span class="st">    </span></span>
+<span id="cb1932-5"><a href="web-scrapping.html#cb1932-5"></a><span class="st">    &lt;div id=&quot;my-id2&quot; class=&#39;subtitle&#39; custom_attr=&#39;funny&#39;)</span></span>
+<span id="cb1932-6"><a href="web-scrapping.html#cb1932-6"></a><span class="st">        &lt;p&gt;This is Subtitle&lt;/p&gt;</span></span>
+<span id="cb1932-7"><a href="web-scrapping.html#cb1932-7"></a><span class="st">    &lt;/div&gt;</span></span>
+<span id="cb1932-8"><a href="web-scrapping.html#cb1932-8"></a><span class="st">    </span></span>
+<span id="cb1932-9"><a href="web-scrapping.html#cb1932-9"></a><span class="st">    &lt;div id=&quot;my-id3&quot; class=&#39;title&#39;,   custom_atrr=&#39;funny&#39;)</span></span>
+<span id="cb1932-10"><a href="web-scrapping.html#cb1932-10"></a><span class="st">        &lt;p&gt;This is paragraph1&lt;/p&gt;</span></span>
+<span id="cb1932-11"><a href="web-scrapping.html#cb1932-11"></a><span class="st">        &lt;p&gt;This is paragraph2&lt;/p&gt;</span></span>
+<span id="cb1932-12"><a href="web-scrapping.html#cb1932-12"></a><span class="st">        &lt;p&gt;This is paragraph3&lt;/p&gt;</span></span>
+<span id="cb1932-13"><a href="web-scrapping.html#cb1932-13"></a><span class="st">    &lt;/div&gt;</span></span>
+<span id="cb1932-14"><a href="web-scrapping.html#cb1932-14"></a><span class="st">&lt;/div&gt;</span></span>
+<span id="cb1932-15"><a href="web-scrapping.html#cb1932-15"></a><span class="st">&#39;&#39;&#39;</span></span>
+<span id="cb1932-16"><a href="web-scrapping.html#cb1932-16"></a>soup <span class="op">=</span> BeautifulSoup(my_html)</span></code></pre></div>
 </div>
 <div id="first-match" class="section level4" number="19.2.2.2">
 <h4 number="19.2.2.2"><span class="header-section-number">19.2.2.2</span> First Match</h4>
 <p><strong>ID Selector</strong><br />
 Everthing under the selected tag will be returned.</p>
-<div class="sourceCode" id="cb1907"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1907-1"><a href="web-scrapping.html#cb1907-1"></a>soup.find(<span class="bu">id</span><span class="op">=</span><span class="st">&#39;my-id1&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1933"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1933-1"><a href="web-scrapping.html#cb1933-1"></a>soup.find(<span class="bu">id</span><span class="op">=</span><span class="st">&#39;my-id1&#39;</span>)</span></code></pre></div>
 <pre><code>## &lt;div class=&quot;title&quot; id=&quot;my-id1&quot;&gt;
 ## &lt;p&gt;This Is My Title&lt;/p&gt;
 ## &lt;div class=&quot;subtitle&quot; custom_attr=&quot;funny&quot; id=&quot;my-id2&quot;&gt;This is Subtitle
@@ -1306,27 +1324,27 @@ Everthing under the selected tag will be returned.</p>
 ## &lt;/div&gt;
 ## &lt;/div&gt;</code></pre>
 <p><strong>Class Selector</strong></p>
-<div class="sourceCode" id="cb1909"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1909-1"><a href="web-scrapping.html#cb1909-1"></a>soup.find(class_<span class="op">=</span><span class="st">&#39;subtitle&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1935"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1935-1"><a href="web-scrapping.html#cb1935-1"></a>soup.find(class_<span class="op">=</span><span class="st">&#39;subtitle&#39;</span>)</span></code></pre></div>
 <pre><code>## &lt;div class=&quot;subtitle&quot; custom_attr=&quot;funny&quot; id=&quot;my-id2&quot;&gt;This is Subtitle
 ##     &lt;/div&gt;</code></pre>
 <p><strong>Attribute Selector</strong></p>
-<div class="sourceCode" id="cb1911"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1911-1"><a href="web-scrapping.html#cb1911-1"></a>soup.find(custom_attr<span class="op">=</span><span class="st">&#39;funny&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1937"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1937-1"><a href="web-scrapping.html#cb1937-1"></a>soup.find(custom_attr<span class="op">=</span><span class="st">&#39;funny&#39;</span>)</span></code></pre></div>
 <pre><code>## &lt;div class=&quot;subtitle&quot; custom_attr=&quot;funny&quot; id=&quot;my-id2&quot;&gt;This is Subtitle
 ##     &lt;/div&gt;</code></pre>
-<div class="sourceCode" id="cb1913"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1913-1"><a href="web-scrapping.html#cb1913-1"></a>soup.find(       custom_attr<span class="op">=</span><span class="st">&#39;funny&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1939"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1939-1"><a href="web-scrapping.html#cb1939-1"></a>soup.find(       custom_attr<span class="op">=</span><span class="st">&#39;funny&#39;</span>)</span></code></pre></div>
 <pre><code>## &lt;div class=&quot;subtitle&quot; custom_attr=&quot;funny&quot; id=&quot;my-id2&quot;&gt;This is Subtitle
 ##     &lt;/div&gt;</code></pre>
-<div class="sourceCode" id="cb1915"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1915-1"><a href="web-scrapping.html#cb1915-1"></a>soup.find(<span class="st">&#39;div&#39;</span>, custom_attr<span class="op">=</span><span class="st">&#39;funny&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1941"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1941-1"><a href="web-scrapping.html#cb1941-1"></a>soup.find(<span class="st">&#39;div&#39;</span>, custom_attr<span class="op">=</span><span class="st">&#39;funny&#39;</span>)</span></code></pre></div>
 <pre><code>## &lt;div class=&quot;subtitle&quot; custom_attr=&quot;funny&quot; id=&quot;my-id2&quot;&gt;This is Subtitle
 ##     &lt;/div&gt;</code></pre>
 </div>
 <div id="find-all-matches-1" class="section level4" number="19.2.2.3">
 <h4 number="19.2.2.3"><span class="header-section-number">19.2.2.3</span> Find All Matches</h4>
 <p><strong><code>find_all</code></strong></p>
-<div class="sourceCode" id="cb1917"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1917-1"><a href="web-scrapping.html#cb1917-1"></a>soup <span class="op">=</span> BeautifulSoup(my_html)</span>
-<span id="cb1917-2"><a href="web-scrapping.html#cb1917-2"></a>multiple_result <span class="op">=</span> soup.find_all(class_<span class="op">=</span><span class="st">&#39;title&#39;</span>)</span>
-<span id="cb1917-3"><a href="web-scrapping.html#cb1917-3"></a><span class="bu">print</span>( <span class="st">&#39;Item 0: </span><span class="ch">\n</span><span class="st">&#39;</span>,     multiple_result[<span class="dv">0</span>],</span>
-<span id="cb1917-4"><a href="web-scrapping.html#cb1917-4"></a>       <span class="st">&#39;</span><span class="ch">\n\n</span><span class="st">Item 1: </span><span class="ch">\n</span><span class="st">&#39;</span>, multiple_result[<span class="dv">1</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb1943"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1943-1"><a href="web-scrapping.html#cb1943-1"></a>soup <span class="op">=</span> BeautifulSoup(my_html)</span>
+<span id="cb1943-2"><a href="web-scrapping.html#cb1943-2"></a>multiple_result <span class="op">=</span> soup.find_all(class_<span class="op">=</span><span class="st">&#39;title&#39;</span>)</span>
+<span id="cb1943-3"><a href="web-scrapping.html#cb1943-3"></a><span class="bu">print</span>( <span class="st">&#39;Item 0: </span><span class="ch">\n</span><span class="st">&#39;</span>,     multiple_result[<span class="dv">0</span>],</span>
+<span id="cb1943-4"><a href="web-scrapping.html#cb1943-4"></a>       <span class="st">&#39;</span><span class="ch">\n\n</span><span class="st">Item 1: </span><span class="ch">\n</span><span class="st">&#39;</span>, multiple_result[<span class="dv">1</span>])</span></code></pre></div>
 <pre><code>## Item 0: 
 ##  &lt;div class=&quot;title&quot; id=&quot;my-id1&quot;&gt;
 ## &lt;p&gt;This Is My Title&lt;/p&gt;
@@ -1345,9 +1363,9 @@ Everthing under the selected tag will be returned.</p>
 ## &lt;/div&gt;</code></pre>
 <p><strong>CSS Selector using <code>select()</code></strong></p>
 <p>Above can be achieved using css selector. It return an array of result (multiple matches).</p>
-<div class="sourceCode" id="cb1919"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1919-1"><a href="web-scrapping.html#cb1919-1"></a>multiple_result <span class="op">=</span> soup.select(<span class="st">&#39;.title&#39;</span>)</span>
-<span id="cb1919-2"><a href="web-scrapping.html#cb1919-2"></a><span class="bu">print</span>( <span class="st">&#39;Item 0: </span><span class="ch">\n</span><span class="st">&#39;</span>,     multiple_result[<span class="dv">0</span>],</span>
-<span id="cb1919-3"><a href="web-scrapping.html#cb1919-3"></a>       <span class="st">&#39;</span><span class="ch">\n\n</span><span class="st">Item 1: </span><span class="ch">\n</span><span class="st">&#39;</span>, multiple_result[<span class="dv">1</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb1945"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1945-1"><a href="web-scrapping.html#cb1945-1"></a>multiple_result <span class="op">=</span> soup.select(<span class="st">&#39;.title&#39;</span>)</span>
+<span id="cb1945-2"><a href="web-scrapping.html#cb1945-2"></a><span class="bu">print</span>( <span class="st">&#39;Item 0: </span><span class="ch">\n</span><span class="st">&#39;</span>,     multiple_result[<span class="dv">0</span>],</span>
+<span id="cb1945-3"><a href="web-scrapping.html#cb1945-3"></a>       <span class="st">&#39;</span><span class="ch">\n\n</span><span class="st">Item 1: </span><span class="ch">\n</span><span class="st">&#39;</span>, multiple_result[<span class="dv">1</span>])</span></code></pre></div>
 <pre><code>## Item 0: 
 ##  &lt;div class=&quot;title&quot; id=&quot;my-id1&quot;&gt;
 ## &lt;p&gt;This Is My Title&lt;/p&gt;
@@ -1365,25 +1383,25 @@ Everthing under the selected tag will be returned.</p>
 ## &lt;p&gt;This is paragraph3&lt;/p&gt;
 ## &lt;/div&gt;</code></pre>
 <p>More granular exmaple of css selector.</p>
-<div class="sourceCode" id="cb1921"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1921-1"><a href="web-scrapping.html#cb1921-1"></a>soup.select(<span class="st">&#39;#my-id1 div.subtitle&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1947"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1947-1"><a href="web-scrapping.html#cb1947-1"></a>soup.select(<span class="st">&#39;#my-id1 div.subtitle&#39;</span>)</span></code></pre></div>
 <pre><code>## [&lt;div class=&quot;subtitle&quot; custom_attr=&quot;funny&quot; id=&quot;my-id2&quot;&gt;This is Subtitle
 ##     &lt;/div&gt;]</code></pre>
 </div>
 </div>
 <div id="meta-parsing" class="section level3" number="19.2.3">
 <h3 number="19.2.3"><span class="header-section-number">19.2.3</span> Meta Parsing</h3>
-<div class="sourceCode" id="cb1923"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1923-1"><a href="web-scrapping.html#cb1923-1"></a>my_html <span class="op">=</span> <span class="st">&#39;&#39;&#39;</span></span>
-<span id="cb1923-2"><a href="web-scrapping.html#cb1923-2"></a><span class="st">&lt;meta property=&quot;description&quot;   content=&quot;KUALA LUMPUR: blah blah&quot;   category=&quot;Malaysia&quot;&gt;</span></span>
-<span id="cb1923-3"><a href="web-scrapping.html#cb1923-3"></a><span class="st">&lt;meta property=&quot;publish-date&quot;  content=&quot;2012-01-03&quot;&gt;</span></span>
-<span id="cb1923-4"><a href="web-scrapping.html#cb1923-4"></a><span class="st">&#39;&#39;&#39;</span></span>
-<span id="cb1923-5"><a href="web-scrapping.html#cb1923-5"></a>soup <span class="op">=</span> BeautifulSoup(my_html)</span>
-<span id="cb1923-6"><a href="web-scrapping.html#cb1923-6"></a>soup.find(<span class="st">&#39;meta&#39;</span>, <span class="bu">property</span><span class="op">=</span><span class="st">&#39;description&#39;</span>)[<span class="st">&#39;content&#39;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1949"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1949-1"><a href="web-scrapping.html#cb1949-1"></a>my_html <span class="op">=</span> <span class="st">&#39;&#39;&#39;</span></span>
+<span id="cb1949-2"><a href="web-scrapping.html#cb1949-2"></a><span class="st">&lt;meta property=&quot;description&quot;   content=&quot;KUALA LUMPUR: blah blah&quot;   category=&quot;Malaysia&quot;&gt;</span></span>
+<span id="cb1949-3"><a href="web-scrapping.html#cb1949-3"></a><span class="st">&lt;meta property=&quot;publish-date&quot;  content=&quot;2012-01-03&quot;&gt;</span></span>
+<span id="cb1949-4"><a href="web-scrapping.html#cb1949-4"></a><span class="st">&#39;&#39;&#39;</span></span>
+<span id="cb1949-5"><a href="web-scrapping.html#cb1949-5"></a>soup <span class="op">=</span> BeautifulSoup(my_html)</span>
+<span id="cb1949-6"><a href="web-scrapping.html#cb1949-6"></a>soup.find(<span class="st">&#39;meta&#39;</span>, <span class="bu">property</span><span class="op">=</span><span class="st">&#39;description&#39;</span>)[<span class="st">&#39;content&#39;</span>]</span></code></pre></div>
 <pre><code>## &#39;KUALA LUMPUR: blah blah&#39;</code></pre>
-<div class="sourceCode" id="cb1925"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1925-1"><a href="web-scrapping.html#cb1925-1"></a>soup.find(<span class="st">&#39;meta&#39;</span>, <span class="bu">property</span><span class="op">=</span><span class="st">&#39;description&#39;</span>)[<span class="st">&#39;category&#39;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1951"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1951-1"><a href="web-scrapping.html#cb1951-1"></a>soup.find(<span class="st">&#39;meta&#39;</span>, <span class="bu">property</span><span class="op">=</span><span class="st">&#39;description&#39;</span>)[<span class="st">&#39;category&#39;</span>]</span></code></pre></div>
 <pre><code>## &#39;Malaysia&#39;</code></pre>
-<div class="sourceCode" id="cb1927"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1927-1"><a href="web-scrapping.html#cb1927-1"></a>soup.find(<span class="st">&#39;meta&#39;</span>, <span class="bu">property</span><span class="op">=</span><span class="st">&#39;publish-date&#39;</span>)[<span class="st">&#39;content&#39;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1953"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1953-1"><a href="web-scrapping.html#cb1953-1"></a>soup.find(<span class="st">&#39;meta&#39;</span>, <span class="bu">property</span><span class="op">=</span><span class="st">&#39;publish-date&#39;</span>)[<span class="st">&#39;content&#39;</span>]</span></code></pre></div>
 <pre><code>## &#39;2012-01-03&#39;</code></pre>
-<div class="sourceCode" id="cb1929"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1929-1"><a href="web-scrapping.html#cb1929-1"></a>soup.find(<span class="st">&#39;meta&#39;</span>, category<span class="op">=</span><span class="st">&#39;Malaysia&#39;</span>)[<span class="st">&#39;property&#39;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1955"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1955-1"><a href="web-scrapping.html#cb1955-1"></a>soup.find(<span class="st">&#39;meta&#39;</span>, category<span class="op">=</span><span class="st">&#39;Malaysia&#39;</span>)[<span class="st">&#39;property&#39;</span>]</span></code></pre></div>
 <pre><code>## &#39;description&#39;</code></pre>
 
 </div>

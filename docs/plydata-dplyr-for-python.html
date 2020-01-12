@@ -220,6 +220,18 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="2.4.1" data-path="built-in-data-types.html"><a href="built-in-data-types.html#none-is-an-object"><i class="fa fa-check"></i><b>2.4.1</b> None is an Object</a></li>
 <li class="chapter" data-level="2.4.2" data-path="built-in-data-types.html"><a href="built-in-data-types.html#comparing-none"><i class="fa fa-check"></i><b>2.4.2</b> Comparing None</a></li>
+<li class="chapter" data-level="2.4.3" data-path="built-in-data-types.html"><a href="built-in-data-types.html#operation-on-none"><i class="fa fa-check"></i><b>2.4.3</b> Operation on None</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="built-in-data-types.html"><a href="built-in-data-types.html#nan"><i class="fa fa-check"></i><b>2.5</b> NaN</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="built-in-data-types.html"><a href="built-in-data-types.html#creating-nan"><i class="fa fa-check"></i><b>2.5.1</b> Creating NaN</a></li>
+<li class="chapter" data-level="2.5.2" data-path="built-in-data-types.html"><a href="built-in-data-types.html#detecting-nan"><i class="fa fa-check"></i><b>2.5.2</b> Detecting NaN</a></li>
+<li class="chapter" data-level="2.5.3" data-path="built-in-data-types.html"><a href="built-in-data-types.html#operation"><i class="fa fa-check"></i><b>2.5.3</b> Operation</a>
+<ul>
+<li class="chapter" data-level="2.5.3.1" data-path="built-in-data-types.html"><a href="built-in-data-types.html#logical-operator"><i class="fa fa-check"></i><b>2.5.3.1</b> Logical Operator</a></li>
+<li class="chapter" data-level="2.5.3.2" data-path="built-in-data-types.html"><a href="built-in-data-types.html#comparing"><i class="fa fa-check"></i><b>2.5.3.2</b> Comparing</a></li>
+<li class="chapter" data-level="2.5.3.3" data-path="built-in-data-types.html"><a href="built-in-data-types.html#casting"><i class="fa fa-check"></i><b>2.5.3.3</b> Casting</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html"><i class="fa fa-check"></i><b>3</b> Built-In Data Structure</a>
@@ -746,31 +758,37 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.7.9.3" data-path="pandas-1.html"><a href="pandas-1.html#getting-multiple-cells"><i class="fa fa-check"></i><b>13.7.9.3</b> Getting Multiple Cells</a></li>
 </ul></li>
 <li class="chapter" data-level="13.7.10" data-path="pandas-1.html"><a href="pandas-1.html#chained-indexing"><i class="fa fa-check"></i><b>13.7.10</b> Chained Indexing</a></li>
-<li class="chapter" data-level="13.7.11" data-path="pandas-1.html"><a href="pandas-1.html#iteration"><i class="fa fa-check"></i><b>13.7.11</b> Iteration</a>
+<li class="chapter" data-level="13.7.11" data-path="pandas-1.html"><a href="pandas-1.html#cell-value-replacement"><i class="fa fa-check"></i><b>13.7.11</b> Cell Value Replacement</a>
 <ul>
-<li class="chapter" data-level="13.7.11.1" data-path="pandas-1.html"><a href="pandas-1.html#iterrows-loop-through-every-row"><i class="fa fa-check"></i><b>13.7.11.1</b> <code>.iterrows()</code> loop through every <strong>ROW</strong></a></li>
-<li class="chapter" data-level="13.7.11.2" data-path="pandas-1.html"><a href="pandas-1.html#items-loop-through-every-column"><i class="fa fa-check"></i><b>13.7.11.2</b> <code>.items()</code> loop through every <strong>Column</strong></a></li>
+<li class="chapter" data-level="13.7.11.1" data-path="pandas-1.html"><a href="pandas-1.html#mask"><i class="fa fa-check"></i><b>13.7.11.1</b> <code>mask()</code></a></li>
+<li class="chapter" data-level="13.7.11.2" data-path="pandas-1.html"><a href="pandas-1.html#where-1"><i class="fa fa-check"></i><b>13.7.11.2</b> <code>where()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.12" data-path="pandas-1.html"><a href="pandas-1.html#data-structure"><i class="fa fa-check"></i><b>13.7.12</b> Data Structure</a>
+<li class="chapter" data-level="13.7.12" data-path="pandas-1.html"><a href="pandas-1.html#iteration"><i class="fa fa-check"></i><b>13.7.12</b> Iteration</a>
 <ul>
-<li class="chapter" data-level="13.7.12.1" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods---structure"><i class="fa fa-check"></i><b>13.7.12.1</b> Instance Methods - Structure</a></li>
-<li class="chapter" data-level="13.7.12.2" data-path="pandas-1.html"><a href="pandas-1.html#conversion-to-other-format"><i class="fa fa-check"></i><b>13.7.12.2</b> Conversion To Other Format</a></li>
+<li class="chapter" data-level="13.7.12.1" data-path="pandas-1.html"><a href="pandas-1.html#iterrows-loop-through-every-row"><i class="fa fa-check"></i><b>13.7.12.1</b> <code>.iterrows()</code> loop through every <strong>ROW</strong></a></li>
+<li class="chapter" data-level="13.7.12.2" data-path="pandas-1.html"><a href="pandas-1.html#items-loop-through-every-column"><i class="fa fa-check"></i><b>13.7.12.2</b> <code>.items()</code> loop through every <strong>Column</strong></a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.13" data-path="pandas-1.html"><a href="pandas-1.html#multiindexing"><i class="fa fa-check"></i><b>13.7.13</b> MultiIndexing</a>
+<li class="chapter" data-level="13.7.13" data-path="pandas-1.html"><a href="pandas-1.html#data-structure"><i class="fa fa-check"></i><b>13.7.13</b> Data Structure</a>
 <ul>
-<li class="chapter" data-level="13.7.13.1" data-path="pandas-1.html"><a href="pandas-1.html#the-data-2"><i class="fa fa-check"></i><b>13.7.13.1</b> The Data</a></li>
-<li class="chapter" data-level="13.7.13.2" data-path="pandas-1.html"><a href="pandas-1.html#creating-multiindex-columns"><i class="fa fa-check"></i><b>13.7.13.2</b> Creating MultiIndex Columns</a></li>
-<li class="chapter" data-level="13.7.13.3" data-path="pandas-1.html"><a href="pandas-1.html#multiindex-object"><i class="fa fa-check"></i><b>13.7.13.3</b> <code>MultiIndex</code> object</a></li>
-<li class="chapter" data-level="13.7.13.4" data-path="pandas-1.html"><a href="pandas-1.html#selecting-columns"><i class="fa fa-check"></i><b>13.7.13.4</b> Selecting Column(s)</a></li>
-<li class="chapter" data-level="13.7.13.5" data-path="pandas-1.html"><a href="pandas-1.html#stacking-columns-to-rows"><i class="fa fa-check"></i><b>13.7.13.5</b> Stacking Columns to Rows</a></li>
+<li class="chapter" data-level="13.7.13.1" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods---structure"><i class="fa fa-check"></i><b>13.7.13.1</b> Instance Methods - Structure</a></li>
+<li class="chapter" data-level="13.7.13.2" data-path="pandas-1.html"><a href="pandas-1.html#conversion-to-other-format"><i class="fa fa-check"></i><b>13.7.13.2</b> Conversion To Other Format</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.14" data-path="pandas-1.html"><a href="pandas-1.html#exploratory-analysis"><i class="fa fa-check"></i><b>13.7.14</b> Exploratory Analysis</a>
+<li class="chapter" data-level="13.7.14" data-path="pandas-1.html"><a href="pandas-1.html#multiindexing"><i class="fa fa-check"></i><b>13.7.14</b> MultiIndexing</a>
 <ul>
-<li class="chapter" data-level="13.7.14.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-11"><i class="fa fa-check"></i><b>13.7.14.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.7.14.2" data-path="pandas-1.html"><a href="pandas-1.html#all-stats-in-one---.describe"><i class="fa fa-check"></i><b>13.7.14.2</b> All Stats in One - .describe()</a></li>
-<li class="chapter" data-level="13.7.14.3" data-path="pandas-1.html"><a href="pandas-1.html#minmaxmeanmedian"><i class="fa fa-check"></i><b>13.7.14.3</b> min/max/mean/median</a></li>
+<li class="chapter" data-level="13.7.14.1" data-path="pandas-1.html"><a href="pandas-1.html#the-data-2"><i class="fa fa-check"></i><b>13.7.14.1</b> The Data</a></li>
+<li class="chapter" data-level="13.7.14.2" data-path="pandas-1.html"><a href="pandas-1.html#creating-multiindex-columns"><i class="fa fa-check"></i><b>13.7.14.2</b> Creating MultiIndex Columns</a></li>
+<li class="chapter" data-level="13.7.14.3" data-path="pandas-1.html"><a href="pandas-1.html#multiindex-object"><i class="fa fa-check"></i><b>13.7.14.3</b> <code>MultiIndex</code> object</a></li>
+<li class="chapter" data-level="13.7.14.4" data-path="pandas-1.html"><a href="pandas-1.html#selecting-columns"><i class="fa fa-check"></i><b>13.7.14.4</b> Selecting Column(s)</a></li>
+<li class="chapter" data-level="13.7.14.5" data-path="pandas-1.html"><a href="pandas-1.html#sorting-multiindex"><i class="fa fa-check"></i><b>13.7.14.5</b> Sorting MultiIndex</a></li>
+<li class="chapter" data-level="13.7.14.6" data-path="pandas-1.html"><a href="pandas-1.html#stacking-columns-to-rows"><i class="fa fa-check"></i><b>13.7.14.6</b> Stacking Columns to Rows</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.15" data-path="pandas-1.html"><a href="pandas-1.html#plotting"><i class="fa fa-check"></i><b>13.7.15</b> Plotting</a></li>
+<li class="chapter" data-level="13.7.15" data-path="pandas-1.html"><a href="pandas-1.html#exploratory-analysis"><i class="fa fa-check"></i><b>13.7.15</b> Exploratory Analysis</a>
+<ul>
+<li class="chapter" data-level="13.7.15.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-11"><i class="fa fa-check"></i><b>13.7.15.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.7.15.2" data-path="pandas-1.html"><a href="pandas-1.html#all-stats-in-one---.describe"><i class="fa fa-check"></i><b>13.7.15.2</b> All Stats in One - .describe()</a></li>
+<li class="chapter" data-level="13.7.15.3" data-path="pandas-1.html"><a href="pandas-1.html#minmaxmeanmedian"><i class="fa fa-check"></i><b>13.7.15.3</b> min/max/mean/median</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7.16" data-path="pandas-1.html"><a href="pandas-1.html#plotting"><i class="fa fa-check"></i><b>13.7.16</b> Plotting</a></li>
 </ul></li>
 <li class="chapter" data-level="13.8" data-path="pandas-1.html"><a href="pandas-1.html#class-categories"><i class="fa fa-check"></i><b>13.8</b> class: Categories</a>
 <ul>
@@ -1209,62 +1227,62 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h1 number="11"><span class="header-section-number">11</span> Plydata (dplyr for Python)</h1>
 <div id="sample-data" class="section level2" number="11.1">
 <h2 number="11.1"><span class="header-section-number">11.1</span> Sample Data</h2>
-<div class="sourceCode" id="cb567"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb567-1"><a href="plydata-dplyr-for-python.html#cb567-1"></a>n <span class="op">=</span> <span class="dv">200</span></span>
-<span id="cb567-2"><a href="plydata-dplyr-for-python.html#cb567-2"></a>comp <span class="op">=</span> [<span class="st">&#39;C&#39;</span> <span class="op">+</span> i <span class="cf">for</span> i <span class="kw">in</span> np.random.randint( <span class="dv">1</span>,<span class="dv">4</span>, size  <span class="op">=</span> n).astype(<span class="bu">str</span>)] <span class="co"># 3x Company</span></span>
-<span id="cb567-3"><a href="plydata-dplyr-for-python.html#cb567-3"></a>dept <span class="op">=</span> [<span class="st">&#39;D&#39;</span> <span class="op">+</span> i <span class="cf">for</span> i <span class="kw">in</span> np.random.randint( <span class="dv">1</span>,<span class="dv">6</span>, size  <span class="op">=</span> n).astype(<span class="bu">str</span>)] <span class="co"># 5x Department</span></span>
-<span id="cb567-4"><a href="plydata-dplyr-for-python.html#cb567-4"></a>grp <span class="op">=</span>  [<span class="st">&#39;G&#39;</span> <span class="op">+</span> i <span class="cf">for</span> i <span class="kw">in</span> np.random.randint( <span class="dv">1</span>,<span class="dv">3</span>, size  <span class="op">=</span> n).astype(<span class="bu">str</span>)] <span class="co"># 2x Groups</span></span>
-<span id="cb567-5"><a href="plydata-dplyr-for-python.html#cb567-5"></a>value1 <span class="op">=</span> np.random.normal( loc<span class="op">=</span><span class="dv">50</span> , scale<span class="op">=</span><span class="dv">5</span> , size <span class="op">=</span> n)</span>
-<span id="cb567-6"><a href="plydata-dplyr-for-python.html#cb567-6"></a>value2 <span class="op">=</span> np.random.normal( loc<span class="op">=</span><span class="dv">20</span> , scale<span class="op">=</span><span class="dv">3</span> , size <span class="op">=</span> n)</span>
-<span id="cb567-7"><a href="plydata-dplyr-for-python.html#cb567-7"></a><span class="co">#value3 = np.random.normal( loc=5 , scale=30 , size = n)</span></span>
-<span id="cb567-8"><a href="plydata-dplyr-for-python.html#cb567-8"></a></span>
-<span id="cb567-9"><a href="plydata-dplyr-for-python.html#cb567-9"></a>mydf <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb567-10"><a href="plydata-dplyr-for-python.html#cb567-10"></a>    <span class="st">&#39;comp&#39;</span>:comp, </span>
-<span id="cb567-11"><a href="plydata-dplyr-for-python.html#cb567-11"></a>    <span class="st">&#39;dept&#39;</span>:dept, </span>
-<span id="cb567-12"><a href="plydata-dplyr-for-python.html#cb567-12"></a>    <span class="st">&#39;grp&#39;</span>: grp,</span>
-<span id="cb567-13"><a href="plydata-dplyr-for-python.html#cb567-13"></a>    <span class="st">&#39;value1&#39;</span>:value1, </span>
-<span id="cb567-14"><a href="plydata-dplyr-for-python.html#cb567-14"></a>    <span class="st">&#39;value2&#39;</span>:value2</span>
-<span id="cb567-15"><a href="plydata-dplyr-for-python.html#cb567-15"></a>    <span class="co">#&#39;value3&#39;:value3 </span></span>
-<span id="cb567-16"><a href="plydata-dplyr-for-python.html#cb567-16"></a>})</span>
-<span id="cb567-17"><a href="plydata-dplyr-for-python.html#cb567-17"></a>mydf.head()</span></code></pre></div>
+<div class="sourceCode" id="cb579"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb579-1"><a href="plydata-dplyr-for-python.html#cb579-1"></a>n <span class="op">=</span> <span class="dv">200</span></span>
+<span id="cb579-2"><a href="plydata-dplyr-for-python.html#cb579-2"></a>comp <span class="op">=</span> [<span class="st">&#39;C&#39;</span> <span class="op">+</span> i <span class="cf">for</span> i <span class="kw">in</span> np.random.randint( <span class="dv">1</span>,<span class="dv">4</span>, size  <span class="op">=</span> n).astype(<span class="bu">str</span>)] <span class="co"># 3x Company</span></span>
+<span id="cb579-3"><a href="plydata-dplyr-for-python.html#cb579-3"></a>dept <span class="op">=</span> [<span class="st">&#39;D&#39;</span> <span class="op">+</span> i <span class="cf">for</span> i <span class="kw">in</span> np.random.randint( <span class="dv">1</span>,<span class="dv">6</span>, size  <span class="op">=</span> n).astype(<span class="bu">str</span>)] <span class="co"># 5x Department</span></span>
+<span id="cb579-4"><a href="plydata-dplyr-for-python.html#cb579-4"></a>grp <span class="op">=</span>  [<span class="st">&#39;G&#39;</span> <span class="op">+</span> i <span class="cf">for</span> i <span class="kw">in</span> np.random.randint( <span class="dv">1</span>,<span class="dv">3</span>, size  <span class="op">=</span> n).astype(<span class="bu">str</span>)] <span class="co"># 2x Groups</span></span>
+<span id="cb579-5"><a href="plydata-dplyr-for-python.html#cb579-5"></a>value1 <span class="op">=</span> np.random.normal( loc<span class="op">=</span><span class="dv">50</span> , scale<span class="op">=</span><span class="dv">5</span> , size <span class="op">=</span> n)</span>
+<span id="cb579-6"><a href="plydata-dplyr-for-python.html#cb579-6"></a>value2 <span class="op">=</span> np.random.normal( loc<span class="op">=</span><span class="dv">20</span> , scale<span class="op">=</span><span class="dv">3</span> , size <span class="op">=</span> n)</span>
+<span id="cb579-7"><a href="plydata-dplyr-for-python.html#cb579-7"></a><span class="co">#value3 = np.random.normal( loc=5 , scale=30 , size = n)</span></span>
+<span id="cb579-8"><a href="plydata-dplyr-for-python.html#cb579-8"></a></span>
+<span id="cb579-9"><a href="plydata-dplyr-for-python.html#cb579-9"></a>mydf <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb579-10"><a href="plydata-dplyr-for-python.html#cb579-10"></a>    <span class="st">&#39;comp&#39;</span>:comp, </span>
+<span id="cb579-11"><a href="plydata-dplyr-for-python.html#cb579-11"></a>    <span class="st">&#39;dept&#39;</span>:dept, </span>
+<span id="cb579-12"><a href="plydata-dplyr-for-python.html#cb579-12"></a>    <span class="st">&#39;grp&#39;</span>: grp,</span>
+<span id="cb579-13"><a href="plydata-dplyr-for-python.html#cb579-13"></a>    <span class="st">&#39;value1&#39;</span>:value1, </span>
+<span id="cb579-14"><a href="plydata-dplyr-for-python.html#cb579-14"></a>    <span class="st">&#39;value2&#39;</span>:value2</span>
+<span id="cb579-15"><a href="plydata-dplyr-for-python.html#cb579-15"></a>    <span class="co">#&#39;value3&#39;:value3 </span></span>
+<span id="cb579-16"><a href="plydata-dplyr-for-python.html#cb579-16"></a>})</span>
+<span id="cb579-17"><a href="plydata-dplyr-for-python.html#cb579-17"></a>mydf.head()</span></code></pre></div>
 <pre><code>##   comp dept grp     value1     value2
-## 0   C2   D4  G1  48.490414  22.246155
-## 1   C3   D2  G1  50.529436  23.988151
-## 2   C1   D2  G1  55.396855  22.928872
-## 3   C3   D5  G2  46.898155  21.138238
-## 4   C2   D1  G2  57.848297  20.497470</code></pre>
+## 0   C1   D4  G2  52.893168  17.175856
+## 1   C2   D3  G2  43.884151  17.808926
+## 2   C2   D2  G2  49.649656  22.210555
+## 3   C3   D4  G1  50.891855  22.333348
+## 4   C1   D1  G2  48.235132  17.638274</code></pre>
 </div>
 <div id="column-manipulation" class="section level2" number="11.2">
 <h2 number="11.2"><span class="header-section-number">11.2</span> Column Manipulation</h2>
 <div id="copy-column" class="section level3" number="11.2.1">
 <h3 number="11.2.1"><span class="header-section-number">11.2.1</span> Copy Column</h3>
-<div class="sourceCode" id="cb569"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb569-1"><a href="plydata-dplyr-for-python.html#cb569-1"></a>mydf <span class="op">&gt;&gt;</span> define(newcol <span class="op">=</span> <span class="st">&#39;value1&#39;</span>)                 <span class="co"># simple method for one column</span></span></code></pre></div>
+<div class="sourceCode" id="cb581"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb581-1"><a href="plydata-dplyr-for-python.html#cb581-1"></a>mydf <span class="op">&gt;&gt;</span> define(newcol <span class="op">=</span> <span class="st">&#39;value1&#39;</span>)                 <span class="co"># simple method for one column</span></span></code></pre></div>
 <pre><code>##     comp dept grp     value1     value2     newcol
-## 0     C2   D4  G1  48.490414  22.246155  48.490414
-## 1     C3   D2  G1  50.529436  23.988151  50.529436
-## 2     C1   D2  G1  55.396855  22.928872  55.396855
-## 3     C3   D5  G2  46.898155  21.138238  46.898155
-## 4     C2   D1  G2  57.848297  20.497470  57.848297
+## 0     C1   D4  G2  52.893168  17.175856  52.893168
+## 1     C2   D3  G2  43.884151  17.808926  43.884151
+## 2     C2   D2  G2  49.649656  22.210555  49.649656
+## 3     C3   D4  G1  50.891855  22.333348  50.891855
+## 4     C1   D1  G2  48.235132  17.638274  48.235132
 ## ..   ...  ...  ..        ...        ...        ...
-## 195   C2   D5  G2  49.056035  15.425157  49.056035
-## 196   C1   D4  G1  53.430235  22.356098  53.430235
-## 197   C3   D3  G1  54.551506  18.379021  54.551506
-## 198   C2   D3  G2  49.958581  23.483294  49.958581
-## 199   C2   D1  G1  50.442798  25.377083  50.442798
+## 195   C2   D1  G2  47.363556  23.835062  47.363556
+## 196   C2   D5  G2  53.549073  20.219746  53.549073
+## 197   C1   D2  G2  52.158491  18.040479  52.158491
+## 198   C1   D4  G1  42.780686  16.808236  42.780686
+## 199   C1   D5  G1  57.453443  22.977335  57.453443
 ## 
 ## [200 rows x 6 columns]</code></pre>
-<div class="sourceCode" id="cb571"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb571-1"><a href="plydata-dplyr-for-python.html#cb571-1"></a>mydf <span class="op">&gt;&gt;</span> define ((<span class="st">&#39;newcol1&#39;</span>, <span class="st">&#39;value1&#39;</span>), newcol2<span class="op">=</span><span class="st">&#39;value2&#39;</span>)  <span class="co"># method for muiltiple new columns</span></span></code></pre></div>
+<div class="sourceCode" id="cb583"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb583-1"><a href="plydata-dplyr-for-python.html#cb583-1"></a>mydf <span class="op">&gt;&gt;</span> define ((<span class="st">&#39;newcol1&#39;</span>, <span class="st">&#39;value1&#39;</span>), newcol2<span class="op">=</span><span class="st">&#39;value2&#39;</span>)  <span class="co"># method for muiltiple new columns</span></span></code></pre></div>
 <pre><code>##     comp dept grp     value1     value2    newcol1    newcol2
-## 0     C2   D4  G1  48.490414  22.246155  48.490414  22.246155
-## 1     C3   D2  G1  50.529436  23.988151  50.529436  23.988151
-## 2     C1   D2  G1  55.396855  22.928872  55.396855  22.928872
-## 3     C3   D5  G2  46.898155  21.138238  46.898155  21.138238
-## 4     C2   D1  G2  57.848297  20.497470  57.848297  20.497470
+## 0     C1   D4  G2  52.893168  17.175856  52.893168  17.175856
+## 1     C2   D3  G2  43.884151  17.808926  43.884151  17.808926
+## 2     C2   D2  G2  49.649656  22.210555  49.649656  22.210555
+## 3     C3   D4  G1  50.891855  22.333348  50.891855  22.333348
+## 4     C1   D1  G2  48.235132  17.638274  48.235132  17.638274
 ## ..   ...  ...  ..        ...        ...        ...        ...
-## 195   C2   D5  G2  49.056035  15.425157  49.056035  15.425157
-## 196   C1   D4  G1  53.430235  22.356098  53.430235  22.356098
-## 197   C3   D3  G1  54.551506  18.379021  54.551506  18.379021
-## 198   C2   D3  G2  49.958581  23.483294  49.958581  23.483294
-## 199   C2   D1  G1  50.442798  25.377083  50.442798  25.377083
+## 195   C2   D1  G2  47.363556  23.835062  47.363556  23.835062
+## 196   C2   D5  G2  53.549073  20.219746  53.549073  20.219746
+## 197   C1   D2  G2  52.158491  18.040479  52.158491  18.040479
+## 198   C1   D4  G1  42.780686  16.808236  42.780686  16.808236
+## 199   C1   D5  G1  57.453443  22.977335  57.453443  22.977335
 ## 
 ## [200 rows x 7 columns]</code></pre>
 <!-- jupyter_markdown,  -->
@@ -1273,61 +1291,61 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h3 number="11.2.2"><span class="header-section-number">11.2.2</span> New Column from existing Column</h3>
 <!-- jupyter_markdown,  -->
 <p><strong>Without specify the new column name</strong>, it will be derived from expression</p>
-<div class="sourceCode" id="cb573"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb573-1"><a href="plydata-dplyr-for-python.html#cb573-1"></a>mydf <span class="op">&gt;&gt;</span> define (<span class="st">&#39;value1*2&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb585"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb585-1"><a href="plydata-dplyr-for-python.html#cb585-1"></a>mydf <span class="op">&gt;&gt;</span> define (<span class="st">&#39;value1*2&#39;</span>)</span></code></pre></div>
 <pre><code>##     comp dept grp     value1     value2    value1*2
-## 0     C2   D4  G1  48.490414  22.246155   96.980828
-## 1     C3   D2  G1  50.529436  23.988151  101.058873
-## 2     C1   D2  G1  55.396855  22.928872  110.793710
-## 3     C3   D5  G2  46.898155  21.138238   93.796311
-## 4     C2   D1  G2  57.848297  20.497470  115.696595
+## 0     C1   D4  G2  52.893168  17.175856  105.786336
+## 1     C2   D3  G2  43.884151  17.808926   87.768302
+## 2     C2   D2  G2  49.649656  22.210555   99.299312
+## 3     C3   D4  G1  50.891855  22.333348  101.783710
+## 4     C1   D1  G2  48.235132  17.638274   96.470264
 ## ..   ...  ...  ..        ...        ...         ...
-## 195   C2   D5  G2  49.056035  15.425157   98.112071
-## 196   C1   D4  G1  53.430235  22.356098  106.860469
-## 197   C3   D3  G1  54.551506  18.379021  109.103012
-## 198   C2   D3  G2  49.958581  23.483294   99.917162
-## 199   C2   D1  G1  50.442798  25.377083  100.885596
+## 195   C2   D1  G2  47.363556  23.835062   94.727113
+## 196   C2   D5  G2  53.549073  20.219746  107.098147
+## 197   C1   D2  G2  52.158491  18.040479  104.316983
+## 198   C1   D4  G1  42.780686  16.808236   85.561371
+## 199   C1   D5  G1  57.453443  22.977335  114.906887
 ## 
 ## [200 rows x 6 columns]</code></pre>
 <!-- jupyter_markdown,  -->
 <p><strong>Specify the new column name</strong></p>
-<div class="sourceCode" id="cb575"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb575-1"><a href="plydata-dplyr-for-python.html#cb575-1"></a>mydf <span class="op">&gt;&gt;</span> define(value3 <span class="op">=</span> <span class="st">&#39;value1*2&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb587"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb587-1"><a href="plydata-dplyr-for-python.html#cb587-1"></a>mydf <span class="op">&gt;&gt;</span> define(value3 <span class="op">=</span> <span class="st">&#39;value1*2&#39;</span>)</span></code></pre></div>
 <pre><code>##     comp dept grp     value1     value2      value3
-## 0     C2   D4  G1  48.490414  22.246155   96.980828
-## 1     C3   D2  G1  50.529436  23.988151  101.058873
-## 2     C1   D2  G1  55.396855  22.928872  110.793710
-## 3     C3   D5  G2  46.898155  21.138238   93.796311
-## 4     C2   D1  G2  57.848297  20.497470  115.696595
+## 0     C1   D4  G2  52.893168  17.175856  105.786336
+## 1     C2   D3  G2  43.884151  17.808926   87.768302
+## 2     C2   D2  G2  49.649656  22.210555   99.299312
+## 3     C3   D4  G1  50.891855  22.333348  101.783710
+## 4     C1   D1  G2  48.235132  17.638274   96.470264
 ## ..   ...  ...  ..        ...        ...         ...
-## 195   C2   D5  G2  49.056035  15.425157   98.112071
-## 196   C1   D4  G1  53.430235  22.356098  106.860469
-## 197   C3   D3  G1  54.551506  18.379021  109.103012
-## 198   C2   D3  G2  49.958581  23.483294   99.917162
-## 199   C2   D1  G1  50.442798  25.377083  100.885596
+## 195   C2   D1  G2  47.363556  23.835062   94.727113
+## 196   C2   D5  G2  53.549073  20.219746  107.098147
+## 197   C1   D2  G2  52.158491  18.040479  104.316983
+## 198   C1   D4  G1  42.780686  16.808236   85.561371
+## 199   C1   D5  G1  57.453443  22.977335  114.906887
 ## 
 ## [200 rows x 6 columns]</code></pre>
 <!-- jupyter_markdown,  -->
 <p>Define <strong>multiple</strong> new columns in one go. Observe there are three ways to specify the new columns</p>
-<div class="sourceCode" id="cb577"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb577-1"><a href="plydata-dplyr-for-python.html#cb577-1"></a>mydf <span class="op">&gt;&gt;</span> define(<span class="st">&#39;value1*2&#39;</span>,(<span class="st">&#39;newcol2&#39;</span>,<span class="st">&#39;value2*2&#39;</span>),newcol3<span class="op">=</span><span class="st">&#39;value2*3&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb589"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb589-1"><a href="plydata-dplyr-for-python.html#cb589-1"></a>mydf <span class="op">&gt;&gt;</span> define(<span class="st">&#39;value1*2&#39;</span>,(<span class="st">&#39;newcol2&#39;</span>,<span class="st">&#39;value2*2&#39;</span>),newcol3<span class="op">=</span><span class="st">&#39;value2*3&#39;</span>)</span></code></pre></div>
 <pre><code>##     comp dept grp     value1     value2    value1*2    newcol2    newcol3
-## 0     C2   D4  G1  48.490414  22.246155   96.980828  44.492310  66.738466
-## 1     C3   D2  G1  50.529436  23.988151  101.058873  47.976303  71.964454
-## 2     C1   D2  G1  55.396855  22.928872  110.793710  45.857745  68.786617
-## 3     C3   D5  G2  46.898155  21.138238   93.796311  42.276475  63.414713
-## 4     C2   D1  G2  57.848297  20.497470  115.696595  40.994939  61.492409
+## 0     C1   D4  G2  52.893168  17.175856  105.786336  34.351712  51.527568
+## 1     C2   D3  G2  43.884151  17.808926   87.768302  35.617851  53.426777
+## 2     C2   D2  G2  49.649656  22.210555   99.299312  44.421111  66.631666
+## 3     C3   D4  G1  50.891855  22.333348  101.783710  44.666695  67.000043
+## 4     C1   D1  G2  48.235132  17.638274   96.470264  35.276548  52.914821
 ## ..   ...  ...  ..        ...        ...         ...        ...        ...
-## 195   C2   D5  G2  49.056035  15.425157   98.112071  30.850315  46.275472
-## 196   C1   D4  G1  53.430235  22.356098  106.860469  44.712195  67.068293
-## 197   C3   D3  G1  54.551506  18.379021  109.103012  36.758042  55.137063
-## 198   C2   D3  G2  49.958581  23.483294   99.917162  46.966587  70.449881
-## 199   C2   D1  G1  50.442798  25.377083  100.885596  50.754166  76.131249
+## 195   C2   D1  G2  47.363556  23.835062   94.727113  47.670124  71.505186
+## 196   C2   D5  G2  53.549073  20.219746  107.098147  40.439492  60.659237
+## 197   C1   D2  G2  52.158491  18.040479  104.316983  36.080958  54.121438
+## 198   C1   D4  G1  42.780686  16.808236   85.561371  33.616472  50.424708
+## 199   C1   D5  G1  57.453443  22.977335  114.906887  45.954670  68.932006
 ## 
 ## [200 rows x 8 columns]</code></pre>
 <!-- jupyter_markdown,  -->
 </div>
 <div id="select-columns" class="section level3" number="11.2.3">
 <h3 number="11.2.3"><span class="header-section-number">11.2.3</span> Select Column(s)</h3>
-<div class="sourceCode" id="cb579"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb579-1"><a href="plydata-dplyr-for-python.html#cb579-1"></a>mydf2 <span class="op">=</span> mydf <span class="op">&gt;&gt;</span> define(newcol1<span class="op">=</span><span class="st">&#39;value1&#39;</span>,newcol2<span class="op">=</span><span class="st">&#39;value2&#39;</span>)</span>
-<span id="cb579-2"><a href="plydata-dplyr-for-python.html#cb579-2"></a>mydf2.info()</span></code></pre></div>
+<div class="sourceCode" id="cb591"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb591-1"><a href="plydata-dplyr-for-python.html#cb591-1"></a>mydf2 <span class="op">=</span> mydf <span class="op">&gt;&gt;</span> define(newcol1<span class="op">=</span><span class="st">&#39;value1&#39;</span>,newcol2<span class="op">=</span><span class="st">&#39;value2&#39;</span>)</span>
+<span id="cb591-2"><a href="plydata-dplyr-for-python.html#cb591-2"></a>mydf2.info()</span></code></pre></div>
 <pre><code>## &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 ## RangeIndex: 200 entries, 0 to 199
 ## Data columns (total 7 columns):
@@ -1344,139 +1362,139 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="by-column-names" class="section level4" number="11.2.3.1">
 <h4 number="11.2.3.1"><span class="header-section-number">11.2.3.1</span> By Column Names</h4>
 <p><strong>Exact Coumn Name</strong></p>
-<div class="sourceCode" id="cb581"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb581-1"><a href="plydata-dplyr-for-python.html#cb581-1"></a>mydf2 <span class="op">&gt;&gt;</span> select (<span class="st">&#39;comp&#39;</span>,<span class="st">&#39;dept&#39;</span>,<span class="st">&#39;value1&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb593"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb593-1"><a href="plydata-dplyr-for-python.html#cb593-1"></a>mydf2 <span class="op">&gt;&gt;</span> select (<span class="st">&#39;comp&#39;</span>,<span class="st">&#39;dept&#39;</span>,<span class="st">&#39;value1&#39;</span>)</span></code></pre></div>
 <pre><code>##     comp dept     value1
-## 0     C2   D4  48.490414
-## 1     C3   D2  50.529436
-## 2     C1   D2  55.396855
-## 3     C3   D5  46.898155
-## 4     C2   D1  57.848297
+## 0     C1   D4  52.893168
+## 1     C2   D3  43.884151
+## 2     C2   D2  49.649656
+## 3     C3   D4  50.891855
+## 4     C1   D1  48.235132
 ## ..   ...  ...        ...
-## 195   C2   D5  49.056035
-## 196   C1   D4  53.430235
-## 197   C3   D3  54.551506
-## 198   C2   D3  49.958581
-## 199   C2   D1  50.442798
+## 195   C2   D1  47.363556
+## 196   C2   D5  53.549073
+## 197   C1   D2  52.158491
+## 198   C1   D4  42.780686
+## 199   C1   D5  57.453443
 ## 
 ## [200 rows x 3 columns]</code></pre>
 <p><strong>Column Name Starts With</strong> …</p>
-<div class="sourceCode" id="cb583"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb583-1"><a href="plydata-dplyr-for-python.html#cb583-1"></a>mydf2 <span class="op">&gt;&gt;</span> select (<span class="st">&#39;comp&#39;</span>, startswith<span class="op">=</span><span class="st">&#39;val&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb595"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb595-1"><a href="plydata-dplyr-for-python.html#cb595-1"></a>mydf2 <span class="op">&gt;&gt;</span> select (<span class="st">&#39;comp&#39;</span>, startswith<span class="op">=</span><span class="st">&#39;val&#39;</span>)</span></code></pre></div>
 <pre><code>##     comp     value1     value2
-## 0     C2  48.490414  22.246155
-## 1     C3  50.529436  23.988151
-## 2     C1  55.396855  22.928872
-## 3     C3  46.898155  21.138238
-## 4     C2  57.848297  20.497470
+## 0     C1  52.893168  17.175856
+## 1     C2  43.884151  17.808926
+## 2     C2  49.649656  22.210555
+## 3     C3  50.891855  22.333348
+## 4     C1  48.235132  17.638274
 ## ..   ...        ...        ...
-## 195   C2  49.056035  15.425157
-## 196   C1  53.430235  22.356098
-## 197   C3  54.551506  18.379021
-## 198   C2  49.958581  23.483294
-## 199   C2  50.442798  25.377083
+## 195   C2  47.363556  23.835062
+## 196   C2  53.549073  20.219746
+## 197   C1  52.158491  18.040479
+## 198   C1  42.780686  16.808236
+## 199   C1  57.453443  22.977335
 ## 
 ## [200 rows x 3 columns]</code></pre>
 <p><strong>Column Name Ends With …</strong></p>
-<div class="sourceCode" id="cb585"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb585-1"><a href="plydata-dplyr-for-python.html#cb585-1"></a>mydf2 <span class="op">&gt;&gt;</span> select (<span class="st">&#39;comp&#39;</span>,endswith<span class="op">=</span>(<span class="st">&#39;1&#39;</span>,<span class="st">&#39;2&#39;</span>,<span class="st">&#39;3&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb597"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb597-1"><a href="plydata-dplyr-for-python.html#cb597-1"></a>mydf2 <span class="op">&gt;&gt;</span> select (<span class="st">&#39;comp&#39;</span>,endswith<span class="op">=</span>(<span class="st">&#39;1&#39;</span>,<span class="st">&#39;2&#39;</span>,<span class="st">&#39;3&#39;</span>))</span></code></pre></div>
 <pre><code>##     comp     value1     value2    newcol1    newcol2
-## 0     C2  48.490414  22.246155  48.490414  22.246155
-## 1     C3  50.529436  23.988151  50.529436  23.988151
-## 2     C1  55.396855  22.928872  55.396855  22.928872
-## 3     C3  46.898155  21.138238  46.898155  21.138238
-## 4     C2  57.848297  20.497470  57.848297  20.497470
+## 0     C1  52.893168  17.175856  52.893168  17.175856
+## 1     C2  43.884151  17.808926  43.884151  17.808926
+## 2     C2  49.649656  22.210555  49.649656  22.210555
+## 3     C3  50.891855  22.333348  50.891855  22.333348
+## 4     C1  48.235132  17.638274  48.235132  17.638274
 ## ..   ...        ...        ...        ...        ...
-## 195   C2  49.056035  15.425157  49.056035  15.425157
-## 196   C1  53.430235  22.356098  53.430235  22.356098
-## 197   C3  54.551506  18.379021  54.551506  18.379021
-## 198   C2  49.958581  23.483294  49.958581  23.483294
-## 199   C2  50.442798  25.377083  50.442798  25.377083
+## 195   C2  47.363556  23.835062  47.363556  23.835062
+## 196   C2  53.549073  20.219746  53.549073  20.219746
+## 197   C1  52.158491  18.040479  52.158491  18.040479
+## 198   C1  42.780686  16.808236  42.780686  16.808236
+## 199   C1  57.453443  22.977335  57.453443  22.977335
 ## 
 ## [200 rows x 5 columns]</code></pre>
 <p><strong>Column Name Contains …</strong></p>
-<div class="sourceCode" id="cb587"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb587-1"><a href="plydata-dplyr-for-python.html#cb587-1"></a>mydf2 <span class="op">&gt;&gt;</span> select(<span class="st">&#39;comp&#39;</span>, contains<span class="op">=</span>(<span class="st">&#39;col&#39;</span>,<span class="st">&#39;val&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb599"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb599-1"><a href="plydata-dplyr-for-python.html#cb599-1"></a>mydf2 <span class="op">&gt;&gt;</span> select(<span class="st">&#39;comp&#39;</span>, contains<span class="op">=</span>(<span class="st">&#39;col&#39;</span>,<span class="st">&#39;val&#39;</span>))</span></code></pre></div>
 <pre><code>##     comp     value1     value2    newcol1    newcol2
-## 0     C2  48.490414  22.246155  48.490414  22.246155
-## 1     C3  50.529436  23.988151  50.529436  23.988151
-## 2     C1  55.396855  22.928872  55.396855  22.928872
-## 3     C3  46.898155  21.138238  46.898155  21.138238
-## 4     C2  57.848297  20.497470  57.848297  20.497470
+## 0     C1  52.893168  17.175856  52.893168  17.175856
+## 1     C2  43.884151  17.808926  43.884151  17.808926
+## 2     C2  49.649656  22.210555  49.649656  22.210555
+## 3     C3  50.891855  22.333348  50.891855  22.333348
+## 4     C1  48.235132  17.638274  48.235132  17.638274
 ## ..   ...        ...        ...        ...        ...
-## 195   C2  49.056035  15.425157  49.056035  15.425157
-## 196   C1  53.430235  22.356098  53.430235  22.356098
-## 197   C3  54.551506  18.379021  54.551506  18.379021
-## 198   C2  49.958581  23.483294  49.958581  23.483294
-## 199   C2  50.442798  25.377083  50.442798  25.377083
+## 195   C2  47.363556  23.835062  47.363556  23.835062
+## 196   C2  53.549073  20.219746  53.549073  20.219746
+## 197   C1  52.158491  18.040479  52.158491  18.040479
+## 198   C1  42.780686  16.808236  42.780686  16.808236
+## 199   C1  57.453443  22.977335  57.453443  22.977335
 ## 
 ## [200 rows x 5 columns]</code></pre>
 </div>
 <div id="specify-column-range" class="section level4" number="11.2.3.2">
 <h4 number="11.2.3.2"><span class="header-section-number">11.2.3.2</span> Specify Column Range</h4>
-<div class="sourceCode" id="cb589"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb589-1"><a href="plydata-dplyr-for-python.html#cb589-1"></a>mydf2 <span class="op">&gt;&gt;</span> select (<span class="st">&#39;comp&#39;</span>, <span class="bu">slice</span>(<span class="st">&#39;value1&#39;</span>,<span class="st">&#39;newcol2&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb601"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb601-1"><a href="plydata-dplyr-for-python.html#cb601-1"></a>mydf2 <span class="op">&gt;&gt;</span> select (<span class="st">&#39;comp&#39;</span>, <span class="bu">slice</span>(<span class="st">&#39;value1&#39;</span>,<span class="st">&#39;newcol2&#39;</span>))</span></code></pre></div>
 <pre><code>##     comp     value1     value2    newcol1    newcol2
-## 0     C2  48.490414  22.246155  48.490414  22.246155
-## 1     C3  50.529436  23.988151  50.529436  23.988151
-## 2     C1  55.396855  22.928872  55.396855  22.928872
-## 3     C3  46.898155  21.138238  46.898155  21.138238
-## 4     C2  57.848297  20.497470  57.848297  20.497470
+## 0     C1  52.893168  17.175856  52.893168  17.175856
+## 1     C2  43.884151  17.808926  43.884151  17.808926
+## 2     C2  49.649656  22.210555  49.649656  22.210555
+## 3     C3  50.891855  22.333348  50.891855  22.333348
+## 4     C1  48.235132  17.638274  48.235132  17.638274
 ## ..   ...        ...        ...        ...        ...
-## 195   C2  49.056035  15.425157  49.056035  15.425157
-## 196   C1  53.430235  22.356098  53.430235  22.356098
-## 197   C3  54.551506  18.379021  54.551506  18.379021
-## 198   C2  49.958581  23.483294  49.958581  23.483294
-## 199   C2  50.442798  25.377083  50.442798  25.377083
+## 195   C2  47.363556  23.835062  47.363556  23.835062
+## 196   C2  53.549073  20.219746  53.549073  20.219746
+## 197   C1  52.158491  18.040479  52.158491  18.040479
+## 198   C1  42.780686  16.808236  42.780686  16.808236
+## 199   C1  57.453443  22.977335  57.453443  22.977335
 ## 
 ## [200 rows x 5 columns]</code></pre>
 </div>
 </div>
 <div id="drop-columns" class="section level3" number="11.2.4">
 <h3 number="11.2.4"><span class="header-section-number">11.2.4</span> Drop Column(s)</h3>
-<div class="sourceCode" id="cb591"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb591-1"><a href="plydata-dplyr-for-python.html#cb591-1"></a>mydf2 <span class="op">&gt;&gt;</span> select(<span class="st">&#39;newcol1&#39;</span>,<span class="st">&#39;newcol2&#39;</span>,drop<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb603"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb603-1"><a href="plydata-dplyr-for-python.html#cb603-1"></a>mydf2 <span class="op">&gt;&gt;</span> select(<span class="st">&#39;newcol1&#39;</span>,<span class="st">&#39;newcol2&#39;</span>,drop<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
 <pre><code>##     comp dept grp     value1     value2
-## 0     C2   D4  G1  48.490414  22.246155
-## 1     C3   D2  G1  50.529436  23.988151
-## 2     C1   D2  G1  55.396855  22.928872
-## 3     C3   D5  G2  46.898155  21.138238
-## 4     C2   D1  G2  57.848297  20.497470
+## 0     C1   D4  G2  52.893168  17.175856
+## 1     C2   D3  G2  43.884151  17.808926
+## 2     C2   D2  G2  49.649656  22.210555
+## 3     C3   D4  G1  50.891855  22.333348
+## 4     C1   D1  G2  48.235132  17.638274
 ## ..   ...  ...  ..        ...        ...
-## 195   C2   D5  G2  49.056035  15.425157
-## 196   C1   D4  G1  53.430235  22.356098
-## 197   C3   D3  G1  54.551506  18.379021
-## 198   C2   D3  G2  49.958581  23.483294
-## 199   C2   D1  G1  50.442798  25.377083
+## 195   C2   D1  G2  47.363556  23.835062
+## 196   C2   D5  G2  53.549073  20.219746
+## 197   C1   D2  G2  52.158491  18.040479
+## 198   C1   D4  G1  42.780686  16.808236
+## 199   C1   D5  G1  57.453443  22.977335
 ## 
 ## [200 rows x 5 columns]</code></pre>
-<div class="sourceCode" id="cb593"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb593-1"><a href="plydata-dplyr-for-python.html#cb593-1"></a>mydf <span class="op">&gt;&gt;</span> rename( {<span class="st">&#39;val.1&#39;</span> : <span class="st">&#39;value1&#39;</span>,</span>
-<span id="cb593-2"><a href="plydata-dplyr-for-python.html#cb593-2"></a>                 <span class="st">&#39;val.2&#39;</span> : <span class="st">&#39;value2&#39;</span> })</span></code></pre></div>
+<div class="sourceCode" id="cb605"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb605-1"><a href="plydata-dplyr-for-python.html#cb605-1"></a>mydf <span class="op">&gt;&gt;</span> rename( {<span class="st">&#39;val.1&#39;</span> : <span class="st">&#39;value1&#39;</span>,</span>
+<span id="cb605-2"><a href="plydata-dplyr-for-python.html#cb605-2"></a>                 <span class="st">&#39;val.2&#39;</span> : <span class="st">&#39;value2&#39;</span> })</span></code></pre></div>
 <pre><code>##     comp dept grp      val.1      val.2
-## 0     C2   D4  G1  48.490414  22.246155
-## 1     C3   D2  G1  50.529436  23.988151
-## 2     C1   D2  G1  55.396855  22.928872
-## 3     C3   D5  G2  46.898155  21.138238
-## 4     C2   D1  G2  57.848297  20.497470
+## 0     C1   D4  G2  52.893168  17.175856
+## 1     C2   D3  G2  43.884151  17.808926
+## 2     C2   D2  G2  49.649656  22.210555
+## 3     C3   D4  G1  50.891855  22.333348
+## 4     C1   D1  G2  48.235132  17.638274
 ## ..   ...  ...  ..        ...        ...
-## 195   C2   D5  G2  49.056035  15.425157
-## 196   C1   D4  G1  53.430235  22.356098
-## 197   C3   D3  G1  54.551506  18.379021
-## 198   C2   D3  G2  49.958581  23.483294
-## 199   C2   D1  G1  50.442798  25.377083
+## 195   C2   D1  G2  47.363556  23.835062
+## 196   C2   D5  G2  53.549073  20.219746
+## 197   C1   D2  G2  52.158491  18.040479
+## 198   C1   D4  G1  42.780686  16.808236
+## 199   C1   D5  G1  57.453443  22.977335
 ## 
 ## [200 rows x 5 columns]</code></pre>
 <p><strong>Combined Method</strong><br />
 Combine both assignment and dictionary method</p>
-<div class="sourceCode" id="cb595"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb595-1"><a href="plydata-dplyr-for-python.html#cb595-1"></a>mydf <span class="op">&gt;&gt;</span> rename( {<span class="st">&#39;val.1&#39;</span> : <span class="st">&#39;value1&#39;</span>,</span>
-<span id="cb595-2"><a href="plydata-dplyr-for-python.html#cb595-2"></a>                 <span class="st">&#39;val.2&#39;</span> : <span class="st">&#39;value2&#39;</span></span>
-<span id="cb595-3"><a href="plydata-dplyr-for-python.html#cb595-3"></a>              }, group <span class="op">=</span> <span class="st">&#39;grp&#39;</span> )</span></code></pre></div>
+<div class="sourceCode" id="cb607"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb607-1"><a href="plydata-dplyr-for-python.html#cb607-1"></a>mydf <span class="op">&gt;&gt;</span> rename( {<span class="st">&#39;val.1&#39;</span> : <span class="st">&#39;value1&#39;</span>,</span>
+<span id="cb607-2"><a href="plydata-dplyr-for-python.html#cb607-2"></a>                 <span class="st">&#39;val.2&#39;</span> : <span class="st">&#39;value2&#39;</span></span>
+<span id="cb607-3"><a href="plydata-dplyr-for-python.html#cb607-3"></a>              }, group <span class="op">=</span> <span class="st">&#39;grp&#39;</span> )</span></code></pre></div>
 <pre><code>##     comp dept group      val.1      val.2
-## 0     C2   D4    G1  48.490414  22.246155
-## 1     C3   D2    G1  50.529436  23.988151
-## 2     C1   D2    G1  55.396855  22.928872
-## 3     C3   D5    G2  46.898155  21.138238
-## 4     C2   D1    G2  57.848297  20.497470
+## 0     C1   D4    G2  52.893168  17.175856
+## 1     C2   D3    G2  43.884151  17.808926
+## 2     C2   D2    G2  49.649656  22.210555
+## 3     C3   D4    G1  50.891855  22.333348
+## 4     C1   D1    G2  48.235132  17.638274
 ## ..   ...  ...   ...        ...        ...
-## 195   C2   D5    G2  49.056035  15.425157
-## 196   C1   D4    G1  53.430235  22.356098
-## 197   C3   D3    G1  54.551506  18.379021
-## 198   C2   D3    G2  49.958581  23.483294
-## 199   C2   D1    G1  50.442798  25.377083
+## 195   C2   D1    G2  47.363556  23.835062
+## 196   C2   D5    G2  53.549073  20.219746
+## 197   C1   D2    G2  52.158491  18.040479
+## 198   C1   D4    G1  42.780686  16.808236
+## 199   C1   D5    G1  57.453443  22.977335
 ## 
 ## [200 rows x 5 columns]</code></pre>
 </div>
@@ -1484,25 +1502,25 @@ Combine both assignment and dictionary method</p>
 <div id="sorting-arrange" class="section level2" number="11.3">
 <h2 number="11.3"><span class="header-section-number">11.3</span> Sorting (arrange)</h2>
 <p>Use <strong>‘-colName’</strong> for decending</p>
-<div class="sourceCode" id="cb597"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb597-1"><a href="plydata-dplyr-for-python.html#cb597-1"></a>mydf <span class="op">&gt;&gt;</span> arrange(<span class="st">&#39;comp&#39;</span>, <span class="st">&#39;-value1&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb609"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb609-1"><a href="plydata-dplyr-for-python.html#cb609-1"></a>mydf <span class="op">&gt;&gt;</span> arrange(<span class="st">&#39;comp&#39;</span>, <span class="st">&#39;-value1&#39;</span>)</span></code></pre></div>
 <pre><code>##     comp dept grp     value1     value2
-## 131   C1   D3  G2  59.976915  22.230436
-## 141   C1   D1  G2  59.350782  19.734169
-## 132   C1   D2  G2  58.988772  19.902667
-## 62    C1   D2  G2  58.549635  16.292573
-## 50    C1   D3  G1  58.185105  21.960653
+## 87    C1   D4  G1  60.402305  26.090532
+## 66    C1   D1  G2  57.859518  22.783855
+## 199   C1   D5  G1  57.453443  22.977335
+## 98    C1   D1  G1  57.069659  20.250955
+## 142   C1   D5  G1  56.929768  23.020149
 ## ..   ...  ...  ..        ...        ...
-## 30    C3   D2  G1  42.804034  20.268452
-## 57    C3   D5  G2  42.636990  19.027521
-## 129   C3   D5  G2  42.439203  21.015348
-## 126   C3   D5  G2  41.230563  22.564182
-## 84    C3   D1  G2  40.812635  20.652108
+## 106   C3   D3  G2  43.802010  18.065961
+## 90    C3   D3  G2  43.643524  20.639768
+## 189   C3   D4  G2  43.187909  21.051970
+## 163   C3   D2  G1  41.787184  16.457154
+## 123   C3   D3  G2  38.044968  15.375341
 ## 
 ## [200 rows x 5 columns]</code></pre>
 </div>
 <div id="grouping" class="section level2" number="11.4">
 <h2 number="11.4"><span class="header-section-number">11.4</span> Grouping</h2>
-<div class="sourceCode" id="cb599"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb599-1"><a href="plydata-dplyr-for-python.html#cb599-1"></a>mydf.info()</span></code></pre></div>
+<div class="sourceCode" id="cb611"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb611-1"><a href="plydata-dplyr-for-python.html#cb611-1"></a>mydf.info()</span></code></pre></div>
 <pre><code>## &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 ## RangeIndex: 200 entries, 0 to 199
 ## Data columns (total 5 columns):
@@ -1513,8 +1531,8 @@ Combine both assignment and dictionary method</p>
 ## value2    200 non-null float64
 ## dtypes: float64(2), object(3)
 ## memory usage: 7.9+ KB</code></pre>
-<div class="sourceCode" id="cb601"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb601-1"><a href="plydata-dplyr-for-python.html#cb601-1"></a>gdf <span class="op">=</span> mydf <span class="op">&gt;&gt;</span> group_by(<span class="st">&#39;comp&#39;</span>,<span class="st">&#39;dept&#39;</span>)</span>
-<span id="cb601-2"><a href="plydata-dplyr-for-python.html#cb601-2"></a><span class="bu">type</span>(gdf)</span></code></pre></div>
+<div class="sourceCode" id="cb613"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb613-1"><a href="plydata-dplyr-for-python.html#cb613-1"></a>gdf <span class="op">=</span> mydf <span class="op">&gt;&gt;</span> group_by(<span class="st">&#39;comp&#39;</span>,<span class="st">&#39;dept&#39;</span>)</span>
+<span id="cb613-2"><a href="plydata-dplyr-for-python.html#cb613-2"></a><span class="bu">type</span>(gdf)</span></code></pre></div>
 <pre><code>## &lt;class &#39;plydata.types.GroupedDataFrame&#39;&gt;</code></pre>
 </div>
 <div id="summarization" class="section level2" number="11.5">
@@ -1522,19 +1540,19 @@ Combine both assignment and dictionary method</p>
 <div id="simple-method" class="section level3" number="11.5.1">
 <h3 number="11.5.1"><span class="header-section-number">11.5.1</span> Simple Method</h3>
 <p><strong>Passing Multiple Expressions</strong></p>
-<div class="sourceCode" id="cb603"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb603-1"><a href="plydata-dplyr-for-python.html#cb603-1"></a>gdf <span class="op">&gt;&gt;</span> summarize(<span class="st">&#39;n()&#39;</span>,<span class="st">&#39;sum(value1)&#39;</span>,<span class="st">&#39;mean(value2)&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb615"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb615-1"><a href="plydata-dplyr-for-python.html#cb615-1"></a>gdf <span class="op">&gt;&gt;</span> summarize(<span class="st">&#39;n()&#39;</span>,<span class="st">&#39;sum(value1)&#39;</span>,<span class="st">&#39;mean(value2)&#39;</span>)</span></code></pre></div>
 <pre><code>##    comp dept  n()  sum(value1)  mean(value2)
-## 0    C2   D4   11   545.566395     20.263226
-## 1    C3   D2   16   814.954978     19.840189
-## 2    C1   D2   11   558.941472     19.700323
-## 3    C3   D5   14   693.143021     19.940108
-## 4    C2   D1   15   787.435658     20.484270
+## 0    C1   D4   18   880.100421     19.713831
+## 1    C2   D3    9   448.554579     19.655189
+## 2    C2   D2   15   736.095215     19.645727
+## 3    C3   D4   11   562.384585     20.561475
+## 4    C1   D1   12   607.425132     19.510818
 ## ..  ...  ...  ...          ...           ...
-## 10   C1   D3   19   980.003917     19.495031
-## 11   C2   D5   15   750.037462     19.225565
-## 12   C3   D4   13   650.930755     19.588411
-## 13   C2   D2   13   669.450951     20.465974
-## 14   C1   D4    8   405.245803     20.354555
+## 10   C1   D5   11   545.273240     22.080818
+## 11   C1   D3   10   493.699564     19.906275
+## 12   C3   D1   13   670.608052     18.774245
+## 13   C3   D3   17   849.991717     20.548172
+## 14   C1   D2    8   412.364558     18.614481
 ## 
 ## [15 rows x 5 columns]</code></pre>
 </div>
@@ -1543,36 +1561,36 @@ Combine both assignment and dictionary method</p>
 <p><strong>Assignment Method</strong><br />
 - Passing colName=‘expression’**<br />
 - Column name cannot contain special character</p>
-<div class="sourceCode" id="cb605"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb605-1"><a href="plydata-dplyr-for-python.html#cb605-1"></a>gdf <span class="op">&gt;&gt;</span> summarize(count<span class="op">=</span><span class="st">&#39;n()&#39;</span>,v1sum<span class="op">=</span><span class="st">&#39;sum(value1)&#39;</span>,v2_mean<span class="op">=</span><span class="st">&#39;mean(value2)&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb617"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb617-1"><a href="plydata-dplyr-for-python.html#cb617-1"></a>gdf <span class="op">&gt;&gt;</span> summarize(count<span class="op">=</span><span class="st">&#39;n()&#39;</span>,v1sum<span class="op">=</span><span class="st">&#39;sum(value1)&#39;</span>,v2_mean<span class="op">=</span><span class="st">&#39;mean(value2)&#39;</span>)</span></code></pre></div>
 <pre><code>##    comp dept  count       v1sum    v2_mean
-## 0    C2   D4     11  545.566395  20.263226
-## 1    C3   D2     16  814.954978  19.840189
-## 2    C1   D2     11  558.941472  19.700323
-## 3    C3   D5     14  693.143021  19.940108
-## 4    C2   D1     15  787.435658  20.484270
+## 0    C1   D4     18  880.100421  19.713831
+## 1    C2   D3      9  448.554579  19.655189
+## 2    C2   D2     15  736.095215  19.645727
+## 3    C3   D4     11  562.384585  20.561475
+## 4    C1   D1     12  607.425132  19.510818
 ## ..  ...  ...    ...         ...        ...
-## 10   C1   D3     19  980.003917  19.495031
-## 11   C2   D5     15  750.037462  19.225565
-## 12   C3   D4     13  650.930755  19.588411
-## 13   C2   D2     13  669.450951  20.465974
-## 14   C1   D4      8  405.245803  20.354555
+## 10   C1   D5     11  545.273240  22.080818
+## 11   C1   D3     10  493.699564  19.906275
+## 12   C3   D1     13  670.608052  18.774245
+## 13   C3   D3     17  849.991717  20.548172
+## 14   C1   D2      8  412.364558  18.614481
 ## 
 ## [15 rows x 5 columns]</code></pre>
 <p><strong>Tuple Method (‘colName’,‘expression’)</strong><br />
 Use when the column name contain special character</p>
-<div class="sourceCode" id="cb607"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb607-1"><a href="plydata-dplyr-for-python.html#cb607-1"></a>gdf <span class="op">&gt;&gt;</span> summarize((<span class="st">&#39;count&#39;</span>,<span class="st">&#39;n()&#39;</span>),(<span class="st">&#39;v1.sum&#39;</span>,<span class="st">&#39;sum(value1)&#39;</span>),(<span class="st">&#39;s2.sum&#39;</span>,<span class="st">&#39;sum(value2)&#39;</span>),v2mean<span class="op">=</span>np.mean(value2))</span></code></pre></div>
+<div class="sourceCode" id="cb619"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb619-1"><a href="plydata-dplyr-for-python.html#cb619-1"></a>gdf <span class="op">&gt;&gt;</span> summarize((<span class="st">&#39;count&#39;</span>,<span class="st">&#39;n()&#39;</span>),(<span class="st">&#39;v1.sum&#39;</span>,<span class="st">&#39;sum(value1)&#39;</span>),(<span class="st">&#39;s2.sum&#39;</span>,<span class="st">&#39;sum(value2)&#39;</span>),v2mean<span class="op">=</span>np.mean(value2))</span></code></pre></div>
 <pre><code>##    comp dept  count      v1.sum      s2.sum     v2mean
-## 0    C2   D4     11  545.566395  222.895491  20.018427
-## 1    C3   D2     16  814.954978  317.443028  20.018427
-## 2    C1   D2     11  558.941472  216.703553  20.018427
-## 3    C3   D5     14  693.143021  279.161509  20.018427
-## 4    C2   D1     15  787.435658  307.264056  20.018427
+## 0    C1   D4     18  880.100421  354.848965  20.042385
+## 1    C2   D3      9  448.554579  176.896702  20.042385
+## 2    C2   D2     15  736.095215  294.685898  20.042385
+## 3    C3   D4     11  562.384585  226.176227  20.042385
+## 4    C1   D1     12  607.425132  234.129821  20.042385
 ## ..  ...  ...    ...         ...         ...        ...
-## 10   C1   D3     19  980.003917  370.405592  20.018427
-## 11   C2   D5     15  750.037462  288.383476  20.018427
-## 12   C3   D4     13  650.930755  254.649348  20.018427
-## 13   C2   D2     13  669.450951  266.057666  20.018427
-## 14   C1   D4      8  405.245803  162.836436  20.018427
+## 10   C1   D5     11  545.273240  242.889003  20.042385
+## 11   C1   D3     10  493.699564  199.062747  20.042385
+## 12   C3   D1     13  670.608052  244.065181  20.042385
+## 13   C3   D3     17  849.991717  349.318922  20.042385
+## 14   C1   D2      8  412.364558  148.915851  20.042385
 ## 
 ## [15 rows x 6 columns]</code></pre>
 </div>
@@ -1583,19 +1601,19 @@ Use when the column name contain special character</p>
 </li>
 <li>n_unique() : total of rows with unique value</li>
 </ul>
-<div class="sourceCode" id="cb609"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb609-1"><a href="plydata-dplyr-for-python.html#cb609-1"></a>gdf <span class="op">&gt;&gt;</span> summarize(count<span class="op">=</span><span class="st">&#39;n()&#39;</span>, va11_unique<span class="op">=</span><span class="st">&#39;n_unique(value1)&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb621"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb621-1"><a href="plydata-dplyr-for-python.html#cb621-1"></a>gdf <span class="op">&gt;&gt;</span> summarize(count<span class="op">=</span><span class="st">&#39;n()&#39;</span>, va11_unique<span class="op">=</span><span class="st">&#39;n_unique(value1)&#39;</span>)</span></code></pre></div>
 <pre><code>##    comp dept  count  va11_unique
-## 0    C2   D4     11           11
-## 1    C3   D2     16           16
-## 2    C1   D2     11           11
-## 3    C3   D5     14           14
-## 4    C2   D1     15           15
+## 0    C1   D4     18           18
+## 1    C2   D3      9            9
+## 2    C2   D2     15           15
+## 3    C3   D4     11           11
+## 4    C1   D1     12           12
 ## ..  ...  ...    ...          ...
-## 10   C1   D3     19           19
-## 11   C2   D5     15           15
-## 12   C3   D4     13           13
-## 13   C2   D2     13           13
-## 14   C1   D4      8            8
+## 10   C1   D5     11           11
+## 11   C1   D3     10           10
+## 12   C3   D1     13           13
+## 13   C3   D3     17           17
+## 14   C1   D2      8            8
 ## 
 ## [15 rows x 4 columns]</code></pre>
 

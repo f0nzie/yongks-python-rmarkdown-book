@@ -220,6 +220,18 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="2.4.1" data-path="built-in-data-types.html"><a href="built-in-data-types.html#none-is-an-object"><i class="fa fa-check"></i><b>2.4.1</b> None is an Object</a></li>
 <li class="chapter" data-level="2.4.2" data-path="built-in-data-types.html"><a href="built-in-data-types.html#comparing-none"><i class="fa fa-check"></i><b>2.4.2</b> Comparing None</a></li>
+<li class="chapter" data-level="2.4.3" data-path="built-in-data-types.html"><a href="built-in-data-types.html#operation-on-none"><i class="fa fa-check"></i><b>2.4.3</b> Operation on None</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="built-in-data-types.html"><a href="built-in-data-types.html#nan"><i class="fa fa-check"></i><b>2.5</b> NaN</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="built-in-data-types.html"><a href="built-in-data-types.html#creating-nan"><i class="fa fa-check"></i><b>2.5.1</b> Creating NaN</a></li>
+<li class="chapter" data-level="2.5.2" data-path="built-in-data-types.html"><a href="built-in-data-types.html#detecting-nan"><i class="fa fa-check"></i><b>2.5.2</b> Detecting NaN</a></li>
+<li class="chapter" data-level="2.5.3" data-path="built-in-data-types.html"><a href="built-in-data-types.html#operation"><i class="fa fa-check"></i><b>2.5.3</b> Operation</a>
+<ul>
+<li class="chapter" data-level="2.5.3.1" data-path="built-in-data-types.html"><a href="built-in-data-types.html#logical-operator"><i class="fa fa-check"></i><b>2.5.3.1</b> Logical Operator</a></li>
+<li class="chapter" data-level="2.5.3.2" data-path="built-in-data-types.html"><a href="built-in-data-types.html#comparing"><i class="fa fa-check"></i><b>2.5.3.2</b> Comparing</a></li>
+<li class="chapter" data-level="2.5.3.3" data-path="built-in-data-types.html"><a href="built-in-data-types.html#casting"><i class="fa fa-check"></i><b>2.5.3.3</b> Casting</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="built-in-data-structure.html"><a href="built-in-data-structure.html"><i class="fa fa-check"></i><b>3</b> Built-In Data Structure</a>
@@ -746,31 +758,37 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.7.9.3" data-path="pandas-1.html"><a href="pandas-1.html#getting-multiple-cells"><i class="fa fa-check"></i><b>13.7.9.3</b> Getting Multiple Cells</a></li>
 </ul></li>
 <li class="chapter" data-level="13.7.10" data-path="pandas-1.html"><a href="pandas-1.html#chained-indexing"><i class="fa fa-check"></i><b>13.7.10</b> Chained Indexing</a></li>
-<li class="chapter" data-level="13.7.11" data-path="pandas-1.html"><a href="pandas-1.html#iteration"><i class="fa fa-check"></i><b>13.7.11</b> Iteration</a>
+<li class="chapter" data-level="13.7.11" data-path="pandas-1.html"><a href="pandas-1.html#cell-value-replacement"><i class="fa fa-check"></i><b>13.7.11</b> Cell Value Replacement</a>
 <ul>
-<li class="chapter" data-level="13.7.11.1" data-path="pandas-1.html"><a href="pandas-1.html#iterrows-loop-through-every-row"><i class="fa fa-check"></i><b>13.7.11.1</b> <code>.iterrows()</code> loop through every <strong>ROW</strong></a></li>
-<li class="chapter" data-level="13.7.11.2" data-path="pandas-1.html"><a href="pandas-1.html#items-loop-through-every-column"><i class="fa fa-check"></i><b>13.7.11.2</b> <code>.items()</code> loop through every <strong>Column</strong></a></li>
+<li class="chapter" data-level="13.7.11.1" data-path="pandas-1.html"><a href="pandas-1.html#mask"><i class="fa fa-check"></i><b>13.7.11.1</b> <code>mask()</code></a></li>
+<li class="chapter" data-level="13.7.11.2" data-path="pandas-1.html"><a href="pandas-1.html#where-1"><i class="fa fa-check"></i><b>13.7.11.2</b> <code>where()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.12" data-path="pandas-1.html"><a href="pandas-1.html#data-structure"><i class="fa fa-check"></i><b>13.7.12</b> Data Structure</a>
+<li class="chapter" data-level="13.7.12" data-path="pandas-1.html"><a href="pandas-1.html#iteration"><i class="fa fa-check"></i><b>13.7.12</b> Iteration</a>
 <ul>
-<li class="chapter" data-level="13.7.12.1" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods---structure"><i class="fa fa-check"></i><b>13.7.12.1</b> Instance Methods - Structure</a></li>
-<li class="chapter" data-level="13.7.12.2" data-path="pandas-1.html"><a href="pandas-1.html#conversion-to-other-format"><i class="fa fa-check"></i><b>13.7.12.2</b> Conversion To Other Format</a></li>
+<li class="chapter" data-level="13.7.12.1" data-path="pandas-1.html"><a href="pandas-1.html#iterrows-loop-through-every-row"><i class="fa fa-check"></i><b>13.7.12.1</b> <code>.iterrows()</code> loop through every <strong>ROW</strong></a></li>
+<li class="chapter" data-level="13.7.12.2" data-path="pandas-1.html"><a href="pandas-1.html#items-loop-through-every-column"><i class="fa fa-check"></i><b>13.7.12.2</b> <code>.items()</code> loop through every <strong>Column</strong></a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.13" data-path="pandas-1.html"><a href="pandas-1.html#multiindexing"><i class="fa fa-check"></i><b>13.7.13</b> MultiIndexing</a>
+<li class="chapter" data-level="13.7.13" data-path="pandas-1.html"><a href="pandas-1.html#data-structure"><i class="fa fa-check"></i><b>13.7.13</b> Data Structure</a>
 <ul>
-<li class="chapter" data-level="13.7.13.1" data-path="pandas-1.html"><a href="pandas-1.html#the-data-2"><i class="fa fa-check"></i><b>13.7.13.1</b> The Data</a></li>
-<li class="chapter" data-level="13.7.13.2" data-path="pandas-1.html"><a href="pandas-1.html#creating-multiindex-columns"><i class="fa fa-check"></i><b>13.7.13.2</b> Creating MultiIndex Columns</a></li>
-<li class="chapter" data-level="13.7.13.3" data-path="pandas-1.html"><a href="pandas-1.html#multiindex-object"><i class="fa fa-check"></i><b>13.7.13.3</b> <code>MultiIndex</code> object</a></li>
-<li class="chapter" data-level="13.7.13.4" data-path="pandas-1.html"><a href="pandas-1.html#selecting-columns"><i class="fa fa-check"></i><b>13.7.13.4</b> Selecting Column(s)</a></li>
-<li class="chapter" data-level="13.7.13.5" data-path="pandas-1.html"><a href="pandas-1.html#stacking-columns-to-rows"><i class="fa fa-check"></i><b>13.7.13.5</b> Stacking Columns to Rows</a></li>
+<li class="chapter" data-level="13.7.13.1" data-path="pandas-1.html"><a href="pandas-1.html#instance-methods---structure"><i class="fa fa-check"></i><b>13.7.13.1</b> Instance Methods - Structure</a></li>
+<li class="chapter" data-level="13.7.13.2" data-path="pandas-1.html"><a href="pandas-1.html#conversion-to-other-format"><i class="fa fa-check"></i><b>13.7.13.2</b> Conversion To Other Format</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.14" data-path="pandas-1.html"><a href="pandas-1.html#exploratory-analysis"><i class="fa fa-check"></i><b>13.7.14</b> Exploratory Analysis</a>
+<li class="chapter" data-level="13.7.14" data-path="pandas-1.html"><a href="pandas-1.html#multiindexing"><i class="fa fa-check"></i><b>13.7.14</b> MultiIndexing</a>
 <ul>
-<li class="chapter" data-level="13.7.14.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-11"><i class="fa fa-check"></i><b>13.7.14.1</b> Sample Data</a></li>
-<li class="chapter" data-level="13.7.14.2" data-path="pandas-1.html"><a href="pandas-1.html#all-stats-in-one---.describe"><i class="fa fa-check"></i><b>13.7.14.2</b> All Stats in One - .describe()</a></li>
-<li class="chapter" data-level="13.7.14.3" data-path="pandas-1.html"><a href="pandas-1.html#minmaxmeanmedian"><i class="fa fa-check"></i><b>13.7.14.3</b> min/max/mean/median</a></li>
+<li class="chapter" data-level="13.7.14.1" data-path="pandas-1.html"><a href="pandas-1.html#the-data-2"><i class="fa fa-check"></i><b>13.7.14.1</b> The Data</a></li>
+<li class="chapter" data-level="13.7.14.2" data-path="pandas-1.html"><a href="pandas-1.html#creating-multiindex-columns"><i class="fa fa-check"></i><b>13.7.14.2</b> Creating MultiIndex Columns</a></li>
+<li class="chapter" data-level="13.7.14.3" data-path="pandas-1.html"><a href="pandas-1.html#multiindex-object"><i class="fa fa-check"></i><b>13.7.14.3</b> <code>MultiIndex</code> object</a></li>
+<li class="chapter" data-level="13.7.14.4" data-path="pandas-1.html"><a href="pandas-1.html#selecting-columns"><i class="fa fa-check"></i><b>13.7.14.4</b> Selecting Column(s)</a></li>
+<li class="chapter" data-level="13.7.14.5" data-path="pandas-1.html"><a href="pandas-1.html#sorting-multiindex"><i class="fa fa-check"></i><b>13.7.14.5</b> Sorting MultiIndex</a></li>
+<li class="chapter" data-level="13.7.14.6" data-path="pandas-1.html"><a href="pandas-1.html#stacking-columns-to-rows"><i class="fa fa-check"></i><b>13.7.14.6</b> Stacking Columns to Rows</a></li>
 </ul></li>
-<li class="chapter" data-level="13.7.15" data-path="pandas-1.html"><a href="pandas-1.html#plotting"><i class="fa fa-check"></i><b>13.7.15</b> Plotting</a></li>
+<li class="chapter" data-level="13.7.15" data-path="pandas-1.html"><a href="pandas-1.html#exploratory-analysis"><i class="fa fa-check"></i><b>13.7.15</b> Exploratory Analysis</a>
+<ul>
+<li class="chapter" data-level="13.7.15.1" data-path="pandas-1.html"><a href="pandas-1.html#sample-data-11"><i class="fa fa-check"></i><b>13.7.15.1</b> Sample Data</a></li>
+<li class="chapter" data-level="13.7.15.2" data-path="pandas-1.html"><a href="pandas-1.html#all-stats-in-one---.describe"><i class="fa fa-check"></i><b>13.7.15.2</b> All Stats in One - .describe()</a></li>
+<li class="chapter" data-level="13.7.15.3" data-path="pandas-1.html"><a href="pandas-1.html#minmaxmeanmedian"><i class="fa fa-check"></i><b>13.7.15.3</b> min/max/mean/median</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7.16" data-path="pandas-1.html"><a href="pandas-1.html#plotting"><i class="fa fa-check"></i><b>13.7.16</b> Plotting</a></li>
 </ul></li>
 <li class="chapter" data-level="13.8" data-path="pandas-1.html"><a href="pandas-1.html#class-categories"><i class="fa fa-check"></i><b>13.8</b> class: Categories</a>
 <ul>
@@ -1216,21 +1234,21 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="catching-error" class="section level2" number="6.1">
 <h2 number="6.1"><span class="header-section-number">6.1</span> Catching Error</h2>
 <p>Different exception object has different attributes.</p>
-<div class="sourceCode" id="cb418"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb418-1"><a href="exception-handling.html#cb418-1"></a><span class="cf">try</span>:</span>
-<span id="cb418-2"><a href="exception-handling.html#cb418-2"></a>  a <span class="op">=</span> <span class="dv">1</span> <span class="op">+</span> <span class="st">&#39;a&#39;</span></span>
-<span id="cb418-3"><a href="exception-handling.html#cb418-3"></a>  </span>
-<span id="cb418-4"><a href="exception-handling.html#cb418-4"></a><span class="co">## known error  </span></span>
-<span id="cb418-5"><a href="exception-handling.html#cb418-5"></a><span class="cf">except</span> <span class="pp">TypeError</span> <span class="im">as</span> err:</span>
-<span id="cb418-6"><a href="exception-handling.html#cb418-6"></a>  <span class="bu">print</span>(<span class="st">&#39;I know this error !!!!&#39;</span>,</span>
-<span id="cb418-7"><a href="exception-handling.html#cb418-7"></a>        <span class="st">&#39;</span><span class="ch">\n</span><span class="st"> Error: &#39;</span>, err,</span>
-<span id="cb418-8"><a href="exception-handling.html#cb418-8"></a>        <span class="st">&#39;</span><span class="ch">\n</span><span class="st"> Args:  &#39;</span>, err.args,</span>
-<span id="cb418-9"><a href="exception-handling.html#cb418-9"></a>        <span class="st">&#39;</span><span class="ch">\n</span><span class="st"> Type:  &#39;</span>, <span class="bu">type</span>(err))</span>
-<span id="cb418-10"><a href="exception-handling.html#cb418-10"></a></span>
-<span id="cb418-11"><a href="exception-handling.html#cb418-11"></a><span class="co">## all other error</span></span>
-<span id="cb418-12"><a href="exception-handling.html#cb418-12"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> err:</span>
-<span id="cb418-13"><a href="exception-handling.html#cb418-13"></a>  <span class="bu">print</span>( <span class="st">&#39;Error: &#39;</span>, err,</span>
-<span id="cb418-14"><a href="exception-handling.html#cb418-14"></a>         <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Args:  &#39;</span>, err.args,</span>
-<span id="cb418-15"><a href="exception-handling.html#cb418-15"></a>         <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Type:  &#39;</span>, <span class="bu">type</span>(err))</span></code></pre></div>
+<div class="sourceCode" id="cb430"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb430-1"><a href="exception-handling.html#cb430-1"></a><span class="cf">try</span>:</span>
+<span id="cb430-2"><a href="exception-handling.html#cb430-2"></a>  a <span class="op">=</span> <span class="dv">1</span> <span class="op">+</span> <span class="st">&#39;a&#39;</span></span>
+<span id="cb430-3"><a href="exception-handling.html#cb430-3"></a>  </span>
+<span id="cb430-4"><a href="exception-handling.html#cb430-4"></a><span class="co">## known error  </span></span>
+<span id="cb430-5"><a href="exception-handling.html#cb430-5"></a><span class="cf">except</span> <span class="pp">TypeError</span> <span class="im">as</span> err:</span>
+<span id="cb430-6"><a href="exception-handling.html#cb430-6"></a>  <span class="bu">print</span>(<span class="st">&#39;I know this error !!!!&#39;</span>,</span>
+<span id="cb430-7"><a href="exception-handling.html#cb430-7"></a>        <span class="st">&#39;</span><span class="ch">\n</span><span class="st"> Error: &#39;</span>, err,</span>
+<span id="cb430-8"><a href="exception-handling.html#cb430-8"></a>        <span class="st">&#39;</span><span class="ch">\n</span><span class="st"> Args:  &#39;</span>, err.args,</span>
+<span id="cb430-9"><a href="exception-handling.html#cb430-9"></a>        <span class="st">&#39;</span><span class="ch">\n</span><span class="st"> Type:  &#39;</span>, <span class="bu">type</span>(err))</span>
+<span id="cb430-10"><a href="exception-handling.html#cb430-10"></a></span>
+<span id="cb430-11"><a href="exception-handling.html#cb430-11"></a><span class="co">## all other error</span></span>
+<span id="cb430-12"><a href="exception-handling.html#cb430-12"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> err:</span>
+<span id="cb430-13"><a href="exception-handling.html#cb430-13"></a>  <span class="bu">print</span>( <span class="st">&#39;Error: &#39;</span>, err,</span>
+<span id="cb430-14"><a href="exception-handling.html#cb430-14"></a>         <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Args:  &#39;</span>, err.args,</span>
+<span id="cb430-15"><a href="exception-handling.html#cb430-15"></a>         <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Type:  &#39;</span>, <span class="bu">type</span>(err))</span></code></pre></div>
 <pre><code>## I know this error !!!! 
 ##  Error:  unsupported operand type(s) for +: &#39;int&#39; and &#39;str&#39; 
 ##  Args:   (&quot;unsupported operand type(s) for +: &#39;int&#39; and &#39;str&#39;&quot;,) 
@@ -1238,12 +1256,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="custom-exception" class="section level2" number="6.2">
 <h2 number="6.2"><span class="header-section-number">6.2</span> Custom Exception</h2>
-<div class="sourceCode" id="cb420"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb420-1"><a href="exception-handling.html#cb420-1"></a><span class="cf">try</span>:</span>
-<span id="cb420-2"><a href="exception-handling.html#cb420-2"></a>  <span class="cf">raise</span> <span class="pp">Exception</span>(<span class="st">&#39;bloody&#39;</span>, <span class="st">&#39;hell&#39;</span>)  <span class="co">#simulate exception</span></span>
-<span id="cb420-3"><a href="exception-handling.html#cb420-3"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> err:</span>
-<span id="cb420-4"><a href="exception-handling.html#cb420-4"></a>  <span class="bu">print</span>( <span class="st">&#39;Error: &#39;</span>, err,</span>
-<span id="cb420-5"><a href="exception-handling.html#cb420-5"></a>         <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Args:  &#39;</span>, err.args,</span>
-<span id="cb420-6"><a href="exception-handling.html#cb420-6"></a>         <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Type:  &#39;</span>, <span class="bu">type</span>(err))</span></code></pre></div>
+<div class="sourceCode" id="cb432"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb432-1"><a href="exception-handling.html#cb432-1"></a><span class="cf">try</span>:</span>
+<span id="cb432-2"><a href="exception-handling.html#cb432-2"></a>  <span class="cf">raise</span> <span class="pp">Exception</span>(<span class="st">&#39;bloody&#39;</span>, <span class="st">&#39;hell&#39;</span>)  <span class="co">#simulate exception</span></span>
+<span id="cb432-3"><a href="exception-handling.html#cb432-3"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> err:</span>
+<span id="cb432-4"><a href="exception-handling.html#cb432-4"></a>  <span class="bu">print</span>( <span class="st">&#39;Error: &#39;</span>, err,</span>
+<span id="cb432-5"><a href="exception-handling.html#cb432-5"></a>         <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Args:  &#39;</span>, err.args,</span>
+<span id="cb432-6"><a href="exception-handling.html#cb432-6"></a>         <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Type:  &#39;</span>, <span class="bu">type</span>(err))</span></code></pre></div>
 <pre><code>## Error:  (&#39;bloody&#39;, &#39;hell&#39;) 
 ## Args:   (&#39;bloody&#39;, &#39;hell&#39;) 
 ## Type:   &lt;class &#39;Exception&#39;&gt;</code></pre>

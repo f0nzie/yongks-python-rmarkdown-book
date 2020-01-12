@@ -607,15 +607,10 @@ type(None)
 ```
 
 ```{python}
-t = np.array([1,2,3,4,5])
-t.dtype  #  its an integer
-```
-
-```{python}
 t1 = np.array([1, 2, 3, 4, 5])
-t = np.array([1, 2, 3, None, 4, 5])
-t.dtype      # it's an object
-t1.dtype
+t2= np.array([1, 2, 3, None, 4, 5])
+print( t1.dtype  , '\n\n',    # it's an object
+       t2.dtype)
 ```
 
 ### Comparing None
@@ -632,6 +627,78 @@ print( null_variable == None )
 ```{python}
 print( null_variable is None )
 print( null_variable is not None )
+```
+
+### Operation on None
+
+Any operator (except `is`) on None results in error.
+
+```{python}
+None & None
+```
+## NaN
+
+### Creating NaN
+
+NaN is **not a number**. HOWEVER, It isan numpy **float** object type. Can be created using two methods below.
+
+```{python}
+import numpy as np
+import pandas as pd
+import math
+
+kosong1 = float('NaN')
+kosong2 = np.nan
+
+print('Type: ', type(kosong1), '\n',
+       'Value: ', kosong1)
+```
+
+```{python}
+print('Type: ', type(kosong2), '\n',
+       'Value: ', kosong2)
+```
+
+### Detecting NaN
+
+Detect nan using various function from panda, numpy and math. 
+
+```{python}
+print(pd.isna(kosong1), '\n',
+      pd.isna(kosong2), '\n',
+      np.isnan(kosong1),'\n',
+      math.isnan(kosong2))
+```
+
+### Operation
+
+#### Logical Operator
+
+```{python}
+print( True and kosong1,
+       kosong1 and True)
+```
+
+```{python}
+print( True or kosong1,
+       False or kosong1)
+```
+
+#### Comparing
+
+Compare nan with **anything results in False**, including itself.
+
+```{python}
+print(kosong1 > 0, kosong1==0, kosong1<0,
+      kosong1 ==1, kosong1==kosong1, kosong1==False, kosong1==True)
+```
+
+#### Casting
+
+nan is numpy floating value. It is not a zero value, therefore casting to boolean returns True.
+
+```{python}
+bool(kosong1)
 ```
 
 # Built-In Data Structure

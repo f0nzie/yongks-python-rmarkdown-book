@@ -2047,6 +2047,37 @@ df.loc[100]['year'] =2000
 df  ## notice row label 100 had not been updated, because data was updated on a copy due to chain indexing
 ```
 
+### Cell Value Replacement
+
+Slicing deals with square cells selection. Use `mask` or `where` to select specific cell(s). These function respect column and row names.
+
+#### `mask()`
+
+`mask()` replace value with `other=` when condition is met. Column and row name is **respected**
+
+```{python}
+ori = pd.DataFrame(data={
+     'x': [1,4,7],
+     'y': [2,5,8],
+     'z': [3,6,9]}, index=[
+     'row1','row2','row3'])
+
+df_big = (ori >4)[['y','x','z']]
+resul1 = ori.mask(df_big, other=999)
+
+print('Original DF: \n', ori, '\n\n',
+      'Big DF : \n', df_big, '\n\n',
+      'Result : \n', resul1)
+```
+
+#### `where()`
+
+This is reverse of `mask()`, it will repalce value when the **condition is False**.
+
+```{python}
+df.where(cond=df_big)
+```
+
 
 ### Iteration
 
@@ -2116,8 +2147,8 @@ df
 
 #### Creating MultiIndex Columns
 
-Break each column headers into tuples.  Then, use **`MultiIndex.from_tuples()`** to convert the dataframe into  multiple levels.  The **`.columns`** property is a **MultiIndex** object.
-
+- Step 1: Create a MultiIndex object  
+- Step 2: Assign the MultiIndex Object to dataframe `columns` property.  
 
 ```{python}
 my_tuples = [tuple(c.split('_')) for c in df.columns]
@@ -2129,14 +2160,15 @@ print(' Column Headers :\n\n ', my_tuples, '\n\n',
 ```
 #### `MultiIndex` object
 
-Each level (header) is an index object, use **`MultiIndex.get_level_values()`** to the entire header for the desired level. Redundant column names will be observed.
+- MultiIndex object contain multiple leveels, each level (header) is an Index object.   
+- Use **`MultiIndex.get_level_values()`** to the entire header for the desired level. Note that each level is an Index object
 
 ```{python}
 print(df.columns.get_level_values(0), '\n',
       df.columns.get_level_values(1))
 ```
 
-**`MultiIndex.levels`** return the unique values of all levels.
+**`MultiIndex.levels`** return the **unique values** of each level.
 
 ```{python}
 print(df.columns.levels[0], '\n',
@@ -2149,30 +2181,97 @@ df.stack()
 
 #### Selecting Column(s)
 
-**`.loc()`** is used for multiIndex selection. DON'T attempt to use `iloc()`
+Use **`.loc()`** for multiIndex selection. DON'T attempt to use `iloc()`, it is not supported.  
 
-There are two methods to select specific **level 0** columns
-
-```{python}
-df.loc[ : , ['One']]
-
-All = slice(None)
-df.loc[ : , ('Two', All)]
-```
-
-Select **specific level 2 columns**  
+**Sample Data**
 
 ```{python}
-All = slice(None)
-df.loc[ : , (All, ['Y'])]
+import itertools
+test_df = pd.DataFrame
+max_age = 100
+
+### Create The Columns Tuple
+level0_sex = ['Male','Female']
+level1_age = ['Medium','High','Low']
+my_columns=list(itertools.product(level0_sex, level1_age))
+
+test_df = pd.DataFrame([
+             [1,2,3,4,5,6],
+             [11,12,13,14,15,16],
+             [21,22,23,24,25,26]], index=['row1','row2','row3'])
+
+### Create Multiindex From Tuple
+test_df.columns = pd.MultiIndex.from_tuples(my_columns)
+test_df
 ```
 
-Select specifc level0 and level1 columns
+**Selecting Level 0 Header**
+
+There are two methods to select specific **level 0** columns.  
+First is by specifying column header name. The results is a dataframe with single level header.
 
 ```{python}
 All = slice(None)
-df.loc[ : , (['Two'], ['Y'])]
+test_df.loc[:,'Female']
 ```
+
+To return result with two levels header, 'cheat' python that multiple columns are requested using `[columnName]` or `('columnName',All) 
+
+```{python}
+All = slice(None)
+print( test_df.loc[:,['Female']], '\n\n',
+       test_df.loc[:,('Female',All)])
+```
+
+**Selecting Level 1 Header**
+
+```{python}
+test_df.loc[ : , (All, ['Medium'])]
+```
+
+**Selecting Level 0 and Level1 Headers**
+
+Select multiple of level0 and multiple of level1 columns
+
+```{python}
+test_df.loc[ : , (['Female','Male'], ['Medium','High'])]
+```
+
+Select single of level0 and single of level1 column. The result is a **Series** if using `( , )` notation. If using `( , [ ])` notation, dataframe is returned.
+
+```{python}
+print( test_df.loc[ : , ('Female', 'High')], '\n\n',
+       test_df.loc[ : , ('Female', ['High'])])
+```
+
+Select single of level0 and multiple of level1 columns. 
+
+```{python}
+test_df.loc[ : , ('Female', ['Low','High'])]
+```
+
+#### Sorting MultiIndex
+
+Note that columns **order** specifeid by `[ ]` selection were not respected. This can be remediated either by Sorting and rearranging.
+
+**Sorting Index**
+
+Use `.sort_index()` on DataFrame to sort the headers. Note that when level1 is sorted, it jumble up level0 headers.
+
+```{python}
+test_df_sorted_l0 = test_df.sort_index(axis=1, level=0)
+test_df_sorted_l1 = test_df.sort_index(axis=1, level=1, ascending=False)
+print(test_df, '\n\n',test_df_sorted_l0, '\n\n', test_df_sorted_l1)
+```
+
+Use `.reindex()` on arrange columns in specific order. Example below shows how to control the specific order for level1 headers.
+
+```{python}
+cats = ['Low','Medium','High']
+test_df.reindex(cats, level=1, axis=1)
+```
+
+
 #### Stacking Columns to Rows
 
 Stacking with **`DataFrame.stack(level_no)`** is moving wide columns into row.
