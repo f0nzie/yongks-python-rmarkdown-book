@@ -1343,6 +1343,72 @@ pd.DataFrame (data, columns=('empID','name','salary'), index=['r1','r2','r3','r4
 ```
 
 
+### Operator
+
+#### The Data
+
+Two dataframe is created, each with 3 columns and 3 rows. However, only two **matching column and row** names We shall notice that the operator will perform cell-wise, **honoring the row/column name**.
+
+```{python}
+df1 = pd.DataFrame(data=
+  {'idx': ['row1','row2','row3'],
+   'x': [10, 20, 30],
+   'y': [1,2,3],
+   'z': [0.1, 0.2, 0.3]}).set_index('idx')
+   
+df2 = pd.DataFrame(data=
+  {'idx': ['row1','row2','row4'],
+   'x': [13, 23, 33],
+   'z': [0.1, 0.2, 0.3],
+   'k': [11,21,31]
+   }).set_index('idx')
+   
+print( df1, '\n\n', df2)
+```
+
+#### Addition
+
+**Adding Two DataFrame**
+
+Using `+` operator, non-matching row/column names will result in **NA**. However, when using function **`add`**, none matching cells can be assumed as with a value.
+
+```{python}
+r1 = df1 + df2
+r2 = df1.add(df2,fill_value=1000)
+
+print( r1, '\n\n', r2)
+```
+
+**Adding Series and DataFrame**
+
+Specify the **appropriate `axis`** depending on the orientation of the series data. Column and Row names are respected in this operation. However, `fill_value` is **not applicable** when apply on Series.  
+
+Note that columns in Series that are not found in dataframe, will still be created in the result. This is similar behaviour as operating Dataframe with Dataframe.
+
+```{python}
+s3 = pd.Series([1,1,1], index=['row1','row2','row4'])
+s4 = pd.Series([3,3,3], index=['x','y','s'])
+
+print('Original Data:\n',df1,'\n\n',
+      'Add By Rows: \n', df1.add(s3, axis=0), '\n\n',
+      'Add By Columns: \n', df1.add(s4, axis=1))
+```
+
+#### Substraction
+
+```{python}
+r1 = df2 - df1
+r2 = df2.sub(df1,fill_value=1000)
+
+print( r1, '\n\n', r2)
+```
+```{python}
+r3 = (r2>0) & (r2<=3)
+print( 'Original Data: \n', r2, '\n\n',
+       'Logical Operator:\n', r3)
+```
+
+
 ### Attributes
 
 ```{python}
@@ -2048,7 +2114,7 @@ df.set_index('myindex',inplace=True)
 df
 ```
 
-#### Creating Multilevle headers
+#### Creating MultiIndex Columns
 
 Break each column headers into tuples.  Then, use **`MultiIndex.from_tuples()`** to convert the dataframe into  multiple levels.  The **`.columns`** property is a **MultiIndex** object.
 
@@ -2063,14 +2129,14 @@ print(' Column Headers :\n\n ', my_tuples, '\n\n',
 ```
 #### `MultiIndex` object
 
-Each level (header) is an index object, use **`MultiIndex.get_level_values()`** to get each level value.
+Each level (header) is an index object, use **`MultiIndex.get_level_values()`** to the entire header for the desired level. Redundant column names will be observed.
 
 ```{python}
 print(df.columns.get_level_values(0), '\n',
       df.columns.get_level_values(1))
 ```
 
-The above is similar to below, using **`MultiIndex.levels`** property.
+**`MultiIndex.levels`** return the unique values of all levels.
 
 ```{python}
 print(df.columns.levels[0], '\n',
@@ -2082,6 +2148,8 @@ df.stack()
 ```
 
 #### Selecting Column(s)
+
+**`.loc()`** is used for multiIndex selection. DON'T attempt to use `iloc()`
 
 There are two methods to select specific **level 0** columns
 
@@ -2105,7 +2173,7 @@ Select specifc level0 and level1 columns
 All = slice(None)
 df.loc[ : , (['Two'], ['Y'])]
 ```
-#### Stacking
+#### Stacking Columns to Rows
 
 Stacking with **`DataFrame.stack(level_no)`** is moving wide columns into row.
 
