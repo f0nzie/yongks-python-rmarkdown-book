@@ -3,7 +3,7 @@ Natural Language Processing
 
 ```{r include=FALSE}
 library(reticulate)
-use_condaenv('Anaconda3')    #conda_list() - to find out the name of conda environment
+use_condaenv('Anaconda3')   #conda_list() - to find out the name of conda environment
 ```
 
 ```{python include=FALSE, results='hide'}
@@ -70,10 +70,10 @@ age_pattern = re.compile(r'\d+')
 age_text    = 'Ali is my teacher. He is 109 years old. his kid is 40 years old.'
 first_found = age_pattern.search(age_text)
 
-print('Found Object:      ',  first_found,
-      '\nInput Text:        ',first_found.string,
-      '\nInput Pattern:     ',first_found.re,
-      '\nFirst Found string:     ',first_found.group(),
+print('Found Object:           ', first_found,
+      '\nInput Text:             ', first_found.string,
+      '\nInput Pattern:          ', first_found.re,
+      '\nFirst Found string:     ', first_found.group(),
       '\nFound Start Position:   ', first_found.start(),
       '\nFound End Position:     ', first_found.end(),
       '\nFound Span:             ', first_found.span(),)
@@ -187,15 +187,49 @@ pattern = re.compile(r'a[bcd]*b')
 pattern.findall(text)
 ```
 
+#### Greedy vs Non-Greedy
+
+- The `*`, `+`, and `?` qualifiers are all greedy; they match as much text as possible  
+- If the `<.*>` is matched against `<a> b <c>`, it will match the entire string, and not just `<a>`  
+- Adding **`?`** after the qualifier makes it perform the match in non-greedy; as few characters as possible will be matched. Using the RE <.*?> will match only '<a>'
+
+```{python}
+text = '<a> ali baba <c>'
+greedy_pattern     = re.compile(r'<.*>')
+non_greedy_pattern = re.compile(r'<.*?>')
+print( 'Greedy:      ' ,        greedy_pattern.findall(text), '\n',
+       'Non Greedy: ', non_greedy_pattern.findall(text) )
+```
+
 ### Grouping
 
 When `()` is used in the pattern, retrive the grouping components in MatchObject with `.groups()`. Result is in list. Example below extract hours, minutes and am/pm into a list.
+
+#### Capturing Group
 
 ```{python}
 text = 'Today at Wednesday, 10:50pm, we go for a walk'
 pattern = re.compile(r'(\d\d):(\d\d)(am|pm)')
 m = pattern.search(text)
-print(m.groups())
+print(
+  'All Gropus: ', m.groups(), '\n',
+  'Group 1: ', m.group(1), '\n',
+  'Group 2: ', m.group(2), '\n',
+  'Group 3: ', m.group(3) )
+```
+
+#### Non-Capturing Group
+
+Having `(:? )` means don't capture this group
+
+```{python}
+text = 'Today at Wednesday, 10:50pm, we go for a walk'
+pattern = re.compile(r'(:?\d\d):(?:\d\d)(am|pm)')
+m = pattern.search(text)
+print(
+  'All Gropus: ', m.groups(), '\n',
+  'Group 1: ', m.group(1), '\n',
+  'Group 2: ', m.group(2) )
 ```
 
 ### Splittitng
@@ -210,16 +244,49 @@ print( re.split('@',  "aa@bb @ cc "), '\n',
        re.split('\n', "sentence1\nsentence2\nsentence3") )
 ```
 
-#### Use `re.comple().split()`
+#### Use `re.compile().split()`
 
 ```{python}
 pattern = re.compile(r"\|")
 pattern.split("aa|bb | cc ")
 ```
 
+### Substitution `re.sub()`
 
 
+#### Found Match
 
+Example below repalce anything within `{{.*}}`
+```{python}
+re.sub(r'({{.*}})', 'Durian', 'I like to eat {{Food}}.', flags=re.IGNORECASE)
+```
+
+Replace ` AND ` with ` & `. This does not require `()` grouping
+```{python}
+re.sub(r'\sAND\s', ' & ', 'Baked Beans And Spam', flags=re.IGNORECASE)
+```
+
+#### No Match
+
+If not pattern not found, return the original text.
+```{python}
+re.sub(r'({{.*}})', 'Durian', 'I like to eat <Food>.', flags=re.IGNORECASE)
+```
+### Practical Examples
+
+#### Extracting Float
+
+```{python}
+re_float = re.compile(r'\d+(\.\d+)?')
+def extract_float(x):
+    money = x.replace(',','')
+    result = re_float.search(money)
+    return float(result.group()) if result else float(0)
+
+print( extract_float('123,456.78'), '\n',
+       extract_float('rm 123.78 (30%)'), '\n',
+       extract_float('rm 123,456.78 (30%)') )
+```
 ## Word Tokenizer
 
 ### Custom Tokenizer

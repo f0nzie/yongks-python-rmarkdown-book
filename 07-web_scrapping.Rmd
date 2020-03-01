@@ -100,14 +100,14 @@ my_html = '''
 <div id="my-id1" class='title'> 
     <p>This Is My Title</p>
     
-    <div id="my-id2" class='subtitle' custom_attr='funny')
+    <div id="my-id2" class='subtitle' custom_attr='funny'>
         <p>This is Subtitle</p>
     </div>
     
-    <div id="my-id3" class='title',   custom_atrr='funny')
+    <div id="my-id3" class='title',   custom_attr='funny'>
         <p>This is paragraph1</p>
         <p>This is paragraph2</p>
-        <p>This is paragraph3</p>
+        <h3>This is paragraph3</h3>
     </div>
 </div>
 '''
@@ -168,6 +168,17 @@ More granular exmaple of css selector.
 soup.select('#my-id1 div.subtitle')
 ```
 
+Using **`contains()`**
+
+```{python}
+soup.select("p:contains('This is paragraph')")
+```
+Combining ID, Class and Custom Attribute in the selector
+
+```{python}
+soup.select("div#my-id3.title[custom_attr='funny']:contains('This is paragraph')")
+```
+
 ### Meta Parsing
 
 ```{python}
@@ -182,9 +193,75 @@ soup.find('meta', property='publish-date')['content']
 soup.find('meta', category='Malaysia')['property']
 ```
 
+### Getting Content 
 
+#### Get Content `get_text(strip=, separator=)`
 
+- Observe that default behavior (strip=False) will generate '\n' on every tag <div>, <p>, <br>, <h1/2/3> tags 
 
+```{python}
+elem = soup.find(id = "my-id3")
+elem.get_text()
+elem.get_text(strip=True, separator='\n')
+```
+- strip=True combine with separator will retain only the user readable text portion of each tag, with separator seperating them
 
+```{python}
+elem.get_text(strip=True, separator='\n')
+```
 
+#### Splitting Content
+
+It is useful to split using separator into list of string.
+
+```{python}
+elem = soup.find(id = "my-id3")
+elem.get_text(strip=True, separator='\n').split('\n')
+```
+
+### Traversing
+
+#### Get The Element
+
+```{python}
+elems = soup.select("div#my-id3.title[custom_attr='funny']:contains('This is paragraph')")
+elem = elems[0]
+elem
+```
+
+#### Traversubg Children
+
+**All Children In List  `findChildren()`**
+
+```{python}
+elem.findChildren()
+```
+
+**Next Children `findNext()`**  
+
+- If the element has children, this will get the immediate child  
+- If the element has no children, this will find the next element in the hierechy  
+
+```{python}
+first_child = elem.fin
+print( 
+elem.findNext().get_text(strip=True), '\n', 
+elem.findNext().findNext().get_text(strip=True), '\n')
+```
+
+#### Traversing To Parent `parent()`
+
+```{python}
+elem_parent = elem.parent
+elem_parent.attrs
+```
+
+#### Get The Sibling `findPreviousSibling()`
+
+Sibling is element at the same level of hierachy
+
+```{python}
+elem_prev_sib = elem.findPreviousSibling()
+elem_prev_sib.attrs
+```
 

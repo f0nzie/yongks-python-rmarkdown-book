@@ -33,10 +33,8 @@ from datetime import date
 from datetime import time
 ```
 
-<!-- jupyter_markdown, jupyter_meta = list(`toc-hr-collapsed` = TRUE) -->
 ## Data Types
 
-<!-- jupyter_markdown -->
 ### NumPy Data Types
 
 NumPy supports a much greater variety of numerical types than Python does. This makes numpy **much more powerful**
@@ -47,6 +45,7 @@ Float: np.float32, np.float64
 
 <!-- jupyter_markdown -->
 ### int32/64
+
 ```np.int``` is actually **python standard int**
 
 ```{python}
@@ -56,7 +55,6 @@ print( type(x) )
 print( type(y) )
 ```
 
-<!-- jupyter_markdown -->
 ```np.int32/64``` are NumPy specific
 
 ```{python}
@@ -66,7 +64,6 @@ print( type(x) )
 print( type(y) )
 ```
 
-<!-- jupyter_markdown -->
 ### float32/64
 
 ```{python}
@@ -83,7 +80,6 @@ print( type(x) )
 print( type(y) )
 ```
 
-<!-- jupyter_markdown -->
 ### bool
 ```np.bool``` is actually **python standard bool**
 
@@ -93,7 +89,6 @@ print( type(x) )
 print( type(True) )
 ```
 
-<!-- jupyter_markdown -->
 ### str
 ```np.str``` is actually **python standard str**
 
@@ -107,13 +102,11 @@ x = np.str_("ali")
 print( type(x) )
 ```
 
-<!-- jupyter_markdown -->
 ### datetime64
 Unlike python standard datetime library, there is **no seperation** of date, datetime and time.  
 There is **no time equivalent object**  
 NumPy only has one object: **datetime64** object .
 
-<!-- jupyter_markdown -->
 #### Constructor
 **From String**  
 Note that the input string **cannot be ISO8601 compliance**, meaning any timezone related information at the end of the string (such as Z or +8) will result in **error**.
@@ -130,7 +123,6 @@ np.datetime64('2005-02-25')
 np.datetime64('2005-02-25T03:30')
 ```
 
-<!-- jupyter_markdown -->
 **From datetime**
 
 ```{python}
@@ -141,7 +133,6 @@ np.datetime64( date.today() )
 np.datetime64( datetime.now() )
 ```
 
-<!-- jupyter_markdown -->
 #### Instance Method
 Convert to **datetime** using **```astype()```**
 
@@ -150,10 +141,75 @@ dt64 = np.datetime64("2019-01-31" )
 dt64.astype(datetime)
 ```
 
-<!-- jupyter_markdown -->
+
+### nan
+
+#### Creating NaN
+
+NaN is NOT A BUILT-IN datatype. It means **not a number**, a numpy **float** object type. Can be created using two methods below.
+
+```{python}
+import numpy as np
+import pandas as pd
+import math
+
+kosong1 = float('NaN')
+kosong2 = np.nan
+
+print('Type: ', type(kosong1), '\n',
+       'Value: ', kosong1)
+```
+
+```{python}
+print('Type: ', type(kosong2), '\n',
+       'Value: ', kosong2)
+```
+
+#### Detecting NaN
+
+Detect nan using various function from panda, numpy and math. 
+
+```{python}
+print(pd.isna(kosong1), '\n',
+      pd.isna(kosong2), '\n',
+      np.isnan(kosong1),'\n',
+      math.isnan(kosong2))
+```
+
+#### Operation
+
+##### Logical Operator
+
+```{python}
+print( True and kosong1,
+       kosong1 and True)
+```
+
+```{python}
+print( True or kosong1,
+       False or kosong1)
+```
+
+##### Comparing
+
+Compare nan with **anything results in False**, including itself.
+
+```{python}
+print(kosong1 > 0, kosong1==0, kosong1<0,
+      kosong1 ==1, kosong1==kosong1, kosong1==False, kosong1==True)
+```
+
+##### Casting
+
+nan is numpy floating value. It is not a zero value, therefore casting to boolean returns True.
+
+```{python}
+bool(kosong1)
+```
+
+
 ## Numpy Array
 
-<!-- jupyter_markdown -->
 ### Concept
 Structure
 - NumPy provides an N-dimensional array type, the **ndarray**
