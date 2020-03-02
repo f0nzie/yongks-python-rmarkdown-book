@@ -24,7 +24,7 @@
 <meta name="author" content="Yong Keh Soon" />
 
 
-<meta name="date" content="2020-03-01" />
+<meta name="date" content="2020-03-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1129,7 +1129,17 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.6.3" data-path="nlp.html"><a href="nlp.html#lemmatization"><i class="fa fa-check"></i><b>18.6.3</b> Lemmatization</a></li>
 <li class="chapter" data-level="18.6.4" data-path="nlp.html"><a href="nlp.html#comparing-stemming-and-lemmatization"><i class="fa fa-check"></i><b>18.6.4</b> Comparing Stemming and Lemmatization</a></li>
 </ul></li>
-<li class="chapter" data-level="18.7" data-path="nlp.html"><a href="nlp.html#pos-tagging"><i class="fa fa-check"></i><b>18.7</b> POS Tagging</a></li>
+<li class="chapter" data-level="18.7" data-path="nlp.html"><a href="nlp.html#part-of-speech-pos"><i class="fa fa-check"></i><b>18.7</b> Part Of Speech (POS)</a>
+<ul>
+<li class="chapter" data-level="18.7.1" data-path="nlp.html"><a href="nlp.html#tag-sets"><i class="fa fa-check"></i><b>18.7.1</b> Tag Sets</a>
+<ul>
+<li class="chapter" data-level="18.7.1.1" data-path="nlp.html"><a href="nlp.html#penn-treebank-tagset"><i class="fa fa-check"></i><b>18.7.1.1</b> Penn Treebank Tagset</a></li>
+<li class="chapter" data-level="18.7.1.2" data-path="nlp.html"><a href="nlp.html#claws5-tagset"><i class="fa fa-check"></i><b>18.7.1.2</b> Claws5 Tagset</a></li>
+<li class="chapter" data-level="18.7.1.3" data-path="nlp.html"><a href="nlp.html#brown-tagset"><i class="fa fa-check"></i><b>18.7.1.3</b> Brown Tagset</a></li>
+</ul></li>
+<li class="chapter" data-level="18.7.2" data-path="nlp.html"><a href="nlp.html#tagging-techniques"><i class="fa fa-check"></i><b>18.7.2</b> Tagging Techniques</a></li>
+<li class="chapter" data-level="18.7.3" data-path="nlp.html"><a href="nlp.html#performing-tagging-nltk.pos_tag"><i class="fa fa-check"></i><b>18.7.3</b> Performing Tagging <code>nltk.pos_tag()</code></a></li>
+</ul></li>
 <li class="chapter" data-level="18.8" data-path="nlp.html"><a href="nlp.html#sentiment"><i class="fa fa-check"></i><b>18.8</b> Sentiment</a>
 <ul>
 <li class="chapter" data-level="18.8.1" data-path="nlp.html"><a href="nlp.html#vader"><i class="fa fa-check"></i><b>18.8.1</b> Vader</a>
@@ -1192,7 +1202,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="19.2.5" data-path="web-scrapping.html"><a href="web-scrapping.html#traversing"><i class="fa fa-check"></i><b>19.2.5</b> Traversing</a>
 <ul>
 <li class="chapter" data-level="19.2.5.1" data-path="web-scrapping.html"><a href="web-scrapping.html#get-the-element"><i class="fa fa-check"></i><b>19.2.5.1</b> Get The Element</a></li>
-<li class="chapter" data-level="19.2.5.2" data-path="web-scrapping.html"><a href="web-scrapping.html#traversubg-children"><i class="fa fa-check"></i><b>19.2.5.2</b> Traversubg Children</a></li>
+<li class="chapter" data-level="19.2.5.2" data-path="web-scrapping.html"><a href="web-scrapping.html#traversing-children"><i class="fa fa-check"></i><b>19.2.5.2</b> Traversing Children</a></li>
 <li class="chapter" data-level="19.2.5.3" data-path="web-scrapping.html"><a href="web-scrapping.html#traversing-to-parent-parent"><i class="fa fa-check"></i><b>19.2.5.3</b> Traversing To Parent <code>parent()</code></a></li>
 <li class="chapter" data-level="19.2.5.4" data-path="web-scrapping.html"><a href="web-scrapping.html#get-the-sibling-findprevioussibling"><i class="fa fa-check"></i><b>19.2.5.4</b> Get The Sibling <code>findPreviousSibling()</code></a></li>
 </ul></li>
@@ -1285,11 +1295,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="x-numeric" class="section level3" number="15.3.1">
 <h3 number="15.3.1"><span class="header-section-number">15.3.1</span> 2x Numeric</h3>
 <div class="sourceCode" id="cb1555"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1555-1"><a href="seaborn.html#cb1555-1"></a>sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, data<span class="op">=</span>mydf)</span></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x00000000090F6C18&gt;</code></pre>
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000008745588&gt;</code></pre>
 <div class="sourceCode" id="cb1557"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1557-1"><a href="seaborn.html#cb1557-1"></a>plt.show()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-648-1.png" /><!-- --></p>
 <div class="sourceCode" id="cb1558"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1558-1"><a href="seaborn.html#cb1558-1"></a>sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)<span class="op">;</span>  <span class="co">#hide regresion line</span></span></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000009375908&gt;</code></pre>
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000008480B00&gt;</code></pre>
 <div class="sourceCode" id="cb1560"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1560-1"><a href="seaborn.html#cb1560-1"></a>plt.show()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-649-1.png" /><!-- --></p>
 </div>
@@ -1297,7 +1307,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h3 number="15.3.2"><span class="header-section-number">15.3.2</span> 2xNumeric + 1x Categorical</h3>
 <p>Use <strong>hue</strong> to represent additional categorical feature</p>
 <div class="sourceCode" id="cb1561"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1561-1"><a href="seaborn.html#cb1561-1"></a>sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, data<span class="op">=</span>mydf, hue<span class="op">=</span><span class="st">&#39;comp&#39;</span>, fit_reg<span class="op">=</span><span class="va">False</span>)<span class="op">;</span></span></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000009298668&gt;</code></pre>
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x00000000083522B0&gt;</code></pre>
 <div class="sourceCode" id="cb1563"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1563-1"><a href="seaborn.html#cb1563-1"></a>plt.show()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-650-1.png" /><!-- --></p>
 </div>
@@ -1305,7 +1315,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h3 number="15.3.3"><span class="header-section-number">15.3.3</span> 2xNumeric + 2x Categorical</h3>
 <p>Use <strong>col</strong> and <strong>hue</strong> to represent two categorical features</p>
 <div class="sourceCode" id="cb1564"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1564-1"><a href="seaborn.html#cb1564-1"></a>sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, col<span class="op">=</span><span class="st">&#39;comp&#39;</span>,hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>, fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)<span class="op">;</span></span></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000009048208&gt;</code></pre>
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x00000000083D7BA8&gt;</code></pre>
 <div class="sourceCode" id="cb1566"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1566-1"><a href="seaborn.html#cb1566-1"></a>plt.show()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-651-1.png" /><!-- --></p>
 </div>
@@ -1313,7 +1323,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h3 number="15.3.4"><span class="header-section-number">15.3.4</span> 2xNumeric + 3x Categorical</h3>
 <p>Use <strong>row, col</strong> and <strong>hue</strong> to represent three categorical features</p>
 <div class="sourceCode" id="cb1567"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1567-1"><a href="seaborn.html#cb1567-1"></a>sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, row<span class="op">=</span><span class="st">&#39;dept&#39;</span>,col<span class="op">=</span><span class="st">&#39;comp&#39;</span>, hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>, fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)<span class="op">;</span></span></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000006867C50&gt;</code></pre>
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x00000000080403C8&gt;</code></pre>
 <div class="sourceCode" id="cb1569"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1569-1"><a href="seaborn.html#cb1569-1"></a>plt.show()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-652-1.png" /><!-- --></p>
 </div>
@@ -1323,7 +1333,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h4 number="15.3.5.1"><span class="header-section-number">15.3.5.1</span> size</h4>
 <p>size: <strong>height</strong> in inch for each facet</p>
 <div class="sourceCode" id="cb1570"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1570-1"><a href="seaborn.html#cb1570-1"></a>sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, col<span class="op">=</span><span class="st">&#39;comp&#39;</span>,hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>, size<span class="op">=</span><span class="dv">3</span>,fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)</span></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x000000000901FA20&gt;
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000006F07198&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\seaborn\regression.py:546: UserWarning: The `size` paramter has been renamed to `height`; please update your code.
 ##   warnings.warn(msg, UserWarning)
@@ -1333,7 +1343,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="_main_files/figure-html/unnamed-chunk-653-1.png" /><!-- --></p>
 <p>Observe that even <strong>size is very large</strong>, lmplot will <strong>fit (shrink) everything into one row</strong> by deafult. See example below.</p>
 <div class="sourceCode" id="cb1573"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1573-1"><a href="seaborn.html#cb1573-1"></a>sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, col<span class="op">=</span><span class="st">&#39;comp&#39;</span>,hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>, size<span class="op">=</span><span class="dv">5</span>,fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)</span></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x000000000ABD9320&gt;</code></pre>
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000009D365C0&gt;</code></pre>
 <div class="sourceCode" id="cb1575"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1575-1"><a href="seaborn.html#cb1575-1"></a>plt.show()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-654-1.png" /><!-- --></p>
 </div>
@@ -1342,7 +1352,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>To avoid lmplot from shrinking the chart, we use <strong>col_wrap=&lt;col_number</strong> to wrap the output.<br />
 Compare the size (height of each facet) with the above <strong>without</strong> col_wrap. Below chart is larger.</p>
 <div class="sourceCode" id="cb1576"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1576-1"><a href="seaborn.html#cb1576-1"></a>sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, col<span class="op">=</span><span class="st">&#39;comp&#39;</span>,hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>, size<span class="op">=</span><span class="dv">5</span>, col_wrap<span class="op">=</span><span class="dv">2</span>, fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)</span></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x000000000958F278&gt;
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x000000000991F4E0&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\seaborn\axisgrid.py:320: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
 ##   fig = plt.figure(figsize=figsize)</code></pre>
@@ -1413,23 +1423,45 @@ It support matplotlib as well as seaborn plotting utility.</p>
 <h3 number="15.6.1"><span class="header-section-number">15.6.1</span> Faceting Histogram</h3>
 <div class="sourceCode" id="cb1587"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1587-1"><a href="seaborn.html#cb1587-1"></a>g <span class="op">=</span> sns.FacetGrid(mydf, col<span class="op">=</span><span class="st">&quot;comp&quot;</span>, row<span class="op">=</span><span class="st">&#39;dept&#39;</span>)</span>
 <span id="cb1587-2"><a href="seaborn.html#cb1587-2"></a>g.<span class="bu">map</span>(plt.hist, <span class="st">&quot;value1&quot;</span>)</span></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000029FE1198&gt;</code></pre>
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000009D6F940&gt;</code></pre>
 <div class="sourceCode" id="cb1589"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1589-1"><a href="seaborn.html#cb1589-1"></a>plt.show()</span></code></pre></div>
+<pre><code>## Traceback (most recent call last):
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\backends\backend_qt5.py&quot;, line 505, in _draw_idle
+##     self.draw()
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\backends\backend_agg.py&quot;, line 388, in draw
+##     self.figure.draw(self.renderer)
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\artist.py&quot;, line 38, in draw_wrapper
+##     return draw(artist, renderer, *args, **kwargs)
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\figure.py&quot;, line 1709, in draw
+##     renderer, self, artists, self.suppressComposite)
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\image.py&quot;, line 135, in _draw_list_compositing_images
+##     a.draw(renderer)
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\artist.py&quot;, line 38, in draw_wrapper
+##     return draw(artist, renderer, *args, **kwargs)
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\axes\_base.py&quot;, line 2607, in draw
+##     self._update_title_position(renderer)
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\axes\_base.py&quot;, line 2548, in _update_title_position
+##     ax.xaxis.get_ticks_position() in choices):
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\axis.py&quot;, line 2146, in get_ticks_position
+##     self._get_ticks_position()]
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\axis.py&quot;, line 1833, in _get_ticks_position
+##     minor = self.minorTicks[0]
+## IndexError: list index out of range</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-662-1.png" /><!-- --></p>
-<div class="sourceCode" id="cb1590"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1590-1"><a href="seaborn.html#cb1590-1"></a>g <span class="op">=</span> sns.FacetGrid(mydf, col<span class="op">=</span><span class="st">&quot;comp&quot;</span>, row<span class="op">=</span><span class="st">&#39;dept&#39;</span>)</span>
-<span id="cb1590-2"><a href="seaborn.html#cb1590-2"></a>g.<span class="bu">map</span>(plt.hist, <span class="st">&quot;value1&quot;</span>)</span></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x000000000B0C8400&gt;</code></pre>
-<div class="sourceCode" id="cb1592"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1592-1"><a href="seaborn.html#cb1592-1"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb1591"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1591-1"><a href="seaborn.html#cb1591-1"></a>g <span class="op">=</span> sns.FacetGrid(mydf, col<span class="op">=</span><span class="st">&quot;comp&quot;</span>, row<span class="op">=</span><span class="st">&#39;dept&#39;</span>)</span>
+<span id="cb1591-2"><a href="seaborn.html#cb1591-2"></a>g.<span class="bu">map</span>(plt.hist, <span class="st">&quot;value1&quot;</span>)</span></code></pre></div>
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000024BA31D0&gt;</code></pre>
+<div class="sourceCode" id="cb1593"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1593-1"><a href="seaborn.html#cb1593-1"></a>plt.show()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-663-1.png" /><!-- --></p>
 </div>
 <div id="faceting-scatter-plot" class="section level3" number="15.6.2">
 <h3 number="15.6.2"><span class="header-section-number">15.6.2</span> Faceting Scatter Plot</h3>
-<div class="sourceCode" id="cb1593"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1593-1"><a href="seaborn.html#cb1593-1"></a>g <span class="op">=</span> sns.FacetGrid(mydf, col<span class="op">=</span><span class="st">&quot;comp&quot;</span>, row<span class="op">=</span><span class="st">&#39;dept&#39;</span>,hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>)</span>
-<span id="cb1593-2"><a href="seaborn.html#cb1593-2"></a>g.<span class="bu">map</span>(plt.scatter, <span class="st">&quot;value1&quot;</span>,<span class="st">&quot;value2&quot;</span>,alpha<span class="op">=</span><span class="fl">0.7</span>)<span class="op">;</span></span></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x000000000B0C8DD8&gt;</code></pre>
-<div class="sourceCode" id="cb1595"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1595-1"><a href="seaborn.html#cb1595-1"></a>g.add_legend()</span></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x000000000B0C8DD8&gt;</code></pre>
-<div class="sourceCode" id="cb1597"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1597-1"><a href="seaborn.html#cb1597-1"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb1594"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1594-1"><a href="seaborn.html#cb1594-1"></a>g <span class="op">=</span> sns.FacetGrid(mydf, col<span class="op">=</span><span class="st">&quot;comp&quot;</span>, row<span class="op">=</span><span class="st">&#39;dept&#39;</span>,hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>)</span>
+<span id="cb1594-2"><a href="seaborn.html#cb1594-2"></a>g.<span class="bu">map</span>(plt.scatter, <span class="st">&quot;value1&quot;</span>,<span class="st">&quot;value2&quot;</span>,alpha<span class="op">=</span><span class="fl">0.7</span>)<span class="op">;</span></span></code></pre></div>
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x000000000BA01240&gt;</code></pre>
+<div class="sourceCode" id="cb1596"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1596-1"><a href="seaborn.html#cb1596-1"></a>g.add_legend()</span></code></pre></div>
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x000000000BA01240&gt;</code></pre>
+<div class="sourceCode" id="cb1598"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1598-1"><a href="seaborn.html#cb1598-1"></a>plt.show()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-664-1.png" /><!-- --></p>
 </div>
 </div>
@@ -1437,26 +1469,26 @@ It support matplotlib as well as seaborn plotting utility.</p>
 <h2 number="15.7"><span class="header-section-number">15.7</span> Pair Grid</h2>
 <div id="simple-pair-grid" class="section level3" number="15.7.1">
 <h3 number="15.7.1"><span class="header-section-number">15.7.1</span> Simple Pair Grid</h3>
-<div class="sourceCode" id="cb1598"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1598-1"><a href="seaborn.html#cb1598-1"></a>g <span class="op">=</span> sns.PairGrid(mydf, hue<span class="op">=</span><span class="st">&#39;comp&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1599"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1599-1"><a href="seaborn.html#cb1599-1"></a>g <span class="op">=</span> sns.PairGrid(mydf, hue<span class="op">=</span><span class="st">&#39;comp&#39;</span>)</span></code></pre></div>
 <pre><code>## C:\ProgramData\Anaconda3\lib\site-packages\seaborn\axisgrid.py:1270: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
 ##   squeeze=False)</code></pre>
-<div class="sourceCode" id="cb1600"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1600-1"><a href="seaborn.html#cb1600-1"></a>g.<span class="bu">map</span>(plt.scatter)<span class="op">;</span></span></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.PairGrid object at 0x00000000091D9860&gt;</code></pre>
-<div class="sourceCode" id="cb1602"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1602-1"><a href="seaborn.html#cb1602-1"></a>g.add_legend()</span></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.PairGrid object at 0x00000000091D9860&gt;</code></pre>
-<div class="sourceCode" id="cb1604"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1604-1"><a href="seaborn.html#cb1604-1"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb1601"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1601-1"><a href="seaborn.html#cb1601-1"></a>g.<span class="bu">map</span>(plt.scatter)<span class="op">;</span></span></code></pre></div>
+<pre><code>## &lt;seaborn.axisgrid.PairGrid object at 0x0000000009E30860&gt;</code></pre>
+<div class="sourceCode" id="cb1603"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1603-1"><a href="seaborn.html#cb1603-1"></a>g.add_legend()</span></code></pre></div>
+<pre><code>## &lt;seaborn.axisgrid.PairGrid object at 0x0000000009E30860&gt;</code></pre>
+<div class="sourceCode" id="cb1605"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1605-1"><a href="seaborn.html#cb1605-1"></a>plt.show()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-665-1.png" /><!-- --></p>
 </div>
 <div id="different-diag-and-offdiag" class="section level3" number="15.7.2">
 <h3 number="15.7.2"><span class="header-section-number">15.7.2</span> Different Diag and OffDiag</h3>
-<div class="sourceCode" id="cb1605"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1605-1"><a href="seaborn.html#cb1605-1"></a>g <span class="op">=</span> sns.PairGrid(mydf, hue<span class="op">=</span><span class="st">&#39;comp&#39;</span>)</span>
-<span id="cb1605-2"><a href="seaborn.html#cb1605-2"></a>g.map_diag(plt.hist, bins<span class="op">=</span><span class="dv">15</span>)</span></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.PairGrid object at 0x00000000091D9F60&gt;</code></pre>
-<div class="sourceCode" id="cb1607"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1607-1"><a href="seaborn.html#cb1607-1"></a>g.map_offdiag(plt.scatter)</span></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.PairGrid object at 0x00000000091D9F60&gt;</code></pre>
-<div class="sourceCode" id="cb1609"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1609-1"><a href="seaborn.html#cb1609-1"></a>g.add_legend()</span></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.PairGrid object at 0x00000000091D9F60&gt;</code></pre>
-<div class="sourceCode" id="cb1611"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1611-1"><a href="seaborn.html#cb1611-1"></a>plt.show()</span></code></pre></div>
+<div class="sourceCode" id="cb1606"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1606-1"><a href="seaborn.html#cb1606-1"></a>g <span class="op">=</span> sns.PairGrid(mydf, hue<span class="op">=</span><span class="st">&#39;comp&#39;</span>)</span>
+<span id="cb1606-2"><a href="seaborn.html#cb1606-2"></a>g.map_diag(plt.hist, bins<span class="op">=</span><span class="dv">15</span>)</span></code></pre></div>
+<pre><code>## &lt;seaborn.axisgrid.PairGrid object at 0x0000000009E300F0&gt;</code></pre>
+<div class="sourceCode" id="cb1608"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1608-1"><a href="seaborn.html#cb1608-1"></a>g.map_offdiag(plt.scatter)</span></code></pre></div>
+<pre><code>## &lt;seaborn.axisgrid.PairGrid object at 0x0000000009E300F0&gt;</code></pre>
+<div class="sourceCode" id="cb1610"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1610-1"><a href="seaborn.html#cb1610-1"></a>g.add_legend()</span></code></pre></div>
+<pre><code>## &lt;seaborn.axisgrid.PairGrid object at 0x0000000009E300F0&gt;</code></pre>
+<div class="sourceCode" id="cb1612"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1612-1"><a href="seaborn.html#cb1612-1"></a>plt.show()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-666-1.png" /><!-- --></p>
 </div>
 </div>

@@ -304,7 +304,7 @@ pattern.split("hi @ali--baba, you are aweeeeeesome! isn't it. Believe it.:)")
 
 #### Pick By Regex Pattern `nltk.tokenize.RegexpTokenizer`
 
-Any sequence of chars fall within the bracket are considered tokens
+Any sequence of chars fall within the bracket are considered tokens. Any chars not within the bracket are removed.
 
 ```{python}
 from nltk.tokenize import RegexpTokenizer
@@ -314,7 +314,7 @@ my_tokenizer.tokenize("hi @ali--baba, you are aweeeeeesome! isn't it. Believe it
 
 ### `nltk.tokenize.word_tokenize()`
 
-Words and punctuations are splitted into tokens
+Words and punctuations are considered as tokens!
 
 ```{python}
 from nltk.tokenize import word_tokenize
@@ -327,20 +327,29 @@ print( word_tokenize("hi @ali-baba, you are aweeeeeesome! isn't it. Believe it.:
 - Support reduction of repetition chars
 - Support removing userid (@someone)
 - Good for social media text
+- Punctuations are tokens!
 
 ```{python results='hold', collapse=FALSE}
 from nltk.tokenize.casual     import casual_tokenize
-## default
 print( casual_tokenize("hi @ali-baba, you are aweeeeeesome! isn't it. Believe it. :)") )  
+```
+
+Example below shorten repeating chars, notice aweeeeeesome becomes aweeesome
+
+```{python results='hold', collapse=FALSE}
 ## shorten repeated chars
 print( casual_tokenize("hi @ali-baba, you are aweeeeeesome! isn't it. Believe it.:)", 
           reduce_len=True))     
+```
+
+Stripping off User ID
+
+```{python results='hold', collapse=FALSE}
 ## shorten repeated chars, stirp usernames
 print( casual_tokenize("hi @ali-baba, you are aweeeeeesome! isn't it. Believe it.:)", 
           reduce_len=True,      
           strip_handles=True))  
 ```
-
 
 ### `nltk.tokenize.treebank.TreebankWordTokenizer().tokenize()`
 
@@ -377,12 +386,14 @@ Unpack list of token lists from above using sum. To get the **vocabulary** (uniq
 ## unpack list of list to list
 vocab = sum(doc_tokens,[])
 print('\nCorpus Vacabulary (Unique Tokens):\n',
-       sorted(set(corpus_tokens)))
+       sorted(set(vocab)))
 ```
 
 ## Sentence Tokenizer
 
 ### `nltk.tokenize.sent_tokenize()`
+
+This will convert a text into list of sentences.
 
 ```{python}
 #nltk.download('punkt')
@@ -391,7 +402,7 @@ text="""\
 Hello Mr. Smith, how are you doing today? The weather is great, and city is awesome.
 The sky is pinkish-blue. You shouldn't eat cardboard
 """
-tokenized_text=sent_tokenize(text)
+tokenized_text = sent_tokenize(text)
 for x in tokenized_text:
   print(x) 
 ```
@@ -539,9 +550,65 @@ print( lemmatizer.lemmatize("good", pos ='a'), '\n',
 
 For search-based chatbot where accuracy is more important, it should first search with unnormalzied words.
 
-## POS Tagging
+## Part Of Speech (POS)
 
-The primary target of Part-of-Speech(POS) tagging is to identify the grammatical group of a given word. Whether it is a NOUN, PRONOUN, ADJECTIVE, VERB, ADVERBS, etc. based on the context. 
+- In corpus linguistics, part-of-speech tagging (POS tagging or PoS tagging or POST), also called **grammatical tagging** or **word-category disambiguation**, is the process of marking up a word in a text (corpus) as corresponding to a particular part of speech, based on both its definition and its context—i.e., its relationship with adjacent and related words in a phrase, sentence, or paragraph  
+- This is useful for Information Retrieval, Text to Speech, Word Sense Disambiguation  
+- The primary target of Part-of-Speech(POS) tagging is to identify the grammatical group of a given word. Whether it is a NOUN, PRONOUN, ADJECTIVE, VERB, ADVERBS, etc. based on the context  
+- A simplified form of this is commonly taught to school-age children, in the identification of words as nouns, verbs, adjectives, adverbs, etc  
+
+### Tag Sets
+
+- Schools commonly teach that there are 9 parts of speech in English: noun, verb, article, adjective, preposition, pronoun, adverb, conjunction, and interjection  
+- However, there are clearly many more categories and sub-categories 
+
+#### Penn Treebank Tagset
+
+- This is the most popular "tag set" for American English, developed in the Penn Treebank project  
+- It has 36 POS tags plus 12 others for punctuations and special symbols  
+
+[PENN POS Tagset](https://www.sketchengine.eu/penn-treebank-tagset/)
+
+```{python}
+nltk.help.upenn_tagset()
+```
+
+#### Claws5 Tagset
+
+[Claws5 POS Tagset](https://www.sketchengine.eu/english-claws5-part-of-speech-tagset/)
+
+```{python}
+nltk.help.claws5_tagset()
+```
+
+#### Brown Tagset
+
+[Brown POS Tagset]()
+
+```{python}
+nltk.help.brown_tagset()
+```
+
+### Tagging Techniques
+
+There are few types of tagging techniques:  
+- Lexical-based  
+- Rule-based  
+- Probalistic-based  (Conditional Random Fields-CRFs, Hidden Markov Models-HMM)
+- Neural network-based  
+
+NLTK supports the below tagger: 
+```
+from nltk.tag.brill      import BrillTagger
+from nltk.tag.hunpos     import HunposTagger
+from nltk.tag.stanford   import StanfordTagger, StanfordPOSTagger, StanfordNERTagger
+from nltk.tag.hmm        import HiddenMarkovModelTagger, HiddenMarkovModelTrainer
+from nltk.tag.senna      import SennaTagger, SennaChunkTagger, SennaNERTagger
+from nltk.tag.crf        import CRFTagger
+from nltk.tag.perceptron import PerceptronTagger
+```
+
+### Performing Tagging `nltk.pos_tag()`
 
 Tagging works sentence by sentence. 
 - Document fist must be splitted into sentences
@@ -560,8 +627,9 @@ print('Tokens:\n', tokens, '\n\n', 'Tags:\n', tags)
 ### Vader
 
 - It is a rule based sentiment analyzer, contain 7503 lexicons
-- It is good for social media because lexicon contain emoji and short form text
-- Contain only 3 n-gram
+- It is good for **social media** because lexicon contain **emoji and short** form text
+- Contain only **3 n-gram**
+- Supported by NTLK or install vader seperately (pip install vaderSentiment)  
 
 #### Vader Lexicon
 
@@ -570,9 +638,10 @@ The lexicon is a dictionary. To make it iterable, need to convert into list:
 - Step 2: Unpack `dict_items` to `list`
 
 ```{python}
-from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-vader_lex = SentimentIntensityAnalyzer().lexicon  # get the lexicon dictionary
-vader_list = list(vader_lex.items())              # convert to items then list
+#from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer   ## seperate pip installed library
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+vader_lex  = SentimentIntensityAnalyzer().lexicon  # get the lexicon dictionary
+vader_list = list(vader_lex.items())               # convert to items then list
 print( 'Total Vader Lexicon:', len(vader_lex),'\n',
         vader_list[1:10], vader_list[220:240] )
 ```

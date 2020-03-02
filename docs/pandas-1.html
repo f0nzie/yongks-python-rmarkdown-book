@@ -24,7 +24,7 @@
 <meta name="author" content="Yong Keh Soon" />
 
 
-<meta name="date" content="2020-03-01" />
+<meta name="date" content="2020-03-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1129,7 +1129,17 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.6.3" data-path="nlp.html"><a href="nlp.html#lemmatization"><i class="fa fa-check"></i><b>18.6.3</b> Lemmatization</a></li>
 <li class="chapter" data-level="18.6.4" data-path="nlp.html"><a href="nlp.html#comparing-stemming-and-lemmatization"><i class="fa fa-check"></i><b>18.6.4</b> Comparing Stemming and Lemmatization</a></li>
 </ul></li>
-<li class="chapter" data-level="18.7" data-path="nlp.html"><a href="nlp.html#pos-tagging"><i class="fa fa-check"></i><b>18.7</b> POS Tagging</a></li>
+<li class="chapter" data-level="18.7" data-path="nlp.html"><a href="nlp.html#part-of-speech-pos"><i class="fa fa-check"></i><b>18.7</b> Part Of Speech (POS)</a>
+<ul>
+<li class="chapter" data-level="18.7.1" data-path="nlp.html"><a href="nlp.html#tag-sets"><i class="fa fa-check"></i><b>18.7.1</b> Tag Sets</a>
+<ul>
+<li class="chapter" data-level="18.7.1.1" data-path="nlp.html"><a href="nlp.html#penn-treebank-tagset"><i class="fa fa-check"></i><b>18.7.1.1</b> Penn Treebank Tagset</a></li>
+<li class="chapter" data-level="18.7.1.2" data-path="nlp.html"><a href="nlp.html#claws5-tagset"><i class="fa fa-check"></i><b>18.7.1.2</b> Claws5 Tagset</a></li>
+<li class="chapter" data-level="18.7.1.3" data-path="nlp.html"><a href="nlp.html#brown-tagset"><i class="fa fa-check"></i><b>18.7.1.3</b> Brown Tagset</a></li>
+</ul></li>
+<li class="chapter" data-level="18.7.2" data-path="nlp.html"><a href="nlp.html#tagging-techniques"><i class="fa fa-check"></i><b>18.7.2</b> Tagging Techniques</a></li>
+<li class="chapter" data-level="18.7.3" data-path="nlp.html"><a href="nlp.html#performing-tagging-nltk.pos_tag"><i class="fa fa-check"></i><b>18.7.3</b> Performing Tagging <code>nltk.pos_tag()</code></a></li>
+</ul></li>
 <li class="chapter" data-level="18.8" data-path="nlp.html"><a href="nlp.html#sentiment"><i class="fa fa-check"></i><b>18.8</b> Sentiment</a>
 <ul>
 <li class="chapter" data-level="18.8.1" data-path="nlp.html"><a href="nlp.html#vader"><i class="fa fa-check"></i><b>18.8.1</b> Vader</a>
@@ -1192,7 +1202,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="19.2.5" data-path="web-scrapping.html"><a href="web-scrapping.html#traversing"><i class="fa fa-check"></i><b>19.2.5</b> Traversing</a>
 <ul>
 <li class="chapter" data-level="19.2.5.1" data-path="web-scrapping.html"><a href="web-scrapping.html#get-the-element"><i class="fa fa-check"></i><b>19.2.5.1</b> Get The Element</a></li>
-<li class="chapter" data-level="19.2.5.2" data-path="web-scrapping.html"><a href="web-scrapping.html#traversubg-children"><i class="fa fa-check"></i><b>19.2.5.2</b> Traversubg Children</a></li>
+<li class="chapter" data-level="19.2.5.2" data-path="web-scrapping.html"><a href="web-scrapping.html#traversing-children"><i class="fa fa-check"></i><b>19.2.5.2</b> Traversing Children</a></li>
 <li class="chapter" data-level="19.2.5.3" data-path="web-scrapping.html"><a href="web-scrapping.html#traversing-to-parent-parent"><i class="fa fa-check"></i><b>19.2.5.3</b> Traversing To Parent <code>parent()</code></a></li>
 <li class="chapter" data-level="19.2.5.4" data-path="web-scrapping.html"><a href="web-scrapping.html#get-the-sibling-findprevioussibling"><i class="fa fa-check"></i><b>19.2.5.4</b> Get The Sibling <code>findPreviousSibling()</code></a></li>
 </ul></li>
@@ -1644,15 +1654,15 @@ crosstab( index = &lt;SeriesObj&gt;, columns = &lt;SeriesObj&gt;, margines=True 
 ##                                   Sector Market Cap  Last Price     PE    DY      ROE  
 ## 0                                  Media     13.17m        0.06      -  0.00        -  
 ## 1           Telecommunications Equipment     29.00m        0.54   5.80  0.00     9.97  
-## 2                                  Media     6.205b        1.19   9.78  7.56    76.06  
-## 3   Telecommunications Service Providers    38.304b        4.18  28.05  2.27     8.42  
-## 4   Telecommunications Service Providers    112.36m        0.43  30.58  2.35     4.63  
+## 2                                  Media     6.101b        1.17   9.61  7.69    76.06  
+## 3   Telecommunications Service Providers    37.296b        4.07  27.32  2.33     8.42  
+## 4   Telecommunications Service Providers    111.03m        0.42  30.22  2.38     4.63  
 ## ..                                   ...        ...         ...    ...   ...      ...  
-## 28          Telecommunications Equipment     52.44m        0.37      -  0.00  -152.00  
-## 29                                 Media    276.96m        0.38  48.70  8.00     0.69  
-## 30  Telecommunications Service Providers     5.463b        9.33  17.40  2.20    11.34  
-## 31  Telecommunications Service Providers    13.933b        3.70  22.02  2.70     8.60  
-## 32  Telecommunications Service Providers     49.16m        0.05      -  0.00        -  
+## 28          Telecommunications Equipment     53.16m        0.37      -  0.00  -152.00  
+## 29                                 Media    291.73m        0.40  51.30  7.59     0.69  
+## 30  Telecommunications Service Providers     5.516b        9.42  17.56  2.18    11.34  
+## 31  Telecommunications Service Providers    13.820b        3.67  21.85  2.72     8.60  
+## 32  Telecommunications Service Providers     43.70m        0.04      -  0.00        -  
 ## 
 ## [33 rows x 8 columns]</code></pre>
 </div>
@@ -4607,7 +4617,7 @@ third element’s code = 2</p>
 <h3 number="13.10.1"><span class="header-section-number">13.10.1</span> Creating Groups</h3>
 <div class="sourceCode" id="cb1466"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1466-1"><a href="pandas-1.html#cb1466-1"></a>com_grp <span class="op">=</span> company.groupby([<span class="st">&#39;Company&#39;</span>,<span class="st">&#39;Department&#39;</span>])</span>
 <span id="cb1466-2"><a href="pandas-1.html#cb1466-2"></a>com_grp</span></code></pre></div>
-<pre><code>## &lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x0000000029FBD668&gt;</code></pre>
+<pre><code>## &lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x00000000066DE198&gt;</code></pre>
 </div>
 <div id="properties-1" class="section level3" number="13.10.2">
 <h3 number="13.10.2"><span class="header-section-number">13.10.2</span> Properties</h3>
@@ -4744,7 +4754,7 @@ third element’s code = 2</p>
 ## 13      C3         D3  Chang   32    7900  7/26/1973
 ## 16      C3         D3  Sally   54   21000  7/19/1968</code></pre>
 <div class="sourceCode" id="cb1484"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1484-1"><a href="pandas-1.html#cb1484-1"></a>com_grp</span></code></pre></div>
-<pre><code>## &lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x0000000029FBD668&gt;</code></pre>
+<pre><code>## &lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x00000000066DE198&gt;</code></pre>
 </div>
 <div id="apply-aggregate-functions-to-groups" class="section level3" number="13.10.6">
 <h3 number="13.10.6"><span class="header-section-number">13.10.6</span> Apply Aggregate Functions to Groups</h3>

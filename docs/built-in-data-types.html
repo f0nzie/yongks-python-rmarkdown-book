@@ -24,7 +24,7 @@
 <meta name="author" content="Yong Keh Soon" />
 
 
-<meta name="date" content="2020-03-01" />
+<meta name="date" content="2020-03-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1129,7 +1129,17 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.6.3" data-path="nlp.html"><a href="nlp.html#lemmatization"><i class="fa fa-check"></i><b>18.6.3</b> Lemmatization</a></li>
 <li class="chapter" data-level="18.6.4" data-path="nlp.html"><a href="nlp.html#comparing-stemming-and-lemmatization"><i class="fa fa-check"></i><b>18.6.4</b> Comparing Stemming and Lemmatization</a></li>
 </ul></li>
-<li class="chapter" data-level="18.7" data-path="nlp.html"><a href="nlp.html#pos-tagging"><i class="fa fa-check"></i><b>18.7</b> POS Tagging</a></li>
+<li class="chapter" data-level="18.7" data-path="nlp.html"><a href="nlp.html#part-of-speech-pos"><i class="fa fa-check"></i><b>18.7</b> Part Of Speech (POS)</a>
+<ul>
+<li class="chapter" data-level="18.7.1" data-path="nlp.html"><a href="nlp.html#tag-sets"><i class="fa fa-check"></i><b>18.7.1</b> Tag Sets</a>
+<ul>
+<li class="chapter" data-level="18.7.1.1" data-path="nlp.html"><a href="nlp.html#penn-treebank-tagset"><i class="fa fa-check"></i><b>18.7.1.1</b> Penn Treebank Tagset</a></li>
+<li class="chapter" data-level="18.7.1.2" data-path="nlp.html"><a href="nlp.html#claws5-tagset"><i class="fa fa-check"></i><b>18.7.1.2</b> Claws5 Tagset</a></li>
+<li class="chapter" data-level="18.7.1.3" data-path="nlp.html"><a href="nlp.html#brown-tagset"><i class="fa fa-check"></i><b>18.7.1.3</b> Brown Tagset</a></li>
+</ul></li>
+<li class="chapter" data-level="18.7.2" data-path="nlp.html"><a href="nlp.html#tagging-techniques"><i class="fa fa-check"></i><b>18.7.2</b> Tagging Techniques</a></li>
+<li class="chapter" data-level="18.7.3" data-path="nlp.html"><a href="nlp.html#performing-tagging-nltk.pos_tag"><i class="fa fa-check"></i><b>18.7.3</b> Performing Tagging <code>nltk.pos_tag()</code></a></li>
+</ul></li>
 <li class="chapter" data-level="18.8" data-path="nlp.html"><a href="nlp.html#sentiment"><i class="fa fa-check"></i><b>18.8</b> Sentiment</a>
 <ul>
 <li class="chapter" data-level="18.8.1" data-path="nlp.html"><a href="nlp.html#vader"><i class="fa fa-check"></i><b>18.8.1</b> Vader</a>
@@ -1192,7 +1202,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="19.2.5" data-path="web-scrapping.html"><a href="web-scrapping.html#traversing"><i class="fa fa-check"></i><b>19.2.5</b> Traversing</a>
 <ul>
 <li class="chapter" data-level="19.2.5.1" data-path="web-scrapping.html"><a href="web-scrapping.html#get-the-element"><i class="fa fa-check"></i><b>19.2.5.1</b> Get The Element</a></li>
-<li class="chapter" data-level="19.2.5.2" data-path="web-scrapping.html"><a href="web-scrapping.html#traversubg-children"><i class="fa fa-check"></i><b>19.2.5.2</b> Traversubg Children</a></li>
+<li class="chapter" data-level="19.2.5.2" data-path="web-scrapping.html"><a href="web-scrapping.html#traversing-children"><i class="fa fa-check"></i><b>19.2.5.2</b> Traversing Children</a></li>
 <li class="chapter" data-level="19.2.5.3" data-path="web-scrapping.html"><a href="web-scrapping.html#traversing-to-parent-parent"><i class="fa fa-check"></i><b>19.2.5.3</b> Traversing To Parent <code>parent()</code></a></li>
 <li class="chapter" data-level="19.2.5.4" data-path="web-scrapping.html"><a href="web-scrapping.html#get-the-sibling-findprevioussibling"><i class="fa fa-check"></i><b>19.2.5.4</b> Get The Sibling <code>findPreviousSibling()</code></a></li>
 </ul></li>
@@ -1338,13 +1348,13 @@ Remainder by float return <strong>float</strong></p>
 <div class="sourceCode" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb46-1"><a href="built-in-data-types.html#cb46-1"></a>s <span class="op">=</span> <span class="st">&#39;abcde&#39;</span></span>
 <span id="cb46-2"><a href="built-in-data-types.html#cb46-2"></a><span class="bu">print</span> (<span class="st">&#39;s : &#39;</span>, <span class="bu">id</span>(s))</span>
 <span id="cb46-3"><a href="built-in-data-types.html#cb46-3"></a><span class="co">#s[1] = &#39;z&#39;               # immutable, result in error</span></span></code></pre></div>
-<pre><code>## s :  696521648</code></pre>
+<pre><code>## s :  342100264</code></pre>
 <ul>
 <li>Changing the variable completley change the reference (for new object)</li>
 </ul>
 <div class="sourceCode" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb48-1"><a href="built-in-data-types.html#cb48-1"></a>s <span class="op">=</span> <span class="st">&#39;efgh&#39;</span></span>
 <span id="cb48-2"><a href="built-in-data-types.html#cb48-2"></a><span class="bu">print</span> (<span class="st">&#39;s : &#39;</span>, <span class="bu">id</span>(s))</span></code></pre></div>
-<pre><code>## s :  696467384</code></pre>
+<pre><code>## s :  342099928</code></pre>
 </div>
 </div>
 <div id="class-constants" class="section level3" number="2.2.2">
@@ -1494,8 +1504,8 @@ For partial match, workaround is to <strong>convert list to single string</stron
 <span id="cb105-3"><a href="built-in-data-types.html#cb105-3"></a><span class="bu">print</span>(<span class="st">&#39;id(a) = &#39;</span>, <span class="bu">id</span>(a), </span>
 <span id="cb105-4"><a href="built-in-data-types.html#cb105-4"></a>      <span class="st">&#39;</span><span class="ch">\n</span><span class="st">id(b) = &#39;</span>, <span class="bu">id</span>(b),</span>
 <span id="cb105-5"><a href="built-in-data-types.html#cb105-5"></a>      <span class="st">&#39;</span><span class="ch">\n</span><span class="st">a == b  &#39;</span>, a<span class="op">==</span>b)</span></code></pre></div>
-<pre><code>## id(a) =  546765096 
-## id(b) =  546765096 
+<pre><code>## id(a) =  480115040 
+## id(b) =  480115040 
 ## a == b   True</code></pre>
 </div>
 </div>

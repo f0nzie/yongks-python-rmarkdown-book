@@ -24,7 +24,7 @@
 <meta name="author" content="Yong Keh Soon" />
 
 
-<meta name="date" content="2020-03-01" />
+<meta name="date" content="2020-03-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1129,7 +1129,17 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.6.3" data-path="nlp.html"><a href="nlp.html#lemmatization"><i class="fa fa-check"></i><b>18.6.3</b> Lemmatization</a></li>
 <li class="chapter" data-level="18.6.4" data-path="nlp.html"><a href="nlp.html#comparing-stemming-and-lemmatization"><i class="fa fa-check"></i><b>18.6.4</b> Comparing Stemming and Lemmatization</a></li>
 </ul></li>
-<li class="chapter" data-level="18.7" data-path="nlp.html"><a href="nlp.html#pos-tagging"><i class="fa fa-check"></i><b>18.7</b> POS Tagging</a></li>
+<li class="chapter" data-level="18.7" data-path="nlp.html"><a href="nlp.html#part-of-speech-pos"><i class="fa fa-check"></i><b>18.7</b> Part Of Speech (POS)</a>
+<ul>
+<li class="chapter" data-level="18.7.1" data-path="nlp.html"><a href="nlp.html#tag-sets"><i class="fa fa-check"></i><b>18.7.1</b> Tag Sets</a>
+<ul>
+<li class="chapter" data-level="18.7.1.1" data-path="nlp.html"><a href="nlp.html#penn-treebank-tagset"><i class="fa fa-check"></i><b>18.7.1.1</b> Penn Treebank Tagset</a></li>
+<li class="chapter" data-level="18.7.1.2" data-path="nlp.html"><a href="nlp.html#claws5-tagset"><i class="fa fa-check"></i><b>18.7.1.2</b> Claws5 Tagset</a></li>
+<li class="chapter" data-level="18.7.1.3" data-path="nlp.html"><a href="nlp.html#brown-tagset"><i class="fa fa-check"></i><b>18.7.1.3</b> Brown Tagset</a></li>
+</ul></li>
+<li class="chapter" data-level="18.7.2" data-path="nlp.html"><a href="nlp.html#tagging-techniques"><i class="fa fa-check"></i><b>18.7.2</b> Tagging Techniques</a></li>
+<li class="chapter" data-level="18.7.3" data-path="nlp.html"><a href="nlp.html#performing-tagging-nltk.pos_tag"><i class="fa fa-check"></i><b>18.7.3</b> Performing Tagging <code>nltk.pos_tag()</code></a></li>
+</ul></li>
 <li class="chapter" data-level="18.8" data-path="nlp.html"><a href="nlp.html#sentiment"><i class="fa fa-check"></i><b>18.8</b> Sentiment</a>
 <ul>
 <li class="chapter" data-level="18.8.1" data-path="nlp.html"><a href="nlp.html#vader"><i class="fa fa-check"></i><b>18.8.1</b> Vader</a>
@@ -1192,7 +1202,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="19.2.5" data-path="web-scrapping.html"><a href="web-scrapping.html#traversing"><i class="fa fa-check"></i><b>19.2.5</b> Traversing</a>
 <ul>
 <li class="chapter" data-level="19.2.5.1" data-path="web-scrapping.html"><a href="web-scrapping.html#get-the-element"><i class="fa fa-check"></i><b>19.2.5.1</b> Get The Element</a></li>
-<li class="chapter" data-level="19.2.5.2" data-path="web-scrapping.html"><a href="web-scrapping.html#traversubg-children"><i class="fa fa-check"></i><b>19.2.5.2</b> Traversubg Children</a></li>
+<li class="chapter" data-level="19.2.5.2" data-path="web-scrapping.html"><a href="web-scrapping.html#traversing-children"><i class="fa fa-check"></i><b>19.2.5.2</b> Traversing Children</a></li>
 <li class="chapter" data-level="19.2.5.3" data-path="web-scrapping.html"><a href="web-scrapping.html#traversing-to-parent-parent"><i class="fa fa-check"></i><b>19.2.5.3</b> Traversing To Parent <code>parent()</code></a></li>
 <li class="chapter" data-level="19.2.5.4" data-path="web-scrapping.html"><a href="web-scrapping.html#get-the-sibling-findprevioussibling"><i class="fa fa-check"></i><b>19.2.5.4</b> Get The Sibling <code>findPreviousSibling()</code></a></li>
 </ul></li>
@@ -1384,9 +1394,9 @@ conda install -c conda-forge plotnine</code></pre>
 <pre><code>## Data of a = 123 
 ## Data of b = 123 
 ## Data of c = 123 
-## ID of a =  140703172767072 
-## ID of b =  140703172767072 
-## ID of c =  140703172767072</code></pre>
+## ID of a =  140709002194272 
+## ID of b =  140709002194272 
+## ID of c =  140709002194272</code></pre>
 <p>Changing data value (using assignment) changes <strong>the reference</strong></p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="fundamentals.html#cb11-1"></a>a <span class="op">=</span> <span class="dv">123</span></span>
 <span id="cb11-2"><a href="fundamentals.html#cb11-2"></a>b <span class="op">=</span> a</span>
@@ -1399,8 +1409,8 @@ conda install -c conda-forge plotnine</code></pre>
 <span id="cb11-9"><a href="fundamentals.html#cb11-9"></a>)</span></code></pre></div>
 <pre><code>## Data of a = 456 
 ## Data of b = 123 
-## ID of a =  696346192 
-## ID of b =  140703172767072</code></pre>
+## ID of a =  341931600 
+## ID of b =  140709002194272</code></pre>
 </div>
 <div id="assignment" class="section level2" number="1.3">
 <h2 number="1.3"><span class="header-section-number">1.3</span> Assignment</h2>
@@ -1415,8 +1425,8 @@ conda install -c conda-forge plotnine</code></pre>
 <span id="cb13-6"><a href="fundamentals.html#cb13-6"></a>)</span></code></pre></div>
 <pre><code>## x =  same mem loc 
 ## y =  same mem loc 
-## id(x) =  696488048 
-## id(y) =  696488048</code></pre>
+## id(x) =  342073456 
+## id(y) =  342073456</code></pre>
 </div>
 <div id="augmented-assignment" class="section level3" number="1.3.2">
 <h3 number="1.3.2"><span class="header-section-number">1.3.2</span> Augmented Assignment</h3>
