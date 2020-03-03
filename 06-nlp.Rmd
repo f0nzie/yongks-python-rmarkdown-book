@@ -550,6 +550,71 @@ print( lemmatizer.lemmatize("good", pos ='a'), '\n',
 
 For search-based chatbot where accuracy is more important, it should first search with unnormalzied words.
 
+## Wordnet
+
+WordNet® is a large lexical database of English. Nouns, verbs, adjectives and adverbs are grouped into sets of cognitive synonyms (synsets), each expressing a distinct concept. Synsets are interlinked by means of conceptual-semantic and lexical relations.  
+
+WordNet superficially resembles a thesaurus, in that it groups words together based on their meanings. However, there are some important distinctions. First, WordNet interlinks not just word forms—strings of letters—but specific senses of words. As a result, words that are found in close proximity to one another in the network are semantically disambiguated. Second, WordNet labels the semantic relations among words, whereas the groupings of words in a thesaurus does not follow any explicit pattern other than meaning similarity.  
+
+[Wordnet Princeton](https://wordnet.princeton.edu)
+
+[Wordnet Online Browser](http://wordnetweb.princeton.edu/perl/webwn)
+
+### NLTK and Wordnet
+
+NLTK (version 3.7.6) includes the English WordNet (147,307 words and 117,659 synonym sets)
+
+```{python}
+s = set( wn.all_synsets() )
+w = set(wn.words())
+print('Total words in wordnet  : ' , len(w),
+      '\nTotal synsets in wordnet: ' , len(s) )
+```
+
+### Synsets
+
+- Synsets is a set of synonyms that share a common meaning  
+- A synset (member of Synsets) is identified with a 3-part name of the form: **`word.pos.nn`**
+- A synset can contain one or more lemmas, which represent a specific sense of a specific word  
+- A synset can contain one or more **Hyponyms and Hypernyms**. These are specific and generalized concepts respectively. For example, 'beach house' and 'guest house' are hyponyms of 'house'. They are more specific concepts of 'house'. And 'house' is a hypernym of 'guest house' because it is the general concept  
+-  **Hyponyms and Hypernyms** are also called lexical relations
+
+```{python}
+from nltk.corpus import wordnet as wn
+
+dogs = wn.synsets('dog') # get all synsets for word 'dog'
+
+for d in dogs:  ## iterate through each Synset
+  print(d,':\nDefinition: ', d.definition(),
+           '\nExample:', d.examples(),
+           '\nLemmas:', d.lemma_names(),
+           '\nHyponyms:', d.hyponyms(), 
+           '\nHypernyms:',d.hypernyms(), '\n\n')
+```
+
+There are 5 POS used by Wordnet.
+
+```{python}
+print(wn.ADJ, wn.ADJ_SAT, wn.ADV, wn.NOUN, wn.VERB)
+```
+
+
+#### Synset Similarity
+
+Let's see how similar are the below two nouns
+
+```{python}
+w1 = wn.synset('dog.n.01')
+w2 = wn.synset('ship.n.01')
+print(w1.wup_similarity(w2))
+```
+```{python}
+w1 = wn.synset('ship.n.01')
+w2 = wn.synset('boat.n.01')
+print(w1.wup_similarity(w2))
+```
+
+
 ## Part Of Speech (POS)
 
 - In corpus linguistics, part-of-speech tagging (POS tagging or PoS tagging or POST), also called **grammatical tagging** or **word-category disambiguation**, is the process of marking up a word in a text (corpus) as corresponding to a particular part of speech, based on both its definition and its context—i.e., its relationship with adjacent and related words in a phrase, sentence, or paragraph  
@@ -562,10 +627,34 @@ For search-based chatbot where accuracy is more important, it should first searc
 - Schools commonly teach that there are 9 parts of speech in English: noun, verb, article, adjective, preposition, pronoun, adverb, conjunction, and interjection  
 - However, there are clearly many more categories and sub-categories 
 
+```{python, eval=FALSE}
+ nltk.download('universal_tagset')
+ 
+```
+
+#### Universal Tagset
+
+This tagset contains **12** coarse tags
+
+```
+VERB - verbs (all tenses and modes)
+NOUN - nouns (common and proper)
+PRON - pronouns
+ADJ - adjectives
+ADV - adverbs
+ADP - adpositions (prepositions and postpositions)
+CONJ - conjunctions
+DET - determiners
+NUM - cardinal numbers
+PRT - particles or other function words
+X - other: foreign words, typos, abbreviations
+. - punctuation
+```
+
 #### Penn Treebank Tagset
 
 - This is the most popular "tag set" for American English, developed in the Penn Treebank project  
-- It has 36 POS tags plus 12 others for punctuations and special symbols  
+- It has **36 POS tags plus 12** others for punctuations and special symbols  
 
 [PENN POS Tagset](https://www.sketchengine.eu/penn-treebank-tagset/)
 
@@ -583,7 +672,7 @@ nltk.help.claws5_tagset()
 
 #### Brown Tagset
 
-[Brown POS Tagset]()
+[Brown POS Tagset](https://en.wikipedia.org/wiki/Brown_Corpus#Part-of-speech_tags_used)
 
 ```{python}
 nltk.help.brown_tagset()
@@ -593,11 +682,11 @@ nltk.help.brown_tagset()
 
 There are few types of tagging techniques:  
 - Lexical-based  
-- Rule-based  
-- Probalistic-based  (Conditional Random Fields-CRFs, Hidden Markov Models-HMM)
+- Rule-based  (Brill)
+- Probalistic/Stochastic-based  (Conditional Random Fields-CRFs, Hidden Markov Models-HMM)
 - Neural network-based  
 
-NLTK supports the below tagger: 
+NLTK supports the below taggers: 
 ```
 from nltk.tag.brill      import BrillTagger
 from nltk.tag.hunpos     import HunposTagger
@@ -608,18 +697,35 @@ from nltk.tag.crf        import CRFTagger
 from nltk.tag.perceptron import PerceptronTagger
 ```
 
+#### nltk `PerceptronTagger` 
+
+PerceptronTagger produce tags with **Penn Treebank** tagset
+
+```{python}
+from nltk.tag import PerceptronTagger
+tagger = PerceptronTagger()
+print('Tagger Classes:', tagger.classes, 
+      '\n\n# Classes:', len(tagger.classes))
+```
+
 ### Performing Tagging `nltk.pos_tag()`
 
-Tagging works sentence by sentence. 
-- Document fist must be splitted into sentences
-- Each sentence need to be tokenized into words
+Tagging works sentence by sentence:  
+- Document fist must be splitted into sentences  
+- Each sentence need to be tokenized into words  
+- Default NTLK uses `PerceptronTagger`
 
 ```{python}
 #nltk.download('averaged_perceptron_tagger')
-sentence = "Albert Einstein was born in Ulm, Germany in 1879."
-tokens = nltk.word_tokenize(sentence)
-tags   = nltk.pos_tag(tokens)
-print('Tokens:\n', tokens, '\n\n', 'Tags:\n', tags)
+#import nltk
+#from nltk.tokenize import word_tokenize, sent_tokenize 
+doc = '''Sukanya, Rajib and Naba are my good friends. Sukanya is getting married next year. Marriage is a big step in one's life. It is both exciting and frightening. But friendship is a sacred bond between people. It is a special kind of love between us. Many of you must have tried searching for a friend but never found the right one.'''
+
+sentences = nltk.sent_tokenize(doc)
+for sentence in sentences:
+  tokens = nltk.word_tokenize(sentence)
+  tagged = nltk.pos_tag(tokens)
+  print(tagged)
 ```
 
 ## Sentiment
@@ -677,10 +783,6 @@ corpus = ["Python is a very useful but hell difficult to learn",
 for doc in corpus:
   print(doc, '-->', "\n:", SentimentIntensityAnalyzer().polarity_scores(doc) )
 ```
-
-### SentiWordNet
-
-
 
 ## Feature Representation
 

@@ -24,7 +24,7 @@
 <meta name="author" content="Yong Keh Soon" />
 
 
-<meta name="date" content="2020-03-02" />
+<meta name="date" content="2020-03-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1129,52 +1129,63 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.6.3" data-path="nlp.html"><a href="nlp.html#lemmatization"><i class="fa fa-check"></i><b>18.6.3</b> Lemmatization</a></li>
 <li class="chapter" data-level="18.6.4" data-path="nlp.html"><a href="nlp.html#comparing-stemming-and-lemmatization"><i class="fa fa-check"></i><b>18.6.4</b> Comparing Stemming and Lemmatization</a></li>
 </ul></li>
-<li class="chapter" data-level="18.7" data-path="nlp.html"><a href="nlp.html#part-of-speech-pos"><i class="fa fa-check"></i><b>18.7</b> Part Of Speech (POS)</a>
+<li class="chapter" data-level="18.7" data-path="nlp.html"><a href="nlp.html#wordnet"><i class="fa fa-check"></i><b>18.7</b> Wordnet</a>
 <ul>
-<li class="chapter" data-level="18.7.1" data-path="nlp.html"><a href="nlp.html#tag-sets"><i class="fa fa-check"></i><b>18.7.1</b> Tag Sets</a>
+<li class="chapter" data-level="18.7.1" data-path="nlp.html"><a href="nlp.html#nltk-and-wordnet"><i class="fa fa-check"></i><b>18.7.1</b> NLTK and Wordnet</a></li>
+<li class="chapter" data-level="18.7.2" data-path="nlp.html"><a href="nlp.html#synsets"><i class="fa fa-check"></i><b>18.7.2</b> Synsets</a>
 <ul>
-<li class="chapter" data-level="18.7.1.1" data-path="nlp.html"><a href="nlp.html#penn-treebank-tagset"><i class="fa fa-check"></i><b>18.7.1.1</b> Penn Treebank Tagset</a></li>
-<li class="chapter" data-level="18.7.1.2" data-path="nlp.html"><a href="nlp.html#claws5-tagset"><i class="fa fa-check"></i><b>18.7.1.2</b> Claws5 Tagset</a></li>
-<li class="chapter" data-level="18.7.1.3" data-path="nlp.html"><a href="nlp.html#brown-tagset"><i class="fa fa-check"></i><b>18.7.1.3</b> Brown Tagset</a></li>
-</ul></li>
-<li class="chapter" data-level="18.7.2" data-path="nlp.html"><a href="nlp.html#tagging-techniques"><i class="fa fa-check"></i><b>18.7.2</b> Tagging Techniques</a></li>
-<li class="chapter" data-level="18.7.3" data-path="nlp.html"><a href="nlp.html#performing-tagging-nltk.pos_tag"><i class="fa fa-check"></i><b>18.7.3</b> Performing Tagging <code>nltk.pos_tag()</code></a></li>
-</ul></li>
-<li class="chapter" data-level="18.8" data-path="nlp.html"><a href="nlp.html#sentiment"><i class="fa fa-check"></i><b>18.8</b> Sentiment</a>
-<ul>
-<li class="chapter" data-level="18.8.1" data-path="nlp.html"><a href="nlp.html#vader"><i class="fa fa-check"></i><b>18.8.1</b> Vader</a>
-<ul>
-<li class="chapter" data-level="18.8.1.1" data-path="nlp.html"><a href="nlp.html#vader-lexicon"><i class="fa fa-check"></i><b>18.8.1.1</b> Vader Lexicon</a></li>
-<li class="chapter" data-level="18.8.1.2" data-path="nlp.html"><a href="nlp.html#polarity-scoring"><i class="fa fa-check"></i><b>18.8.1.2</b> Polarity Scoring</a></li>
-</ul></li>
-<li class="chapter" data-level="18.8.2" data-path="nlp.html"><a href="nlp.html#sentiwordnet"><i class="fa fa-check"></i><b>18.8.2</b> SentiWordNet</a></li>
-</ul></li>
-<li class="chapter" data-level="18.9" data-path="nlp.html"><a href="nlp.html#feature-representation"><i class="fa fa-check"></i><b>18.9</b> Feature Representation</a>
-<ul>
-<li class="chapter" data-level="18.9.1" data-path="nlp.html"><a href="nlp.html#the-data-3"><i class="fa fa-check"></i><b>18.9.1</b> The Data</a></li>
-<li class="chapter" data-level="18.9.2" data-path="nlp.html"><a href="nlp.html#frequency-count-1"><i class="fa fa-check"></i><b>18.9.2</b> Frequency Count</a>
-<ul>
-<li class="chapter" data-level="18.9.2.1" data-path="nlp.html"><a href="nlp.html#tokenizer"><i class="fa fa-check"></i><b>18.9.2.1</b> + Tokenizer</a></li>
-<li class="chapter" data-level="18.9.2.2" data-path="nlp.html"><a href="nlp.html#stop-words"><i class="fa fa-check"></i><b>18.9.2.2</b> + Stop Words</a></li>
-</ul></li>
-<li class="chapter" data-level="18.9.3" data-path="nlp.html"><a href="nlp.html#tfidf"><i class="fa fa-check"></i><b>18.9.3</b> TFIDF</a>
-<ul>
-<li class="chapter" data-level="18.9.3.1" data-path="nlp.html"><a href="nlp.html#equation"><i class="fa fa-check"></i><b>18.9.3.1</b> Equation</a></li>
-<li class="chapter" data-level="18.9.3.2" data-path="nlp.html"><a href="nlp.html#tfidftransformer"><i class="fa fa-check"></i><b>18.9.3.2</b> <code>TfidfTransformer</code></a></li>
-<li class="chapter" data-level="18.9.3.3" data-path="nlp.html"><a href="nlp.html#tfidfvectorizer"><i class="fa fa-check"></i><b>18.9.3.3</b> <code>TfidfVectorizer</code></a></li>
+<li class="chapter" data-level="18.7.2.1" data-path="nlp.html"><a href="nlp.html#synset-similarity"><i class="fa fa-check"></i><b>18.7.2.1</b> Synset Similarity</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="18.10" data-path="nlp.html"><a href="nlp.html#appliction"><i class="fa fa-check"></i><b>18.10</b> Appliction</a>
+<li class="chapter" data-level="18.8" data-path="nlp.html"><a href="nlp.html#part-of-speech-pos"><i class="fa fa-check"></i><b>18.8</b> Part Of Speech (POS)</a>
 <ul>
-<li class="chapter" data-level="18.10.1" data-path="nlp.html"><a href="nlp.html#document-similarity"><i class="fa fa-check"></i><b>18.10.1</b> Document Similarity</a></li>
+<li class="chapter" data-level="18.8.1" data-path="nlp.html"><a href="nlp.html#tag-sets"><i class="fa fa-check"></i><b>18.8.1</b> Tag Sets</a>
+<ul>
+<li class="chapter" data-level="18.8.1.1" data-path="nlp.html"><a href="nlp.html#universal-tagset"><i class="fa fa-check"></i><b>18.8.1.1</b> Universal Tagset</a></li>
+<li class="chapter" data-level="18.8.1.2" data-path="nlp.html"><a href="nlp.html#penn-treebank-tagset"><i class="fa fa-check"></i><b>18.8.1.2</b> Penn Treebank Tagset</a></li>
+<li class="chapter" data-level="18.8.1.3" data-path="nlp.html"><a href="nlp.html#claws5-tagset"><i class="fa fa-check"></i><b>18.8.1.3</b> Claws5 Tagset</a></li>
+<li class="chapter" data-level="18.8.1.4" data-path="nlp.html"><a href="nlp.html#brown-tagset"><i class="fa fa-check"></i><b>18.8.1.4</b> Brown Tagset</a></li>
 </ul></li>
-<li class="chapter" data-level="18.11" data-path="nlp.html"><a href="nlp.html#naive-bayes"><i class="fa fa-check"></i><b>18.11</b> Naive Bayes</a>
+<li class="chapter" data-level="18.8.2" data-path="nlp.html"><a href="nlp.html#tagging-techniques"><i class="fa fa-check"></i><b>18.8.2</b> Tagging Techniques</a>
 <ul>
-<li class="chapter" data-level="18.11.1" data-path="nlp.html"><a href="nlp.html#libraries"><i class="fa fa-check"></i><b>18.11.1</b> Libraries</a></li>
-<li class="chapter" data-level="18.11.2" data-path="nlp.html"><a href="nlp.html#the-data-4"><i class="fa fa-check"></i><b>18.11.2</b> The Data</a></li>
-<li class="chapter" data-level="18.11.3" data-path="nlp.html"><a href="nlp.html#bag-of-words"><i class="fa fa-check"></i><b>18.11.3</b> Bag of Words</a></li>
-<li class="chapter" data-level="18.11.4" data-path="nlp.html"><a href="nlp.html#build-the-model"><i class="fa fa-check"></i><b>18.11.4</b> Build The Model</a></li>
-<li class="chapter" data-level="18.11.5" data-path="nlp.html"><a href="nlp.html#train-set-prediction"><i class="fa fa-check"></i><b>18.11.5</b> Train Set Prediction</a></li>
+<li class="chapter" data-level="18.8.2.1" data-path="nlp.html"><a href="nlp.html#nltk-perceptrontagger"><i class="fa fa-check"></i><b>18.8.2.1</b> nltk <code>PerceptronTagger</code></a></li>
+</ul></li>
+<li class="chapter" data-level="18.8.3" data-path="nlp.html"><a href="nlp.html#performing-tagging-nltk.pos_tag"><i class="fa fa-check"></i><b>18.8.3</b> Performing Tagging <code>nltk.pos_tag()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="18.9" data-path="nlp.html"><a href="nlp.html#sentiment"><i class="fa fa-check"></i><b>18.9</b> Sentiment</a>
+<ul>
+<li class="chapter" data-level="18.9.1" data-path="nlp.html"><a href="nlp.html#vader"><i class="fa fa-check"></i><b>18.9.1</b> Vader</a>
+<ul>
+<li class="chapter" data-level="18.9.1.1" data-path="nlp.html"><a href="nlp.html#vader-lexicon"><i class="fa fa-check"></i><b>18.9.1.1</b> Vader Lexicon</a></li>
+<li class="chapter" data-level="18.9.1.2" data-path="nlp.html"><a href="nlp.html#polarity-scoring"><i class="fa fa-check"></i><b>18.9.1.2</b> Polarity Scoring</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="18.10" data-path="nlp.html"><a href="nlp.html#feature-representation"><i class="fa fa-check"></i><b>18.10</b> Feature Representation</a>
+<ul>
+<li class="chapter" data-level="18.10.1" data-path="nlp.html"><a href="nlp.html#the-data-3"><i class="fa fa-check"></i><b>18.10.1</b> The Data</a></li>
+<li class="chapter" data-level="18.10.2" data-path="nlp.html"><a href="nlp.html#frequency-count-1"><i class="fa fa-check"></i><b>18.10.2</b> Frequency Count</a>
+<ul>
+<li class="chapter" data-level="18.10.2.1" data-path="nlp.html"><a href="nlp.html#tokenizer"><i class="fa fa-check"></i><b>18.10.2.1</b> + Tokenizer</a></li>
+<li class="chapter" data-level="18.10.2.2" data-path="nlp.html"><a href="nlp.html#stop-words"><i class="fa fa-check"></i><b>18.10.2.2</b> + Stop Words</a></li>
+</ul></li>
+<li class="chapter" data-level="18.10.3" data-path="nlp.html"><a href="nlp.html#tfidf"><i class="fa fa-check"></i><b>18.10.3</b> TFIDF</a>
+<ul>
+<li class="chapter" data-level="18.10.3.1" data-path="nlp.html"><a href="nlp.html#equation"><i class="fa fa-check"></i><b>18.10.3.1</b> Equation</a></li>
+<li class="chapter" data-level="18.10.3.2" data-path="nlp.html"><a href="nlp.html#tfidftransformer"><i class="fa fa-check"></i><b>18.10.3.2</b> <code>TfidfTransformer</code></a></li>
+<li class="chapter" data-level="18.10.3.3" data-path="nlp.html"><a href="nlp.html#tfidfvectorizer"><i class="fa fa-check"></i><b>18.10.3.3</b> <code>TfidfVectorizer</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="18.11" data-path="nlp.html"><a href="nlp.html#appliction"><i class="fa fa-check"></i><b>18.11</b> Appliction</a>
+<ul>
+<li class="chapter" data-level="18.11.1" data-path="nlp.html"><a href="nlp.html#document-similarity"><i class="fa fa-check"></i><b>18.11.1</b> Document Similarity</a></li>
+</ul></li>
+<li class="chapter" data-level="18.12" data-path="nlp.html"><a href="nlp.html#naive-bayes"><i class="fa fa-check"></i><b>18.12</b> Naive Bayes</a>
+<ul>
+<li class="chapter" data-level="18.12.1" data-path="nlp.html"><a href="nlp.html#libraries"><i class="fa fa-check"></i><b>18.12.1</b> Libraries</a></li>
+<li class="chapter" data-level="18.12.2" data-path="nlp.html"><a href="nlp.html#the-data-4"><i class="fa fa-check"></i><b>18.12.2</b> The Data</a></li>
+<li class="chapter" data-level="18.12.3" data-path="nlp.html"><a href="nlp.html#bag-of-words"><i class="fa fa-check"></i><b>18.12.3</b> Bag of Words</a></li>
+<li class="chapter" data-level="18.12.4" data-path="nlp.html"><a href="nlp.html#build-the-model"><i class="fa fa-check"></i><b>18.12.4</b> Build The Model</a></li>
+<li class="chapter" data-level="18.12.5" data-path="nlp.html"><a href="nlp.html#train-set-prediction"><i class="fa fa-check"></i><b>18.12.5</b> Train Set Prediction</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="19" data-path="web-scrapping.html"><a href="web-scrapping.html"><i class="fa fa-check"></i><b>19</b> Web Scrapping</a>
@@ -1257,7 +1268,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Python Bookdown</h1>
 <p class="author"><em>Yong Keh Soon</em></p>
-<p class="date"><em>2020-03-02</em></p>
+<p class="date"><em>2020-03-03</em></p>
 </div>
 <div id="prerequisites" class="section level1 unnumbered" number="">
 <h1 class="unnumbered" number="">Prerequisites</h1>

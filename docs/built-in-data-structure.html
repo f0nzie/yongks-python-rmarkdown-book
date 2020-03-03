@@ -24,7 +24,7 @@
 <meta name="author" content="Yong Keh Soon" />
 
 
-<meta name="date" content="2020-03-02" />
+<meta name="date" content="2020-03-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1129,52 +1129,63 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.6.3" data-path="nlp.html"><a href="nlp.html#lemmatization"><i class="fa fa-check"></i><b>18.6.3</b> Lemmatization</a></li>
 <li class="chapter" data-level="18.6.4" data-path="nlp.html"><a href="nlp.html#comparing-stemming-and-lemmatization"><i class="fa fa-check"></i><b>18.6.4</b> Comparing Stemming and Lemmatization</a></li>
 </ul></li>
-<li class="chapter" data-level="18.7" data-path="nlp.html"><a href="nlp.html#part-of-speech-pos"><i class="fa fa-check"></i><b>18.7</b> Part Of Speech (POS)</a>
+<li class="chapter" data-level="18.7" data-path="nlp.html"><a href="nlp.html#wordnet"><i class="fa fa-check"></i><b>18.7</b> Wordnet</a>
 <ul>
-<li class="chapter" data-level="18.7.1" data-path="nlp.html"><a href="nlp.html#tag-sets"><i class="fa fa-check"></i><b>18.7.1</b> Tag Sets</a>
+<li class="chapter" data-level="18.7.1" data-path="nlp.html"><a href="nlp.html#nltk-and-wordnet"><i class="fa fa-check"></i><b>18.7.1</b> NLTK and Wordnet</a></li>
+<li class="chapter" data-level="18.7.2" data-path="nlp.html"><a href="nlp.html#synsets"><i class="fa fa-check"></i><b>18.7.2</b> Synsets</a>
 <ul>
-<li class="chapter" data-level="18.7.1.1" data-path="nlp.html"><a href="nlp.html#penn-treebank-tagset"><i class="fa fa-check"></i><b>18.7.1.1</b> Penn Treebank Tagset</a></li>
-<li class="chapter" data-level="18.7.1.2" data-path="nlp.html"><a href="nlp.html#claws5-tagset"><i class="fa fa-check"></i><b>18.7.1.2</b> Claws5 Tagset</a></li>
-<li class="chapter" data-level="18.7.1.3" data-path="nlp.html"><a href="nlp.html#brown-tagset"><i class="fa fa-check"></i><b>18.7.1.3</b> Brown Tagset</a></li>
-</ul></li>
-<li class="chapter" data-level="18.7.2" data-path="nlp.html"><a href="nlp.html#tagging-techniques"><i class="fa fa-check"></i><b>18.7.2</b> Tagging Techniques</a></li>
-<li class="chapter" data-level="18.7.3" data-path="nlp.html"><a href="nlp.html#performing-tagging-nltk.pos_tag"><i class="fa fa-check"></i><b>18.7.3</b> Performing Tagging <code>nltk.pos_tag()</code></a></li>
-</ul></li>
-<li class="chapter" data-level="18.8" data-path="nlp.html"><a href="nlp.html#sentiment"><i class="fa fa-check"></i><b>18.8</b> Sentiment</a>
-<ul>
-<li class="chapter" data-level="18.8.1" data-path="nlp.html"><a href="nlp.html#vader"><i class="fa fa-check"></i><b>18.8.1</b> Vader</a>
-<ul>
-<li class="chapter" data-level="18.8.1.1" data-path="nlp.html"><a href="nlp.html#vader-lexicon"><i class="fa fa-check"></i><b>18.8.1.1</b> Vader Lexicon</a></li>
-<li class="chapter" data-level="18.8.1.2" data-path="nlp.html"><a href="nlp.html#polarity-scoring"><i class="fa fa-check"></i><b>18.8.1.2</b> Polarity Scoring</a></li>
-</ul></li>
-<li class="chapter" data-level="18.8.2" data-path="nlp.html"><a href="nlp.html#sentiwordnet"><i class="fa fa-check"></i><b>18.8.2</b> SentiWordNet</a></li>
-</ul></li>
-<li class="chapter" data-level="18.9" data-path="nlp.html"><a href="nlp.html#feature-representation"><i class="fa fa-check"></i><b>18.9</b> Feature Representation</a>
-<ul>
-<li class="chapter" data-level="18.9.1" data-path="nlp.html"><a href="nlp.html#the-data-3"><i class="fa fa-check"></i><b>18.9.1</b> The Data</a></li>
-<li class="chapter" data-level="18.9.2" data-path="nlp.html"><a href="nlp.html#frequency-count-1"><i class="fa fa-check"></i><b>18.9.2</b> Frequency Count</a>
-<ul>
-<li class="chapter" data-level="18.9.2.1" data-path="nlp.html"><a href="nlp.html#tokenizer"><i class="fa fa-check"></i><b>18.9.2.1</b> + Tokenizer</a></li>
-<li class="chapter" data-level="18.9.2.2" data-path="nlp.html"><a href="nlp.html#stop-words"><i class="fa fa-check"></i><b>18.9.2.2</b> + Stop Words</a></li>
-</ul></li>
-<li class="chapter" data-level="18.9.3" data-path="nlp.html"><a href="nlp.html#tfidf"><i class="fa fa-check"></i><b>18.9.3</b> TFIDF</a>
-<ul>
-<li class="chapter" data-level="18.9.3.1" data-path="nlp.html"><a href="nlp.html#equation"><i class="fa fa-check"></i><b>18.9.3.1</b> Equation</a></li>
-<li class="chapter" data-level="18.9.3.2" data-path="nlp.html"><a href="nlp.html#tfidftransformer"><i class="fa fa-check"></i><b>18.9.3.2</b> <code>TfidfTransformer</code></a></li>
-<li class="chapter" data-level="18.9.3.3" data-path="nlp.html"><a href="nlp.html#tfidfvectorizer"><i class="fa fa-check"></i><b>18.9.3.3</b> <code>TfidfVectorizer</code></a></li>
+<li class="chapter" data-level="18.7.2.1" data-path="nlp.html"><a href="nlp.html#synset-similarity"><i class="fa fa-check"></i><b>18.7.2.1</b> Synset Similarity</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="18.10" data-path="nlp.html"><a href="nlp.html#appliction"><i class="fa fa-check"></i><b>18.10</b> Appliction</a>
+<li class="chapter" data-level="18.8" data-path="nlp.html"><a href="nlp.html#part-of-speech-pos"><i class="fa fa-check"></i><b>18.8</b> Part Of Speech (POS)</a>
 <ul>
-<li class="chapter" data-level="18.10.1" data-path="nlp.html"><a href="nlp.html#document-similarity"><i class="fa fa-check"></i><b>18.10.1</b> Document Similarity</a></li>
+<li class="chapter" data-level="18.8.1" data-path="nlp.html"><a href="nlp.html#tag-sets"><i class="fa fa-check"></i><b>18.8.1</b> Tag Sets</a>
+<ul>
+<li class="chapter" data-level="18.8.1.1" data-path="nlp.html"><a href="nlp.html#universal-tagset"><i class="fa fa-check"></i><b>18.8.1.1</b> Universal Tagset</a></li>
+<li class="chapter" data-level="18.8.1.2" data-path="nlp.html"><a href="nlp.html#penn-treebank-tagset"><i class="fa fa-check"></i><b>18.8.1.2</b> Penn Treebank Tagset</a></li>
+<li class="chapter" data-level="18.8.1.3" data-path="nlp.html"><a href="nlp.html#claws5-tagset"><i class="fa fa-check"></i><b>18.8.1.3</b> Claws5 Tagset</a></li>
+<li class="chapter" data-level="18.8.1.4" data-path="nlp.html"><a href="nlp.html#brown-tagset"><i class="fa fa-check"></i><b>18.8.1.4</b> Brown Tagset</a></li>
 </ul></li>
-<li class="chapter" data-level="18.11" data-path="nlp.html"><a href="nlp.html#naive-bayes"><i class="fa fa-check"></i><b>18.11</b> Naive Bayes</a>
+<li class="chapter" data-level="18.8.2" data-path="nlp.html"><a href="nlp.html#tagging-techniques"><i class="fa fa-check"></i><b>18.8.2</b> Tagging Techniques</a>
 <ul>
-<li class="chapter" data-level="18.11.1" data-path="nlp.html"><a href="nlp.html#libraries"><i class="fa fa-check"></i><b>18.11.1</b> Libraries</a></li>
-<li class="chapter" data-level="18.11.2" data-path="nlp.html"><a href="nlp.html#the-data-4"><i class="fa fa-check"></i><b>18.11.2</b> The Data</a></li>
-<li class="chapter" data-level="18.11.3" data-path="nlp.html"><a href="nlp.html#bag-of-words"><i class="fa fa-check"></i><b>18.11.3</b> Bag of Words</a></li>
-<li class="chapter" data-level="18.11.4" data-path="nlp.html"><a href="nlp.html#build-the-model"><i class="fa fa-check"></i><b>18.11.4</b> Build The Model</a></li>
-<li class="chapter" data-level="18.11.5" data-path="nlp.html"><a href="nlp.html#train-set-prediction"><i class="fa fa-check"></i><b>18.11.5</b> Train Set Prediction</a></li>
+<li class="chapter" data-level="18.8.2.1" data-path="nlp.html"><a href="nlp.html#nltk-perceptrontagger"><i class="fa fa-check"></i><b>18.8.2.1</b> nltk <code>PerceptronTagger</code></a></li>
+</ul></li>
+<li class="chapter" data-level="18.8.3" data-path="nlp.html"><a href="nlp.html#performing-tagging-nltk.pos_tag"><i class="fa fa-check"></i><b>18.8.3</b> Performing Tagging <code>nltk.pos_tag()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="18.9" data-path="nlp.html"><a href="nlp.html#sentiment"><i class="fa fa-check"></i><b>18.9</b> Sentiment</a>
+<ul>
+<li class="chapter" data-level="18.9.1" data-path="nlp.html"><a href="nlp.html#vader"><i class="fa fa-check"></i><b>18.9.1</b> Vader</a>
+<ul>
+<li class="chapter" data-level="18.9.1.1" data-path="nlp.html"><a href="nlp.html#vader-lexicon"><i class="fa fa-check"></i><b>18.9.1.1</b> Vader Lexicon</a></li>
+<li class="chapter" data-level="18.9.1.2" data-path="nlp.html"><a href="nlp.html#polarity-scoring"><i class="fa fa-check"></i><b>18.9.1.2</b> Polarity Scoring</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="18.10" data-path="nlp.html"><a href="nlp.html#feature-representation"><i class="fa fa-check"></i><b>18.10</b> Feature Representation</a>
+<ul>
+<li class="chapter" data-level="18.10.1" data-path="nlp.html"><a href="nlp.html#the-data-3"><i class="fa fa-check"></i><b>18.10.1</b> The Data</a></li>
+<li class="chapter" data-level="18.10.2" data-path="nlp.html"><a href="nlp.html#frequency-count-1"><i class="fa fa-check"></i><b>18.10.2</b> Frequency Count</a>
+<ul>
+<li class="chapter" data-level="18.10.2.1" data-path="nlp.html"><a href="nlp.html#tokenizer"><i class="fa fa-check"></i><b>18.10.2.1</b> + Tokenizer</a></li>
+<li class="chapter" data-level="18.10.2.2" data-path="nlp.html"><a href="nlp.html#stop-words"><i class="fa fa-check"></i><b>18.10.2.2</b> + Stop Words</a></li>
+</ul></li>
+<li class="chapter" data-level="18.10.3" data-path="nlp.html"><a href="nlp.html#tfidf"><i class="fa fa-check"></i><b>18.10.3</b> TFIDF</a>
+<ul>
+<li class="chapter" data-level="18.10.3.1" data-path="nlp.html"><a href="nlp.html#equation"><i class="fa fa-check"></i><b>18.10.3.1</b> Equation</a></li>
+<li class="chapter" data-level="18.10.3.2" data-path="nlp.html"><a href="nlp.html#tfidftransformer"><i class="fa fa-check"></i><b>18.10.3.2</b> <code>TfidfTransformer</code></a></li>
+<li class="chapter" data-level="18.10.3.3" data-path="nlp.html"><a href="nlp.html#tfidfvectorizer"><i class="fa fa-check"></i><b>18.10.3.3</b> <code>TfidfVectorizer</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="18.11" data-path="nlp.html"><a href="nlp.html#appliction"><i class="fa fa-check"></i><b>18.11</b> Appliction</a>
+<ul>
+<li class="chapter" data-level="18.11.1" data-path="nlp.html"><a href="nlp.html#document-similarity"><i class="fa fa-check"></i><b>18.11.1</b> Document Similarity</a></li>
+</ul></li>
+<li class="chapter" data-level="18.12" data-path="nlp.html"><a href="nlp.html#naive-bayes"><i class="fa fa-check"></i><b>18.12</b> Naive Bayes</a>
+<ul>
+<li class="chapter" data-level="18.12.1" data-path="nlp.html"><a href="nlp.html#libraries"><i class="fa fa-check"></i><b>18.12.1</b> Libraries</a></li>
+<li class="chapter" data-level="18.12.2" data-path="nlp.html"><a href="nlp.html#the-data-4"><i class="fa fa-check"></i><b>18.12.2</b> The Data</a></li>
+<li class="chapter" data-level="18.12.3" data-path="nlp.html"><a href="nlp.html#bag-of-words"><i class="fa fa-check"></i><b>18.12.3</b> Bag of Words</a></li>
+<li class="chapter" data-level="18.12.4" data-path="nlp.html"><a href="nlp.html#build-the-model"><i class="fa fa-check"></i><b>18.12.4</b> Build The Model</a></li>
+<li class="chapter" data-level="18.12.5" data-path="nlp.html"><a href="nlp.html#train-set-prediction"><i class="fa fa-check"></i><b>18.12.5</b> Train Set Prediction</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="19" data-path="web-scrapping.html"><a href="web-scrapping.html"><i class="fa fa-check"></i><b>19</b> Web Scrapping</a>
@@ -1301,9 +1312,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## (1, 2, 3, 4, 5)</code></pre>
 <p>The copy and original has the same memory location.</p>
 <div class="sourceCode" id="cb167"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb167-1"><a href="built-in-data-structure.html#cb167-1"></a><span class="bu">print</span>(<span class="st">&#39;Original ID: &#39;</span>, <span class="bu">id</span>(original))</span></code></pre></div>
-<pre><code>## Original ID:  341970616</code></pre>
+<pre><code>## Original ID:  681774776</code></pre>
 <div class="sourceCode" id="cb169"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb169-1"><a href="built-in-data-structure.html#cb169-1"></a><span class="bu">print</span>(<span class="st">&#39;Copy ID:     &#39;</span>, <span class="bu">id</span>(copy_test))</span></code></pre></div>
-<pre><code>## Copy ID:      341970616</code></pre>
+<pre><code>## Copy ID:      681774776</code></pre>
 </div>
 </div>
 <div id="list" class="section level2" number="3.2">
@@ -1428,10 +1439,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>The reference of list variable won’t change after adding/removing its item</p>
 <div class="sourceCode" id="cb217"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb217-1"><a href="built-in-data-structure.html#cb217-1"></a>food <span class="op">=</span> [<span class="st">&#39;cake&#39;</span>,<span class="st">&#39;jelly&#39;</span>,<span class="st">&#39;roti&#39;</span>,<span class="st">&#39;noodle&#39;</span>]</span>
 <span id="cb217-2"><a href="built-in-data-structure.html#cb217-2"></a><span class="bu">print</span> (<span class="st">&#39;food : &#39;</span>,<span class="bu">id</span>(food))</span></code></pre></div>
-<pre><code>## food :  342035272</code></pre>
+<pre><code>## food :  681844488</code></pre>
 <div class="sourceCode" id="cb219"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb219-1"><a href="built-in-data-structure.html#cb219-1"></a>food <span class="op">+=</span> [<span class="st">&#39;salad&#39;</span>,<span class="st">&#39;chicken&#39;</span>]</span>
 <span id="cb219-2"><a href="built-in-data-structure.html#cb219-2"></a><span class="bu">print</span> (<span class="st">&#39;food : &#39;</span>,<span class="bu">id</span>(food))</span></code></pre></div>
-<pre><code>## food :  342035272</code></pre>
+<pre><code>## food :  681844488</code></pre>
 <p>A function is actually an <strong>object</strong>, which reference never change, hence <strong>mutable</strong></p>
 <div class="sourceCode" id="cb221"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb221-1"><a href="built-in-data-structure.html#cb221-1"></a><span class="kw">def</span> spam (elem, some_list<span class="op">=</span>[<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>]):</span>
 <span id="cb221-2"><a href="built-in-data-structure.html#cb221-2"></a>    some_list.append(elem)</span>
@@ -1450,9 +1461,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb227"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb227-1"><a href="built-in-data-structure.html#cb227-1"></a>original <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]</span>
 <span id="cb227-2"><a href="built-in-data-structure.html#cb227-2"></a>copy_test <span class="op">=</span> original</span>
 <span id="cb227-3"><a href="built-in-data-structure.html#cb227-3"></a><span class="bu">print</span>(<span class="st">&#39;Original ID: &#39;</span>, <span class="bu">id</span>(original))</span></code></pre></div>
-<pre><code>## Original ID:  614902024</code></pre>
+<pre><code>## Original ID:  681995208</code></pre>
 <div class="sourceCode" id="cb229"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb229-1"><a href="built-in-data-structure.html#cb229-1"></a><span class="bu">print</span>(<span class="st">&#39;Copy ID:     &#39;</span>, <span class="bu">id</span>(copy_test))                          </span></code></pre></div>
-<pre><code>## Copy ID:      614902024</code></pre>
+<pre><code>## Copy ID:      681995208</code></pre>
 <div class="sourceCode" id="cb231"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb231-1"><a href="built-in-data-structure.html#cb231-1"></a>original[<span class="dv">0</span>]<span class="op">=</span><span class="dv">999</span>   <span class="co">## change original</span></span>
 <span id="cb231-2"><a href="built-in-data-structure.html#cb231-2"></a><span class="bu">print</span>(original)</span></code></pre></div>
 <pre><code>## [999, 2, 3, 4, 5]</code></pre>
@@ -1466,9 +1477,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb237"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb237-1"><a href="built-in-data-structure.html#cb237-1"></a><span class="bu">print</span>(copy_test)</span></code></pre></div>
 <pre><code>## [1, 2, 3, 4, 5]</code></pre>
 <div class="sourceCode" id="cb239"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb239-1"><a href="built-in-data-structure.html#cb239-1"></a><span class="bu">print</span>(<span class="st">&#39;Original ID: &#39;</span>, <span class="bu">id</span>(original))</span></code></pre></div>
-<pre><code>## Original ID:  614903112</code></pre>
+<pre><code>## Original ID:  681995848</code></pre>
 <div class="sourceCode" id="cb241"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb241-1"><a href="built-in-data-structure.html#cb241-1"></a><span class="bu">print</span>(<span class="st">&#39;Copy ID:     &#39;</span>, <span class="bu">id</span>(copy_test))</span></code></pre></div>
-<pre><code>## Copy ID:      342121352</code></pre>
+<pre><code>## Copy ID:      681884104</code></pre>
 <div class="sourceCode" id="cb243"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb243-1"><a href="built-in-data-structure.html#cb243-1"></a>original[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">999</span>  <span class="co">## change original</span></span>
 <span id="cb243-2"><a href="built-in-data-structure.html#cb243-2"></a><span class="bu">print</span>(original)    </span></code></pre></div>
 <pre><code>## [999, 2, 3, 4, 5]</code></pre>
@@ -1482,10 +1493,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb247-5"><a href="built-in-data-structure.html#cb247-5"></a>    </span>
 <span id="cb247-6"><a href="built-in-data-structure.html#cb247-6"></a>my_list <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]</span>
 <span id="cb247-7"><a href="built-in-data-structure.html#cb247-7"></a><span class="bu">print</span>(<span class="st">&#39;ID outside Function: &#39;</span>, <span class="bu">id</span>(my_list))</span></code></pre></div>
-<pre><code>## ID outside Function:  342121672</code></pre>
+<pre><code>## ID outside Function:  681883528</code></pre>
 <div class="sourceCode" id="cb249"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb249-1"><a href="built-in-data-structure.html#cb249-1"></a>func(my_list)  <span class="co">## call the function, pass the reference</span></span></code></pre></div>
 <pre><code>## [1, 2, 3, 4, 5]
-## ID in Function:       342121672</code></pre>
+## ID in Function:       681883528</code></pre>
 <div class="sourceCode" id="cb251"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb251-1"><a href="built-in-data-structure.html#cb251-1"></a><span class="bu">print</span>(my_list) <span class="co">## content was altered</span></span></code></pre></div>
 <pre><code>## [1, 2, 3, 4, 5, 6]</code></pre>
 </div>
@@ -1524,7 +1535,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb259-2"><a href="built-in-data-structure.html#cb259-2"></a>original_tuple <span class="op">=</span> <span class="bu">tuple</span>(original)</span>
 <span id="cb259-3"><a href="built-in-data-structure.html#cb259-3"></a><span class="bu">print</span>( <span class="bu">id</span>(original),</span>
 <span id="cb259-4"><a href="built-in-data-structure.html#cb259-4"></a>       <span class="bu">id</span>(original_tuple))</span></code></pre></div>
-<pre><code>## 342120648 615012464</code></pre>
+<pre><code>## 681881992 682130816</code></pre>
 </div>
 <div id="built-in-functions-applicable-to-list" class="section level3" number="3.2.9">
 <h3 number="3.2.9"><span class="header-section-number">3.2.9</span> Built-In Functions Applicable To List</h3>
@@ -1604,7 +1615,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Set can be declared with <code>{}</code>, unlike list creation uses ‘[]’.</p>
 <div class="sourceCode" id="cb289"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb289-1"><a href="built-in-data-structure.html#cb289-1"></a>myset <span class="op">=</span> {<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;e&#39;</span>,<span class="st">&#39;f&#39;</span>,<span class="st">&#39;g&#39;</span>}</span>
 <span id="cb289-2"><a href="built-in-data-structure.html#cb289-2"></a><span class="bu">print</span> (myset) <span class="co"># notice no repetition values</span></span></code></pre></div>
-<pre><code>## {&#39;f&#39;, &#39;e&#39;, &#39;b&#39;, &#39;a&#39;, &#39;g&#39;, &#39;c&#39;, &#39;d&#39;}</code></pre>
+<pre><code>## {&#39;f&#39;, &#39;g&#39;, &#39;c&#39;, &#39;b&#39;, &#39;e&#39;, &#39;a&#39;, &#39;d&#39;}</code></pre>
 <p>Set can be created from list, and then converted back to list</p>
 <div class="sourceCode" id="cb291"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb291-1"><a href="built-in-data-structure.html#cb291-1"></a>mylist <span class="op">=</span> [<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;e&#39;</span>,<span class="st">&#39;f&#39;</span>,<span class="st">&#39;g&#39;</span>]</span>
 <span id="cb291-2"><a href="built-in-data-structure.html#cb291-2"></a>myset <span class="op">=</span> <span class="bu">set</span>(mylist)</span>
@@ -1614,8 +1625,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb291-6"><a href="built-in-data-structure.html#cb291-6"></a>  <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Convert to set      : &#39;</span>, myset,</span>
 <span id="cb291-7"><a href="built-in-data-structure.html#cb291-7"></a>  <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Convert back to list: &#39;</span>, my_unique_list) <span class="co"># notice no repetition values</span></span></code></pre></div>
 <pre><code>## Original List       :  [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;a&#39;, &#39;b&#39;, &#39;e&#39;, &#39;f&#39;, &#39;g&#39;] 
-## Convert to set      :  {&#39;f&#39;, &#39;e&#39;, &#39;b&#39;, &#39;a&#39;, &#39;g&#39;, &#39;c&#39;, &#39;d&#39;} 
-## Convert back to list:  [&#39;f&#39;, &#39;e&#39;, &#39;b&#39;, &#39;a&#39;, &#39;g&#39;, &#39;c&#39;, &#39;d&#39;]</code></pre>
+## Convert to set      :  {&#39;f&#39;, &#39;g&#39;, &#39;c&#39;, &#39;b&#39;, &#39;e&#39;, &#39;a&#39;, &#39;d&#39;} 
+## Convert back to list:  [&#39;f&#39;, &#39;g&#39;, &#39;c&#39;, &#39;b&#39;, &#39;e&#39;, &#39;a&#39;, &#39;d&#39;]</code></pre>
 </div>
 <div id="membership-test" class="section level3" number="3.4.2">
 <h3 number="3.4.2"><span class="header-section-number">3.4.2</span> Membership Test</h3>
@@ -1641,13 +1652,13 @@ Proper Subset Test : &lt;</p>
 <div id="union-using" class="section level3" number="3.4.4">
 <h3 number="3.4.4"><span class="header-section-number">3.4.4</span> Union using <code>|</code></h3>
 <div class="sourceCode" id="cb303"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb303-1"><a href="built-in-data-structure.html#cb303-1"></a>{<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>} <span class="op">|</span> {<span class="st">&#39;a&#39;</span>,<span class="st">&#39;e&#39;</span>,<span class="st">&#39;f&#39;</span>}</span></code></pre></div>
-<pre><code>## {&#39;c&#39;, &#39;f&#39;, &#39;e&#39;, &#39;b&#39;, &#39;a&#39;}</code></pre>
+<pre><code>## {&#39;f&#39;, &#39;e&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;}</code></pre>
 </div>
 <div id="intersection-using" class="section level3" number="3.4.5">
 <h3 number="3.4.5"><span class="header-section-number">3.4.5</span> Intersection using <code>&amp;</code></h3>
 <p>Any elments that exist in both left and right set</p>
 <div class="sourceCode" id="cb305"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb305-1"><a href="built-in-data-structure.html#cb305-1"></a>{<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>} <span class="op">&amp;</span> {<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;e&#39;</span>,<span class="st">&#39;f&#39;</span>}</span></code></pre></div>
-<pre><code>## {&#39;c&#39;, &#39;d&#39;}</code></pre>
+<pre><code>## {&#39;d&#39;, &#39;c&#39;}</code></pre>
 </div>
 <div id="difference-using--" class="section level3" number="3.4.6">
 <h3 number="3.4.6"><span class="header-section-number">3.4.6</span> Difference using <code>-</code></h3>
