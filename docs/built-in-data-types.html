@@ -1132,10 +1132,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.7" data-path="nlp.html"><a href="nlp.html#wordnet"><i class="fa fa-check"></i><b>18.7</b> Wordnet</a>
 <ul>
 <li class="chapter" data-level="18.7.1" data-path="nlp.html"><a href="nlp.html#nltk-and-wordnet"><i class="fa fa-check"></i><b>18.7.1</b> NLTK and Wordnet</a></li>
-<li class="chapter" data-level="18.7.2" data-path="nlp.html"><a href="nlp.html#synsets"><i class="fa fa-check"></i><b>18.7.2</b> Synsets</a>
+<li class="chapter" data-level="18.7.2" data-path="nlp.html"><a href="nlp.html#synset"><i class="fa fa-check"></i><b>18.7.2</b> Synset</a>
 <ul>
-<li class="chapter" data-level="18.7.2.1" data-path="nlp.html"><a href="nlp.html#synset-similarity"><i class="fa fa-check"></i><b>18.7.2.1</b> Synset Similarity</a></li>
+<li class="chapter" data-level="18.7.2.1" data-path="nlp.html"><a href="nlp.html#notation"><i class="fa fa-check"></i><b>18.7.2.1</b> Notation</a></li>
+<li class="chapter" data-level="18.7.2.2" data-path="nlp.html"><a href="nlp.html#part-of-speech"><i class="fa fa-check"></i><b>18.7.2.2</b> Part of Speech</a></li>
+<li class="chapter" data-level="18.7.2.3" data-path="nlp.html"><a href="nlp.html#synset-similarity"><i class="fa fa-check"></i><b>18.7.2.3</b> Synset Similarity</a></li>
 </ul></li>
+<li class="chapter" data-level="18.7.3" data-path="nlp.html"><a href="nlp.html#synsets"><i class="fa fa-check"></i><b>18.7.3</b> Synsets</a></li>
 </ul></li>
 <li class="chapter" data-level="18.8" data-path="nlp.html"><a href="nlp.html#part-of-speech-pos"><i class="fa fa-check"></i><b>18.8</b> Part Of Speech (POS)</a>
 <ul>
@@ -1154,10 +1157,15 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="18.9" data-path="nlp.html"><a href="nlp.html#sentiment"><i class="fa fa-check"></i><b>18.9</b> Sentiment</a>
 <ul>
-<li class="chapter" data-level="18.9.1" data-path="nlp.html"><a href="nlp.html#vader"><i class="fa fa-check"></i><b>18.9.1</b> Vader</a>
+<li class="chapter" data-level="18.9.1" data-path="nlp.html"><a href="nlp.html#senti-wordnet"><i class="fa fa-check"></i><b>18.9.1</b> Senti-Wordnet</a>
 <ul>
-<li class="chapter" data-level="18.9.1.1" data-path="nlp.html"><a href="nlp.html#vader-lexicon"><i class="fa fa-check"></i><b>18.9.1.1</b> Vader Lexicon</a></li>
-<li class="chapter" data-level="18.9.1.2" data-path="nlp.html"><a href="nlp.html#polarity-scoring"><i class="fa fa-check"></i><b>18.9.1.2</b> Polarity Scoring</a></li>
+<li class="chapter" data-level="18.9.1.1" data-path="nlp.html"><a href="nlp.html#construct"><i class="fa fa-check"></i><b>18.9.1.1</b> Construct</a></li>
+<li class="chapter" data-level="18.9.1.2" data-path="nlp.html"><a href="nlp.html#converting-pos-tag-into-wordnet-pos-tag"><i class="fa fa-check"></i><b>18.9.1.2</b> Converting POS-tag into Wordnet POS-tag</a></li>
+</ul></li>
+<li class="chapter" data-level="18.9.2" data-path="nlp.html"><a href="nlp.html#vader"><i class="fa fa-check"></i><b>18.9.2</b> Vader</a>
+<ul>
+<li class="chapter" data-level="18.9.2.1" data-path="nlp.html"><a href="nlp.html#vader-lexicon"><i class="fa fa-check"></i><b>18.9.2.1</b> Vader Lexicon</a></li>
+<li class="chapter" data-level="18.9.2.2" data-path="nlp.html"><a href="nlp.html#polarity-scoring"><i class="fa fa-check"></i><b>18.9.2.2</b> Polarity Scoring</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="18.10" data-path="nlp.html"><a href="nlp.html#feature-representation"><i class="fa fa-check"></i><b>18.10</b> Feature Representation</a>
@@ -1359,13 +1367,13 @@ Remainder by float return <strong>float</strong></p>
 <div class="sourceCode" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb46-1"><a href="built-in-data-types.html#cb46-1"></a>s <span class="op">=</span> <span class="st">&#39;abcde&#39;</span></span>
 <span id="cb46-2"><a href="built-in-data-types.html#cb46-2"></a><span class="bu">print</span> (<span class="st">&#39;s : &#39;</span>, <span class="bu">id</span>(s))</span>
 <span id="cb46-3"><a href="built-in-data-types.html#cb46-3"></a><span class="co">#s[1] = &#39;z&#39;               # immutable, result in error</span></span></code></pre></div>
-<pre><code>## s :  681905320</code></pre>
+<pre><code>## s :  621883440</code></pre>
 <ul>
 <li>Changing the variable completley change the reference (for new object)</li>
 </ul>
 <div class="sourceCode" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb48-1"><a href="built-in-data-types.html#cb48-1"></a>s <span class="op">=</span> <span class="st">&#39;efgh&#39;</span></span>
 <span id="cb48-2"><a href="built-in-data-types.html#cb48-2"></a><span class="bu">print</span> (<span class="st">&#39;s : &#39;</span>, <span class="bu">id</span>(s))</span></code></pre></div>
-<pre><code>## s :  681903976</code></pre>
+<pre><code>## s :  621871656</code></pre>
 </div>
 </div>
 <div id="class-constants" class="section level3" number="2.2.2">
@@ -1515,8 +1523,8 @@ For partial match, workaround is to <strong>convert list to single string</stron
 <span id="cb105-3"><a href="built-in-data-types.html#cb105-3"></a><span class="bu">print</span>(<span class="st">&#39;id(a) = &#39;</span>, <span class="bu">id</span>(a), </span>
 <span id="cb105-4"><a href="built-in-data-types.html#cb105-4"></a>      <span class="st">&#39;</span><span class="ch">\n</span><span class="st">id(b) = &#39;</span>, <span class="bu">id</span>(b),</span>
 <span id="cb105-5"><a href="built-in-data-types.html#cb105-5"></a>      <span class="st">&#39;</span><span class="ch">\n</span><span class="st">a == b  &#39;</span>, a<span class="op">==</span>b)</span></code></pre></div>
-<pre><code>## id(a) =  539162976 
-## id(b) =  539162976 
+<pre><code>## id(a) =  369228184 
+## id(b) =  369228184 
 ## a == b   True</code></pre>
 </div>
 </div>

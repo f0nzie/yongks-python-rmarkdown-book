@@ -1132,10 +1132,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="18.7" data-path="nlp.html"><a href="nlp.html#wordnet"><i class="fa fa-check"></i><b>18.7</b> Wordnet</a>
 <ul>
 <li class="chapter" data-level="18.7.1" data-path="nlp.html"><a href="nlp.html#nltk-and-wordnet"><i class="fa fa-check"></i><b>18.7.1</b> NLTK and Wordnet</a></li>
-<li class="chapter" data-level="18.7.2" data-path="nlp.html"><a href="nlp.html#synsets"><i class="fa fa-check"></i><b>18.7.2</b> Synsets</a>
+<li class="chapter" data-level="18.7.2" data-path="nlp.html"><a href="nlp.html#synset"><i class="fa fa-check"></i><b>18.7.2</b> Synset</a>
 <ul>
-<li class="chapter" data-level="18.7.2.1" data-path="nlp.html"><a href="nlp.html#synset-similarity"><i class="fa fa-check"></i><b>18.7.2.1</b> Synset Similarity</a></li>
+<li class="chapter" data-level="18.7.2.1" data-path="nlp.html"><a href="nlp.html#notation"><i class="fa fa-check"></i><b>18.7.2.1</b> Notation</a></li>
+<li class="chapter" data-level="18.7.2.2" data-path="nlp.html"><a href="nlp.html#part-of-speech"><i class="fa fa-check"></i><b>18.7.2.2</b> Part of Speech</a></li>
+<li class="chapter" data-level="18.7.2.3" data-path="nlp.html"><a href="nlp.html#synset-similarity"><i class="fa fa-check"></i><b>18.7.2.3</b> Synset Similarity</a></li>
 </ul></li>
+<li class="chapter" data-level="18.7.3" data-path="nlp.html"><a href="nlp.html#synsets"><i class="fa fa-check"></i><b>18.7.3</b> Synsets</a></li>
 </ul></li>
 <li class="chapter" data-level="18.8" data-path="nlp.html"><a href="nlp.html#part-of-speech-pos"><i class="fa fa-check"></i><b>18.8</b> Part Of Speech (POS)</a>
 <ul>
@@ -1154,10 +1157,15 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="18.9" data-path="nlp.html"><a href="nlp.html#sentiment"><i class="fa fa-check"></i><b>18.9</b> Sentiment</a>
 <ul>
-<li class="chapter" data-level="18.9.1" data-path="nlp.html"><a href="nlp.html#vader"><i class="fa fa-check"></i><b>18.9.1</b> Vader</a>
+<li class="chapter" data-level="18.9.1" data-path="nlp.html"><a href="nlp.html#senti-wordnet"><i class="fa fa-check"></i><b>18.9.1</b> Senti-Wordnet</a>
 <ul>
-<li class="chapter" data-level="18.9.1.1" data-path="nlp.html"><a href="nlp.html#vader-lexicon"><i class="fa fa-check"></i><b>18.9.1.1</b> Vader Lexicon</a></li>
-<li class="chapter" data-level="18.9.1.2" data-path="nlp.html"><a href="nlp.html#polarity-scoring"><i class="fa fa-check"></i><b>18.9.1.2</b> Polarity Scoring</a></li>
+<li class="chapter" data-level="18.9.1.1" data-path="nlp.html"><a href="nlp.html#construct"><i class="fa fa-check"></i><b>18.9.1.1</b> Construct</a></li>
+<li class="chapter" data-level="18.9.1.2" data-path="nlp.html"><a href="nlp.html#converting-pos-tag-into-wordnet-pos-tag"><i class="fa fa-check"></i><b>18.9.1.2</b> Converting POS-tag into Wordnet POS-tag</a></li>
+</ul></li>
+<li class="chapter" data-level="18.9.2" data-path="nlp.html"><a href="nlp.html#vader"><i class="fa fa-check"></i><b>18.9.2</b> Vader</a>
+<ul>
+<li class="chapter" data-level="18.9.2.1" data-path="nlp.html"><a href="nlp.html#vader-lexicon"><i class="fa fa-check"></i><b>18.9.2.1</b> Vader Lexicon</a></li>
+<li class="chapter" data-level="18.9.2.2" data-path="nlp.html"><a href="nlp.html#polarity-scoring"><i class="fa fa-check"></i><b>18.9.2.2</b> Polarity Scoring</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="18.10" data-path="nlp.html"><a href="nlp.html#feature-representation"><i class="fa fa-check"></i><b>18.10</b> Feature Representation</a>
@@ -1280,11 +1288,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </li>
 <li>‘start’ and ‘end’ date <strong>must be string</strong></li>
 </ul>
-<div class="sourceCode" id="cb2023"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2023-1"><a href="finance.html#cb2023-1"></a><span class="im">import</span> pandas_datareader <span class="im">as</span> pdr</span>
-<span id="cb2023-2"><a href="finance.html#cb2023-2"></a>pdr.data.DataReader(<span class="st">&#39;PUBM.KL&#39;</span>,</span>
-<span id="cb2023-3"><a href="finance.html#cb2023-3"></a>                    start<span class="op">=</span><span class="st">&#39;2015-1-1&#39;</span>, </span>
-<span id="cb2023-4"><a href="finance.html#cb2023-4"></a>                    end<span class="op">=</span><span class="st">&#39;2019-12-31&#39;</span>, </span>
-<span id="cb2023-5"><a href="finance.html#cb2023-5"></a>                    data_source<span class="op">=</span><span class="st">&#39;yahoo&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2030"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2030-1"><a href="finance.html#cb2030-1"></a><span class="im">import</span> pandas_datareader <span class="im">as</span> pdr</span>
+<span id="cb2030-2"><a href="finance.html#cb2030-2"></a>pdr.data.DataReader(<span class="st">&#39;PUBM.KL&#39;</span>,</span>
+<span id="cb2030-3"><a href="finance.html#cb2030-3"></a>                    start<span class="op">=</span><span class="st">&#39;2015-1-1&#39;</span>, </span>
+<span id="cb2030-4"><a href="finance.html#cb2030-4"></a>                    end<span class="op">=</span><span class="st">&#39;2019-12-31&#39;</span>, </span>
+<span id="cb2030-5"><a href="finance.html#cb2030-5"></a>                    data_source<span class="op">=</span><span class="st">&#39;yahoo&#39;</span>)</span></code></pre></div>
 <pre><code>##                  High        Low       Open      Close     Volume  Adj Close
 ## Date                                                                        
 ## 2015-01-02  18.280001  18.020000  18.260000  18.219999  1689000.0  15.708779
@@ -1304,11 +1312,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="splits-and-dividends" class="section level4" number="20.1.1.2">
 <h4 number="20.1.1.2"><span class="header-section-number">20.1.1.2</span> Splits and Dividends</h4>
 <p>This method is similar to getting pricing data, except that different data_sources is used.</p>
-<div class="sourceCode" id="cb2025"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2025-1"><a href="finance.html#cb2025-1"></a>pdr.DataReader(<span class="st">&#39;AAPL&#39;</span>,</span>
-<span id="cb2025-2"><a href="finance.html#cb2025-2"></a>  data_source <span class="op">=</span> <span class="st">&#39;yahoo-actions&#39;</span>,</span>
-<span id="cb2025-3"><a href="finance.html#cb2025-3"></a>  start<span class="op">=</span><span class="st">&#39;2014-01-06&#39;</span>, </span>
-<span id="cb2025-4"><a href="finance.html#cb2025-4"></a>  end<span class="op">=</span><span class="st">&#39;2015-06-15&#39;</span></span>
-<span id="cb2025-5"><a href="finance.html#cb2025-5"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb2032"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2032-1"><a href="finance.html#cb2032-1"></a>pdr.DataReader(<span class="st">&#39;AAPL&#39;</span>,</span>
+<span id="cb2032-2"><a href="finance.html#cb2032-2"></a>  data_source <span class="op">=</span> <span class="st">&#39;yahoo-actions&#39;</span>,</span>
+<span id="cb2032-3"><a href="finance.html#cb2032-3"></a>  start<span class="op">=</span><span class="st">&#39;2014-01-06&#39;</span>, </span>
+<span id="cb2032-4"><a href="finance.html#cb2032-4"></a>  end<span class="op">=</span><span class="st">&#39;2015-06-15&#39;</span></span>
+<span id="cb2032-5"><a href="finance.html#cb2032-5"></a>)</span></code></pre></div>
 <pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): SyntaxError: invalid syntax (&lt;string&gt;, line 1)
 ## 
 ## Detailed traceback: 
@@ -1336,17 +1344,17 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="merging-ohlc-and-splitsdividends" class="section level4" number="20.1.1.3">
 <h4 number="20.1.1.3"><span class="header-section-number">20.1.1.3</span> Merging OHLC and Splits/Dividends</h4>
-<div class="sourceCode" id="cb2027"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2027-1"><a href="finance.html#cb2027-1"></a>prices <span class="op">=</span> pdr.DataReader(<span class="st">&#39;AAPL&#39;</span>,</span>
-<span id="cb2027-2"><a href="finance.html#cb2027-2"></a>  data_source <span class="op">=</span> <span class="st">&#39;yahoo&#39;</span>,</span>
-<span id="cb2027-3"><a href="finance.html#cb2027-3"></a>  start<span class="op">=</span><span class="st">&#39;2014-06-06&#39;</span>, </span>
-<span id="cb2027-4"><a href="finance.html#cb2027-4"></a>  end<span class="op">=</span><span class="st">&#39;2014-06-12&#39;</span></span>
-<span id="cb2027-5"><a href="finance.html#cb2027-5"></a>)</span>
-<span id="cb2027-6"><a href="finance.html#cb2027-6"></a></span>
-<span id="cb2027-7"><a href="finance.html#cb2027-7"></a>actions <span class="op">=</span> pdr.DataReader(<span class="st">&#39;AAPL&#39;</span>,</span>
-<span id="cb2027-8"><a href="finance.html#cb2027-8"></a>  data_source <span class="op">=</span> <span class="st">&#39;yahoo-actions&#39;</span>,</span>
-<span id="cb2027-9"><a href="finance.html#cb2027-9"></a>  start<span class="op">=</span><span class="st">&#39;2014-06-06&#39;</span>, </span>
-<span id="cb2027-10"><a href="finance.html#cb2027-10"></a>  end<span class="op">=</span><span class="st">&#39;2014-06-12&#39;</span></span>
-<span id="cb2027-11"><a href="finance.html#cb2027-11"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb2034"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2034-1"><a href="finance.html#cb2034-1"></a>prices <span class="op">=</span> pdr.DataReader(<span class="st">&#39;AAPL&#39;</span>,</span>
+<span id="cb2034-2"><a href="finance.html#cb2034-2"></a>  data_source <span class="op">=</span> <span class="st">&#39;yahoo&#39;</span>,</span>
+<span id="cb2034-3"><a href="finance.html#cb2034-3"></a>  start<span class="op">=</span><span class="st">&#39;2014-06-06&#39;</span>, </span>
+<span id="cb2034-4"><a href="finance.html#cb2034-4"></a>  end<span class="op">=</span><span class="st">&#39;2014-06-12&#39;</span></span>
+<span id="cb2034-5"><a href="finance.html#cb2034-5"></a>)</span>
+<span id="cb2034-6"><a href="finance.html#cb2034-6"></a></span>
+<span id="cb2034-7"><a href="finance.html#cb2034-7"></a>actions <span class="op">=</span> pdr.DataReader(<span class="st">&#39;AAPL&#39;</span>,</span>
+<span id="cb2034-8"><a href="finance.html#cb2034-8"></a>  data_source <span class="op">=</span> <span class="st">&#39;yahoo-actions&#39;</span>,</span>
+<span id="cb2034-9"><a href="finance.html#cb2034-9"></a>  start<span class="op">=</span><span class="st">&#39;2014-06-06&#39;</span>, </span>
+<span id="cb2034-10"><a href="finance.html#cb2034-10"></a>  end<span class="op">=</span><span class="st">&#39;2014-06-12&#39;</span></span>
+<span id="cb2034-11"><a href="finance.html#cb2034-11"></a>)</span></code></pre></div>
 <pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): SyntaxError: invalid syntax (&lt;string&gt;, line 1)
 ## 
 ## Detailed traceback: 
@@ -1372,20 +1380,20 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\pandas_datareader\yahoo\daily.py&quot;, line 201, in split_ratio
 ##     return eval(row[&quot;Splitratio&quot;])</code></pre>
 <p>Use <code>pandas.merge()</code> function to combine both prices and splits dataframe in <strong>a new dataframe</strong>. Non matching line will have NaN.</p>
-<div class="sourceCode" id="cb2029"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2029-1"><a href="finance.html#cb2029-1"></a>pd.merge(prices, actions, how<span class="op">=</span><span class="st">&#39;outer&#39;</span>, left_index<span class="op">=</span><span class="va">True</span>, right_index<span class="op">=</span><span class="va">True</span>) <span class="op">\</span></span>
-<span id="cb2029-2"><a href="finance.html#cb2029-2"></a>  .loc[:,[<span class="st">&#39;High&#39;</span>,<span class="st">&#39;Low&#39;</span>,<span class="st">&#39;Open&#39;</span>,<span class="st">&#39;Close&#39;</span>,<span class="st">&#39;action&#39;</span>,<span class="st">&#39;value&#39;</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb2036"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2036-1"><a href="finance.html#cb2036-1"></a>pd.merge(prices, actions, how<span class="op">=</span><span class="st">&#39;outer&#39;</span>, left_index<span class="op">=</span><span class="va">True</span>, right_index<span class="op">=</span><span class="va">True</span>) <span class="op">\</span></span>
+<span id="cb2036-2"><a href="finance.html#cb2036-2"></a>  .loc[:,[<span class="st">&#39;High&#39;</span>,<span class="st">&#39;Low&#39;</span>,<span class="st">&#39;Open&#39;</span>,<span class="st">&#39;Close&#39;</span>,<span class="st">&#39;action&#39;</span>,<span class="st">&#39;value&#39;</span>]]</span></code></pre></div>
 <pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;actions&#39; is not defined
 ## 
 ## Detailed traceback: 
 ##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
 <p>Alternatively, use pandas column assignment from the splits dataframe into price dataframe, it will automatically ‘merge’ based on the <strong>index</strong>. This approach reuse existing dataframe instead of creating new one.</p>
-<div class="sourceCode" id="cb2031"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2031-1"><a href="finance.html#cb2031-1"></a>prices[<span class="st">&#39;action&#39;</span>], prices[<span class="st">&#39;value&#39;</span>] <span class="op">=</span> actions.action, actions.value</span></code></pre></div>
+<div class="sourceCode" id="cb2038"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2038-1"><a href="finance.html#cb2038-1"></a>prices[<span class="st">&#39;action&#39;</span>], prices[<span class="st">&#39;value&#39;</span>] <span class="op">=</span> actions.action, actions.value</span></code></pre></div>
 <pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;actions&#39; is not defined
 ## 
 ## Detailed traceback: 
 ##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
-<div class="sourceCode" id="cb2033"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2033-1"><a href="finance.html#cb2033-1"></a>prices[[<span class="st">&#39;High&#39;</span>,<span class="st">&#39;Low&#39;</span>,<span class="st">&#39;Open&#39;</span>,<span class="st">&#39;Close&#39;</span>,<span class="st">&#39;action&#39;</span>,<span class="st">&#39;value&#39;</span>]]</span></code></pre></div>
-<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): KeyError: &quot;[&#39;action&#39;, &#39;value&#39;] not in index&quot;
+<div class="sourceCode" id="cb2040"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2040-1"><a href="finance.html#cb2040-1"></a>prices[[<span class="st">&#39;High&#39;</span>,<span class="st">&#39;Low&#39;</span>,<span class="st">&#39;Open&#39;</span>,<span class="st">&#39;Close&#39;</span>,<span class="st">&#39;action&#39;</span>,<span class="st">&#39;value&#39;</span>]]</span></code></pre></div>
+<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): KeyError: &quot;[&#39;value&#39;, &#39;action&#39;] not in index&quot;
 ## 
 ## Detailed traceback: 
 ##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;
@@ -1401,12 +1409,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="query-multiple-stocks" class="section level4" number="20.1.1.4">
 <h4 number="20.1.1.4"><span class="header-section-number">20.1.1.4</span> Query Multiple Stocks</h4>
 <p>** When multiple symbols are supplied to DataReader, dictionary containing multiple stock’s result are returned.</p>
-<div class="sourceCode" id="cb2035"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2035-1"><a href="finance.html#cb2035-1"></a>stocks <span class="op">=</span> [<span class="st">&#39;MLYBY&#39;</span>, <span class="st">&#39;AAPL&#39;</span>]</span>
-<span id="cb2035-2"><a href="finance.html#cb2035-2"></a>my_dict <span class="op">=</span> pdr.DataReader( stocks,</span>
-<span id="cb2035-3"><a href="finance.html#cb2035-3"></a>  data_source <span class="op">=</span> <span class="st">&#39;yahoo-actions&#39;</span>,</span>
-<span id="cb2035-4"><a href="finance.html#cb2035-4"></a>  start<span class="op">=</span><span class="st">&#39;2014-01-06&#39;</span>, </span>
-<span id="cb2035-5"><a href="finance.html#cb2035-5"></a>  end<span class="op">=</span><span class="st">&#39;2015-06-15&#39;</span></span>
-<span id="cb2035-6"><a href="finance.html#cb2035-6"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb2042"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2042-1"><a href="finance.html#cb2042-1"></a>stocks <span class="op">=</span> [<span class="st">&#39;MLYBY&#39;</span>, <span class="st">&#39;AAPL&#39;</span>]</span>
+<span id="cb2042-2"><a href="finance.html#cb2042-2"></a>my_dict <span class="op">=</span> pdr.DataReader( stocks,</span>
+<span id="cb2042-3"><a href="finance.html#cb2042-3"></a>  data_source <span class="op">=</span> <span class="st">&#39;yahoo-actions&#39;</span>,</span>
+<span id="cb2042-4"><a href="finance.html#cb2042-4"></a>  start<span class="op">=</span><span class="st">&#39;2014-01-06&#39;</span>, </span>
+<span id="cb2042-5"><a href="finance.html#cb2042-5"></a>  end<span class="op">=</span><span class="st">&#39;2015-06-15&#39;</span></span>
+<span id="cb2042-6"><a href="finance.html#cb2042-6"></a>)</span></code></pre></div>
 <pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): SyntaxError: invalid syntax (&lt;string&gt;, line 1)
 ## 
 ## Detailed traceback: 
@@ -1433,15 +1441,15 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ##     results[i] = self.f(v)
 ##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\pandas_datareader\yahoo\daily.py&quot;, line 201, in split_ratio
 ##     return eval(row[&quot;Splitratio&quot;])</code></pre>
-<div class="sourceCode" id="cb2037"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2037-1"><a href="finance.html#cb2037-1"></a><span class="bu">print</span>(my_dict.keys())</span></code></pre></div>
+<div class="sourceCode" id="cb2044"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2044-1"><a href="finance.html#cb2044-1"></a><span class="bu">print</span>(my_dict.keys())</span></code></pre></div>
 <pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;my_dict&#39; is not defined
 ## 
 ## Detailed traceback: 
 ##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
 <p>Iterate through the dictionary to get the dataframe data</p>
-<div class="sourceCode" id="cb2039"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2039-1"><a href="finance.html#cb2039-1"></a><span class="cf">for</span> i <span class="kw">in</span> my_dict.items():</span>
-<span id="cb2039-2"><a href="finance.html#cb2039-2"></a>  <span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\n\n</span><span class="st">Stock: &#39;</span>, i[<span class="dv">0</span>],</span>
-<span id="cb2039-3"><a href="finance.html#cb2039-3"></a>        <span class="st">&#39;</span><span class="ch">\n</span><span class="st">DataFrame:&#39;</span>, i[<span class="dv">1</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb2046"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2046-1"><a href="finance.html#cb2046-1"></a><span class="cf">for</span> i <span class="kw">in</span> my_dict.items():</span>
+<span id="cb2046-2"><a href="finance.html#cb2046-2"></a>  <span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\n\n</span><span class="st">Stock: &#39;</span>, i[<span class="dv">0</span>],</span>
+<span id="cb2046-3"><a href="finance.html#cb2046-3"></a>        <span class="st">&#39;</span><span class="ch">\n</span><span class="st">DataFrame:&#39;</span>, i[<span class="dv">1</span>])</span></code></pre></div>
 <pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;my_dict&#39; is not defined
 ## 
 ## Detailed traceback: 
@@ -1464,11 +1472,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="stock-info" class="section level4" number="20.1.2.1">
 <h4 number="20.1.2.1"><span class="header-section-number">20.1.2.1</span> Stock Info</h4>
 <p>There are plenty of infomration we can get form the dictionary of returend by <code>info</code></p>
-<div class="sourceCode" id="cb2041"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2041-1"><a href="finance.html#cb2041-1"></a><span class="im">import</span> yfinance <span class="im">as</span> yf</span>
-<span id="cb2041-2"><a href="finance.html#cb2041-2"></a>stock <span class="op">=</span> yf.Ticker(<span class="st">&#39;AAPL&#39;</span>)</span>
-<span id="cb2041-3"><a href="finance.html#cb2041-3"></a>stock.info.keys()</span></code></pre></div>
+<div class="sourceCode" id="cb2048"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2048-1"><a href="finance.html#cb2048-1"></a><span class="im">import</span> yfinance <span class="im">as</span> yf</span>
+<span id="cb2048-2"><a href="finance.html#cb2048-2"></a>stock <span class="op">=</span> yf.Ticker(<span class="st">&#39;AAPL&#39;</span>)</span>
+<span id="cb2048-3"><a href="finance.html#cb2048-3"></a>stock.info.keys()</span></code></pre></div>
 <pre><code>## dict_keys([&#39;zip&#39;, &#39;sector&#39;, &#39;fullTimeEmployees&#39;, &#39;longBusinessSummary&#39;, &#39;city&#39;, &#39;phone&#39;, &#39;state&#39;, &#39;country&#39;, &#39;companyOfficers&#39;, &#39;website&#39;, &#39;maxAge&#39;, &#39;address1&#39;, &#39;industry&#39;, &#39;previousClose&#39;, &#39;regularMarketOpen&#39;, &#39;twoHundredDayAverage&#39;, &#39;trailingAnnualDividendYield&#39;, &#39;payoutRatio&#39;, &#39;volume24Hr&#39;, &#39;regularMarketDayHigh&#39;, &#39;navPrice&#39;, &#39;averageDailyVolume10Day&#39;, &#39;totalAssets&#39;, &#39;regularMarketPreviousClose&#39;, &#39;fiftyDayAverage&#39;, &#39;trailingAnnualDividendRate&#39;, &#39;open&#39;, &#39;averageVolume10days&#39;, &#39;expireDate&#39;, &#39;yield&#39;, &#39;algorithm&#39;, &#39;dividendRate&#39;, &#39;exDividendDate&#39;, &#39;beta&#39;, &#39;circulatingSupply&#39;, &#39;startDate&#39;, &#39;regularMarketDayLow&#39;, &#39;priceHint&#39;, &#39;currency&#39;, &#39;trailingPE&#39;, &#39;regularMarketVolume&#39;, &#39;lastMarket&#39;, &#39;maxSupply&#39;, &#39;openInterest&#39;, &#39;marketCap&#39;, &#39;volumeAllCurrencies&#39;, &#39;strikePrice&#39;, &#39;averageVolume&#39;, &#39;priceToSalesTrailing12Months&#39;, &#39;dayLow&#39;, &#39;ask&#39;, &#39;ytdReturn&#39;, &#39;askSize&#39;, &#39;volume&#39;, &#39;fiftyTwoWeekHigh&#39;, &#39;forwardPE&#39;, &#39;fromCurrency&#39;, &#39;fiveYearAvgDividendYield&#39;, &#39;fiftyTwoWeekLow&#39;, &#39;bid&#39;, &#39;tradeable&#39;, &#39;dividendYield&#39;, &#39;bidSize&#39;, &#39;dayHigh&#39;, &#39;exchange&#39;, &#39;shortName&#39;, &#39;longName&#39;, &#39;exchangeTimezoneName&#39;, &#39;exchangeTimezoneShortName&#39;, &#39;isEsgPopulated&#39;, &#39;gmtOffSetMilliseconds&#39;, &#39;quoteType&#39;, &#39;symbol&#39;, &#39;messageBoardId&#39;, &#39;market&#39;, &#39;annualHoldingsTurnover&#39;, &#39;enterpriseToRevenue&#39;, &#39;beta3Year&#39;, &#39;profitMargins&#39;, &#39;enterpriseToEbitda&#39;, &#39;52WeekChange&#39;, &#39;morningStarRiskRating&#39;, &#39;forwardEps&#39;, &#39;revenueQuarterlyGrowth&#39;, &#39;sharesOutstanding&#39;, &#39;fundInceptionDate&#39;, &#39;annualReportExpenseRatio&#39;, &#39;bookValue&#39;, &#39;sharesShort&#39;, &#39;sharesPercentSharesOut&#39;, &#39;fundFamily&#39;, &#39;lastFiscalYearEnd&#39;, &#39;heldPercentInstitutions&#39;, &#39;netIncomeToCommon&#39;, &#39;trailingEps&#39;, &#39;lastDividendValue&#39;, &#39;SandP52WeekChange&#39;, &#39;priceToBook&#39;, &#39;heldPercentInsiders&#39;, &#39;nextFiscalYearEnd&#39;, &#39;mostRecentQuarter&#39;, &#39;shortRatio&#39;, &#39;sharesShortPreviousMonthDate&#39;, &#39;floatShares&#39;, &#39;enterpriseValue&#39;, &#39;threeYearAverageReturn&#39;, &#39;lastSplitDate&#39;, &#39;lastSplitFactor&#39;, &#39;legalType&#39;, &#39;morningStarOverallRating&#39;, &#39;earningsQuarterlyGrowth&#39;, &#39;dateShortInterest&#39;, &#39;pegRatio&#39;, &#39;lastCapGain&#39;, &#39;shortPercentOfFloat&#39;, &#39;sharesShortPriorMonth&#39;, &#39;category&#39;, &#39;fiveYearAverageReturn&#39;, &#39;regularMarketPrice&#39;, &#39;logo_url&#39;])</code></pre>
-<div class="sourceCode" id="cb2043"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2043-1"><a href="finance.html#cb2043-1"></a><span class="bu">print</span>(stock.info[<span class="st">&#39;longName&#39;</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb2050"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2050-1"><a href="finance.html#cb2050-1"></a><span class="bu">print</span>(stock.info[<span class="st">&#39;longName&#39;</span>])</span></code></pre></div>
 <pre><code>## Apple Inc.</code></pre>
 </div>
 <div id="ohlc-eod-pricing-1" class="section level4" number="20.1.2.2">
@@ -1480,8 +1488,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </li>
 <li>‘start’ and ‘end’ date <strong>must be string</strong></li>
 </ul>
-<div class="sourceCode" id="cb2045"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2045-1"><a href="finance.html#cb2045-1"></a>stock <span class="op">=</span> yf.Ticker(<span class="st">&#39;AAPL&#39;</span>)</span>
-<span id="cb2045-2"><a href="finance.html#cb2045-2"></a>stock.history(  start<span class="op">=</span><span class="st">&#39;2014-06-06&#39;</span>, end<span class="op">=</span><span class="st">&#39;2015-06-15&#39;</span>, auto_adjust <span class="op">=</span> <span class="va">False</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2052"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2052-1"><a href="finance.html#cb2052-1"></a>stock <span class="op">=</span> yf.Ticker(<span class="st">&#39;AAPL&#39;</span>)</span>
+<span id="cb2052-2"><a href="finance.html#cb2052-2"></a>stock.history(  start<span class="op">=</span><span class="st">&#39;2014-06-06&#39;</span>, end<span class="op">=</span><span class="st">&#39;2015-06-15&#39;</span>, auto_adjust <span class="op">=</span> <span class="va">False</span>)</span></code></pre></div>
 <pre><code>##               Open    High     Low   Close  Adj Close    Volume  Dividends  Stock Splits
 ## Date                                                                                    
 ## 2014-06-05   92.31   92.77   91.80   92.48      83.99  75951400        0.0           0.0
@@ -1503,9 +1511,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </li>
 <li>Therefore, ‘Adj Close’ column is redundant, hence removed.</li>
 </ul>
-<div class="sourceCode" id="cb2047"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2047-1"><a href="finance.html#cb2047-1"></a><span class="im">import</span> yfinance <span class="im">as</span> yf</span>
-<span id="cb2047-2"><a href="finance.html#cb2047-2"></a>stock <span class="op">=</span> yf.Ticker(<span class="st">&#39;AAPL&#39;</span>)</span>
-<span id="cb2047-3"><a href="finance.html#cb2047-3"></a>stock.history(  start<span class="op">=</span><span class="st">&#39;2014-06-06&#39;</span>, end<span class="op">=</span><span class="st">&#39;2015-06-15&#39;</span>, auto_adjust <span class="op">=</span> <span class="va">True</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2054"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2054-1"><a href="finance.html#cb2054-1"></a><span class="im">import</span> yfinance <span class="im">as</span> yf</span>
+<span id="cb2054-2"><a href="finance.html#cb2054-2"></a>stock <span class="op">=</span> yf.Ticker(<span class="st">&#39;AAPL&#39;</span>)</span>
+<span id="cb2054-3"><a href="finance.html#cb2054-3"></a>stock.history(  start<span class="op">=</span><span class="st">&#39;2014-06-06&#39;</span>, end<span class="op">=</span><span class="st">&#39;2015-06-15&#39;</span>, auto_adjust <span class="op">=</span> <span class="va">True</span>)</span></code></pre></div>
 <pre><code>##               Open    High     Low   Close    Volume  Dividends  Stock Splits
 ## Date                                                                         
 ## 2014-06-05   83.84   84.25   83.37   83.99  75951400        0.0           0.0
@@ -1525,7 +1533,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="splits-and-dividends-1" class="section level4" number="20.1.2.3">
 <h4 number="20.1.2.3"><span class="header-section-number">20.1.2.3</span> Splits and Dividends</h4>
 <p>Getting both Splits and Dividends</p>
-<div class="sourceCode" id="cb2049"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2049-1"><a href="finance.html#cb2049-1"></a>stock.actions</span></code></pre></div>
+<div class="sourceCode" id="cb2056"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2056-1"><a href="finance.html#cb2056-1"></a>stock.actions</span></code></pre></div>
 <pre><code>##             Dividends  Stock Splits
 ## Date                               
 ## 2014-06-09       0.00           7.0
@@ -1534,7 +1542,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 2015-02-05       0.47           0.0
 ## 2015-05-07       0.52           0.0</code></pre>
 <p>Getting Dividends Only</p>
-<div class="sourceCode" id="cb2051"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2051-1"><a href="finance.html#cb2051-1"></a>stock.dividends</span></code></pre></div>
+<div class="sourceCode" id="cb2058"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2058-1"><a href="finance.html#cb2058-1"></a>stock.dividends</span></code></pre></div>
 <pre><code>## Date
 ## 2014-08-07    0.47
 ## 2014-11-06    0.47
@@ -1542,7 +1550,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 2015-05-07    0.52
 ## Name: Dividends, dtype: float64</code></pre>
 <p>Getting Splits Only</p>
-<div class="sourceCode" id="cb2053"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2053-1"><a href="finance.html#cb2053-1"></a>stock.splits</span></code></pre></div>
+<div class="sourceCode" id="cb2060"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2060-1"><a href="finance.html#cb2060-1"></a>stock.splits</span></code></pre></div>
 <pre><code>## Date
 ## 2014-06-09    7.0
 ## Name: Stock Splits, dtype: float64</code></pre>
@@ -1550,23 +1558,23 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="query-using-periods" class="section level4" number="20.1.2.4">
 <h4 number="20.1.2.4"><span class="header-section-number">20.1.2.4</span> Query Using Periods</h4>
 <p>Available periods are: 1d, 5d, 1mo, 3mo, 6mo, 1y, 2y, 5y, 10y, ytd, <strong>max</strong></p>
-<div class="sourceCode" id="cb2055"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2055-1"><a href="finance.html#cb2055-1"></a>stock <span class="op">=</span> yf.Ticker(<span class="st">&#39;AAPL&#39;</span>)</span>
-<span id="cb2055-2"><a href="finance.html#cb2055-2"></a>stock.history(periods<span class="op">=</span><span class="st">&#39;max&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2062"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2062-1"><a href="finance.html#cb2062-1"></a>stock <span class="op">=</span> yf.Ticker(<span class="st">&#39;AAPL&#39;</span>)</span>
+<span id="cb2062-2"><a href="finance.html#cb2062-2"></a>stock.history(periods<span class="op">=</span><span class="st">&#39;max&#39;</span>)</span></code></pre></div>
 <pre><code>##               Open    High     Low   Close     Volume  Dividends  Stock Splits
 ## Date                                                                          
+## 2020-02-03  303.58  312.75  301.50  307.93   43496400       0.00             0
 ## 2020-02-04  314.56  318.88  312.89  318.10   34154100       0.00             0
 ## 2020-02-05  322.75  323.99  318.19  320.69   29706700       0.00             0
 ## 2020-02-06  321.81  324.45  319.50  324.44   26356400       0.00             0
 ## 2020-02-07  322.37  323.40  318.00  320.03   29421000       0.77             0
-## 2020-02-10  314.18  321.55  313.85  321.55   27337200       0.00             0
 ## ...            ...     ...     ...     ...        ...        ...           ...
-## 2020-02-25  300.95  302.53  286.13  288.08   57668400       0.00             0
 ## 2020-02-26  286.53  297.88  286.50  292.65   49513700       0.00             0
 ## 2020-02-27  281.10  286.00  272.96  273.52   80151400       0.00             0
 ## 2020-02-28  257.26  278.41  256.37  273.36  106721200       0.00             0
 ## 2020-03-02  282.28  301.44  277.72  298.81   85160300       0.00             0
+## 2020-03-03  303.67  303.92  295.84  296.02   10412396       0.00             0
 ## 
-## [19 rows x 7 columns]</code></pre>
+## [21 rows x 7 columns]</code></pre>
 </div>
 <div id="query-multiple-stocks-1" class="section level4" number="20.1.2.5">
 <h4 number="20.1.2.5"><span class="header-section-number">20.1.2.5</span> Query Multiple Stocks</h4>
@@ -1579,17 +1587,17 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </li>
 <li>By default, <code>threads=True</code> for parallel downloading.</li>
 </ul>
-<div class="sourceCode" id="cb2057"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2057-1"><a href="finance.html#cb2057-1"></a>stocks <span class="op">=</span> [<span class="st">&#39;MLYBY&#39;</span>,<span class="st">&#39;AAPL&#39;</span>]</span>
-<span id="cb2057-2"><a href="finance.html#cb2057-2"></a>df1 <span class="op">=</span> yf.download(stocks, start<span class="op">=</span><span class="st">&#39;2014-06-06&#39;</span>, end<span class="op">=</span><span class="st">&#39;2014-06-15&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2064"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2064-1"><a href="finance.html#cb2064-1"></a>stocks <span class="op">=</span> [<span class="st">&#39;MLYBY&#39;</span>,<span class="st">&#39;AAPL&#39;</span>]</span>
+<span id="cb2064-2"><a href="finance.html#cb2064-2"></a>df1 <span class="op">=</span> yf.download(stocks, start<span class="op">=</span><span class="st">&#39;2014-06-06&#39;</span>, end<span class="op">=</span><span class="st">&#39;2014-06-15&#39;</span>)</span></code></pre></div>
 <pre><code>## 
 [                       0%                       ]
 [*********************100%***********************]  2 of 2 completed</code></pre>
-<div class="sourceCode" id="cb2059"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2059-1"><a href="finance.html#cb2059-1"></a>df2 <span class="op">=</span> yf.download(stocks, start<span class="op">=</span><span class="st">&#39;2014-06-06&#39;</span>, end<span class="op">=</span><span class="st">&#39;2014-06-15&#39;</span>, group_by<span class="op">=</span><span class="st">&#39;ticker&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2066"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2066-1"><a href="finance.html#cb2066-1"></a>df2 <span class="op">=</span> yf.download(stocks, start<span class="op">=</span><span class="st">&#39;2014-06-06&#39;</span>, end<span class="op">=</span><span class="st">&#39;2014-06-15&#39;</span>, group_by<span class="op">=</span><span class="st">&#39;ticker&#39;</span>)</span></code></pre></div>
 <pre><code>## 
 [                       0%                       ]
 [*********************100%***********************]  2 of 2 completed</code></pre>
-<div class="sourceCode" id="cb2061"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2061-1"><a href="finance.html#cb2061-1"></a><span class="bu">print</span>(<span class="st">&#39;Group by Column Name:</span><span class="ch">\n</span><span class="st">&#39;</span>, df1[<span class="st">&#39;Close&#39;</span>][<span class="st">&#39;AAPL&#39;</span>], <span class="st">&#39;</span><span class="ch">\n\n</span><span class="st">&#39;</span>,</span>
-<span id="cb2061-2"><a href="finance.html#cb2061-2"></a>      <span class="st">&#39;Group by Symbol:     ]n&#39;</span>, df2[<span class="st">&#39;AAPL&#39;</span>][<span class="st">&#39;Close&#39;</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb2068"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2068-1"><a href="finance.html#cb2068-1"></a><span class="bu">print</span>(<span class="st">&#39;Group by Column Name:</span><span class="ch">\n</span><span class="st">&#39;</span>, df1[<span class="st">&#39;Close&#39;</span>][<span class="st">&#39;AAPL&#39;</span>], <span class="st">&#39;</span><span class="ch">\n\n</span><span class="st">&#39;</span>,</span>
+<span id="cb2068-2"><a href="finance.html#cb2068-2"></a>      <span class="st">&#39;Group by Symbol:     ]n&#39;</span>, df2[<span class="st">&#39;AAPL&#39;</span>][<span class="st">&#39;Close&#39;</span>])</span></code></pre></div>
 <pre><code>## Group by Column Name:
 ##  Date
 ## 2014-06-05    92.478569
@@ -1621,16 +1629,16 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="charting" class="section level2" number="20.2">
 <h2 number="20.2"><span class="header-section-number">20.2</span> Charting</h2>
-<div class="sourceCode" id="cb2063"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2063-1"><a href="finance.html#cb2063-1"></a><span class="im">import</span> cufflinks <span class="im">as</span> cf  <span class="co"># Cufflinks</span></span>
-<span id="cb2063-2"><a href="finance.html#cb2063-2"></a><span class="co">#cf.set_config_file(offline=True)  # set the plotting mode to offline</span></span></code></pre></div>
+<div class="sourceCode" id="cb2070"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2070-1"><a href="finance.html#cb2070-1"></a><span class="im">import</span> cufflinks <span class="im">as</span> cf  <span class="co"># Cufflinks</span></span>
+<span id="cb2070-2"><a href="finance.html#cb2070-2"></a><span class="co">#cf.set_config_file(offline=True)  # set the plotting mode to offline</span></span></code></pre></div>
 <pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): ModuleNotFoundError: No module named &#39;cufflinks&#39;
 ## 
 ## Detailed traceback: 
 ##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
 <div id="price-comparison" class="section level3" number="20.2.1">
 <h3 number="20.2.1"><span class="header-section-number">20.2.1</span> Price Comparison</h3>
-<div class="sourceCode" id="cb2065"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2065-1"><a href="finance.html#cb2065-1"></a>stocks <span class="op">=</span> [<span class="st">&#39;AAPL&#39;</span>,<span class="st">&#39;MLYBY&#39;</span>, <span class="st">&#39;PUBM.KL&#39;</span>, <span class="st">&#39;HLFBF&#39;</span>,<span class="st">&#39;1295.KL&#39;</span>]</span>
-<span id="cb2065-2"><a href="finance.html#cb2065-2"></a>df <span class="op">=</span> yf.download(stocks, start<span class="op">=</span><span class="st">&#39;2019-01-01&#39;</span>, end<span class="op">=</span><span class="st">&#39;2019-12-31&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2072"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2072-1"><a href="finance.html#cb2072-1"></a>stocks <span class="op">=</span> [<span class="st">&#39;AAPL&#39;</span>,<span class="st">&#39;MLYBY&#39;</span>, <span class="st">&#39;PUBM.KL&#39;</span>, <span class="st">&#39;HLFBF&#39;</span>,<span class="st">&#39;1295.KL&#39;</span>]</span>
+<span id="cb2072-2"><a href="finance.html#cb2072-2"></a>df <span class="op">=</span> yf.download(stocks, start<span class="op">=</span><span class="st">&#39;2019-01-01&#39;</span>, end<span class="op">=</span><span class="st">&#39;2019-12-31&#39;</span>)</span></code></pre></div>
 <pre><code>## 
 [                       0%                       ]
 [*******************   40%                       ]  2 of 5 completed
@@ -1640,7 +1648,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## 1 Failed download:
 ## - 1295.KL: No data found for this date range, symbol may be delisted</code></pre>
-<div class="sourceCode" id="cb2067"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2067-1"><a href="finance.html#cb2067-1"></a>df[<span class="st">&#39;Close&#39;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb2074"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2074-1"><a href="finance.html#cb2074-1"></a>df[<span class="st">&#39;Close&#39;</span>]</span></code></pre></div>
 <pre><code>##             1295.KL        AAPL  HLFBF  MLYBY    PUBM.KL
 ## Date                                                    
 ## 2018-12-31      NaN  157.740005   4.50   4.66        NaN
@@ -1656,16 +1664,16 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 2019-12-31      NaN         NaN    NaN    NaN  19.440001
 ## 
 ## [258 rows x 5 columns]</code></pre>
-<div class="sourceCode" id="cb2069"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2069-1"><a href="finance.html#cb2069-1"></a>df.iplot()</span></code></pre></div>
+<div class="sourceCode" id="cb2076"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2076-1"><a href="finance.html#cb2076-1"></a>df.iplot()</span></code></pre></div>
 <pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): AttributeError: &#39;DataFrame&#39; object has no attribute &#39;iplot&#39;
 ## 
 ## Detailed traceback: 
 ##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;
 ##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\pandas\core\generic.py&quot;, line 5179, in __getattr__
 ##     return object.__getattribute__(self, name)</code></pre>
-<div class="sourceCode" id="cb2071"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2071-1"><a href="finance.html#cb2071-1"></a>stock <span class="op">=</span> yf.Ticker(<span class="st">&#39;PUBM.KL&#39;</span>)</span>
-<span id="cb2071-2"><a href="finance.html#cb2071-2"></a><span class="co">#stock.history(periods=&#39;max&#39;)</span></span>
-<span id="cb2071-3"><a href="finance.html#cb2071-3"></a>stock.history(  start<span class="op">=</span><span class="st">&#39;2014-06-06&#39;</span>, end<span class="op">=</span><span class="st">&#39;2015-06-15&#39;</span>, auto_adjust <span class="op">=</span> <span class="va">True</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2078"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2078-1"><a href="finance.html#cb2078-1"></a>stock <span class="op">=</span> yf.Ticker(<span class="st">&#39;PUBM.KL&#39;</span>)</span>
+<span id="cb2078-2"><a href="finance.html#cb2078-2"></a><span class="co">#stock.history(periods=&#39;max&#39;)</span></span>
+<span id="cb2078-3"><a href="finance.html#cb2078-3"></a>stock.history(  start<span class="op">=</span><span class="st">&#39;2014-06-06&#39;</span>, end<span class="op">=</span><span class="st">&#39;2015-06-15&#39;</span>, auto_adjust <span class="op">=</span> <span class="va">True</span>)</span></code></pre></div>
 <pre><code>##              Open   High    Low  Close   Volume  Dividends  Stock Splits
 ## Date                                                                    
 ## 2014-06-06  16.48  16.48  16.39  16.39  4871739        0.0             0
@@ -1681,8 +1689,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 2015-06-15  16.45  16.52  16.43  16.48  2548800        0.0             0
 ## 
 ## [252 rows x 7 columns]</code></pre>
-<div class="sourceCode" id="cb2073"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2073-1"><a href="finance.html#cb2073-1"></a>stock <span class="op">=</span> yf.Ticker(<span class="st">&#39;1295.KL&#39;</span>)</span>
-<span id="cb2073-2"><a href="finance.html#cb2073-2"></a>stock.history(  start<span class="op">=</span><span class="st">&#39;2014-06-06&#39;</span>, end<span class="op">=</span><span class="st">&#39;2015-06-15&#39;</span>, auto_adjust <span class="op">=</span> <span class="va">True</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2080"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2080-1"><a href="finance.html#cb2080-1"></a>stock <span class="op">=</span> yf.Ticker(<span class="st">&#39;1295.KL&#39;</span>)</span>
+<span id="cb2080-2"><a href="finance.html#cb2080-2"></a>stock.history(  start<span class="op">=</span><span class="st">&#39;2014-06-06&#39;</span>, end<span class="op">=</span><span class="st">&#39;2015-06-15&#39;</span>, auto_adjust <span class="op">=</span> <span class="va">True</span>)</span></code></pre></div>
 <pre><code>##              Open   High    Low  Close   Volume  Dividends  Stock Splits
 ## Date                                                                    
 ## 2014-06-19  18.25  18.40  18.16  18.40  1016300        0.0             0
@@ -1698,14 +1706,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 2015-06-15  17.44  17.52  17.42  17.48  2548800        0.0             0
 ## 
 ## [191 rows x 7 columns]</code></pre>
-<div class="sourceCode" id="cb2075"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2075-1"><a href="finance.html#cb2075-1"></a>stocks <span class="op">=</span> [<span class="st">&#39;1295.KL&#39;</span>]</span>
-<span id="cb2075-2"><a href="finance.html#cb2075-2"></a>df <span class="op">=</span> yf.download(<span class="st">&#39;1295.KL&#39;</span>, start<span class="op">=</span><span class="st">&#39;2018-12-03&#39;</span>, end<span class="op">=</span><span class="st">&#39;2019-03-21&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2082"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2082-1"><a href="finance.html#cb2082-1"></a>stocks <span class="op">=</span> [<span class="st">&#39;1295.KL&#39;</span>]</span>
+<span id="cb2082-2"><a href="finance.html#cb2082-2"></a>df <span class="op">=</span> yf.download(<span class="st">&#39;1295.KL&#39;</span>, start<span class="op">=</span><span class="st">&#39;2018-12-03&#39;</span>, end<span class="op">=</span><span class="st">&#39;2019-03-21&#39;</span>)</span></code></pre></div>
 <pre><code>## 
 [*********************100%***********************]  1 of 1 completed
 ## 
 ## 1 Failed download:
 ## - 1295.KL: No data found for this date range, symbol may be delisted</code></pre>
-<div class="sourceCode" id="cb2077"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2077-1"><a href="finance.html#cb2077-1"></a>df</span></code></pre></div>
+<div class="sourceCode" id="cb2084"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2084-1"><a href="finance.html#cb2084-1"></a>df</span></code></pre></div>
 <pre><code>## Empty DataFrame
 ## Columns: [Open, High, Low, Close, Adj Close, Volume]
 ## Index: []</code></pre>

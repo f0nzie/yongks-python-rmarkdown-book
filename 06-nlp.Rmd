@@ -550,11 +550,15 @@ print( lemmatizer.lemmatize("good", pos ='a'), '\n',
 
 For search-based chatbot where accuracy is more important, it should first search with unnormalzied words.
 
+
+
 ## Wordnet
 
 WordNet® is a large lexical database of English. Nouns, verbs, adjectives and adverbs are grouped into sets of cognitive synonyms (synsets), each expressing a distinct concept. Synsets are interlinked by means of conceptual-semantic and lexical relations.  
 
-WordNet superficially resembles a thesaurus, in that it groups words together based on their meanings. However, there are some important distinctions. First, WordNet interlinks not just word forms—strings of letters—but specific senses of words. As a result, words that are found in close proximity to one another in the network are semantically disambiguated. Second, WordNet labels the semantic relations among words, whereas the groupings of words in a thesaurus does not follow any explicit pattern other than meaning similarity.  
+WordNet superficially resembles a thesaurus, in that it groups words together based on their meanings. However, there are some important distinctions:  
+- WordNet interlinks not just word forms—strings of letters—but specific senses of words. As a result, words that are found in close proximity to one another in the network are semantically disambiguated  
+- WordNet labels the semantic relations among words, whereas the groupings of words in a thesaurus does not follow any explicit pattern other than meaning similarity  
 
 [Wordnet Princeton](https://wordnet.princeton.edu)
 
@@ -565,39 +569,47 @@ WordNet superficially resembles a thesaurus, in that it groups words together ba
 NLTK (version 3.7.6) includes the English WordNet (147,307 words and 117,659 synonym sets)
 
 ```{python}
+from nltk.corpus import wordnet as wn
+
 s = set( wn.all_synsets() )
 w = set(wn.words())
-print('Total words in wordnet  : ' , len(w),
+print('Total words in wordnet  : ' ,   len(w),
       '\nTotal synsets in wordnet: ' , len(s) )
 ```
 
-### Synsets
+### Synset
 
-- Synsets is a set of synonyms that share a common meaning  
-- A synset (member of Synsets) is identified with a 3-part name of the form: **`word.pos.nn`**
-- A synset can contain one or more lemmas, which represent a specific sense of a specific word  
-- A synset can contain one or more **Hyponyms and Hypernyms**. These are specific and generalized concepts respectively. For example, 'beach house' and 'guest house' are hyponyms of 'house'. They are more specific concepts of 'house'. And 'house' is a hypernym of 'guest house' because it is the general concept  
--  **Hyponyms and Hypernyms** are also called lexical relations
+#### Notation
+
+A synset is the basic construct of a word in wordnet. It contains the **Word** itself, with its **POS** tag and **Usage**: **`word.pos.nn`**
 
 ```{python}
-from nltk.corpus import wordnet as wn
-
-dogs = wn.synsets('dog') # get all synsets for word 'dog'
-
-for d in dogs:  ## iterate through each Synset
-  print(d,':\nDefinition: ', d.definition(),
-           '\nExample:', d.examples(),
-           '\nLemmas:', d.lemma_names(),
-           '\nHyponyms:', d.hyponyms(), 
-           '\nHypernyms:',d.hypernyms(), '\n\n')
+wn.synset('breakdown.n.03')
 ```
 
-There are 5 POS used by Wordnet.
+Breaking down the construct:
+
+```
+'breakdown' = Word
+'n'         = Part of Speech
+'03'        = Usage (01 for most common usage and a higher number would indicate lesser common usages)
+```
+
+#### Part of Speech
+
+Wordnet support five POS tags
+
+```
+n - NOUN
+v - VERB
+a - ADJECTIVE
+s - ADJECTIVE SATELLITE
+r - ADVERB
+```
 
 ```{python}
 print(wn.ADJ, wn.ADJ_SAT, wn.ADV, wn.NOUN, wn.VERB)
 ```
-
 
 #### Synset Similarity
 
@@ -608,11 +620,34 @@ w1 = wn.synset('dog.n.01')
 w2 = wn.synset('ship.n.01')
 print(w1.wup_similarity(w2))
 ```
+
 ```{python}
 w1 = wn.synset('ship.n.01')
 w2 = wn.synset('boat.n.01')
 print(w1.wup_similarity(w2))
 ```
+
+
+### Synsets
+
+- Synsets is a collection of synsets, which are synonyms that share a common meaning  
+- A synset (member of Synsets) is identified with a 3-part name of the form: 
+- A synset can contain one or more lemmas, which represent a specific sense of a specific word  
+- A synset can contain one or more **Hyponyms and Hypernyms**. These are specific and generalized concepts respectively. For example, 'beach house' and 'guest house' are hyponyms of 'house'. They are more specific concepts of 'house'. And 'house' is a hypernym of 'guest house' because it is the general concept  
+-  **Hyponyms and Hypernyms** are also called lexical relations
+
+```{python}
+dogs = wn.synsets('dog') # get all synsets for word 'dog'
+
+for d in dogs:  ## iterate through each Synset
+  print(d,':\nDefinition:', d.definition(),
+           '\nExample:',    d.examples(),
+           '\nLemmas:',     d.lemma_names(),
+           '\nHyponyms:',   d.hyponyms(), 
+           '\nHypernyms:',  d.hypernyms(), '\n\n')
+```
+
+
 
 
 ## Part Of Speech (POS)
@@ -729,6 +764,79 @@ for sentence in sentences:
 ```
 
 ## Sentiment
+
+### Senti-Wordnet
+
+#### Construct
+
+- Senti-Wordnet extends wordnet with three(3) sentiment scores: positive, negative, objective  
+- All three scores added up to value 1.0
+
+```{python}
+from nltk.corpus import sentiwordnet as swn
+
+breakdown = swn.senti_synset('breakdown.n.03')
+
+print(
+  breakdown, '\n'
+  'Positive:', breakdown.pos_score(), '\n',
+  'Negative:', breakdown.neg_score(), '\n',
+  'Objective:',breakdown.obj_score()
+)
+
+```
+
+#### Converting POS-tag into Wordnet POS-tag
+
+```{python}
+import nltk
+from nltk.tokenize import word_tokenize
+from nltk.corpus import wordnet as wn
+
+def penn_to_wn(tag):
+    """
+    Convert between the PennTreebank tags to simple Wordnet tags
+    """
+    if tag.startswith('J'):
+        return wn.ADJ
+    elif tag.startswith('N'):
+        return wn.NOUN
+    elif tag.startswith('R'):
+        return wn.ADV
+    elif tag.startswith('V'):
+        return wn.VERB
+    return None
+
+wt = word_tokenize("Star Wars is a wonderful movie")
+penn_tags = nltk.pos_tag(wt)
+wordnet_tags = [ (x, penn_to_wn(y)) for (x,y) in penn_tags ]
+
+print(
+'Penn Tags    :', penn_tags, 
+'\nWordnet Tags :', wordnet_tags)
+```
+
+```{python}
+import nltk
+from nltk.corpus import wordnet as wn
+from nltk import word_tokenize, pos_tag
+from collections import defaultdict
+
+tag_map = defaultdict(lambda : None)
+tag_map['J'] = wn.ADJ
+tag_map['R'] = wn.ADV
+tag_map['V'] = wn.VERB
+tag_map['N'] = wn.NOUN
+
+wt = word_tokenize("Star Wars is a wonderful movie")
+penn_tags = nltk.pos_tag(wt)
+wordnet_tags = [ (x, tag_map[y[0]]) for (x,y) in penn_tags ]
+
+print(
+'Penn Tags    :', penn_tags, 
+'\nWordnet Tags :', wordnet_tags)
+```
+
 
 ### Vader
 
