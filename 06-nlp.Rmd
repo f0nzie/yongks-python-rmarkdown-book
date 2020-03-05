@@ -391,22 +391,94 @@ print('\nCorpus Vacabulary (Unique Tokens):\n',
 
 ## Sentence Tokenizer
 
-### `nltk.tokenize.sent_tokenize()`
+This is about detecting sentence boundry and split text into list of sentences
 
-This will convert a text into list of sentences.
+### Sample Text
 
 ```{python}
+text = '''
+Hello Mr. Smith, how are you doing today?
+The weather is great, and city is awesome.
+The sky is pinkish-blue, Dr. Alba would agree.
+You shouldn't eat hard things i.e. cardboard, stones and bushes
+'''
+```
+
+### 'nltk.tokenize.punkt.PunktSentenceTokenizer`
+
+- The `PunktSentenceTokenizer` is an sentence boundary detection algorithm. It is an unsupervised trainable model. This means it can be trained on unlabeled data, aka text that is not split into sentences  
+- PunkSentneceTokenizer is based on work published on this paepr: [Unsupervised Multilingual Sentence Boundary Detection](https://www.mitpressjournals.org/doi/abs/10.1162/coli.2006.32.4.485#.V2ouLXUrLeQ)
+
+#### Default Behavior
+
+Vanila tokenizer splits sentences on period `.`, which is not desirable
+
+```{python}
+from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktTrainer
 #nltk.download('punkt')
-from nltk.tokenize import sent_tokenize
-text="""\
-Hello Mr. Smith, how are you doing today? The weather is great, and city is awesome.
-The sky is pinkish-blue. You shouldn't eat cardboard
-"""
-tokenized_text = sent_tokenize(text)
+tokenizer = PunktSentenceTokenizer()
+tokenized_text = tokenizer.tokenize(text) 
 for x in tokenized_text:
   print(x) 
 ```
 
+#### Pretrained Model - English Pickle
+
+NLTK already includes a pre-trained version of the PunktSentenceTokenizer for English, as you can see, it is quite good
+
+```{python}
+tokenizer      = nltk.data.load('tokenizers/punkt/english.pickle')
+tokenized_text = tokenizer.tokenize(text) 
+for x in tokenized_text:
+  print(x) 
+```
+
+#### Adding Abbreviations
+
+- The pretrained tokenizer is not perfect, it wrongly detected 'i.e.' as sentence boundary  
+- Let's **teach** Punkt by adding the abbreviation to its parameter
+
+**Adding Single Abbreviation**
+
+```{python}
+
+tokenizer      = nltk.data.load('tokenizers/punkt/english.pickle')
+
+## Add apprevaitions to Tokenizer
+tokenizer._params.abbrev_types.add('i.e')
+
+tokenized_text = tokenizer.tokenize(text) 
+for x in tokenized_text:
+  print(x)
+```
+
+**Add List of Abbreviations**
+
+If you have more than one abbreviations, use `update()`  with the list of abbreviations
+
+```{python}
+from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktParameters
+
+## Add Abbreviations to Tokenizer
+tokenizer =  nltk.data.load('tokenizers/punkt/english.pickle')
+tokenizer._params.abbrev_types.update(['dr', 'vs', 'mr', 'mrs', 'prof', 'inc', 'i.e'])
+
+sentences = tokenizer.tokenize(text) 
+for x in sentences:
+  print(x) 
+```
+
+### `nltk.tokenize.sent_tokenize()`
+
+The `sent_tokenize` function uses an instance of **PunktSentenceTokenizer**, which is already been trained and thus very well knows to mark the end and begining of sentence at what characters and punctuation.
+ 
+```{python}
+from nltk.tokenize import sent_tokenize
+
+sentences = sent_tokenize(text)
+for x in sentences:
+  print(x) 
+```
 
 ## N-Gram
 
@@ -788,6 +860,8 @@ print(
 
 #### Converting POS-tag into Wordnet POS-tag
 
+**Using Function**
+
 ```{python}
 import nltk
 from nltk.tokenize import word_tokenize
@@ -816,6 +890,8 @@ print(
 '\nWordnet Tags :', wordnet_tags)
 ```
 
+**Using defaultdict**
+
 ```{python}
 import nltk
 from nltk.corpus import wordnet as wn
@@ -836,7 +912,6 @@ print(
 'Penn Tags    :', penn_tags, 
 '\nWordnet Tags :', wordnet_tags)
 ```
-
 
 ### Vader
 

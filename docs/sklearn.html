@@ -24,7 +24,7 @@
 <meta name="author" content="Yong Keh Soon" />
 
 
-<meta name="date" content="2020-03-03" />
+<meta name="date" content="2020-03-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1112,7 +1112,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="18.3" data-path="nlp.html"><a href="nlp.html#sentence-tokenizer"><i class="fa fa-check"></i><b>18.3</b> Sentence Tokenizer</a>
 <ul>
-<li class="chapter" data-level="18.3.1" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.sent_tokenize"><i class="fa fa-check"></i><b>18.3.1</b> <code>nltk.tokenize.sent_tokenize()</code></a></li>
+<li class="chapter" data-level="18.3.1" data-path="nlp.html"><a href="nlp.html#sample-text"><i class="fa fa-check"></i><b>18.3.1</b> Sample Text</a></li>
+<li class="chapter" data-level="18.3.2" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.punkt.punktsentencetokenizer"><i class="fa fa-check"></i><b>18.3.2</b> ’nltk.tokenize.punkt.PunktSentenceTokenizer`</a>
+<ul>
+<li class="chapter" data-level="18.3.2.1" data-path="nlp.html"><a href="nlp.html#default-behavior"><i class="fa fa-check"></i><b>18.3.2.1</b> Default Behavior</a></li>
+<li class="chapter" data-level="18.3.2.2" data-path="nlp.html"><a href="nlp.html#pretrained-model---english-pickle"><i class="fa fa-check"></i><b>18.3.2.2</b> Pretrained Model - English Pickle</a></li>
+<li class="chapter" data-level="18.3.2.3" data-path="nlp.html"><a href="nlp.html#adding-abbreviations"><i class="fa fa-check"></i><b>18.3.2.3</b> Adding Abbreviations</a></li>
+</ul></li>
+<li class="chapter" data-level="18.3.3" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.sent_tokenize"><i class="fa fa-check"></i><b>18.3.3</b> <code>nltk.tokenize.sent_tokenize()</code></a></li>
 </ul></li>
 <li class="chapter" data-level="18.4" data-path="nlp.html"><a href="nlp.html#n-gram"><i class="fa fa-check"></i><b>18.4</b> N-Gram</a></li>
 <li class="chapter" data-level="18.5" data-path="nlp.html"><a href="nlp.html#stopwords"><i class="fa fa-check"></i><b>18.5</b> Stopwords</a>
@@ -1278,52 +1285,52 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>This is a machine learning library.</p>
 <div id="setup-hidden" class="section level2" number="17.1">
 <h2 number="17.1"><span class="header-section-number">17.1</span> Setup (hidden)</h2>
-<div class="sourceCode" id="cb1652"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1652-1"><a href="sklearn.html#cb1652-1"></a><span class="im">from</span> IPython.core.display <span class="im">import</span> display, HTML</span>
-<span id="cb1652-2"><a href="sklearn.html#cb1652-2"></a>display(HTML(<span class="st">&quot;&lt;style&gt;.container { width:75% !important; margin-left:350px; }&lt;/style&gt;&quot;</span>))</span>
-<span id="cb1652-3"><a href="sklearn.html#cb1652-3"></a><span class="co">#matplotlib inline</span></span></code></pre></div>
+<div class="sourceCode" id="cb1651"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1651-1"><a href="sklearn.html#cb1651-1"></a><span class="im">from</span> IPython.core.display <span class="im">import</span> display, HTML</span>
+<span id="cb1651-2"><a href="sklearn.html#cb1651-2"></a>display(HTML(<span class="st">&quot;&lt;style&gt;.container { width:75% !important; margin-left:350px; }&lt;/style&gt;&quot;</span>))</span>
+<span id="cb1651-3"><a href="sklearn.html#cb1651-3"></a><span class="co">#matplotlib inline</span></span></code></pre></div>
 <pre><code>## &lt;IPython.core.display.HTML object&gt;</code></pre>
-<div class="sourceCode" id="cb1654"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1654-1"><a href="sklearn.html#cb1654-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1654-2"><a href="sklearn.html#cb1654-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1654-3"><a href="sklearn.html#cb1654-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1654-4"><a href="sklearn.html#cb1654-4"></a><span class="im">import</span> math</span>
-<span id="cb1654-5"><a href="sklearn.html#cb1654-5"></a>pd.set_option( <span class="st">&#39;display.notebook_repr_html&#39;</span>, <span class="va">False</span>)  <span class="co"># render Series and DataFrame as text, not HTML</span></span>
-<span id="cb1654-6"><a href="sklearn.html#cb1654-6"></a>pd.set_option( <span class="st">&#39;display.max_column&#39;</span>, <span class="dv">10</span>)    <span class="co"># number of columns</span></span>
-<span id="cb1654-7"><a href="sklearn.html#cb1654-7"></a>pd.set_option( <span class="st">&#39;display.max_rows&#39;</span>, <span class="dv">10</span>)     <span class="co"># number of rows</span></span>
-<span id="cb1654-8"><a href="sklearn.html#cb1654-8"></a>pd.set_option( <span class="st">&#39;display.width&#39;</span>, <span class="dv">90</span>)        <span class="co"># number of characters per row</span></span>
-<span id="cb1654-9"><a href="sklearn.html#cb1654-9"></a></span>
-<span id="cb1654-10"><a href="sklearn.html#cb1654-10"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code></pre></div>
+<div class="sourceCode" id="cb1653"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1653-1"><a href="sklearn.html#cb1653-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1653-2"><a href="sklearn.html#cb1653-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1653-3"><a href="sklearn.html#cb1653-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1653-4"><a href="sklearn.html#cb1653-4"></a><span class="im">import</span> math</span>
+<span id="cb1653-5"><a href="sklearn.html#cb1653-5"></a>pd.set_option( <span class="st">&#39;display.notebook_repr_html&#39;</span>, <span class="va">False</span>)  <span class="co"># render Series and DataFrame as text, not HTML</span></span>
+<span id="cb1653-6"><a href="sklearn.html#cb1653-6"></a>pd.set_option( <span class="st">&#39;display.max_column&#39;</span>, <span class="dv">10</span>)    <span class="co"># number of columns</span></span>
+<span id="cb1653-7"><a href="sklearn.html#cb1653-7"></a>pd.set_option( <span class="st">&#39;display.max_rows&#39;</span>, <span class="dv">10</span>)     <span class="co"># number of rows</span></span>
+<span id="cb1653-8"><a href="sklearn.html#cb1653-8"></a>pd.set_option( <span class="st">&#39;display.width&#39;</span>, <span class="dv">90</span>)        <span class="co"># number of characters per row</span></span>
+<span id="cb1653-9"><a href="sklearn.html#cb1653-9"></a></span>
+<span id="cb1653-10"><a href="sklearn.html#cb1653-10"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code></pre></div>
 </div>
 <div id="the-library" class="section level2" number="17.2">
 <h2 number="17.2"><span class="header-section-number">17.2</span> The Library</h2>
 <p>sklearn <strong>does not automatically import its subpackages</strong>. Therefore all subpakcages must be specifically loaded before use.</p>
-<div class="sourceCode" id="cb1655"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1655-1"><a href="sklearn.html#cb1655-1"></a><span class="co"># Sample Data</span></span>
-<span id="cb1655-2"><a href="sklearn.html#cb1655-2"></a><span class="im">from</span> sklearn                 <span class="im">import</span> datasets</span>
-<span id="cb1655-3"><a href="sklearn.html#cb1655-3"></a></span>
-<span id="cb1655-4"><a href="sklearn.html#cb1655-4"></a><span class="co"># Model Selection</span></span>
-<span id="cb1655-5"><a href="sklearn.html#cb1655-5"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
-<span id="cb1655-6"><a href="sklearn.html#cb1655-6"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> KFold</span>
-<span id="cb1655-7"><a href="sklearn.html#cb1655-7"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> LeaveOneOut</span>
-<span id="cb1655-8"><a href="sklearn.html#cb1655-8"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_validate</span>
-<span id="cb1655-9"><a href="sklearn.html#cb1655-9"></a></span>
-<span id="cb1655-10"><a href="sklearn.html#cb1655-10"></a><span class="co"># Preprocessing</span></span>
-<span id="cb1655-11"><a href="sklearn.html#cb1655-11"></a><span class="im">from</span> sklearn.preprocessing   <span class="im">import</span> Imputer</span></code></pre></div>
+<div class="sourceCode" id="cb1654"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1654-1"><a href="sklearn.html#cb1654-1"></a><span class="co"># Sample Data</span></span>
+<span id="cb1654-2"><a href="sklearn.html#cb1654-2"></a><span class="im">from</span> sklearn                 <span class="im">import</span> datasets</span>
+<span id="cb1654-3"><a href="sklearn.html#cb1654-3"></a></span>
+<span id="cb1654-4"><a href="sklearn.html#cb1654-4"></a><span class="co"># Model Selection</span></span>
+<span id="cb1654-5"><a href="sklearn.html#cb1654-5"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb1654-6"><a href="sklearn.html#cb1654-6"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> KFold</span>
+<span id="cb1654-7"><a href="sklearn.html#cb1654-7"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> LeaveOneOut</span>
+<span id="cb1654-8"><a href="sklearn.html#cb1654-8"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_validate</span>
+<span id="cb1654-9"><a href="sklearn.html#cb1654-9"></a></span>
+<span id="cb1654-10"><a href="sklearn.html#cb1654-10"></a><span class="co"># Preprocessing</span></span>
+<span id="cb1654-11"><a href="sklearn.html#cb1654-11"></a><span class="im">from</span> sklearn.preprocessing   <span class="im">import</span> Imputer</span></code></pre></div>
 <pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): ImportError: cannot import name &#39;Imputer&#39; from &#39;sklearn.preprocessing&#39; (C:\ProgramData\Anaconda3\lib\site-packages\sklearn\preprocessing\__init__.py)
 ## 
 ## Detailed traceback: 
 ##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
-<div class="sourceCode" id="cb1657"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1657-1"><a href="sklearn.html#cb1657-1"></a><span class="im">from</span> sklearn.preprocessing   <span class="im">import</span> MinMaxScaler</span>
-<span id="cb1657-2"><a href="sklearn.html#cb1657-2"></a><span class="im">from</span> sklearn.preprocessing   <span class="im">import</span> StandardScaler</span>
-<span id="cb1657-3"><a href="sklearn.html#cb1657-3"></a><span class="im">from</span> sklearn.preprocessing   <span class="im">import</span> Normalizer</span>
-<span id="cb1657-4"><a href="sklearn.html#cb1657-4"></a><span class="im">from</span> sklearn.preprocessing   <span class="im">import</span> PolynomialFeatures</span>
-<span id="cb1657-5"><a href="sklearn.html#cb1657-5"></a></span>
-<span id="cb1657-6"><a href="sklearn.html#cb1657-6"></a><span class="co"># Model and Pipeline</span></span>
-<span id="cb1657-7"><a href="sklearn.html#cb1657-7"></a><span class="im">from</span> sklearn.linear_model    <span class="im">import</span> LinearRegression,Lasso</span>
-<span id="cb1657-8"><a href="sklearn.html#cb1657-8"></a><span class="im">from</span> sklearn.pipeline        <span class="im">import</span> make_pipeline</span>
-<span id="cb1657-9"><a href="sklearn.html#cb1657-9"></a></span>
-<span id="cb1657-10"><a href="sklearn.html#cb1657-10"></a><span class="co"># Measurement</span></span>
-<span id="cb1657-11"><a href="sklearn.html#cb1657-11"></a><span class="im">from</span> sklearn.metrics         <span class="im">import</span> <span class="op">*</span></span>
-<span id="cb1657-12"><a href="sklearn.html#cb1657-12"></a></span>
-<span id="cb1657-13"><a href="sklearn.html#cb1657-13"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span></code></pre></div>
+<div class="sourceCode" id="cb1656"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1656-1"><a href="sklearn.html#cb1656-1"></a><span class="im">from</span> sklearn.preprocessing   <span class="im">import</span> MinMaxScaler</span>
+<span id="cb1656-2"><a href="sklearn.html#cb1656-2"></a><span class="im">from</span> sklearn.preprocessing   <span class="im">import</span> StandardScaler</span>
+<span id="cb1656-3"><a href="sklearn.html#cb1656-3"></a><span class="im">from</span> sklearn.preprocessing   <span class="im">import</span> Normalizer</span>
+<span id="cb1656-4"><a href="sklearn.html#cb1656-4"></a><span class="im">from</span> sklearn.preprocessing   <span class="im">import</span> PolynomialFeatures</span>
+<span id="cb1656-5"><a href="sklearn.html#cb1656-5"></a></span>
+<span id="cb1656-6"><a href="sklearn.html#cb1656-6"></a><span class="co"># Model and Pipeline</span></span>
+<span id="cb1656-7"><a href="sklearn.html#cb1656-7"></a><span class="im">from</span> sklearn.linear_model    <span class="im">import</span> LinearRegression,Lasso</span>
+<span id="cb1656-8"><a href="sklearn.html#cb1656-8"></a><span class="im">from</span> sklearn.pipeline        <span class="im">import</span> make_pipeline</span>
+<span id="cb1656-9"><a href="sklearn.html#cb1656-9"></a></span>
+<span id="cb1656-10"><a href="sklearn.html#cb1656-10"></a><span class="co"># Measurement</span></span>
+<span id="cb1656-11"><a href="sklearn.html#cb1656-11"></a><span class="im">from</span> sklearn.metrics         <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb1656-12"><a href="sklearn.html#cb1656-12"></a></span>
+<span id="cb1656-13"><a href="sklearn.html#cb1656-13"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span></code></pre></div>
 </div>
 <div id="model-fitting" class="section level2" number="17.3">
 <h2 number="17.3"><span class="header-section-number">17.3</span> Model Fitting</h2>
@@ -1397,55 +1404,55 @@ It has useful data (array) in the form of properties:<br />
 <h3 number="17.6.1"><span class="header-section-number">17.6.1</span> diabetes (regression)</h3>
 <div id="load-dataset" class="section level4" number="17.6.1.1">
 <h4 number="17.6.1.1"><span class="header-section-number">17.6.1.1</span> Load Dataset</h4>
-<div class="sourceCode" id="cb1658"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1658-1"><a href="sklearn.html#cb1658-1"></a>diabetes <span class="op">=</span> datasets.load_diabetes()</span>
-<span id="cb1658-2"><a href="sklearn.html#cb1658-2"></a><span class="bu">print</span> (<span class="bu">type</span>(diabetes))</span></code></pre></div>
+<div class="sourceCode" id="cb1657"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1657-1"><a href="sklearn.html#cb1657-1"></a>diabetes <span class="op">=</span> datasets.load_diabetes()</span>
+<span id="cb1657-2"><a href="sklearn.html#cb1657-2"></a><span class="bu">print</span> (<span class="bu">type</span>(diabetes))</span></code></pre></div>
 <pre><code>## &lt;class &#39;sklearn.utils.Bunch&#39;&gt;</code></pre>
 </div>
 <div id="keys" class="section level4" number="17.6.1.2">
 <h4 number="17.6.1.2"><span class="header-section-number">17.6.1.2</span> keys</h4>
-<div class="sourceCode" id="cb1660"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1660-1"><a href="sklearn.html#cb1660-1"></a>diabetes.keys()</span></code></pre></div>
+<div class="sourceCode" id="cb1659"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1659-1"><a href="sklearn.html#cb1659-1"></a>diabetes.keys()</span></code></pre></div>
 <pre><code>## dict_keys([&#39;data&#39;, &#39;target&#39;, &#39;DESCR&#39;, &#39;feature_names&#39;, &#39;data_filename&#39;, &#39;target_filename&#39;])</code></pre>
 </div>
 <div id="features-and-target" class="section level4" number="17.6.1.3">
 <h4 number="17.6.1.3"><span class="header-section-number">17.6.1.3</span> Features and Target</h4>
 <p>.data = features - two dimension array<br />
 .target = target - one dimension array</p>
-<div class="sourceCode" id="cb1662"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1662-1"><a href="sklearn.html#cb1662-1"></a><span class="bu">print</span> (<span class="bu">type</span>(diabetes.data))</span></code></pre></div>
+<div class="sourceCode" id="cb1661"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1661-1"><a href="sklearn.html#cb1661-1"></a><span class="bu">print</span> (<span class="bu">type</span>(diabetes.data))</span></code></pre></div>
 <pre><code>## &lt;class &#39;numpy.ndarray&#39;&gt;</code></pre>
-<div class="sourceCode" id="cb1664"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1664-1"><a href="sklearn.html#cb1664-1"></a><span class="bu">print</span> (<span class="bu">type</span>(diabetes.target))</span></code></pre></div>
+<div class="sourceCode" id="cb1663"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1663-1"><a href="sklearn.html#cb1663-1"></a><span class="bu">print</span> (<span class="bu">type</span>(diabetes.target))</span></code></pre></div>
 <pre><code>## &lt;class &#39;numpy.ndarray&#39;&gt;</code></pre>
-<div class="sourceCode" id="cb1666"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1666-1"><a href="sklearn.html#cb1666-1"></a><span class="bu">print</span> (diabetes.data.shape)</span></code></pre></div>
+<div class="sourceCode" id="cb1665"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1665-1"><a href="sklearn.html#cb1665-1"></a><span class="bu">print</span> (diabetes.data.shape)</span></code></pre></div>
 <pre><code>## (442, 10)</code></pre>
-<div class="sourceCode" id="cb1668"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1668-1"><a href="sklearn.html#cb1668-1"></a><span class="bu">print</span> (diabetes.target.shape)</span></code></pre></div>
+<div class="sourceCode" id="cb1667"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1667-1"><a href="sklearn.html#cb1667-1"></a><span class="bu">print</span> (diabetes.target.shape)</span></code></pre></div>
 <pre><code>## (442,)</code></pre>
 </div>
 <div id="load-with-xy-convenient-method" class="section level4" number="17.6.1.4">
 <h4 number="17.6.1.4"><span class="header-section-number">17.6.1.4</span> Load with X,y (Convenient Method)</h4>
 <p>using return_X_y = True, data is loaded into X, target is loaded into y</p>
-<div class="sourceCode" id="cb1670"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1670-1"><a href="sklearn.html#cb1670-1"></a>X,y      <span class="op">=</span> datasets.load_diabetes(return_X_y<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb1671"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1671-1"><a href="sklearn.html#cb1671-1"></a><span class="bu">print</span> (X.shape)</span></code></pre></div>
+<div class="sourceCode" id="cb1669"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1669-1"><a href="sklearn.html#cb1669-1"></a>X,y      <span class="op">=</span> datasets.load_diabetes(return_X_y<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1670"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1670-1"><a href="sklearn.html#cb1670-1"></a><span class="bu">print</span> (X.shape)</span></code></pre></div>
 <pre><code>## (442, 10)</code></pre>
-<div class="sourceCode" id="cb1673"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1673-1"><a href="sklearn.html#cb1673-1"></a><span class="bu">print</span> (y.shape)</span></code></pre></div>
+<div class="sourceCode" id="cb1672"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1672-1"><a href="sklearn.html#cb1672-1"></a><span class="bu">print</span> (y.shape)</span></code></pre></div>
 <pre><code>## (442,)</code></pre>
 </div>
 </div>
 <div id="digits-classification" class="section level3" number="17.6.2">
 <h3 number="17.6.2"><span class="header-section-number">17.6.2</span> digits (Classification)</h3>
 <p>This is a copy of the test set of the UCI ML hand-written digits datasets</p>
-<div class="sourceCode" id="cb1675"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1675-1"><a href="sklearn.html#cb1675-1"></a>digits <span class="op">=</span> datasets.load_digits()</span>
-<span id="cb1675-2"><a href="sklearn.html#cb1675-2"></a><span class="bu">print</span> (<span class="bu">type</span>(digits))</span></code></pre></div>
+<div class="sourceCode" id="cb1674"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1674-1"><a href="sklearn.html#cb1674-1"></a>digits <span class="op">=</span> datasets.load_digits()</span>
+<span id="cb1674-2"><a href="sklearn.html#cb1674-2"></a><span class="bu">print</span> (<span class="bu">type</span>(digits))</span></code></pre></div>
 <pre><code>## &lt;class &#39;sklearn.utils.Bunch&#39;&gt;</code></pre>
-<div class="sourceCode" id="cb1677"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1677-1"><a href="sklearn.html#cb1677-1"></a><span class="bu">print</span> (<span class="bu">type</span>(digits.data))</span></code></pre></div>
+<div class="sourceCode" id="cb1676"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1676-1"><a href="sklearn.html#cb1676-1"></a><span class="bu">print</span> (<span class="bu">type</span>(digits.data))</span></code></pre></div>
 <pre><code>## &lt;class &#39;numpy.ndarray&#39;&gt;</code></pre>
-<div class="sourceCode" id="cb1679"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1679-1"><a href="sklearn.html#cb1679-1"></a>digits.keys()</span></code></pre></div>
+<div class="sourceCode" id="cb1678"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1678-1"><a href="sklearn.html#cb1678-1"></a>digits.keys()</span></code></pre></div>
 <pre><code>## dict_keys([&#39;data&#39;, &#39;target&#39;, &#39;target_names&#39;, &#39;images&#39;, &#39;DESCR&#39;])</code></pre>
-<div class="sourceCode" id="cb1681"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1681-1"><a href="sklearn.html#cb1681-1"></a>digits.target_names</span></code></pre></div>
+<div class="sourceCode" id="cb1680"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1680-1"><a href="sklearn.html#cb1680-1"></a>digits.target_names</span></code></pre></div>
 <pre><code>## array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</code></pre>
 <div id="data" class="section level4" number="17.6.2.1">
 <h4 number="17.6.2.1"><span class="header-section-number">17.6.2.1</span> data</h4>
-<div class="sourceCode" id="cb1683"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1683-1"><a href="sklearn.html#cb1683-1"></a>digits.data.shape  <span class="co"># features</span></span></code></pre></div>
+<div class="sourceCode" id="cb1682"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1682-1"><a href="sklearn.html#cb1682-1"></a>digits.data.shape  <span class="co"># features</span></span></code></pre></div>
 <pre><code>## (1797, 64)</code></pre>
-<div class="sourceCode" id="cb1685"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1685-1"><a href="sklearn.html#cb1685-1"></a>digits.target.shape <span class="co"># target</span></span></code></pre></div>
+<div class="sourceCode" id="cb1684"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1684-1"><a href="sklearn.html#cb1684-1"></a>digits.target.shape <span class="co"># target</span></span></code></pre></div>
 <pre><code>## (1797,)</code></pre>
 </div>
 <div id="images" class="section level4" number="17.6.2.2">
@@ -1455,14 +1462,14 @@ It has useful data (array) in the form of properties:<br />
 </li>
 <li>There are <strong>1797 samples</strong>, each sample is <strong>8x8 pixels</strong></li>
 </ul>
-<div class="sourceCode" id="cb1687"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1687-1"><a href="sklearn.html#cb1687-1"></a>digits.images.shape</span></code></pre></div>
+<div class="sourceCode" id="cb1686"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1686-1"><a href="sklearn.html#cb1686-1"></a>digits.images.shape</span></code></pre></div>
 <pre><code>## (1797, 8, 8)</code></pre>
-<div class="sourceCode" id="cb1689"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1689-1"><a href="sklearn.html#cb1689-1"></a><span class="bu">type</span>(digits.images)</span></code></pre></div>
+<div class="sourceCode" id="cb1688"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1688-1"><a href="sklearn.html#cb1688-1"></a><span class="bu">type</span>(digits.images)</span></code></pre></div>
 <pre><code>## &lt;class &#39;numpy.ndarray&#39;&gt;</code></pre>
 <p><strong>Each element represent the data that make its target</strong></p>
-<div class="sourceCode" id="cb1691"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1691-1"><a href="sklearn.html#cb1691-1"></a><span class="bu">print</span> (digits.target[<span class="dv">100</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb1690"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1690-1"><a href="sklearn.html#cb1690-1"></a><span class="bu">print</span> (digits.target[<span class="dv">100</span>])</span></code></pre></div>
 <pre><code>## 4</code></pre>
-<div class="sourceCode" id="cb1693"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1693-1"><a href="sklearn.html#cb1693-1"></a><span class="bu">print</span> (digits.images[<span class="dv">100</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb1692"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1692-1"><a href="sklearn.html#cb1692-1"></a><span class="bu">print</span> (digits.images[<span class="dv">100</span>])</span></code></pre></div>
 <pre><code>## [[ 0.  0.  0.  2. 13.  0.  0.  0.]
 ##  [ 0.  0.  0.  8. 15.  0.  0.  0.]
 ##  [ 0.  0.  5. 16.  5.  2.  0.  0.]
@@ -1471,33 +1478,33 @@ It has useful data (array) in the form of properties:<br />
 ##  [ 0.  0. 10. 14. 16. 16.  4.  0.]
 ##  [ 0.  0.  0.  0. 13.  8.  0.  0.]
 ##  [ 0.  0.  0.  0. 13.  6.  0.  0.]]</code></pre>
-<div class="sourceCode" id="cb1695"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1695-1"><a href="sklearn.html#cb1695-1"></a>plt.matshow(digits.images[<span class="dv">100</span>]) </span></code></pre></div>
+<div class="sourceCode" id="cb1694"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1694-1"><a href="sklearn.html#cb1694-1"></a>plt.matshow(digits.images[<span class="dv">100</span>]) </span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-699-1.png" /><!-- --></p>
 </div>
 <div id="loading-into-xy-convenient-method" class="section level4" number="17.6.2.3">
 <h4 number="17.6.2.3"><span class="header-section-number">17.6.2.3</span> Loading Into X,y (Convenient Method)</h4>
-<div class="sourceCode" id="cb1696"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1696-1"><a href="sklearn.html#cb1696-1"></a>X,y <span class="op">=</span> datasets.load_digits(return_X_y<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb1697"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1697-1"><a href="sklearn.html#cb1697-1"></a>X.shape</span></code></pre></div>
+<div class="sourceCode" id="cb1695"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1695-1"><a href="sklearn.html#cb1695-1"></a>X,y <span class="op">=</span> datasets.load_digits(return_X_y<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1696"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1696-1"><a href="sklearn.html#cb1696-1"></a>X.shape</span></code></pre></div>
 <pre><code>## (1797, 64)</code></pre>
-<div class="sourceCode" id="cb1699"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1699-1"><a href="sklearn.html#cb1699-1"></a>y.shape</span></code></pre></div>
+<div class="sourceCode" id="cb1698"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1698-1"><a href="sklearn.html#cb1698-1"></a>y.shape</span></code></pre></div>
 <pre><code>## (1797,)</code></pre>
 </div>
 </div>
 <div id="iris-classification" class="section level3" number="17.6.3">
 <h3 number="17.6.3"><span class="header-section-number">17.6.3</span> iris (Classification)</h3>
-<div class="sourceCode" id="cb1701"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1701-1"><a href="sklearn.html#cb1701-1"></a>iris <span class="op">=</span> datasets.load_iris()</span></code></pre></div>
-<div class="sourceCode" id="cb1702"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1702-1"><a href="sklearn.html#cb1702-1"></a>iris.keys()</span></code></pre></div>
+<div class="sourceCode" id="cb1700"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1700-1"><a href="sklearn.html#cb1700-1"></a>iris <span class="op">=</span> datasets.load_iris()</span></code></pre></div>
+<div class="sourceCode" id="cb1701"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1701-1"><a href="sklearn.html#cb1701-1"></a>iris.keys()</span></code></pre></div>
 <pre><code>## dict_keys([&#39;data&#39;, &#39;target&#39;, &#39;target_names&#39;, &#39;DESCR&#39;, &#39;feature_names&#39;, &#39;filename&#39;])</code></pre>
 <div id="feature-names" class="section level4" number="17.6.3.1">
 <h4 number="17.6.3.1"><span class="header-section-number">17.6.3.1</span> Feature Names</h4>
-<div class="sourceCode" id="cb1704"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1704-1"><a href="sklearn.html#cb1704-1"></a>iris.feature_names</span></code></pre></div>
+<div class="sourceCode" id="cb1703"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1703-1"><a href="sklearn.html#cb1703-1"></a>iris.feature_names</span></code></pre></div>
 <pre><code>## [&#39;sepal length (cm)&#39;, &#39;sepal width (cm)&#39;, &#39;petal length (cm)&#39;, &#39;petal width (cm)&#39;]</code></pre>
 </div>
 <div id="target" class="section level4" number="17.6.3.2">
 <h4 number="17.6.3.2"><span class="header-section-number">17.6.3.2</span> target</h4>
-<div class="sourceCode" id="cb1706"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1706-1"><a href="sklearn.html#cb1706-1"></a>iris.target_names</span></code></pre></div>
+<div class="sourceCode" id="cb1705"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1705-1"><a href="sklearn.html#cb1705-1"></a>iris.target_names</span></code></pre></div>
 <pre><code>## array([&#39;setosa&#39;, &#39;versicolor&#39;, &#39;virginica&#39;], dtype=&#39;&lt;U10&#39;)</code></pre>
-<div class="sourceCode" id="cb1708"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1708-1"><a href="sklearn.html#cb1708-1"></a>iris.target</span></code></pre></div>
+<div class="sourceCode" id="cb1707"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1707-1"><a href="sklearn.html#cb1707-1"></a>iris.target</span></code></pre></div>
 <pre><code>## array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 ##        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 ##        0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
@@ -1513,20 +1520,20 @@ It has useful data (array) in the form of properties:<br />
 <div id="sample-data-18" class="section level3" number="17.7.1">
 <h3 number="17.7.1"><span class="header-section-number">17.7.1</span> Sample Data</h3>
 <p>Generate 100 rows of data, with 3x features (X1,X2,X3), and one dependant variable (Y)</p>
-<div class="sourceCode" id="cb1710"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1710-1"><a href="sklearn.html#cb1710-1"></a>n <span class="op">=</span> <span class="dv">21</span>  <span class="co"># number of samples</span></span>
-<span id="cb1710-2"><a href="sklearn.html#cb1710-2"></a>I <span class="op">=</span> <span class="dv">5</span>  <span class="co"># intercept value</span></span>
-<span id="cb1710-3"><a href="sklearn.html#cb1710-3"></a>E <span class="op">=</span> np.random.randint( <span class="dv">1</span>,<span class="dv">20</span>, n)  <span class="co"># Error</span></span>
-<span id="cb1710-4"><a href="sklearn.html#cb1710-4"></a>x1 <span class="op">=</span> np.random.randint( <span class="dv">1</span>,n<span class="op">+</span><span class="dv">1</span>, n)</span>
-<span id="cb1710-5"><a href="sklearn.html#cb1710-5"></a>x2 <span class="op">=</span> np.random.randint( <span class="dv">1</span>,n<span class="op">+</span><span class="dv">1</span>, n)</span>
-<span id="cb1710-6"><a href="sklearn.html#cb1710-6"></a>x3 <span class="op">=</span> np.random.randint( <span class="dv">1</span>,n<span class="op">+</span><span class="dv">1</span>, n)</span>
-<span id="cb1710-7"><a href="sklearn.html#cb1710-7"></a>y <span class="op">=</span> <span class="fl">0.1</span><span class="op">*</span>x1 <span class="op">+</span> <span class="fl">0.2</span><span class="op">*</span>x2 <span class="op">+</span> <span class="fl">0.3</span><span class="op">*</span>x3 <span class="op">+</span> E <span class="op">+</span> I</span>
-<span id="cb1710-8"><a href="sklearn.html#cb1710-8"></a>mydf <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb1710-9"><a href="sklearn.html#cb1710-9"></a>    <span class="st">&#39;y&#39;</span>:y,</span>
-<span id="cb1710-10"><a href="sklearn.html#cb1710-10"></a>    <span class="st">&#39;x1&#39;</span>:x1,</span>
-<span id="cb1710-11"><a href="sklearn.html#cb1710-11"></a>    <span class="st">&#39;x2&#39;</span>:x2,</span>
-<span id="cb1710-12"><a href="sklearn.html#cb1710-12"></a>    <span class="st">&#39;x3&#39;</span>:x3</span>
-<span id="cb1710-13"><a href="sklearn.html#cb1710-13"></a>})</span>
-<span id="cb1710-14"><a href="sklearn.html#cb1710-14"></a>mydf.shape</span></code></pre></div>
+<div class="sourceCode" id="cb1709"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1709-1"><a href="sklearn.html#cb1709-1"></a>n <span class="op">=</span> <span class="dv">21</span>  <span class="co"># number of samples</span></span>
+<span id="cb1709-2"><a href="sklearn.html#cb1709-2"></a>I <span class="op">=</span> <span class="dv">5</span>  <span class="co"># intercept value</span></span>
+<span id="cb1709-3"><a href="sklearn.html#cb1709-3"></a>E <span class="op">=</span> np.random.randint( <span class="dv">1</span>,<span class="dv">20</span>, n)  <span class="co"># Error</span></span>
+<span id="cb1709-4"><a href="sklearn.html#cb1709-4"></a>x1 <span class="op">=</span> np.random.randint( <span class="dv">1</span>,n<span class="op">+</span><span class="dv">1</span>, n)</span>
+<span id="cb1709-5"><a href="sklearn.html#cb1709-5"></a>x2 <span class="op">=</span> np.random.randint( <span class="dv">1</span>,n<span class="op">+</span><span class="dv">1</span>, n)</span>
+<span id="cb1709-6"><a href="sklearn.html#cb1709-6"></a>x3 <span class="op">=</span> np.random.randint( <span class="dv">1</span>,n<span class="op">+</span><span class="dv">1</span>, n)</span>
+<span id="cb1709-7"><a href="sklearn.html#cb1709-7"></a>y <span class="op">=</span> <span class="fl">0.1</span><span class="op">*</span>x1 <span class="op">+</span> <span class="fl">0.2</span><span class="op">*</span>x2 <span class="op">+</span> <span class="fl">0.3</span><span class="op">*</span>x3 <span class="op">+</span> E <span class="op">+</span> I</span>
+<span id="cb1709-8"><a href="sklearn.html#cb1709-8"></a>mydf <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb1709-9"><a href="sklearn.html#cb1709-9"></a>    <span class="st">&#39;y&#39;</span>:y,</span>
+<span id="cb1709-10"><a href="sklearn.html#cb1709-10"></a>    <span class="st">&#39;x1&#39;</span>:x1,</span>
+<span id="cb1709-11"><a href="sklearn.html#cb1709-11"></a>    <span class="st">&#39;x2&#39;</span>:x2,</span>
+<span id="cb1709-12"><a href="sklearn.html#cb1709-12"></a>    <span class="st">&#39;x3&#39;</span>:x3</span>
+<span id="cb1709-13"><a href="sklearn.html#cb1709-13"></a>})</span>
+<span id="cb1709-14"><a href="sklearn.html#cb1709-14"></a>mydf.shape</span></code></pre></div>
 <pre><code>## (21, 4)</code></pre>
 </div>
 <div id="one-time-split" class="section level3" number="17.7.2">
@@ -1534,7 +1541,7 @@ It has useful data (array) in the form of properties:<br />
 <p>sklearn::train_test_split() has two forms:
 - Take one DF, split into 2 DF (most of sklearn modeling use this method
 - Take two DFs, split into 4 DF</p>
-<div class="sourceCode" id="cb1712"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1712-1"><a href="sklearn.html#cb1712-1"></a>mydf.head()</span></code></pre></div>
+<div class="sourceCode" id="cb1711"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1711-1"><a href="sklearn.html#cb1711-1"></a>mydf.head()</span></code></pre></div>
 <pre><code>##       y  x1  x2  x3
 ## 0  14.4  14   7  12
 ## 1  14.3  18   5   5
@@ -1550,10 +1557,10 @@ It has useful data (array) in the form of properties:<br />
 <img src="img/train_test_split_1.jpg" alt="" />
 <p class="caption">split</p>
 </div>
-<div class="sourceCode" id="cb1715"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1715-1"><a href="sklearn.html#cb1715-1"></a>traindf, testdf <span class="op">=</span> train_test_split(mydf,test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">25</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb1716"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1716-1"><a href="sklearn.html#cb1716-1"></a><span class="bu">print</span> (<span class="bu">len</span>(traindf))</span></code></pre></div>
+<div class="sourceCode" id="cb1714"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1714-1"><a href="sklearn.html#cb1714-1"></a>traindf, testdf <span class="op">=</span> train_test_split(mydf,test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">25</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1715"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1715-1"><a href="sklearn.html#cb1715-1"></a><span class="bu">print</span> (<span class="bu">len</span>(traindf))</span></code></pre></div>
 <pre><code>## 16</code></pre>
-<div class="sourceCode" id="cb1718"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1718-1"><a href="sklearn.html#cb1718-1"></a><span class="bu">print</span> (<span class="bu">len</span>(testdf))</span></code></pre></div>
+<div class="sourceCode" id="cb1717"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1717-1"><a href="sklearn.html#cb1717-1"></a><span class="bu">print</span> (<span class="bu">len</span>(testdf))</span></code></pre></div>
 <pre><code>## 5</code></pre>
 </div>
 <div id="method-2-split-two-dataframe-xy-into-four-x_traintest-y_traintest" class="section level4" number="17.7.2.2">
@@ -1566,14 +1573,14 @@ It has useful data (array) in the form of properties:<br />
 <p class="caption">split</p>
 </div>
 <p><strong>Split DataFrame into X and Y First</strong></p>
-<div class="sourceCode" id="cb1721"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1721-1"><a href="sklearn.html#cb1721-1"></a>feature_cols <span class="op">=</span> [<span class="st">&#39;x1&#39;</span>,<span class="st">&#39;x2&#39;</span>,<span class="st">&#39;x3&#39;</span>]</span>
-<span id="cb1721-2"><a href="sklearn.html#cb1721-2"></a>X <span class="op">=</span> mydf[feature_cols]</span>
-<span id="cb1721-3"><a href="sklearn.html#cb1721-3"></a>Y <span class="op">=</span> mydf.y</span></code></pre></div>
+<div class="sourceCode" id="cb1720"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1720-1"><a href="sklearn.html#cb1720-1"></a>feature_cols <span class="op">=</span> [<span class="st">&#39;x1&#39;</span>,<span class="st">&#39;x2&#39;</span>,<span class="st">&#39;x3&#39;</span>]</span>
+<span id="cb1720-2"><a href="sklearn.html#cb1720-2"></a>X <span class="op">=</span> mydf[feature_cols]</span>
+<span id="cb1720-3"><a href="sklearn.html#cb1720-3"></a>Y <span class="op">=</span> mydf.y</span></code></pre></div>
 <p><strong>Then Split X/Y into x_train/test, y_train/test</strong></p>
-<div class="sourceCode" id="cb1722"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1722-1"><a href="sklearn.html#cb1722-1"></a>x_train, x_test, y_train, y_test <span class="op">=</span> train_test_split( X,Y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">25</span>)</span>
-<span id="cb1722-2"><a href="sklearn.html#cb1722-2"></a><span class="bu">print</span> (<span class="bu">len</span>(x_train))</span></code></pre></div>
+<div class="sourceCode" id="cb1721"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1721-1"><a href="sklearn.html#cb1721-1"></a>x_train, x_test, y_train, y_test <span class="op">=</span> train_test_split( X,Y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">25</span>)</span>
+<span id="cb1721-2"><a href="sklearn.html#cb1721-2"></a><span class="bu">print</span> (<span class="bu">len</span>(x_train))</span></code></pre></div>
 <pre><code>## 16</code></pre>
-<div class="sourceCode" id="cb1724"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1724-1"><a href="sklearn.html#cb1724-1"></a><span class="bu">print</span> (<span class="bu">len</span>(x_test))</span></code></pre></div>
+<div class="sourceCode" id="cb1723"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1723-1"><a href="sklearn.html#cb1723-1"></a><span class="bu">print</span> (<span class="bu">len</span>(x_test))</span></code></pre></div>
 <pre><code>## 5</code></pre>
 </div>
 </div>
@@ -1585,9 +1592,9 @@ It has useful data (array) in the form of properties:<br />
 <p class="caption">split</p>
 </div>
 <p><strong>suffle=False</strong> (default), meaning index number is taken continously</p>
-<div class="sourceCode" id="cb1727"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1727-1"><a href="sklearn.html#cb1727-1"></a>kf <span class="op">=</span> KFold(n_splits<span class="op">=</span><span class="dv">7</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb1728"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1728-1"><a href="sklearn.html#cb1728-1"></a><span class="cf">for</span> train_index, test_index <span class="kw">in</span> kf.split(X):</span>
-<span id="cb1728-2"><a href="sklearn.html#cb1728-2"></a>  <span class="bu">print</span> (train_index, test_index)</span></code></pre></div>
+<div class="sourceCode" id="cb1726"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1726-1"><a href="sklearn.html#cb1726-1"></a>kf <span class="op">=</span> KFold(n_splits<span class="op">=</span><span class="dv">7</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1727"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1727-1"><a href="sklearn.html#cb1727-1"></a><span class="cf">for</span> train_index, test_index <span class="kw">in</span> kf.split(X):</span>
+<span id="cb1727-2"><a href="sklearn.html#cb1727-2"></a>  <span class="bu">print</span> (train_index, test_index)</span></code></pre></div>
 <pre><code>## [ 3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20] [0 1 2]
 ## [ 0  1  2  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20] [3 4 5]
 ## [ 0  1  2  3  4  5  9 10 11 12 13 14 15 16 17 18 19 20] [6 7 8]
@@ -1596,9 +1603,9 @@ It has useful data (array) in the form of properties:<br />
 ## [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 18 19 20] [15 16 17]
 ## [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17] [18 19 20]</code></pre>
 <p><strong>shuffle=True</strong></p>
-<div class="sourceCode" id="cb1730"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1730-1"><a href="sklearn.html#cb1730-1"></a>kf <span class="op">=</span> KFold(n_splits<span class="op">=</span><span class="dv">7</span>, shuffle<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb1731"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1731-1"><a href="sklearn.html#cb1731-1"></a><span class="cf">for</span> train_index, test_index <span class="kw">in</span> kf.split(X):</span>
-<span id="cb1731-2"><a href="sklearn.html#cb1731-2"></a>  <span class="bu">print</span> (train_index, test_index)</span></code></pre></div>
+<div class="sourceCode" id="cb1729"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1729-1"><a href="sklearn.html#cb1729-1"></a>kf <span class="op">=</span> KFold(n_splits<span class="op">=</span><span class="dv">7</span>, shuffle<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1730"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1730-1"><a href="sklearn.html#cb1730-1"></a><span class="cf">for</span> train_index, test_index <span class="kw">in</span> kf.split(X):</span>
+<span id="cb1730-2"><a href="sklearn.html#cb1730-2"></a>  <span class="bu">print</span> (train_index, test_index)</span></code></pre></div>
 <pre><code>## [ 0  1  2  3  4  6  7  8  9 10 11 12 13 14 15 16 17 19] [ 5 18 20]
 ## [ 0  1  3  4  5  6  7  8 10 11 12 13 15 16 17 18 19 20] [ 2  9 14]
 ## [ 0  1  2  3  4  5  6  7  8  9 11 12 14 15 16 17 18 20] [10 13 19]
@@ -1614,9 +1621,9 @@ It has useful data (array) in the form of properties:<br />
 </li>
 <li>Due to the <strong>high number of test sets</strong> (which is the same as the number of samples-1) this cross-validation method can be very costly. For large datasets one should favor KFold.</li>
 </ul>
-<div class="sourceCode" id="cb1733"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1733-1"><a href="sklearn.html#cb1733-1"></a>loo <span class="op">=</span> LeaveOneOut()</span></code></pre></div>
-<div class="sourceCode" id="cb1734"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1734-1"><a href="sklearn.html#cb1734-1"></a><span class="cf">for</span> train_index, test_index <span class="kw">in</span> loo.split(X):</span>
-<span id="cb1734-2"><a href="sklearn.html#cb1734-2"></a>  <span class="bu">print</span> (train_index, test_index)</span></code></pre></div>
+<div class="sourceCode" id="cb1732"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1732-1"><a href="sklearn.html#cb1732-1"></a>loo <span class="op">=</span> LeaveOneOut()</span></code></pre></div>
+<div class="sourceCode" id="cb1733"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1733-1"><a href="sklearn.html#cb1733-1"></a><span class="cf">for</span> train_index, test_index <span class="kw">in</span> loo.split(X):</span>
+<span id="cb1733-2"><a href="sklearn.html#cb1733-2"></a>  <span class="bu">print</span> (train_index, test_index)</span></code></pre></div>
 <pre><code>## [ 1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20] [0]
 ## [ 0  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20] [1]
 ## [ 0  1  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20] [2]
@@ -1638,7 +1645,7 @@ It has useful data (array) in the form of properties:<br />
 ## [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 19 20] [18]
 ## [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 20] [19]
 ## [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19] [20]</code></pre>
-<div class="sourceCode" id="cb1736"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1736-1"><a href="sklearn.html#cb1736-1"></a>X</span></code></pre></div>
+<div class="sourceCode" id="cb1735"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1735-1"><a href="sklearn.html#cb1735-1"></a>X</span></code></pre></div>
 <pre><code>##     x1  x2  x3
 ## 0   14   7  12
 ## 1   18   5   5
@@ -1663,9 +1670,9 @@ It has useful data (array) in the form of properties:<br />
 <div id="sample-data-19" class="section level4" number="17.8.1.1">
 <h4 number="17.8.1.1"><span class="header-section-number">17.8.1.1</span> Sample Data</h4>
 <p>Data must be 2-D before polynomial features can be applied. Code below convert 1D array into 2D array.</p>
-<div class="sourceCode" id="cb1738"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1738-1"><a href="sklearn.html#cb1738-1"></a>x <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
-<span id="cb1738-2"><a href="sklearn.html#cb1738-2"></a>X <span class="op">=</span> x[:,np.newaxis]</span>
-<span id="cb1738-3"><a href="sklearn.html#cb1738-3"></a>X</span></code></pre></div>
+<div class="sourceCode" id="cb1737"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1737-1"><a href="sklearn.html#cb1737-1"></a>x <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
+<span id="cb1737-2"><a href="sklearn.html#cb1737-2"></a>X <span class="op">=</span> x[:,np.newaxis]</span>
+<span id="cb1737-3"><a href="sklearn.html#cb1737-3"></a>X</span></code></pre></div>
 <pre><code>## array([[1],
 ##        [2],
 ##        [3],
@@ -1675,7 +1682,7 @@ It has useful data (array) in the form of properties:<br />
 <div id="degree-1" class="section level4" number="17.8.1.2">
 <h4 number="17.8.1.2"><span class="header-section-number">17.8.1.2</span> Degree 1</h4>
 <p>One Degree means maintain original features. No new features is created.</p>
-<div class="sourceCode" id="cb1740"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1740-1"><a href="sklearn.html#cb1740-1"></a>PolynomialFeatures(degree<span class="op">=</span><span class="dv">1</span>, include_bias<span class="op">=</span><span class="va">False</span>).fit_transform(X)</span></code></pre></div>
+<div class="sourceCode" id="cb1739"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1739-1"><a href="sklearn.html#cb1739-1"></a>PolynomialFeatures(degree<span class="op">=</span><span class="dv">1</span>, include_bias<span class="op">=</span><span class="va">False</span>).fit_transform(X)</span></code></pre></div>
 <pre><code>## array([[1.],
 ##        [2.],
 ##        [3.],
@@ -1686,7 +1693,7 @@ It has useful data (array) in the form of properties:<br />
 <h4 number="17.8.1.3"><span class="header-section-number">17.8.1.3</span> Degree 2</h4>
 <p>Degree-1 original feature: x<br />
 Degree-2 additional features: x^2</p>
-<div class="sourceCode" id="cb1742"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1742-1"><a href="sklearn.html#cb1742-1"></a>PolynomialFeatures(degree<span class="op">=</span><span class="dv">2</span>, include_bias<span class="op">=</span><span class="va">False</span>).fit_transform(X)</span></code></pre></div>
+<div class="sourceCode" id="cb1741"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1741-1"><a href="sklearn.html#cb1741-1"></a>PolynomialFeatures(degree<span class="op">=</span><span class="dv">2</span>, include_bias<span class="op">=</span><span class="va">False</span>).fit_transform(X)</span></code></pre></div>
 <pre><code>## array([[ 1.,  1.],
 ##        [ 2.,  4.],
 ##        [ 3.,  9.],
@@ -1698,7 +1705,7 @@ Degree-2 additional features: x^2</p>
 <p>Degree-1 original feature: x<br />
 Degree-2 additional features: x^2<br />
 Degree-3 additional features: x^3</p>
-<div class="sourceCode" id="cb1744"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1744-1"><a href="sklearn.html#cb1744-1"></a>PolynomialFeatures(degree<span class="op">=</span><span class="dv">3</span>, include_bias<span class="op">=</span><span class="va">False</span>).fit_transform(X)</span></code></pre></div>
+<div class="sourceCode" id="cb1743"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1743-1"><a href="sklearn.html#cb1743-1"></a>PolynomialFeatures(degree<span class="op">=</span><span class="dv">3</span>, include_bias<span class="op">=</span><span class="va">False</span>).fit_transform(X)</span></code></pre></div>
 <pre><code>## array([[  1.,   1.,   1.],
 ##        [  2.,   4.,   8.],
 ##        [  3.,   9.,  27.],
@@ -1711,7 +1718,7 @@ Degree-3 additional features: x^3</p>
 Degree-2 additional features: x^2<br />
 Degree-3 additional features: x^3<br />
 Degree-3 additional features: x^4</p>
-<div class="sourceCode" id="cb1746"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1746-1"><a href="sklearn.html#cb1746-1"></a>PolynomialFeatures(degree<span class="op">=</span><span class="dv">4</span>, include_bias<span class="op">=</span><span class="va">False</span>).fit_transform(X)</span></code></pre></div>
+<div class="sourceCode" id="cb1745"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1745-1"><a href="sklearn.html#cb1745-1"></a>PolynomialFeatures(degree<span class="op">=</span><span class="dv">4</span>, include_bias<span class="op">=</span><span class="va">False</span>).fit_transform(X)</span></code></pre></div>
 <pre><code>## array([[  1.,   1.,   1.,   1.],
 ##        [  2.,   4.,   8.,  16.],
 ##        [  3.,   9.,  27.,  81.],
@@ -1723,9 +1730,9 @@ Degree-3 additional features: x^4</p>
 <h3 number="17.8.2"><span class="header-section-number">17.8.2</span> Two Variables</h3>
 <div id="sample-data-20" class="section level4" number="17.8.2.1">
 <h4 number="17.8.2.1"><span class="header-section-number">17.8.2.1</span> Sample Data</h4>
-<div class="sourceCode" id="cb1748"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1748-1"><a href="sklearn.html#cb1748-1"></a>X <span class="op">=</span> pd.DataFrame( {<span class="st">&#39;x1&#39;</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span> ],</span>
-<span id="cb1748-2"><a href="sklearn.html#cb1748-2"></a>                   <span class="st">&#39;x2&#39;</span>: [<span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>]})</span>
-<span id="cb1748-3"><a href="sklearn.html#cb1748-3"></a>X</span></code></pre></div>
+<div class="sourceCode" id="cb1747"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1747-1"><a href="sklearn.html#cb1747-1"></a>X <span class="op">=</span> pd.DataFrame( {<span class="st">&#39;x1&#39;</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span> ],</span>
+<span id="cb1747-2"><a href="sklearn.html#cb1747-2"></a>                   <span class="st">&#39;x2&#39;</span>: [<span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>]})</span>
+<span id="cb1747-3"><a href="sklearn.html#cb1747-3"></a>X</span></code></pre></div>
 <pre><code>##    x1  x2
 ## 0   1   6
 ## 1   2   7
@@ -1737,7 +1744,7 @@ Degree-3 additional features: x^4</p>
 <h4 number="17.8.2.2"><span class="header-section-number">17.8.2.2</span> Degree 2</h4>
 <pre><code>Degree-1 original   features:  x1,     x2  
 Degree-2 additional features:  x1^2,   x2^2,   x1:x2 </code></pre>
-<div class="sourceCode" id="cb1751"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1751-1"><a href="sklearn.html#cb1751-1"></a>PolynomialFeatures(degree<span class="op">=</span><span class="dv">2</span>, include_bias<span class="op">=</span><span class="va">False</span>).fit_transform(X)</span></code></pre></div>
+<div class="sourceCode" id="cb1750"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1750-1"><a href="sklearn.html#cb1750-1"></a>PolynomialFeatures(degree<span class="op">=</span><span class="dv">2</span>, include_bias<span class="op">=</span><span class="va">False</span>).fit_transform(X)</span></code></pre></div>
 <pre><code>## array([[  1.,   6.,   1.,   6.,  36.],
 ##        [  2.,   7.,   4.,  14.,  49.],
 ##        [  3.,   8.,   9.,  24.,  64.],
@@ -1749,7 +1756,7 @@ Degree-2 additional features:  x1^2,   x2^2,   x1:x2 </code></pre>
 <pre><code>Degree-1 original   features:  x1,       x2  
 Degree-2 additional features:  x1^2,     x2^2,   x1:x2 
 Degree-3 additional features:  x1^3,     x2^3    x1:x2^2    x2:x1^2</code></pre>
-<div class="sourceCode" id="cb1754"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1754-1"><a href="sklearn.html#cb1754-1"></a>PolynomialFeatures(degree<span class="op">=</span><span class="dv">3</span>, include_bias<span class="op">=</span><span class="va">False</span>).fit_transform(X)</span></code></pre></div>
+<div class="sourceCode" id="cb1753"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1753-1"><a href="sklearn.html#cb1753-1"></a>PolynomialFeatures(degree<span class="op">=</span><span class="dv">3</span>, include_bias<span class="op">=</span><span class="va">False</span>).fit_transform(X)</span></code></pre></div>
 <pre><code>## array([[   1.,    6.,    1.,    6.,   36.,    1.,    6.,   36.,  216.],
 ##        [   2.,    7.,    4.,   14.,   49.,    8.,   28.,   98.,  343.],
 ##        [   3.,    8.,    9.,   24.,   64.,   27.,   72.,  192.,  512.],
@@ -1762,30 +1769,30 @@ Degree-3 additional features:  x1^3,     x2^3    x1:x2^2    x2:x1^2</code></pre>
 <h2 number="17.9"><span class="header-section-number">17.9</span> Imputation of Missing Data</h2>
 <div id="sample-data-21" class="section level3" number="17.9.1">
 <h3 number="17.9.1"><span class="header-section-number">17.9.1</span> Sample Data</h3>
-<div class="sourceCode" id="cb1756"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1756-1"><a href="sklearn.html#cb1756-1"></a><span class="im">from</span> numpy <span class="im">import</span> nan</span>
-<span id="cb1756-2"><a href="sklearn.html#cb1756-2"></a>X <span class="op">=</span> np.array([[ nan, <span class="dv">0</span>,   <span class="dv">3</span>  ],</span>
-<span id="cb1756-3"><a href="sklearn.html#cb1756-3"></a>              [ <span class="dv">3</span>,   <span class="dv">7</span>,   <span class="dv">9</span>  ],</span>
-<span id="cb1756-4"><a href="sklearn.html#cb1756-4"></a>              [ <span class="dv">3</span>,   <span class="dv">5</span>,   <span class="dv">2</span>  ],</span>
-<span id="cb1756-5"><a href="sklearn.html#cb1756-5"></a>              [ <span class="dv">4</span>,   nan, <span class="dv">6</span>  ],</span>
-<span id="cb1756-6"><a href="sklearn.html#cb1756-6"></a>              [ <span class="dv">8</span>,   <span class="dv">8</span>,   <span class="dv">1</span>  ]])</span>
-<span id="cb1756-7"><a href="sklearn.html#cb1756-7"></a></span>
-<span id="cb1756-8"><a href="sklearn.html#cb1756-8"></a>y <span class="op">=</span> np.array([<span class="dv">14</span>, <span class="dv">16</span>, <span class="dv">-1</span>,  <span class="dv">8</span>, <span class="dv">-5</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb1755"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1755-1"><a href="sklearn.html#cb1755-1"></a><span class="im">from</span> numpy <span class="im">import</span> nan</span>
+<span id="cb1755-2"><a href="sklearn.html#cb1755-2"></a>X <span class="op">=</span> np.array([[ nan, <span class="dv">0</span>,   <span class="dv">3</span>  ],</span>
+<span id="cb1755-3"><a href="sklearn.html#cb1755-3"></a>              [ <span class="dv">3</span>,   <span class="dv">7</span>,   <span class="dv">9</span>  ],</span>
+<span id="cb1755-4"><a href="sklearn.html#cb1755-4"></a>              [ <span class="dv">3</span>,   <span class="dv">5</span>,   <span class="dv">2</span>  ],</span>
+<span id="cb1755-5"><a href="sklearn.html#cb1755-5"></a>              [ <span class="dv">4</span>,   nan, <span class="dv">6</span>  ],</span>
+<span id="cb1755-6"><a href="sklearn.html#cb1755-6"></a>              [ <span class="dv">8</span>,   <span class="dv">8</span>,   <span class="dv">1</span>  ]])</span>
+<span id="cb1755-7"><a href="sklearn.html#cb1755-7"></a></span>
+<span id="cb1755-8"><a href="sklearn.html#cb1755-8"></a>y <span class="op">=</span> np.array([<span class="dv">14</span>, <span class="dv">16</span>, <span class="dv">-1</span>,  <span class="dv">8</span>, <span class="dv">-5</span>])</span></code></pre></div>
 </div>
 <div id="imputer" class="section level3" number="17.9.2">
 <h3 number="17.9.2"><span class="header-section-number">17.9.2</span> Imputer</h3>
 <div id="mean-strategy" class="section level4" number="17.9.2.1">
 <h4 number="17.9.2.1"><span class="header-section-number">17.9.2.1</span> mean strategy</h4>
-<div class="sourceCode" id="cb1757"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1757-1"><a href="sklearn.html#cb1757-1"></a>imp <span class="op">=</span> Imputer(strategy<span class="op">=</span><span class="st">&#39;mean&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1756"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1756-1"><a href="sklearn.html#cb1756-1"></a>imp <span class="op">=</span> Imputer(strategy<span class="op">=</span><span class="st">&#39;mean&#39;</span>)</span></code></pre></div>
 <pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;Imputer&#39; is not defined
 ## 
 ## Detailed traceback: 
 ##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
-<div class="sourceCode" id="cb1759"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1759-1"><a href="sklearn.html#cb1759-1"></a>X2 <span class="op">=</span> imp.fit_transform(X)</span></code></pre></div>
+<div class="sourceCode" id="cb1758"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1758-1"><a href="sklearn.html#cb1758-1"></a>X2 <span class="op">=</span> imp.fit_transform(X)</span></code></pre></div>
 <pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;imp&#39; is not defined
 ## 
 ## Detailed traceback: 
 ##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
-<div class="sourceCode" id="cb1761"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1761-1"><a href="sklearn.html#cb1761-1"></a>X2</span></code></pre></div>
+<div class="sourceCode" id="cb1760"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1760-1"><a href="sklearn.html#cb1760-1"></a>X2</span></code></pre></div>
 <pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;X2&#39; is not defined
 ## 
 ## Detailed traceback: 
@@ -1799,8 +1806,8 @@ Degree-3 additional features:  x1^3,     x2^3    x1:x2^2    x2:x1^2</code></pre>
 We can remove this problem by scaling down all the features to a same range.</p>
 <div id="sample-data-22" class="section level3" number="17.10.1">
 <h3 number="17.10.1"><span class="header-section-number">17.10.1</span> Sample Data</h3>
-<div class="sourceCode" id="cb1763"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1763-1"><a href="sklearn.html#cb1763-1"></a>X<span class="op">=</span>mydf.<span class="bu">filter</span>(like<span class="op">=</span><span class="st">&#39;x&#39;</span>)[:<span class="dv">5</span>]</span>
-<span id="cb1763-2"><a href="sklearn.html#cb1763-2"></a>X</span></code></pre></div>
+<div class="sourceCode" id="cb1762"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1762-1"><a href="sklearn.html#cb1762-1"></a>X<span class="op">=</span>mydf.<span class="bu">filter</span>(like<span class="op">=</span><span class="st">&#39;x&#39;</span>)[:<span class="dv">5</span>]</span>
+<span id="cb1762-2"><a href="sklearn.html#cb1762-2"></a>X</span></code></pre></div>
 <pre><code>##    x1  x2  x3
 ## 0  14   7  12
 ## 1  18   5   5
@@ -1814,9 +1821,9 @@ We can remove this problem by scaling down all the features to a same range.</p>
 # default feature range (output result) from 0 to 1
 # default return a copy of new array, copy=False will inplace original array</code></pre>
 <p><strong>Define Scaler Object</strong></p>
-<div class="sourceCode" id="cb1766"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1766-1"><a href="sklearn.html#cb1766-1"></a>scaler <span class="op">=</span> MinMaxScaler()</span></code></pre></div>
+<div class="sourceCode" id="cb1765"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1765-1"><a href="sklearn.html#cb1765-1"></a>scaler <span class="op">=</span> MinMaxScaler()</span></code></pre></div>
 <p><strong>Transform Data</strong></p>
-<div class="sourceCode" id="cb1767"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1767-1"><a href="sklearn.html#cb1767-1"></a>scaler.fit_transform(X)</span></code></pre></div>
+<div class="sourceCode" id="cb1766"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1766-1"><a href="sklearn.html#cb1766-1"></a>scaler.fit_transform(X)</span></code></pre></div>
 <pre><code>## array([[0.73333333, 0.125     , 1.        ],
 ##        [1.        , 0.        , 0.36363636],
 ##        [0.73333333, 0.375     , 0.45454545],
@@ -1825,9 +1832,9 @@ We can remove this problem by scaling down all the features to a same range.</p>
 <p><strong>Scaler Attributes</strong></p>
 <pre><code>data_min_: minimum value of the feature (before scaling)  
 data_max_: maximum value of the feature (before scaling)  </code></pre>
-<div class="sourceCode" id="cb1770"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1770-1"><a href="sklearn.html#cb1770-1"></a>pd.DataFrame(<span class="bu">list</span>(<span class="bu">zip</span>(scaler.data_min_, scaler.data_max_)), </span>
-<span id="cb1770-2"><a href="sklearn.html#cb1770-2"></a>             columns<span class="op">=</span>[<span class="st">&#39;data_min&#39;</span>,<span class="st">&#39;data_max&#39;</span>], </span>
-<span id="cb1770-3"><a href="sklearn.html#cb1770-3"></a>             index<span class="op">=</span>X.columns)</span></code></pre></div>
+<div class="sourceCode" id="cb1769"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1769-1"><a href="sklearn.html#cb1769-1"></a>pd.DataFrame(<span class="bu">list</span>(<span class="bu">zip</span>(scaler.data_min_, scaler.data_max_)), </span>
+<span id="cb1769-2"><a href="sklearn.html#cb1769-2"></a>             columns<span class="op">=</span>[<span class="st">&#39;data_min&#39;</span>,<span class="st">&#39;data_max&#39;</span>], </span>
+<span id="cb1769-3"><a href="sklearn.html#cb1769-3"></a>             index<span class="op">=</span>X.columns)</span></code></pre></div>
 <pre><code>##     data_min  data_max
 ## x1       3.0      18.0
 ## x2       5.0      21.0
@@ -1841,9 +1848,9 @@ data_max_: maximum value of the feature (before scaling)  </code></pre>
 # with_mean=True : centre all features by substracting with its mean
 # with_std=True  : centre all features by dividing with its std</code></pre>
 <p><strong>Define Scaler Object</strong></p>
-<div class="sourceCode" id="cb1773"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1773-1"><a href="sklearn.html#cb1773-1"></a>scaler <span class="op">=</span> StandardScaler()</span></code></pre></div>
+<div class="sourceCode" id="cb1772"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1772-1"><a href="sklearn.html#cb1772-1"></a>scaler <span class="op">=</span> StandardScaler()</span></code></pre></div>
 <p><strong>Transform Data</strong></p>
-<div class="sourceCode" id="cb1774"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1774-1"><a href="sklearn.html#cb1774-1"></a>scaler.fit_transform(X)</span></code></pre></div>
+<div class="sourceCode" id="cb1773"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1773-1"><a href="sklearn.html#cb1773-1"></a>scaler.fit_transform(X)</span></code></pre></div>
 <pre><code>## array([[ 0.56793014, -0.78975397,  1.74943121],
 ##        [ 1.23608324, -1.14873305, -0.22573306],
 ##        [ 0.56793014, -0.07179582,  0.05643326],
@@ -1851,9 +1858,9 @@ data_max_: maximum value of the feature (before scaling)  </code></pre>
 ##        [-1.10245262,  0.28718326, -0.22573306]])</code></pre>
 <p><strong>Scaler Attributes</strong><br />
 After the data transformation step above, scaler will have the mean and variance information for each feature.</p>
-<div class="sourceCode" id="cb1776"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1776-1"><a href="sklearn.html#cb1776-1"></a>pd.DataFrame(<span class="bu">list</span>(<span class="bu">zip</span>(scaler.mean_, scaler.var_)), </span>
-<span id="cb1776-2"><a href="sklearn.html#cb1776-2"></a>             columns<span class="op">=</span>[<span class="st">&#39;mean&#39;</span>,<span class="st">&#39;variance&#39;</span>], </span>
-<span id="cb1776-3"><a href="sklearn.html#cb1776-3"></a>             index<span class="op">=</span>X.columns)</span></code></pre></div>
+<div class="sourceCode" id="cb1775"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1775-1"><a href="sklearn.html#cb1775-1"></a>pd.DataFrame(<span class="bu">list</span>(<span class="bu">zip</span>(scaler.mean_, scaler.var_)), </span>
+<span id="cb1775-2"><a href="sklearn.html#cb1775-2"></a>             columns<span class="op">=</span>[<span class="st">&#39;mean&#39;</span>,<span class="st">&#39;variance&#39;</span>], </span>
+<span id="cb1775-3"><a href="sklearn.html#cb1775-3"></a>             index<span class="op">=</span>X.columns)</span></code></pre></div>
 <pre><code>##     mean  variance
 ## x1  10.6     35.84
 ## x2  11.4     31.04
@@ -1878,33 +1885,33 @@ After the data transformation step above, scaler will have the mean and variance
  )</code></pre>
 <div id="sample-data-23" class="section level3" number="17.11.1">
 <h3 number="17.11.1"><span class="header-section-number">17.11.1</span> Sample Data</h3>
-<div class="sourceCode" id="cb1779"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1779-1"><a href="sklearn.html#cb1779-1"></a>X</span></code></pre></div>
+<div class="sourceCode" id="cb1778"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1778-1"><a href="sklearn.html#cb1778-1"></a>X</span></code></pre></div>
 <pre><code>##    x1  x2  x3
 ## 0  14   7  12
 ## 1  18   5   5
 ## 2  14  11   6
 ## 3   3  21   1
 ## 4   4  13   5</code></pre>
-<div class="sourceCode" id="cb1781"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1781-1"><a href="sklearn.html#cb1781-1"></a>y</span></code></pre></div>
+<div class="sourceCode" id="cb1780"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1780-1"><a href="sklearn.html#cb1780-1"></a>y</span></code></pre></div>
 <pre><code>## array([14, 16, -1,  8, -5])</code></pre>
 </div>
 <div id="create-pipeline" class="section level3" number="17.11.2">
 <h3 number="17.11.2"><span class="header-section-number">17.11.2</span> Create Pipeline</h3>
-<div class="sourceCode" id="cb1783"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1783-1"><a href="sklearn.html#cb1783-1"></a>my_pipe <span class="op">=</span> make_pipeline (</span>
-<span id="cb1783-2"><a href="sklearn.html#cb1783-2"></a>    Imputer            (strategy<span class="op">=</span><span class="st">&#39;mean&#39;</span>),</span>
-<span id="cb1783-3"><a href="sklearn.html#cb1783-3"></a>    PolynomialFeatures (degree<span class="op">=</span><span class="dv">2</span>),</span>
-<span id="cb1783-4"><a href="sklearn.html#cb1783-4"></a>    LinearRegression   ()</span>
-<span id="cb1783-5"><a href="sklearn.html#cb1783-5"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb1782"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1782-1"><a href="sklearn.html#cb1782-1"></a>my_pipe <span class="op">=</span> make_pipeline (</span>
+<span id="cb1782-2"><a href="sklearn.html#cb1782-2"></a>    Imputer            (strategy<span class="op">=</span><span class="st">&#39;mean&#39;</span>),</span>
+<span id="cb1782-3"><a href="sklearn.html#cb1782-3"></a>    PolynomialFeatures (degree<span class="op">=</span><span class="dv">2</span>),</span>
+<span id="cb1782-4"><a href="sklearn.html#cb1782-4"></a>    LinearRegression   ()</span>
+<span id="cb1782-5"><a href="sklearn.html#cb1782-5"></a>)</span></code></pre></div>
 <pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;Imputer&#39; is not defined
 ## 
 ## Detailed traceback: 
 ##   File &quot;&lt;string&gt;&quot;, line 2, in &lt;module&gt;</code></pre>
-<div class="sourceCode" id="cb1785"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1785-1"><a href="sklearn.html#cb1785-1"></a><span class="bu">type</span>(my_pipe)</span></code></pre></div>
+<div class="sourceCode" id="cb1784"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1784-1"><a href="sklearn.html#cb1784-1"></a><span class="bu">type</span>(my_pipe)</span></code></pre></div>
 <pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;my_pipe&#39; is not defined
 ## 
 ## Detailed traceback: 
 ##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
-<div class="sourceCode" id="cb1787"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1787-1"><a href="sklearn.html#cb1787-1"></a>my_pipe</span></code></pre></div>
+<div class="sourceCode" id="cb1786"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1786-1"><a href="sklearn.html#cb1786-1"></a>my_pipe</span></code></pre></div>
 <pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;my_pipe&#39; is not defined
 ## 
 ## Detailed traceback: 
@@ -1912,19 +1919,19 @@ After the data transformation step above, scaler will have the mean and variance
 </div>
 <div id="executing-pipeline" class="section level3" number="17.11.3">
 <h3 number="17.11.3"><span class="header-section-number">17.11.3</span> Executing Pipeline</h3>
-<div class="sourceCode" id="cb1789"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1789-1"><a href="sklearn.html#cb1789-1"></a>my_pipe.fit( X, y) <span class="co"># execute the pipeline</span></span></code></pre></div>
+<div class="sourceCode" id="cb1788"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1788-1"><a href="sklearn.html#cb1788-1"></a>my_pipe.fit( X, y) <span class="co"># execute the pipeline</span></span></code></pre></div>
 <pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;my_pipe&#39; is not defined
 ## 
 ## Detailed traceback: 
 ##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
-<div class="sourceCode" id="cb1791"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1791-1"><a href="sklearn.html#cb1791-1"></a><span class="bu">print</span> (y)</span></code></pre></div>
+<div class="sourceCode" id="cb1790"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1790-1"><a href="sklearn.html#cb1790-1"></a><span class="bu">print</span> (y)</span></code></pre></div>
 <pre><code>## [14 16 -1  8 -5]</code></pre>
-<div class="sourceCode" id="cb1793"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1793-1"><a href="sklearn.html#cb1793-1"></a><span class="bu">print</span> (my_pipe.predict(X))</span></code></pre></div>
+<div class="sourceCode" id="cb1792"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1792-1"><a href="sklearn.html#cb1792-1"></a><span class="bu">print</span> (my_pipe.predict(X))</span></code></pre></div>
 <pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;my_pipe&#39; is not defined
 ## 
 ## Detailed traceback: 
 ##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
-<div class="sourceCode" id="cb1795"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1795-1"><a href="sklearn.html#cb1795-1"></a><span class="bu">type</span>(my_pipe)</span></code></pre></div>
+<div class="sourceCode" id="cb1794"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1794-1"><a href="sklearn.html#cb1794-1"></a><span class="bu">type</span>(my_pipe)</span></code></pre></div>
 <pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;my_pipe&#39; is not defined
 ## 
 ## Detailed traceback: 
@@ -1935,37 +1942,37 @@ After the data transformation step above, scaler will have the mean and variance
 <h2 number="17.12"><span class="header-section-number">17.12</span> Cross Validation</h2>
 <div id="load-data" class="section level3" number="17.12.1">
 <h3 number="17.12.1"><span class="header-section-number">17.12.1</span> Load Data</h3>
-<div class="sourceCode" id="cb1797"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1797-1"><a href="sklearn.html#cb1797-1"></a>X,y <span class="op">=</span> datasets.load_diabetes(return_X_y<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1796"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1796-1"><a href="sklearn.html#cb1796-1"></a>X,y <span class="op">=</span> datasets.load_diabetes(return_X_y<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
 </div>
 <div id="choose-an-cross-validator" class="section level3" number="17.12.2">
 <h3 number="17.12.2"><span class="header-section-number">17.12.2</span> Choose An Cross Validator</h3>
-<div class="sourceCode" id="cb1798"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1798-1"><a href="sklearn.html#cb1798-1"></a>kf <span class="op">=</span> KFold(n_splits<span class="op">=</span><span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1797"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1797-1"><a href="sklearn.html#cb1797-1"></a>kf <span class="op">=</span> KFold(n_splits<span class="op">=</span><span class="dv">5</span>)</span></code></pre></div>
 </div>
 <div id="run-cross-validation" class="section level3" number="17.12.3">
 <h3 number="17.12.3"><span class="header-section-number">17.12.3</span> Run Cross Validation</h3>
 <p><strong>Single Scorer</strong><br />
 Use default scorer of the estimator (if available)</p>
-<div class="sourceCode" id="cb1799"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1799-1"><a href="sklearn.html#cb1799-1"></a>lasso <span class="op">=</span> Lasso()</span>
-<span id="cb1799-2"><a href="sklearn.html#cb1799-2"></a>cv_results1 <span class="op">=</span> cross_validate(lasso, X,y,cv<span class="op">=</span>kf,</span>
-<span id="cb1799-3"><a href="sklearn.html#cb1799-3"></a>    return_train_score<span class="op">=</span><span class="va">False</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1798"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1798-1"><a href="sklearn.html#cb1798-1"></a>lasso <span class="op">=</span> Lasso()</span>
+<span id="cb1798-2"><a href="sklearn.html#cb1798-2"></a>cv_results1 <span class="op">=</span> cross_validate(lasso, X,y,cv<span class="op">=</span>kf,</span>
+<span id="cb1798-3"><a href="sklearn.html#cb1798-3"></a>    return_train_score<span class="op">=</span><span class="va">False</span>)</span></code></pre></div>
 <p><strong>Multiple Scorer</strong><br />
 Specify the scorer
 <a href="http://scikit-learn.org/stable/modules/model_evaluation.html#scoring-parameter" class="uri">http://scikit-learn.org/stable/modules/model_evaluation.html#scoring-parameter</a></p>
-<div class="sourceCode" id="cb1800"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1800-1"><a href="sklearn.html#cb1800-1"></a>cv_results2 <span class="op">=</span> cross_validate(lasso, X,y,cv<span class="op">=</span>kf,</span>
-<span id="cb1800-2"><a href="sklearn.html#cb1800-2"></a>    scoring<span class="op">=</span>(<span class="st">&quot;neg_mean_absolute_error&quot;</span>,<span class="st">&quot;neg_mean_squared_error&quot;</span>,<span class="st">&quot;r2&quot;</span>),</span>
-<span id="cb1800-3"><a href="sklearn.html#cb1800-3"></a>    return_train_score<span class="op">=</span><span class="va">False</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1799"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1799-1"><a href="sklearn.html#cb1799-1"></a>cv_results2 <span class="op">=</span> cross_validate(lasso, X,y,cv<span class="op">=</span>kf,</span>
+<span id="cb1799-2"><a href="sklearn.html#cb1799-2"></a>    scoring<span class="op">=</span>(<span class="st">&quot;neg_mean_absolute_error&quot;</span>,<span class="st">&quot;neg_mean_squared_error&quot;</span>,<span class="st">&quot;r2&quot;</span>),</span>
+<span id="cb1799-3"><a href="sklearn.html#cb1799-3"></a>    return_train_score<span class="op">=</span><span class="va">False</span>)</span></code></pre></div>
 </div>
 <div id="the-result" class="section level3" number="17.12.4">
 <h3 number="17.12.4"><span class="header-section-number">17.12.4</span> The Result</h3>
 <p>Result is a <strong>dictionary</strong></p>
-<div class="sourceCode" id="cb1801"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1801-1"><a href="sklearn.html#cb1801-1"></a>cv_results1.keys()</span></code></pre></div>
+<div class="sourceCode" id="cb1800"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1800-1"><a href="sklearn.html#cb1800-1"></a>cv_results1.keys()</span></code></pre></div>
 <pre><code>## dict_keys([&#39;fit_time&#39;, &#39;score_time&#39;, &#39;test_score&#39;])</code></pre>
-<div class="sourceCode" id="cb1803"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1803-1"><a href="sklearn.html#cb1803-1"></a>cv_results2.keys()</span></code></pre></div>
+<div class="sourceCode" id="cb1802"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1802-1"><a href="sklearn.html#cb1802-1"></a>cv_results2.keys()</span></code></pre></div>
 <pre><code>## dict_keys([&#39;fit_time&#39;, &#39;score_time&#39;, &#39;test_neg_mean_absolute_error&#39;, &#39;test_neg_mean_squared_error&#39;, &#39;test_r2&#39;])</code></pre>
-<div class="sourceCode" id="cb1805"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1805-1"><a href="sklearn.html#cb1805-1"></a>cv_results1</span></code></pre></div>
-<pre><code>## {&#39;fit_time&#39;: array([0.00099993, 0.00099254, 0.00100017, 0.00099921, 0.00099993]), &#39;score_time&#39;: array([0.00100231, 0.0009973 , 0.        , 0.        , 0.0010035 ]), &#39;test_score&#39;: array([0.28349047, 0.35157959, 0.3533813 , 0.33481474, 0.36453281])}</code></pre>
-<div class="sourceCode" id="cb1807"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1807-1"><a href="sklearn.html#cb1807-1"></a>cv_results2</span></code></pre></div>
-<pre><code>## {&#39;fit_time&#39;: array([0.00049996, 0.        , 0.00049996, 0.00049949, 0.00049996]), &#39;score_time&#39;: array([0.00050044, 0.00049973, 0.00049973, 0.00050092, 0.00049996]), &#39;test_neg_mean_absolute_error&#39;: array([-50.09003423, -52.54110842, -55.02813846, -50.81121806,
+<div class="sourceCode" id="cb1804"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1804-1"><a href="sklearn.html#cb1804-1"></a>cv_results1</span></code></pre></div>
+<pre><code>## {&#39;fit_time&#39;: array([0.02249908, 0.00099969, 0.0010016 , 0.00100017, 0.00100112]), &#39;score_time&#39;: array([0.00100064, 0.00100136, 0.00099802, 0.00050187, 0.0010004 ]), &#39;test_score&#39;: array([0.28349047, 0.35157959, 0.3533813 , 0.33481474, 0.36453281])}</code></pre>
+<div class="sourceCode" id="cb1806"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1806-1"><a href="sklearn.html#cb1806-1"></a>cv_results2</span></code></pre></div>
+<pre><code>## {&#39;fit_time&#39;: array([0.00100064, 0.00099897, 0.00049996, 0.0005002 , 0.0009985 ]), &#39;score_time&#39;: array([0.00100088, 0.00200081, 0.00150037, 0.00100064, 0.00600004]), &#39;test_neg_mean_absolute_error&#39;: array([-50.09003423, -52.54110842, -55.02813846, -50.81121806,
 ##        -55.60471593]), &#39;test_neg_mean_squared_error&#39;: array([-3491.74009759, -4113.86002091, -4046.91780932, -3489.74018715,
 ##        -4111.92401769]), &#39;test_r2&#39;: array([0.28349047, 0.35157959, 0.3533813 , 0.33481474, 0.36453281])}</code></pre>
 

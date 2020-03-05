@@ -182,11 +182,11 @@ soup.select("div#my-id3.title[custom_attr='funny']:contains('This is paragraph')
 ### Meta Parsing
 
 ```{python}
-my_html = '''
+my_meta = '''
 <meta property="description"   content="KUALA LUMPUR: blah blah"   category="Malaysia">
 <meta property="publish-date"  content="2012-01-03">
 '''
-soup = BeautifulSoup(my_html)
+soup = BeautifulSoup(my_meta)
 soup.find('meta', property='description')['content']
 soup.find('meta', property='description')['category']
 soup.find('meta', property='publish-date')['content']
@@ -197,13 +197,16 @@ soup.find('meta', category='Malaysia')['property']
 
 #### Get Content `get_text(strip=, separator=)`
 
-- Observe that default behavior (strip=False) will generate '\n' on every tag <div>, <p>, <br>, <h1/2/3> tags 
+- Use **`strip=True`** to strip whitespace from the beginning and end of each bit of text  
+- Use **`separator='\n'** to specify a string to be used to join the bits of text together
+- It is recommended to use `strip=True, separator='\n'` so that result from different operating system will be consistant  
 
 ```{python}
+soup = BeautifulSoup(my_html)
 elem = soup.find(id = "my-id3")
-elem.get_text()
-elem.get_text(strip=True, separator='\n')
+elem.get_text(strip=False)
 ```
+
 - strip=True combine with separator will retain only the user readable text portion of each tag, with separator seperating them
 
 ```{python}

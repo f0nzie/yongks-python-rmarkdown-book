@@ -24,7 +24,7 @@
 <meta name="author" content="Yong Keh Soon" />
 
 
-<meta name="date" content="2020-03-03" />
+<meta name="date" content="2020-03-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1112,7 +1112,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="18.3" data-path="nlp.html"><a href="nlp.html#sentence-tokenizer"><i class="fa fa-check"></i><b>18.3</b> Sentence Tokenizer</a>
 <ul>
-<li class="chapter" data-level="18.3.1" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.sent_tokenize"><i class="fa fa-check"></i><b>18.3.1</b> <code>nltk.tokenize.sent_tokenize()</code></a></li>
+<li class="chapter" data-level="18.3.1" data-path="nlp.html"><a href="nlp.html#sample-text"><i class="fa fa-check"></i><b>18.3.1</b> Sample Text</a></li>
+<li class="chapter" data-level="18.3.2" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.punkt.punktsentencetokenizer"><i class="fa fa-check"></i><b>18.3.2</b> ’nltk.tokenize.punkt.PunktSentenceTokenizer`</a>
+<ul>
+<li class="chapter" data-level="18.3.2.1" data-path="nlp.html"><a href="nlp.html#default-behavior"><i class="fa fa-check"></i><b>18.3.2.1</b> Default Behavior</a></li>
+<li class="chapter" data-level="18.3.2.2" data-path="nlp.html"><a href="nlp.html#pretrained-model---english-pickle"><i class="fa fa-check"></i><b>18.3.2.2</b> Pretrained Model - English Pickle</a></li>
+<li class="chapter" data-level="18.3.2.3" data-path="nlp.html"><a href="nlp.html#adding-abbreviations"><i class="fa fa-check"></i><b>18.3.2.3</b> Adding Abbreviations</a></li>
+</ul></li>
+<li class="chapter" data-level="18.3.3" data-path="nlp.html"><a href="nlp.html#nltk.tokenize.sent_tokenize"><i class="fa fa-check"></i><b>18.3.3</b> <code>nltk.tokenize.sent_tokenize()</code></a></li>
 </ul></li>
 <li class="chapter" data-level="18.4" data-path="nlp.html"><a href="nlp.html#n-gram"><i class="fa fa-check"></i><b>18.4</b> N-Gram</a></li>
 <li class="chapter" data-level="18.5" data-path="nlp.html"><a href="nlp.html#stopwords"><i class="fa fa-check"></i><b>18.5</b> Stopwords</a>
@@ -1413,9 +1420,9 @@ conda install -c conda-forge plotnine</code></pre>
 <pre><code>## Data of a = 123 
 ## Data of b = 123 
 ## Data of c = 123 
-## ID of a =  140706163109216 
-## ID of b =  140706163109216 
-## ID of c =  140706163109216</code></pre>
+## ID of a =  140706555080032 
+## ID of b =  140706555080032 
+## ID of c =  140706555080032</code></pre>
 <p>Changing data value (using assignment) changes <strong>the reference</strong></p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="fundamentals.html#cb11-1"></a>a <span class="op">=</span> <span class="dv">123</span></span>
 <span id="cb11-2"><a href="fundamentals.html#cb11-2"></a>b <span class="op">=</span> a</span>
@@ -1428,8 +1435,8 @@ conda install -c conda-forge plotnine</code></pre>
 <span id="cb11-9"><a href="fundamentals.html#cb11-9"></a>)</span></code></pre></div>
 <pre><code>## Data of a = 456 
 ## Data of b = 123 
-## ID of a =  621700752 
-## ID of b =  140706163109216</code></pre>
+## ID of a =  614557328 
+## ID of b =  140706555080032</code></pre>
 </div>
 <div id="assignment" class="section level2" number="1.3">
 <h2 number="1.3"><span class="header-section-number">1.3</span> Assignment</h2>
@@ -1444,8 +1451,8 @@ conda install -c conda-forge plotnine</code></pre>
 <span id="cb13-6"><a href="fundamentals.html#cb13-6"></a>)</span></code></pre></div>
 <pre><code>## x =  same mem loc 
 ## y =  same mem loc 
-## id(x) =  621850800 
-## id(y) =  621850800</code></pre>
+## id(x) =  614707440 
+## id(y) =  614707440</code></pre>
 </div>
 <div id="augmented-assignment" class="section level3" number="1.3.2">
 <h3 number="1.3.2"><span class="header-section-number">1.3.2</span> Augmented Assignment</h3>
