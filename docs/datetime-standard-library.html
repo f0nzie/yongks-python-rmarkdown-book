@@ -1164,10 +1164,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="18.9" data-path="nlp.html"><a href="nlp.html#sentiment"><i class="fa fa-check"></i><b>18.9</b> Sentiment</a>
 <ul>
-<li class="chapter" data-level="18.9.1" data-path="nlp.html"><a href="nlp.html#senti-wordnet"><i class="fa fa-check"></i><b>18.9.1</b> Senti-Wordnet</a>
+<li class="chapter" data-level="18.9.1" data-path="nlp.html"><a href="nlp.html#nltk-and-senti-wordnet"><i class="fa fa-check"></i><b>18.9.1</b> NLTK and Senti-Wordnet</a>
 <ul>
-<li class="chapter" data-level="18.9.1.1" data-path="nlp.html"><a href="nlp.html#construct"><i class="fa fa-check"></i><b>18.9.1.1</b> Construct</a></li>
-<li class="chapter" data-level="18.9.1.2" data-path="nlp.html"><a href="nlp.html#converting-pos-tag-into-wordnet-pos-tag"><i class="fa fa-check"></i><b>18.9.1.2</b> Converting POS-tag into Wordnet POS-tag</a></li>
+<li class="chapter" data-level="18.9.1.1" data-path="nlp.html"><a href="nlp.html#senti-synset"><i class="fa fa-check"></i><b>18.9.1.1</b> Senti-Synset</a></li>
+<li class="chapter" data-level="18.9.1.2" data-path="nlp.html"><a href="nlp.html#senti-synsets"><i class="fa fa-check"></i><b>18.9.1.2</b> Senti-Synsets</a></li>
+<li class="chapter" data-level="18.9.1.3" data-path="nlp.html"><a href="nlp.html#converting-pos-tag-into-wordnet-pos-tag"><i class="fa fa-check"></i><b>18.9.1.3</b> Converting POS-tag into Wordnet POS-tag</a></li>
 </ul></li>
 <li class="chapter" data-level="18.9.2" data-path="nlp.html"><a href="nlp.html#vader"><i class="fa fa-check"></i><b>18.9.2</b> Vader</a>
 <ul>
@@ -1421,22 +1422,22 @@ For <code>isoweekday()</code>, Zero being Sunday</p>
 <p>Both <code>now()</code> and <code>today()</code> return current <strong>system local</strong> datetime, no timezone</p>
 <div class="sourceCode" id="cb503"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb503-1"><a href="datetime-standard-library.html#cb503-1"></a><span class="bu">print</span>(  dt.datetime.now(), <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</span>
 <span id="cb503-2"><a href="datetime-standard-library.html#cb503-2"></a>        dt.datetime.now().date())</span></code></pre></div>
-<pre><code>## 2020-03-05 11:58:38.107029 
+<pre><code>## 2020-03-05 13:51:30.919257 
 ##  2020-03-05</code></pre>
 <div class="sourceCode" id="cb505"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb505-1"><a href="datetime-standard-library.html#cb505-1"></a>dt.datetime.today()</span></code></pre></div>
-<pre><code>## datetime.datetime(2020, 3, 5, 11, 58, 38, 132544)</code></pre>
+<pre><code>## datetime.datetime(2020, 3, 5, 13, 51, 30, 934180)</code></pre>
 </div>
 <div id="utcnow" class="section level4" number="9.5.2.2">
 <h4 number="9.5.2.2"><span class="header-section-number">9.5.2.2</span> <code>utcnow</code></h4>
 <div class="sourceCode" id="cb507"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb507-1"><a href="datetime-standard-library.html#cb507-1"></a>dt.datetime.utcnow()</span></code></pre></div>
-<pre><code>## datetime.datetime(2020, 3, 5, 3, 58, 38, 150550)</code></pre>
+<pre><code>## datetime.datetime(2020, 3, 5, 5, 51, 30, 952593)</code></pre>
 </div>
 <div id="combine-date-and-time" class="section level4" number="9.5.2.3">
 <h4 number="9.5.2.3"><span class="header-section-number">9.5.2.3</span> <code>combine()</code> date and time</h4>
 <p>Apply <code>datetime.combine()</code> module method on both <strong>date and time</strong> object to get <strong>datetime</strong></p>
 <div class="sourceCode" id="cb509"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb509-1"><a href="datetime-standard-library.html#cb509-1"></a>now <span class="op">=</span> dt.datetime.now()</span>
 <span id="cb509-2"><a href="datetime-standard-library.html#cb509-2"></a>dt.datetime.combine(now.date(), now.time())</span></code></pre></div>
-<pre><code>## datetime.datetime(2020, 3, 5, 11, 58, 38, 170545)</code></pre>
+<pre><code>## datetime.datetime(2020, 3, 5, 13, 51, 30, 965031)</code></pre>
 </div>
 <div id="convert-from-string-strptime" class="section level4" number="9.5.2.4">
 <h4 number="9.5.2.4"><span class="header-section-number">9.5.2.4</span> Convert from String <code>strptime()</code></h4>
@@ -1481,12 +1482,12 @@ For <code>isoweekday()</code>, Zero being Sunday</p>
 <div id="replace-1" class="section level4" number="9.5.3.2">
 <h4 number="9.5.3.2"><span class="header-section-number">9.5.3.2</span> <code>replace</code></h4>
 <div class="sourceCode" id="cb524"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb524-1"><a href="datetime-standard-library.html#cb524-1"></a>datetime.now().replace(year<span class="op">=</span><span class="dv">1999</span>)</span></code></pre></div>
-<pre><code>## datetime.datetime(1999, 3, 5, 11, 58, 38, 313582)</code></pre>
+<pre><code>## datetime.datetime(1999, 3, 5, 13, 51, 31, 103330)</code></pre>
 </div>
 <div id="convert-to-.time" class="section level4" number="9.5.3.3">
 <h4 number="9.5.3.3"><span class="header-section-number">9.5.3.3</span> convert to <code>.time()</code></h4>
 <div class="sourceCode" id="cb526"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb526-1"><a href="datetime-standard-library.html#cb526-1"></a>datetime.now().time()</span></code></pre></div>
-<pre><code>## datetime.time(11, 58, 38, 330592)</code></pre>
+<pre><code>## datetime.time(13, 51, 31, 118245)</code></pre>
 </div>
 <div id="convert-to-.date" class="section level4" number="9.5.3.4">
 <h4 number="9.5.3.4"><span class="header-section-number">9.5.3.4</span> Convert to <code>.date()</code></h4>
@@ -1497,15 +1498,15 @@ For <code>isoweekday()</code>, Zero being Sunday</p>
 <h4 number="9.5.3.5"><span class="header-section-number">9.5.3.5</span> Convert to String</h4>
 <p><strong><code>str</code></strong></p>
 <div class="sourceCode" id="cb530"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb530-1"><a href="datetime-standard-library.html#cb530-1"></a><span class="bu">str</span>( datetime.now() )</span></code></pre></div>
-<pre><code>## &#39;2020-03-05 11:58:38.368593&#39;</code></pre>
+<pre><code>## &#39;2020-03-05 13:51:31.165013&#39;</code></pre>
 <p><strong>Use <code>strftime()</code></strong></p>
 <div class="sourceCode" id="cb532"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb532-1"><a href="datetime-standard-library.html#cb532-1"></a>dt.datetime.now().strftime(<span class="st">&#39;</span><span class="sc">%d</span><span class="st">-%b-%Y&#39;</span>)</span></code></pre></div>
 <pre><code>## &#39;05-Mar-2020&#39;</code></pre>
 <div class="sourceCode" id="cb534"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb534-1"><a href="datetime-standard-library.html#cb534-1"></a>dt.datetime.utcnow().strftime(<span class="st">&#39;%Y-%m-</span><span class="sc">%d</span><span class="st">T%H:%M:%S.</span><span class="sc">%f</span><span class="st">Z&#39;</span>)  <span class="co">## ISO 8601 UTC</span></span></code></pre></div>
-<pre><code>## &#39;2020-03-05T03:58:38.424609Z&#39;</code></pre>
+<pre><code>## &#39;2020-03-05T05:51:31.196845Z&#39;</code></pre>
 <p><strong>Use <code>isoformat()</code></strong></p>
 <div class="sourceCode" id="cb536"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb536-1"><a href="datetime-standard-library.html#cb536-1"></a>dt.datetime.utcnow().isoformat()</span></code></pre></div>
-<pre><code>## &#39;2020-03-05T03:58:38.451606&#39;</code></pre>
+<pre><code>## &#39;2020-03-05T05:51:31.217737&#39;</code></pre>
 </div>
 </div>
 <div id="attributes-1" class="section level3" number="9.5.4">
@@ -1517,9 +1518,9 @@ For <code>isoweekday()</code>, Zero being Sunday</p>
 <div class="sourceCode" id="cb542"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb542-1"><a href="datetime-standard-library.html#cb542-1"></a><span class="bu">print</span>( datetime.now().day )</span></code></pre></div>
 <pre><code>## 5</code></pre>
 <div class="sourceCode" id="cb544"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb544-1"><a href="datetime-standard-library.html#cb544-1"></a><span class="bu">print</span>( datetime.now().hour )</span></code></pre></div>
-<pre><code>## 11</code></pre>
+<pre><code>## 13</code></pre>
 <div class="sourceCode" id="cb546"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb546-1"><a href="datetime-standard-library.html#cb546-1"></a><span class="bu">print</span>( datetime.now().minute )</span></code></pre></div>
-<pre><code>## 58</code></pre>
+<pre><code>## 51</code></pre>
 </div>
 </div>
 <div id="time" class="section level2" number="9.6">
@@ -1539,17 +1540,17 @@ For <code>isoweekday()</code>, Zero being Sunday</p>
 <h4 number="9.6.2.1"><span class="header-section-number">9.6.2.1</span> <code>now()</code></h4>
 <p>There is unfortunately no single function to extract the current time. Use <strong>time()</strong> function of an <strong>datetime</strong> object</p>
 <div class="sourceCode" id="cb554"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb554-1"><a href="datetime-standard-library.html#cb554-1"></a>datetime.now().time()</span></code></pre></div>
-<pre><code>## datetime.time(11, 58, 38, 560625)</code></pre>
+<pre><code>## datetime.time(13, 51, 31, 369970)</code></pre>
 </div>
 </div>
 <div id="attributes-2" class="section level3" number="9.6.3">
 <h3 number="9.6.3"><span class="header-section-number">9.6.3</span> Attributes</h3>
 <div class="sourceCode" id="cb556"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb556-1"><a href="datetime-standard-library.html#cb556-1"></a><span class="bu">print</span>( datetime.now().time().hour )</span></code></pre></div>
-<pre><code>## 11</code></pre>
+<pre><code>## 13</code></pre>
 <div class="sourceCode" id="cb558"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb558-1"><a href="datetime-standard-library.html#cb558-1"></a><span class="bu">print</span>( datetime.now().time().minute )</span></code></pre></div>
-<pre><code>## 58</code></pre>
+<pre><code>## 51</code></pre>
 <div class="sourceCode" id="cb560"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb560-1"><a href="datetime-standard-library.html#cb560-1"></a><span class="bu">print</span>( datetime.now().time().second )</span></code></pre></div>
-<pre><code>## 38</code></pre>
+<pre><code>## 31</code></pre>
 </div>
 </div>
 <div id="timedelta" class="section level2" number="9.7">
@@ -1564,7 +1565,7 @@ For <code>isoweekday()</code>, Zero being Sunday</p>
 <div class="sourceCode" id="cb562"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb562-1"><a href="datetime-standard-library.html#cb562-1"></a>delt <span class="op">=</span> timedelta(days<span class="op">=</span><span class="dv">365</span>,minutes<span class="op">=</span><span class="dv">33</span>,seconds<span class="op">=</span><span class="dv">15</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb563"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb563-1"><a href="datetime-standard-library.html#cb563-1"></a>now <span class="op">=</span> datetime.now()</span>
 <span id="cb563-2"><a href="datetime-standard-library.html#cb563-2"></a><span class="bu">print</span> (<span class="st">&#39;delt+now : &#39;</span>, now<span class="op">+</span>delt)</span></code></pre></div>
-<pre><code>## delt+now :  2021-03-05 12:31:53.627642</code></pre>
+<pre><code>## delt+now :  2021-03-05 14:24:46.456536</code></pre>
 </div>
 </div>
             </section>

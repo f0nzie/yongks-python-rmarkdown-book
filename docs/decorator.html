@@ -1164,10 +1164,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="18.9" data-path="nlp.html"><a href="nlp.html#sentiment"><i class="fa fa-check"></i><b>18.9</b> Sentiment</a>
 <ul>
-<li class="chapter" data-level="18.9.1" data-path="nlp.html"><a href="nlp.html#senti-wordnet"><i class="fa fa-check"></i><b>18.9.1</b> Senti-Wordnet</a>
+<li class="chapter" data-level="18.9.1" data-path="nlp.html"><a href="nlp.html#nltk-and-senti-wordnet"><i class="fa fa-check"></i><b>18.9.1</b> NLTK and Senti-Wordnet</a>
 <ul>
-<li class="chapter" data-level="18.9.1.1" data-path="nlp.html"><a href="nlp.html#construct"><i class="fa fa-check"></i><b>18.9.1.1</b> Construct</a></li>
-<li class="chapter" data-level="18.9.1.2" data-path="nlp.html"><a href="nlp.html#converting-pos-tag-into-wordnet-pos-tag"><i class="fa fa-check"></i><b>18.9.1.2</b> Converting POS-tag into Wordnet POS-tag</a></li>
+<li class="chapter" data-level="18.9.1.1" data-path="nlp.html"><a href="nlp.html#senti-synset"><i class="fa fa-check"></i><b>18.9.1.1</b> Senti-Synset</a></li>
+<li class="chapter" data-level="18.9.1.2" data-path="nlp.html"><a href="nlp.html#senti-synsets"><i class="fa fa-check"></i><b>18.9.1.2</b> Senti-Synsets</a></li>
+<li class="chapter" data-level="18.9.1.3" data-path="nlp.html"><a href="nlp.html#converting-pos-tag-into-wordnet-pos-tag"><i class="fa fa-check"></i><b>18.9.1.3</b> Converting POS-tag into Wordnet POS-tag</a></li>
 </ul></li>
 <li class="chapter" data-level="18.9.2" data-path="nlp.html"><a href="nlp.html#vader"><i class="fa fa-check"></i><b>18.9.2</b> Vader</a>
 <ul>
@@ -1313,7 +1314,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb445-12"><a href="decorator.html#cb445-12"></a><span class="kw">def</span> bar():</span>
 <span id="cb445-13"><a href="decorator.html#cb445-13"></a>    <span class="cf">return</span> <span class="dv">5</span></span></code></pre></div>
 <div class="sourceCode" id="cb446"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb446-1"><a href="decorator.html#cb446-1"></a>registry</span></code></pre></div>
-<pre><code>## [&lt;function foo at 0x0000000024AAD620&gt;, &lt;function bar at 0x0000000024AA2AE8&gt;]</code></pre>
+<pre><code>## [&lt;function foo at 0x0000000028ACC620&gt;, &lt;function bar at 0x0000000028AC1AE8&gt;]</code></pre>
 <div class="sourceCode" id="cb448"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb448-1"><a href="decorator.html#cb448-1"></a>registry[<span class="dv">0</span>]()</span></code></pre></div>
 <pre><code>## 3</code></pre>
 <div class="sourceCode" id="cb450"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb450-1"><a href="decorator.html#cb450-1"></a>registry[<span class="dv">1</span>]()</span></code></pre></div>
@@ -1354,9 +1355,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb453-15"><a href="decorator.html#cb453-15"></a>    <span class="cf">return</span> x</span></code></pre></div>
 <p>Observe the result</p>
 <div class="sourceCode" id="cb454"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb454-1"><a href="decorator.html#cb454-1"></a><span class="bu">print</span> (a._functions)</span></code></pre></div>
-<pre><code>## [&lt;function foo at 0x0000000024AAF378&gt;, &lt;function bax at 0x0000000024AAF488&gt;]</code></pre>
+<pre><code>## [&lt;function foo at 0x0000000028ACE378&gt;, &lt;function bax at 0x0000000028ACE488&gt;]</code></pre>
 <div class="sourceCode" id="cb456"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb456-1"><a href="decorator.html#cb456-1"></a><span class="bu">print</span> (b._functions)</span></code></pre></div>
-<pre><code>## [&lt;function bar at 0x0000000024AAF400&gt;, &lt;function bax at 0x0000000024AAF488&gt;]</code></pre>
+<pre><code>## [&lt;function bar at 0x0000000028ACE400&gt;, &lt;function bax at 0x0000000028ACE488&gt;]</code></pre>
 <div class="sourceCode" id="cb458"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb458-1"><a href="decorator.html#cb458-1"></a><span class="bu">print</span> (a.run_all())</span></code></pre></div>
 <pre><code>## [3, 7]</code></pre>
 <div class="sourceCode" id="cb460"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb460-1"><a href="decorator.html#cb460-1"></a><span class="bu">print</span> (b.run_all())</span></code></pre></div>

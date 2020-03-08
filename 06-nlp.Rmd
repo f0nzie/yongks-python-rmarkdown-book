@@ -788,6 +788,7 @@ nltk.help.brown_tagset()
 ### Tagging Techniques
 
 There are few types of tagging techniques:  
+
 - Lexical-based  
 - Rule-based  (Brill)
 - Probalistic/Stochastic-based  (Conditional Random Fields-CRFs, Hidden Markov Models-HMM)
@@ -818,6 +819,7 @@ print('Tagger Classes:', tagger.classes,
 ### Performing Tagging `nltk.pos_tag()`
 
 Tagging works sentence by sentence:  
+
 - Document fist must be splitted into sentences  
 - Each sentence need to be tokenized into words  
 - Default NTLK uses `PerceptronTagger`
@@ -837,25 +839,55 @@ for sentence in sentences:
 
 ## Sentiment
 
-### Senti-Wordnet
+### NLTK and Senti-Wordnet
 
-#### Construct
+- SentiWordNet **extends Wordnet Synsets** with positive and negative sentiment scores  
+- The extension was achieved via a complex mix of propagation methods and classifiers. It is thus not a gold standard resource like WordNet (which was compiled by humans), but it has proven useful in a wide range of tasks  
+- It contains similar number of synsets as wordnet
+
+```{python}
+from nltk.corpus import sentiwordnet as swn
+nltk.download('sentiwordnet')
+
+s = set( swn.all_senti_synsets() )
+print('Total synsets in senti-wordnet  : ' ,   len(s))
+```
+
+#### Senti-Synset
 
 - Senti-Wordnet extends wordnet with three(3) sentiment scores: positive, negative, objective  
 - All three scores added up to value 1.0
 
 ```{python}
-from nltk.corpus import sentiwordnet as swn
-
 breakdown = swn.senti_synset('breakdown.n.03')
-
 print(
   breakdown, '\n'
   'Positive:', breakdown.pos_score(), '\n',
   'Negative:', breakdown.neg_score(), '\n',
   'Objective:',breakdown.obj_score()
 )
+```
 
+#### Senti-Synsets
+
+Get all the synonmys, with and without the POS information
+
+```{python}
+print( list(swn.senti_synsets('slow')), '\n\n',  ## without POS tag
+       list(swn.senti_synsets('slow', 'a')) )   ## with POS tag
+```
+
+Get the score for first synset
+
+```{python}
+first_synset = list(swn.senti_synsets('slow','a'))[0]
+
+print(
+  first_synset, '\n',
+  'Positive:',  first_synset.pos_score(), '\n',
+  'Negative:',  first_synset.neg_score(), '\n',
+  'Objective:', first_synset.obj_score()
+)
 ```
 
 #### Converting POS-tag into Wordnet POS-tag
