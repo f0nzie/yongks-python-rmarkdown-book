@@ -980,9 +980,9 @@ Dictionary is a list of index-value items.
 
 ### Creating dict
 
-**Creating dict with literals**
+#### From Literals
 
-Simple Dictionary
+**Simple Dictionary**
 
 ```{python}
 animal_counts = { 'cats' : 2, 'dogs' : 5, 'horses':4}
@@ -990,7 +990,7 @@ print (animal_counts)
 print( type(animal_counts) )
 ```
 
-Dictionary with list
+**Dictionary with list**
 
 ```{python}
 animal_names = {'cats':   ['Walter','Ra'],
@@ -1000,7 +1000,7 @@ animal_names = {'cats':   ['Walter','Ra'],
 animal_names
 ```
 
-**Creating dict From variables**
+#### From Variables
 
 ```{python}
 cat_names = ['Walter','Ra','Jim']
@@ -1012,51 +1012,44 @@ animal_names
 
 ### Accessing dict
 
-Find out the list of keys using **keys()**  
+#### Get All Keys
 
 ```{python}
 print (animal_names.keys())
 print (sorted(animal_names.keys()))
 ```
 
-
-Find out the list of values using **values()**
+#### Get All Values
 
 ```{python}
 print (animal_names.values())
 print (sorted(animal_names.values()))
 ```
 
+#### Access value with Specific Key
 
-**Refer a dictionary item using index**
+Use **`[ key ]`** notation. However, this will return **Error** if key does not exist
 
 ```{python}
 animal_names['dogs']
 ```
 
-
-**Accessing non-existance key natively will return Error**
-
-```{python}
-##animal_count['cow']
-```
-
-
-**Accessing non-existance key** with **get()** will return None
+Use  **`get( key )`** notation. will return None if key does not exist
 
 ```{python}
 print (animal_counts.get('cow'))
 ```
 
+### Dict Is Mutable
 
-### Dict are Mutable
-Use **[key]** notation to update the content of element. However, if the key is non-existance, this will return error.
+#### Update/Append
+
+Use **[key]** notation to **update** o **append** the content of element. 
 
 ```{python}
 animal_names['dogs'] = ['Ali','Abu','Bakar']
 animal_names
 ```
-
 
 Use **```clear()```** to erase all elements
 
@@ -1064,8 +1057,19 @@ Use **```clear()```** to erase all elements
 animal_names.clear()
 ```
 
+### Iterating Elements
+
+Loop through **`.items()`**
+
+```{python}
+animal_dict = { 'cats' : 2, 'dogs' : 5, 'horses':4}
+
+for key,val in animal_dict.items():
+  print( key, val )
+```
 
 ## Sets
+
 Set is **unordered** collection of **unique items**. Set is **mutable**
 
 ### Creation
