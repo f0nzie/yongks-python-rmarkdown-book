@@ -2131,34 +2131,45 @@ df.to_csv()
 ```
 
 
-### MultiIndexing
+## class: MultiIndex
 
-#### The Data
+MultiIndexing are columns with few levels of headers.
+
+### The Data
 
 ```{python}
-df = pd.DataFrame({'myindex': [0, 1, 2],
-     'One_X': [1.1, 1.1, 1.1],
-     'One_Y': [1.2, 1.2, 1.2],
-     'Two_X': [1.11, 1.11, 1.11],
-     'Two_Y': [1.22, 1.22, 1.22]})
+df = pd.DataFrame({
+     'myindex': [0, 1, 2],
+     'One_X':   [1.1,  1.1,  1.1],
+     'One_Y':   [1.2,  1.2,  1.2],
+     'Two_X':   [1.11, 1.11, 1.11],
+     'Two_Y':   [1.22, 1.22, 1.22]})
 df.set_index('myindex',inplace=True)
 df
 ```
 
-#### Creating MultiIndex Columns
+### Creating MultiIndex Object
 
-- Step 1: Create a MultiIndex object  
+#### Create From Tuples
+
+MultiIndex can easily created from typles:  
+- Step 1: Create a MultiIndex object by splitting column name into tuples  
 - Step 2: Assign the MultiIndex Object to dataframe `columns` property.  
 
 ```{python}
 my_tuples = [tuple(c.split('_')) for c in df.columns]
 df.columns = pd.MultiIndex.from_tuples(my_tuples)
 
-print(' Column Headers :\n\n ', my_tuples, '\n\n',
-        'Two Layers Header DF: \n\n', df, '\n\n',
-        'Columns:\n\n', df.columns)
+print(' Column Headers :\n\n',           my_tuples,
+        '\n\nNew Columns: \n\n',         df.columns,
+        '\n\nTwo Layers Header DF:\n\n', df)
 ```
-#### `MultiIndex` object
+
+
+
+### MultiIndex Object
+
+#### Levels
 
 - MultiIndex object contain multiple leveels, each level (header) is an Index object.   
 - Use **`MultiIndex.get_level_values()`** to the entire header for the desired level. Note that each level is an Index object
@@ -2175,15 +2186,15 @@ print(df.columns.levels[0], '\n',
       df.columns.levels[1])
 ```
 
+#### Convert MultiIndex Back To Tuples
+
 ```{python}
-df.stack()
+df.columns.to_list()
 ```
 
-#### Selecting Column(s)
+### Selecting Column(s)
 
-Use **`.loc()`** for multiIndex selection. DON'T attempt to use `iloc()`, it is not supported.  
-
-**Sample Data**
+#### Sample Data
 
 ```{python}
 import itertools
@@ -2191,70 +2202,72 @@ test_df = pd.DataFrame
 max_age = 100
 
 ### Create The Columns Tuple
-level0_sex = ['Male','Female']
+level0_sex = ['Male','Female','Pondan']
 level1_age = ['Medium','High','Low']
-my_columns=list(itertools.product(level0_sex, level1_age))
+my_columns = list(itertools.product(level0_sex, level1_age))
 
 test_df = pd.DataFrame([
-             [1,2,3,4,5,6],
-             [11,12,13,14,15,16],
-             [21,22,23,24,25,26]], index=['row1','row2','row3'])
+             [1,2,3,4,5,6,7,8,9],
+             [11,12,13,14,15,16,17,18,19],
+             [21,22,23,24,25,26,27,28,29]], index=['row1','row2','row3'])
 
 ### Create Multiindex From Tuple
 test_df.columns = pd.MultiIndex.from_tuples(my_columns)
-test_df
+print( test_df ) 
 ```
 
-**Selecting Level 0 Header**
+#### Select Level0 Header(s)
 
-There are two methods to select specific **level 0** columns.  
-First is by specifying column header name. The results is a dataframe with single level header.
+Use **`[L0]` notation**, where `L0` is list of header names
+
+```{python}
+print( test_df[['Male','Pondan']] ,'\n\n',  ## Include multiple Level0 Header
+       test_df['Male'] ,          '\n\n',   ## Include single Level0 Header
+       test_df.Male )                       ## Same as above
+```
+
+**Using `.loc[]`**
+
+Use  **`.loc[ :, L0 ]`**, where `L0` is list of headers names
+
+```{python}
+print( test_df.loc[:, ['Male','Pondan']] , '\n\n',  ## Multiple Level0 Header
+       test_df.loc[:, 'Male'] )                     ## Single Level0 Header
+```
+
+#### Selecting Level 1 Header(s)
+
+Use  **`.loc[ :, (All, L1)]`**, where `L1` are list of headers names
 
 ```{python}
 All = slice(None)
-test_df.loc[:,'Female']
+print( test_df.loc[ : , (All, 'High')],  '\n\n',  ## Signle L1 header
+       test_df.loc[ : , (All, ['High','Low'])] )  ## Multiple L1 headers
 ```
 
-To return result with two levels header, 'cheat' python that multiple columns are requested using `[columnName]` or `('columnName',All) 
+#### Select Level 0 and Level1 Headers
+
+Use  **`.loc[ :, (L0, L1)]`**, where `L0` and `L1` are list of headers names
 
 ```{python}
-All = slice(None)
-print( test_df.loc[:,['Female']], '\n\n',
-       test_df.loc[:,('Female',All)])
+test_df.loc[ : , (['Male','Pondan'], ['Medium','High'])]
 ```
 
-**Selecting Level 1 Header**
+#### Select single L0,L1 Header
 
-```{python}
-test_df.loc[ : , (All, ['Medium'])]
-```
-
-**Selecting Level 0 and Level1 Headers**
-
-Select multiple of level0 and multiple of level1 columns
-
-```{python}
-test_df.loc[ : , (['Female','Male'], ['Medium','High'])]
-```
-
-Select single of level0 and single of level1 column. The result is a **Series** if using `( , )` notation. If using `( , [ ])` notation, dataframe is returned.
+Use **`.loc[:, (L0,  L1) ]`**, result is a **Series**  
+Use **`.loc[:, (L0 ,[L1])]`**, result is a **DataFrame**
 
 ```{python}
 print( test_df.loc[ : , ('Female', 'High')], '\n\n',
        test_df.loc[ : , ('Female', ['High'])])
 ```
 
-Select single of level0 and multiple of level1 columns. 
-
-```{python}
-test_df.loc[ : , ('Female', ['Low','High'])]
-```
-
-#### Sorting MultiIndex
+### Headers Ordering
 
 Note that columns **order** specifeid by `[ ]` selection were not respected. This can be remediated either by Sorting and rearranging.
 
-**Sorting Index**
+#### Sort Headers
 
 Use `.sort_index()` on DataFrame to sort the headers. Note that when level1 is sorted, it jumble up level0 headers.
 
@@ -2263,14 +2276,20 @@ test_df_sorted_l0 = test_df.sort_index(axis=1, level=0)
 test_df_sorted_l1 = test_df.sort_index(axis=1, level=1, ascending=False)
 print(test_df, '\n\n',test_df_sorted_l0, '\n\n', test_df_sorted_l1)
 ```
+#### Rearranging Headers
 
-Use `.reindex()` on arrange columns in specific order. Example below shows how to control the specific order for level1 headers.
+Use **`.reindex()**` on arrange columns in specific order. Example below shows how to control the specific order for level1 headers.
 
 ```{python}
 cats = ['Low','Medium','High']
 test_df.reindex(cats, level=1, axis=1)
 ```
 
+### Stacking and Unstacking
+
+```{python}
+df.stack()
+```
 
 #### Stacking Columns to Rows
 
