@@ -704,9 +704,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="13.7.1" data-path="pandas-1.html"><a href="pandas-1.html#constructor-10"><i class="fa fa-check"></i><b>13.7.1</b> Constructor</a>
 <ul>
-<li class="chapter" data-level="13.7.1.1" data-path="pandas-1.html"><a href="pandas-1.html#from-row-oriented-data-list-of-lists"><i class="fa fa-check"></i><b>13.7.1.1</b> From Row Oriented Data (List of Lists)</a></li>
-<li class="chapter" data-level="13.7.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-row-oriented-data-list-of-dictionary"><i class="fa fa-check"></i><b>13.7.1.2</b> From Row Oriented Data (List of Dictionary)</a></li>
-<li class="chapter" data-level="13.7.1.3" data-path="pandas-1.html"><a href="pandas-1.html#from-column-oriented-data"><i class="fa fa-check"></i><b>13.7.1.3</b> From Column Oriented Data</a></li>
+<li class="chapter" data-level="13.7.1.1" data-path="pandas-1.html"><a href="pandas-1.html#empty-dataframe"><i class="fa fa-check"></i><b>13.7.1.1</b> Empty DataFrame</a></li>
+<li class="chapter" data-level="13.7.1.2" data-path="pandas-1.html"><a href="pandas-1.html#from-row-oriented-data-list-of-lists"><i class="fa fa-check"></i><b>13.7.1.2</b> From Row Oriented Data (List of Lists)</a></li>
+<li class="chapter" data-level="13.7.1.3" data-path="pandas-1.html"><a href="pandas-1.html#from-row-oriented-data-list-of-dictionary"><i class="fa fa-check"></i><b>13.7.1.3</b> From Row Oriented Data (List of Dictionary)</a></li>
+<li class="chapter" data-level="13.7.1.4" data-path="pandas-1.html"><a href="pandas-1.html#from-column-oriented-data"><i class="fa fa-check"></i><b>13.7.1.4</b> From Column Oriented Data</a></li>
 </ul></li>
 <li class="chapter" data-level="13.7.2" data-path="pandas-1.html"><a href="pandas-1.html#operator-2"><i class="fa fa-check"></i><b>13.7.2</b> Operator</a>
 <ul>
@@ -734,7 +735,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="13.7.5.1" data-path="pandas-1.html"><a href="pandas-1.html#select-single-column"><i class="fa fa-check"></i><b>13.7.5.1</b> Select Single Column</a></li>
 <li class="chapter" data-level="13.7.5.2" data-path="pandas-1.html"><a href="pandas-1.html#select-multiple-columns"><i class="fa fa-check"></i><b>13.7.5.2</b> Select Multiple Columns</a></li>
-<li class="chapter" data-level="13.7.5.3" data-path="pandas-1.html"><a href="pandas-1.html#by-column-name-.filter"><i class="fa fa-check"></i><b>13.7.5.3</b> By Column Name: (.filter)</a></li>
+<li class="chapter" data-level="13.7.5.3" data-path="pandas-1.html"><a href="pandas-1.html#by-column-name-.filter"><i class="fa fa-check"></i><b>13.7.5.3</b> By Column Name (.filter)</a></li>
 <li class="chapter" data-level="13.7.5.4" data-path="pandas-1.html"><a href="pandas-1.html#data-type-.select_dtypes"><i class="fa fa-check"></i><b>13.7.5.4</b> Data Type (.select_dtypes)</a></li>
 </ul></li>
 <li class="chapter" data-level="13.7.6" data-path="pandas-1.html"><a href="pandas-1.html#column-manipulation-1"><i class="fa fa-check"></i><b>13.7.6</b> Column Manipulation</a>
@@ -1438,7 +1439,7 @@ Note that the input string <strong>cannot be ISO8601 compliance</strong>, meanin
 <div class="sourceCode" id="cb646"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb646-1"><a href="numpy-1.html#cb646-1"></a>np.datetime64( date.today() )</span></code></pre></div>
 <pre><code>## numpy.datetime64(&#39;2020-03-15&#39;)</code></pre>
 <div class="sourceCode" id="cb648"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb648-1"><a href="numpy-1.html#cb648-1"></a>np.datetime64( datetime.now() )</span></code></pre></div>
-<pre><code>## numpy.datetime64(&#39;2020-03-15T14:17:52.351465&#39;)</code></pre>
+<pre><code>## numpy.datetime64(&#39;2020-03-15T14:39:06.232941&#39;)</code></pre>
 </div>
 <div id="instance-method-2" class="section level4" number="12.3.6.2">
 <h4 number="12.3.6.2"><span class="header-section-number">12.3.6.2</span> Instance Method</h4>
@@ -1978,15 +1979,15 @@ np.random.randint( low, high )            # generate an integer, i, which  low &
 np.random.randint( low, high, size=1)     # generate an ndarray of integer, single dimension
 np.random.randint( low, high, size=(r,c)) # generate an ndarray of integer, two dimensions </code></pre>
 <div class="sourceCode" id="cb848"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb848-1"><a href="numpy-1.html#cb848-1"></a>np.random.randint( <span class="dv">10</span> )</span></code></pre></div>
-<pre><code>## 9</code></pre>
+<pre><code>## 7</code></pre>
 <div class="sourceCode" id="cb850"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb850-1"><a href="numpy-1.html#cb850-1"></a>np.random.randint( <span class="dv">10</span>, <span class="dv">20</span> )</span></code></pre></div>
-<pre><code>## 10</code></pre>
+<pre><code>## 13</code></pre>
 <div class="sourceCode" id="cb852"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb852-1"><a href="numpy-1.html#cb852-1"></a>np.random.randint( <span class="dv">10</span>, high<span class="op">=</span><span class="dv">20</span>, size<span class="op">=</span><span class="dv">5</span>)   <span class="co"># single dimension</span></span></code></pre></div>
-<pre><code>## array([10, 14, 19, 14, 18])</code></pre>
+<pre><code>## array([19, 18, 12, 19, 10])</code></pre>
 <div class="sourceCode" id="cb854"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb854-1"><a href="numpy-1.html#cb854-1"></a>np.random.randint( <span class="dv">10</span>, <span class="dv">20</span>, (<span class="dv">3</span>,<span class="dv">5</span>) )        <span class="co"># two dimensions</span></span></code></pre></div>
-<pre><code>## array([[11, 13, 18, 10, 15],
-##        [12, 10, 10, 11, 17],
-##        [13, 13, 16, 12, 19]])</code></pre>
+<pre><code>## array([[16, 14, 10, 13, 17],
+##        [10, 19, 17, 18, 13],
+##        [15, 12, 17, 19, 14]])</code></pre>
 <!-- jupyter_markdown -->
 </div>
 <div id="random-integer-with-or-without-replacement" class="section level4" number="12.5.1.2">
@@ -1996,9 +1997,9 @@ np.random.randint( low, high, size=(r,c)) # generate an ndarray of integer, two 
  #   if a is integer, then it is assumed sampling from arange(a)
  #   if a is an 1-D array, then sampling from this array</code></pre>
 <div class="sourceCode" id="cb857"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb857-1"><a href="numpy-1.html#cb857-1"></a>np.random.choice(<span class="dv">10</span>,<span class="dv">5</span>, replace<span class="op">=</span><span class="va">False</span>) <span class="co"># take 5 samples from 0:19, without replacement</span></span></code></pre></div>
-<pre><code>## array([6, 5, 3, 8, 2])</code></pre>
+<pre><code>## array([8, 6, 4, 2, 0])</code></pre>
 <div class="sourceCode" id="cb859"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb859-1"><a href="numpy-1.html#cb859-1"></a>np.random.choice( np.arange(<span class="dv">10</span>,<span class="dv">20</span>), <span class="dv">5</span>, replace<span class="op">=</span><span class="va">False</span>)</span></code></pre></div>
-<pre><code>## array([12, 19, 16, 13, 18])</code></pre>
+<pre><code>## array([18, 10, 11, 13, 12])</code></pre>
 <!-- jupyter_markdown -->
 </div>
 <div id="random-float" class="section level4" number="12.5.1.3">
@@ -2006,7 +2007,7 @@ np.random.randint( low, high, size=(r,c)) # generate an ndarray of integer, two 
 <p><strong>randf()</strong> Generate float numbers in <strong>between 0.0 and 1.0</strong></p>
 <pre><code>np.random.ranf(size=None)</code></pre>
 <div class="sourceCode" id="cb862"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb862-1"><a href="numpy-1.html#cb862-1"></a>np.random.ranf(<span class="dv">4</span>)</span></code></pre></div>
-<pre><code>## array([0.06742072, 0.38570701, 0.44756233, 0.67528889])</code></pre>
+<pre><code>## array([0.79532879, 0.02425668, 0.93262844, 0.88598541])</code></pre>
 <!-- jupyter_markdown -->
 <p><strong>uniform()</strong> Return random float from <strong>low (inclusive) to high (exclusive)</strong></p>
 <pre><code>np.random.uniform( low )                  # generate an float, i, which         f &lt; low
@@ -2014,12 +2015,12 @@ np.random.uniform( low, high )            # generate an float, i, which  low &lt
 np.random.uniform( low, high, size=1)     # generate an array of float, single dimension
 np.random.uniform( low, high, size=(r,c)) # generate an array of float, two dimensions </code></pre>
 <div class="sourceCode" id="cb865"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb865-1"><a href="numpy-1.html#cb865-1"></a>np.random.uniform( <span class="dv">2</span> )</span></code></pre></div>
-<pre><code>## 1.1778964426242804</code></pre>
+<pre><code>## 1.8695375655646065</code></pre>
 <div class="sourceCode" id="cb867"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb867-1"><a href="numpy-1.html#cb867-1"></a>np.random.uniform( <span class="dv">2</span>,<span class="dv">5</span>, size<span class="op">=</span>(<span class="dv">4</span>,<span class="dv">4</span>) )</span></code></pre></div>
-<pre><code>## array([[3.99307794, 2.39622085, 4.39575831, 3.41778405],
-##        [2.26653151, 4.24663399, 4.78168256, 3.398408  ],
-##        [2.34065716, 4.65767172, 4.25378571, 2.33423812],
-##        [2.64996003, 2.73200516, 2.83126859, 3.52846937]])</code></pre>
+<pre><code>## array([[2.41187209, 2.89365156, 4.79660543, 4.663146  ],
+##        [2.44209887, 2.56299786, 4.87601005, 4.46623021],
+##        [4.96748821, 2.65619785, 4.32490827, 3.25562025],
+##        [4.36092576, 3.70735018, 3.88156193, 2.57273882]])</code></pre>
 <!-- jupyter_markdown -->
 </div>
 </div>
@@ -2036,17 +2037,17 @@ numpy. random.normal         ( loc=0, scale=1, size=None) # loc = mean, scale = 
 <!-- jupyter_markdown -->
 <p><strong>One Dimension</strong></p>
 <div class="sourceCode" id="cb870"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb870-1"><a href="numpy-1.html#cb870-1"></a>np.random.standard_normal(<span class="dv">3</span>)</span></code></pre></div>
-<pre><code>## array([ 0.42444298, -0.97773958, -0.58951974])</code></pre>
+<pre><code>## array([-0.43066836,  0.33526876,  0.79508539])</code></pre>
 <div class="sourceCode" id="cb872"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb872-1"><a href="numpy-1.html#cb872-1"></a>np.random.randn(<span class="dv">3</span>)</span></code></pre></div>
-<pre><code>## array([ 0.80834537,  0.29941358, -0.40653288])</code></pre>
+<pre><code>## array([-1.09380706,  0.8515024 , -1.60098139])</code></pre>
 <!-- jupyter_markdown -->
 <p><strong>Two Dimensions</strong></p>
 <div class="sourceCode" id="cb874"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb874-1"><a href="numpy-1.html#cb874-1"></a>np.random.randn(<span class="dv">2</span>,<span class="dv">4</span>)</span></code></pre></div>
-<pre><code>## array([[-2.06102284, -0.35639844, -0.00463226, -0.50322096],
-##        [-0.08689587, -0.0067645 ,  0.3208637 ,  1.02526624]])</code></pre>
+<pre><code>## array([[-1.33088998,  0.00269773, -0.28211382, -1.00522938],
+##        [-1.05833432,  0.85167844, -1.095728  ,  0.27138692]])</code></pre>
 <div class="sourceCode" id="cb876"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb876-1"><a href="numpy-1.html#cb876-1"></a>np.random.standard_normal((<span class="dv">2</span>,<span class="dv">4</span>))</span></code></pre></div>
-<pre><code>## array([[-0.50785469, -2.05034171, -0.49646065,  1.34701906],
-##        [-0.8057339 , -0.06977362, -0.61924376,  2.20807421]])</code></pre>
+<pre><code>## array([[ 1.86300913, -0.40769439,  0.37823726, -1.3457807 ],
+##        [ 0.0474969 , -1.97802272,  0.55911239, -0.84225119]])</code></pre>
 <!-- jupyter_markdown -->
 <p><strong>Observe:</strong> randn(), standard_normal() and normal() are able to generate standard normal numbers</p>
 <div class="sourceCode" id="cb878"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb878-1"><a href="numpy-1.html#cb878-1"></a>np.random.seed(<span class="dv">15</span>)</span>

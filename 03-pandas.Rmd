@@ -1234,14 +1234,40 @@ s.dt.minute # extract minute as integer
 
 ### Constructor
 
-#### From Row Oriented Data (List of Lists)
-Create from **List of Lists**
-```
-DataFrame( [row_list1, row_list2, row_list3] )
-DataFrame( [row_list1, row_list2, row_list3], column=columnName_list )
-DataFrame( [row_list1, row_list2, row_list3], index=row_label_list )
+#### Empty DataFrame
+
+By default, An empty dataframe contain no coumns and index.
+
+```{python}
+empty_df1 = pd.DataFrame()
+empty_df2 = pd.DataFrame()
+print(id(empty_df1), id(empty_df2), empty_df1)
 ```
 
+However, you can also initialize an empty DataFrame with Index and/or Columns.
+
+```{python}
+empty_df = pd.DataFrame(columns=['A','B','C'], index=[1,2,3])
+print( empty_df )
+```
+
+Take note that below empty_df1 and empty_df2 refers to **same memory location**. Meaning they cantain similar data.
+
+```{python}
+empty_df1 = empty_df2 = pd.DataFrame()
+print(id(empty_df1), id(empty_df2))
+```
+
+
+#### From Row Oriented Data (List of Lists)
+
+Create from **List of Lists**
+
+```
+DataFrame( [row_list1, row_list2, row_list3] )
+DataFrame( [row_list1, row_list2, row_list3], column = columnName_list )
+DataFrame( [row_list1, row_list2, row_list3], index  = row_label_list )
+```
 
 **Basic DataFrame with default Row Label and Column Header**
 
@@ -1250,7 +1276,6 @@ pd.DataFrame ([[101,'Alice',40000,2017],
                [102,'Bob',  24000, 2017], 
                [103,'Charles',31000,2017]] )
 ```
-
 
 **Specify Column Header during Creation**
 
@@ -1574,11 +1599,6 @@ dataframe.iloc[ : , number_range    ]  # multiple columns, dataframe
 
 Selecting single column always return as **`panda::Series`**
 
-Two methods of selecting single column:  
-- use `DataFrame.ColumnName` - column name must not contain space and dot  
-- use `DataFrame['ColumnName']` - column name is a string  
-
-Below example returns the same result (Series)
 ```{python}
 print( 
   df.name,           '\n\n',
@@ -1589,8 +1609,9 @@ print(
 
 #### Select Multiple Columns
 
-Multiple columns return as **panda::Dataframe** object`
+Multiple columns return as **panda::Dataframe** object`  
 
+Example below returns DataFrame with Single Column
 ```{python}
 df[['name']]  # return one column dataframe
 ```
@@ -1611,7 +1632,7 @@ print(
 )
 ```
 
-#### By Column Name: (.filter)
+#### By Column Name (.filter)
 
 `.filter(items=None, like=None, regex=None, axis=1)`
 
