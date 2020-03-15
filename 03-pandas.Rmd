@@ -598,7 +598,7 @@ ts.to_datetime64()
 ```
 
 
-#### ```ceil```
+#### `ceil`
 
 ```{python}
 print( ts.ceil(freq='D') ) # ceiling to day
@@ -893,31 +893,38 @@ print( ' Series Index:    ',s.index, '\n',
 
 ### Instance Methods
 
-#### .reset_index ()
+#### Index Manipulation
+
+**`.rename_axis()`**
+
+```{python}
+s.rename_axis('haribulan')
+```
+
+**`.reset_index()`**
 
 Resetting index will:  
 - Convert index to a normal column, with column named as **'index'**  
 - Index renumbered to 1,2,3  
-- Retrun DataFrame (became two columns)
+- Return **DataFrame** (became two columns)
 
 ```{python}
-print(s)
-print(s.reset_index())
+s.reset_index()
 ```
 
 #### Structure Conversion
 
-A series structure contain **`value`** (in numpy array), its **`dtype`** (data type of the numpy array).    
-Use **```values```** to retrieve into ```numpy.ndarray``. Use **`dtype`** to understand the data type.  
+- A series structure contain **`value`** (in numpy array), its **`dtype`** (data type of the numpy array).    
+- Use **`values`** to retrieve into ```numpy.ndarray``. Use **`dtype`** to understand the data type.  
 
 ```{python}
 s = pd.Series([1,2,3,4,5])
 print(' Series value:      ', s.values, '\n', 
-      'Series value type: ', type(s.values), '\n',
-      'Series dtype:      ',s.dtype)
+      'Series value type: ',  type(s.values), '\n',
+      'Series dtype:      ',  s.dtype)
 ```
 
-Use **`pandas.Series.tolist()`** to convert into standard python ```list``
+Convert To List using **`.tolist()`**
 
 ```{python}
 pd.Series.tolist(s)
@@ -1122,7 +1129,7 @@ type(s.str.extract('([ab])(\d)', expand=False))
 ```
 
 
-### Series DateTime Accessor ```.dt```
+### Series  `.dt` Accessor 
 
 If the underlying data is **datetime64** type, then pandas exposed various properties and methos through **```dt``` accessor**. 
 
@@ -1508,44 +1515,49 @@ df.reset_index(inplace=True)
 print(df)
 ```
 
-
 #### Updating Index ( .index= )
 **Warning:**  
-- Updating index doesn't reorder the data sequence  
+- Updating index **doesn't reorder** the data sequence  
 - Number of elements before and after reorder must match, otherwise **error**  
 - Same label are **allowed to repeat**
 - Not reversable
 
 ```{python}
 df.index = [101, 101, 101, 102, 103]
-print( df )
+df
 ```
 
-
 #### Reordering Index (. reindex )
-- Reindex will reorder the rows according to new index  
+- Reindex will **reorder** the rows according to new index  
 - The operation is not reversable
-
 
 **Start from this original dataframe**
 
-
-**Change the order of Index**, always return a new dataframe
-
 ```{python}
 df.index = [101,102,103,104,105]
-print( df )                                ## original sequence
-print( df.reindex([103,102,101,104,105]) ) ## new sequence, new dataframe
+df
 ```
+**Change the order of Index**, always return a new dataframe
+```{python}
+df.reindex([103,102,101,104,105])
+```
+#### Rename Index
 
+- Example below renamed the axis of both columns and rows  
+- Use `axis=0` for row index, use `axis=1` for column index
 
+```{python}
+df.rename_axis('super_id').rename_axis('my_cols', axis=1)
+```
 ### Subsetting Columns
+
 **Select Single Column** Return **Series**
 ```
 dataframe.columnName               # single column, name based, return Series object
 dataframe[ single_col_name ]       # single column, name based, return Series object
 dataframe[ [single_col_name] ]     # single column, name based, return DataFrame object
 ```
+
 **Select Single/Multiple Columns** Return **DataFrame**
 ```
 dataframe[ single/list_of_col_names ]                       # name based, return Dataframe object
@@ -1558,28 +1570,25 @@ dataframe.iloc[ : , col_number_list ]  # multiple columns, dataframe
 dataframe.iloc[ : , number_range    ]  # multiple columns, dataframe
 ```
 
-
 #### Select Single Column
-Selecting single column always return as ```panda::Series```
 
+Selecting single column always return as **`panda::Series`**
+
+Two methods of selecting single column:  
+- use `DataFrame.ColumnName` - column name must not contain space and dot  
+- use `DataFrame['ColumnName']` - column name is a string  
+
+Below example returns the same result (Series)
 ```{python}
-df.name
+print( 
+  df.name,           '\n\n',
+  df['name'],        '\n\n',
+  df.loc[:, 'name'], '\n\n',
+  df.iloc[:, 3])
 ```
-
-```{python}
-df['name']
-```
-
-```{python}
-df.loc[:, 'name']
-```
-
-```{python}
-df.iloc[:, 3]
-```
-
 
 #### Select Multiple Columns
+
 Multiple columns return as **panda::Dataframe** object`
 
 ```{python}
@@ -1587,28 +1596,45 @@ df[['name']]  # return one column dataframe
 ```
 
 ```{python}
-print(df.columns)
-df[['name','year1']]
+print(
+  df[['name','year1']]       ,'\n\n',
+  df.loc[:,['name','year1']])
 ```
+
+**Select Range of Columns**
 
 ```{python}
-df.loc[:,['name','year1']]
+print(
+  df.loc [ : , 'year1':'year2'], '\n\n',
+  df.iloc[ : , [0,3]]           ,'\n\n',
+  df.iloc[ : , 0:3]
+)
 ```
+
+#### By Column Name: (.filter)
+
+`.filter(items=None, like=None, regex=None, axis=1)`
+
+**like = Substring Matches**  
 
 ```{python}
-df.loc[:,'year1':'year2']  # range of columns
+df.filter( like='year',  axis='columns')  ## or axis = 1
 ```
+
+**items = list of column names**
 
 ```{python}
-df.iloc[:,[0,3]]
+df.filter( items=('year1','year2'),  axis=1)  ## or axis = 1
 ```
+
+**regex = Regular Expression**   
+Select column names that contain integer
 
 ```{python}
-df.iloc[:,0:3]
+df.filter(regex='\d')  ## default axis=1 if DataFrame
 ```
 
-
-#### Selection by Data Type
+#### Data Type (.select_dtypes)
 
 ```
 df.select_dtypes(include=None, exclude=None)
@@ -1634,34 +1660,7 @@ df.select_dtypes(exclude=('number','object'))
 ```
 
 
-#### Subset by ```filter()```
-```.filter(items=None, like=None, regex=None, axis=1)```  
-
-
-**like = Substring Matches**  
-
-```{python}
-df.filter( like='year',  axis='columns')  ## or axis = 1
-```
-
-
-**items = list of column names**
-
-```{python}
-df.filter( items=('year1','year2'),  axis=1)  ## or axis = 1
-```
-
-
-**regex = Regular Expression**  
-Select column names that contain integer
-
-```{python}
-df.filter(regex='\d')  ## default axis=1 if DataFrame
-```
-
-
 ### Column Manipulation
-
 
 #### Sample Data
 
@@ -1776,7 +1775,6 @@ dataframe.iloc[ number_range     ]  # multiple rows
 dataframe.sample(frac=)                                        # frac = 0.6 means sampling 60% of rows randomly
 ```
 
-
 #### Sample Data
 
 ```{python}
@@ -1840,22 +1838,20 @@ df.iloc[ [0,3] ]    # by row numbers
 df.iloc[  0:3  ]    # by row number range
 ```
 
+#### By Expression (.query)
 
-#### ```query()```
-```.query(expr, inplace=False)```
+`.query(expr, inplace=False)`
 
 ```{python}
 df.query('salary<=31000 and year1 == 2017')
 ```
 
-
-#### ```sample()```
+#### By Random (.sample)
 
 ```{python}
 np.random.seed(15)
 df.sample(frac=0.6) #randomly pick 60% of rows, without replacement
 ```
-
 
 ### Row Manipulation
 
@@ -2079,10 +2075,9 @@ This is reverse of `mask()`, it will repalce value when the **condition is False
 df.where(cond=df_big)
 ```
 
-
 ### Iteration
 
-#### `.iterrows()` loop through every **ROW**
+#### Loop Through Rows (.iterrows)
 
 ```{python}
 df = pd.DataFrame(data=
@@ -2094,7 +2089,7 @@ for idx, row in df.iterrows():
   print(idx, row.Name)
 ```
 
-#### `.items()` loop through every **Column**
+#### Loop Through Columns (.itemes)
 
 ```{python}
 for label, content in df.items():
@@ -2104,8 +2099,8 @@ for label, content in df.items():
 
 ### Data Structure
 
-
 #### Instance Methods - Structure
+
 Find out the column names, data type in a summary. Output is for display only, not a data object
 
 ```{python}
@@ -2852,7 +2847,6 @@ com_grp
 ```
 
 ### Transform
-
 
 - Transform is an operation used combined with **DataFrameGroupBy** object  
 - **transform()** return a **new DataFrame object**  
