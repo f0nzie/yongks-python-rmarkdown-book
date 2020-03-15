@@ -894,9 +894,10 @@ print( ' Series Index:    ',s.index, '\n',
 ### Instance Methods
 
 #### .reset_index ()
+
 Resetting index will:  
-- Convert index to a normal column, header is 'index'
-- Index renumbered to ,1,2,3
+- Convert index to a normal column, with column named as **'index'**  
+- Index renumbered to 1,2,3  
 - Retrun DataFrame (became two columns)
 
 ```{python}
@@ -2665,86 +2666,176 @@ pd.get_dummies(df[cols], prefix=['colA','colB'])
 pd.get_dummies(df[cols],drop_first=True)
 ```
 
+## DataFrameGroupBy
+
+- `groupby()` is a DataFrame method, it returns  **`DataFrameGroupBy`** object  
+- **`DataFrameGroupBy`** object open doors for dataframe aggregation and summarization  
+- **`DataFrameGroupBy`** object is a **very flexible abstraction**. In many ways, you can simply treat `DataFrameGroup` as if it's a **collection of DataFrames**, and it does the difficult things under the hood  
 
 
-
-## GroupBy
-- Aggretation and summarization require creating **DataFrameGroupBy** object from existing DataFrame  
-- The **GroupBy** object is a **very flexible abstraction**. In many ways, you can simply treat it as if it's a **collection of DataFrames**, and it does the difficult things under the hood  
+### Sample Data
 
 ```{python}
 company = pd.read_csv('data/company.csv')
-company.head()
+company
 ```
-
 
 ### Creating Groups
 
+Group can be created for  **single or multiple** columns
+
 ```{python}
-com_grp = company.groupby(['Company','Department'])
-com_grp
+com_grp = company.groupby('Company') ## Single Column
+com_dep_grp = company.groupby(['Company','Department'])  ## Multiple Column
+type(com_dep_grp)
 ```
 
 ### Properties
 
-#### Number of Groups Created
+#### Number of Groups
 
 ```{python}
-com_grp.ngroups
+com_dep_grp.ngroups
 ```
-
 
 #### Row Numbers Associated For Each Group
 
-```{python}
-com_grp.groups  # return Dictionary
-```
+`.groups` property is a dictionary containing group key (identifying the group) and its values (underlying row indexes for the group)
 
+```{python}
+gdict = com_dep_grp.groups       # return Dictionary
+print( gdict.keys()   , '\n\n',  # group identifier
+       gdict.values()   )        # group row indexes
+```
 
 ### Methods
 
 #### Number of Rows In Each Group
 
 ```{python}
-com_grp.size()  # return panda Series object
+com_dep_grp.size()  # return panda Series object
 ```
-
-
-#### Valid (not Null) Data Count For Each Fields In The Group
-
-```{python}
-com_grp.count()  # return panda DataFrame object
-```
-
 
 ### Retrieve Rows
-All row retrieval operations **return a dataframe**
 
+#### Retrieve n-th Row Of Each Grou
 
-#### Retrieve N Rows For Each Groups
+- Row number is 0-based  
+- For First row, use `.first()` or `nth(0)`  
+
+```{python}
+print( com_dep_grp.nth(0)  , '\n',
+       com_dep_grp.first())
+```
+
+- For Last row,  use `.last()` or `nth(`-1)`
+
+```{python}
+print( com_dep_grp.nth(-1)  , '\n',
+       com_dep_grp.last())
+```
+
+#### Retrieve N Rows Of Each Groups
+
 Example below retrieve 2 rows from each group
 
 ```{python}
-com_grp.head(2)
+com_dep_grp.head(2)
 ```
 
+#### Retrieve All Rows Of  Specific Group
 
-#### Retrieve Rows In One Specific Group
+`get_group()` retrieves all rows within the specified group.
 
 ```{python}
-com_grp.get_group(('C1','D3'))
+com_dep_grp.get_group(('C1','D3'))
 ```
 
+### Single Statistic Per Group
 
-#### Retrieve n-th Row From Each Group
-Row number is 0-based
+#### `count()` 
+
+`count()` for valid data (not null) for each fields within the group
 
 ```{python}
-com_grp.nth(-1)    # retireve last row from each group
+com_dep_grp.count()  # return panda DataFrame object
 ```
 
+#### `sum()`
+
+This sums up all numeric columns for each group
+
+```{python}
+com_dep_grp.sum()
+```
+
+To sum specific columns of each group, use `['columnName']` to select the column.  
+When single column is selected, output is a **Series**
+
+```{python}
+com_dep_grp['Age'].sum()
+```
+
+#### `mean()`
+
+This average up all numeric columns for each group
+
+```{python}
+com_dep_grp.mean()
+```
+
+To average specific columns of each group, use `['columnName']` to select the column.  
+When single column is selected, output is a **Series**
+
+```{python}
+com_dep_grp['Age'].mean()
+```
+
+### Multi Statistic Per Group
+
+#### Single Function To Column(s)
+
+- Instructions for aggregation are provided in the form of a dictionary. Dictionary keys specifies the **column name**, and value as the **function** to run  
+- Can use **`lambda x:`** to customize the calclulation on entire column (x)  
+- Python built-in function names does can be supplied without wrapping in string `'function'`
+
+```{python}
+com_dep_grp.agg({
+  'Age': sum ,                 ## Total age of the group
+  'Salary': lambda x: max(x),  ## Highest salary of the group
+  'Birthdate': 'first'         ## First birthday of the group
+})
+```
+
+#### Multiple Function to Column(s)
+
+- Use list of function names to specify functions to be applied on a particular column  
+- Notice that output columns are MultiIndex , indicating the name of funcitons appled on level 1  
+
+```{python}
+ag = com_dep_grp.agg({
+      'Age': ['mean', sum ],       ## Average age of the group
+      'Salary': lambda x: max(x),  ## Highest salary of the group
+      'Birthdate': 'first'         ## First birthday of the group
+    })
+    
+print (ag, '\n\n', ag.columns)
+```
+
+#### Column Relabling
+
+Introduced in Pandas 0.25.0, groupby aggregation with relabelling is supported using “named aggregation” with **simple tuples**
+
+```{python}
+com_dep_grp.agg(
+  max_age     = ('Age', max),
+  salary_m100 = ('Salary',  lambda x: max(x)+100),  
+  first_bd    = ('Birthdate', 'first')
+)
+```
 
 ### Iteration
+
 **DataFrameGroupBy** object can be thought as a collection of named groups
 
 ```{python}
@@ -2759,40 +2850,6 @@ print_groups (com_grp)
 ```{python}
 com_grp
 ```
-
-
-### Apply Aggregate Functions to Groups
-Aggregate apply functions to columns in every groups, and return a summary data for each group
-
-
-#### Apply One Function to One or More Columns
-
-```{python}
-com_grp['Age'].sum()
-```
-
-```{python}
-com_grp[['Age','Salary']].sum()
-```
-
-
-#### Apply One or More Functions To All Columns
-
-```{python}
-com_grp.agg(np.mean)
-```
-
-```{python}
-com_grp.agg([np.mean,np.sum])
-```
-
-
-#### Apply Different Functions To Different Columns
-
-```{python}
-com_grp.agg({'Age':np.mean, 'Salary': [np.min,np.max]})
-```
-
 
 ### Transform
 
@@ -2815,10 +2872,6 @@ grp[['Age','Salary']].transform('sum')
 ```{python}
 grp.transform( lambda x:x+10 )
 ```
-
-
-
-
 
 ## Fundamental Analysis
 
