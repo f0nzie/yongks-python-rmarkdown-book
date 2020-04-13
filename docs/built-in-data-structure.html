@@ -1161,9 +1161,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## (1, 2, 3, 4, 5)</code></pre>
 <p>The copy and original has the same memory location.</p>
 <div class="sourceCode" id="cb167"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb167-1" title="1"><span class="bu">print</span>(<span class="st">&#39;Original ID: &#39;</span>, <span class="bu">id</span>(original))</a></code></pre></div>
-<pre><code>## Original ID:  733944904</code></pre>
+<pre><code>## Original ID:  599727176</code></pre>
 <div class="sourceCode" id="cb169"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb169-1" title="1"><span class="bu">print</span>(<span class="st">&#39;Copy ID:     &#39;</span>, <span class="bu">id</span>(copy_test))</a></code></pre></div>
-<pre><code>## Copy ID:      733944904</code></pre>
+<pre><code>## Copy ID:      599727176</code></pre>
 </div>
 </div>
 <div id="list" class="section level2">
@@ -1288,10 +1288,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>The reference of list variable won’t change after adding/removing its item</p>
 <div class="sourceCode" id="cb217"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb217-1" title="1">food <span class="op">=</span> [<span class="st">&#39;cake&#39;</span>,<span class="st">&#39;jelly&#39;</span>,<span class="st">&#39;roti&#39;</span>,<span class="st">&#39;noodle&#39;</span>]</a>
 <a class="sourceLine" id="cb217-2" title="2"><span class="bu">print</span> (<span class="st">&#39;food : &#39;</span>,<span class="bu">id</span>(food))</a></code></pre></div>
-<pre><code>## food :  73955720</code></pre>
+<pre><code>## food :  600012232</code></pre>
 <div class="sourceCode" id="cb219"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb219-1" title="1">food <span class="op">+=</span> [<span class="st">&#39;salad&#39;</span>,<span class="st">&#39;chicken&#39;</span>]</a>
 <a class="sourceLine" id="cb219-2" title="2"><span class="bu">print</span> (<span class="st">&#39;food : &#39;</span>,<span class="bu">id</span>(food))</a></code></pre></div>
-<pre><code>## food :  73955720</code></pre>
+<pre><code>## food :  600012232</code></pre>
 <p>A function is actually an <strong>object</strong>, which reference never change, hence <strong>mutable</strong></p>
 <div class="sourceCode" id="cb221"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb221-1" title="1"><span class="kw">def</span> spam (elem, some_list<span class="op">=</span>[<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>]):</a>
 <a class="sourceLine" id="cb221-2" title="2">    some_list.append(elem)</a>
@@ -1310,9 +1310,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb227"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb227-1" title="1">original <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]</a>
 <a class="sourceLine" id="cb227-2" title="2">copy_test <span class="op">=</span> original</a>
 <a class="sourceLine" id="cb227-3" title="3"><span class="bu">print</span>(<span class="st">&#39;Original ID: &#39;</span>, <span class="bu">id</span>(original))</a></code></pre></div>
-<pre><code>## Original ID:  662099080</code></pre>
+<pre><code>## Original ID:  527906056</code></pre>
 <div class="sourceCode" id="cb229"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb229-1" title="1"><span class="bu">print</span>(<span class="st">&#39;Copy ID:     &#39;</span>, <span class="bu">id</span>(copy_test))                          </a></code></pre></div>
-<pre><code>## Copy ID:      662099080</code></pre>
+<pre><code>## Copy ID:      527906056</code></pre>
 <div class="sourceCode" id="cb231"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb231-1" title="1">original[<span class="dv">0</span>]<span class="op">=</span><span class="dv">999</span>   <span class="co">## change original</span></a>
 <a class="sourceLine" id="cb231-2" title="2"><span class="bu">print</span>(original)</a></code></pre></div>
 <pre><code>## [999, 2, 3, 4, 5]</code></pre>
@@ -1326,9 +1326,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb237"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb237-1" title="1"><span class="bu">print</span>(copy_test)</a></code></pre></div>
 <pre><code>## [1, 2, 3, 4, 5]</code></pre>
 <div class="sourceCode" id="cb239"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb239-1" title="1"><span class="bu">print</span>(<span class="st">&#39;Original ID: &#39;</span>, <span class="bu">id</span>(original))</a></code></pre></div>
-<pre><code>## Original ID:  629814984</code></pre>
+<pre><code>## Original ID:  495596552</code></pre>
 <div class="sourceCode" id="cb241"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb241-1" title="1"><span class="bu">print</span>(<span class="st">&#39;Copy ID:     &#39;</span>, <span class="bu">id</span>(copy_test))</a></code></pre></div>
-<pre><code>## Copy ID:      662080904</code></pre>
+<pre><code>## Copy ID:      527870024</code></pre>
 <div class="sourceCode" id="cb243"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb243-1" title="1">original[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">999</span>  <span class="co">## change original</span></a>
 <a class="sourceLine" id="cb243-2" title="2"><span class="bu">print</span>(original)    </a></code></pre></div>
 <pre><code>## [999, 2, 3, 4, 5]</code></pre>
@@ -1342,10 +1342,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb247-5" title="5">    </a>
 <a class="sourceLine" id="cb247-6" title="6">my_list <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]</a>
 <a class="sourceLine" id="cb247-7" title="7"><span class="bu">print</span>(<span class="st">&#39;ID outside Function: &#39;</span>, <span class="bu">id</span>(my_list))</a></code></pre></div>
-<pre><code>## ID outside Function:  73955528</code></pre>
+<pre><code>## ID outside Function:  600012040</code></pre>
 <div class="sourceCode" id="cb249"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb249-1" title="1">func(my_list)  <span class="co">## call the function, pass the reference</span></a></code></pre></div>
 <pre><code>## [1, 2, 3, 4, 5]
-## ID in Function:       73955528</code></pre>
+## ID in Function:       600012040</code></pre>
 <div class="sourceCode" id="cb251"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb251-1" title="1"><span class="bu">print</span>(my_list) <span class="co">## content was altered</span></a></code></pre></div>
 <pre><code>## [1, 2, 3, 4, 5, 6]</code></pre>
 </div>
@@ -1384,7 +1384,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb259-2" title="2">original_tuple <span class="op">=</span> <span class="bu">tuple</span>(original)</a>
 <a class="sourceLine" id="cb259-3" title="3"><span class="bu">print</span>( <span class="bu">id</span>(original),</a>
 <a class="sourceLine" id="cb259-4" title="4">       <span class="bu">id</span>(original_tuple))</a></code></pre></div>
-<pre><code>## 73987272 632689192</code></pre>
+<pre><code>## 600051912 498472264</code></pre>
 </div>
 <div id="built-in-functions-applicable-to-list" class="section level3">
 <h3><span class="header-section-number">3.2.9</span> Built-In Functions Applicable To List</h3>
@@ -1487,7 +1487,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Set can be declared with <code>{}</code>, unlike list creation uses ‘[]’.</p>
 <div class="sourceCode" id="cb290"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb290-1" title="1">myset <span class="op">=</span> {<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;e&#39;</span>,<span class="st">&#39;f&#39;</span>,<span class="st">&#39;g&#39;</span>}</a>
 <a class="sourceLine" id="cb290-2" title="2"><span class="bu">print</span> (myset) <span class="co"># notice no repetition values</span></a></code></pre></div>
-<pre><code>## {&#39;g&#39;, &#39;d&#39;, &#39;c&#39;, &#39;a&#39;, &#39;e&#39;, &#39;b&#39;, &#39;f&#39;}</code></pre>
+<pre><code>## {&#39;e&#39;, &#39;c&#39;, &#39;d&#39;, &#39;g&#39;, &#39;a&#39;, &#39;f&#39;, &#39;b&#39;}</code></pre>
 <p>Set can be created from list, and then converted back to list</p>
 <div class="sourceCode" id="cb292"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb292-1" title="1">mylist <span class="op">=</span> [<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;e&#39;</span>,<span class="st">&#39;f&#39;</span>,<span class="st">&#39;g&#39;</span>]</a>
 <a class="sourceLine" id="cb292-2" title="2">myset <span class="op">=</span> <span class="bu">set</span>(mylist)</a>
@@ -1497,8 +1497,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb292-6" title="6">  <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Convert to set      : &#39;</span>, myset,</a>
 <a class="sourceLine" id="cb292-7" title="7">  <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Convert back to list: &#39;</span>, my_unique_list) <span class="co"># notice no repetition values</span></a></code></pre></div>
 <pre><code>## Original List       :  [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;a&#39;, &#39;b&#39;, &#39;e&#39;, &#39;f&#39;, &#39;g&#39;] 
-## Convert to set      :  {&#39;g&#39;, &#39;d&#39;, &#39;c&#39;, &#39;a&#39;, &#39;e&#39;, &#39;b&#39;, &#39;f&#39;} 
-## Convert back to list:  [&#39;g&#39;, &#39;d&#39;, &#39;c&#39;, &#39;a&#39;, &#39;e&#39;, &#39;b&#39;, &#39;f&#39;]</code></pre>
+## Convert to set      :  {&#39;e&#39;, &#39;c&#39;, &#39;d&#39;, &#39;g&#39;, &#39;a&#39;, &#39;f&#39;, &#39;b&#39;} 
+## Convert back to list:  [&#39;e&#39;, &#39;c&#39;, &#39;d&#39;, &#39;g&#39;, &#39;a&#39;, &#39;f&#39;, &#39;b&#39;]</code></pre>
 </div>
 <div id="membership-test" class="section level3">
 <h3><span class="header-section-number">3.4.2</span> Membership Test</h3>
@@ -1524,19 +1524,19 @@ Proper Subset Test : &lt;</p>
 <div id="union-using" class="section level3">
 <h3><span class="header-section-number">3.4.4</span> Union using <code>|</code></h3>
 <div class="sourceCode" id="cb304"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb304-1" title="1">{<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>} <span class="op">|</span> {<span class="st">&#39;a&#39;</span>,<span class="st">&#39;e&#39;</span>,<span class="st">&#39;f&#39;</span>}</a></code></pre></div>
-<pre><code>## {&#39;a&#39;, &#39;e&#39;, &#39;b&#39;, &#39;f&#39;, &#39;c&#39;}</code></pre>
+<pre><code>## {&#39;e&#39;, &#39;a&#39;, &#39;c&#39;, &#39;f&#39;, &#39;b&#39;}</code></pre>
 </div>
 <div id="intersection-using" class="section level3">
 <h3><span class="header-section-number">3.4.5</span> Intersection using <code>&amp;</code></h3>
 <p>Any elments that exist in both left and right set</p>
 <div class="sourceCode" id="cb306"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb306-1" title="1">{<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>} <span class="op">&amp;</span> {<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;e&#39;</span>,<span class="st">&#39;f&#39;</span>}</a></code></pre></div>
-<pre><code>## {&#39;c&#39;, &#39;d&#39;}</code></pre>
+<pre><code>## {&#39;d&#39;, &#39;c&#39;}</code></pre>
 </div>
 <div id="difference-using--" class="section level3">
 <h3><span class="header-section-number">3.4.6</span> Difference using <code>-</code></h3>
 <p>Remove <strong>right</strong> from <strong>left</strong></p>
 <div class="sourceCode" id="cb308"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb308-1" title="1">{<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>} <span class="op">-</span> {<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;e&#39;</span>,<span class="st">&#39;f&#39;</span>}</a></code></pre></div>
-<pre><code>## {&#39;a&#39;, &#39;b&#39;}</code></pre>
+<pre><code>## {&#39;b&#39;, &#39;a&#39;}</code></pre>
 </div>
 </div>
 <div id="range" class="section level2">

@@ -1208,13 +1208,13 @@ Remainder by float return <strong>float</strong></p>
 <div class="sourceCode" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb46-1" title="1">s <span class="op">=</span> <span class="st">&#39;abcde&#39;</span></a>
 <a class="sourceLine" id="cb46-2" title="2"><span class="bu">print</span> (<span class="st">&#39;s : &#39;</span>, <span class="bu">id</span>(s))</a>
 <a class="sourceLine" id="cb46-3" title="3"><span class="co">#s[1] = &#39;z&#39;               # immutable, result in error</span></a></code></pre></div>
-<pre><code>## s :  734027376</code></pre>
+<pre><code>## s :  599814256</code></pre>
 <ul>
 <li>Changing the variable completley change the reference (for new object)</li>
 </ul>
 <div class="sourceCode" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb48-1" title="1">s <span class="op">=</span> <span class="st">&#39;efgh&#39;</span></a>
 <a class="sourceLine" id="cb48-2" title="2"><span class="bu">print</span> (<span class="st">&#39;s : &#39;</span>, <span class="bu">id</span>(s))</a></code></pre></div>
-<pre><code>## s :  662099312</code></pre>
+<pre><code>## s :  599861040</code></pre>
 </div>
 </div>
 <div id="class-constants" class="section level3">
@@ -1364,8 +1364,8 @@ For partial match, workaround is to <strong>convert list to single string</stron
 <a class="sourceLine" id="cb105-3" title="3"><span class="bu">print</span>(<span class="st">&#39;id(a) = &#39;</span>, <span class="bu">id</span>(a), </a>
 <a class="sourceLine" id="cb105-4" title="4">      <span class="st">&#39;</span><span class="ch">\n</span><span class="st">id(b) = &#39;</span>, <span class="bu">id</span>(b),</a>
 <a class="sourceLine" id="cb105-5" title="5">      <span class="st">&#39;</span><span class="ch">\n</span><span class="st">a == b  &#39;</span>, a<span class="op">==</span>b)</a></code></pre></div>
-<pre><code>## id(a) =  304962096 
-## id(b) =  304962096 
+<pre><code>## id(a) =  384981552 
+## id(b) =  384981552 
 ## a == b   True</code></pre>
 </div>
 </div>
