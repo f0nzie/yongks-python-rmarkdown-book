@@ -3,6 +3,16 @@ This is a machine learning library.
 
 ## Setup (hidden)
 
+```{r include=FALSE}
+library(reticulate)
+use_condaenv('Anaconda3')    #conda_list() - to find out the name of conda environment
+py_config()
+
+library(knitr)
+knitr::knit_engines$set(python = reticulate::eng_python)
+
+```
+
 ```{python, jupyter_meta = list(hide_input = FALSE, tags = "remove_cell")}
 from IPython.core.display import display, HTML
 display(HTML("<style>.container { width:75% !important; margin-left:350px; }</style>"))
@@ -16,7 +26,11 @@ pd.set_option( 'display.max_column', 10)    # number of columns
 pd.set_option( 'display.max_rows', 10)     # number of rows
 pd.set_option( 'display.width', 90)        # number of characters per row
 
-import matplotlib.pyplot as plt
+import os
+os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = "C:\ProgramData\Anaconda3\Library\plugins\platforms"
+#import matplotlib
+#matplotlib.use('Qt5Agg')
+
 ```
 
 ## The Library
@@ -198,7 +212,7 @@ type(digits.images)
 ```{python}
 print (digits.target[100])
 print (digits.images[100])
-#plt.matshow(digits.images[100]) 
+plt.matshow(digits.images[100]) 
 ```
 
 
