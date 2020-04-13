@@ -1155,51 +1155,49 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="x-numeric" class="section level3">
 <h3><span class="header-section-number">15.3.1</span> 2x Numeric</h3>
 <div class="sourceCode" id="cb1549"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1549-1" title="1">sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, data<span class="op">=</span>mydf)</a></code></pre></div>
-<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;sns&#39; is not defined
-## 
-## Detailed traceback: 
-##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000045F6BF48&gt;</code></pre>
 <div class="sourceCode" id="cb1551"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1551-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-652-1.png" /><!-- --></p>
 <div class="sourceCode" id="cb1552"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1552-1" title="1">sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)<span class="op">;</span>  <span class="co">#hide regresion line</span></a></code></pre></div>
-<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;sns&#39; is not defined
-## 
-## Detailed traceback: 
-##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000045D7CC48&gt;</code></pre>
 <div class="sourceCode" id="cb1554"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1554-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-653-1.png" /><!-- --></p>
 </div>
 <div id="xnumeric-1x-categorical" class="section level3">
 <h3><span class="header-section-number">15.3.2</span> 2xNumeric + 1x Categorical</h3>
 <p>Use <strong>hue</strong> to represent additional categorical feature</p>
-<div class="sourceCode" id="cb1555"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1555-1" title="1">sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, data<span class="op">=</span>mydf, hue<span class="op">=</span><span class="st">&#39;comp&#39;</span>, fit_reg<span class="op">=</span><span class="va">False</span>)<span class="op">;</span></a></code></pre></div>
-<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;sns&#39; is not defined
-## 
-## Detailed traceback: 
-##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
-<div class="sourceCode" id="cb1557"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1557-1" title="1">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb1555"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1555-1" title="1">sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, data<span class="op">=</span>mydf, hue<span class="op">=</span><span class="st">&#39;comp&#39;</span>, fit_reg<span class="op">=</span><span class="va">False</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1555-2" title="2">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-654-1.png" /><!-- --></p>
 </div>
 <div id="xnumeric-2x-categorical" class="section level3">
 <h3><span class="header-section-number">15.3.3</span> 2xNumeric + 2x Categorical</h3>
 <p>Use <strong>col</strong> and <strong>hue</strong> to represent two categorical features</p>
-<div class="sourceCode" id="cb1558"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1558-1" title="1">sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, col<span class="op">=</span><span class="st">&#39;comp&#39;</span>,hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>, fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)<span class="op">;</span></a></code></pre></div>
-<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;sns&#39; is not defined
-## 
-## Detailed traceback: 
-##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
-<div class="sourceCode" id="cb1560"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1560-1" title="1">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb1556"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1556-1" title="1">sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, col<span class="op">=</span><span class="st">&#39;comp&#39;</span>,hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>, fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1556-2" title="2">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-655-1.png" /><!-- --></p>
 </div>
 <div id="xnumeric-3x-categorical" class="section level3">
 <h3><span class="header-section-number">15.3.4</span> 2xNumeric + 3x Categorical</h3>
 <p>Use <strong>row, col</strong> and <strong>hue</strong> to represent three categorical features</p>
-<div class="sourceCode" id="cb1561"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1561-1" title="1">sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, row<span class="op">=</span><span class="st">&#39;dept&#39;</span>,col<span class="op">=</span><span class="st">&#39;comp&#39;</span>, hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>, fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)<span class="op">;</span></a></code></pre></div>
-<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;sns&#39; is not defined
+<div class="sourceCode" id="cb1557"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1557-1" title="1">sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, row<span class="op">=</span><span class="st">&#39;dept&#39;</span>,col<span class="op">=</span><span class="st">&#39;comp&#39;</span>, hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>, fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)<span class="op">;</span></a></code></pre></div>
+<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): IndexError: invalid index to scalar variable.
 ## 
 ## Detailed traceback: 
-##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
-<div class="sourceCode" id="cb1563"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1563-1" title="1">plt.show()</a></code></pre></div>
+##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\seaborn\regression.py&quot;, line 617, in lmplot
+##     facets.map_dataframe(regplot, x, y, **regplot_kws)
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\seaborn\axisgrid.py&quot;, line 833, in map_dataframe
+##     self._facet_plot(func, ax, args, kwargs)
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\seaborn\axisgrid.py&quot;, line 851, in _facet_plot
+##     func(*plot_args, **plot_kwargs)
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\seaborn\regression.py&quot;, line 810, in regplot
+##     x_jitter, y_jitter, color, label)
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\seaborn\regression.py&quot;, line 114, in __init__
+##     self.dropna(&quot;x&quot;, &quot;y&quot;, &quot;units&quot;, &quot;x_partial&quot;, &quot;y_partial&quot;)
+##   File &quot;C:\ProgramData\Anaconda3\lib\site-packages\seaborn\regression.py&quot;, line 66, in dropna
+##     setattr(self, var, val[not_na])</code></pre>
+<div class="sourceCode" id="cb1559"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1559-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-656-1.png" /><!-- --></p>
 </div>
 <div id="customization" class="section level3">
@@ -1207,32 +1205,29 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="size" class="section level4">
 <h4><span class="header-section-number">15.3.5.1</span> size</h4>
 <p>size: <strong>height</strong> in inch for each facet</p>
-<div class="sourceCode" id="cb1564"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1564-1" title="1">sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, col<span class="op">=</span><span class="st">&#39;comp&#39;</span>,hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>, size<span class="op">=</span><span class="dv">3</span>,fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)</a></code></pre></div>
-<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;sns&#39; is not defined
+<div class="sourceCode" id="cb1560"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1560-1" title="1">sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, col<span class="op">=</span><span class="st">&#39;comp&#39;</span>,hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>, size<span class="op">=</span><span class="dv">3</span>,fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)</a></code></pre></div>
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000046D12A48&gt;
 ## 
-## Detailed traceback: 
-##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
-<div class="sourceCode" id="cb1566"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1566-1" title="1">plt.show()</a></code></pre></div>
+## C:\ProgramData\Anaconda3\lib\site-packages\seaborn\regression.py:574: UserWarning: The `size` parameter has been renamed to `height`; please update your code.
+##   warnings.warn(msg, UserWarning)</code></pre>
+<div class="sourceCode" id="cb1562"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1562-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-657-1.png" /><!-- --></p>
 <p>Observe that even <strong>size is very large</strong>, lmplot will <strong>fit (shrink) everything into one row</strong> by deafult. See example below.</p>
-<div class="sourceCode" id="cb1567"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1567-1" title="1">sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, col<span class="op">=</span><span class="st">&#39;comp&#39;</span>,hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>, size<span class="op">=</span><span class="dv">5</span>,fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)</a></code></pre></div>
-<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;sns&#39; is not defined
-## 
-## Detailed traceback: 
-##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
-<div class="sourceCode" id="cb1569"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1569-1" title="1">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb1563"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1563-1" title="1">sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, col<span class="op">=</span><span class="st">&#39;comp&#39;</span>,hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>, size<span class="op">=</span><span class="dv">5</span>,fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)</a></code></pre></div>
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000045797C48&gt;</code></pre>
+<div class="sourceCode" id="cb1565"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1565-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-658-1.png" /><!-- --></p>
 </div>
 <div id="col_wrap" class="section level4">
 <h4><span class="header-section-number">15.3.5.2</span> col_wrap</h4>
 <p>To avoid lmplot from shrinking the chart, we use <strong>col_wrap=&lt;col_number</strong> to wrap the output.<br />
 Compare the size (height of each facet) with the above <strong>without</strong> col_wrap. Below chart is larger.</p>
-<div class="sourceCode" id="cb1570"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1570-1" title="1">sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, col<span class="op">=</span><span class="st">&#39;comp&#39;</span>,hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>, size<span class="op">=</span><span class="dv">5</span>, col_wrap<span class="op">=</span><span class="dv">2</span>, fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)</a></code></pre></div>
-<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;sns&#39; is not defined
+<div class="sourceCode" id="cb1566"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1566-1" title="1">sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, col<span class="op">=</span><span class="st">&#39;comp&#39;</span>,hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>, size<span class="op">=</span><span class="dv">5</span>, col_wrap<span class="op">=</span><span class="dv">2</span>, fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)</a></code></pre></div>
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000046B9B548&gt;
 ## 
-## Detailed traceback: 
-##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
-<div class="sourceCode" id="cb1572"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1572-1" title="1">plt.show()</a></code></pre></div>
+## C:\ProgramData\Anaconda3\lib\site-packages\seaborn\axisgrid.py:333: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+##   fig = plt.figure(figsize=figsize)</code></pre>
+<div class="sourceCode" id="cb1568"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1568-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-659-1.png" /><!-- --></p>
 </div>
 </div>
@@ -1248,65 +1243,45 @@ Compare the size (height of each facet) with the above <strong>without</strong> 
 )</code></pre>
 <div id="x-numeric-1" class="section level3">
 <h3><span class="header-section-number">15.4.1</span> 1x Numeric</h3>
-<div class="sourceCode" id="cb1574"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1574-1" title="1">sns.distplot(mydf.value1)</a></code></pre></div>
-<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;sns&#39; is not defined
-## 
-## Detailed traceback: 
-##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
-<div class="sourceCode" id="cb1576"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1576-1" title="1">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb1570"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1570-1" title="1">sns.distplot(mydf.value1)</a>
+<a class="sourceLine" id="cb1570-2" title="2">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-660-1.png" /><!-- --></p>
-<div class="sourceCode" id="cb1577"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1577-1" title="1">sns.distplot(mydf.value1,hist<span class="op">=</span><span class="va">True</span>,rug<span class="op">=</span><span class="va">True</span>,vertical<span class="op">=</span><span class="va">True</span>, bins<span class="op">=</span><span class="dv">30</span>,color<span class="op">=</span><span class="st">&#39;g&#39;</span>)</a></code></pre></div>
-<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;sns&#39; is not defined
-## 
-## Detailed traceback: 
-##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
-<div class="sourceCode" id="cb1579"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1579-1" title="1">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb1571"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1571-1" title="1">sns.distplot(mydf.value1,hist<span class="op">=</span><span class="va">True</span>,rug<span class="op">=</span><span class="va">True</span>,vertical<span class="op">=</span><span class="va">True</span>, bins<span class="op">=</span><span class="dv">30</span>,color<span class="op">=</span><span class="st">&#39;g&#39;</span>)</a>
+<a class="sourceLine" id="cb1571-2" title="2">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-661-1.png" /><!-- --></p>
 </div>
 </div>
 <div id="bar-chart-1" class="section level2">
 <h2><span class="header-section-number">15.5</span> Bar Chart</h2>
-<div class="sourceCode" id="cb1580"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1580-1" title="1">com_grp <span class="op">=</span> mydf.groupby(<span class="st">&#39;comp&#39;</span>)</a>
-<a class="sourceLine" id="cb1580-2" title="2">grpdf <span class="op">=</span> com_grp[<span class="st">&#39;value1&#39;</span>].<span class="bu">sum</span>().reset_index()</a>
-<a class="sourceLine" id="cb1580-3" title="3">grpdf</a></code></pre></div>
+<div class="sourceCode" id="cb1572"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1572-1" title="1">com_grp <span class="op">=</span> mydf.groupby(<span class="st">&#39;comp&#39;</span>)</a>
+<a class="sourceLine" id="cb1572-2" title="2">grpdf <span class="op">=</span> com_grp[<span class="st">&#39;value1&#39;</span>].<span class="bu">sum</span>().reset_index()</a>
+<a class="sourceLine" id="cb1572-3" title="3">grpdf</a></code></pre></div>
 <pre><code>##   comp       value1
 ## 0   C1  1343.247772
 ## 1   C2  1871.515883
 ## 2   C3  1783.986137</code></pre>
 <div id="x-categorical-1x-numeric" class="section level3">
 <h3><span class="header-section-number">15.5.1</span> 1x Categorical, 1x Numeric</h3>
-<div class="sourceCode" id="cb1582"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1582-1" title="1">sns.barplot(x<span class="op">=</span><span class="st">&#39;comp&#39;</span>,y<span class="op">=</span><span class="st">&#39;value1&#39;</span>,data<span class="op">=</span>grpdf)</a></code></pre></div>
-<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;sns&#39; is not defined
-## 
-## Detailed traceback: 
-##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
-<div class="sourceCode" id="cb1584"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1584-1" title="1">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb1574"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1574-1" title="1">sns.barplot(x<span class="op">=</span><span class="st">&#39;comp&#39;</span>,y<span class="op">=</span><span class="st">&#39;value1&#39;</span>,data<span class="op">=</span>grpdf)</a>
+<a class="sourceLine" id="cb1574-2" title="2">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-663-1.png" /><!-- --></p>
 </div>
 <div id="customization-1" class="section level3">
 <h3><span class="header-section-number">15.5.2</span> Customization</h3>
 <div id="ordering" class="section level4">
 <h4><span class="header-section-number">15.5.2.1</span> Ordering</h4>
-<div class="sourceCode" id="cb1585"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1585-1" title="1">sns.barplot(x<span class="op">=</span><span class="st">&#39;comp&#39;</span>,y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>,</a>
-<a class="sourceLine" id="cb1585-2" title="2">            order<span class="op">=</span>[<span class="st">&#39;C3&#39;</span>,<span class="st">&#39;C2&#39;</span>,<span class="st">&#39;C1&#39;</span>],</a>
-<a class="sourceLine" id="cb1585-3" title="3">            hue_order<span class="op">=</span>[<span class="st">&#39;G1&#39;</span>,<span class="st">&#39;G2&#39;</span>,<span class="st">&#39;G3&#39;</span>],</a>
-<a class="sourceLine" id="cb1585-4" title="4">            data<span class="op">=</span>mydf</a>
-<a class="sourceLine" id="cb1585-5" title="5">)</a></code></pre></div>
-<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;sns&#39; is not defined
-## 
-## Detailed traceback: 
-##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
-<div class="sourceCode" id="cb1587"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1587-1" title="1">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb1575"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1575-1" title="1">sns.barplot(x<span class="op">=</span><span class="st">&#39;comp&#39;</span>,y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>,</a>
+<a class="sourceLine" id="cb1575-2" title="2">            order<span class="op">=</span>[<span class="st">&#39;C3&#39;</span>,<span class="st">&#39;C2&#39;</span>,<span class="st">&#39;C1&#39;</span>],</a>
+<a class="sourceLine" id="cb1575-3" title="3">            hue_order<span class="op">=</span>[<span class="st">&#39;G1&#39;</span>,<span class="st">&#39;G2&#39;</span>,<span class="st">&#39;G3&#39;</span>],</a>
+<a class="sourceLine" id="cb1575-4" title="4">            data<span class="op">=</span>mydf</a>
+<a class="sourceLine" id="cb1575-5" title="5">)</a>
+<a class="sourceLine" id="cb1575-6" title="6">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-664-1.png" /><!-- --></p>
 </div>
 <div id="flipping-xy-axis" class="section level4">
 <h4><span class="header-section-number">15.5.2.2</span> Flipping X/Y Axis</h4>
-<div class="sourceCode" id="cb1588"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1588-1" title="1">sns.barplot(x<span class="op">=</span><span class="st">&#39;value2&#39;</span>,y<span class="op">=</span><span class="st">&#39;comp&#39;</span>, hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>,data<span class="op">=</span>mydf)</a></code></pre></div>
-<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;sns&#39; is not defined
-## 
-## Detailed traceback: 
-##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
-<div class="sourceCode" id="cb1590"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1590-1" title="1">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb1576"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1576-1" title="1">sns.barplot(x<span class="op">=</span><span class="st">&#39;value2&#39;</span>,y<span class="op">=</span><span class="st">&#39;comp&#39;</span>, hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>,data<span class="op">=</span>mydf)</a>
+<a class="sourceLine" id="cb1576-2" title="2">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-665-1.png" /><!-- --></p>
 </div>
 </div>
@@ -1317,49 +1292,26 @@ Compare the size (height of each facet) with the above <strong>without</strong> 
 It support matplotlib as well as seaborn plotting utility.</p>
 <div id="faceting-histogram" class="section level3">
 <h3><span class="header-section-number">15.6.1</span> Faceting Histogram</h3>
-<div class="sourceCode" id="cb1591"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1591-1" title="1">g <span class="op">=</span> sns.FacetGrid(mydf, col<span class="op">=</span><span class="st">&quot;comp&quot;</span>, row<span class="op">=</span><span class="st">&#39;dept&#39;</span>)</a></code></pre></div>
-<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;sns&#39; is not defined
-## 
-## Detailed traceback: 
-##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
-<div class="sourceCode" id="cb1593"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1593-1" title="1">g.<span class="bu">map</span>(plt.hist, <span class="st">&quot;value1&quot;</span>)</a></code></pre></div>
-<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;g&#39; is not defined
-## 
-## Detailed traceback: 
-##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
-<div class="sourceCode" id="cb1595"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1595-1" title="1">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb1577"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1577-1" title="1">g <span class="op">=</span> sns.FacetGrid(mydf, col<span class="op">=</span><span class="st">&quot;comp&quot;</span>, row<span class="op">=</span><span class="st">&#39;dept&#39;</span>)</a></code></pre></div>
+<pre><code>## C:\ProgramData\Anaconda3\lib\site-packages\seaborn\axisgrid.py:324: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+##   fig, axes = plt.subplots(nrow, ncol, **kwargs)</code></pre>
+<div class="sourceCode" id="cb1579"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1579-1" title="1">g.<span class="bu">map</span>(plt.hist, <span class="st">&quot;value1&quot;</span>)</a></code></pre></div>
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000045591608&gt;</code></pre>
+<div class="sourceCode" id="cb1581"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1581-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-666-1.png" /><!-- --></p>
-<div class="sourceCode" id="cb1596"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1596-1" title="1">g <span class="op">=</span> sns.FacetGrid(mydf, col<span class="op">=</span><span class="st">&quot;comp&quot;</span>, row<span class="op">=</span><span class="st">&#39;dept&#39;</span>)</a></code></pre></div>
-<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;sns&#39; is not defined
-## 
-## Detailed traceback: 
-##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
-<div class="sourceCode" id="cb1598"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1598-1" title="1">g.<span class="bu">map</span>(plt.hist, <span class="st">&quot;value1&quot;</span>)</a></code></pre></div>
-<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;g&#39; is not defined
-## 
-## Detailed traceback: 
-##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
-<div class="sourceCode" id="cb1600"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1600-1" title="1">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb1582"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1582-1" title="1">g <span class="op">=</span> sns.FacetGrid(mydf, col<span class="op">=</span><span class="st">&quot;comp&quot;</span>, row<span class="op">=</span><span class="st">&#39;dept&#39;</span>)</a>
+<a class="sourceLine" id="cb1582-2" title="2">g.<span class="bu">map</span>(plt.hist, <span class="st">&quot;value1&quot;</span>)</a></code></pre></div>
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000045CEF708&gt;</code></pre>
+<div class="sourceCode" id="cb1584"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1584-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-667-1.png" /><!-- --></p>
 </div>
 <div id="faceting-scatter-plot" class="section level3">
 <h3><span class="header-section-number">15.6.2</span> Faceting Scatter Plot</h3>
-<div class="sourceCode" id="cb1601"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1601-1" title="1">g <span class="op">=</span> sns.FacetGrid(mydf, col<span class="op">=</span><span class="st">&quot;comp&quot;</span>, row<span class="op">=</span><span class="st">&#39;dept&#39;</span>,hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>)</a></code></pre></div>
-<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;sns&#39; is not defined
-## 
-## Detailed traceback: 
-##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
-<div class="sourceCode" id="cb1603"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1603-1" title="1">g.<span class="bu">map</span>(plt.scatter, <span class="st">&quot;value1&quot;</span>,<span class="st">&quot;value2&quot;</span>,alpha<span class="op">=</span><span class="fl">0.7</span>)<span class="op">;</span></a></code></pre></div>
-<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;g&#39; is not defined
-## 
-## Detailed traceback: 
-##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
-<div class="sourceCode" id="cb1605"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1605-1" title="1">g.add_legend()</a></code></pre></div>
-<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;g&#39; is not defined
-## 
-## Detailed traceback: 
-##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
-<div class="sourceCode" id="cb1607"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1607-1" title="1">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb1585"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1585-1" title="1">g <span class="op">=</span> sns.FacetGrid(mydf, col<span class="op">=</span><span class="st">&quot;comp&quot;</span>, row<span class="op">=</span><span class="st">&#39;dept&#39;</span>,hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>)</a>
+<a class="sourceLine" id="cb1585-2" title="2">g.<span class="bu">map</span>(plt.scatter, <span class="st">&quot;value1&quot;</span>,<span class="st">&quot;value2&quot;</span>,alpha<span class="op">=</span><span class="fl">0.7</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1585-3" title="3">g.add_legend()</a></code></pre></div>
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x00000000459EE188&gt;</code></pre>
+<div class="sourceCode" id="cb1587"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1587-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-668-1.png" /><!-- --></p>
 </div>
 </div>
@@ -1367,47 +1319,25 @@ It support matplotlib as well as seaborn plotting utility.</p>
 <h2><span class="header-section-number">15.7</span> Pair Grid</h2>
 <div id="simple-pair-grid" class="section level3">
 <h3><span class="header-section-number">15.7.1</span> Simple Pair Grid</h3>
-<div class="sourceCode" id="cb1608"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1608-1" title="1">g <span class="op">=</span> sns.PairGrid(mydf, hue<span class="op">=</span><span class="st">&#39;comp&#39;</span>)</a></code></pre></div>
-<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;sns&#39; is not defined
-## 
-## Detailed traceback: 
-##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
-<div class="sourceCode" id="cb1610"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1610-1" title="1">g.<span class="bu">map</span>(plt.scatter)<span class="op">;</span></a></code></pre></div>
-<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;g&#39; is not defined
-## 
-## Detailed traceback: 
-##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
-<div class="sourceCode" id="cb1612"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1612-1" title="1">g.add_legend()</a></code></pre></div>
-<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;g&#39; is not defined
-## 
-## Detailed traceback: 
-##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
-<div class="sourceCode" id="cb1614"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1614-1" title="1">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb1588"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1588-1" title="1">g <span class="op">=</span> sns.PairGrid(mydf, hue<span class="op">=</span><span class="st">&#39;comp&#39;</span>)</a></code></pre></div>
+<pre><code>## C:\ProgramData\Anaconda3\lib\site-packages\seaborn\axisgrid.py:1295: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+##   squeeze=False)</code></pre>
+<div class="sourceCode" id="cb1590"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1590-1" title="1">g.<span class="bu">map</span>(plt.scatter)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1590-2" title="2">g.add_legend()</a></code></pre></div>
+<pre><code>## &lt;seaborn.axisgrid.PairGrid object at 0x000000004925CDC8&gt;</code></pre>
+<div class="sourceCode" id="cb1592"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1592-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-669-1.png" /><!-- --></p>
 </div>
 <div id="different-diag-and-offdiag" class="section level3">
 <h3><span class="header-section-number">15.7.2</span> Different Diag and OffDiag</h3>
-<div class="sourceCode" id="cb1615"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1615-1" title="1">g <span class="op">=</span> sns.PairGrid(mydf, hue<span class="op">=</span><span class="st">&#39;comp&#39;</span>)</a></code></pre></div>
-<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;sns&#39; is not defined
-## 
-## Detailed traceback: 
-##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
-<div class="sourceCode" id="cb1617"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1617-1" title="1">g.map_diag(plt.hist, bins<span class="op">=</span><span class="dv">15</span>)</a></code></pre></div>
-<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;g&#39; is not defined
-## 
-## Detailed traceback: 
-##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
-<div class="sourceCode" id="cb1619"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1619-1" title="1">g.map_offdiag(plt.scatter)</a></code></pre></div>
-<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;g&#39; is not defined
-## 
-## Detailed traceback: 
-##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
-<div class="sourceCode" id="cb1621"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1621-1" title="1">g.add_legend()</a></code></pre></div>
-<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;g&#39; is not defined
-## 
-## Detailed traceback: 
-##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
-<div class="sourceCode" id="cb1623"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1623-1" title="1">plt.show()</a></code></pre></div>
+<div class="sourceCode" id="cb1593"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1593-1" title="1">g <span class="op">=</span> sns.PairGrid(mydf, hue<span class="op">=</span><span class="st">&#39;comp&#39;</span>)</a>
+<a class="sourceLine" id="cb1593-2" title="2">g.map_diag(plt.hist, bins<span class="op">=</span><span class="dv">15</span>)</a></code></pre></div>
+<pre><code>## &lt;seaborn.axisgrid.PairGrid object at 0x00000000466F0108&gt;</code></pre>
+<div class="sourceCode" id="cb1595"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1595-1" title="1">g.map_offdiag(plt.scatter)</a></code></pre></div>
+<pre><code>## &lt;seaborn.axisgrid.PairGrid object at 0x00000000466F0108&gt;</code></pre>
+<div class="sourceCode" id="cb1597"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1597-1" title="1">g.add_legend()</a></code></pre></div>
+<pre><code>## &lt;seaborn.axisgrid.PairGrid object at 0x00000000466F0108&gt;</code></pre>
+<div class="sourceCode" id="cb1599"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1599-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-670-1.png" /><!-- --></p>
 </div>
 </div>

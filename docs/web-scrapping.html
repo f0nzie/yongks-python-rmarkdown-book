@@ -1120,24 +1120,24 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">19.1</span> <code>requests</code></h2>
 <div id="creating-a-session" class="section level3">
 <h3><span class="header-section-number">19.1.1</span> Creating A Session</h3>
-<div class="sourceCode" id="cb2072"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2072-1" title="1"><span class="im">import</span> requests</a>
-<a class="sourceLine" id="cb2072-2" title="2"><span class="im">from</span> requests.adapters <span class="im">import</span> HTTPAdapter</a>
-<a class="sourceLine" id="cb2072-3" title="3"><span class="im">from</span> urllib3.util.retry <span class="im">import</span> Retry</a>
-<a class="sourceLine" id="cb2072-4" title="4"><span class="im">import</span> random</a>
-<a class="sourceLine" id="cb2072-5" title="5"></a>
-<a class="sourceLine" id="cb2072-6" title="6"></a>
-<a class="sourceLine" id="cb2072-7" title="7">_retries <span class="op">=</span> Retry(<span class="ex">connect</span><span class="op">=</span><span class="dv">10</span>,read<span class="op">=</span><span class="dv">10</span>,backoff_factor<span class="op">=</span><span class="dv">1</span>)   <span class="co"># backoff is incremental interval in seconds between retries</span></a>
-<a class="sourceLine" id="cb2072-8" title="8">_timeout <span class="op">=</span> (<span class="dv">10</span>,<span class="dv">10</span>)  <span class="co">## connect, read timeout in seconds</span></a>
-<a class="sourceLine" id="cb2072-9" title="9"></a>
-<a class="sourceLine" id="cb2072-10" title="10">rqs <span class="op">=</span> requests.Session()</a>
-<a class="sourceLine" id="cb2072-11" title="11">rqs.mount( <span class="st">&#39;http://&#39;</span> ,  HTTPAdapter(max_retries<span class="op">=</span> _retries))</a>
-<a class="sourceLine" id="cb2072-12" title="12">rqs.mount( <span class="st">&#39;https://&#39;</span> , HTTPAdapter(max_retries<span class="op">=</span> _retries))</a></code></pre></div>
-<div class="sourceCode" id="cb2073"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2073-1" title="1">link1 <span class="op">=</span> <span class="st">&#39;https://www.yahoo.com&#39;</span></a>
-<a class="sourceLine" id="cb2073-2" title="2">link2 <span class="op">=</span> <span class="st">&#39;http://mamamia777.com.au&#39;</span></a>
-<a class="sourceLine" id="cb2073-3" title="3"><span class="co">#user_agent = {&#39;User-Agent&#39;: random.choice(_USER_AGENTS)}</span></a>
-<a class="sourceLine" id="cb2073-4" title="4"><span class="co">#response1  = rqs.get(link1, timeout=_timeout)</span></a>
-<a class="sourceLine" id="cb2073-5" title="5"><span class="co">#response2  = rqs.get(link2, timeout=_timeout)  </span></a></code></pre></div>
-<div class="sourceCode" id="cb2074"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2074-1" title="1"><span class="bu">print</span> (page1.status_code)</a></code></pre></div>
+<div class="sourceCode" id="cb2048"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2048-1" title="1"><span class="im">import</span> requests</a>
+<a class="sourceLine" id="cb2048-2" title="2"><span class="im">from</span> requests.adapters <span class="im">import</span> HTTPAdapter</a>
+<a class="sourceLine" id="cb2048-3" title="3"><span class="im">from</span> urllib3.util.retry <span class="im">import</span> Retry</a>
+<a class="sourceLine" id="cb2048-4" title="4"><span class="im">import</span> random</a>
+<a class="sourceLine" id="cb2048-5" title="5"></a>
+<a class="sourceLine" id="cb2048-6" title="6"></a>
+<a class="sourceLine" id="cb2048-7" title="7">_retries <span class="op">=</span> Retry(<span class="ex">connect</span><span class="op">=</span><span class="dv">10</span>,read<span class="op">=</span><span class="dv">10</span>,backoff_factor<span class="op">=</span><span class="dv">1</span>)   <span class="co"># backoff is incremental interval in seconds between retries</span></a>
+<a class="sourceLine" id="cb2048-8" title="8">_timeout <span class="op">=</span> (<span class="dv">10</span>,<span class="dv">10</span>)  <span class="co">## connect, read timeout in seconds</span></a>
+<a class="sourceLine" id="cb2048-9" title="9"></a>
+<a class="sourceLine" id="cb2048-10" title="10">rqs <span class="op">=</span> requests.Session()</a>
+<a class="sourceLine" id="cb2048-11" title="11">rqs.mount( <span class="st">&#39;http://&#39;</span> ,  HTTPAdapter(max_retries<span class="op">=</span> _retries))</a>
+<a class="sourceLine" id="cb2048-12" title="12">rqs.mount( <span class="st">&#39;https://&#39;</span> , HTTPAdapter(max_retries<span class="op">=</span> _retries))</a></code></pre></div>
+<div class="sourceCode" id="cb2049"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2049-1" title="1">link1 <span class="op">=</span> <span class="st">&#39;https://www.yahoo.com&#39;</span></a>
+<a class="sourceLine" id="cb2049-2" title="2">link2 <span class="op">=</span> <span class="st">&#39;http://mamamia777.com.au&#39;</span></a>
+<a class="sourceLine" id="cb2049-3" title="3"><span class="co">#user_agent = {&#39;User-Agent&#39;: random.choice(_USER_AGENTS)}</span></a>
+<a class="sourceLine" id="cb2049-4" title="4"><span class="co">#response1  = rqs.get(link1, timeout=_timeout)</span></a>
+<a class="sourceLine" id="cb2049-5" title="5"><span class="co">#response2  = rqs.get(link2, timeout=_timeout)  </span></a></code></pre></div>
+<div class="sourceCode" id="cb2050"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2050-1" title="1"><span class="bu">print</span> (page1.status_code)</a></code></pre></div>
 <pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;page1&#39; is not defined
 ## 
 ## Detailed traceback: 
@@ -1145,66 +1145,66 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="rotating-broswer" class="section level3">
 <h3><span class="header-section-number">19.1.2</span> Rotating Broswer</h3>
-<div class="sourceCode" id="cb2076"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2076-1" title="1">_USER_AGENTS <span class="op">=</span> [</a>
-<a class="sourceLine" id="cb2076-2" title="2">   <span class="co">#Chrome</span></a>
-<a class="sourceLine" id="cb2076-3" title="3">    <span class="st">&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36&#39;</span>,</a>
-<a class="sourceLine" id="cb2076-4" title="4">    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36&#39;</span>,</a>
-<a class="sourceLine" id="cb2076-5" title="5">    <span class="st">&#39;Mozilla/5.0 (Windows NT 5.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36&#39;</span>,</a>
-<a class="sourceLine" id="cb2076-6" title="6">    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36&#39;</span>,</a>
-<a class="sourceLine" id="cb2076-7" title="7">    <span class="st">&#39;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36&#39;</span>,</a>
-<a class="sourceLine" id="cb2076-8" title="8">    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36&#39;</span>,</a>
-<a class="sourceLine" id="cb2076-9" title="9">    <span class="st">&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36&#39;</span>,</a>
-<a class="sourceLine" id="cb2076-10" title="10">    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36&#39;</span>,</a>
-<a class="sourceLine" id="cb2076-11" title="11">    <span class="st">&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36&#39;</span>,</a>
-<a class="sourceLine" id="cb2076-12" title="12">    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36&#39;</span>,</a>
-<a class="sourceLine" id="cb2076-13" title="13">    <span class="co">#Firefox</span></a>
-<a class="sourceLine" id="cb2076-14" title="14">    <span class="st">&#39;Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.1)&#39;</span>,</a>
-<a class="sourceLine" id="cb2076-15" title="15">    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko&#39;</span>,</a>
-<a class="sourceLine" id="cb2076-16" title="16">    <span class="st">&#39;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)&#39;</span>,</a>
-<a class="sourceLine" id="cb2076-17" title="17">    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko&#39;</span>,</a>
-<a class="sourceLine" id="cb2076-18" title="18">    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.2; WOW64; Trident/7.0; rv:11.0) like Gecko&#39;</span>,</a>
-<a class="sourceLine" id="cb2076-19" title="19">    <span class="st">&#39;Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko&#39;</span>,</a>
-<a class="sourceLine" id="cb2076-20" title="20">    <span class="st">&#39;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.0; Trident/5.0)&#39;</span>,</a>
-<a class="sourceLine" id="cb2076-21" title="21">    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko&#39;</span>,</a>
-<a class="sourceLine" id="cb2076-22" title="22">    <span class="st">&#39;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)&#39;</span>,</a>
-<a class="sourceLine" id="cb2076-23" title="23">    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.1; Win64; x64; Trident/7.0; rv:11.0) like Gecko&#39;</span>,</a>
-<a class="sourceLine" id="cb2076-24" title="24">    <span class="st">&#39;Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0)&#39;</span>,</a>
-<a class="sourceLine" id="cb2076-25" title="25">    <span class="st">&#39;Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)&#39;</span>,</a>
-<a class="sourceLine" id="cb2076-26" title="26">    <span class="st">&#39;Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)&#39;</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb2052"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2052-1" title="1">_USER_AGENTS <span class="op">=</span> [</a>
+<a class="sourceLine" id="cb2052-2" title="2">   <span class="co">#Chrome</span></a>
+<a class="sourceLine" id="cb2052-3" title="3">    <span class="st">&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36&#39;</span>,</a>
+<a class="sourceLine" id="cb2052-4" title="4">    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36&#39;</span>,</a>
+<a class="sourceLine" id="cb2052-5" title="5">    <span class="st">&#39;Mozilla/5.0 (Windows NT 5.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36&#39;</span>,</a>
+<a class="sourceLine" id="cb2052-6" title="6">    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36&#39;</span>,</a>
+<a class="sourceLine" id="cb2052-7" title="7">    <span class="st">&#39;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36&#39;</span>,</a>
+<a class="sourceLine" id="cb2052-8" title="8">    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36&#39;</span>,</a>
+<a class="sourceLine" id="cb2052-9" title="9">    <span class="st">&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36&#39;</span>,</a>
+<a class="sourceLine" id="cb2052-10" title="10">    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36&#39;</span>,</a>
+<a class="sourceLine" id="cb2052-11" title="11">    <span class="st">&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36&#39;</span>,</a>
+<a class="sourceLine" id="cb2052-12" title="12">    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36&#39;</span>,</a>
+<a class="sourceLine" id="cb2052-13" title="13">    <span class="co">#Firefox</span></a>
+<a class="sourceLine" id="cb2052-14" title="14">    <span class="st">&#39;Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.1)&#39;</span>,</a>
+<a class="sourceLine" id="cb2052-15" title="15">    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko&#39;</span>,</a>
+<a class="sourceLine" id="cb2052-16" title="16">    <span class="st">&#39;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)&#39;</span>,</a>
+<a class="sourceLine" id="cb2052-17" title="17">    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko&#39;</span>,</a>
+<a class="sourceLine" id="cb2052-18" title="18">    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.2; WOW64; Trident/7.0; rv:11.0) like Gecko&#39;</span>,</a>
+<a class="sourceLine" id="cb2052-19" title="19">    <span class="st">&#39;Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko&#39;</span>,</a>
+<a class="sourceLine" id="cb2052-20" title="20">    <span class="st">&#39;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.0; Trident/5.0)&#39;</span>,</a>
+<a class="sourceLine" id="cb2052-21" title="21">    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko&#39;</span>,</a>
+<a class="sourceLine" id="cb2052-22" title="22">    <span class="st">&#39;Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)&#39;</span>,</a>
+<a class="sourceLine" id="cb2052-23" title="23">    <span class="st">&#39;Mozilla/5.0 (Windows NT 6.1; Win64; x64; Trident/7.0; rv:11.0) like Gecko&#39;</span>,</a>
+<a class="sourceLine" id="cb2052-24" title="24">    <span class="st">&#39;Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0)&#39;</span>,</a>
+<a class="sourceLine" id="cb2052-25" title="25">    <span class="st">&#39;Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)&#39;</span>,</a>
+<a class="sourceLine" id="cb2052-26" title="26">    <span class="st">&#39;Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)&#39;</span>]</a></code></pre></div>
 </div>
 </div>
 <div id="beautifulsoup" class="section level2">
 <h2><span class="header-section-number">19.2</span> <code>BeautifulSoup</code></h2>
 <div id="module-import-2" class="section level3">
 <h3><span class="header-section-number">19.2.1</span> Module Import</h3>
-<div class="sourceCode" id="cb2077"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2077-1" title="1"><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup</a></code></pre></div>
+<div class="sourceCode" id="cb2053"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2053-1" title="1"><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup</a></code></pre></div>
 </div>
 <div id="html-tag-parsing" class="section level3">
 <h3><span class="header-section-number">19.2.2</span> HTML Tag Parsing</h3>
 <div id="sample-data-26" class="section level4">
 <h4><span class="header-section-number">19.2.2.1</span> Sample Data</h4>
-<div class="sourceCode" id="cb2078"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2078-1" title="1">my_html <span class="op">=</span> <span class="st">&#39;&#39;&#39;</span></a>
-<a class="sourceLine" id="cb2078-2" title="2"><span class="st">&lt;div id=&quot;my-id1&quot; class=&#39;title&#39;&gt; </span></a>
-<a class="sourceLine" id="cb2078-3" title="3"><span class="st">    &lt;p&gt;This Is My Title&lt;/p&gt;</span></a>
-<a class="sourceLine" id="cb2078-4" title="4"><span class="st">    </span></a>
-<a class="sourceLine" id="cb2078-5" title="5"><span class="st">    &lt;div id=&quot;my-id2&quot; class=&#39;subtitle&#39; custom_attr=&#39;funny&#39;&gt;</span></a>
-<a class="sourceLine" id="cb2078-6" title="6"><span class="st">        &lt;p&gt;This is Subtitle&lt;/p&gt;</span></a>
-<a class="sourceLine" id="cb2078-7" title="7"><span class="st">    &lt;/div&gt;</span></a>
-<a class="sourceLine" id="cb2078-8" title="8"><span class="st">    </span></a>
-<a class="sourceLine" id="cb2078-9" title="9"><span class="st">    &lt;div id=&quot;my-id3&quot; class=&#39;title&#39;,   custom_attr=&#39;funny&#39;&gt;</span></a>
-<a class="sourceLine" id="cb2078-10" title="10"><span class="st">        &lt;p&gt;This is paragraph1&lt;/p&gt;</span></a>
-<a class="sourceLine" id="cb2078-11" title="11"><span class="st">        &lt;p&gt;This is paragraph2&lt;/p&gt;</span></a>
-<a class="sourceLine" id="cb2078-12" title="12"><span class="st">        &lt;h3&gt;This is paragraph3&lt;/h3&gt;</span></a>
-<a class="sourceLine" id="cb2078-13" title="13"><span class="st">    &lt;/div&gt;</span></a>
-<a class="sourceLine" id="cb2078-14" title="14"><span class="st">&lt;/div&gt;</span></a>
-<a class="sourceLine" id="cb2078-15" title="15"><span class="st">&#39;&#39;&#39;</span></a>
-<a class="sourceLine" id="cb2078-16" title="16">soup <span class="op">=</span> BeautifulSoup(my_html)</a></code></pre></div>
+<div class="sourceCode" id="cb2054"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2054-1" title="1">my_html <span class="op">=</span> <span class="st">&#39;&#39;&#39;</span></a>
+<a class="sourceLine" id="cb2054-2" title="2"><span class="st">&lt;div id=&quot;my-id1&quot; class=&#39;title&#39;&gt; </span></a>
+<a class="sourceLine" id="cb2054-3" title="3"><span class="st">    &lt;p&gt;This Is My Title&lt;/p&gt;</span></a>
+<a class="sourceLine" id="cb2054-4" title="4"><span class="st">    </span></a>
+<a class="sourceLine" id="cb2054-5" title="5"><span class="st">    &lt;div id=&quot;my-id2&quot; class=&#39;subtitle&#39; custom_attr=&#39;funny&#39;&gt;</span></a>
+<a class="sourceLine" id="cb2054-6" title="6"><span class="st">        &lt;p&gt;This is Subtitle&lt;/p&gt;</span></a>
+<a class="sourceLine" id="cb2054-7" title="7"><span class="st">    &lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb2054-8" title="8"><span class="st">    </span></a>
+<a class="sourceLine" id="cb2054-9" title="9"><span class="st">    &lt;div id=&quot;my-id3&quot; class=&#39;title&#39;,   custom_attr=&#39;funny&#39;&gt;</span></a>
+<a class="sourceLine" id="cb2054-10" title="10"><span class="st">        &lt;p&gt;This is paragraph1&lt;/p&gt;</span></a>
+<a class="sourceLine" id="cb2054-11" title="11"><span class="st">        &lt;p&gt;This is paragraph2&lt;/p&gt;</span></a>
+<a class="sourceLine" id="cb2054-12" title="12"><span class="st">        &lt;h3&gt;This is paragraph3&lt;/h3&gt;</span></a>
+<a class="sourceLine" id="cb2054-13" title="13"><span class="st">    &lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb2054-14" title="14"><span class="st">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb2054-15" title="15"><span class="st">&#39;&#39;&#39;</span></a>
+<a class="sourceLine" id="cb2054-16" title="16">soup <span class="op">=</span> BeautifulSoup(my_html)</a></code></pre></div>
 </div>
 <div id="first-match" class="section level4">
 <h4><span class="header-section-number">19.2.2.2</span> First Match</h4>
 <p><strong>ID Selector</strong><br />
 Everthing under the selected tag will be returned.</p>
-<div class="sourceCode" id="cb2079"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2079-1" title="1">soup.find(<span class="bu">id</span><span class="op">=</span><span class="st">&#39;my-id1&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2055"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2055-1" title="1">soup.find(<span class="bu">id</span><span class="op">=</span><span class="st">&#39;my-id1&#39;</span>)</a></code></pre></div>
 <pre><code>## &lt;div class=&quot;title&quot; id=&quot;my-id1&quot;&gt;
 ## &lt;p&gt;This Is My Title&lt;/p&gt;
 ## &lt;div class=&quot;subtitle&quot; custom_attr=&quot;funny&quot; id=&quot;my-id2&quot;&gt;
@@ -1217,20 +1217,20 @@ Everthing under the selected tag will be returned.</p>
 ## &lt;/div&gt;
 ## &lt;/div&gt;</code></pre>
 <p><strong>Class Selector</strong></p>
-<div class="sourceCode" id="cb2081"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2081-1" title="1">soup.find(class_<span class="op">=</span><span class="st">&#39;subtitle&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2057"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2057-1" title="1">soup.find(class_<span class="op">=</span><span class="st">&#39;subtitle&#39;</span>)</a></code></pre></div>
 <pre><code>## &lt;div class=&quot;subtitle&quot; custom_attr=&quot;funny&quot; id=&quot;my-id2&quot;&gt;
 ## &lt;p&gt;This is Subtitle&lt;/p&gt;
 ## &lt;/div&gt;</code></pre>
 <p><strong>Attribute Selector</strong></p>
-<div class="sourceCode" id="cb2083"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2083-1" title="1">soup.find(custom_attr<span class="op">=</span><span class="st">&#39;funny&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2059"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2059-1" title="1">soup.find(custom_attr<span class="op">=</span><span class="st">&#39;funny&#39;</span>)</a></code></pre></div>
 <pre><code>## &lt;div class=&quot;subtitle&quot; custom_attr=&quot;funny&quot; id=&quot;my-id2&quot;&gt;
 ## &lt;p&gt;This is Subtitle&lt;/p&gt;
 ## &lt;/div&gt;</code></pre>
-<div class="sourceCode" id="cb2085"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2085-1" title="1">soup.find(       custom_attr<span class="op">=</span><span class="st">&#39;funny&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2061"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2061-1" title="1">soup.find(       custom_attr<span class="op">=</span><span class="st">&#39;funny&#39;</span>)</a></code></pre></div>
 <pre><code>## &lt;div class=&quot;subtitle&quot; custom_attr=&quot;funny&quot; id=&quot;my-id2&quot;&gt;
 ## &lt;p&gt;This is Subtitle&lt;/p&gt;
 ## &lt;/div&gt;</code></pre>
-<div class="sourceCode" id="cb2087"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2087-1" title="1">soup.find(<span class="st">&#39;div&#39;</span>, custom_attr<span class="op">=</span><span class="st">&#39;funny&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2063"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2063-1" title="1">soup.find(<span class="st">&#39;div&#39;</span>, custom_attr<span class="op">=</span><span class="st">&#39;funny&#39;</span>)</a></code></pre></div>
 <pre><code>## &lt;div class=&quot;subtitle&quot; custom_attr=&quot;funny&quot; id=&quot;my-id2&quot;&gt;
 ## &lt;p&gt;This is Subtitle&lt;/p&gt;
 ## &lt;/div&gt;</code></pre>
@@ -1238,10 +1238,10 @@ Everthing under the selected tag will be returned.</p>
 <div id="find-all-matches-1" class="section level4">
 <h4><span class="header-section-number">19.2.2.3</span> Find All Matches</h4>
 <p><strong><code>find_all</code></strong></p>
-<div class="sourceCode" id="cb2089"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2089-1" title="1">soup <span class="op">=</span> BeautifulSoup(my_html)</a>
-<a class="sourceLine" id="cb2089-2" title="2">multiple_result <span class="op">=</span> soup.find_all(class_<span class="op">=</span><span class="st">&#39;title&#39;</span>)</a>
-<a class="sourceLine" id="cb2089-3" title="3"><span class="bu">print</span>( <span class="st">&#39;Item 0: </span><span class="ch">\n</span><span class="st">&#39;</span>,     multiple_result[<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb2089-4" title="4">       <span class="st">&#39;</span><span class="ch">\n\n</span><span class="st">Item 1: </span><span class="ch">\n</span><span class="st">&#39;</span>, multiple_result[<span class="dv">1</span>])</a></code></pre></div>
+<div class="sourceCode" id="cb2065"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2065-1" title="1">soup <span class="op">=</span> BeautifulSoup(my_html)</a>
+<a class="sourceLine" id="cb2065-2" title="2">multiple_result <span class="op">=</span> soup.find_all(class_<span class="op">=</span><span class="st">&#39;title&#39;</span>)</a>
+<a class="sourceLine" id="cb2065-3" title="3"><span class="bu">print</span>( <span class="st">&#39;Item 0: </span><span class="ch">\n</span><span class="st">&#39;</span>,     multiple_result[<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb2065-4" title="4">       <span class="st">&#39;</span><span class="ch">\n\n</span><span class="st">Item 1: </span><span class="ch">\n</span><span class="st">&#39;</span>, multiple_result[<span class="dv">1</span>])</a></code></pre></div>
 <pre><code>## Item 0: 
 ##  &lt;div class=&quot;title&quot; id=&quot;my-id1&quot;&gt;
 ## &lt;p&gt;This Is My Title&lt;/p&gt;
@@ -1263,9 +1263,9 @@ Everthing under the selected tag will be returned.</p>
 ## &lt;/div&gt;</code></pre>
 <p><strong>CSS Selector using <code>select()</code></strong></p>
 <p>Above can be achieved using css selector. It return an array of result (multiple matches).</p>
-<div class="sourceCode" id="cb2091"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2091-1" title="1">multiple_result <span class="op">=</span> soup.select(<span class="st">&#39;.title&#39;</span>)</a>
-<a class="sourceLine" id="cb2091-2" title="2"><span class="bu">print</span>( <span class="st">&#39;Item 0: </span><span class="ch">\n</span><span class="st">&#39;</span>,     multiple_result[<span class="dv">0</span>],</a>
-<a class="sourceLine" id="cb2091-3" title="3">       <span class="st">&#39;</span><span class="ch">\n\n</span><span class="st">Item 1: </span><span class="ch">\n</span><span class="st">&#39;</span>, multiple_result[<span class="dv">1</span>])</a></code></pre></div>
+<div class="sourceCode" id="cb2067"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2067-1" title="1">multiple_result <span class="op">=</span> soup.select(<span class="st">&#39;.title&#39;</span>)</a>
+<a class="sourceLine" id="cb2067-2" title="2"><span class="bu">print</span>( <span class="st">&#39;Item 0: </span><span class="ch">\n</span><span class="st">&#39;</span>,     multiple_result[<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb2067-3" title="3">       <span class="st">&#39;</span><span class="ch">\n\n</span><span class="st">Item 1: </span><span class="ch">\n</span><span class="st">&#39;</span>, multiple_result[<span class="dv">1</span>])</a></code></pre></div>
 <pre><code>## Item 0: 
 ##  &lt;div class=&quot;title&quot; id=&quot;my-id1&quot;&gt;
 ## &lt;p&gt;This Is My Title&lt;/p&gt;
@@ -1286,15 +1286,15 @@ Everthing under the selected tag will be returned.</p>
 ## &lt;h3&gt;This is paragraph3&lt;/h3&gt;
 ## &lt;/div&gt;</code></pre>
 <p>More granular exmaple of css selector.</p>
-<div class="sourceCode" id="cb2093"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2093-1" title="1">soup.select(<span class="st">&#39;#my-id1 div.subtitle&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2069"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2069-1" title="1">soup.select(<span class="st">&#39;#my-id1 div.subtitle&#39;</span>)</a></code></pre></div>
 <pre><code>## [&lt;div class=&quot;subtitle&quot; custom_attr=&quot;funny&quot; id=&quot;my-id2&quot;&gt;
 ## &lt;p&gt;This is Subtitle&lt;/p&gt;
 ## &lt;/div&gt;]</code></pre>
 <p>Using <strong><code>contains()</code></strong></p>
-<div class="sourceCode" id="cb2095"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2095-1" title="1">soup.select(<span class="st">&quot;p:contains(&#39;This is paragraph&#39;)&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2071"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2071-1" title="1">soup.select(<span class="st">&quot;p:contains(&#39;This is paragraph&#39;)&quot;</span>)</a></code></pre></div>
 <pre><code>## [&lt;p&gt;This is paragraph1&lt;/p&gt;, &lt;p&gt;This is paragraph2&lt;/p&gt;]</code></pre>
 <p>Combining ID, Class and Custom Attribute in the selector</p>
-<div class="sourceCode" id="cb2097"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2097-1" title="1">soup.select(<span class="st">&quot;div#my-id3.title[custom_attr=&#39;funny&#39;]:contains(&#39;This is paragraph&#39;)&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2073"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2073-1" title="1">soup.select(<span class="st">&quot;div#my-id3.title[custom_attr=&#39;funny&#39;]:contains(&#39;This is paragraph&#39;)&quot;</span>)</a></code></pre></div>
 <pre><code>## [&lt;div class=&quot;title&quot; custom_attr=&quot;funny&quot; id=&quot;my-id3&quot;&gt;
 ## &lt;p&gt;This is paragraph1&lt;/p&gt;
 ## &lt;p&gt;This is paragraph2&lt;/p&gt;
@@ -1304,18 +1304,18 @@ Everthing under the selected tag will be returned.</p>
 </div>
 <div id="meta-parsing" class="section level3">
 <h3><span class="header-section-number">19.2.3</span> Meta Parsing</h3>
-<div class="sourceCode" id="cb2099"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2099-1" title="1">my_meta <span class="op">=</span> <span class="st">&#39;&#39;&#39;</span></a>
-<a class="sourceLine" id="cb2099-2" title="2"><span class="st">&lt;meta property=&quot;description&quot;   content=&quot;KUALA LUMPUR: blah blah&quot;   category=&quot;Malaysia&quot;&gt;</span></a>
-<a class="sourceLine" id="cb2099-3" title="3"><span class="st">&lt;meta property=&quot;publish-date&quot;  content=&quot;2012-01-03&quot;&gt;</span></a>
-<a class="sourceLine" id="cb2099-4" title="4"><span class="st">&#39;&#39;&#39;</span></a>
-<a class="sourceLine" id="cb2099-5" title="5">soup <span class="op">=</span> BeautifulSoup(my_meta)</a>
-<a class="sourceLine" id="cb2099-6" title="6">soup.find(<span class="st">&#39;meta&#39;</span>, <span class="bu">property</span><span class="op">=</span><span class="st">&#39;description&#39;</span>)[<span class="st">&#39;content&#39;</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb2075"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2075-1" title="1">my_meta <span class="op">=</span> <span class="st">&#39;&#39;&#39;</span></a>
+<a class="sourceLine" id="cb2075-2" title="2"><span class="st">&lt;meta property=&quot;description&quot;   content=&quot;KUALA LUMPUR: blah blah&quot;   category=&quot;Malaysia&quot;&gt;</span></a>
+<a class="sourceLine" id="cb2075-3" title="3"><span class="st">&lt;meta property=&quot;publish-date&quot;  content=&quot;2012-01-03&quot;&gt;</span></a>
+<a class="sourceLine" id="cb2075-4" title="4"><span class="st">&#39;&#39;&#39;</span></a>
+<a class="sourceLine" id="cb2075-5" title="5">soup <span class="op">=</span> BeautifulSoup(my_meta)</a>
+<a class="sourceLine" id="cb2075-6" title="6">soup.find(<span class="st">&#39;meta&#39;</span>, <span class="bu">property</span><span class="op">=</span><span class="st">&#39;description&#39;</span>)[<span class="st">&#39;content&#39;</span>]</a></code></pre></div>
 <pre><code>## &#39;KUALA LUMPUR: blah blah&#39;</code></pre>
-<div class="sourceCode" id="cb2101"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2101-1" title="1">soup.find(<span class="st">&#39;meta&#39;</span>, <span class="bu">property</span><span class="op">=</span><span class="st">&#39;description&#39;</span>)[<span class="st">&#39;category&#39;</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb2077"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2077-1" title="1">soup.find(<span class="st">&#39;meta&#39;</span>, <span class="bu">property</span><span class="op">=</span><span class="st">&#39;description&#39;</span>)[<span class="st">&#39;category&#39;</span>]</a></code></pre></div>
 <pre><code>## &#39;Malaysia&#39;</code></pre>
-<div class="sourceCode" id="cb2103"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2103-1" title="1">soup.find(<span class="st">&#39;meta&#39;</span>, <span class="bu">property</span><span class="op">=</span><span class="st">&#39;publish-date&#39;</span>)[<span class="st">&#39;content&#39;</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb2079"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2079-1" title="1">soup.find(<span class="st">&#39;meta&#39;</span>, <span class="bu">property</span><span class="op">=</span><span class="st">&#39;publish-date&#39;</span>)[<span class="st">&#39;content&#39;</span>]</a></code></pre></div>
 <pre><code>## &#39;2012-01-03&#39;</code></pre>
-<div class="sourceCode" id="cb2105"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2105-1" title="1">soup.find(<span class="st">&#39;meta&#39;</span>, category<span class="op">=</span><span class="st">&#39;Malaysia&#39;</span>)[<span class="st">&#39;property&#39;</span>]</a></code></pre></div>
+<div class="sourceCode" id="cb2081"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2081-1" title="1">soup.find(<span class="st">&#39;meta&#39;</span>, category<span class="op">=</span><span class="st">&#39;Malaysia&#39;</span>)[<span class="st">&#39;property&#39;</span>]</a></code></pre></div>
 <pre><code>## &#39;description&#39;</code></pre>
 </div>
 <div id="getting-content" class="section level3">
@@ -1328,21 +1328,21 @@ Everthing under the selected tag will be returned.</p>
 <li>Use <strong>`separator=‘’</strong> to specify a string to be used to join the bits of text together</li>
 <li>It is recommended to use <code>strip=True, separator='\n'</code> so that result from different operating system will be consistant</li>
 </ul>
-<div class="sourceCode" id="cb2107"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2107-1" title="1">soup <span class="op">=</span> BeautifulSoup(my_html)</a>
-<a class="sourceLine" id="cb2107-2" title="2">elem <span class="op">=</span> soup.find(<span class="bu">id</span> <span class="op">=</span> <span class="st">&quot;my-id3&quot;</span>)</a>
-<a class="sourceLine" id="cb2107-3" title="3">elem.get_text(strip<span class="op">=</span><span class="va">False</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2083"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2083-1" title="1">soup <span class="op">=</span> BeautifulSoup(my_html)</a>
+<a class="sourceLine" id="cb2083-2" title="2">elem <span class="op">=</span> soup.find(<span class="bu">id</span> <span class="op">=</span> <span class="st">&quot;my-id3&quot;</span>)</a>
+<a class="sourceLine" id="cb2083-3" title="3">elem.get_text(strip<span class="op">=</span><span class="va">False</span>)</a></code></pre></div>
 <pre><code>## &#39;\nThis is paragraph1\nThis is paragraph2\nThis is paragraph3\n&#39;</code></pre>
 <ul>
 <li>strip=True combine with separator will retain only the user readable text portion of each tag, with separator seperating them</li>
 </ul>
-<div class="sourceCode" id="cb2109"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2109-1" title="1">elem.get_text(strip<span class="op">=</span><span class="va">True</span>, separator<span class="op">=</span><span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2085"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2085-1" title="1">elem.get_text(strip<span class="op">=</span><span class="va">True</span>, separator<span class="op">=</span><span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>)</a></code></pre></div>
 <pre><code>## &#39;This is paragraph1\nThis is paragraph2\nThis is paragraph3&#39;</code></pre>
 </div>
 <div id="splitting-content" class="section level4">
 <h4><span class="header-section-number">19.2.4.2</span> Splitting Content</h4>
 <p>It is useful to split using separator into list of string.</p>
-<div class="sourceCode" id="cb2111"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2111-1" title="1">elem <span class="op">=</span> soup.find(<span class="bu">id</span> <span class="op">=</span> <span class="st">&quot;my-id3&quot;</span>)</a>
-<a class="sourceLine" id="cb2111-2" title="2">elem.get_text(strip<span class="op">=</span><span class="va">True</span>, separator<span class="op">=</span><span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>).split(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2087"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2087-1" title="1">elem <span class="op">=</span> soup.find(<span class="bu">id</span> <span class="op">=</span> <span class="st">&quot;my-id3&quot;</span>)</a>
+<a class="sourceLine" id="cb2087-2" title="2">elem.get_text(strip<span class="op">=</span><span class="va">True</span>, separator<span class="op">=</span><span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>).split(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>)</a></code></pre></div>
 <pre><code>## [&#39;This is paragraph1&#39;, &#39;This is paragraph2&#39;, &#39;This is paragraph3&#39;]</code></pre>
 </div>
 </div>
@@ -1350,9 +1350,9 @@ Everthing under the selected tag will be returned.</p>
 <h3><span class="header-section-number">19.2.5</span> Traversing</h3>
 <div id="get-the-element" class="section level4">
 <h4><span class="header-section-number">19.2.5.1</span> Get The Element</h4>
-<div class="sourceCode" id="cb2113"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2113-1" title="1">elems <span class="op">=</span> soup.select(<span class="st">&quot;div#my-id3.title[custom_attr=&#39;funny&#39;]:contains(&#39;This is paragraph&#39;)&quot;</span>)</a>
-<a class="sourceLine" id="cb2113-2" title="2">elem <span class="op">=</span> elems[<span class="dv">0</span>]</a>
-<a class="sourceLine" id="cb2113-3" title="3">elem</a></code></pre></div>
+<div class="sourceCode" id="cb2089"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2089-1" title="1">elems <span class="op">=</span> soup.select(<span class="st">&quot;div#my-id3.title[custom_attr=&#39;funny&#39;]:contains(&#39;This is paragraph&#39;)&quot;</span>)</a>
+<a class="sourceLine" id="cb2089-2" title="2">elem <span class="op">=</span> elems[<span class="dv">0</span>]</a>
+<a class="sourceLine" id="cb2089-3" title="3">elem</a></code></pre></div>
 <pre><code>## &lt;div class=&quot;title&quot; custom_attr=&quot;funny&quot; id=&quot;my-id3&quot;&gt;
 ## &lt;p&gt;This is paragraph1&lt;/p&gt;
 ## &lt;p&gt;This is paragraph2&lt;/p&gt;
@@ -1362,7 +1362,7 @@ Everthing under the selected tag will be returned.</p>
 <div id="traversing-children" class="section level4">
 <h4><span class="header-section-number">19.2.5.2</span> Traversing Children</h4>
 <p><strong>All Children In List <code>findChildren()</code></strong></p>
-<div class="sourceCode" id="cb2115"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2115-1" title="1">elem.findChildren()</a></code></pre></div>
+<div class="sourceCode" id="cb2091"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2091-1" title="1">elem.findChildren()</a></code></pre></div>
 <pre><code>## [&lt;p&gt;This is paragraph1&lt;/p&gt;, &lt;p&gt;This is paragraph2&lt;/p&gt;, &lt;h3&gt;This is paragraph3&lt;/h3&gt;]</code></pre>
 <p><strong>Next Children <code>findNext()</code></strong></p>
 <ul>
@@ -1370,24 +1370,24 @@ Everthing under the selected tag will be returned.</p>
 </li>
 <li>If the element has no children, this will find the next element in the hierechy</li>
 </ul>
-<div class="sourceCode" id="cb2117"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2117-1" title="1">first_child <span class="op">=</span> elem.fin</a>
-<a class="sourceLine" id="cb2117-2" title="2"><span class="bu">print</span>( </a>
-<a class="sourceLine" id="cb2117-3" title="3">elem.findNext().get_text(strip<span class="op">=</span><span class="va">True</span>), <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>, </a>
-<a class="sourceLine" id="cb2117-4" title="4">elem.findNext().findNext().get_text(strip<span class="op">=</span><span class="va">True</span>), <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2093"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2093-1" title="1">first_child <span class="op">=</span> elem.fin</a>
+<a class="sourceLine" id="cb2093-2" title="2"><span class="bu">print</span>( </a>
+<a class="sourceLine" id="cb2093-3" title="3">elem.findNext().get_text(strip<span class="op">=</span><span class="va">True</span>), <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>, </a>
+<a class="sourceLine" id="cb2093-4" title="4">elem.findNext().findNext().get_text(strip<span class="op">=</span><span class="va">True</span>), <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>)</a></code></pre></div>
 <pre><code>## This is paragraph1 
 ##  This is paragraph2</code></pre>
 </div>
 <div id="traversing-to-parent-parent" class="section level4">
 <h4><span class="header-section-number">19.2.5.3</span> Traversing To Parent <code>parent()</code></h4>
-<div class="sourceCode" id="cb2119"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2119-1" title="1">elem_parent <span class="op">=</span> elem.parent</a>
-<a class="sourceLine" id="cb2119-2" title="2">elem_parent.attrs</a></code></pre></div>
+<div class="sourceCode" id="cb2095"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2095-1" title="1">elem_parent <span class="op">=</span> elem.parent</a>
+<a class="sourceLine" id="cb2095-2" title="2">elem_parent.attrs</a></code></pre></div>
 <pre><code>## {&#39;id&#39;: &#39;my-id1&#39;, &#39;class&#39;: [&#39;title&#39;]}</code></pre>
 </div>
 <div id="get-the-sibling-findprevioussibling" class="section level4">
 <h4><span class="header-section-number">19.2.5.4</span> Get The Sibling <code>findPreviousSibling()</code></h4>
 <p>Sibling is element at the same level of hierachy</p>
-<div class="sourceCode" id="cb2121"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2121-1" title="1">elem_prev_sib <span class="op">=</span> elem.findPreviousSibling()</a>
-<a class="sourceLine" id="cb2121-2" title="2">elem_prev_sib.attrs</a></code></pre></div>
+<div class="sourceCode" id="cb2097"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2097-1" title="1">elem_prev_sib <span class="op">=</span> elem.findPreviousSibling()</a>
+<a class="sourceLine" id="cb2097-2" title="2">elem_prev_sib.attrs</a></code></pre></div>
 <pre><code>## {&#39;id&#39;: &#39;my-id2&#39;, &#39;class&#39;: [&#39;subtitle&#39;], &#39;custom_attr&#39;: &#39;funny&#39;}</code></pre>
 
 </div>
