@@ -1124,7 +1124,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth=? )</code></pre>
 <div class="sourceCode" id="cb1601"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1601-1" title="1">plotnine.options.figure_size <span class="op">=</span> (<span class="dv">3</span>, <span class="dv">3</span>)</a>
 <a class="sourceLine" id="cb1601-2" title="2">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>)) <span class="op">+</span> geom_histogram()  <span class="co"># default bins = 10</span></a></code></pre></div>
-<pre><code>## &lt;ggplot: (-9223372036777628532)&gt;
+<pre><code>## &lt;ggplot: (-9223372036785950640)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\stats\stat_bin.py:93: PlotnineWarning: &#39;stat_bin()&#39; using &#39;bins = 10&#39;. Pick better value with &#39;binwidth&#39;.
 ##   warn(msg.format(params[&#39;bins&#39;]), PlotnineWarning)
@@ -1132,13 +1132,13 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 ##   figure = plt.figure()</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-671-1.png" /><!-- --></p>
 <div class="sourceCode" id="cb1603"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1603-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>)) <span class="op">+</span> geom_histogram(bins <span class="op">=</span> <span class="dv">15</span>)</a></code></pre></div>
-<pre><code>## &lt;ggplot: (-9223372036780955476)&gt;
+<pre><code>## &lt;ggplot: (-9223372036780400188)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\ggplot.py:363: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
 ##   figure = plt.figure()</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-672-1.png" /><!-- --></p>
 <div class="sourceCode" id="cb1605"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1605-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>)) <span class="op">+</span> geom_histogram(binwidth <span class="op">=</span> <span class="dv">3</span>)</a></code></pre></div>
-<pre><code>## &lt;ggplot: (-9223372036778168964)&gt;
+<pre><code>## &lt;ggplot: (-9223372036779828412)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\ggplot.py:363: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
 ##   figure = plt.figure()</code></pre>
@@ -1151,7 +1151,7 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
                     fill=&#39;categorical-alike-colName&#39;) 
 + geom_histogram()</code></pre>
 <div class="sourceCode" id="cb1608"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1608-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, fill<span class="op">=</span><span class="st">&#39;grp&#39;</span>)) <span class="op">+</span> geom_histogram(bins<span class="op">=</span><span class="dv">15</span>)</a></code></pre></div>
-<pre><code>## &lt;ggplot: (-9223372036778122412)&gt;
+<pre><code>## &lt;ggplot: (-9223372036779819840)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\ggplot.py:363: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
 ##   figure = plt.figure()</code></pre>
@@ -1163,7 +1163,7 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 <div id="x-numeric-2" class="section level3">
 <h3><span class="header-section-number">16.2.1</span> 2x Numeric</h3>
 <div class="sourceCode" id="cb1610"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1610-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>,y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> geom_point()</a></code></pre></div>
-<pre><code>## &lt;ggplot: (-9223372036777448464)&gt;
+<pre><code>## &lt;ggplot: (-9223372036779804516)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\ggplot.py:363: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
 ##   figure = plt.figure()</code></pre>
@@ -1177,13 +1177,13 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
         size=&#39;numberColName&#39;
     ))</code></pre>
 <div class="sourceCode" id="cb1613"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1613-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>,y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> geom_point(aes(color<span class="op">=</span><span class="st">&#39;grp&#39;</span>))</a></code></pre></div>
-<pre><code>## &lt;ggplot: (-9223372036777439904)&gt;
+<pre><code>## &lt;ggplot: (-9223372036779791288)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\ggplot.py:363: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
 ##   figure = plt.figure()</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-676-1.png" /><!-- --></p>
 <div class="sourceCode" id="cb1615"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1615-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>,y<span class="op">=</span><span class="st">&#39;value2&#39;</span>,color<span class="op">=</span><span class="st">&#39;grp&#39;</span>)) <span class="op">+</span> geom_point()</a></code></pre></div>
-<pre><code>## &lt;ggplot: (-9223372036776610432)&gt;
+<pre><code>## &lt;ggplot: (-9223372036779752256)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\ggplot.py:363: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
 ##   figure = plt.figure()</code></pre>
@@ -1192,7 +1192,7 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 <a class="sourceLine" id="cb1617-2" title="2">    geom_point(aes(</a>
 <a class="sourceLine" id="cb1617-3" title="3">        color<span class="op">=</span><span class="st">&#39;grp&#39;</span></a>
 <a class="sourceLine" id="cb1617-4" title="4">    ))</a></code></pre></div>
-<pre><code>## &lt;ggplot: (-9223372036776609240)&gt;
+<pre><code>## &lt;ggplot: (-9223372036778837080)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\ggplot.py:363: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
 ##   figure = plt.figure()</code></pre>
@@ -1204,7 +1204,7 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 <a class="sourceLine" id="cb1619-2" title="2">    geom_point(aes( </a>
 <a class="sourceLine" id="cb1619-3" title="3">        color<span class="op">=</span><span class="st">&#39;grp&#39;</span>, size<span class="op">=</span><span class="st">&#39;value3&#39;</span></a>
 <a class="sourceLine" id="cb1619-4" title="4">    ))</a></code></pre></div>
-<pre><code>## &lt;ggplot: (-9223372036776563748)&gt;
+<pre><code>## &lt;ggplot: (-9223372036778727940)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\ggplot.py:363: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
 ##   figure = plt.figure()</code></pre>
@@ -1215,7 +1215,7 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 <div class="sourceCode" id="cb1621"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1621-1" title="1">ggplot(mydf, aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> <span class="op">\</span></a>
 <a class="sourceLine" id="cb1621-2" title="2">    geom_point() <span class="op">+</span> <span class="op">\</span></a>
 <a class="sourceLine" id="cb1621-3" title="3">    geom_smooth()          <span class="co"># default method=&#39;loess&#39;</span></a></code></pre></div>
-<pre><code>## &lt;ggplot: (-9223372036776571552)&gt;
+<pre><code>## &lt;ggplot: (-9223372036778800692)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\stats\smoothers.py:168: PlotnineWarning: Confidence intervals are not yet implementedfor lowess smoothings.
 ##   &quot;for lowess smoothings.&quot;, PlotnineWarning)
@@ -1229,7 +1229,7 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 <a class="sourceLine" id="cb1623-5" title="5">        color<span class="op">=</span><span class="st">&#39;red&#39;</span>,</a>
 <a class="sourceLine" id="cb1623-6" title="6">        method<span class="op">=</span><span class="st">&#39;lm&#39;</span>, </a>
 <a class="sourceLine" id="cb1623-7" title="7">        level<span class="op">=</span><span class="fl">0.75</span>)</a></code></pre></div>
-<pre><code>## &lt;ggplot: (-9223372036774254612)&gt;
+<pre><code>## &lt;ggplot: (-9223372036778757416)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\ggplot.py:363: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
 ##   figure = plt.figure()</code></pre>
@@ -1241,7 +1241,7 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 <div id="x-numeric-data" class="section level3">
 <h3><span class="header-section-number">16.3.1</span> 2x Numeric Data</h3>
 <div class="sourceCode" id="cb1625"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1625-1" title="1">ggplot (mydf.head(<span class="dv">15</span>), aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> geom_line()</a></code></pre></div>
-<pre><code>## &lt;ggplot: (-9223372036774232564)&gt;
+<pre><code>## &lt;ggplot: (-9223372036778719164)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\ggplot.py:363: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
 ##   figure = plt.figure()</code></pre>
@@ -1250,13 +1250,13 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 <div id="x-numeric-1x-categorical-1" class="section level3">
 <h3><span class="header-section-number">16.3.2</span> 1x Numeric, 1x Categorical</h3>
 <div class="sourceCode" id="cb1627"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1627-1" title="1">ggplot (mydf.head(<span class="dv">15</span>), aes(x<span class="op">=</span><span class="st">&#39;dept&#39;</span>, y<span class="op">=</span><span class="st">&#39;value1&#39;</span>)) <span class="op">+</span> geom_line()</a></code></pre></div>
-<pre><code>## &lt;ggplot: (-9223372036774008236)&gt;
+<pre><code>## &lt;ggplot: (-9223372036777017408)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\ggplot.py:363: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
 ##   figure = plt.figure()</code></pre>
 <p><img src="_main_files/figure-html/unnamed-chunk-683-1.png" /><!-- --></p>
 <div class="sourceCode" id="cb1629"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1629-1" title="1">ggplot (mydf.head(<span class="dv">30</span>), aes(x<span class="op">=</span><span class="st">&#39;dept&#39;</span>, y<span class="op">=</span><span class="st">&#39;value1&#39;</span>)) <span class="op">+</span> geom_line( aes(group<span class="op">=</span><span class="dv">1</span>))</a></code></pre></div>
-<pre><code>## &lt;ggplot: (-9223372036774225812)&gt;
+<pre><code>## &lt;ggplot: (-9223372036777004340)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\ggplot.py:363: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
 ##   figure = plt.figure()</code></pre>
@@ -1265,7 +1265,7 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 <div id="x-numeric-1x-categorical-2" class="section level3">
 <h3><span class="header-section-number">16.3.3</span> 2x Numeric, 1x Categorical</h3>
 <div class="sourceCode" id="cb1631"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1631-1" title="1">ggplot (mydf.head(<span class="dv">15</span>), aes(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>)) <span class="op">+</span> geom_line( aes(color<span class="op">=</span><span class="st">&#39;grp&#39;</span>),size<span class="op">=</span><span class="dv">2</span>)</a></code></pre></div>
-<pre><code>## &lt;ggplot: (-9223372036773967052)&gt;
+<pre><code>## &lt;ggplot: (-9223372036776986140)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\ggplot.py:363: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
 ##   figure = plt.figure()</code></pre>
@@ -1298,7 +1298,7 @@ plotnine.ggplot( dataframe, aex(x=&#39;colName&#39;)) + geom_histogram( binwidth
 ## dtypes: int64(5), object(1)
 ## memory usage: 168.0+ bytes</code></pre>
 <div class="sourceCode" id="cb1637"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1637-1" title="1">ggplot (tmpdf, aes(x<span class="op">=</span><span class="st">&#39;comp&#39;</span>, y<span class="op">=</span><span class="st">&#39;grp&#39;</span>)) <span class="op">+</span>geom_col()</a></code></pre></div>
-<pre><code>## &lt;ggplot: (-9223372036773957036)&gt;
+<pre><code>## &lt;ggplot: (-9223372036776959876)&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\plotnine\ggplot.py:363: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
 ##   figure = plt.figure()</code></pre>

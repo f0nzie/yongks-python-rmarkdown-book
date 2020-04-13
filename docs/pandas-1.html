@@ -2685,7 +2685,7 @@ Is it possible to have a pandas.Series of datetime.datetime ? No, because Pandas
 <div class="sourceCode" id="cb1145"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1145-1" title="1">empty_df1 <span class="op">=</span> pd.DataFrame()</a>
 <a class="sourceLine" id="cb1145-2" title="2">empty_df2 <span class="op">=</span> pd.DataFrame()</a>
 <a class="sourceLine" id="cb1145-3" title="3"><span class="bu">print</span>(<span class="bu">id</span>(empty_df1), <span class="bu">id</span>(empty_df2), empty_df1)</a></code></pre></div>
-<pre><code>## 197068040 197067592 Empty DataFrame
+<pre><code>## 265652424 209704264 Empty DataFrame
 ## Columns: []
 ## Index: []</code></pre>
 <p>However, you can also initialize an empty DataFrame with Index and/or Columns.</p>
@@ -2698,7 +2698,7 @@ Is it possible to have a pandas.Series of datetime.datetime ? No, because Pandas
 <p>Take note that below empty_df1 and empty_df2 refers to <strong>same memory location</strong>. Meaning they cantain similar data.</p>
 <div class="sourceCode" id="cb1149"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1149-1" title="1">empty_df1 <span class="op">=</span> empty_df2 <span class="op">=</span> pd.DataFrame()</a>
 <a class="sourceLine" id="cb1149-2" title="2"><span class="bu">print</span>(<span class="bu">id</span>(empty_df1), <span class="bu">id</span>(empty_df2))</a></code></pre></div>
-<pre><code>## 197462344 197462344</code></pre>
+<pre><code>## 265733768 265733768</code></pre>
 </div>
 <div id="from-row-oriented-data-list-of-lists" class="section level4">
 <h4><span class="header-section-number">13.7.1.2</span> From Row Oriented Data (List of Lists)</h4>
@@ -4918,7 +4918,7 @@ When single column is selected, output is a <strong>Series</strong></p>
 ## 13      C3         D3  Chang   32    7900  7/26/1973
 ## 14      C3         D1    Ong   44   17500  8/21/1980</code></pre>
 <div class="sourceCode" id="cb1495"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1495-1" title="1">com_grp</a></code></pre></div>
-<pre><code>## &lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x000000000BFA6C48&gt;</code></pre>
+<pre><code>## &lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x000000000FDC0748&gt;</code></pre>
 </div>
 <div id="transform" class="section level3">
 <h3><span class="header-section-number">13.11.9</span> Transform</h3>
