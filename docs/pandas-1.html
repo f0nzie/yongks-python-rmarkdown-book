@@ -24,7 +24,7 @@
 <meta name="author" content="Yong Keh Soon" />
 
 
-<meta name="date" content="2020-04-13" />
+<meta name="date" content="2020-04-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1497,34 +1497,9 @@ crosstab( index = &lt;SeriesObj&gt;, columns = &lt;SeriesObj&gt;, margines=True 
 <a class="sourceLine" id="cb943-3" title="3"></a>
 <a class="sourceLine" id="cb943-4" title="4"><span class="bu">print</span> (<span class="st">&#39;Total Table(s) Found : &#39;</span>, <span class="bu">len</span>(df_list), <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</a>
 <a class="sourceLine" id="cb943-5" title="5">       <span class="st">&#39;First Table Found:      &#39;</span>,df)</a></code></pre></div>
-<pre><code>## Total Table(s) Found :  10 
-##  First Table Found:                                                  Company  Shariah  \
-## 0         AMEDIA (0159)MAINASIA MEDIA GROUP BERHAD      NaN   
-## 1            AMTEL (7031)MAINAMTEL HOLDINGS BERHAD      NaN   
-## 2   ASTRO (6399)MAINASTRO MALAYSIA HOLDINGS BERHAD      NaN   
-## 3             AXIATA (6888)MAINAXIATA GROUP BERHAD      NaN   
-## 4   BINACOM (0195)ACEBINASAT COMMUNICATIONS BERHAD      NaN   
-## ..                                             ...      ...   
-## 28       SRIDGE (0129)ACESILVER RIDGE HOLDINGS BHD      NaN   
-## 29          STAR (6084)MAINSTAR MEDIA GROUP BERHAD      NaN   
-## 30            TIMECOM (5031)MAINTIME DOTCOM BERHAD      NaN   
-## 31            TM (4863)MAINTELEKOM MALAYSIA BERHAD      NaN   
-## 32                            XOX (0165)ACEXOX BHD      NaN   
-## 
-##                                   Sector Market Cap  Last Price     PE     DY      ROE  
-## 0                                  Media     10.78m        0.05      -   0.00        -  
-## 1           Telecommunications Equipment     27.10m        0.50   5.42   0.00     9.97  
-## 2                                  Media     4.146b        0.80   6.32  11.32    76.65  
-## 3   Telecommunications Service Providers    32.899b        3.59  24.09   2.65     8.42  
-## 4   Telecommunications Service Providers     84.60m        0.32  23.02   3.12     4.63  
-## ..                                   ...        ...         ...    ...    ...      ...  
-## 28          Telecommunications Equipment     56.20m        0.38      -   0.00  -147.50  
-## 29                                 Media    192.03m        0.26  33.77   7.69     0.69  
-## 30  Telecommunications Service Providers     5.422b        9.26  17.27   3.13    11.34  
-## 31  Telecommunications Service Providers    14.235b        3.78  22.50   2.65     8.60  
-## 32  Telecommunications Service Providers     21.85m        0.02      -   0.00        -  
-## 
-## [33 rows x 8 columns]</code></pre>
+<pre><code>## Total Table(s) Found :  12 
+##  First Table Found:                0
+## 0  FBMKLCI</code></pre>
 </div>
 <div id="csv-writing" class="section level4">
 <h4><span class="header-section-number">13.3.5.2</span> CSV Writing</h4>
@@ -2685,7 +2660,7 @@ Is it possible to have a pandas.Series of datetime.datetime ? No, because Pandas
 <div class="sourceCode" id="cb1145"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1145-1" title="1">empty_df1 <span class="op">=</span> pd.DataFrame()</a>
 <a class="sourceLine" id="cb1145-2" title="2">empty_df2 <span class="op">=</span> pd.DataFrame()</a>
 <a class="sourceLine" id="cb1145-3" title="3"><span class="bu">print</span>(<span class="bu">id</span>(empty_df1), <span class="bu">id</span>(empty_df2), empty_df1)</a></code></pre></div>
-<pre><code>## 1057885064 600139144 Empty DataFrame
+<pre><code>## 73358216 197292680 Empty DataFrame
 ## Columns: []
 ## Index: []</code></pre>
 <p>However, you can also initialize an empty DataFrame with Index and/or Columns.</p>
@@ -2698,7 +2673,7 @@ Is it possible to have a pandas.Series of datetime.datetime ? No, because Pandas
 <p>Take note that below empty_df1 and empty_df2 refers to <strong>same memory location</strong>. Meaning they cantain similar data.</p>
 <div class="sourceCode" id="cb1149"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1149-1" title="1">empty_df1 <span class="op">=</span> empty_df2 <span class="op">=</span> pd.DataFrame()</a>
 <a class="sourceLine" id="cb1149-2" title="2"><span class="bu">print</span>(<span class="bu">id</span>(empty_df1), <span class="bu">id</span>(empty_df2))</a></code></pre></div>
-<pre><code>## 1127661256 1127661256</code></pre>
+<pre><code>## 197391368 197391368</code></pre>
 </div>
 <div id="from-row-oriented-data-list-of-lists" class="section level4">
 <h4><span class="header-section-number">13.7.1.2</span> From Row Oriented Data (List of Lists)</h4>
@@ -4918,7 +4893,7 @@ When single column is selected, output is a <strong>Series</strong></p>
 ## 13      C3         D3  Chang   32    7900  7/26/1973
 ## 14      C3         D1    Ong   44   17500  8/21/1980</code></pre>
 <div class="sourceCode" id="cb1495"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1495-1" title="1">com_grp</a></code></pre></div>
-<pre><code>## &lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x0000000043586CC8&gt;</code></pre>
+<pre><code>## &lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x000000000BC31CC8&gt;</code></pre>
 </div>
 <div id="transform" class="section level3">
 <h3><span class="header-section-number">13.11.9</span> Transform</h3>

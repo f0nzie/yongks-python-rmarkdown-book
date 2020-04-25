@@ -24,7 +24,7 @@
 <meta name="author" content="Yong Keh Soon" />
 
 
-<meta name="date" content="2020-04-13" />
+<meta name="date" content="2020-04-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1155,11 +1155,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="x-numeric" class="section level3">
 <h3><span class="header-section-number">15.3.1</span> 2x Numeric</h3>
 <div class="sourceCode" id="cb1549"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1549-1" title="1">sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, data<span class="op">=</span>mydf)</a></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000007787EC8&gt;</code></pre>
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000046D30F88&gt;</code></pre>
 <div class="sourceCode" id="cb1551"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1551-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-652-1.png" /><!-- --></p>
 <div class="sourceCode" id="cb1552"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1552-1" title="1">sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)<span class="op">;</span>  <span class="co">#hide regresion line</span></a></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x00000000079B9D88&gt;</code></pre>
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000047D60808&gt;</code></pre>
 <div class="sourceCode" id="cb1554"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1554-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-653-1.png" /><!-- --></p>
 </div>
@@ -1206,7 +1206,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">15.3.5.1</span> size</h4>
 <p>size: <strong>height</strong> in inch for each facet</p>
 <div class="sourceCode" id="cb1560"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1560-1" title="1">sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, col<span class="op">=</span><span class="st">&#39;comp&#39;</span>,hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>, size<span class="op">=</span><span class="dv">3</span>,fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)</a></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x00000000079CCD08&gt;
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000046D40408&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\seaborn\regression.py:574: UserWarning: The `size` parameter has been renamed to `height`; please update your code.
 ##   warnings.warn(msg, UserWarning)</code></pre>
@@ -1214,7 +1214,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="_main_files/figure-html/unnamed-chunk-657-1.png" /><!-- --></p>
 <p>Observe that even <strong>size is very large</strong>, lmplot will <strong>fit (shrink) everything into one row</strong> by deafult. See example below.</p>
 <div class="sourceCode" id="cb1563"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1563-1" title="1">sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, col<span class="op">=</span><span class="st">&#39;comp&#39;</span>,hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>, size<span class="op">=</span><span class="dv">5</span>,fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)</a></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000006BBD548&gt;</code></pre>
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x00000000459C1548&gt;</code></pre>
 <div class="sourceCode" id="cb1565"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1565-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-658-1.png" /><!-- --></p>
 </div>
@@ -1223,7 +1223,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>To avoid lmplot from shrinking the chart, we use <strong>col_wrap=&lt;col_number</strong> to wrap the output.<br />
 Compare the size (height of each facet) with the above <strong>without</strong> col_wrap. Below chart is larger.</p>
 <div class="sourceCode" id="cb1566"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1566-1" title="1">sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, col<span class="op">=</span><span class="st">&#39;comp&#39;</span>,hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>, size<span class="op">=</span><span class="dv">5</span>, col_wrap<span class="op">=</span><span class="dv">2</span>, fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)</a></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x000000000682AE88&gt;
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000045C7DA48&gt;
 ## 
 ## C:\ProgramData\Anaconda3\lib\site-packages\seaborn\axisgrid.py:333: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
 ##   fig = plt.figure(figsize=figsize)</code></pre>
@@ -1296,12 +1296,12 @@ It support matplotlib as well as seaborn plotting utility.</p>
 <pre><code>## C:\ProgramData\Anaconda3\lib\site-packages\seaborn\axisgrid.py:324: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
 ##   fig, axes = plt.subplots(nrow, ncol, **kwargs)</code></pre>
 <div class="sourceCode" id="cb1579"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1579-1" title="1">g.<span class="bu">map</span>(plt.hist, <span class="st">&quot;value1&quot;</span>)</a></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x000000000847CB48&gt;</code></pre>
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x00000000459D9988&gt;</code></pre>
 <div class="sourceCode" id="cb1581"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1581-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-666-1.png" /><!-- --></p>
 <div class="sourceCode" id="cb1582"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1582-1" title="1">g <span class="op">=</span> sns.FacetGrid(mydf, col<span class="op">=</span><span class="st">&quot;comp&quot;</span>, row<span class="op">=</span><span class="st">&#39;dept&#39;</span>)</a>
 <a class="sourceLine" id="cb1582-2" title="2">g.<span class="bu">map</span>(plt.hist, <span class="st">&quot;value1&quot;</span>)</a></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x00000000071AF948&gt;</code></pre>
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x00000000459D8B48&gt;</code></pre>
 <div class="sourceCode" id="cb1584"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1584-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-667-1.png" /><!-- --></p>
 </div>
@@ -1310,7 +1310,7 @@ It support matplotlib as well as seaborn plotting utility.</p>
 <div class="sourceCode" id="cb1585"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1585-1" title="1">g <span class="op">=</span> sns.FacetGrid(mydf, col<span class="op">=</span><span class="st">&quot;comp&quot;</span>, row<span class="op">=</span><span class="st">&#39;dept&#39;</span>,hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>)</a>
 <a class="sourceLine" id="cb1585-2" title="2">g.<span class="bu">map</span>(plt.scatter, <span class="st">&quot;value1&quot;</span>,<span class="st">&quot;value2&quot;</span>,alpha<span class="op">=</span><span class="fl">0.7</span>)<span class="op">;</span></a>
 <a class="sourceLine" id="cb1585-3" title="3">g.add_legend()</a></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x0000000006591B88&gt;</code></pre>
+<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x00000000454399C8&gt;</code></pre>
 <div class="sourceCode" id="cb1587"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1587-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-668-1.png" /><!-- --></p>
 </div>
@@ -1324,7 +1324,7 @@ It support matplotlib as well as seaborn plotting utility.</p>
 ##   squeeze=False)</code></pre>
 <div class="sourceCode" id="cb1590"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1590-1" title="1">g.<span class="bu">map</span>(plt.scatter)<span class="op">;</span></a>
 <a class="sourceLine" id="cb1590-2" title="2">g.add_legend()</a></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.PairGrid object at 0x0000000046E56C48&gt;</code></pre>
+<pre><code>## &lt;seaborn.axisgrid.PairGrid object at 0x0000000045CBD088&gt;</code></pre>
 <div class="sourceCode" id="cb1592"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1592-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-669-1.png" /><!-- --></p>
 </div>
@@ -1332,11 +1332,11 @@ It support matplotlib as well as seaborn plotting utility.</p>
 <h3><span class="header-section-number">15.7.2</span> Different Diag and OffDiag</h3>
 <div class="sourceCode" id="cb1593"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1593-1" title="1">g <span class="op">=</span> sns.PairGrid(mydf, hue<span class="op">=</span><span class="st">&#39;comp&#39;</span>)</a>
 <a class="sourceLine" id="cb1593-2" title="2">g.map_diag(plt.hist, bins<span class="op">=</span><span class="dv">15</span>)</a></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.PairGrid object at 0x0000000007299408&gt;</code></pre>
+<pre><code>## &lt;seaborn.axisgrid.PairGrid object at 0x00000000466D8AC8&gt;</code></pre>
 <div class="sourceCode" id="cb1595"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1595-1" title="1">g.map_offdiag(plt.scatter)</a></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.PairGrid object at 0x0000000007299408&gt;</code></pre>
+<pre><code>## &lt;seaborn.axisgrid.PairGrid object at 0x00000000466D8AC8&gt;</code></pre>
 <div class="sourceCode" id="cb1597"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1597-1" title="1">g.add_legend()</a></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.PairGrid object at 0x0000000007299408&gt;</code></pre>
+<pre><code>## &lt;seaborn.axisgrid.PairGrid object at 0x00000000466D8AC8&gt;</code></pre>
 <div class="sourceCode" id="cb1599"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1599-1" title="1">plt.show()</a></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-670-1.png" /><!-- --></p>
 </div>
