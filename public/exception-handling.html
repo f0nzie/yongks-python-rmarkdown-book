@@ -13,7 +13,7 @@
   
   
   <meta property="og:description" content="This is a python cookbook, written using RMarkdown Notebook. It is made possible by using reticulate R library as the bridge between R and Python." />
-  <meta name="github-repo" content="yongks/python_bookdown" />
+  <meta name="github-repo" content="f0nzie/yongks-python-rmarkdown-book" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="6 Exception Handling | Python Bookdown" />
@@ -1317,21 +1317,21 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="catching-error" class="section level2" number="6.1">
 <h2><span class="header-section-number">6.1</span> Catching Error</h2>
 <p>Different exception object has different attributes.</p>
-<div class="sourceCode" id="cb418"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb418-1"><a href="exception-handling.html#cb418-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb418-2"><a href="exception-handling.html#cb418-2" aria-hidden="true" tabindex="-1"></a>  a <span class="op">=</span> <span class="dv">1</span> <span class="op">+</span> <span class="st">&#39;a&#39;</span></span>
-<span id="cb418-3"><a href="exception-handling.html#cb418-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb418-4"><a href="exception-handling.html#cb418-4" aria-hidden="true" tabindex="-1"></a><span class="co">## known error  </span></span>
-<span id="cb418-5"><a href="exception-handling.html#cb418-5" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">TypeError</span> <span class="im">as</span> err:</span>
-<span id="cb418-6"><a href="exception-handling.html#cb418-6" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&#39;I know this error !!!!&#39;</span>,</span>
-<span id="cb418-7"><a href="exception-handling.html#cb418-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;</span><span class="ch">\n</span><span class="st"> Error: &#39;</span>, err,</span>
-<span id="cb418-8"><a href="exception-handling.html#cb418-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;</span><span class="ch">\n</span><span class="st"> Args:  &#39;</span>, err.args,</span>
-<span id="cb418-9"><a href="exception-handling.html#cb418-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;</span><span class="ch">\n</span><span class="st"> Type:  &#39;</span>, <span class="bu">type</span>(err))</span>
-<span id="cb418-10"><a href="exception-handling.html#cb418-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb418-11"><a href="exception-handling.html#cb418-11" aria-hidden="true" tabindex="-1"></a><span class="co">## all other error</span></span>
-<span id="cb418-12"><a href="exception-handling.html#cb418-12" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> err:</span>
-<span id="cb418-13"><a href="exception-handling.html#cb418-13" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>( <span class="st">&#39;Error: &#39;</span>, err,</span>
-<span id="cb418-14"><a href="exception-handling.html#cb418-14" aria-hidden="true" tabindex="-1"></a>         <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Args:  &#39;</span>, err.args,</span>
-<span id="cb418-15"><a href="exception-handling.html#cb418-15" aria-hidden="true" tabindex="-1"></a>         <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Type:  &#39;</span>, <span class="bu">type</span>(err))</span></code></pre></div>
+<div class="sourceCode" id="cb417"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb417-1"><a href="exception-handling.html#cb417-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb417-2"><a href="exception-handling.html#cb417-2" aria-hidden="true" tabindex="-1"></a>  a <span class="op">=</span> <span class="dv">1</span> <span class="op">+</span> <span class="st">&#39;a&#39;</span></span>
+<span id="cb417-3"><a href="exception-handling.html#cb417-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb417-4"><a href="exception-handling.html#cb417-4" aria-hidden="true" tabindex="-1"></a><span class="co">## known error  </span></span>
+<span id="cb417-5"><a href="exception-handling.html#cb417-5" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">TypeError</span> <span class="im">as</span> err:</span>
+<span id="cb417-6"><a href="exception-handling.html#cb417-6" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&#39;I know this error !!!!&#39;</span>,</span>
+<span id="cb417-7"><a href="exception-handling.html#cb417-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;</span><span class="ch">\n</span><span class="st"> Error: &#39;</span>, err,</span>
+<span id="cb417-8"><a href="exception-handling.html#cb417-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;</span><span class="ch">\n</span><span class="st"> Args:  &#39;</span>, err.args,</span>
+<span id="cb417-9"><a href="exception-handling.html#cb417-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;</span><span class="ch">\n</span><span class="st"> Type:  &#39;</span>, <span class="bu">type</span>(err))</span>
+<span id="cb417-10"><a href="exception-handling.html#cb417-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb417-11"><a href="exception-handling.html#cb417-11" aria-hidden="true" tabindex="-1"></a><span class="co">## all other error</span></span>
+<span id="cb417-12"><a href="exception-handling.html#cb417-12" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> err:</span>
+<span id="cb417-13"><a href="exception-handling.html#cb417-13" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>( <span class="st">&#39;Error: &#39;</span>, err,</span>
+<span id="cb417-14"><a href="exception-handling.html#cb417-14" aria-hidden="true" tabindex="-1"></a>         <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Args:  &#39;</span>, err.args,</span>
+<span id="cb417-15"><a href="exception-handling.html#cb417-15" aria-hidden="true" tabindex="-1"></a>         <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Type:  &#39;</span>, <span class="bu">type</span>(err))</span></code></pre></div>
 <pre><code>#:&gt; I know this error !!!! 
 #:&gt;  Error:  unsupported operand type(s) for +: &#39;int&#39; and &#39;str&#39; 
 #:&gt;  Args:   (&quot;unsupported operand type(s) for +: &#39;int&#39; and &#39;str&#39;&quot;,) 
@@ -1339,12 +1339,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="custom-exception" class="section level2" number="6.2">
 <h2><span class="header-section-number">6.2</span> Custom Exception</h2>
-<div class="sourceCode" id="cb420"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb420-1"><a href="exception-handling.html#cb420-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb420-2"><a href="exception-handling.html#cb420-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">raise</span> <span class="pp">Exception</span>(<span class="st">&#39;bloody&#39;</span>, <span class="st">&#39;hell&#39;</span>)  <span class="co">#simulate exception</span></span>
-<span id="cb420-3"><a href="exception-handling.html#cb420-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> err:</span>
-<span id="cb420-4"><a href="exception-handling.html#cb420-4" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>( <span class="st">&#39;Error: &#39;</span>, err,</span>
-<span id="cb420-5"><a href="exception-handling.html#cb420-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Args:  &#39;</span>, err.args,</span>
-<span id="cb420-6"><a href="exception-handling.html#cb420-6" aria-hidden="true" tabindex="-1"></a>         <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Type:  &#39;</span>, <span class="bu">type</span>(err))</span></code></pre></div>
+<div class="sourceCode" id="cb419"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb419-1"><a href="exception-handling.html#cb419-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb419-2"><a href="exception-handling.html#cb419-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">raise</span> <span class="pp">Exception</span>(<span class="st">&#39;bloody&#39;</span>, <span class="st">&#39;hell&#39;</span>)  <span class="co">#simulate exception</span></span>
+<span id="cb419-3"><a href="exception-handling.html#cb419-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> err:</span>
+<span id="cb419-4"><a href="exception-handling.html#cb419-4" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>( <span class="st">&#39;Error: &#39;</span>, err,</span>
+<span id="cb419-5"><a href="exception-handling.html#cb419-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Args:  &#39;</span>, err.args,</span>
+<span id="cb419-6"><a href="exception-handling.html#cb419-6" aria-hidden="true" tabindex="-1"></a>         <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Type:  &#39;</span>, <span class="bu">type</span>(err))</span></code></pre></div>
 <pre><code>#:&gt; Error:  (&#39;bloody&#39;, &#39;hell&#39;) 
 #:&gt; Args:   (&#39;bloody&#39;, &#39;hell&#39;) 
 #:&gt; Type:   &lt;class &#39;Exception&#39;&gt;</code></pre>
@@ -1372,7 +1372,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": false,
+"github": true,
 "facebook": false,
 "twitter": false,
 "linkedin": false,
@@ -1389,8 +1389,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/yongks/python_bookdown/edit/master/01-fundamental.Rmd",
-"text": "Edit"
+"link": null,
+"text": null
 },
 "history": {
 "link": null,
