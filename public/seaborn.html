@@ -1338,11 +1338,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1526-16"><a href="seaborn.html#cb1526-16" aria-hidden="true" tabindex="-1"></a>})</span>
 <span id="cb1526-17"><a href="seaborn.html#cb1526-17" aria-hidden="true" tabindex="-1"></a>mydf.head()</span></code></pre></div>
 <pre><code>#:&gt;   comp dept grp     value1     value2     value3
-#:&gt; 0   C1   D3  G1  45.460456  19.232268 -54.588981
-#:&gt; 1   C3   D3  G1  52.370783  17.081514   5.451326
-#:&gt; 2   C1   D3  G3  45.810188  21.826167 -17.262036
-#:&gt; 3   C3   D3  G1  43.665256  18.828463 -65.058703
-#:&gt; 4   C1   D1  G1  50.619678  14.272968   7.599264</code></pre>
+#:&gt; 0   C1   D2  G1  54.362552  16.563964 -31.506800
+#:&gt; 1   C3   D3  G1  53.437317  19.650167   0.222697
+#:&gt; 2   C3   D2  G1  42.885269  19.606917  -0.579869
+#:&gt; 3   C1   D3  G3  55.285004  21.801238  13.725993
+#:&gt; 4   C3   D3  G3  43.828592  22.665855 -25.880079</code></pre>
 </div>
 <div id="scatter-plot-1" class="section level2" number="15.3">
 <h2><span class="header-section-number">15.3</span> Scatter Plot</h2>
@@ -1424,9 +1424,9 @@ Compare the size (height of each facet) with the above <strong>without</strong> 
 <span id="cb1545-2"><a href="seaborn.html#cb1545-2" aria-hidden="true" tabindex="-1"></a>grpdf <span class="op">=</span> com_grp[<span class="st">&#39;value1&#39;</span>].<span class="bu">sum</span>().reset_index()</span>
 <span id="cb1545-3"><a href="seaborn.html#cb1545-3" aria-hidden="true" tabindex="-1"></a>grpdf</span></code></pre></div>
 <pre><code>#:&gt;   comp       value1
-#:&gt; 0   C1  1778.595249
-#:&gt; 1   C2  1867.863074
-#:&gt; 2   C3  1355.305698</code></pre>
+#:&gt; 0   C1  1210.730503
+#:&gt; 1   C2  2147.078480
+#:&gt; 2   C3  1660.070827</code></pre>
 <div id="x-categorical-1x-numeric" class="section level3" number="15.5.1">
 <h3><span class="header-section-number">15.5.1</span> 1x Categorical, 1x Numeric</h3>
 <div class="sourceCode" id="cb1547"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1547-1"><a href="seaborn.html#cb1547-1" aria-hidden="true" tabindex="-1"></a>sns.barplot(x<span class="op">=</span><span class="st">&#39;comp&#39;</span>,y<span class="op">=</span><span class="st">&#39;value1&#39;</span>,data<span class="op">=</span>grpdf)</span>

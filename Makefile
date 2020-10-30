@@ -96,4 +96,6 @@ tidy:
 		find $(OUTPUT_DIR) -maxdepth 1 -name \*.rds -delete
 		find $(OUTPUT_DIR) -maxdepth 1 -name \*.ckpt -delete
 		find $(OUTPUT_DIR) -maxdepth 1 -name \*.nb.html -delete
+		find $(OUTPUT_DIR) -maxdepth 1 -name _main.Rmd -delete
+		find $(OUTPUT_DIR) -maxdepth 1 -name now.json -delete
 		
