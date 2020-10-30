@@ -1289,6 +1289,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="19.2.1" data-path="finance.html"><a href="finance.html#price-comparison"><i class="fa fa-check"></i><b>19.2.1</b> Price Comparison</a></li>
 </ul></li>
 </ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/yongks/python_bookdown" target="blank">Original repo by Keh-Soon Yong</a></li> <li><a href="https://github.com/f0nzie/yongks-python-rmarkdown-book/" target="blank">This book repo by Alfonso R. Reyes</a></li> <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with Yihui Xie's bookdown</a></li>
 </ul>
 
       </nav>
@@ -1511,11 +1513,11 @@ crosstab( index = &lt;SeriesObj&gt;, columns = &lt;SeriesObj&gt;, margines=True 
 <span id="cb910-15"><a href="pandas-1.html#cb910-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;value3&#39;</span>:value3 })</span>
 <span id="cb910-16"><a href="pandas-1.html#cb910-16" aria-hidden="true" tabindex="-1"></a>mydf.head()</span></code></pre></div>
 <pre><code>#:&gt;   comp dept grp     value1     value2     value3
-#:&gt; 0   C3   D3  G1  57.065193  22.954665 -26.866743
-#:&gt; 1   C2   D3  G1  50.033749  21.757781  13.292526
-#:&gt; 2   C2   D3  G1  46.684136  22.059394 -29.010522
-#:&gt; 3   C3   D4  G1  41.980054  23.971264  -4.268179
-#:&gt; 4   C3   D3  G2  45.318406  20.082782  25.682149</code></pre>
+#:&gt; 0   C3   D1  G1  50.112804  16.831059  13.364371
+#:&gt; 1   C1   D3  G2  53.043433  16.879855  29.287109
+#:&gt; 2   C3   D1  G2  47.210853  16.571221  24.514211
+#:&gt; 3   C2   D5  G1  46.526044  15.771518 -25.274449
+#:&gt; 4   C3   D1  G1  51.428345  17.163198   1.127707</code></pre>
 </div>
 <div id="one-dimensiontable" class="section level4" number="13.3.3.2">
 <h4><span class="header-section-number">13.3.3.2</span> One DimensionTable</h4>
@@ -1525,26 +1527,26 @@ crosstab( index = &lt;SeriesObj&gt;, columns = &lt;SeriesObj&gt;, margines=True 
 <span id="cb912-4"><a href="pandas-1.html#cb912-4" aria-hidden="true" tabindex="-1"></a>  pd.crosstab(index<span class="op">=</span>mydf.dept, columns<span class="op">=</span><span class="st">&#39;counter&#39;</span>))</span></code></pre></div>
 <pre><code>#:&gt; col_0  counter
 #:&gt; comp          
-#:&gt; C1          62
-#:&gt; C2          66
-#:&gt; C3          72 
+#:&gt; C1          68
+#:&gt; C2          71
+#:&gt; C3          61 
 #:&gt; 
 #:&gt;  col_0  counter
 #:&gt; dept          
-#:&gt; D1          39
-#:&gt; D2          41
-#:&gt; D3          42
+#:&gt; D1          45
+#:&gt; D2          30
+#:&gt; D3          36
 #:&gt; D4          36
-#:&gt; D5          42</code></pre>
+#:&gt; D5          53</code></pre>
 </div>
 <div id="two-dimension-table" class="section level4" number="13.3.3.3">
 <h4><span class="header-section-number">13.3.3.3</span> Two Dimension Table</h4>
 <div class="sourceCode" id="cb914"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb914-1"><a href="pandas-1.html#cb914-1" aria-hidden="true" tabindex="-1"></a>pd.crosstab(index<span class="op">=</span>mydf.comp, columns<span class="op">=</span>mydf.dept)</span></code></pre></div>
 <pre><code>#:&gt; dept  D1  D2  D3  D4  D5
 #:&gt; comp                    
-#:&gt; C1    10  16  15   8  13
-#:&gt; C2    14  10  18   9  15
-#:&gt; C3    15  15   9  19  14</code></pre>
+#:&gt; C1    18   6  12  14  18
+#:&gt; C2    12  16   8  14  21
+#:&gt; C3    15   8  16   8  14</code></pre>
 </div>
 <div id="higher-dimension-table" class="section level4" number="13.3.3.4">
 <h4><span class="header-section-number">13.3.3.4</span> Higher Dimension Table</h4>
@@ -1552,12 +1554,12 @@ crosstab( index = &lt;SeriesObj&gt;, columns = &lt;SeriesObj&gt;, margines=True 
 <div class="sourceCode" id="cb916"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb916-1"><a href="pandas-1.html#cb916-1" aria-hidden="true" tabindex="-1"></a>tb <span class="op">=</span> pd.crosstab(index<span class="op">=</span>mydf.comp, columns<span class="op">=</span>[mydf.dept, mydf.grp])</span>
 <span id="cb916-2"><a href="pandas-1.html#cb916-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( tb, <span class="st">&#39;</span><span class="ch">\n\n</span><span class="st">&#39;</span>,</span>
 <span id="cb916-3"><a href="pandas-1.html#cb916-3" aria-hidden="true" tabindex="-1"></a>       tb.columns )</span></code></pre></div>
-<pre><code>#:&gt; dept  D1    D2     D3     D4    D5   
-#:&gt; grp   G1 G2 G1 G2  G1 G2  G1 G2 G1 G2
-#:&gt; comp                                 
-#:&gt; C1     3  7  8  8  12  3   3  5  6  7
-#:&gt; C2     5  9  4  6   9  9   6  3  8  7
-#:&gt; C3    11  4  7  8   6  3  11  8  6  8 
+<pre><code>#:&gt; dept  D1     D2     D3    D4      D5    
+#:&gt; grp   G1 G2  G1 G2  G1 G2 G1  G2  G1  G2
+#:&gt; comp                                    
+#:&gt; C1    11  7   5  1   6  6  3  11   8  10
+#:&gt; C2     6  6  10  6   4  4  5   9  10  11
+#:&gt; C3    10  5   3  5  10  6  2   6   8   6 
 #:&gt; 
 #:&gt;  MultiIndex([(&#39;D1&#39;, &#39;G1&#39;),
 #:&gt;             (&#39;D1&#39;, &#39;G2&#39;),
@@ -1576,15 +1578,15 @@ crosstab( index = &lt;SeriesObj&gt;, columns = &lt;SeriesObj&gt;, margines=True 
 <pre><code>#:&gt; Under D2:
 #:&gt;  grp   G1  G2
 #:&gt; comp        
-#:&gt; C1     8   8
-#:&gt; C2     4   6
-#:&gt; C3     7   8 
+#:&gt; C1     5   1
+#:&gt; C2    10   6
+#:&gt; C3     3   5 
 #:&gt; 
 #:&gt;  Under D2-G2:
 #:&gt;  comp
-#:&gt; C1    8
-#:&gt; C2    4
-#:&gt; C3    7
+#:&gt; C1     5
+#:&gt; C2    10
+#:&gt; C3     3
 #:&gt; Name: (D2, G1), dtype: int64</code></pre>
 </div>
 <div id="getting-margin" class="section level4" number="13.3.3.5">
@@ -1594,29 +1596,29 @@ crosstab( index = &lt;SeriesObj&gt;, columns = &lt;SeriesObj&gt;, margines=True 
 <span id="cb920-2"><a href="pandas-1.html#cb920-2" aria-hidden="true" tabindex="-1"></a>tb</span></code></pre></div>
 <pre><code>#:&gt; grp    G1  G2  All
 #:&gt; dept              
-#:&gt; D1     19  20   39
-#:&gt; D2     19  22   41
-#:&gt; D3     27  15   42
-#:&gt; D4     20  16   36
-#:&gt; D5     20  22   42
-#:&gt; All   105  95  200</code></pre>
+#:&gt; D1     27  18   45
+#:&gt; D2     18  12   30
+#:&gt; D3     20  16   36
+#:&gt; D4     10  26   36
+#:&gt; D5     26  27   53
+#:&gt; All   101  99  200</code></pre>
 <div class="sourceCode" id="cb922"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb922-1"><a href="pandas-1.html#cb922-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(</span>
 <span id="cb922-2"><a href="pandas-1.html#cb922-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&#39;Row Sums:     </span><span class="ch">\n</span><span class="st">&#39;</span>, tb.loc[:,<span class="st">&#39;All&#39;</span>],</span>
 <span id="cb922-3"><a href="pandas-1.html#cb922-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&#39;</span><span class="ch">\n\n</span><span class="st">Column Sums:</span><span class="ch">\n</span><span class="st">&#39;</span>, tb.loc[<span class="st">&#39;All&#39;</span>])</span></code></pre></div>
 <pre><code>#:&gt; Row Sums:     
 #:&gt;  dept
-#:&gt; D1      39
-#:&gt; D2      41
-#:&gt; D3      42
+#:&gt; D1      45
+#:&gt; D2      30
+#:&gt; D3      36
 #:&gt; D4      36
-#:&gt; D5      42
+#:&gt; D5      53
 #:&gt; All    200
 #:&gt; Name: All, dtype: int64 
 #:&gt; 
 #:&gt; Column Sums:
 #:&gt;  grp
-#:&gt; G1     105
-#:&gt; G2      95
+#:&gt; G1     101
+#:&gt; G2      99
 #:&gt; All    200
 #:&gt; Name: All, dtype: int64</code></pre>
 </div>
@@ -1626,11 +1628,11 @@ crosstab( index = &lt;SeriesObj&gt;, columns = &lt;SeriesObj&gt;, margines=True 
 <div class="sourceCode" id="cb924"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb924-1"><a href="pandas-1.html#cb924-1" aria-hidden="true" tabindex="-1"></a>tb<span class="op">/</span>tb.loc[<span class="st">&#39;All&#39;</span>]</span></code></pre></div>
 <pre><code>#:&gt; grp         G1        G2    All
 #:&gt; dept                           
-#:&gt; D1    0.180952  0.210526  0.195
-#:&gt; D2    0.180952  0.231579  0.205
-#:&gt; D3    0.257143  0.157895  0.210
-#:&gt; D4    0.190476  0.168421  0.180
-#:&gt; D5    0.190476  0.231579  0.210
+#:&gt; D1    0.267327  0.181818  0.225
+#:&gt; D2    0.178218  0.121212  0.150
+#:&gt; D3    0.198020  0.161616  0.180
+#:&gt; D4    0.099010  0.262626  0.180
+#:&gt; D5    0.257426  0.272727  0.265
 #:&gt; All   1.000000  1.000000  1.000</code></pre>
 </div>
 </div>
@@ -2831,7 +2833,7 @@ Is it possible to have a pandas.Series of datetime.datetime ? No, because Pandas
 <div class="sourceCode" id="cb1132"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1132-1"><a href="pandas-1.html#cb1132-1" aria-hidden="true" tabindex="-1"></a>empty_df1 <span class="op">=</span> pd.DataFrame()</span>
 <span id="cb1132-2"><a href="pandas-1.html#cb1132-2" aria-hidden="true" tabindex="-1"></a>empty_df2 <span class="op">=</span> pd.DataFrame()</span>
 <span id="cb1132-3"><a href="pandas-1.html#cb1132-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">id</span>(empty_df1), <span class="bu">id</span>(empty_df2), empty_df1)</span></code></pre></div>
-<pre><code>#:&gt; 140255642650832 140255656562448 Empty DataFrame
+<pre><code>#:&gt; 139822312564688 139822312564304 Empty DataFrame
 #:&gt; Columns: []
 #:&gt; Index: []</code></pre>
 <p>However, you can also initialize an empty DataFrame with Index and/or Columns.</p>
@@ -2844,7 +2846,7 @@ Is it possible to have a pandas.Series of datetime.datetime ? No, because Pandas
 <p>Take note that below empty_df1 and empty_df2 refers to <strong>same memory location</strong>. Meaning they cantain similar data.</p>
 <div class="sourceCode" id="cb1136"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1136-1"><a href="pandas-1.html#cb1136-1" aria-hidden="true" tabindex="-1"></a>empty_df1 <span class="op">=</span> empty_df2 <span class="op">=</span> pd.DataFrame()</span>
 <span id="cb1136-2"><a href="pandas-1.html#cb1136-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">id</span>(empty_df1), <span class="bu">id</span>(empty_df2))</span></code></pre></div>
-<pre><code>#:&gt; 140255643008784 140255643008784</code></pre>
+<pre><code>#:&gt; 139822298639632 139822298639632</code></pre>
 </div>
 <div id="from-row-oriented-data-list-of-lists" class="section level4" number="13.7.1.2">
 <h4><span class="header-section-number">13.7.1.2</span> From Row Oriented Data (List of Lists)</h4>
@@ -5032,7 +5034,7 @@ When single column is selected, output is a <strong>Series</strong></p>
 #:&gt; 13      C3         D3  Chang   32    7900  7/26/1973
 #:&gt; 14      C3         D1    Ong   44   17500  8/21/1980</code></pre>
 <div class="sourceCode" id="cb1477"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1477-1"><a href="pandas-1.html#cb1477-1" aria-hidden="true" tabindex="-1"></a>com_grp</span></code></pre></div>
-<pre><code>#:&gt; &lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f8fd0baab50&gt;</code></pre>
+<pre><code>#:&gt; &lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f2aeaa6d590&gt;</code></pre>
 </div>
 <div id="transform" class="section level3" number="13.11.9">
 <h3><span class="header-section-number">13.11.9</span> Transform</h3>
