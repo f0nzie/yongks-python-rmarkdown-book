@@ -8,6 +8,7 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
+url: 'https\://github.com/f0nzie/yongks-python-rmarkdown-book'
 github-repo: f0nzie/yongks-python-rmarkdown-book
 description: "This is a python cookbook, written using RMarkdown Notebook. It is made possible by using reticulate R library as the bridge between R and Python."
 ---
