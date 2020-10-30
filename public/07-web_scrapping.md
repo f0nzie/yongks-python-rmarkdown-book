@@ -122,17 +122,17 @@ soup.find(id='my-id1')
 ```
 
 ```
-## <div class="title" id="my-id1">
-## <p>This Is My Title</p>
-## <div class="subtitle" custom_attr="funny" id="my-id2">
-## <p>This is Subtitle</p>
-## </div>
-## <div class="title" custom_attr="funny" id="my-id3">
-## <p>This is paragraph1</p>
-## <p>This is paragraph2</p>
-## <h3>This is paragraph3</h3>
-## </div>
-## </div>
+#:> <div class="title" id="my-id1">
+#:> <p>This Is My Title</p>
+#:> <div class="subtitle" custom_attr="funny" id="my-id2">
+#:> <p>This is Subtitle</p>
+#:> </div>
+#:> <div class="title" custom_attr="funny" id="my-id3">
+#:> <p>This is paragraph1</p>
+#:> <p>This is paragraph2</p>
+#:> <h3>This is paragraph3</h3>
+#:> </div>
+#:> </div>
 ```
 
 **Class Selector**
@@ -143,9 +143,9 @@ soup.find(class_='subtitle')
 ```
 
 ```
-## <div class="subtitle" custom_attr="funny" id="my-id2">
-## <p>This is Subtitle</p>
-## </div>
+#:> <div class="subtitle" custom_attr="funny" id="my-id2">
+#:> <p>This is Subtitle</p>
+#:> </div>
 ```
 
 **Attribute Selector**
@@ -156,9 +156,9 @@ soup.find(custom_attr='funny')
 ```
 
 ```
-## <div class="subtitle" custom_attr="funny" id="my-id2">
-## <p>This is Subtitle</p>
-## </div>
+#:> <div class="subtitle" custom_attr="funny" id="my-id2">
+#:> <p>This is Subtitle</p>
+#:> </div>
 ```
 
 
@@ -167,9 +167,9 @@ soup.find(       custom_attr='funny')
 ```
 
 ```
-## <div class="subtitle" custom_attr="funny" id="my-id2">
-## <p>This is Subtitle</p>
-## </div>
+#:> <div class="subtitle" custom_attr="funny" id="my-id2">
+#:> <p>This is Subtitle</p>
+#:> </div>
 ```
 
 ```python
@@ -177,9 +177,9 @@ soup.find('div', custom_attr='funny')
 ```
 
 ```
-## <div class="subtitle" custom_attr="funny" id="my-id2">
-## <p>This is Subtitle</p>
-## </div>
+#:> <div class="subtitle" custom_attr="funny" id="my-id2">
+#:> <p>This is Subtitle</p>
+#:> </div>
 ```
 
 
@@ -196,25 +196,25 @@ print( 'Item 0: \n',     multiple_result[0],
 ```
 
 ```
-## Item 0: 
-##  <div class="title" id="my-id1">
-## <p>This Is My Title</p>
-## <div class="subtitle" custom_attr="funny" id="my-id2">
-## <p>This is Subtitle</p>
-## </div>
-## <div class="title" custom_attr="funny" id="my-id3">
-## <p>This is paragraph1</p>
-## <p>This is paragraph2</p>
-## <h3>This is paragraph3</h3>
-## </div>
-## </div> 
-## 
-## Item 1: 
-##  <div class="title" custom_attr="funny" id="my-id3">
-## <p>This is paragraph1</p>
-## <p>This is paragraph2</p>
-## <h3>This is paragraph3</h3>
-## </div>
+#:> Item 0: 
+#:>  <div class="title" id="my-id1">
+#:> <p>This Is My Title</p>
+#:> <div class="subtitle" custom_attr="funny" id="my-id2">
+#:> <p>This is Subtitle</p>
+#:> </div>
+#:> <div class="title" custom_attr="funny" id="my-id3">
+#:> <p>This is paragraph1</p>
+#:> <p>This is paragraph2</p>
+#:> <h3>This is paragraph3</h3>
+#:> </div>
+#:> </div> 
+#:> 
+#:> Item 1: 
+#:>  <div class="title" custom_attr="funny" id="my-id3">
+#:> <p>This is paragraph1</p>
+#:> <p>This is paragraph2</p>
+#:> <h3>This is paragraph3</h3>
+#:> </div>
 ```
 
 **CSS Selector using `select()`**  
@@ -229,25 +229,25 @@ print( 'Item 0: \n',     multiple_result[0],
 ```
 
 ```
-## Item 0: 
-##  <div class="title" id="my-id1">
-## <p>This Is My Title</p>
-## <div class="subtitle" custom_attr="funny" id="my-id2">
-## <p>This is Subtitle</p>
-## </div>
-## <div class="title" custom_attr="funny" id="my-id3">
-## <p>This is paragraph1</p>
-## <p>This is paragraph2</p>
-## <h3>This is paragraph3</h3>
-## </div>
-## </div> 
-## 
-## Item 1: 
-##  <div class="title" custom_attr="funny" id="my-id3">
-## <p>This is paragraph1</p>
-## <p>This is paragraph2</p>
-## <h3>This is paragraph3</h3>
-## </div>
+#:> Item 0: 
+#:>  <div class="title" id="my-id1">
+#:> <p>This Is My Title</p>
+#:> <div class="subtitle" custom_attr="funny" id="my-id2">
+#:> <p>This is Subtitle</p>
+#:> </div>
+#:> <div class="title" custom_attr="funny" id="my-id3">
+#:> <p>This is paragraph1</p>
+#:> <p>This is paragraph2</p>
+#:> <h3>This is paragraph3</h3>
+#:> </div>
+#:> </div> 
+#:> 
+#:> Item 1: 
+#:>  <div class="title" custom_attr="funny" id="my-id3">
+#:> <p>This is paragraph1</p>
+#:> <p>This is paragraph2</p>
+#:> <h3>This is paragraph3</h3>
+#:> </div>
 ```
 
 More granular exmaple of css selector.
@@ -258,9 +258,9 @@ soup.select('#my-id1 div.subtitle')
 ```
 
 ```
-## [<div class="subtitle" custom_attr="funny" id="my-id2">
-## <p>This is Subtitle</p>
-## </div>]
+#:> [<div class="subtitle" custom_attr="funny" id="my-id2">
+#:> <p>This is Subtitle</p>
+#:> </div>]
 ```
 
 Using **`contains()`**
@@ -271,7 +271,7 @@ soup.select("p:contains('This is paragraph')")
 ```
 
 ```
-## [<p>This is paragraph1</p>, <p>This is paragraph2</p>]
+#:> [<p>This is paragraph1</p>, <p>This is paragraph2</p>]
 ```
 Combining ID, Class and Custom Attribute in the selector
 
@@ -281,11 +281,11 @@ soup.select("div#my-id3.title[custom_attr='funny']:contains('This is paragraph')
 ```
 
 ```
-## [<div class="title" custom_attr="funny" id="my-id3">
-## <p>This is paragraph1</p>
-## <p>This is paragraph2</p>
-## <h3>This is paragraph3</h3>
-## </div>]
+#:> [<div class="title" custom_attr="funny" id="my-id3">
+#:> <p>This is paragraph1</p>
+#:> <p>This is paragraph2</p>
+#:> <h3>This is paragraph3</h3>
+#:> </div>]
 ```
 
 ### Meta Parsing
@@ -301,7 +301,7 @@ soup.find('meta', property='description')['content']
 ```
 
 ```
-## 'KUALA LUMPUR: blah blah'
+#:> 'KUALA LUMPUR: blah blah'
 ```
 
 ```python
@@ -309,7 +309,7 @@ soup.find('meta', property='description')['category']
 ```
 
 ```
-## 'Malaysia'
+#:> 'Malaysia'
 ```
 
 ```python
@@ -317,7 +317,7 @@ soup.find('meta', property='publish-date')['content']
 ```
 
 ```
-## '2012-01-03'
+#:> '2012-01-03'
 ```
 
 ```python
@@ -325,7 +325,7 @@ soup.find('meta', category='Malaysia')['property']
 ```
 
 ```
-## 'description'
+#:> 'description'
 ```
 
 ### Getting Content 
@@ -344,7 +344,7 @@ elem.get_text(strip=False)
 ```
 
 ```
-## '\nThis is paragraph1\nThis is paragraph2\nThis is paragraph3\n'
+#:> '\nThis is paragraph1\nThis is paragraph2\nThis is paragraph3\n'
 ```
 
 - strip=True combine with separator will retain only the user readable text portion of each tag, with separator seperating them
@@ -355,7 +355,7 @@ elem.get_text(strip=True, separator='\n')
 ```
 
 ```
-## 'This is paragraph1\nThis is paragraph2\nThis is paragraph3'
+#:> 'This is paragraph1\nThis is paragraph2\nThis is paragraph3'
 ```
 
 #### Splitting Content
@@ -369,7 +369,7 @@ elem.get_text(strip=True, separator='\n').split('\n')
 ```
 
 ```
-## ['This is paragraph1', 'This is paragraph2', 'This is paragraph3']
+#:> ['This is paragraph1', 'This is paragraph2', 'This is paragraph3']
 ```
 
 ### Traversing
@@ -384,11 +384,11 @@ elem
 ```
 
 ```
-## <div class="title" custom_attr="funny" id="my-id3">
-## <p>This is paragraph1</p>
-## <p>This is paragraph2</p>
-## <h3>This is paragraph3</h3>
-## </div>
+#:> <div class="title" custom_attr="funny" id="my-id3">
+#:> <p>This is paragraph1</p>
+#:> <p>This is paragraph2</p>
+#:> <h3>This is paragraph3</h3>
+#:> </div>
 ```
 
 #### Traversing Children
@@ -401,7 +401,7 @@ elem.findChildren()
 ```
 
 ```
-## [<p>This is paragraph1</p>, <p>This is paragraph2</p>, <h3>This is paragraph3</h3>]
+#:> [<p>This is paragraph1</p>, <p>This is paragraph2</p>, <h3>This is paragraph3</h3>]
 ```
 
 **Next Children `findNext()`**  
@@ -418,8 +418,8 @@ elem.findNext().findNext().get_text(strip=True), '\n')
 ```
 
 ```
-## This is paragraph1 
-##  This is paragraph2
+#:> This is paragraph1 
+#:>  This is paragraph2
 ```
 
 #### Traversing To Parent `parent()`
@@ -431,7 +431,7 @@ elem_parent.attrs
 ```
 
 ```
-## {'id': 'my-id1', 'class': ['title']}
+#:> {'id': 'my-id1', 'class': ['title']}
 ```
 
 #### Get The Sibling `findPreviousSibling()`
@@ -445,6 +445,6 @@ elem_prev_sib.attrs
 ```
 
 ```
-## {'id': 'my-id2', 'class': ['subtitle'], 'custom_attr': 'funny'}
+#:> {'id': 'my-id2', 'class': ['subtitle'], 'custom_attr': 'funny'}
 ```
 

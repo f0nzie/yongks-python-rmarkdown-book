@@ -134,7 +134,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Python Bookdown</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prerequisites</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#main-sections-of-the-book"><i class="fa fa-check"></i>Main sections of the book</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#python-environment"><i class="fa fa-check"></i>Python environment</a></li>
+<li><a href="index.html#automating-the-builds-with-a-makefile">Automating the builds with a <code>Makefile</code></a></li>
+</ul></li>
 <li class="chapter" data-level="1" data-path="fundamentals.html"><a href="fundamentals.html"><i class="fa fa-check"></i><b>1</b> Fundamentals</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="fundamentals.html"><a href="fundamentals.html#library-management"><i class="fa fa-check"></i><b>1.1</b> Library Management</a>
@@ -1313,94 +1318,82 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="sample-data-19" class="section level2" number="15.2">
 <h2><span class="header-section-number">15.2</span> Sample Data</h2>
-<div class="sourceCode" id="cb1531"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1531-1"><a href="seaborn.html#cb1531-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">100</span></span>
-<span id="cb1531-2"><a href="seaborn.html#cb1531-2" aria-hidden="true" tabindex="-1"></a>comp <span class="op">=</span> [<span class="st">&#39;C&#39;</span> <span class="op">+</span> i <span class="cf">for</span> i <span class="kw">in</span> np.random.randint( <span class="dv">1</span>,<span class="dv">4</span>, size  <span class="op">=</span> n).astype(<span class="bu">str</span>)] <span class="co"># 3x Company</span></span>
-<span id="cb1531-3"><a href="seaborn.html#cb1531-3" aria-hidden="true" tabindex="-1"></a>dept <span class="op">=</span> [<span class="st">&#39;D&#39;</span> <span class="op">+</span> i <span class="cf">for</span> i <span class="kw">in</span> np.random.randint( <span class="dv">1</span>,<span class="dv">4</span>, size  <span class="op">=</span> n).astype(<span class="bu">str</span>)] <span class="co"># 5x Department</span></span>
-<span id="cb1531-4"><a href="seaborn.html#cb1531-4" aria-hidden="true" tabindex="-1"></a>grp <span class="op">=</span>  [<span class="st">&#39;G&#39;</span> <span class="op">+</span> i <span class="cf">for</span> i <span class="kw">in</span> np.random.randint( <span class="dv">1</span>,<span class="dv">4</span>, size  <span class="op">=</span> n).astype(<span class="bu">str</span>)] <span class="co"># 2x Groups</span></span>
-<span id="cb1531-5"><a href="seaborn.html#cb1531-5" aria-hidden="true" tabindex="-1"></a>value1 <span class="op">=</span> np.random.normal( loc<span class="op">=</span><span class="dv">50</span> , scale<span class="op">=</span><span class="dv">5</span> , size <span class="op">=</span> n)</span>
-<span id="cb1531-6"><a href="seaborn.html#cb1531-6" aria-hidden="true" tabindex="-1"></a>value2 <span class="op">=</span> np.random.normal( loc<span class="op">=</span><span class="dv">20</span> , scale<span class="op">=</span><span class="dv">3</span> , size <span class="op">=</span> n)</span>
-<span id="cb1531-7"><a href="seaborn.html#cb1531-7" aria-hidden="true" tabindex="-1"></a>value3 <span class="op">=</span> np.random.normal( loc<span class="op">=</span><span class="dv">5</span> , scale<span class="op">=</span><span class="dv">30</span> , size <span class="op">=</span> n)</span>
-<span id="cb1531-8"><a href="seaborn.html#cb1531-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1531-9"><a href="seaborn.html#cb1531-9" aria-hidden="true" tabindex="-1"></a>mydf <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb1531-10"><a href="seaborn.html#cb1531-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;comp&#39;</span>:comp, </span>
-<span id="cb1531-11"><a href="seaborn.html#cb1531-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;dept&#39;</span>:dept, </span>
-<span id="cb1531-12"><a href="seaborn.html#cb1531-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;grp&#39;</span>: grp,</span>
-<span id="cb1531-13"><a href="seaborn.html#cb1531-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;value1&#39;</span>:value1, </span>
-<span id="cb1531-14"><a href="seaborn.html#cb1531-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;value2&#39;</span>:value2,</span>
-<span id="cb1531-15"><a href="seaborn.html#cb1531-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;value3&#39;</span>:value3 </span>
-<span id="cb1531-16"><a href="seaborn.html#cb1531-16" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb1531-17"><a href="seaborn.html#cb1531-17" aria-hidden="true" tabindex="-1"></a>mydf.head()</span></code></pre></div>
-<pre><code>##   comp dept grp     value1     value2     value3
-## 0   C2   D1  G3  42.518155  21.434890 -46.522486
-## 1   C1   D2  G3  57.767348  21.148730  35.243230
-## 2   C2   D2  G3  49.421519  23.597451  26.009438
-## 3   C2   D3  G2  52.766497  17.968871  73.824515
-## 4   C3   D2  G1  45.070383  23.226475   3.916130</code></pre>
+<div class="sourceCode" id="cb1530"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1530-1"><a href="seaborn.html#cb1530-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb1530-2"><a href="seaborn.html#cb1530-2" aria-hidden="true" tabindex="-1"></a>comp <span class="op">=</span> [<span class="st">&#39;C&#39;</span> <span class="op">+</span> i <span class="cf">for</span> i <span class="kw">in</span> np.random.randint( <span class="dv">1</span>,<span class="dv">4</span>, size  <span class="op">=</span> n).astype(<span class="bu">str</span>)] <span class="co"># 3x Company</span></span>
+<span id="cb1530-3"><a href="seaborn.html#cb1530-3" aria-hidden="true" tabindex="-1"></a>dept <span class="op">=</span> [<span class="st">&#39;D&#39;</span> <span class="op">+</span> i <span class="cf">for</span> i <span class="kw">in</span> np.random.randint( <span class="dv">1</span>,<span class="dv">4</span>, size  <span class="op">=</span> n).astype(<span class="bu">str</span>)] <span class="co"># 5x Department</span></span>
+<span id="cb1530-4"><a href="seaborn.html#cb1530-4" aria-hidden="true" tabindex="-1"></a>grp <span class="op">=</span>  [<span class="st">&#39;G&#39;</span> <span class="op">+</span> i <span class="cf">for</span> i <span class="kw">in</span> np.random.randint( <span class="dv">1</span>,<span class="dv">4</span>, size  <span class="op">=</span> n).astype(<span class="bu">str</span>)] <span class="co"># 2x Groups</span></span>
+<span id="cb1530-5"><a href="seaborn.html#cb1530-5" aria-hidden="true" tabindex="-1"></a>value1 <span class="op">=</span> np.random.normal( loc<span class="op">=</span><span class="dv">50</span> , scale<span class="op">=</span><span class="dv">5</span> , size <span class="op">=</span> n)</span>
+<span id="cb1530-6"><a href="seaborn.html#cb1530-6" aria-hidden="true" tabindex="-1"></a>value2 <span class="op">=</span> np.random.normal( loc<span class="op">=</span><span class="dv">20</span> , scale<span class="op">=</span><span class="dv">3</span> , size <span class="op">=</span> n)</span>
+<span id="cb1530-7"><a href="seaborn.html#cb1530-7" aria-hidden="true" tabindex="-1"></a>value3 <span class="op">=</span> np.random.normal( loc<span class="op">=</span><span class="dv">5</span> , scale<span class="op">=</span><span class="dv">30</span> , size <span class="op">=</span> n)</span>
+<span id="cb1530-8"><a href="seaborn.html#cb1530-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1530-9"><a href="seaborn.html#cb1530-9" aria-hidden="true" tabindex="-1"></a>mydf <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb1530-10"><a href="seaborn.html#cb1530-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;comp&#39;</span>:comp, </span>
+<span id="cb1530-11"><a href="seaborn.html#cb1530-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;dept&#39;</span>:dept, </span>
+<span id="cb1530-12"><a href="seaborn.html#cb1530-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;grp&#39;</span>: grp,</span>
+<span id="cb1530-13"><a href="seaborn.html#cb1530-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;value1&#39;</span>:value1, </span>
+<span id="cb1530-14"><a href="seaborn.html#cb1530-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;value2&#39;</span>:value2,</span>
+<span id="cb1530-15"><a href="seaborn.html#cb1530-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;value3&#39;</span>:value3 </span>
+<span id="cb1530-16"><a href="seaborn.html#cb1530-16" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb1530-17"><a href="seaborn.html#cb1530-17" aria-hidden="true" tabindex="-1"></a>mydf.head()</span></code></pre></div>
+<pre><code>#:&gt;   comp dept grp     value1     value2     value3
+#:&gt; 0   C2   D1  G3  54.086381  18.675226 -29.683179
+#:&gt; 1   C2   D1  G2  52.960326  20.801333  15.662159
+#:&gt; 2   C1   D3  G2  49.975648  23.636401  17.510219
+#:&gt; 3   C2   D3  G3  52.060887  25.177800  -9.208095
+#:&gt; 4   C2   D2  G1  47.997811  25.595032  40.891878</code></pre>
 </div>
 <div id="scatter-plot-1" class="section level2" number="15.3">
 <h2><span class="header-section-number">15.3</span> Scatter Plot</h2>
 <div id="x-numeric" class="section level3" number="15.3.1">
 <h3><span class="header-section-number">15.3.1</span> 2x Numeric</h3>
-<div class="sourceCode" id="cb1533"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1533-1"><a href="seaborn.html#cb1533-1" aria-hidden="true" tabindex="-1"></a>sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, data<span class="op">=</span>mydf)</span></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x7f1dcd6e9d90&gt;</code></pre>
+<div class="sourceCode" id="cb1532"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1532-1"><a href="seaborn.html#cb1532-1" aria-hidden="true" tabindex="-1"></a>sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, data<span class="op">=</span>mydf)</span></code></pre></div>
+<div class="sourceCode" id="cb1533"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1533-1"><a href="seaborn.html#cb1533-1" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<p><img src="04-visualization_files/figure-html/unnamed-chunk-32-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb1534"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1534-1"><a href="seaborn.html#cb1534-1" aria-hidden="true" tabindex="-1"></a>sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)<span class="op">;</span>  <span class="co">#hide regresion line</span></span></code></pre></div>
 <div class="sourceCode" id="cb1535"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1535-1"><a href="seaborn.html#cb1535-1" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
-<p><img src="04-visualization_files/figure-html/unnamed-chunk-31-1.png" width="480" /></p>
-<div class="sourceCode" id="cb1536"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1536-1"><a href="seaborn.html#cb1536-1" aria-hidden="true" tabindex="-1"></a>sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)<span class="op">;</span>  <span class="co">#hide regresion line</span></span></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x7f1dcd64b790&gt;</code></pre>
-<div class="sourceCode" id="cb1538"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1538-1"><a href="seaborn.html#cb1538-1" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
-<p><img src="04-visualization_files/figure-html/unnamed-chunk-32-1.png" width="480" /></p>
+<p><img src="04-visualization_files/figure-html/unnamed-chunk-33-1.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="xnumeric-1x-categorical" class="section level3" number="15.3.2">
 <h3><span class="header-section-number">15.3.2</span> 2xNumeric + 1x Categorical</h3>
 <p>Use <strong>hue</strong> to represent additional categorical feature</p>
-<div class="sourceCode" id="cb1539"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1539-1"><a href="seaborn.html#cb1539-1" aria-hidden="true" tabindex="-1"></a>sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, data<span class="op">=</span>mydf, hue<span class="op">=</span><span class="st">&#39;comp&#39;</span>, fit_reg<span class="op">=</span><span class="va">False</span>)<span class="op">;</span></span>
-<span id="cb1539-2"><a href="seaborn.html#cb1539-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
-<p><img src="04-visualization_files/figure-html/unnamed-chunk-33-1.png" width="546" /></p>
+<div class="sourceCode" id="cb1536"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1536-1"><a href="seaborn.html#cb1536-1" aria-hidden="true" tabindex="-1"></a>sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, data<span class="op">=</span>mydf, hue<span class="op">=</span><span class="st">&#39;comp&#39;</span>, fit_reg<span class="op">=</span><span class="va">False</span>)<span class="op">;</span></span>
+<span id="cb1536-2"><a href="seaborn.html#cb1536-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<p><img src="04-visualization_files/figure-html/unnamed-chunk-34-1.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="xnumeric-2x-categorical" class="section level3" number="15.3.3">
 <h3><span class="header-section-number">15.3.3</span> 2xNumeric + 2x Categorical</h3>
 <p>Use <strong>col</strong> and <strong>hue</strong> to represent two categorical features</p>
-<div class="sourceCode" id="cb1540"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1540-1"><a href="seaborn.html#cb1540-1" aria-hidden="true" tabindex="-1"></a>sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, col<span class="op">=</span><span class="st">&#39;comp&#39;</span>,hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>, fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)<span class="op">;</span></span>
-<span id="cb1540-2"><a href="seaborn.html#cb1540-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
-<p><img src="04-visualization_files/figure-html/unnamed-chunk-34-1.png" width="1506" /></p>
+<div class="sourceCode" id="cb1537"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1537-1"><a href="seaborn.html#cb1537-1" aria-hidden="true" tabindex="-1"></a>sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, col<span class="op">=</span><span class="st">&#39;comp&#39;</span>,hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>, fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)<span class="op">;</span></span>
+<span id="cb1537-2"><a href="seaborn.html#cb1537-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<p><img src="04-visualization_files/figure-html/unnamed-chunk-35-1.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="xnumeric-3x-categorical" class="section level3" number="15.3.4">
 <h3><span class="header-section-number">15.3.4</span> 2xNumeric + 3x Categorical</h3>
 <p>Use <strong>row, col</strong> and <strong>hue</strong> to represent three categorical features</p>
-<div class="sourceCode" id="cb1541"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1541-1"><a href="seaborn.html#cb1541-1" aria-hidden="true" tabindex="-1"></a>sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, row<span class="op">=</span><span class="st">&#39;dept&#39;</span>,col<span class="op">=</span><span class="st">&#39;comp&#39;</span>, hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>, fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)<span class="op">;</span></span></code></pre></div>
-<pre><code>## /home/msfz751/anaconda3/envs/python_book/lib/python3.7/site-packages/seaborn/axisgrid.py:392: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).</code></pre>
-<div class="sourceCode" id="cb1543"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1543-1"><a href="seaborn.html#cb1543-1" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
-<p><img src="04-visualization_files/figure-html/unnamed-chunk-35-1.png" width="1506" /></p>
+<div class="sourceCode" id="cb1538"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1538-1"><a href="seaborn.html#cb1538-1" aria-hidden="true" tabindex="-1"></a>sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, row<span class="op">=</span><span class="st">&#39;dept&#39;</span>,col<span class="op">=</span><span class="st">&#39;comp&#39;</span>, hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>, fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)<span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb1539"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1539-1"><a href="seaborn.html#cb1539-1" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<p><img src="04-visualization_files/figure-html/unnamed-chunk-36-1.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="customization" class="section level3" number="15.3.5">
 <h3><span class="header-section-number">15.3.5</span> Customization</h3>
 <div id="size" class="section level4" number="15.3.5.1">
 <h4><span class="header-section-number">15.3.5.1</span> size</h4>
 <p>size: <strong>height</strong> in inch for each facet</p>
-<div class="sourceCode" id="cb1544"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1544-1"><a href="seaborn.html#cb1544-1" aria-hidden="true" tabindex="-1"></a>sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, col<span class="op">=</span><span class="st">&#39;comp&#39;</span>,hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>, size<span class="op">=</span><span class="dv">3</span>,fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)</span></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x7f1dc4529190&gt;
-## 
-## /home/msfz751/anaconda3/envs/python_book/lib/python3.7/site-packages/seaborn/regression.py:580: UserWarning: The `size` parameter has been renamed to `height`; please update your code.</code></pre>
-<div class="sourceCode" id="cb1546"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1546-1"><a href="seaborn.html#cb1546-1" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
-<p><img src="04-visualization_files/figure-html/unnamed-chunk-36-1.png" width="930" /></p>
+<div class="sourceCode" id="cb1540"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1540-1"><a href="seaborn.html#cb1540-1" aria-hidden="true" tabindex="-1"></a>sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, col<span class="op">=</span><span class="st">&#39;comp&#39;</span>,hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>, size<span class="op">=</span><span class="dv">3</span>,fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)</span></code></pre></div>
+<div class="sourceCode" id="cb1541"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1541-1"><a href="seaborn.html#cb1541-1" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<p><img src="04-visualization_files/figure-html/unnamed-chunk-37-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <p>Observe that even <strong>size is very large</strong>, lmplot will <strong>fit (shrink) everything into one row</strong> by deafult. See example below.</p>
-<div class="sourceCode" id="cb1547"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1547-1"><a href="seaborn.html#cb1547-1" aria-hidden="true" tabindex="-1"></a>sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, col<span class="op">=</span><span class="st">&#39;comp&#39;</span>,hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>, size<span class="op">=</span><span class="dv">5</span>,fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)</span></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x7f1dcd352a50&gt;
-## 
-## /home/msfz751/anaconda3/envs/python_book/lib/python3.7/site-packages/seaborn/regression.py:580: UserWarning: The `size` parameter has been renamed to `height`; please update your code.</code></pre>
-<div class="sourceCode" id="cb1549"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1549-1"><a href="seaborn.html#cb1549-1" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
-<p><img src="04-visualization_files/figure-html/unnamed-chunk-37-1.png" width="1506" /></p>
+<div class="sourceCode" id="cb1542"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1542-1"><a href="seaborn.html#cb1542-1" aria-hidden="true" tabindex="-1"></a>sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, col<span class="op">=</span><span class="st">&#39;comp&#39;</span>,hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>, size<span class="op">=</span><span class="dv">5</span>,fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)</span></code></pre></div>
+<div class="sourceCode" id="cb1543"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1543-1"><a href="seaborn.html#cb1543-1" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<p><img src="04-visualization_files/figure-html/unnamed-chunk-38-1.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="col_wrap" class="section level4" number="15.3.5.2">
 <h4><span class="header-section-number">15.3.5.2</span> col_wrap</h4>
 <p>To avoid lmplot from shrinking the chart, we use <strong>col_wrap=&lt;col_number</strong> to wrap the output.<br />
 Compare the size (height of each facet) with the above <strong>without</strong> col_wrap. Below chart is larger.</p>
-<div class="sourceCode" id="cb1550"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1550-1"><a href="seaborn.html#cb1550-1" aria-hidden="true" tabindex="-1"></a>sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, col<span class="op">=</span><span class="st">&#39;comp&#39;</span>,hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>, size<span class="op">=</span><span class="dv">5</span>, col_wrap<span class="op">=</span><span class="dv">2</span>, fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)</span></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x7f1dcd371310&gt;
-## 
-## /home/msfz751/anaconda3/envs/python_book/lib/python3.7/site-packages/seaborn/regression.py:580: UserWarning: The `size` parameter has been renamed to `height`; please update your code.</code></pre>
-<div class="sourceCode" id="cb1552"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1552-1"><a href="seaborn.html#cb1552-1" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
-<p><img src="04-visualization_files/figure-html/unnamed-chunk-38-1.png" width="1026" /></p>
+<div class="sourceCode" id="cb1544"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1544-1"><a href="seaborn.html#cb1544-1" aria-hidden="true" tabindex="-1"></a>sns.lmplot(x<span class="op">=</span><span class="st">&#39;value1&#39;</span>, y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, col<span class="op">=</span><span class="st">&#39;comp&#39;</span>,hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>, size<span class="op">=</span><span class="dv">5</span>, col_wrap<span class="op">=</span><span class="dv">2</span>, fit_reg<span class="op">=</span><span class="va">False</span>, data<span class="op">=</span>mydf)</span></code></pre></div>
+<div class="sourceCode" id="cb1545"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1545-1"><a href="seaborn.html#cb1545-1" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<p><img src="04-visualization_files/figure-html/unnamed-chunk-39-1.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 </div>
@@ -1415,46 +1408,46 @@ Compare the size (height of each facet) with the above <strong>without</strong> 
 )</code></pre>
 <div id="x-numeric-1" class="section level3" number="15.4.1">
 <h3><span class="header-section-number">15.4.1</span> 1x Numeric</h3>
-<div class="sourceCode" id="cb1554"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1554-1"><a href="seaborn.html#cb1554-1" aria-hidden="true" tabindex="-1"></a>sns.distplot(mydf.value1)</span>
-<span id="cb1554-2"><a href="seaborn.html#cb1554-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
-<p><img src="04-visualization_files/figure-html/unnamed-chunk-39-1.png" width="1026" /></p>
-<div class="sourceCode" id="cb1555"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1555-1"><a href="seaborn.html#cb1555-1" aria-hidden="true" tabindex="-1"></a>sns.distplot(mydf.value1,hist<span class="op">=</span><span class="va">True</span>,rug<span class="op">=</span><span class="va">True</span>,vertical<span class="op">=</span><span class="va">True</span>, bins<span class="op">=</span><span class="dv">30</span>,color<span class="op">=</span><span class="st">&#39;g&#39;</span>)</span>
-<span id="cb1555-2"><a href="seaborn.html#cb1555-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
-<p><img src="04-visualization_files/figure-html/unnamed-chunk-40-1.png" width="1026" /></p>
+<div class="sourceCode" id="cb1547"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1547-1"><a href="seaborn.html#cb1547-1" aria-hidden="true" tabindex="-1"></a>sns.distplot(mydf.value1)</span>
+<span id="cb1547-2"><a href="seaborn.html#cb1547-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<p><img src="04-visualization_files/figure-html/unnamed-chunk-40-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb1548"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1548-1"><a href="seaborn.html#cb1548-1" aria-hidden="true" tabindex="-1"></a>sns.distplot(mydf.value1,hist<span class="op">=</span><span class="va">True</span>,rug<span class="op">=</span><span class="va">True</span>,vertical<span class="op">=</span><span class="va">True</span>, bins<span class="op">=</span><span class="dv">30</span>,color<span class="op">=</span><span class="st">&#39;g&#39;</span>)</span>
+<span id="cb1548-2"><a href="seaborn.html#cb1548-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<p><img src="04-visualization_files/figure-html/unnamed-chunk-41-1.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="bar-chart-1" class="section level2" number="15.5">
 <h2><span class="header-section-number">15.5</span> Bar Chart</h2>
-<div class="sourceCode" id="cb1556"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1556-1"><a href="seaborn.html#cb1556-1" aria-hidden="true" tabindex="-1"></a>com_grp <span class="op">=</span> mydf.groupby(<span class="st">&#39;comp&#39;</span>)</span>
-<span id="cb1556-2"><a href="seaborn.html#cb1556-2" aria-hidden="true" tabindex="-1"></a>grpdf <span class="op">=</span> com_grp[<span class="st">&#39;value1&#39;</span>].<span class="bu">sum</span>().reset_index()</span>
-<span id="cb1556-3"><a href="seaborn.html#cb1556-3" aria-hidden="true" tabindex="-1"></a>grpdf</span></code></pre></div>
-<pre><code>##   comp       value1
-## 0   C1  1570.745896
-## 1   C2  2093.879376
-## 2   C3  1291.509818</code></pre>
+<div class="sourceCode" id="cb1549"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1549-1"><a href="seaborn.html#cb1549-1" aria-hidden="true" tabindex="-1"></a>com_grp <span class="op">=</span> mydf.groupby(<span class="st">&#39;comp&#39;</span>)</span>
+<span id="cb1549-2"><a href="seaborn.html#cb1549-2" aria-hidden="true" tabindex="-1"></a>grpdf <span class="op">=</span> com_grp[<span class="st">&#39;value1&#39;</span>].<span class="bu">sum</span>().reset_index()</span>
+<span id="cb1549-3"><a href="seaborn.html#cb1549-3" aria-hidden="true" tabindex="-1"></a>grpdf</span></code></pre></div>
+<pre><code>#:&gt;   comp       value1
+#:&gt; 0   C1  1622.028634
+#:&gt; 1   C2  1782.067733
+#:&gt; 2   C3  1543.864091</code></pre>
 <div id="x-categorical-1x-numeric" class="section level3" number="15.5.1">
 <h3><span class="header-section-number">15.5.1</span> 1x Categorical, 1x Numeric</h3>
-<div class="sourceCode" id="cb1558"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1558-1"><a href="seaborn.html#cb1558-1" aria-hidden="true" tabindex="-1"></a>sns.barplot(x<span class="op">=</span><span class="st">&#39;comp&#39;</span>,y<span class="op">=</span><span class="st">&#39;value1&#39;</span>,data<span class="op">=</span>grpdf)</span>
-<span id="cb1558-2"><a href="seaborn.html#cb1558-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
-<p><img src="04-visualization_files/figure-html/unnamed-chunk-42-1.png" width="1026" /></p>
+<div class="sourceCode" id="cb1551"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1551-1"><a href="seaborn.html#cb1551-1" aria-hidden="true" tabindex="-1"></a>sns.barplot(x<span class="op">=</span><span class="st">&#39;comp&#39;</span>,y<span class="op">=</span><span class="st">&#39;value1&#39;</span>,data<span class="op">=</span>grpdf)</span>
+<span id="cb1551-2"><a href="seaborn.html#cb1551-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<p><img src="04-visualization_files/figure-html/unnamed-chunk-43-1.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="customization-1" class="section level3" number="15.5.2">
 <h3><span class="header-section-number">15.5.2</span> Customization</h3>
 <div id="ordering" class="section level4" number="15.5.2.1">
 <h4><span class="header-section-number">15.5.2.1</span> Ordering</h4>
-<div class="sourceCode" id="cb1559"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1559-1"><a href="seaborn.html#cb1559-1" aria-hidden="true" tabindex="-1"></a>sns.barplot(x<span class="op">=</span><span class="st">&#39;comp&#39;</span>,y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>,</span>
-<span id="cb1559-2"><a href="seaborn.html#cb1559-2" aria-hidden="true" tabindex="-1"></a>            order<span class="op">=</span>[<span class="st">&#39;C3&#39;</span>,<span class="st">&#39;C2&#39;</span>,<span class="st">&#39;C1&#39;</span>],</span>
-<span id="cb1559-3"><a href="seaborn.html#cb1559-3" aria-hidden="true" tabindex="-1"></a>            hue_order<span class="op">=</span>[<span class="st">&#39;G1&#39;</span>,<span class="st">&#39;G2&#39;</span>,<span class="st">&#39;G3&#39;</span>],</span>
-<span id="cb1559-4"><a href="seaborn.html#cb1559-4" aria-hidden="true" tabindex="-1"></a>            data<span class="op">=</span>mydf</span>
-<span id="cb1559-5"><a href="seaborn.html#cb1559-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1559-6"><a href="seaborn.html#cb1559-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
-<p><img src="04-visualization_files/figure-html/unnamed-chunk-43-1.png" width="1026" /></p>
+<div class="sourceCode" id="cb1552"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1552-1"><a href="seaborn.html#cb1552-1" aria-hidden="true" tabindex="-1"></a>sns.barplot(x<span class="op">=</span><span class="st">&#39;comp&#39;</span>,y<span class="op">=</span><span class="st">&#39;value2&#39;</span>, hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>,</span>
+<span id="cb1552-2"><a href="seaborn.html#cb1552-2" aria-hidden="true" tabindex="-1"></a>            order<span class="op">=</span>[<span class="st">&#39;C3&#39;</span>,<span class="st">&#39;C2&#39;</span>,<span class="st">&#39;C1&#39;</span>],</span>
+<span id="cb1552-3"><a href="seaborn.html#cb1552-3" aria-hidden="true" tabindex="-1"></a>            hue_order<span class="op">=</span>[<span class="st">&#39;G1&#39;</span>,<span class="st">&#39;G2&#39;</span>,<span class="st">&#39;G3&#39;</span>],</span>
+<span id="cb1552-4"><a href="seaborn.html#cb1552-4" aria-hidden="true" tabindex="-1"></a>            data<span class="op">=</span>mydf</span>
+<span id="cb1552-5"><a href="seaborn.html#cb1552-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1552-6"><a href="seaborn.html#cb1552-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<p><img src="04-visualization_files/figure-html/unnamed-chunk-44-1.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="flipping-xy-axis" class="section level4" number="15.5.2.2">
 <h4><span class="header-section-number">15.5.2.2</span> Flipping X/Y Axis</h4>
-<div class="sourceCode" id="cb1560"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1560-1"><a href="seaborn.html#cb1560-1" aria-hidden="true" tabindex="-1"></a>sns.barplot(x<span class="op">=</span><span class="st">&#39;value2&#39;</span>,y<span class="op">=</span><span class="st">&#39;comp&#39;</span>, hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>,data<span class="op">=</span>mydf)</span>
-<span id="cb1560-2"><a href="seaborn.html#cb1560-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
-<p><img src="04-visualization_files/figure-html/unnamed-chunk-44-1.png" width="1026" /></p>
+<div class="sourceCode" id="cb1553"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1553-1"><a href="seaborn.html#cb1553-1" aria-hidden="true" tabindex="-1"></a>sns.barplot(x<span class="op">=</span><span class="st">&#39;value2&#39;</span>,y<span class="op">=</span><span class="st">&#39;comp&#39;</span>, hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>,data<span class="op">=</span>mydf)</span>
+<span id="cb1553-2"><a href="seaborn.html#cb1553-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<p><img src="04-visualization_files/figure-html/unnamed-chunk-45-1.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 </div>
@@ -1464,49 +1457,42 @@ Compare the size (height of each facet) with the above <strong>without</strong> 
 It support matplotlib as well as seaborn plotting utility.</p>
 <div id="faceting-histogram" class="section level3" number="15.6.1">
 <h3><span class="header-section-number">15.6.1</span> Faceting Histogram</h3>
-<div class="sourceCode" id="cb1561"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1561-1"><a href="seaborn.html#cb1561-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> sns.FacetGrid(mydf, col<span class="op">=</span><span class="st">&quot;comp&quot;</span>, row<span class="op">=</span><span class="st">&#39;dept&#39;</span>)</span>
-<span id="cb1561-2"><a href="seaborn.html#cb1561-2" aria-hidden="true" tabindex="-1"></a>g.<span class="bu">map</span>(plt.hist, <span class="st">&quot;value1&quot;</span>)</span></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x7f1dc4729d90&gt;</code></pre>
-<div class="sourceCode" id="cb1563"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1563-1"><a href="seaborn.html#cb1563-1" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
-<p><img src="04-visualization_files/figure-html/unnamed-chunk-45-1.png" width="864" /></p>
-<div class="sourceCode" id="cb1564"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1564-1"><a href="seaborn.html#cb1564-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> sns.FacetGrid(mydf, col<span class="op">=</span><span class="st">&quot;comp&quot;</span>, row<span class="op">=</span><span class="st">&#39;dept&#39;</span>)</span>
-<span id="cb1564-2"><a href="seaborn.html#cb1564-2" aria-hidden="true" tabindex="-1"></a>g.<span class="bu">map</span>(plt.hist, <span class="st">&quot;value1&quot;</span>)</span></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x7f1dcd353b10&gt;</code></pre>
-<div class="sourceCode" id="cb1566"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1566-1"><a href="seaborn.html#cb1566-1" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
-<p><img src="04-visualization_files/figure-html/unnamed-chunk-46-1.png" width="864" /></p>
+<div class="sourceCode" id="cb1554"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1554-1"><a href="seaborn.html#cb1554-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> sns.FacetGrid(mydf, col<span class="op">=</span><span class="st">&quot;comp&quot;</span>, row<span class="op">=</span><span class="st">&#39;dept&#39;</span>)</span>
+<span id="cb1554-2"><a href="seaborn.html#cb1554-2" aria-hidden="true" tabindex="-1"></a>g.<span class="bu">map</span>(plt.hist, <span class="st">&quot;value1&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1555"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1555-1"><a href="seaborn.html#cb1555-1" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<p><img src="04-visualization_files/figure-html/unnamed-chunk-46-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb1556"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1556-1"><a href="seaborn.html#cb1556-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> sns.FacetGrid(mydf, col<span class="op">=</span><span class="st">&quot;comp&quot;</span>, row<span class="op">=</span><span class="st">&#39;dept&#39;</span>)</span>
+<span id="cb1556-2"><a href="seaborn.html#cb1556-2" aria-hidden="true" tabindex="-1"></a>g.<span class="bu">map</span>(plt.hist, <span class="st">&quot;value1&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1557"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1557-1"><a href="seaborn.html#cb1557-1" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<p><img src="04-visualization_files/figure-html/unnamed-chunk-47-1.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="faceting-scatter-plot" class="section level3" number="15.6.2">
 <h3><span class="header-section-number">15.6.2</span> Faceting Scatter Plot</h3>
-<div class="sourceCode" id="cb1567"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1567-1"><a href="seaborn.html#cb1567-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> sns.FacetGrid(mydf, col<span class="op">=</span><span class="st">&quot;comp&quot;</span>, row<span class="op">=</span><span class="st">&#39;dept&#39;</span>,hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>)</span>
-<span id="cb1567-2"><a href="seaborn.html#cb1567-2" aria-hidden="true" tabindex="-1"></a>g.<span class="bu">map</span>(plt.scatter, <span class="st">&quot;value1&quot;</span>,<span class="st">&quot;value2&quot;</span>,alpha<span class="op">=</span><span class="fl">0.7</span>)<span class="op">;</span></span>
-<span id="cb1567-3"><a href="seaborn.html#cb1567-3" aria-hidden="true" tabindex="-1"></a>g.add_legend()</span></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.FacetGrid object at 0x7f1dcd464210&gt;</code></pre>
-<div class="sourceCode" id="cb1569"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1569-1"><a href="seaborn.html#cb1569-1" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
-<p><img src="04-visualization_files/figure-html/unnamed-chunk-47-1.png" width="930" /></p>
+<div class="sourceCode" id="cb1558"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1558-1"><a href="seaborn.html#cb1558-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> sns.FacetGrid(mydf, col<span class="op">=</span><span class="st">&quot;comp&quot;</span>, row<span class="op">=</span><span class="st">&#39;dept&#39;</span>,hue<span class="op">=</span><span class="st">&#39;grp&#39;</span>)</span>
+<span id="cb1558-2"><a href="seaborn.html#cb1558-2" aria-hidden="true" tabindex="-1"></a>g.<span class="bu">map</span>(plt.scatter, <span class="st">&quot;value1&quot;</span>,<span class="st">&quot;value2&quot;</span>,alpha<span class="op">=</span><span class="fl">0.7</span>)<span class="op">;</span></span>
+<span id="cb1558-3"><a href="seaborn.html#cb1558-3" aria-hidden="true" tabindex="-1"></a>g.add_legend()</span></code></pre></div>
+<div class="sourceCode" id="cb1559"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1559-1"><a href="seaborn.html#cb1559-1" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<p><img src="04-visualization_files/figure-html/unnamed-chunk-48-1.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="pair-grid" class="section level2" number="15.7">
 <h2><span class="header-section-number">15.7</span> Pair Grid</h2>
 <div id="simple-pair-grid" class="section level3" number="15.7.1">
 <h3><span class="header-section-number">15.7.1</span> Simple Pair Grid</h3>
-<div class="sourceCode" id="cb1570"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1570-1"><a href="seaborn.html#cb1570-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> sns.PairGrid(mydf, hue<span class="op">=</span><span class="st">&#39;comp&#39;</span>)</span>
-<span id="cb1570-2"><a href="seaborn.html#cb1570-2" aria-hidden="true" tabindex="-1"></a>g.<span class="bu">map</span>(plt.scatter)<span class="op">;</span></span>
-<span id="cb1570-3"><a href="seaborn.html#cb1570-3" aria-hidden="true" tabindex="-1"></a>g.add_legend()</span></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.PairGrid object at 0x7f1dcd2da6d0&gt;</code></pre>
-<div class="sourceCode" id="cb1572"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1572-1"><a href="seaborn.html#cb1572-1" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
-<p><img src="04-visualization_files/figure-html/unnamed-chunk-48-1.png" width="786" /></p>
+<div class="sourceCode" id="cb1560"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1560-1"><a href="seaborn.html#cb1560-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> sns.PairGrid(mydf, hue<span class="op">=</span><span class="st">&#39;comp&#39;</span>)</span>
+<span id="cb1560-2"><a href="seaborn.html#cb1560-2" aria-hidden="true" tabindex="-1"></a>g.<span class="bu">map</span>(plt.scatter)<span class="op">;</span></span>
+<span id="cb1560-3"><a href="seaborn.html#cb1560-3" aria-hidden="true" tabindex="-1"></a>g.add_legend()</span></code></pre></div>
+<div class="sourceCode" id="cb1561"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1561-1"><a href="seaborn.html#cb1561-1" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<p><img src="04-visualization_files/figure-html/unnamed-chunk-49-1.png" width="90%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="different-diag-and-offdiag" class="section level3" number="15.7.2">
 <h3><span class="header-section-number">15.7.2</span> Different Diag and OffDiag</h3>
-<div class="sourceCode" id="cb1573"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1573-1"><a href="seaborn.html#cb1573-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> sns.PairGrid(mydf, hue<span class="op">=</span><span class="st">&#39;comp&#39;</span>)</span>
-<span id="cb1573-2"><a href="seaborn.html#cb1573-2" aria-hidden="true" tabindex="-1"></a>g.map_diag(plt.hist, bins<span class="op">=</span><span class="dv">15</span>)</span></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.PairGrid object at 0x7f1dc3fcddd0&gt;</code></pre>
-<div class="sourceCode" id="cb1575"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1575-1"><a href="seaborn.html#cb1575-1" aria-hidden="true" tabindex="-1"></a>g.map_offdiag(plt.scatter)</span></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.PairGrid object at 0x7f1dc3fcddd0&gt;</code></pre>
-<div class="sourceCode" id="cb1577"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1577-1"><a href="seaborn.html#cb1577-1" aria-hidden="true" tabindex="-1"></a>g.add_legend()</span></code></pre></div>
-<pre><code>## &lt;seaborn.axisgrid.PairGrid object at 0x7f1dc3fcddd0&gt;</code></pre>
-<div class="sourceCode" id="cb1579"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1579-1"><a href="seaborn.html#cb1579-1" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
-<p><img src="04-visualization_files/figure-html/unnamed-chunk-49-1.png" width="786" /></p>
+<div class="sourceCode" id="cb1562"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1562-1"><a href="seaborn.html#cb1562-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> sns.PairGrid(mydf, hue<span class="op">=</span><span class="st">&#39;comp&#39;</span>)</span>
+<span id="cb1562-2"><a href="seaborn.html#cb1562-2" aria-hidden="true" tabindex="-1"></a>g.map_diag(plt.hist, bins<span class="op">=</span><span class="dv">15</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1563"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1563-1"><a href="seaborn.html#cb1563-1" aria-hidden="true" tabindex="-1"></a>g.map_offdiag(plt.scatter)</span></code></pre></div>
+<div class="sourceCode" id="cb1564"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1564-1"><a href="seaborn.html#cb1564-1" aria-hidden="true" tabindex="-1"></a>g.add_legend()</span></code></pre></div>
+<div class="sourceCode" id="cb1565"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1565-1"><a href="seaborn.html#cb1565-1" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<p><img src="04-visualization_files/figure-html/unnamed-chunk-50-1.png" width="90%" style="display: block; margin: auto;" /></p>
 
 </div>
 </div>

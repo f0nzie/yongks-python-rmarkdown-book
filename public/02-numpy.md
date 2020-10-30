@@ -36,7 +36,7 @@ np.__version__
 ```
 
 ```
-## '1.19.1'
+#:> '1.19.1'
 ```
 
 ```python
@@ -67,7 +67,7 @@ print( type(x) )
 ```
 
 ```
-## <class 'int'>
+#:> <class 'int'>
 ```
 
 ```python
@@ -75,7 +75,7 @@ print( type(y) )
 ```
 
 ```
-## <class 'int'>
+#:> <class 'int'>
 ```
 
 ```np.int32/64``` are NumPy specific
@@ -88,7 +88,7 @@ print( type(x) )
 ```
 
 ```
-## <class 'numpy.int32'>
+#:> <class 'numpy.int32'>
 ```
 
 ```python
@@ -96,7 +96,7 @@ print( type(y) )
 ```
 
 ```
-## <class 'numpy.int64'>
+#:> <class 'numpy.int64'>
 ```
 
 ### float32/64
@@ -109,7 +109,7 @@ print( type(x) )
 ```
 
 ```
-## <class 'float'>
+#:> <class 'float'>
 ```
 
 ```python
@@ -117,7 +117,7 @@ print( type(y) )
 ```
 
 ```
-## <class 'float'>
+#:> <class 'float'>
 ```
 
 
@@ -128,7 +128,7 @@ print( type(x) )
 ```
 
 ```
-## <class 'numpy.float32'>
+#:> <class 'numpy.float32'>
 ```
 
 ```python
@@ -136,7 +136,7 @@ print( type(y) )
 ```
 
 ```
-## <class 'numpy.float64'>
+#:> <class 'numpy.float64'>
 ```
 
 ### bool
@@ -149,7 +149,7 @@ print( type(x) )
 ```
 
 ```
-## <class 'bool'>
+#:> <class 'bool'>
 ```
 
 ```python
@@ -157,7 +157,7 @@ print( type(True) )
 ```
 
 ```
-## <class 'bool'>
+#:> <class 'bool'>
 ```
 
 ### str
@@ -170,7 +170,7 @@ print( type(x) )
 ```
 
 ```
-## <class 'str'>
+#:> <class 'str'>
 ```
 
 
@@ -180,7 +180,7 @@ print( type(x) )
 ```
 
 ```
-## <class 'numpy.str_'>
+#:> <class 'numpy.str_'>
 ```
 
 ### datetime64
@@ -198,7 +198,7 @@ np.datetime64('2005-02')
 ```
 
 ```
-## numpy.datetime64('2005-02')
+#:> numpy.datetime64('2005-02')
 ```
 
 
@@ -207,7 +207,7 @@ np.datetime64('2005-02-25')
 ```
 
 ```
-## numpy.datetime64('2005-02-25')
+#:> numpy.datetime64('2005-02-25')
 ```
 
 
@@ -216,7 +216,7 @@ np.datetime64('2005-02-25T03:30')
 ```
 
 ```
-## numpy.datetime64('2005-02-25T03:30')
+#:> numpy.datetime64('2005-02-25T03:30')
 ```
 
 **From datetime**
@@ -227,7 +227,7 @@ np.datetime64( date.today() )
 ```
 
 ```
-## numpy.datetime64('2020-10-30')
+#:> numpy.datetime64('2020-10-30')
 ```
 
 
@@ -236,7 +236,7 @@ np.datetime64( datetime.now() )
 ```
 
 ```
-## numpy.datetime64('2020-10-30T07:55:02.894670')
+#:> numpy.datetime64('2020-10-30T10:22:40.559424')
 ```
 
 #### Instance Method
@@ -249,7 +249,7 @@ dt64.astype(datetime)
 ```
 
 ```
-## datetime.date(2019, 1, 31)
+#:> datetime.date(2019, 1, 31)
 ```
 
 
@@ -273,8 +273,8 @@ print('Type: ', type(kosong1), '\n',
 ```
 
 ```
-## Type:  <class 'float'> 
-##  Value:  nan
+#:> Type:  <class 'float'> 
+#:>  Value:  nan
 ```
 
 
@@ -284,8 +284,8 @@ print('Type: ', type(kosong2), '\n',
 ```
 
 ```
-## Type:  <class 'float'> 
-##  Value:  nan
+#:> Type:  <class 'float'> 
+#:>  Value:  nan
 ```
 
 #### Detecting NaN
@@ -301,10 +301,10 @@ print(pd.isna(kosong1), '\n',
 ```
 
 ```
-## True 
-##  True 
-##  True 
-##  True
+#:> True 
+#:>  True 
+#:>  True 
+#:>  True
 ```
 
 #### Operation
@@ -318,7 +318,7 @@ print( True and kosong1,
 ```
 
 ```
-## nan True
+#:> nan True
 ```
 
 
@@ -328,7 +328,7 @@ print( True or kosong1,
 ```
 
 ```
-## True nan
+#:> True nan
 ```
 
 ##### Comparing
@@ -342,7 +342,7 @@ print(kosong1 > 0, kosong1==0, kosong1<0,
 ```
 
 ```
-## False False False False False False False
+#:> False False False False False False False
 ```
 
 ##### Casting
@@ -355,7 +355,7 @@ bool(kosong1)
 ```
 
 ```
-## True
+#:> True
 ```
 
 
@@ -385,7 +385,7 @@ print(x)
 ```
 
 ```
-## [1 2 3 4 5]
+#:> [1 2 3 4 5]
 ```
 
 ```python
@@ -393,7 +393,7 @@ print('Type: ', type(x))
 ```
 
 ```
-## Type:  <class 'numpy.ndarray'>
+#:> Type:  <class 'numpy.ndarray'>
 ```
 
 ```python
@@ -401,7 +401,7 @@ print('dType:', x.dtype)
 ```
 
 ```
-## dType: int64
+#:> dType: int64
 ```
 
 <!-- jupyter_markdown -->
@@ -416,7 +416,7 @@ print(x)
 ```
 
 ```
-## [1.  2.  3.  4.5 5. ]
+#:> [1.  2.  3.  4.5 5. ]
 ```
 
 <!-- jupyter_markdown -->
@@ -430,7 +430,7 @@ print(x)
 ```
 
 ```
-## [1 2 3 4 5]
+#:> [1 2 3 4 5]
 ```
 
 ```python
@@ -438,7 +438,7 @@ print('Type: ', type(x))
 ```
 
 ```
-## Type:  <class 'numpy.ndarray'>
+#:> Type:  <class 'numpy.ndarray'>
 ```
 
 ```python
@@ -446,7 +446,7 @@ print('dType:', x.dtype)
 ```
 
 ```
-## dType: int64
+#:> dType: int64
 ```
 
 <!-- jupyter_markdown -->
@@ -463,7 +463,7 @@ print(x)
 ```
 
 ```
-## ['2007-07-13' '2006-01-13' '2010-08-13']
+#:> ['2007-07-13' '2006-01-13' '2010-08-13']
 ```
 
 ```python
@@ -471,7 +471,7 @@ print('Type: ', type(x))
 ```
 
 ```
-## Type:  <class 'numpy.ndarray'>
+#:> Type:  <class 'numpy.ndarray'>
 ```
 
 ```python
@@ -479,7 +479,7 @@ print('dType:', x.dtype)
 ```
 
 ```
-## dType: datetime64[D]
+#:> dType: datetime64[D]
 ```
 
 <!-- jupyter_markdown -->
@@ -492,8 +492,8 @@ print(x)
 ```
 
 ```
-## ['2019-01-12T00:00:00.000000' '2019-01-14T00:00:00.000000'
-##  '2019-03-03T00:00:00.000000']
+#:> ['2019-01-12T00:00:00.000000' '2019-01-14T00:00:00.000000'
+#:>  '2019-03-03T00:00:00.000000']
 ```
 
 ```python
@@ -501,7 +501,7 @@ print('Type: ', type(x))
 ```
 
 ```
-## Type:  <class 'numpy.ndarray'>
+#:> Type:  <class 'numpy.ndarray'>
 ```
 
 ```python
@@ -509,7 +509,7 @@ print('dType:', x.dtype)
 ```
 
 ```
-## dType: datetime64[us]
+#:> dType: datetime64[us]
 ```
 
 ```python
@@ -517,8 +517,8 @@ print('\nElement Type:',type(x[1]))
 ```
 
 ```
-## 
-## Element Type: <class 'numpy.datetime64'>
+#:> 
+#:> Element Type: <class 'numpy.datetime64'>
 ```
 
 <!-- jupyter_markdown -->
@@ -531,8 +531,8 @@ x
 ```
 
 ```
-## array([[0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-##        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]])
+#:> array([[0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+#:>        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]])
 ```
 
 <!-- jupyter_markdown -->
@@ -556,7 +556,7 @@ print (arr)
 ```
 
 ```
-## [0 1 2 3 4]
+#:> [0 1 2 3 4]
 ```
 
 ```python
@@ -564,7 +564,7 @@ print (arr.shape)
 ```
 
 ```
-## (5,)
+#:> (5,)
 ```
 
 ```python
@@ -572,7 +572,7 @@ print (arr.ndim)
 ```
 
 ```
-## 1
+#:> 1
 ```
 
 <!-- jupyter_markdown -->
@@ -585,9 +585,9 @@ print (arr)
 ```
 
 ```
-## [[ 0  1  2  3  4]
-##  [ 5  6  7  8  9]
-##  [10 11 12 13 14]]
+#:> [[ 0  1  2  3  4]
+#:>  [ 5  6  7  8  9]
+#:>  [10 11 12 13 14]]
 ```
 
 ```python
@@ -595,7 +595,7 @@ print (arr.shape)
 ```
 
 ```
-## (3, 5)
+#:> (3, 5)
 ```
 
 ```python
@@ -603,7 +603,7 @@ print (arr.ndim)
 ```
 
 ```
-## 2
+#:> 2
 ```
 
 <!-- jupyter_markdown -->
@@ -616,7 +616,7 @@ print (arr)
 ```
 
 ```
-## [[0 1 2 3 4]]
+#:> [[0 1 2 3 4]]
 ```
 
 ```python
@@ -624,7 +624,7 @@ print (arr.shape)
 ```
 
 ```
-## (1, 5)
+#:> (1, 5)
 ```
 
 ```python
@@ -632,7 +632,7 @@ print (arr.ndim)
 ```
 
 ```
-## 2
+#:> 2
 ```
 
 <!-- jupyter_markdown -->
@@ -646,11 +646,11 @@ print (arr)
 ```
 
 ```
-## [[0]
-##  [1]
-##  [2]
-##  [3]
-##  [4]]
+#:> [[0]
+#:>  [1]
+#:>  [2]
+#:>  [3]
+#:>  [4]]
 ```
 
 ```python
@@ -658,7 +658,7 @@ print (arr.shape)
 ```
 
 ```
-## (5, 1)
+#:> (5, 1)
 ```
 
 ```python
@@ -666,7 +666,7 @@ print (arr.ndim)
 ```
 
 ```
-## 2
+#:> 2
 ```
 
 <!-- jupyter_markdown -->
@@ -679,7 +679,7 @@ print (arr)
 ```
 
 ```
-## [[0 1 2 3 4]]
+#:> [[0 1 2 3 4]]
 ```
 
 ```python
@@ -687,7 +687,7 @@ print (arr.shape)
 ```
 
 ```
-## (1, 5)
+#:> (1, 5)
 ```
 
 ```python
@@ -695,7 +695,7 @@ print (arr.ndim)
 ```
 
 ```
-## 2
+#:> 2
 ```
 
 <!-- jupyter_markdown -->
@@ -711,7 +711,7 @@ np.arange(10)
 ```
 
 ```
-## array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+#:> array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
 ```
 
 <!-- jupyter_markdown -->
@@ -723,7 +723,7 @@ np.ones(10)  # One dimension, default is float
 ```
 
 ```
-## array([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+#:> array([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
 ```
 
 
@@ -732,8 +732,8 @@ np.ones((2,5),'int')  #Two dimensions
 ```
 
 ```
-## array([[1, 1, 1, 1, 1],
-##        [1, 1, 1, 1, 1]])
+#:> array([[1, 1, 1, 1, 1],
+#:>        [1, 1, 1, 1, 1]])
 ```
 
 <!-- jupyter_markdown -->
@@ -745,7 +745,7 @@ np.zeros( 10 )    # One dimension, default is float
 ```
 
 ```
-## array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])
+#:> array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])
 ```
 
 
@@ -754,8 +754,8 @@ np.zeros((2,5),'int')   # 2 rows, 5 columns of ZERO
 ```
 
 ```
-## array([[0, 0, 0, 0, 0],
-##        [0, 0, 0, 0, 0]])
+#:> array([[0, 0, 0, 0, 0],
+#:>        [0, 0, 0, 0, 0]])
 ```
 
 <!-- jupyter_markdown -->
@@ -769,7 +769,7 @@ print( ar1 )
 ```
 
 ```
-## [0 1 2 3 4 5 6 7 8 9]
+#:> [0 1 2 3 4 5 6 7 8 9]
 ```
 
 ```python
@@ -777,7 +777,7 @@ print( np.where(ar1>5) )
 ```
 
 ```
-## (array([6, 7, 8, 9]),)
+#:> (array([6, 7, 8, 9]),)
 ```
 
 <!-- jupyter_markdown -->
@@ -790,10 +790,10 @@ print ('Data : \n', ar)
 ```
 
 ```
-## Data : 
-##  [[ 1  2  3  4  5]
-##  [11 12 13 14 15]
-##  [21 22 23 24 25]]
+#:> Data : 
+#:>  [[ 1  2  3  4  5]
+#:>  [11 12 13 14 15]
+#:>  [21 22 23 24 25]]
 ```
 
 ```python
@@ -801,7 +801,7 @@ np.where(ar>13)
 ```
 
 ```
-## (array([1, 1, 2, 2, 2, 2, 2]), array([3, 4, 0, 1, 2, 3, 4]))
+#:> (array([1, 1, 2, 2, 2, 2, 2]), array([3, 4, 0, 1, 2, 3, 4]))
 ```
 
 <!-- jupyter_markdown -->
@@ -816,7 +816,7 @@ print( ar==3 )  # boolean array 1
 ```
 
 ```
-## [False False False  True False False False False False False]
+#:> [False False False  True False False False False False False]
 ```
 
 ```python
@@ -824,7 +824,7 @@ print( ar==6 )  # boolean array 2
 ```
 
 ```
-## [False False False False False False  True False False False]
+#:> [False False False False False False  True False False False]
 ```
 
 ```python
@@ -832,7 +832,7 @@ print( np.logical_or(ar==3,ar==6 ) ) # resulting boolean
 ```
 
 ```
-## [False False False  True False False  True False False False]
+#:> [False False False  True False False  True False False False]
 ```
 
 <!-- jupyter_markdown -->
@@ -846,7 +846,7 @@ print( ar==3 ) # boolean array 1
 ```
 
 ```
-## [False False False  True False False False False False False]
+#:> [False False False  True False False False False False False]
 ```
 
 ```python
@@ -854,7 +854,7 @@ print( ar==6 ) # boolean array 2
 ```
 
 ```
-## [False False False False False False  True False False False]
+#:> [False False False False False False  True False False False]
 ```
 
 ```python
@@ -862,7 +862,7 @@ print( np.logical_and(ar==3,ar==6 ) )  # resulting boolean
 ```
 
 ```
-## [False False False False False False False False False False]
+#:> [False False False False False False False False False False]
 ```
 
 <!-- jupyter_markdown -->
@@ -879,7 +879,7 @@ print( type(ar1) )  ## a numpy array
 ```
 
 ```
-## <class 'numpy.ndarray'>
+#:> <class 'numpy.ndarray'>
 ```
 
 ```python
@@ -887,7 +887,7 @@ print( ar1.dtype )  ## dtype is a numpy data type
 ```
 
 ```
-## datetime64[D]
+#:> datetime64[D]
 ```
 
 <!-- jupyter_markdown -->
@@ -900,7 +900,7 @@ print( type(ar2) )  ## still a numpy array
 ```
 
 ```
-## <class 'numpy.ndarray'>
+#:> <class 'numpy.ndarray'>
 ```
 
 ```python
@@ -908,7 +908,7 @@ print( ar2.dtype )  ## dtype becomes generic 'object'
 ```
 
 ```
-## object
+#:> object
 ```
 
 <!-- jupyter_markdown -->
@@ -927,10 +927,10 @@ a
 ```
 
 ```
-## array([[ 0,  1,  2,  3,  4],
-##        [10, 11, 12, 13, 14],
-##        [20, 21, 22, 23, 24],
-##        [30, 31, 32, 33, 34]])
+#:> array([[ 0,  1,  2,  3,  4],
+#:>        [10, 11, 12, 13, 14],
+#:>        [20, 21, 22, 23, 24],
+#:>        [30, 31, 32, 33, 34]])
 ```
 
 <!-- jupyter_markdown -->
@@ -942,7 +942,7 @@ np.arange(12) # 1-D Array
 ```
 
 ```
-## array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11])
+#:> array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11])
 ```
 
 
@@ -951,9 +951,9 @@ np.arange(12).reshape(3,4)  # 2-D Array
 ```
 
 ```
-## array([[ 0,  1,  2,  3],
-##        [ 4,  5,  6,  7],
-##        [ 8,  9, 10, 11]])
+#:> array([[ 0,  1,  2,  3],
+#:>        [ 4,  5,  6,  7],
+#:>        [ 8,  9, 10, 11]])
 ```
 
 <!-- jupyter_markdown -->
@@ -965,8 +965,8 @@ np.array([range(5), range(10,15)])  # 2-D Array
 ```
 
 ```
-## array([[ 0,  1,  2,  3,  4],
-##        [10, 11, 12, 13, 14]])
+#:> array([[ 0,  1,  2,  3,  4],
+#:>        [10, 11, 12, 13, 14]])
 ```
 
 
@@ -975,11 +975,11 @@ np.array([range(5), range(10,15)]).reshape(5,2) # 2-D Array
 ```
 
 ```
-## array([[ 0,  1],
-##        [ 2,  3],
-##        [ 4, 10],
-##        [11, 12],
-##        [13, 14]])
+#:> array([[ 0,  1],
+#:>        [ 2,  3],
+#:>        [ 4, 10],
+#:>        [11, 12],
+#:>        [13, 14]])
 ```
 
 <!-- jupyter_markdown -->
@@ -993,8 +993,8 @@ np.array( [range(0,5), range(5,10)])  # 2-D Array
 ```
 
 ```
-## array([[0, 1, 2, 3, 4],
-##        [5, 6, 7, 8, 9]])
+#:> array([[0, 1, 2, 3, 4],
+#:>        [5, 6, 7, 8, 9]])
 ```
 
 
@@ -1003,7 +1003,7 @@ np.array( [range(0,5), range(5,10)]).reshape(1,10) # 2-D Array
 ```
 
 ```
-## array([[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]])
+#:> array([[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]])
 ```
 
 <!-- jupyter_markdown -->
@@ -1015,7 +1015,7 @@ np.arange(8)
 ```
 
 ```
-## array([0, 1, 2, 3, 4, 5, 6, 7])
+#:> array([0, 1, 2, 3, 4, 5, 6, 7])
 ```
 
 
@@ -1024,14 +1024,14 @@ np.arange(8).reshape(8,1)
 ```
 
 ```
-## array([[0],
-##        [1],
-##        [2],
-##        [3],
-##        [4],
-##        [5],
-##        [6],
-##        [7]])
+#:> array([[0],
+#:>        [1],
+#:>        [2],
+#:>        [3],
+#:>        [4],
+#:>        [5],
+#:>        [6],
+#:>        [7]])
 ```
 
 <!-- jupyter_markdown -->
@@ -1043,14 +1043,14 @@ np.arange(8)[:,np.newaxis]
 ```
 
 ```
-## array([[0],
-##        [1],
-##        [2],
-##        [3],
-##        [4],
-##        [5],
-##        [6],
-##        [7]])
+#:> array([[0],
+#:>        [1],
+#:>        [2],
+#:>        [3],
+#:>        [4],
+#:>        [5],
+#:>        [6],
+#:>        [7]])
 ```
 
 <!-- jupyter_markdown -->
@@ -1062,7 +1062,7 @@ np.arange(8)
 ```
 
 ```
-## array([0, 1, 2, 3, 4, 5, 6, 7])
+#:> array([0, 1, 2, 3, 4, 5, 6, 7])
 ```
 
 
@@ -1071,7 +1071,7 @@ np.arange(8)[np.newaxis,:]
 ```
 
 ```
-## array([[0, 1, 2, 3, 4, 5, 6, 7]])
+#:> array([[0, 1, 2, 3, 4, 5, 6, 7]])
 ```
 
 <!-- jupyter_markdown -->
@@ -1088,7 +1088,7 @@ print(x1)
 ```
 
 ```
-## [0 1 2 3 4 5 6 7 8]
+#:> [0 1 2 3 4 5 6 7 8]
 ```
 
 ```python
@@ -1096,9 +1096,9 @@ print(x2)
 ```
 
 ```
-## [[ 1  2  3  4  5]
-##  [11 12 13 14 15]
-##  [21 22 23 24 25]]
+#:> [[ 1  2  3  4  5]
+#:>  [11 12 13 14 15]
+#:>  [21 22 23 24 25]]
 ```
 
 <!-- jupyter_markdown -->
@@ -1114,7 +1114,7 @@ print( x1[0]   )  ## first element
 ```
 
 ```
-## 0
+#:> 0
 ```
 
 ```python
@@ -1122,7 +1122,7 @@ print( x1[-1]  )  ## last element
 ```
 
 ```
-## 8
+#:> 8
 ```
 
 ```python
@@ -1130,7 +1130,7 @@ print( x1[3]   )  ## third element from start 3
 ```
 
 ```
-## 3
+#:> 3
 ```
 
 ```python
@@ -1138,7 +1138,7 @@ print( x1[-3]  )  ## third element from end
 ```
 
 ```
-## 6
+#:> 6
 ```
 
 <!-- jupyter_markdown -->
@@ -1150,7 +1150,7 @@ print( x1[:3]  )  ## first 3 elements
 ```
 
 ```
-## [0 1 2]
+#:> [0 1 2]
 ```
 
 ```python
@@ -1158,7 +1158,7 @@ print( x1[-3:])   ## last 3 elements
 ```
 
 ```
-## [6 7 8]
+#:> [6 7 8]
 ```
 
 ```python
@@ -1166,7 +1166,7 @@ print( x1[3:]  )  ## all except first 3 elements
 ```
 
 ```
-## [3 4 5 6 7 8]
+#:> [3 4 5 6 7 8]
 ```
 
 ```python
@@ -1174,7 +1174,7 @@ print( x1[:-3] )  ## all except last 3 elements
 ```
 
 ```
-## [0 1 2 3 4 5]
+#:> [0 1 2 3 4 5]
 ```
 
 ```python
@@ -1182,7 +1182,7 @@ print( x1[1:4] )  ## elemnt 1 to 4 (not including 4)
 ```
 
 ```
-## [1 2 3]
+#:> [1 2 3]
 ```
 
 <!-- jupyter_markdown -->
@@ -1195,7 +1195,7 @@ x[1:3, 1:4] # row 1 to 2 column 1 to 3
 ```
 
 ```
-## array([[1, 2, 3]])
+#:> array([[1, 2, 3]])
 ```
 
 <!-- jupyter_markdown -->
@@ -1210,7 +1210,7 @@ a.dtype
 ```
 
 ```
-## dtype('float64')
+#:> dtype('float64')
 ```
 
 
@@ -1219,7 +1219,7 @@ print(a.dtype)
 ```
 
 ```
-## float64
+#:> float64
 ```
 
 ```python
@@ -1227,7 +1227,7 @@ print( type(a[1]))
 ```
 
 ```
-## <class 'numpy.float64'>
+#:> <class 'numpy.float64'>
 ```
 
 <!-- jupyter_markdown -->
@@ -1243,7 +1243,7 @@ x.ndim
 ```
 
 ```
-## 2
+#:> 2
 ```
 
 <!-- jupyter_markdown -->
@@ -1259,7 +1259,7 @@ x.shape
 ```
 
 ```
-## (3, 5)
+#:> (3, 5)
 ```
 
 
@@ -1268,11 +1268,11 @@ np.identity(5)
 ```
 
 ```
-## array([[1., 0., 0., 0., 0.],
-##        [0., 1., 0., 0., 0.],
-##        [0., 0., 1., 0., 0.],
-##        [0., 0., 0., 1., 0.],
-##        [0., 0., 0., 0., 1.]])
+#:> array([[1., 0., 0., 0., 0.],
+#:>        [0., 1., 0., 0., 0.],
+#:>        [0., 0., 1., 0., 0.],
+#:>        [0., 0., 0., 1., 0.],
+#:>        [0., 0., 0., 0., 1.]])
 ```
 
 <!-- jupyter_markdown -->
@@ -1289,7 +1289,7 @@ print( ar )
 ```
 
 ```
-## [0 1 2 3 4 5 6 7 8 9]
+#:> [0 1 2 3 4 5 6 7 8 9]
 ```
 
 <!-- jupyter_markdown -->
@@ -1302,7 +1302,7 @@ print (ar)
 ```
 
 ```
-## [0 1 2 3 4 5 6 7 8 9]
+#:> [0 1 2 3 4 5 6 7 8 9]
 ```
 
 ```python
@@ -1310,7 +1310,7 @@ print (ar*2)
 ```
 
 ```
-## [ 0  2  4  6  8 10 12 14 16 18]
+#:> [ 0  2  4  6  8 10 12 14 16 18]
 ```
 
 <!-- jupyter_markdown -->
@@ -1323,7 +1323,7 @@ print (ar+2)
 ```
 
 ```
-## [ 2  3  4  5  6  7  8  9 10 11]
+#:> [ 2  3  4  5  6  7  8  9 10 11]
 ```
 
 ```python
@@ -1331,7 +1331,7 @@ print (ar-2)
 ```
 
 ```
-## [-2 -1  0  1  2  3  4  5  6  7]
+#:> [-2 -1  0  1  2  3  4  5  6  7]
 ```
 
 <!-- jupyter_markdown -->
@@ -1345,7 +1345,7 @@ print( ar )
 ```
 
 ```
-## [0 1 2 3 4 5 6 7 8 9]
+#:> [0 1 2 3 4 5 6 7 8 9]
 ```
 
 <!-- jupyter_markdown -->
@@ -1357,7 +1357,7 @@ print( ar==3 )
 ```
 
 ```
-## [False False False  True False False False False False False]
+#:> [False False False  True False False False False False False]
 ```
 
 <!-- jupyter_markdown -->
@@ -1369,7 +1369,7 @@ print( ar>3 )
 ```
 
 ```
-## [False False False False  True  True  True  True  True  True]
+#:> [False False False False  True  True  True  True  True  True]
 ```
 
 ```python
@@ -1377,7 +1377,7 @@ print( ar<=3 )
 ```
 
 ```
-## [ True  True  True  True False False False False False False]
+#:> [ True  True  True  True False False False False False False]
 ```
 
 <!-- jupyter_markdown -->
@@ -1402,7 +1402,7 @@ np.random.randint( 10 )
 ```
 
 ```
-## 7
+#:> 3
 ```
 
 
@@ -1411,7 +1411,7 @@ np.random.randint( 10, 20 )
 ```
 
 ```
-## 11
+#:> 14
 ```
 
 
@@ -1420,7 +1420,7 @@ np.random.randint( 10, high=20, size=5)   # single dimension
 ```
 
 ```
-## array([18, 11, 12, 14, 13])
+#:> array([11, 18, 14, 12, 14])
 ```
 
 
@@ -1429,9 +1429,9 @@ np.random.randint( 10, 20, (3,5) )        # two dimensions
 ```
 
 ```
-## array([[15, 11, 15, 15, 12],
-##        [19, 12, 14, 16, 10],
-##        [19, 10, 16, 13, 17]])
+#:> array([[10, 16, 18, 19, 13],
+#:>        [14, 18, 19, 19, 11],
+#:>        [18, 13, 19, 14, 19]])
 ```
 
 <!-- jupyter_markdown -->
@@ -1449,7 +1449,7 @@ np.random.choice(10,5, replace=False) # take 5 samples from 0:19, without replac
 ```
 
 ```
-## array([5, 1, 4, 7, 8])
+#:> array([9, 8, 0, 5, 3])
 ```
 
 
@@ -1458,7 +1458,7 @@ np.random.choice( np.arange(10,20), 5, replace=False)
 ```
 
 ```
-## array([10, 12, 16, 14, 17])
+#:> array([10, 16, 11, 14, 12])
 ```
 
 <!-- jupyter_markdown -->
@@ -1474,7 +1474,7 @@ np.random.ranf(4)
 ```
 
 ```
-## array([0.0049567 , 0.59921084, 0.66302224, 0.0569591 ])
+#:> array([0.30740748, 0.60111338, 0.31697318, 0.74471583])
 ```
 
 <!-- jupyter_markdown -->
@@ -1492,7 +1492,7 @@ np.random.uniform( 2 )
 ```
 
 ```
-## 1.2566589920711915
+#:> 1.870921868856644
 ```
 
 
@@ -1501,10 +1501,10 @@ np.random.uniform( 2,5, size=(4,4) )
 ```
 
 ```
-## array([[3.94053246, 3.96827208, 2.38694084, 3.75502848],
-##        [2.36818373, 4.22100501, 2.01584918, 2.42179969],
-##        [4.62005763, 2.56966583, 4.41311572, 3.40304015],
-##        [2.05088013, 4.25876552, 2.56257031, 2.97101935]])
+#:> array([[3.07414323, 3.0234018 , 4.14168336, 4.36839603],
+#:>        [3.05791186, 2.02133601, 4.66179626, 3.7872606 ],
+#:>        [4.43945442, 3.70306221, 3.53472807, 3.31299435],
+#:>        [4.74926656, 3.7631339 , 4.69324386, 4.98140585]])
 ```
 
 <!-- jupyter_markdown -->
@@ -1530,7 +1530,7 @@ np.random.standard_normal(3)
 ```
 
 ```
-## array([0.70534949, 1.4177037 , 0.11000593])
+#:> array([-0.81895559,  0.89630393,  0.36256569])
 ```
 
 
@@ -1539,7 +1539,7 @@ np.random.randn(3)
 ```
 
 ```
-## array([-0.23125362, -0.37306273,  1.77001989])
+#:> array([ 0.07175814, -1.12686071, -0.02498976])
 ```
 
 <!-- jupyter_markdown -->
@@ -1551,8 +1551,8 @@ np.random.randn(2,4)
 ```
 
 ```
-## array([[-0.23554401, -1.05877002,  0.20143692,  0.39860941],
-##        [-0.0021586 , -0.14153861,  1.23996383, -1.25939274]])
+#:> array([[-1.37811646,  0.17801094, -0.30141922,  0.00514774],
+#:>        [-0.36858591,  0.34368068,  0.81341308, -0.95794879]])
 ```
 
 
@@ -1561,8 +1561,8 @@ np.random.standard_normal((2,4))
 ```
 
 ```
-## array([[-0.43236584,  1.3248805 , -0.60539531, -0.26704038],
-##        [ 0.0943831 , -1.19201669,  0.68189245,  0.16892175]])
+#:> array([[-0.52557935,  0.77998978,  0.07567566,  2.26097254],
+#:>        [-1.37190722, -0.1727334 ,  0.26326772, -0.60736514]])
 ```
 
 <!-- jupyter_markdown -->
@@ -1575,7 +1575,7 @@ print (np.random.randn(5))
 ```
 
 ```
-## [-0.31232848  0.33928471 -0.15590853 -0.50178967  0.23556889]
+#:> [-0.31232848  0.33928471 -0.15590853 -0.50178967  0.23556889]
 ```
 
 ```python
@@ -1584,7 +1584,7 @@ print (np.random.normal ( size = 5 )) # stdev and mean not specified, default to
 ```
 
 ```
-## [-0.31232848  0.33928471 -0.15590853 -0.50178967  0.23556889]
+#:> [-0.31232848  0.33928471 -0.15590853 -0.50178967  0.23556889]
 ```
 
 ```python
@@ -1593,7 +1593,7 @@ print (np.random.standard_normal (size=5))
 ```
 
 ```
-## [-0.31232848  0.33928471 -0.15590853 -0.50178967  0.23556889]
+#:> [-0.31232848  0.33928471 -0.15590853 -0.50178967  0.23556889]
 ```
 
 <!-- jupyter_markdown -->
@@ -1606,9 +1606,9 @@ np.random.normal( loc = 12, scale=1.25, size=(3,3))
 ```
 
 ```
-## array([[11.12645382, 12.01327885, 10.81651695],
-##        [12.41091248, 12.39383072, 11.49647195],
-##        [ 8.70837035, 12.25246312, 11.49084235]])
+#:> array([[11.12645382, 12.01327885, 10.81651695],
+#:>        [12.41091248, 12.39383072, 11.49647195],
+#:>        [ 8.70837035, 12.25246312, 11.49084235]])
 ```
 
 <!-- jupyter_markdown -->
@@ -1629,8 +1629,8 @@ np.linspace(1,3,10) #default endpont=True
 ```
 
 ```
-## array([1.        , 1.22222222, 1.44444444, 1.66666667, 1.88888889,
-##        2.11111111, 2.33333333, 2.55555556, 2.77777778, 3.        ])
+#:> array([1.        , 1.22222222, 1.44444444, 1.66666667, 1.88888889,
+#:>        2.11111111, 2.33333333, 2.55555556, 2.77777778, 3.        ])
 ```
 
 <!-- jupyter_markdown -->
@@ -1643,7 +1643,7 @@ np.linspace(1,3,10,endpoint=False)
 ```
 
 ```
-## array([1. , 1.2, 1.4, 1.6, 1.8, 2. , 2.2, 2.4, 2.6, 2.8])
+#:> array([1. , 1.2, 1.4, 1.6, 1.8, 2. , 2.2, 2.4, 2.6, 2.8])
 ```
 
 <!-- jupyter_markdown, jupyter_meta = list(heading_collapsed = TRUE) -->
@@ -1659,7 +1659,7 @@ np.random.choice (100, size=10)
 ```
 
 ```
-## array([58,  0, 84, 50, 89, 32, 87, 30, 66, 92])
+#:> array([58,  0, 84, 50, 89, 32, 87, 30, 66, 92])
 ```
 
 
@@ -1668,7 +1668,7 @@ np.random.choice( [1,3,5,7,9,11,13,15,17,19,21,23], size=10, replace=False)
 ```
 
 ```
-## array([ 5,  1, 23, 17,  3, 13, 15,  9, 21,  7])
+#:> array([ 5,  1, 23, 17,  3, 13, 15,  9, 21,  7])
 ```
 
 <!-- jupyter_markdown -->
@@ -1684,7 +1684,7 @@ t.dtype
 ```
 
 ```
-## dtype('float64')
+#:> dtype('float64')
 ```
 
 <!-- jupyter_markdown -->
@@ -1696,7 +1696,7 @@ Regardless of the operation, the result of arithmetic with NaN will be another N
 ```
 
 ```
-## nan
+#:> nan
 ```
 
 
@@ -1705,7 +1705,7 @@ t.sum(), t.mean(), t.max()
 ```
 
 ```
-## (nan, nan, nan)
+#:> (nan, nan, nan)
 ```
 
 
@@ -1714,5 +1714,5 @@ np.nansum(t), np.nanmean(t), np.nanmax(t)
 ```
 
 ```
-## (8.0, 2.6666666666666665, 4.0)
+#:> (8.0, 2.6666666666666665, 4.0)
 ```

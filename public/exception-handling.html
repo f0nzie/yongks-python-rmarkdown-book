@@ -134,7 +134,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Python Bookdown</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prerequisites</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#main-sections-of-the-book"><i class="fa fa-check"></i>Main sections of the book</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#python-environment"><i class="fa fa-check"></i>Python environment</a></li>
+<li><a href="index.html#automating-the-builds-with-a-makefile">Automating the builds with a <code>Makefile</code></a></li>
+</ul></li>
 <li class="chapter" data-level="1" data-path="fundamentals.html"><a href="fundamentals.html"><i class="fa fa-check"></i><b>1</b> Fundamentals</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="fundamentals.html"><a href="fundamentals.html#library-management"><i class="fa fa-check"></i><b>1.1</b> Library Management</a>
@@ -1312,37 +1317,37 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="catching-error" class="section level2" number="6.1">
 <h2><span class="header-section-number">6.1</span> Catching Error</h2>
 <p>Different exception object has different attributes.</p>
-<div class="sourceCode" id="cb416"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb416-1"><a href="exception-handling.html#cb416-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb416-2"><a href="exception-handling.html#cb416-2" aria-hidden="true" tabindex="-1"></a>  a <span class="op">=</span> <span class="dv">1</span> <span class="op">+</span> <span class="st">&#39;a&#39;</span></span>
-<span id="cb416-3"><a href="exception-handling.html#cb416-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb416-4"><a href="exception-handling.html#cb416-4" aria-hidden="true" tabindex="-1"></a><span class="co">## known error  </span></span>
-<span id="cb416-5"><a href="exception-handling.html#cb416-5" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">TypeError</span> <span class="im">as</span> err:</span>
-<span id="cb416-6"><a href="exception-handling.html#cb416-6" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&#39;I know this error !!!!&#39;</span>,</span>
-<span id="cb416-7"><a href="exception-handling.html#cb416-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;</span><span class="ch">\n</span><span class="st"> Error: &#39;</span>, err,</span>
-<span id="cb416-8"><a href="exception-handling.html#cb416-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;</span><span class="ch">\n</span><span class="st"> Args:  &#39;</span>, err.args,</span>
-<span id="cb416-9"><a href="exception-handling.html#cb416-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;</span><span class="ch">\n</span><span class="st"> Type:  &#39;</span>, <span class="bu">type</span>(err))</span>
-<span id="cb416-10"><a href="exception-handling.html#cb416-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb416-11"><a href="exception-handling.html#cb416-11" aria-hidden="true" tabindex="-1"></a><span class="co">## all other error</span></span>
-<span id="cb416-12"><a href="exception-handling.html#cb416-12" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> err:</span>
-<span id="cb416-13"><a href="exception-handling.html#cb416-13" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>( <span class="st">&#39;Error: &#39;</span>, err,</span>
-<span id="cb416-14"><a href="exception-handling.html#cb416-14" aria-hidden="true" tabindex="-1"></a>         <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Args:  &#39;</span>, err.args,</span>
-<span id="cb416-15"><a href="exception-handling.html#cb416-15" aria-hidden="true" tabindex="-1"></a>         <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Type:  &#39;</span>, <span class="bu">type</span>(err))</span></code></pre></div>
-<pre><code>## I know this error !!!! 
-##  Error:  unsupported operand type(s) for +: &#39;int&#39; and &#39;str&#39; 
-##  Args:   (&quot;unsupported operand type(s) for +: &#39;int&#39; and &#39;str&#39;&quot;,) 
-##  Type:   &lt;class &#39;TypeError&#39;&gt;</code></pre>
+<div class="sourceCode" id="cb418"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb418-1"><a href="exception-handling.html#cb418-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb418-2"><a href="exception-handling.html#cb418-2" aria-hidden="true" tabindex="-1"></a>  a <span class="op">=</span> <span class="dv">1</span> <span class="op">+</span> <span class="st">&#39;a&#39;</span></span>
+<span id="cb418-3"><a href="exception-handling.html#cb418-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb418-4"><a href="exception-handling.html#cb418-4" aria-hidden="true" tabindex="-1"></a><span class="co">## known error  </span></span>
+<span id="cb418-5"><a href="exception-handling.html#cb418-5" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">TypeError</span> <span class="im">as</span> err:</span>
+<span id="cb418-6"><a href="exception-handling.html#cb418-6" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&#39;I know this error !!!!&#39;</span>,</span>
+<span id="cb418-7"><a href="exception-handling.html#cb418-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;</span><span class="ch">\n</span><span class="st"> Error: &#39;</span>, err,</span>
+<span id="cb418-8"><a href="exception-handling.html#cb418-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;</span><span class="ch">\n</span><span class="st"> Args:  &#39;</span>, err.args,</span>
+<span id="cb418-9"><a href="exception-handling.html#cb418-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;</span><span class="ch">\n</span><span class="st"> Type:  &#39;</span>, <span class="bu">type</span>(err))</span>
+<span id="cb418-10"><a href="exception-handling.html#cb418-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb418-11"><a href="exception-handling.html#cb418-11" aria-hidden="true" tabindex="-1"></a><span class="co">## all other error</span></span>
+<span id="cb418-12"><a href="exception-handling.html#cb418-12" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> err:</span>
+<span id="cb418-13"><a href="exception-handling.html#cb418-13" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>( <span class="st">&#39;Error: &#39;</span>, err,</span>
+<span id="cb418-14"><a href="exception-handling.html#cb418-14" aria-hidden="true" tabindex="-1"></a>         <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Args:  &#39;</span>, err.args,</span>
+<span id="cb418-15"><a href="exception-handling.html#cb418-15" aria-hidden="true" tabindex="-1"></a>         <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Type:  &#39;</span>, <span class="bu">type</span>(err))</span></code></pre></div>
+<pre><code>#:&gt; I know this error !!!! 
+#:&gt;  Error:  unsupported operand type(s) for +: &#39;int&#39; and &#39;str&#39; 
+#:&gt;  Args:   (&quot;unsupported operand type(s) for +: &#39;int&#39; and &#39;str&#39;&quot;,) 
+#:&gt;  Type:   &lt;class &#39;TypeError&#39;&gt;</code></pre>
 </div>
 <div id="custom-exception" class="section level2" number="6.2">
 <h2><span class="header-section-number">6.2</span> Custom Exception</h2>
-<div class="sourceCode" id="cb418"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb418-1"><a href="exception-handling.html#cb418-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb418-2"><a href="exception-handling.html#cb418-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">raise</span> <span class="pp">Exception</span>(<span class="st">&#39;bloody&#39;</span>, <span class="st">&#39;hell&#39;</span>)  <span class="co">#simulate exception</span></span>
-<span id="cb418-3"><a href="exception-handling.html#cb418-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> err:</span>
-<span id="cb418-4"><a href="exception-handling.html#cb418-4" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>( <span class="st">&#39;Error: &#39;</span>, err,</span>
-<span id="cb418-5"><a href="exception-handling.html#cb418-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Args:  &#39;</span>, err.args,</span>
-<span id="cb418-6"><a href="exception-handling.html#cb418-6" aria-hidden="true" tabindex="-1"></a>         <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Type:  &#39;</span>, <span class="bu">type</span>(err))</span></code></pre></div>
-<pre><code>## Error:  (&#39;bloody&#39;, &#39;hell&#39;) 
-## Args:   (&#39;bloody&#39;, &#39;hell&#39;) 
-## Type:   &lt;class &#39;Exception&#39;&gt;</code></pre>
+<div class="sourceCode" id="cb420"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb420-1"><a href="exception-handling.html#cb420-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb420-2"><a href="exception-handling.html#cb420-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">raise</span> <span class="pp">Exception</span>(<span class="st">&#39;bloody&#39;</span>, <span class="st">&#39;hell&#39;</span>)  <span class="co">#simulate exception</span></span>
+<span id="cb420-3"><a href="exception-handling.html#cb420-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> err:</span>
+<span id="cb420-4"><a href="exception-handling.html#cb420-4" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>( <span class="st">&#39;Error: &#39;</span>, err,</span>
+<span id="cb420-5"><a href="exception-handling.html#cb420-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Args:  &#39;</span>, err.args,</span>
+<span id="cb420-6"><a href="exception-handling.html#cb420-6" aria-hidden="true" tabindex="-1"></a>         <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Type:  &#39;</span>, <span class="bu">type</span>(err))</span></code></pre></div>
+<pre><code>#:&gt; Error:  (&#39;bloody&#39;, &#39;hell&#39;) 
+#:&gt; Args:   (&#39;bloody&#39;, &#39;hell&#39;) 
+#:&gt; Type:   &lt;class &#39;Exception&#39;&gt;</code></pre>
 </div>
 </div>
             </section>

@@ -134,7 +134,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Python Bookdown</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prerequisites</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#main-sections-of-the-book"><i class="fa fa-check"></i>Main sections of the book</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#python-environment"><i class="fa fa-check"></i>Python environment</a></li>
+<li><a href="index.html#automating-the-builds-with-a-makefile">Automating the builds with a <code>Makefile</code></a></li>
+</ul></li>
 <li class="chapter" data-level="1" data-path="fundamentals.html"><a href="fundamentals.html"><i class="fa fa-check"></i><b>1</b> Fundamentals</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="fundamentals.html"><a href="fundamentals.html#library-management"><i class="fa fa-check"></i><b>1.1</b> Library Management</a>
@@ -1306,9 +1311,57 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p class="author"><em>Yong Keh Soon</em></p>
 <p class="date"><em>2020-10-30</em></p>
 </div>
-<div id="prerequisites" class="section level1 unnumbered">
-<h1>Prerequisites</h1>
+<div id="introduction" class="section level1 unnumbered">
+<h1>Introduction</h1>
+<div id="main-sections-of-the-book" class="section level2 unnumbered">
+<h2>Main sections of the book</h2>
+<ul>
+<li>Fundamentals</li>
+<li>numpy</li>
+<li>pandas</li>
+<li>Visualization</li>
+<li>sklearn</li>
+<li>Natural Language Processing</li>
+<li>Web scrapping</li>
+<li>Finance</li>
+</ul>
+</div>
+<div id="python-environment" class="section level2 unnumbered">
+<h2>Python environment</h2>
+<p>You may need to create a Python environment that covers all packages and dependencies for building this book. Once you have Anaconda3 installed in your computer, creating the Python environment is very easy. Go to your tterminal and run:</p>
+<pre><code>conda create env -f environment.yml</code></pre>
+<p>Anaconda will read the file listing the core dependencies, and install them following the package version specified. This is what is inside <code>environment.yml</code>:</p>
+<pre><code>name: python_book
+channels:
+  - anaconda
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.7
+  - beautifulsoup4=4.9.3
+  - matplotlib=3.3.1
+  - nltk=3.5
+  - numpy=1.19.1
+  - pandas=1.1.3
+  - pandas-datareader=0.9.0
+  - pip=20.2.4
+  - requests=2.24.0
+  - scikit-learn=0.23.2
+  - seaborn=0.11.0
+  - urllib3=1.25.11
+  - pip:
+    - cufflinks
+    - h5py==2.10.0
+    - nlpia==0.5.2
+    - plotnine==0.7
+    - plydata==0.4.2
+    - yfinance==0.1.55
+prefix: /home/msfz751/anaconda3/envs/python_book</code></pre>
+</div>
+<div id="automating-the-builds-with-a-makefile" class="section level2 unnumbered">
+<h2>Automating the builds with a <code>Makefile</code></h2>
 
+</div>
 </div>
             </section>
 

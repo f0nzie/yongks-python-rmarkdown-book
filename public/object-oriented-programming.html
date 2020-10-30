@@ -134,7 +134,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Python Bookdown</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prerequisites</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#main-sections-of-the-book"><i class="fa fa-check"></i>Main sections of the book</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#python-environment"><i class="fa fa-check"></i>Python environment</a></li>
+<li><a href="index.html#automating-the-builds-with-a-makefile">Automating the builds with a <code>Makefile</code></a></li>
+</ul></li>
 <li class="chapter" data-level="1" data-path="fundamentals.html"><a href="fundamentals.html"><i class="fa fa-check"></i><b>1</b> Fundamentals</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="fundamentals.html"><a href="fundamentals.html#library-management"><i class="fa fa-check"></i><b>1.1</b> Library Management</a>
@@ -1310,67 +1315,67 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </li>
 <li>Use <strong>init</strong> as the constructor function. <strong>init</strong> is optional</li>
 </ul>
-<div class="sourceCode" id="cb420"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb420-1"><a href="object-oriented-programming.html#cb420-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Person:</span>
-<span id="cb420-2"><a href="object-oriented-programming.html#cb420-2" aria-hidden="true" tabindex="-1"></a>  wallet <span class="op">=</span> <span class="dv">0</span>  <span class="co"># </span></span>
-<span id="cb420-3"><a href="object-oriented-programming.html#cb420-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, myname,money<span class="op">=</span><span class="dv">0</span>):   <span class="co"># constructor</span></span>
-<span id="cb420-4"><a href="object-oriented-programming.html#cb420-4" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.name <span class="op">=</span> myname</span>
-<span id="cb420-5"><a href="object-oriented-programming.html#cb420-5" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.wallet<span class="op">=</span>money</span>
-<span id="cb420-6"><a href="object-oriented-programming.html#cb420-6" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(<span class="st">&#39;I</span><span class="ch">\&#39;</span><span class="st">m in Person Constructor: </span><span class="sc">{}</span><span class="st">&#39;</span>.<span class="bu">format</span>(myname))</span>
-<span id="cb420-7"><a href="object-oriented-programming.html#cb420-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> say_hi(<span class="va">self</span>):</span>
-<span id="cb420-8"><a href="object-oriented-programming.html#cb420-8" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(<span class="st">&#39;Hello, my name is : &#39;</span>, <span class="va">self</span>.name)</span>
-<span id="cb420-9"><a href="object-oriented-programming.html#cb420-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> say_bye(<span class="va">self</span>):</span>
-<span id="cb420-10"><a href="object-oriented-programming.html#cb420-10" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(<span class="st">&#39;Goodbye&#39;</span>, Person.ID)</span>
-<span id="cb420-11"><a href="object-oriented-programming.html#cb420-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> take(<span class="va">self</span>,amount):</span>
-<span id="cb420-12"><a href="object-oriented-programming.html#cb420-12" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.wallet<span class="op">+=</span>amount</span>
-<span id="cb420-13"><a href="object-oriented-programming.html#cb420-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> balance(<span class="va">self</span>):</span>
-<span id="cb420-14"><a href="object-oriented-programming.html#cb420-14" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(<span class="st">&#39;Wallet Balance:&#39;</span>,<span class="va">self</span>.wallet)</span>
-<span id="cb420-15"><a href="object-oriented-programming.html#cb420-15" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> MakeCry(<span class="va">self</span>):</span>
-<span id="cb420-16"><a href="object-oriented-programming.html#cb420-16" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.Cry()</span>
-<span id="cb420-17"><a href="object-oriented-programming.html#cb420-17" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb420-18"><a href="object-oriented-programming.html#cb420-18" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Kid(Person):</span>
-<span id="cb420-19"><a href="object-oriented-programming.html#cb420-19" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, myname, money<span class="op">=</span><span class="dv">0</span>):</span>
-<span id="cb420-20"><a href="object-oriented-programming.html#cb420-20" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(<span class="st">&#39;I</span><span class="ch">\&#39;</span><span class="st">m in Kid Constructor: </span><span class="sc">{}</span><span class="st">&#39;</span>.<span class="bu">format</span>(myname))</span>
-<span id="cb420-21"><a href="object-oriented-programming.html#cb420-21" aria-hidden="true" tabindex="-1"></a>      <span class="bu">super</span>().<span class="fu">__init__</span>(myname<span class="op">=</span>myname, money<span class="op">=</span>money)</span>
-<span id="cb420-22"><a href="object-oriented-programming.html#cb420-22" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> Cry(<span class="va">self</span>):</span>
-<span id="cb420-23"><a href="object-oriented-programming.html#cb420-23" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(<span class="st">&#39;Kid is crying&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb422"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb422-1"><a href="object-oriented-programming.html#cb422-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Person:</span>
+<span id="cb422-2"><a href="object-oriented-programming.html#cb422-2" aria-hidden="true" tabindex="-1"></a>  wallet <span class="op">=</span> <span class="dv">0</span>  <span class="co"># </span></span>
+<span id="cb422-3"><a href="object-oriented-programming.html#cb422-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, myname,money<span class="op">=</span><span class="dv">0</span>):   <span class="co"># constructor</span></span>
+<span id="cb422-4"><a href="object-oriented-programming.html#cb422-4" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.name <span class="op">=</span> myname</span>
+<span id="cb422-5"><a href="object-oriented-programming.html#cb422-5" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.wallet<span class="op">=</span>money</span>
+<span id="cb422-6"><a href="object-oriented-programming.html#cb422-6" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(<span class="st">&#39;I</span><span class="ch">\&#39;</span><span class="st">m in Person Constructor: </span><span class="sc">{}</span><span class="st">&#39;</span>.<span class="bu">format</span>(myname))</span>
+<span id="cb422-7"><a href="object-oriented-programming.html#cb422-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> say_hi(<span class="va">self</span>):</span>
+<span id="cb422-8"><a href="object-oriented-programming.html#cb422-8" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(<span class="st">&#39;Hello, my name is : &#39;</span>, <span class="va">self</span>.name)</span>
+<span id="cb422-9"><a href="object-oriented-programming.html#cb422-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> say_bye(<span class="va">self</span>):</span>
+<span id="cb422-10"><a href="object-oriented-programming.html#cb422-10" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(<span class="st">&#39;Goodbye&#39;</span>, Person.ID)</span>
+<span id="cb422-11"><a href="object-oriented-programming.html#cb422-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> take(<span class="va">self</span>,amount):</span>
+<span id="cb422-12"><a href="object-oriented-programming.html#cb422-12" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.wallet<span class="op">+=</span>amount</span>
+<span id="cb422-13"><a href="object-oriented-programming.html#cb422-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> balance(<span class="va">self</span>):</span>
+<span id="cb422-14"><a href="object-oriented-programming.html#cb422-14" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(<span class="st">&#39;Wallet Balance:&#39;</span>,<span class="va">self</span>.wallet)</span>
+<span id="cb422-15"><a href="object-oriented-programming.html#cb422-15" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> MakeCry(<span class="va">self</span>):</span>
+<span id="cb422-16"><a href="object-oriented-programming.html#cb422-16" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.Cry()</span>
+<span id="cb422-17"><a href="object-oriented-programming.html#cb422-17" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb422-18"><a href="object-oriented-programming.html#cb422-18" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Kid(Person):</span>
+<span id="cb422-19"><a href="object-oriented-programming.html#cb422-19" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, myname, money<span class="op">=</span><span class="dv">0</span>):</span>
+<span id="cb422-20"><a href="object-oriented-programming.html#cb422-20" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(<span class="st">&#39;I</span><span class="ch">\&#39;</span><span class="st">m in Kid Constructor: </span><span class="sc">{}</span><span class="st">&#39;</span>.<span class="bu">format</span>(myname))</span>
+<span id="cb422-21"><a href="object-oriented-programming.html#cb422-21" aria-hidden="true" tabindex="-1"></a>      <span class="bu">super</span>().<span class="fu">__init__</span>(myname<span class="op">=</span>myname, money<span class="op">=</span>money)</span>
+<span id="cb422-22"><a href="object-oriented-programming.html#cb422-22" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> Cry(<span class="va">self</span>):</span>
+<span id="cb422-23"><a href="object-oriented-programming.html#cb422-23" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(<span class="st">&#39;Kid is crying&#39;</span>)</span></code></pre></div>
 </div>
 <div id="constructor-2" class="section level2" number="7.2">
 <h2><span class="header-section-number">7.2</span> Constructor</h2>
-<div class="sourceCode" id="cb421"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb421-1"><a href="object-oriented-programming.html#cb421-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="op">=</span> Person(<span class="st">&#39;Yong&#39;</span>)  </span></code></pre></div>
-<pre><code>## I&#39;m in Person Constructor: Yong</code></pre>
-<div class="sourceCode" id="cb423"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb423-1"><a href="object-oriented-programming.html#cb423-1" aria-hidden="true" tabindex="-1"></a>p2 <span class="op">=</span> Person(<span class="st">&#39;Gan&#39;</span>,<span class="dv">200</span>)</span></code></pre></div>
-<pre><code>## I&#39;m in Person Constructor: Gan</code></pre>
-<div class="sourceCode" id="cb425"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb425-1"><a href="object-oriented-programming.html#cb425-1" aria-hidden="true" tabindex="-1"></a>p3 <span class="op">=</span> Kid(<span class="st">&#39;Jolin&#39;</span>,<span class="dv">50</span>)</span></code></pre></div>
-<pre><code>## I&#39;m in Kid Constructor: Jolin
-## I&#39;m in Person Constructor: Jolin</code></pre>
+<div class="sourceCode" id="cb423"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb423-1"><a href="object-oriented-programming.html#cb423-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="op">=</span> Person(<span class="st">&#39;Yong&#39;</span>)  </span></code></pre></div>
+<pre><code>#:&gt; I&#39;m in Person Constructor: Yong</code></pre>
+<div class="sourceCode" id="cb425"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb425-1"><a href="object-oriented-programming.html#cb425-1" aria-hidden="true" tabindex="-1"></a>p2 <span class="op">=</span> Person(<span class="st">&#39;Gan&#39;</span>,<span class="dv">200</span>)</span></code></pre></div>
+<pre><code>#:&gt; I&#39;m in Person Constructor: Gan</code></pre>
+<div class="sourceCode" id="cb427"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb427-1"><a href="object-oriented-programming.html#cb427-1" aria-hidden="true" tabindex="-1"></a>p3 <span class="op">=</span> Kid(<span class="st">&#39;Jolin&#39;</span>,<span class="dv">50</span>)</span></code></pre></div>
+<pre><code>#:&gt; I&#39;m in Kid Constructor: Jolin
+#:&gt; I&#39;m in Person Constructor: Jolin</code></pre>
 </div>
 <div id="calling-method" class="section level2" number="7.3">
 <h2><span class="header-section-number">7.3</span> Calling Method</h2>
-<div class="sourceCode" id="cb427"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb427-1"><a href="object-oriented-programming.html#cb427-1" aria-hidden="true" tabindex="-1"></a>p1.say_hi()</span></code></pre></div>
-<pre><code>## Hello, my name is :  Yong</code></pre>
-<div class="sourceCode" id="cb429"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb429-1"><a href="object-oriented-programming.html#cb429-1" aria-hidden="true" tabindex="-1"></a>p1.balance()</span></code></pre></div>
-<pre><code>## Wallet Balance: 0</code></pre>
-<div class="sourceCode" id="cb431"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb431-1"><a href="object-oriented-programming.html#cb431-1" aria-hidden="true" tabindex="-1"></a>p3.Cry()</span></code></pre></div>
-<pre><code>## Kid is crying</code></pre>
-<div class="sourceCode" id="cb433"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb433-1"><a href="object-oriented-programming.html#cb433-1" aria-hidden="true" tabindex="-1"></a>p3.MakeCry()</span></code></pre></div>
-<pre><code>## Kid is crying</code></pre>
-<div class="sourceCode" id="cb435"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb435-1"><a href="object-oriented-programming.html#cb435-1" aria-hidden="true" tabindex="-1"></a>p2.say_hi()</span></code></pre></div>
-<pre><code>## Hello, my name is :  Gan</code></pre>
-<div class="sourceCode" id="cb437"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb437-1"><a href="object-oriented-programming.html#cb437-1" aria-hidden="true" tabindex="-1"></a>p2.balance()</span></code></pre></div>
-<pre><code>## Wallet Balance: 200</code></pre>
+<div class="sourceCode" id="cb429"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb429-1"><a href="object-oriented-programming.html#cb429-1" aria-hidden="true" tabindex="-1"></a>p1.say_hi()</span></code></pre></div>
+<pre><code>#:&gt; Hello, my name is :  Yong</code></pre>
+<div class="sourceCode" id="cb431"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb431-1"><a href="object-oriented-programming.html#cb431-1" aria-hidden="true" tabindex="-1"></a>p1.balance()</span></code></pre></div>
+<pre><code>#:&gt; Wallet Balance: 0</code></pre>
+<div class="sourceCode" id="cb433"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb433-1"><a href="object-oriented-programming.html#cb433-1" aria-hidden="true" tabindex="-1"></a>p3.Cry()</span></code></pre></div>
+<pre><code>#:&gt; Kid is crying</code></pre>
+<div class="sourceCode" id="cb435"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb435-1"><a href="object-oriented-programming.html#cb435-1" aria-hidden="true" tabindex="-1"></a>p3.MakeCry()</span></code></pre></div>
+<pre><code>#:&gt; Kid is crying</code></pre>
+<div class="sourceCode" id="cb437"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb437-1"><a href="object-oriented-programming.html#cb437-1" aria-hidden="true" tabindex="-1"></a>p2.say_hi()</span></code></pre></div>
+<pre><code>#:&gt; Hello, my name is :  Gan</code></pre>
+<div class="sourceCode" id="cb439"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb439-1"><a href="object-oriented-programming.html#cb439-1" aria-hidden="true" tabindex="-1"></a>p2.balance()</span></code></pre></div>
+<pre><code>#:&gt; Wallet Balance: 200</code></pre>
 </div>
 <div id="getting-property" class="section level2" number="7.4">
 <h2><span class="header-section-number">7.4</span> Getting Property</h2>
-<div class="sourceCode" id="cb439"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb439-1"><a href="object-oriented-programming.html#cb439-1" aria-hidden="true" tabindex="-1"></a>p1.wallet</span></code></pre></div>
-<pre><code>## 0</code></pre>
-<div class="sourceCode" id="cb441"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb441-1"><a href="object-oriented-programming.html#cb441-1" aria-hidden="true" tabindex="-1"></a>p2.wallet</span></code></pre></div>
-<pre><code>## 200</code></pre>
+<div class="sourceCode" id="cb441"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb441-1"><a href="object-oriented-programming.html#cb441-1" aria-hidden="true" tabindex="-1"></a>p1.wallet</span></code></pre></div>
+<pre><code>#:&gt; 0</code></pre>
+<div class="sourceCode" id="cb443"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb443-1"><a href="object-oriented-programming.html#cb443-1" aria-hidden="true" tabindex="-1"></a>p2.wallet</span></code></pre></div>
+<pre><code>#:&gt; 200</code></pre>
 </div>
 <div id="setting-property" class="section level2" number="7.5">
 <h2><span class="header-section-number">7.5</span> Setting Property</h2>
-<div class="sourceCode" id="cb443"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb443-1"><a href="object-oriented-programming.html#cb443-1" aria-hidden="true" tabindex="-1"></a>p1.wallet <span class="op">=</span> <span class="dv">900</span></span>
-<span id="cb443-2"><a href="object-oriented-programming.html#cb443-2" aria-hidden="true" tabindex="-1"></a>p1.wallet</span></code></pre></div>
-<pre><code>## 900</code></pre>
+<div class="sourceCode" id="cb445"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb445-1"><a href="object-oriented-programming.html#cb445-1" aria-hidden="true" tabindex="-1"></a>p1.wallet <span class="op">=</span> <span class="dv">900</span></span>
+<span id="cb445-2"><a href="object-oriented-programming.html#cb445-2" aria-hidden="true" tabindex="-1"></a>p1.wallet</span></code></pre></div>
+<pre><code>#:&gt; 900</code></pre>
 </div>
 </div>
             </section>

@@ -1,9 +1,14 @@
 # A book of Python in Rmarkdown
-I love this book. It's not only written in Rmarkdown but explaining the fundamentals of Python in a live book; totally reproducible.
+I love this book. It's not only written in Rmarkdown but also explains the fundamentals of Python in a live book; totally reproducible.
 
 Kudos to the author [Keh-Soon Yong (AP)](https://github.com/yongks), who published the original code in GitHub [here](https://github.com/yongks/python_bookdown).
 
-My contribution here consists of adding instructions to build the Python environment with Anaconda (`environment.yml`); adding a `Makefile` to automate the builds outside RStudio; making the book available online through GitHub pahes [here](https://f0nzie.github.io/yongks-python-rmarkdown-book/); and adding an R script to load the Python environment for each Rmarkdown document.
+My contribution consists of making it even more reproducible: 
+
+* adding instructions to build the Python environment with Anaconda (`environment.yml`); 
+* adding a `Makefile` to automate the builds outside RStudio; 
+* making the book available online as a website through *GitHub Pages* [here](https://f0nzie.github.io/yongks-python-rmarkdown-book/); and 
+* adding an R script to load the Python environment for each Rmarkdown document.
 
 
 ## The power of Rmarkdown
@@ -39,7 +44,7 @@ or
     make gitbook2
 
 
-Both do the same thing: building the Rmarkdown book. I left the two options available for the reader to get familiar with `Makefile` and how to set environment variables from the shell, or set it from within R.
+Both do the same thing: building the Rmarkdown book. I left the two options available for the reader to get familiar with `Makefile`; how to set environment variables from the shell, or set it from within R.
 
 If the book builds successfully, it should open your browser with the main page of the book. This is all handled by `make` and the commands in `Makefile`.
 

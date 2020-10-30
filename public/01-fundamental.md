@@ -151,12 +151,12 @@ print ('Data of a =',  a,
 ```
 
 ```
-## Data of a = 123 
-## Data of b = 123 
-## Data of c = 123 
-## ID of a =  140068316109280 
-## ID of b =  140068316109280 
-## ID of c =  140068316109280
+#:> Data of a = 123 
+#:> Data of b = 123 
+#:> Data of c = 123 
+#:> ID of a =  140214585485792 
+#:> ID of b =  140214585485792 
+#:> ID of c =  140214585485792
 ```
 
 Changing data value (using assignment) changes **the reference**
@@ -175,10 +175,10 @@ print ('Data of a =',a,
 ```
 
 ```
-## Data of a = 456 
-## Data of b = 123 
-## ID of a =  140067710582832 
-## ID of b =  140068316109280
+#:> Data of a = 456 
+#:> Data of b = 123 
+#:> ID of a =  140213980000304 
+#:> ID of b =  140214585485792
 ```
 
 ## Assignment
@@ -198,10 +198,10 @@ print ('x = ', x,
 ```
 
 ```
-## x =  same mem loc 
-## y =  same mem loc 
-## id(x) =  140067710591152 
-## id(y) =  140067710591152
+#:> x =  same mem loc 
+#:> y =  same mem loc 
+#:> id(x) =  140213979980144 
+#:> id(y) =  140213979980144
 ```
 
 ### Augmented Assignment
@@ -215,7 +215,7 @@ print ('y = ', y)
 ```
 
 ```
-## y =  3
+#:> y =  3
 ```
 
 ### Unpacking Assingment
@@ -229,7 +229,7 @@ print (x,y)
 ```
 
 ```
-## 1 3
+#:> 1 3
 ```
 
 
@@ -247,7 +247,7 @@ type (n)
 ```
 
 ```
-## <class 'int'>
+#:> <class 'int'>
 ```
 
 ### Float
@@ -259,7 +259,7 @@ type (f)
 ```
 
 ```
-## <class 'float'>
+#:> <class 'float'>
 ```
 
 ### Number Operators
@@ -274,7 +274,7 @@ print(4/2)  # return float
 ```
 
 ```
-## 2.0
+#:> 2.0
 ```
 
 ```python
@@ -282,7 +282,7 @@ type(4/2)
 ```
 
 ```
-## <class 'float'>
+#:> <class 'float'>
 ```
 
 **Integer Division** by integer return inter. Integer division by float return float.
@@ -294,8 +294,8 @@ print (8//3,'\n',    # return int
 ```
 
 ```
-## 2 
-##  2.0
+#:> 2 
+#:>  2.0
 ```
 
 **Remainder** by integer return **integer**.  
@@ -308,8 +308,8 @@ print (8%3, '\n',    # return int
 ```
 
 ```
-## 2 
-##  1.5999999999999996
+#:> 2 
+#:>  1.5999999999999996
 ```
 
 **Power** return int or float
@@ -320,7 +320,7 @@ print (2**3)    # return int
 ```
 
 ```
-## 8
+#:> 8
 ```
 
 ```python
@@ -328,7 +328,7 @@ print (2.1**3)  # return float
 ```
 
 ```
-## 9.261000000000001
+#:> 9.261000000000001
 ```
 
 ```python
@@ -336,7 +336,7 @@ print (2**3.1)  # return float
 ```
 
 ```
-## 8.574187700290345
+#:> 8.574187700290345
 ```
 
 ## String
@@ -354,11 +354,11 @@ print( '\nvar type  = ', type(s),
 ```
 
 ```
-## 
-## var type  =  <class 'str'> 
-## elems     =  a b c 
-## len       =  5 
-## elem type =  <class 'str'>
+#:> 
+#:> var type  =  <class 'str'> 
+#:> elems     =  a b c 
+#:> len       =  5 
+#:> elem type =  <class 'str'>
 ```
 
 ### Constructor
@@ -398,9 +398,9 @@ print(my_string)
 ```
 
 ```
-## 
-## This is me.
-## Yong Keh Soon
+#:> 
+#:> This is me.
+#:> Yong Keh Soon
 ```
 Note that the variable contain **```\n```** front and end of the string.
 
@@ -410,7 +410,7 @@ my_string
 ```
 
 ```
-## '\nThis is me.\nYong Keh Soon\n'
+#:> '\nThis is me.\nYong Keh Soon\n'
 ```
 
 
@@ -426,7 +426,7 @@ print ('s : ', id(s))
 ```
 
 ```
-## s :  140067710632560
+#:> s :  140213980042672
 ```
 
 - Changing the variable completley change the reference (for new object)
@@ -438,7 +438,7 @@ print ('s : ', id(s))
 ```
 
 ```
-## s :  140067710596784
+#:> s :  140213979996016
 ```
 
 ### Class Constants
@@ -453,9 +453,9 @@ print( 'letters = ', string.ascii_letters,
 ```
 
 ```
-## letters =  abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 
-## lowercase =  abcdefghijklmnopqrstuvwxyz 
-## uppercase =  ABCDEFGHIJKLMNOPQRSTUVWXYZ
+#:> letters =  abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 
+#:> lowercase =  abcdefghijklmnopqrstuvwxyz 
+#:> uppercase =  ABCDEFGHIJKLMNOPQRSTUVWXYZ
 ```
 
 #### Digits
@@ -466,7 +466,7 @@ string.digits
 ```
 
 ```
-## '0123456789'
+#:> '0123456789'
 ```
 
 #### White Spaces
@@ -477,7 +477,7 @@ string.whitespace
 ```
 
 ```
-## ' \t\n\r\x0b\x0c'
+#:> ' \t\n\r\x0b\x0c'
 ```
 
 ### Instance Methods
@@ -493,8 +493,8 @@ print( '{} + {} = {}'.format('a', 'b', 'c'),         # auto sequence
 ```
 
 ```
-## a + b = c 
-## aa + bb = cc
+#:> a + b = c 
+#:> aa + bb = cc
 ```
 
 **By Name**
@@ -505,7 +505,7 @@ print( '{} + {} = {}'.format('a', 'b', 'c'),         # auto sequence
 ```
 
 ```
-## 'Coordinates: 37.24N, -115.81W'
+#:> 'Coordinates: 37.24N, -115.81W'
 ```
 
 **By Dictionary Name**
@@ -517,7 +517,7 @@ coord = {'latitude': '37.24N', 'longitude': '-115.81W'} ## dictionary key/value
 ```
 
 ```
-## 'Coordinates: 37.24N, -115.81W'
+#:> 'Coordinates: 37.24N, -115.81W'
 ```
 
 **Formatting Number** 
@@ -530,7 +530,7 @@ Float
 ```
 
 ```
-## '+3.140000; -3.140000'
+#:> '+3.140000; -3.140000'
 ```
 
 
@@ -539,7 +539,7 @@ Float
 ```
 
 ```
-## ' 3.140000; -3.140000'
+#:> ' 3.140000; -3.140000'
 ```
 
 
@@ -548,7 +548,7 @@ Float
 ```
 
 ```
-## 'Correct answers: 55676.35'
+#:> 'Correct answers: 55676.35'
 ```
 
 Integer, Percentage
@@ -559,7 +559,7 @@ Integer, Percentage
 ```
 
 ```
-## '1,234,567,890.4455   123456789044.55%   123,456,789,044.55%'
+#:> '1,234,567,890.4455   123456789044.55%   123,456,789,044.55%'
 ```
 
 **Alignment**
@@ -570,7 +570,7 @@ Integer, Percentage
 ```
 
 ```
-## 'left aligned           left aligned<<<<<<<<'
+#:> 'left aligned           left aligned<<<<<<<<'
 ```
 
 
@@ -579,7 +579,7 @@ Integer, Percentage
 ```
 
 ```
-## '       right aligned  $$$$$$$right aligned'
+#:> '       right aligned  $$$$$$$right aligned'
 ```
 
 
@@ -588,7 +588,7 @@ Integer, Percentage
 ```
 
 ```
-## '           centered           '
+#:> '           centered           '
 ```
 
 #### Substitution : **```f-string```**
@@ -601,7 +601,7 @@ f'Hello, {my_name}, your salary is {salary:,.2f} !'
 ```
 
 ```
-## 'Hello, Yong Keh Soon, your salary is 11,123.35 !'
+#:> 'Hello, Yong Keh Soon, your salary is 11,123.35 !'
 ```
 
 #### Conversion: ```upper() lower()```
@@ -612,7 +612,7 @@ f'Hello, {my_name}, your salary is {salary:,.2f} !'
 ```
 
 ```
-## 'MYEXEEL.XLS'
+#:> 'MYEXEEL.XLS'
 ```
 
 
@@ -621,7 +621,7 @@ f'Hello, {my_name}, your salary is {salary:,.2f} !'
 ```
 
 ```
-## 'myexeel.xls'
+#:> 'myexeel.xls'
 ```
 
 #### ```find()``` pattern position
@@ -636,7 +636,7 @@ print (s.find('lov'))
 ```
 
 ```
-## 2
+#:> 2
 ```
 
 ```python
@@ -644,7 +644,7 @@ print (s.find('kemuning'))
 ```
 
 ```
-## -1
+#:> -1
 ```
 
 
@@ -657,7 +657,7 @@ filename.strip()
 ```
 
 ```
-## 'myexce l.   xls'
+#:> 'myexce l.   xls'
 ```
 
 
@@ -672,7 +672,7 @@ animals.split(',')
 ```
 
 ```
-## ['a1', 'a2 ', 'a3', ' a4']
+#:> ['a1', 'a2 ', 'a3', ' a4']
 ```
 
 #### List Related: ```join()```
@@ -683,7 +683,7 @@ animals.split(',')
 ```
 
 ```
-## '1-2-3-4'
+#:> '1-2-3-4'
 ```
 
 #### Replacement: `.replace()`
@@ -699,7 +699,7 @@ print(string.replace("geeks", "Geeks"))
 ```
 
 ```
-## Geeks for Geeks Geeks Geeks Geeks
+#:> Geeks for Geeks Geeks Geeks Geeks
 ```
 
 ```python
@@ -707,7 +707,7 @@ print(string.replace("geeks", "GeeksforGeeks", 3))
 ```
 
 ```
-## GeeksforGeeks for GeeksforGeeks GeeksforGeeks geeks geeks
+#:> GeeksforGeeks for GeeksforGeeks GeeksforGeeks geeks geeks
 ```
  
 
@@ -725,7 +725,7 @@ salary  = 11123.346
 ```
 
 ```
-## 'Hello, Yong Keh Soon, your salary is 11123.35 !'
+#:> 'Hello, Yong Keh Soon, your salary is 11123.35 !'
 ```
 
 #### ```+``` Concatenation
@@ -736,7 +736,7 @@ salary  = 11123.346
 ```
 
 ```
-## 'this is awesome'
+#:> 'this is awesome'
 ```
 
 #### ```in```  matching
@@ -749,7 +749,7 @@ print( 'abc' in '123abcdefg' )
 ```
 
 ```
-## True
+#:> True
 ```
 
 For list of strings, **exact match** (even though only one element in list).  
@@ -764,7 +764,7 @@ print( 'abc' in ['abcdefg'],             # false
 ```
 
 ```
-## False False True True
+#:> False False True True
 ```
 
 #### Comparitor
@@ -781,9 +781,9 @@ print('id(a) = ', id(a),
 ```
 
 ```
-## id(a) =  140068311673904 
-## id(b) =  140068311673904 
-## a == b   True
+#:> id(a) =  140214509767728 
+#:> id(b) =  140214509767728 
+#:> a == b   True
 ```
 
 ### Iterations
@@ -799,7 +799,7 @@ print (s[0])       # first later
 ```
 
 ```
-## a
+#:> a
 ```
 
 ```python
@@ -807,7 +807,7 @@ print (s[:3])      # first 3 letters
 ```
 
 ```
-## abc
+#:> abc
 ```
 
 ```python
@@ -815,7 +815,7 @@ print (s[2:8 :2])  # stepping
 ```
 
 ```
-## ceg
+#:> ceg
 ```
 
 ```python
@@ -823,7 +823,7 @@ print (s[-1])      # last letter
 ```
 
 ```
-## k
+#:> k
 ```
 
 ```python
@@ -831,7 +831,7 @@ print (s[-3:])     # last three letters
 ```
 
 ```
-## ijk
+#:> ijk
 ```
 
 ```python
@@ -839,7 +839,7 @@ print (s[:   :-1]) # reverse everything
 ```
 
 ```
-## kjihgfedcba
+#:> kjihgfedcba
 ```
 
 ```python
@@ -847,7 +847,7 @@ print (s[8:2 :-1])
 ```
 
 ```
-## ihgfed
+#:> ihgfed
 ```
 
 ```python
@@ -868,7 +868,7 @@ else:
 ```
 
 ```
-## It is fake
+#:> It is fake
 ```
 
 ### What is Considered False ?
@@ -887,7 +887,7 @@ print ( bool(0),      # zero
 ```
 
 ```
-## False False False False False False False
+#:> False False False False False False False
 ```
 
 ### ```and``` operator
@@ -905,7 +905,7 @@ print (123 and 2 and 1,
 ```
 
 ```
-## 1 []
+#:> 1 []
 ```
 
 ### ```not``` operator
@@ -916,7 +916,7 @@ not (True)
 ```
 
 ```
-## False
+#:> False
 ```
 
 ```python
@@ -924,7 +924,7 @@ not (True or False)
 ```
 
 ```
-## False
+#:> False
 ```
 
 ```python
@@ -932,7 +932,7 @@ not (False)
 ```
 
 ```
-## True
+#:> True
 ```
 
 ```python
@@ -940,7 +940,7 @@ not (True and False)
 ```
 
 ```
-## True
+#:> True
 ```
 
 ```python
@@ -948,7 +948,7 @@ not (True and False)
 ```
 
 ```
-## -1
+#:> -1
 ```
 
 ### ```or``` operator
@@ -962,7 +962,7 @@ print (1 or 2)
 ```
 
 ```
-## 1
+#:> 1
 ```
 
 ```python
@@ -970,7 +970,7 @@ print (0 or 1 or 1)
 ```
 
 ```
-## 1
+#:> 1
 ```
 
 ```python
@@ -978,7 +978,7 @@ print (0 or () or [])
 ```
 
 ```
-## []
+#:> []
 ```
 
 
@@ -996,7 +996,7 @@ type(None)
 ```
 
 ```
-## <class 'NoneType'>
+#:> <class 'NoneType'>
 ```
 
 
@@ -1008,9 +1008,9 @@ print( t1.dtype  , '\n\n',    # it's an object
 ```
 
 ```
-## int64 
-## 
-##  object
+#:> int64 
+#:> 
+#:>  object
 ```
 
 ### Comparing None
@@ -1024,7 +1024,7 @@ print( null_variable == None )
 ```
 
 ```
-## True
+#:> True
 ```
 
 **Prefered**
@@ -1035,7 +1035,7 @@ print( null_variable is None )
 ```
 
 ```
-## True
+#:> True
 ```
 
 ```python
@@ -1043,7 +1043,7 @@ print( null_variable is not None )
 ```
 
 ```
-## False
+#:> False
 ```
 
 ### Operation on None
@@ -1056,10 +1056,10 @@ None & None
 ```
 
 ```
-## Error in py_call_impl(callable, dots$args, dots$keywords): TypeError: unsupported operand type(s) for &: 'NoneType' and 'NoneType'
-## 
-## Detailed traceback: 
-##   File "<string>", line 1, in <module>
+#:> Error in py_call_impl(callable, dots$args, dots$keywords): TypeError: unsupported operand type(s) for &: 'NoneType' and 'NoneType'
+#:> 
+#:> Detailed traceback: 
+#:>   File "<string>", line 1, in <module>
 ```
 
 # Built-In Data Structure
@@ -1100,7 +1100,7 @@ print(type(t1), type(t2))
 ```
 
 ```
-## <class 'tuple'> <class 'tuple'>
+#:> <class 'tuple'> <class 'tuple'>
 ```
 
 ### Accessing
@@ -1121,7 +1121,7 @@ print(original)
 ```
 
 ```
-## (1, 2, 3, 4, 5)
+#:> (1, 2, 3, 4, 5)
 ```
 
 ```python
@@ -1129,7 +1129,7 @@ print(copy_test)
 ```
 
 ```
-## (1, 2, 3, 4, 5)
+#:> (1, 2, 3, 4, 5)
 ```
 The copy and original has the same memory location.
 
@@ -1138,7 +1138,7 @@ print('Original ID: ', id(original))
 ```
 
 ```
-## Original ID:  140067710520592
+#:> Original ID:  140213979929872
 ```
 
 ```python
@@ -1146,7 +1146,7 @@ print('Copy ID:     ', id(copy_test))
 ```
 
 ```
-## Copy ID:      140067710520592
+#:> Copy ID:      140213979929872
 ```
 
 ## List
@@ -1167,7 +1167,7 @@ print (empty)
 ```
 
 ```
-## []
+#:> []
 ```
 
 #### Literal Assignment
@@ -1180,7 +1180,7 @@ print (empty)
 ```
 
 ```
-## [123, 'abc', 456, None]
+#:> [123, 'abc', 456, None]
 ```
 
 **Constructor**  
@@ -1193,7 +1193,7 @@ list('hello')
 ```
 
 ```
-## ['h', 'e', 'l', 'l', 'o']
+#:> ['h', 'e', 'l', 'l', 'o']
 ```
 
 ### Accessing Items
@@ -1207,7 +1207,7 @@ print (food[2])  # 3rd item
 ```
 
 ```
-## rice
+#:> rice
 ```
 
 ```python
@@ -1215,7 +1215,7 @@ print (food[-1]) # last item
 ```
 
 ```
-## cake
+#:> cake
 ```
 
 
@@ -1227,7 +1227,7 @@ print (food[:4])     # first 3 items
 ```
 
 ```
-## ['bread', 'noodle', 'rice', 'biscuit']
+#:> ['bread', 'noodle', 'rice', 'biscuit']
 ```
 
 ```python
@@ -1235,7 +1235,7 @@ print (food[-3:])    # last 3 items
 ```
 
 ```
-## ['biscuit', 'jelly', 'cake']
+#:> ['biscuit', 'jelly', 'cake']
 ```
 
 ```python
@@ -1243,7 +1243,7 @@ print (food[1:5])    # item 1 to 4
 ```
 
 ```
-## ['noodle', 'rice', 'biscuit', 'jelly']
+#:> ['noodle', 'rice', 'biscuit', 'jelly']
 ```
 
 ```python
@@ -1251,7 +1251,7 @@ print (food[5:2:-1]) # item 3 to 5, reverse order
 ```
 
 ```
-## ['cake', 'jelly', 'biscuit']
+#:> ['cake', 'jelly', 'biscuit']
 ```
 
 ```python
@@ -1259,7 +1259,7 @@ print (food[::-1])   # reverse order
 ```
 
 ```
-## ['cake', 'jelly', 'biscuit', 'rice', 'noodle', 'bread']
+#:> ['cake', 'jelly', 'biscuit', 'rice', 'noodle', 'bread']
 ```
 
 ### Methods
@@ -1278,7 +1278,7 @@ print (food)
 ```
 
 ```
-## ['bread', 'rice', 'biscuit', 'jelly', 'cake', 'noodle']
+#:> ['bread', 'rice', 'biscuit', 'jelly', 'cake', 'noodle']
 ```
 
 **Remove last item**
@@ -1289,7 +1289,7 @@ food.pop()
 ```
 
 ```
-## 'noodle'
+#:> 'noodle'
 ```
 
 ```python
@@ -1297,7 +1297,7 @@ print (food)
 ```
 
 ```
-## ['bread', 'rice', 'biscuit', 'jelly', 'cake']
+#:> ['bread', 'rice', 'biscuit', 'jelly', 'cake']
 ```
 
 **Remove item at specific position**
@@ -1308,7 +1308,7 @@ food.pop(1)  # counter start from 0
 ```
 
 ```
-## 'rice'
+#:> 'rice'
 ```
 
 ```python
@@ -1316,7 +1316,7 @@ print(food)
 ```
 
 ```
-## ['bread', 'biscuit', 'jelly', 'cake']
+#:> ['bread', 'biscuit', 'jelly', 'cake']
 ```
 
 
@@ -1326,7 +1326,7 @@ print(food)
 ```
 
 ```
-## ['bread', 'biscuit', 'cake']
+#:> ['bread', 'biscuit', 'cake']
 ```
 
 #### Appending Item (s)
@@ -1340,7 +1340,7 @@ print (food)
 ```
 
 ```
-## ['bread', 'biscuit', 'cake', 'jelly']
+#:> ['bread', 'biscuit', 'cake', 'jelly']
 ```
 
 **Append Multiple Items**  **```extend()```** will expand the list/tupple argument and append as multiple items
@@ -1352,7 +1352,7 @@ print (food)
 ```
 
 ```
-## ['bread', 'biscuit', 'cake', 'jelly', 'nand', 'puff']
+#:> ['bread', 'biscuit', 'cake', 'jelly', 'nand', 'puff']
 ```
 
 
@@ -1368,7 +1368,7 @@ food
 ```
 
 ```
-## ['puff', 'nand', 'jelly', 'cake', 'biscuit', 'bread']
+#:> ['puff', 'nand', 'jelly', 'cake', 'biscuit', 'bread']
 ```
 
 **Locating the Index Number of An Item**
@@ -1379,7 +1379,7 @@ food.index('biscuit')
 ```
 
 ```
-## 4
+#:> 4
 ```
 
 **Count occurance**
@@ -1391,7 +1391,7 @@ test.count('a')
 ```
 
 ```
-## 3
+#:> 3
 ```
 
 **Sorting The Order of Items**
@@ -1403,7 +1403,7 @@ print (food)
 ```
 
 ```
-## ['biscuit', 'bread', 'cake', 'jelly', 'nand', 'puff']
+#:> ['biscuit', 'bread', 'cake', 'jelly', 'nand', 'puff']
 ```
 
 ### Operator
@@ -1420,7 +1420,7 @@ Two lists can be concatenanted using '+' operator.
 ```
 
 ```
-## ['dog', 'cat', 'horse', 'elephant', 'tiger', 'sheep']
+#:> ['dog', 'cat', 'horse', 'elephant', 'tiger', 'sheep']
 ```
 
 ### List is Mutable
@@ -1434,7 +1434,7 @@ print ('food : ',id(food))
 ```
 
 ```
-## food :  140067710621488
+#:> food :  140213980039200
 ```
 
 ```python
@@ -1443,7 +1443,7 @@ print ('food : ',id(food))
 ```
 
 ```
-## food :  140067710621488
+#:> food :  140213980039200
 ```
 
 A function is actually an **object**, which reference never change, hence **mutable**
@@ -1458,7 +1458,7 @@ print (spam(1,['x']))
 ```
 
 ```
-## ['x', 1]
+#:> ['x', 1]
 ```
 
 ```python
@@ -1466,7 +1466,7 @@ print (spam(2)) ## second parameter is not passed
 ```
 
 ```
-## ['a', 'b', 2]
+#:> ['a', 'b', 2]
 ```
 
 ```python
@@ -1474,7 +1474,7 @@ print (spam(3)) ##  notice the default was remembered
 ```
 
 ```
-## ['a', 'b', 2, 3]
+#:> ['a', 'b', 2, 3]
 ```
 
 ### Duplicate or Reference
@@ -1489,7 +1489,7 @@ print('Original ID: ', id(original))
 ```
 
 ```
-## Original ID:  140067710613056
+#:> Original ID:  140213980037280
 ```
 
 ```python
@@ -1497,7 +1497,7 @@ print('Copy ID:     ', id(copy_test))
 ```
 
 ```
-## Copy ID:      140067710613056
+#:> Copy ID:      140213980037280
 ```
 
 
@@ -1507,7 +1507,7 @@ print(original)
 ```
 
 ```
-## [999, 2, 3, 4, 5]
+#:> [999, 2, 3, 4, 5]
 ```
 
 ```python
@@ -1515,7 +1515,7 @@ print(copy_test)  ## copy affected
 ```
 
 ```
-## [999, 2, 3, 4, 5]
+#:> [999, 2, 3, 4, 5]
 ```
 
 
@@ -1529,7 +1529,7 @@ print(original)
 ```
 
 ```
-## [1, 2, 3, 4, 5]
+#:> [1, 2, 3, 4, 5]
 ```
 
 ```python
@@ -1537,7 +1537,7 @@ print(copy_test)
 ```
 
 ```
-## [1, 2, 3, 4, 5]
+#:> [1, 2, 3, 4, 5]
 ```
 
 
@@ -1546,7 +1546,7 @@ print('Original ID: ', id(original))
 ```
 
 ```
-## Original ID:  140067710588960
+#:> Original ID:  140213979968848
 ```
 
 ```python
@@ -1554,7 +1554,7 @@ print('Copy ID:     ', id(copy_test))
 ```
 
 ```
-## Copy ID:      140067710613456
+#:> Copy ID:      140213979997920
 ```
 
 
@@ -1564,7 +1564,7 @@ print(original)
 ```
 
 ```
-## [999, 2, 3, 4, 5]
+#:> [999, 2, 3, 4, 5]
 ```
 
 ```python
@@ -1572,7 +1572,7 @@ print(copy_test)   ## copy not affected
 ```
 
 ```
-## [1, 2, 3, 4, 5]
+#:> [1, 2, 3, 4, 5]
 ```
 
 
@@ -1590,7 +1590,7 @@ print('ID outside Function: ', id(my_list))
 ```
 
 ```
-## ID outside Function:  140067710659232
+#:> ID outside Function:  140213980037360
 ```
 
 ```python
@@ -1598,8 +1598,8 @@ func(my_list)  ## call the function, pass the reference
 ```
 
 ```
-## [1, 2, 3, 4, 5]
-## ID in Function:       140067710659232
+#:> [1, 2, 3, 4, 5]
+#:> ID in Function:       140213980037360
 ```
 
 ```python
@@ -1607,7 +1607,7 @@ print(my_list) ## content was altered
 ```
 
 ```
-## [1, 2, 3, 4, 5, 6]
+#:> [1, 2, 3, 4, 5, 6]
 ```
 
 
@@ -1624,8 +1624,8 @@ for x in s:
 ```
 
 ```
-## abc
-## abcd
+#:> abc
+#:> abcd
 ```
 #### List Comprehension
 
@@ -1638,7 +1638,7 @@ old_list = ['abc','abcd','bcde','bcdee','cdefg']
 ```
 
 ```
-## ['abc', 'abcd']
+#:> ['abc', 'abcd']
 ```
 
 Compare to traditional version of code below:
@@ -1655,7 +1655,7 @@ print( new_list )
 ```
 
 ```
-## ['abc', 'abcd']
+#:> ['abc', 'abcd']
 ```
 
 ### Conversion
@@ -1671,7 +1671,7 @@ print( id(original),
 ```
 
 ```
-## 140067710662848 140067710662928
+#:> 140213980077024 140213980077104
 ```
 
 ### Built-In Functions Applicable To List
@@ -1684,7 +1684,7 @@ len(food)
 ```
 
 ```
-## 6
+#:> 6
 ```
 
 **Max Value**
@@ -1697,7 +1697,7 @@ test.index(m)  ## only first occurance is found
 ```
 
 ```
-## 3
+#:> 3
 ```
 
 ## Dictionaries
@@ -1717,7 +1717,7 @@ print (animal_counts)
 ```
 
 ```
-## {'cats': 2, 'dogs': 5, 'horses': 4}
+#:> {'cats': 2, 'dogs': 5, 'horses': 4}
 ```
 
 ```python
@@ -1725,7 +1725,7 @@ print( type(animal_counts) )
 ```
 
 ```
-## <class 'dict'>
+#:> <class 'dict'>
 ```
 
 **Dictionary with list**
@@ -1740,7 +1740,7 @@ animal_names
 ```
 
 ```
-## {'cats': ['Walter', 'Ra'], 'dogs': ['Jim', 'Roy', 'John', 'Lucky', 'Row'], 'horses': ['Sax', 'Jack', 'Ann', 'Jeep']}
+#:> {'cats': ['Walter', 'Ra'], 'dogs': ['Jim', 'Roy', 'John', 'Lucky', 'Row'], 'horses': ['Sax', 'Jack', 'Ann', 'Jeep']}
 ```
 
 #### From Variables
@@ -1755,7 +1755,7 @@ animal_names
 ```
 
 ```
-## {'cats': ['Walter', 'Ra', 'Jim'], 'dogs': ['Jim', 'Roy', 'John', 'Lucky', 'Row'], 'horses': ['Sax', 'Jack', 'Ann', 'Jeep']}
+#:> {'cats': ['Walter', 'Ra', 'Jim'], 'dogs': ['Jim', 'Roy', 'John', 'Lucky', 'Row'], 'horses': ['Sax', 'Jack', 'Ann', 'Jeep']}
 ```
 
 ### Accessing dict
@@ -1768,7 +1768,7 @@ print (animal_names.keys())
 ```
 
 ```
-## dict_keys(['cats', 'dogs', 'horses'])
+#:> dict_keys(['cats', 'dogs', 'horses'])
 ```
 
 ```python
@@ -1776,7 +1776,7 @@ print (sorted(animal_names.keys()))
 ```
 
 ```
-## ['cats', 'dogs', 'horses']
+#:> ['cats', 'dogs', 'horses']
 ```
 
 #### Get All Values
@@ -1787,7 +1787,7 @@ print (animal_names.values())
 ```
 
 ```
-## dict_values([['Walter', 'Ra', 'Jim'], ['Jim', 'Roy', 'John', 'Lucky', 'Row'], ['Sax', 'Jack', 'Ann', 'Jeep']])
+#:> dict_values([['Walter', 'Ra', 'Jim'], ['Jim', 'Roy', 'John', 'Lucky', 'Row'], ['Sax', 'Jack', 'Ann', 'Jeep']])
 ```
 
 ```python
@@ -1795,7 +1795,7 @@ print (sorted(animal_names.values()))
 ```
 
 ```
-## [['Jim', 'Roy', 'John', 'Lucky', 'Row'], ['Sax', 'Jack', 'Ann', 'Jeep'], ['Walter', 'Ra', 'Jim']]
+#:> [['Jim', 'Roy', 'John', 'Lucky', 'Row'], ['Sax', 'Jack', 'Ann', 'Jeep'], ['Walter', 'Ra', 'Jim']]
 ```
 
 #### Access value with Specific Key
@@ -1808,7 +1808,7 @@ animal_names['dogs']
 ```
 
 ```
-## ['Jim', 'Roy', 'John', 'Lucky', 'Row']
+#:> ['Jim', 'Roy', 'John', 'Lucky', 'Row']
 ```
 
 Use  **`get( key )`** notation. will return None if key does not exist
@@ -1819,7 +1819,7 @@ print (animal_counts.get('cow'))
 ```
 
 ```
-## None
+#:> None
 ```
 
 ### Dict Is Mutable
@@ -1835,7 +1835,7 @@ animal_names
 ```
 
 ```
-## {'cats': ['Walter', 'Ra', 'Jim'], 'dogs': ['Ali', 'Abu', 'Bakar'], 'horses': ['Sax', 'Jack', 'Ann', 'Jeep']}
+#:> {'cats': ['Walter', 'Ra', 'Jim'], 'dogs': ['Ali', 'Abu', 'Bakar'], 'horses': ['Sax', 'Jack', 'Ann', 'Jeep']}
 ```
 
 Use **```clear()```** to erase all elements
@@ -1858,9 +1858,9 @@ for key,val in animal_dict.items():
 ```
 
 ```
-## cats 2
-## dogs 5
-## horses 4
+#:> cats 2
+#:> dogs 5
+#:> horses 4
 ```
 
 ## Sets
@@ -1878,7 +1878,7 @@ print (myset) # notice no repetition values
 ```
 
 ```
-## {'b', 'c', 'd', 'f', 'a', 'e', 'g'}
+#:> {'e', 'f', 'a', 'c', 'd', 'g', 'b'}
 ```
 
 Set can be created from list, and then converted back to list
@@ -1895,9 +1895,9 @@ print (
 ```
 
 ```
-## Original List       :  ['a', 'b', 'c', 'd', 'a', 'b', 'e', 'f', 'g'] 
-## Convert to set      :  {'b', 'c', 'd', 'f', 'a', 'e', 'g'} 
-## Convert back to list:  ['b', 'c', 'd', 'f', 'a', 'e', 'g']
+#:> Original List       :  ['a', 'b', 'c', 'd', 'a', 'b', 'e', 'f', 'g'] 
+#:> Convert to set      :  {'e', 'f', 'a', 'c', 'd', 'g', 'b'} 
+#:> Convert back to list:  ['e', 'f', 'a', 'c', 'd', 'g', 'b']
 ```
 
 ### Membership Test
@@ -1908,7 +1908,7 @@ print ('a' in myset)      # is member ?
 ```
 
 ```
-## True
+#:> True
 ```
 
 ```python
@@ -1916,7 +1916,7 @@ print ('f' not in myset)  # is not member ?
 ```
 
 ```
-## False
+#:> False
 ```
 
 ### Subset Test
@@ -1930,7 +1930,7 @@ mysubset <= myset
 ```
 
 ```
-## True
+#:> True
 ```
 
 Proper Subset test that the master set **contain at least one element** which is not in the subset
@@ -1942,7 +1942,7 @@ print ('Is Subset : ', mysubset <= myset)
 ```
 
 ```
-## Is Subset :  True
+#:> Is Subset :  True
 ```
 
 ```python
@@ -1950,7 +1950,7 @@ print ('Is Proper Subet : ', mysubset < myset)
 ```
 
 ```
-## Is Proper Subet :  False
+#:> Is Proper Subet :  False
 ```
 
 ### Union using `|`
@@ -1961,7 +1961,7 @@ print ('Is Proper Subet : ', mysubset < myset)
 ```
 
 ```
-## {'b', 'a', 'e', 'c', 'f'}
+#:> {'e', 'f', 'a', 'b', 'c'}
 ```
 
 ### Intersection using `&`
@@ -1974,7 +1974,7 @@ Any elments that exist in both left and right set
 ```
 
 ```
-## {'c', 'd'}
+#:> {'c', 'd'}
 ```
 
 ### Difference using `-`
@@ -1987,7 +1987,7 @@ Remove **right** from **left**
 ```
 
 ```
-## {'b', 'a'}
+#:> {'a', 'b'}
 ```
 
 ## range
@@ -2009,7 +2009,7 @@ print (type (r))
 ```
 
 ```
-## <class 'range'>
+#:> <class 'range'>
 ```
 
 ```python
@@ -2017,7 +2017,7 @@ print (r)
 ```
 
 ```
-## range(0, 10)
+#:> range(0, 10)
 ```
 
 ```python
@@ -2025,7 +2025,7 @@ print (list(r))
 ```
 
 ```
-## [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+#:> [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
 
 
@@ -2037,7 +2037,7 @@ print (list(range(2,8)))    # step not specified, default 1
 ```
 
 ```
-## [2, 3, 4, 5, 6, 7]
+#:> [2, 3, 4, 5, 6, 7]
 ```
 
 ```python
@@ -2045,7 +2045,7 @@ print ('Odds Number : ' , list(range(1,10,2))) # generate odds number
 ```
 
 ```
-## Odds Number :  [1, 3, 5, 7, 9]
+#:> Odds Number :  [1, 3, 5, 7, 9]
 ```
 
 
@@ -2069,7 +2069,7 @@ else:
 ```
 
 ```
-## hold
+#:> hold
 ```
 
 ```python
@@ -2077,7 +2077,7 @@ print('end of programming')
 ```
 
 ```
-## end of programming
+#:> end of programming
 ```
 
 ### Single Line If .. Statement
@@ -2091,7 +2091,7 @@ if price<80: print('buy')
 ```
 
 ```
-## buy
+#:> buy
 ```
 
 #### Ternary Statemnt
@@ -2105,7 +2105,7 @@ price = 85
 ```
 
 ```
-## 'dont buy'
+#:> 'dont buy'
 ```
 
 
@@ -2127,12 +2127,12 @@ else:
 ```
 
 ```
-## 1
-## 2
-## 3
-## 4
-## 5
-## Hooray, the loop is completed successfully
+#:> 1
+#:> 2
+#:> 3
+#:> 4
+#:> 5
+#:> Hooray, the loop is completed successfully
 ```
 
 In below exmaple, for loop encountered **`break`**, hence the **`else`** section is not executed.
@@ -2150,10 +2150,10 @@ else:
 ```
 
 ```
-## 1
-## 2
-## 3
-## Oops, I am breaking out half way in the loop
+#:> 1
+#:> 2
+#:> 3
+#:> Oops, I am breaking out half way in the loop
 ```
 ### Loop thorugh 'range'
 
@@ -2164,11 +2164,11 @@ for i in range (1,10,2):
 ```
 
 ```
-## Odds Number :  1
-## Odds Number :  3
-## Odds Number :  5
-## Odds Number :  7
-## Odds Number :  9
+#:> Odds Number :  1
+#:> Odds Number :  3
+#:> Odds Number :  5
+#:> Odds Number :  7
+#:> Odds Number :  9
 ```
 
 
@@ -2184,10 +2184,10 @@ for e in letters:
 ```
 
 ```
-## Letter :  a
-## Letter :  b
-## Letter :  c
-## Letter :  d
+#:> Letter :  a
+#:> Letter :  b
+#:> Letter :  c
+#:> Letter :  d
 ```
 
 
@@ -2203,7 +2203,7 @@ s = ['abc','abcd','bcde','bcdee','cdefg']
 ```
 
 ```
-## ['ABC', 'ABCD', 'BCDE', 'BCDEE', 'CDEFG']
+#:> ['ABC', 'ABCD', 'BCDE', 'BCDEE', 'CDEFG']
 ```
 
 
@@ -2218,7 +2218,7 @@ print( matching )
 ```
 
 ```
-## ['ABCD', 'BCDE', 'BCDEE']
+#:> ['ABCD', 'BCDE', 'BCDEE']
 ```
 
 
@@ -2234,8 +2234,8 @@ for key in d:
 ```
 
 ```
-## x 1
-## y 2
+#:> x 1
+#:> y 2
 ```
 
 
@@ -2279,7 +2279,7 @@ type(a)
 ```
 
 ```
-## <class 'generator'>
+#:> <class 'generator'>
 ```
 
 
@@ -2288,8 +2288,8 @@ next(a)
 ```
 
 ```
-## This is printed first
-## 1
+#:> This is printed first
+#:> 1
 ```
 
 
@@ -2298,8 +2298,8 @@ next(a)
 ```
 
 ```
-## This is printed second
-## 2
+#:> This is printed second
+#:> 2
 ```
 
 
@@ -2323,11 +2323,11 @@ for c in rev_str("hello"):
 ```
 
 ```
-## o
-## l
-## l
-## e
-## h
+#:> o
+#:> l
+#:> l
+#:> e
+#:> h
 ```
 
 ### Generator Expression
@@ -2345,7 +2345,7 @@ next(a)
 ```
 
 ```
-## 1
+#:> 1
 ```
 
 
@@ -2354,7 +2354,7 @@ next(a)
 ```
 
 ```
-## 9
+#:> 9
 ```
 
 
@@ -2363,7 +2363,7 @@ sum(a) # sum the power of 6,10
 ```
 
 ```
-## 136
+#:> 136
 ```
 
 
@@ -2450,7 +2450,7 @@ math.sqrt(9)
 ```
 
 ```
-## 3.0
+#:> 3.0
 ```
 
 
@@ -2463,7 +2463,7 @@ m.sqrt(9)
 ```
 
 ```
-## 3.0
+#:> 3.0
 ```
 
 
@@ -2483,7 +2483,7 @@ print (sqrt(9))
 ```
 
 ```
-## 3.0
+#:> 3.0
 ```
 
 
@@ -2496,7 +2496,7 @@ print (sq(9))
 ```
 
 ```
-## 3.0
+#:> 3.0
 ```
 
 
@@ -2520,8 +2520,8 @@ myfun(5,8)
 ```
 
 ```
-## x: 5
-## y: 8
+#:> x: 5
+#:> y: 8
 ```
 
 However, you can also specify the argument assigment during function call
@@ -2532,8 +2532,8 @@ myfun (y=8,x=5)
 ```
 
 ```
-## x: 5
-## y: 8
+#:> x: 5
+#:> y: 8
 ```
 
 
@@ -2549,8 +2549,8 @@ myfun(5)  # pass only one argument
 ```
 
 ```
-## x: 5
-## y: 1
+#:> x: 5
+#:> y: 1
 ```
 
 
@@ -2568,7 +2568,7 @@ print (spam(1))
 ```
 
 ```
-## [1]
+#:> [1]
 ```
 
 ```python
@@ -2576,7 +2576,7 @@ print (spam(2))
 ```
 
 ```
-## [1, 2]
+#:> [1, 2]
 ```
 
 ```python
@@ -2584,7 +2584,7 @@ print (spam(3))
 ```
 
 ```
-## [1, 2, 3]
+#:> [1, 2, 3]
 ```
 
 
@@ -2602,7 +2602,7 @@ print (bigger(5,8))
 ```
 
 ```
-## 8
+#:> 8
 ```
 
 
@@ -2618,7 +2618,7 @@ dummy()
 ```
 
 ```
-## This is a dummy function, return no value
+#:> This is a dummy function, return no value
 ```
 
 
@@ -2637,7 +2637,7 @@ print (a,b)
 ```
 
 ```
-## 7 9
+#:> 7 9
 ```
 
 ```python
@@ -2645,7 +2645,7 @@ print (c)
 ```
 
 ```
-## (7, 9)
+#:> (7, 9)
 ```
 
 
@@ -2661,7 +2661,7 @@ myfun('hello',54,print)
 ```
 
 ```
-## hello 54
+#:> hello 54
 ```
 
 
@@ -2687,8 +2687,8 @@ myfun(1,2,3,4,5,'abc')
 ```
 
 ```
-## 1
-## (2, 3, 4, 5, 'abc')
+#:> 1
+#:> (2, 3, 4, 5, 'abc')
 ```
 
 
@@ -2706,9 +2706,9 @@ myfun(1,2,3)
 ```
 
 ```
-## 1
-## 2
-## (3,)
+#:> 1
+#:> 2
+#:> (3,)
 ```
 
 
@@ -2725,9 +2725,9 @@ myfun(1,2,3,4,5)
 ```
 
 ```
-## 1
-## 9
-## (2, 3, 4, 5)
+#:> 1
+#:> 9
+#:> (2, 3, 4, 5)
 ```
 
 
@@ -2743,7 +2743,7 @@ myfun(1,2,3,4,5)
 ```
 
 ```
-## (1, 2, 3, 4, 5)
+#:> (1, 2, 3, 4, 5)
 ```
 
 
@@ -2760,9 +2760,9 @@ myfun(1,2)
 ```
 
 ```
-## 1
-## 2
-## ()
+#:> 1
+#:> 2
+#:> ()
 ```
 
 
@@ -2781,7 +2781,7 @@ foo(a=1,b=2,c=3)
 ```
 
 ```
-## {'a': 1, 'b': 2, 'c': 3}
+#:> {'a': 1, 'b': 2, 'c': 3}
 ```
 
 
@@ -2797,8 +2797,8 @@ foo(9,a=1,b=2,c=3)
 ```
 
 ```
-## 9
-## {'a': 1, 'b': 2, 'c': 3}
+#:> 9
+#:> {'a': 1, 'b': 2, 'c': 3}
 ```
 
 
@@ -2807,8 +2807,8 @@ foo(9) #empty dictionary
 ```
 
 ```
-## 9
-## {}
+#:> 9
+#:> {}
 ```
 
 
@@ -2826,10 +2826,10 @@ foo(**{"a":2,"b":3,"c":4})
 ```
 
 ```
-## 2
-## 3
-## 4
-## 1
+#:> 2
+#:> 3
+#:> 4
+#:> 1
 ```
 
 
@@ -2850,9 +2850,9 @@ foo(1,2,c=3,d=4)
 ```
 
 ```
-## 1
-## 2
-## {'c': 3, 'd': 4}
+#:> 1
+#:> 2
+#:> {'c': 3, 'd': 4}
 ```
 
 
@@ -2870,10 +2870,10 @@ foo(1,2,3,4,5,c=6,d=7)
 ```
 
 ```
-## 1
-## 2
-## (3, 4, 5)
-## {'c': 6, 'd': 7}
+#:> 1
+#:> 2
+#:> (3, 4, 5)
+#:> {'c': 6, 'd': 7}
 ```
 
 
@@ -2911,10 +2911,10 @@ except Exception as err:
 ```
 
 ```
-## I know this error !!!! 
-##  Error:  unsupported operand type(s) for +: 'int' and 'str' 
-##  Args:   ("unsupported operand type(s) for +: 'int' and 'str'",) 
-##  Type:   <class 'TypeError'>
+#:> I know this error !!!! 
+#:>  Error:  unsupported operand type(s) for +: 'int' and 'str' 
+#:>  Args:   ("unsupported operand type(s) for +: 'int' and 'str'",) 
+#:>  Type:   <class 'TypeError'>
 ```
 
 ## Custom Exception
@@ -2930,9 +2930,9 @@ except Exception as err:
 ```
 
 ```
-## Error:  ('bloody', 'hell') 
-## Args:   ('bloody', 'hell') 
-## Type:   <class 'Exception'>
+#:> Error:  ('bloody', 'hell') 
+#:> Args:   ('bloody', 'hell') 
+#:> Type:   <class 'Exception'>
 ```
 
 # Object Oriented Programming
@@ -2977,7 +2977,7 @@ p1 = Person('Yong')
 ```
 
 ```
-## I'm in Person Constructor: Yong
+#:> I'm in Person Constructor: Yong
 ```
 
 ```python
@@ -2985,7 +2985,7 @@ p2 = Person('Gan',200)
 ```
 
 ```
-## I'm in Person Constructor: Gan
+#:> I'm in Person Constructor: Gan
 ```
 
 ```python
@@ -2993,8 +2993,8 @@ p3 = Kid('Jolin',50)
 ```
 
 ```
-## I'm in Kid Constructor: Jolin
-## I'm in Person Constructor: Jolin
+#:> I'm in Kid Constructor: Jolin
+#:> I'm in Person Constructor: Jolin
 ```
 
 ## Calling Method
@@ -3005,7 +3005,7 @@ p1.say_hi()
 ```
 
 ```
-## Hello, my name is :  Yong
+#:> Hello, my name is :  Yong
 ```
 
 ```python
@@ -3013,7 +3013,7 @@ p1.balance()
 ```
 
 ```
-## Wallet Balance: 0
+#:> Wallet Balance: 0
 ```
 
 ```python
@@ -3021,7 +3021,7 @@ p3.Cry()
 ```
 
 ```
-## Kid is crying
+#:> Kid is crying
 ```
 
 ```python
@@ -3029,7 +3029,7 @@ p3.MakeCry()
 ```
 
 ```
-## Kid is crying
+#:> Kid is crying
 ```
 
 
@@ -3038,7 +3038,7 @@ p2.say_hi()
 ```
 
 ```
-## Hello, my name is :  Gan
+#:> Hello, my name is :  Gan
 ```
 
 ```python
@@ -3046,7 +3046,7 @@ p2.balance()
 ```
 
 ```
-## Wallet Balance: 200
+#:> Wallet Balance: 200
 ```
 
 ## Getting Property
@@ -3057,7 +3057,7 @@ p1.wallet
 ```
 
 ```
-## 0
+#:> 0
 ```
 
 
@@ -3066,7 +3066,7 @@ p2.wallet
 ```
 
 ```
-## 200
+#:> 200
 ```
 
 
@@ -3079,7 +3079,7 @@ p1.wallet
 ```
 
 ```
-## 900
+#:> 900
 ```
 
 
@@ -3121,7 +3121,7 @@ registry
 ```
 
 ```
-## [<function foo at 0x7f640e21dcb0>, <function bar at 0x7f640e23f050>]
+#:> [<function foo at 0x7f861c77edd0>, <function bar at 0x7f861c7a0200>]
 ```
 
 
@@ -3130,7 +3130,7 @@ registry[0]()
 ```
 
 ```
-## 3
+#:> 3
 ```
 
 
@@ -3139,7 +3139,7 @@ registry[1]()
 ```
 
 ```
-## 5
+#:> 5
 ```
 
 ### Example 2 - Decorator with Class
@@ -3191,7 +3191,7 @@ print (a._functions)
 ```
 
 ```
-## [<function foo at 0x7f640e245440>, <function bax at 0x7f640e229c20>]
+#:> [<function foo at 0x7f861c7a63b0>, <function bax at 0x7f862f9bd0e0>]
 ```
 
 ```python
@@ -3199,7 +3199,7 @@ print (b._functions)
 ```
 
 ```
-## [<function bar at 0x7f640e229680>, <function bax at 0x7f640e229c20>]
+#:> [<function bar at 0x7f861c7a6560>, <function bax at 0x7f862f9bd0e0>]
 ```
 
 
@@ -3208,7 +3208,7 @@ print (a.run_all())
 ```
 
 ```
-## [3, 7]
+#:> [3, 7]
 ```
 
 ```python
@@ -3216,7 +3216,7 @@ print (b.run_all())
 ```
 
 ```
-## [5, 7]
+#:> [5, 7]
 ```
 
 
@@ -3227,7 +3227,7 @@ print ( a.run_all(x=9) )
 ```
 
 ```
-## [9, 9]
+#:> [9, 9]
 ```
 
 ```python
@@ -3235,7 +3235,7 @@ print ( b.run_all(x=9) )
 ```
 
 ```
-## [9, 9]
+#:> [9, 9]
 ```
 
 
@@ -3284,7 +3284,7 @@ print( date(2000,1,1) )
 ```
 
 ```
-## 2000-01-01
+#:> 2000-01-01
 ```
 
 ```python
@@ -3292,7 +3292,7 @@ print( date(year=2000,month=1,day=1) )
 ```
 
 ```
-## 2000-01-01
+#:> 2000-01-01
 ```
 
 ```python
@@ -3300,7 +3300,7 @@ print( type(date(year=2000,month=1,day=1)))
 ```
 
 ```
-## <class 'datetime.date'>
+#:> <class 'datetime.date'>
 ```
 
 
@@ -3316,7 +3316,7 @@ date.today()
 ```
 
 ```
-## datetime.date(2020, 10, 30)
+#:> datetime.date(2020, 10, 30)
 ```
 
 
@@ -3325,7 +3325,7 @@ print( date.today() )
 ```
 
 ```
-## 2020-10-30
+#:> 2020-10-30
 ```
 
 
@@ -3338,7 +3338,7 @@ date.fromisoformat('2011-11-11')
 ```
 
 ```
-## datetime.date(2011, 11, 11)
+#:> datetime.date(2011, 11, 11)
 ```
 
 To convert **non-iso format** date string to date object, **convert to datetime first**, then to date
@@ -3355,7 +3355,7 @@ print( date.today() )
 ```
 
 ```
-## 2020-10-30
+#:> 2020-10-30
 ```
 
 ```python
@@ -3363,7 +3363,7 @@ print( date.today().replace(month=8) )
 ```
 
 ```
-## 2020-08-30
+#:> 2020-08-30
 ```
 
 #### ```weekday(), isoweekday()```
@@ -3376,7 +3376,7 @@ print( date.today().weekday() )
 ```
 
 ```
-## 4
+#:> 4
 ```
 
 ```python
@@ -3384,7 +3384,7 @@ print( date.today().isoweekday() )
 ```
 
 ```
-## 5
+#:> 5
 ```
 
 
@@ -3395,7 +3395,7 @@ print( date.today(), "is day", wd ,"which is", weekdays[wd] )
 ```
 
 ```
-## 2020-10-30 is day 4 which is Fri
+#:> 2020-10-30 is day 4 which is Fri
 ```
 
 #### Formating with ```isoformat()```
@@ -3407,7 +3407,7 @@ date.today().isoformat() # return string
 ```
 
 ```
-## '2020-10-30'
+#:> '2020-10-30'
 ```
 
 #### Formating with ```strftime```
@@ -3420,7 +3420,7 @@ date.today().strftime("%m/%d")
 ```
 
 ```
-## '10/30'
+#:> '10/30'
 ```
 
 #### ```isocalendar()```
@@ -3432,7 +3432,7 @@ date.today().isocalendar() ## return tuple
 ```
 
 ```
-## (2020, 44, 5)
+#:> (2020, 44, 5)
 ```
 
 ### Attributes
@@ -3443,7 +3443,7 @@ print( date.today().year )
 ```
 
 ```
-## 2020
+#:> 2020
 ```
 
 ```python
@@ -3451,7 +3451,7 @@ print( date.today().month )
 ```
 
 ```
-## 10
+#:> 10
 ```
 
 ```python
@@ -3459,7 +3459,7 @@ print( date.today().day )
 ```
 
 ```
-## 30
+#:> 30
 ```
 
 
@@ -3480,11 +3480,11 @@ print(
 ```
 
 ```
-## 2000-01-01 
-##  2000-01-01 00:00:00 
-##  2000-01-01 23:15:55 
-##  <class 'datetime.date'> 
-##  <class 'datetime.datetime'>
+#:> 2000-01-01 
+#:>  2000-01-01 00:00:00 
+#:>  2000-01-01 23:15:55 
+#:>  <class 'datetime.date'> 
+#:>  <class 'datetime.datetime'>
 ```
 
 ### Class Method
@@ -3499,8 +3499,8 @@ print(  dt.datetime.now(), '\n',
 ```
 
 ```
-## 2020-10-30 07:54:59.294580 
-##  2020-10-30
+#:> 2020-10-30 10:22:36.204680 
+#:>  2020-10-30
 ```
 
 
@@ -3509,7 +3509,7 @@ dt.datetime.today()
 ```
 
 ```
-## datetime.datetime(2020, 10, 30, 7, 54, 59, 303882)
+#:> datetime.datetime(2020, 10, 30, 10, 22, 36, 216070)
 ```
 
 #### ```utcnow```
@@ -3520,7 +3520,7 @@ dt.datetime.utcnow()
 ```
 
 ```
-## datetime.datetime(2020, 10, 30, 12, 54, 59, 311488)
+#:> datetime.datetime(2020, 10, 30, 15, 22, 36, 228419)
 ```
 
 #### ```combine()``` date and time
@@ -3534,7 +3534,7 @@ dt.datetime.combine(now.date(), now.time())
 ```
 
 ```
-## datetime.datetime(2020, 10, 30, 7, 54, 59, 322667)
+#:> datetime.datetime(2020, 10, 30, 10, 22, 36, 241493)
 ```
 
 #### Convert from String ```strptime()```
@@ -3559,7 +3559,7 @@ datetime.strptime('2011-02-25','%Y-%m-%d')
 ```
 
 ```
-## datetime.datetime(2011, 2, 25, 0, 0)
+#:> datetime.datetime(2011, 2, 25, 0, 0)
 ```
 
 
@@ -3568,7 +3568,7 @@ datetime.strptime('9-01-18','%d-%m-%y')
 ```
 
 ```
-## datetime.datetime(2018, 1, 9, 0, 0)
+#:> datetime.datetime(2018, 1, 9, 0, 0)
 ```
 
 
@@ -3577,7 +3577,7 @@ datetime.strptime('09-Mar-2018','%d-%b-%Y')
 ```
 
 ```
-## datetime.datetime(2018, 3, 9, 0, 0)
+#:> datetime.datetime(2018, 3, 9, 0, 0)
 ```
 
 
@@ -3586,7 +3586,7 @@ datetime.strptime('2/5/2018 4:49 PM', '%m/%d/%Y %I:%M %p')
 ```
 
 ```
-## datetime.datetime(2018, 2, 5, 16, 49)
+#:> datetime.datetime(2018, 2, 5, 16, 49)
 ```
 
 #### Convert from ISO ```fromisoformat```
@@ -3601,7 +3601,7 @@ dt.datetime.fromisoformat("2019-02-05T10:22:33")
 ```
 
 ```
-## datetime.datetime(2019, 2, 5, 10, 22, 33)
+#:> datetime.datetime(2019, 2, 5, 10, 22, 33)
 ```
 
 ### Instance Method
@@ -3614,7 +3614,7 @@ datetime.now().weekday()
 ```
 
 ```
-## 4
+#:> 4
 ```
 
 #### ```replace```
@@ -3625,7 +3625,7 @@ datetime.now().replace(year=1999)
 ```
 
 ```
-## datetime.datetime(1999, 10, 30, 7, 54, 59, 412128)
+#:> datetime.datetime(1999, 10, 30, 10, 22, 36, 354410)
 ```
 
 #### convert to ```.time()```
@@ -3636,7 +3636,7 @@ datetime.now().time()
 ```
 
 ```
-## datetime.time(7, 54, 59, 422486)
+#:> datetime.time(10, 22, 36, 366705)
 ```
 
 #### Convert to ```.date()```
@@ -3647,7 +3647,7 @@ datetime.now().date()
 ```
 
 ```
-## datetime.date(2020, 10, 30)
+#:> datetime.date(2020, 10, 30)
 ```
 
 #### Convert to String
@@ -3660,7 +3660,7 @@ str( datetime.now() )
 ```
 
 ```
-## '2020-10-30 07:54:59.441015'
+#:> '2020-10-30 10:22:36.389605'
 ```
 
 **Use ```strftime()```**
@@ -3671,7 +3671,7 @@ dt.datetime.now().strftime('%d-%b-%Y')
 ```
 
 ```
-## '30-Oct-2020'
+#:> '30-Oct-2020'
 ```
 
 
@@ -3680,7 +3680,7 @@ dt.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%S.%fZ')  ## ISO 8601 UTC
 ```
 
 ```
-## '2020-10-30T12:54:59.458510Z'
+#:> '2020-10-30T15:22:36.421085Z'
 ```
 
 **Use ```isoformat()```**
@@ -3691,7 +3691,7 @@ dt.datetime.utcnow().isoformat()
 ```
 
 ```
-## '2020-10-30T12:54:59.465379'
+#:> '2020-10-30T15:22:36.432651'
 ```
 
 ### Attributes
@@ -3702,7 +3702,7 @@ print( datetime.now().year )
 ```
 
 ```
-## 2020
+#:> 2020
 ```
 
 ```python
@@ -3710,7 +3710,7 @@ print( datetime.now().month )
 ```
 
 ```
-## 10
+#:> 10
 ```
 
 ```python
@@ -3718,7 +3718,7 @@ print( datetime.now().day )
 ```
 
 ```
-## 30
+#:> 30
 ```
 
 ```python
@@ -3726,7 +3726,7 @@ print( datetime.now().hour )
 ```
 
 ```
-## 7
+#:> 10
 ```
 
 ```python
@@ -3734,7 +3734,7 @@ print( datetime.now().minute )
 ```
 
 ```
-## 54
+#:> 22
 ```
 
 ## time
@@ -3747,7 +3747,7 @@ print( time(2) )    #default single arugement, hour
 ```
 
 ```
-## 02:00:00
+#:> 02:00:00
 ```
 
 ```python
@@ -3755,7 +3755,7 @@ print( time(2,15) ) #default two arguments, hour, minute
 ```
 
 ```
-## 02:15:00
+#:> 02:15:00
 ```
 
 ```python
@@ -3763,7 +3763,7 @@ print( time(hour=2,minute=15,second=30) )
 ```
 
 ```
-## 02:15:30
+#:> 02:15:30
 ```
 
 ### Class Method
@@ -3776,7 +3776,7 @@ datetime.now().time()
 ```
 
 ```
-## datetime.time(7, 54, 59, 539093)
+#:> datetime.time(10, 22, 36, 496233)
 ```
 
 ### Attributes
@@ -3787,7 +3787,7 @@ print( datetime.now().time().hour )
 ```
 
 ```
-## 7
+#:> 10
 ```
 
 ```python
@@ -3795,7 +3795,7 @@ print( datetime.now().time().minute )
 ```
 
 ```
-## 54
+#:> 22
 ```
 
 ```python
@@ -3803,7 +3803,7 @@ print( datetime.now().time().second )
 ```
 
 ```
-## 59
+#:> 36
 ```
 
 ## timedelta
@@ -3823,7 +3823,7 @@ print ('delt+now : ', now+delt)
 ```
 
 ```
-## delt+now :  2021-10-30 08:28:14.585373
+#:> delt+now :  2021-10-30 10:55:51.563934
 ```
 
 # Getting External Data
@@ -3854,12 +3854,12 @@ mydf.head()
 ```
 
 ```
-##   comp dept grp     value1     value2
-## 0   C2   D1  G1  47.722460  19.553553
-## 1   C1   D1  G2  52.187792  23.455378
-## 2   C2   D2  G1  47.217841  15.811224
-## 3   C1   D3  G2  60.953896  19.713027
-## 4   C3   D5  G2  48.734540  14.244879
+#:>   comp dept grp     value1     value2
+#:> 0   C3   D5  G1  44.449556  25.526171
+#:> 1   C3   D4  G2  44.988058  19.327319
+#:> 2   C1   D3  G1  48.293492  21.577865
+#:> 3   C3   D4  G1  46.540876  17.784916
+#:> 4   C2   D2  G2  57.096345  19.630728
 ```
 
 ## Column Manipulation
@@ -3872,20 +3872,20 @@ mydf >> define(newcol = 'value1')                 # simple method for one column
 ```
 
 ```
-##     comp dept grp     value1     value2     newcol
-## 0     C2   D1  G1  47.722460  19.553553  47.722460
-## 1     C1   D1  G2  52.187792  23.455378  52.187792
-## 2     C2   D2  G1  47.217841  15.811224  47.217841
-## 3     C1   D3  G2  60.953896  19.713027  60.953896
-## 4     C3   D5  G2  48.734540  14.244879  48.734540
-## ..   ...  ...  ..        ...        ...        ...
-## 195   C2   D5  G2  52.956740  17.778732  52.956740
-## 196   C3   D5  G2  41.742703  19.029966  41.742703
-## 197   C2   D3  G2  56.517131  25.726564  56.517131
-## 198   C1   D1  G1  50.985854  18.876010  50.985854
-## 199   C1   D1  G2  45.853003  20.524694  45.853003
-## 
-## [200 rows x 6 columns]
+#:>     comp dept grp     value1     value2     newcol
+#:> 0     C3   D5  G1  44.449556  25.526171  44.449556
+#:> 1     C3   D4  G2  44.988058  19.327319  44.988058
+#:> 2     C1   D3  G1  48.293492  21.577865  48.293492
+#:> 3     C3   D4  G1  46.540876  17.784916  46.540876
+#:> 4     C2   D2  G2  57.096345  19.630728  57.096345
+#:> ..   ...  ...  ..        ...        ...        ...
+#:> 195   C2   D4  G1  53.110599  17.620498  53.110599
+#:> 196   C1   D5  G2  50.798765  17.686556  50.798765
+#:> 197   C1   D2  G1  51.530614  23.770463  51.530614
+#:> 198   C1   D2  G2  54.514834  21.382643  54.514834
+#:> 199   C1   D5  G1  52.573988  21.109073  52.573988
+#:> 
+#:> [200 rows x 6 columns]
 ```
 
 
@@ -3894,20 +3894,20 @@ mydf >> define (('newcol1', 'value1'), newcol2='value2')  # method for muiltiple
 ```
 
 ```
-##     comp dept grp     value1     value2    newcol1    newcol2
-## 0     C2   D1  G1  47.722460  19.553553  47.722460  19.553553
-## 1     C1   D1  G2  52.187792  23.455378  52.187792  23.455378
-## 2     C2   D2  G1  47.217841  15.811224  47.217841  15.811224
-## 3     C1   D3  G2  60.953896  19.713027  60.953896  19.713027
-## 4     C3   D5  G2  48.734540  14.244879  48.734540  14.244879
-## ..   ...  ...  ..        ...        ...        ...        ...
-## 195   C2   D5  G2  52.956740  17.778732  52.956740  17.778732
-## 196   C3   D5  G2  41.742703  19.029966  41.742703  19.029966
-## 197   C2   D3  G2  56.517131  25.726564  56.517131  25.726564
-## 198   C1   D1  G1  50.985854  18.876010  50.985854  18.876010
-## 199   C1   D1  G2  45.853003  20.524694  45.853003  20.524694
-## 
-## [200 rows x 7 columns]
+#:>     comp dept grp     value1     value2    newcol1    newcol2
+#:> 0     C3   D5  G1  44.449556  25.526171  44.449556  25.526171
+#:> 1     C3   D4  G2  44.988058  19.327319  44.988058  19.327319
+#:> 2     C1   D3  G1  48.293492  21.577865  48.293492  21.577865
+#:> 3     C3   D4  G1  46.540876  17.784916  46.540876  17.784916
+#:> 4     C2   D2  G2  57.096345  19.630728  57.096345  19.630728
+#:> ..   ...  ...  ..        ...        ...        ...        ...
+#:> 195   C2   D4  G1  53.110599  17.620498  53.110599  17.620498
+#:> 196   C1   D5  G2  50.798765  17.686556  50.798765  17.686556
+#:> 197   C1   D2  G1  51.530614  23.770463  51.530614  23.770463
+#:> 198   C1   D2  G2  54.514834  21.382643  54.514834  21.382643
+#:> 199   C1   D5  G1  52.573988  21.109073  52.573988  21.109073
+#:> 
+#:> [200 rows x 7 columns]
 ```
 
 <!-- jupyter_markdown,  -->
@@ -3922,20 +3922,20 @@ mydf >> define ('value1*2')
 ```
 
 ```
-##     comp dept grp     value1     value2    value1*2
-## 0     C2   D1  G1  47.722460  19.553553   95.444920
-## 1     C1   D1  G2  52.187792  23.455378  104.375584
-## 2     C2   D2  G1  47.217841  15.811224   94.435681
-## 3     C1   D3  G2  60.953896  19.713027  121.907791
-## 4     C3   D5  G2  48.734540  14.244879   97.469079
-## ..   ...  ...  ..        ...        ...         ...
-## 195   C2   D5  G2  52.956740  17.778732  105.913481
-## 196   C3   D5  G2  41.742703  19.029966   83.485407
-## 197   C2   D3  G2  56.517131  25.726564  113.034263
-## 198   C1   D1  G1  50.985854  18.876010  101.971709
-## 199   C1   D1  G2  45.853003  20.524694   91.706006
-## 
-## [200 rows x 6 columns]
+#:>     comp dept grp     value1     value2    value1*2
+#:> 0     C3   D5  G1  44.449556  25.526171   88.899112
+#:> 1     C3   D4  G2  44.988058  19.327319   89.976116
+#:> 2     C1   D3  G1  48.293492  21.577865   96.586984
+#:> 3     C3   D4  G1  46.540876  17.784916   93.081752
+#:> 4     C2   D2  G2  57.096345  19.630728  114.192691
+#:> ..   ...  ...  ..        ...        ...         ...
+#:> 195   C2   D4  G1  53.110599  17.620498  106.221198
+#:> 196   C1   D5  G2  50.798765  17.686556  101.597531
+#:> 197   C1   D2  G1  51.530614  23.770463  103.061229
+#:> 198   C1   D2  G2  54.514834  21.382643  109.029668
+#:> 199   C1   D5  G1  52.573988  21.109073  105.147977
+#:> 
+#:> [200 rows x 6 columns]
 ```
 
 <!-- jupyter_markdown,  -->
@@ -3947,20 +3947,20 @@ mydf >> define(value3 = 'value1*2')
 ```
 
 ```
-##     comp dept grp     value1     value2      value3
-## 0     C2   D1  G1  47.722460  19.553553   95.444920
-## 1     C1   D1  G2  52.187792  23.455378  104.375584
-## 2     C2   D2  G1  47.217841  15.811224   94.435681
-## 3     C1   D3  G2  60.953896  19.713027  121.907791
-## 4     C3   D5  G2  48.734540  14.244879   97.469079
-## ..   ...  ...  ..        ...        ...         ...
-## 195   C2   D5  G2  52.956740  17.778732  105.913481
-## 196   C3   D5  G2  41.742703  19.029966   83.485407
-## 197   C2   D3  G2  56.517131  25.726564  113.034263
-## 198   C1   D1  G1  50.985854  18.876010  101.971709
-## 199   C1   D1  G2  45.853003  20.524694   91.706006
-## 
-## [200 rows x 6 columns]
+#:>     comp dept grp     value1     value2      value3
+#:> 0     C3   D5  G1  44.449556  25.526171   88.899112
+#:> 1     C3   D4  G2  44.988058  19.327319   89.976116
+#:> 2     C1   D3  G1  48.293492  21.577865   96.586984
+#:> 3     C3   D4  G1  46.540876  17.784916   93.081752
+#:> 4     C2   D2  G2  57.096345  19.630728  114.192691
+#:> ..   ...  ...  ..        ...        ...         ...
+#:> 195   C2   D4  G1  53.110599  17.620498  106.221198
+#:> 196   C1   D5  G2  50.798765  17.686556  101.597531
+#:> 197   C1   D2  G1  51.530614  23.770463  103.061229
+#:> 198   C1   D2  G2  54.514834  21.382643  109.029668
+#:> 199   C1   D5  G1  52.573988  21.109073  105.147977
+#:> 
+#:> [200 rows x 6 columns]
 ```
 
 <!-- jupyter_markdown,  -->
@@ -3972,20 +3972,20 @@ mydf >> define('value1*2',('newcol2','value2*2'),newcol3='value2*3')
 ```
 
 ```
-##     comp dept grp     value1     value2    value1*2    newcol2    newcol3
-## 0     C2   D1  G1  47.722460  19.553553   95.444920  39.107106  58.660659
-## 1     C1   D1  G2  52.187792  23.455378  104.375584  46.910756  70.366135
-## 2     C2   D2  G1  47.217841  15.811224   94.435681  31.622448  47.433672
-## 3     C1   D3  G2  60.953896  19.713027  121.907791  39.426054  59.139081
-## 4     C3   D5  G2  48.734540  14.244879   97.469079  28.489758  42.734637
-## ..   ...  ...  ..        ...        ...         ...        ...        ...
-## 195   C2   D5  G2  52.956740  17.778732  105.913481  35.557464  53.336196
-## 196   C3   D5  G2  41.742703  19.029966   83.485407  38.059933  57.089899
-## 197   C2   D3  G2  56.517131  25.726564  113.034263  51.453128  77.179692
-## 198   C1   D1  G1  50.985854  18.876010  101.971709  37.752020  56.628030
-## 199   C1   D1  G2  45.853003  20.524694   91.706006  41.049388  61.574082
-## 
-## [200 rows x 8 columns]
+#:>     comp dept grp     value1     value2    value1*2    newcol2    newcol3
+#:> 0     C3   D5  G1  44.449556  25.526171   88.899112  51.052343  76.578514
+#:> 1     C3   D4  G2  44.988058  19.327319   89.976116  38.654638  57.981956
+#:> 2     C1   D3  G1  48.293492  21.577865   96.586984  43.155729  64.733594
+#:> 3     C3   D4  G1  46.540876  17.784916   93.081752  35.569833  53.354749
+#:> 4     C2   D2  G2  57.096345  19.630728  114.192691  39.261456  58.892183
+#:> ..   ...  ...  ..        ...        ...         ...        ...        ...
+#:> 195   C2   D4  G1  53.110599  17.620498  106.221198  35.240996  52.861494
+#:> 196   C1   D5  G2  50.798765  17.686556  101.597531  35.373113  53.059669
+#:> 197   C1   D2  G1  51.530614  23.770463  103.061229  47.540925  71.311388
+#:> 198   C1   D2  G2  54.514834  21.382643  109.029668  42.765286  64.147929
+#:> 199   C1   D5  G1  52.573988  21.109073  105.147977  42.218147  63.327220
+#:> 
+#:> [200 rows x 8 columns]
 ```
 
 <!-- jupyter_markdown,  -->
@@ -3998,20 +3998,20 @@ mydf2.info()
 ```
 
 ```
-## <class 'pandas.core.frame.DataFrame'>
-## RangeIndex: 200 entries, 0 to 199
-## Data columns (total 7 columns):
-##  #   Column   Non-Null Count  Dtype  
-## ---  ------   --------------  -----  
-##  0   comp     200 non-null    object 
-##  1   dept     200 non-null    object 
-##  2   grp      200 non-null    object 
-##  3   value1   200 non-null    float64
-##  4   value2   200 non-null    float64
-##  5   newcol1  200 non-null    float64
-##  6   newcol2  200 non-null    float64
-## dtypes: float64(4), object(3)
-## memory usage: 11.1+ KB
+#:> <class 'pandas.core.frame.DataFrame'>
+#:> RangeIndex: 200 entries, 0 to 199
+#:> Data columns (total 7 columns):
+#:>  #   Column   Non-Null Count  Dtype  
+#:> ---  ------   --------------  -----  
+#:>  0   comp     200 non-null    object 
+#:>  1   dept     200 non-null    object 
+#:>  2   grp      200 non-null    object 
+#:>  3   value1   200 non-null    float64
+#:>  4   value2   200 non-null    float64
+#:>  5   newcol1  200 non-null    float64
+#:>  6   newcol2  200 non-null    float64
+#:> dtypes: float64(4), object(3)
+#:> memory usage: 11.1+ KB
 ```
 
 <!-- jupyter_markdown,  -->
@@ -4024,20 +4024,20 @@ mydf2 >> select ('comp','dept','value1')
 ```
 
 ```
-##     comp dept     value1
-## 0     C2   D1  47.722460
-## 1     C1   D1  52.187792
-## 2     C2   D2  47.217841
-## 3     C1   D3  60.953896
-## 4     C3   D5  48.734540
-## ..   ...  ...        ...
-## 195   C2   D5  52.956740
-## 196   C3   D5  41.742703
-## 197   C2   D3  56.517131
-## 198   C1   D1  50.985854
-## 199   C1   D1  45.853003
-## 
-## [200 rows x 3 columns]
+#:>     comp dept     value1
+#:> 0     C3   D5  44.449556
+#:> 1     C3   D4  44.988058
+#:> 2     C1   D3  48.293492
+#:> 3     C3   D4  46.540876
+#:> 4     C2   D2  57.096345
+#:> ..   ...  ...        ...
+#:> 195   C2   D4  53.110599
+#:> 196   C1   D5  50.798765
+#:> 197   C1   D2  51.530614
+#:> 198   C1   D2  54.514834
+#:> 199   C1   D5  52.573988
+#:> 
+#:> [200 rows x 3 columns]
 ```
 
 **Column Name Starts With** ...
@@ -4048,20 +4048,20 @@ mydf2 >> select ('comp', startswith='val')
 ```
 
 ```
-##     comp     value1     value2
-## 0     C2  47.722460  19.553553
-## 1     C1  52.187792  23.455378
-## 2     C2  47.217841  15.811224
-## 3     C1  60.953896  19.713027
-## 4     C3  48.734540  14.244879
-## ..   ...        ...        ...
-## 195   C2  52.956740  17.778732
-## 196   C3  41.742703  19.029966
-## 197   C2  56.517131  25.726564
-## 198   C1  50.985854  18.876010
-## 199   C1  45.853003  20.524694
-## 
-## [200 rows x 3 columns]
+#:>     comp     value1     value2
+#:> 0     C3  44.449556  25.526171
+#:> 1     C3  44.988058  19.327319
+#:> 2     C1  48.293492  21.577865
+#:> 3     C3  46.540876  17.784916
+#:> 4     C2  57.096345  19.630728
+#:> ..   ...        ...        ...
+#:> 195   C2  53.110599  17.620498
+#:> 196   C1  50.798765  17.686556
+#:> 197   C1  51.530614  23.770463
+#:> 198   C1  54.514834  21.382643
+#:> 199   C1  52.573988  21.109073
+#:> 
+#:> [200 rows x 3 columns]
 ```
 
 **Column Name Ends With ...**
@@ -4072,20 +4072,20 @@ mydf2 >> select ('comp',endswith=('1','2','3'))
 ```
 
 ```
-##     comp     value1     value2    newcol1    newcol2
-## 0     C2  47.722460  19.553553  47.722460  19.553553
-## 1     C1  52.187792  23.455378  52.187792  23.455378
-## 2     C2  47.217841  15.811224  47.217841  15.811224
-## 3     C1  60.953896  19.713027  60.953896  19.713027
-## 4     C3  48.734540  14.244879  48.734540  14.244879
-## ..   ...        ...        ...        ...        ...
-## 195   C2  52.956740  17.778732  52.956740  17.778732
-## 196   C3  41.742703  19.029966  41.742703  19.029966
-## 197   C2  56.517131  25.726564  56.517131  25.726564
-## 198   C1  50.985854  18.876010  50.985854  18.876010
-## 199   C1  45.853003  20.524694  45.853003  20.524694
-## 
-## [200 rows x 5 columns]
+#:>     comp     value1     value2    newcol1    newcol2
+#:> 0     C3  44.449556  25.526171  44.449556  25.526171
+#:> 1     C3  44.988058  19.327319  44.988058  19.327319
+#:> 2     C1  48.293492  21.577865  48.293492  21.577865
+#:> 3     C3  46.540876  17.784916  46.540876  17.784916
+#:> 4     C2  57.096345  19.630728  57.096345  19.630728
+#:> ..   ...        ...        ...        ...        ...
+#:> 195   C2  53.110599  17.620498  53.110599  17.620498
+#:> 196   C1  50.798765  17.686556  50.798765  17.686556
+#:> 197   C1  51.530614  23.770463  51.530614  23.770463
+#:> 198   C1  54.514834  21.382643  54.514834  21.382643
+#:> 199   C1  52.573988  21.109073  52.573988  21.109073
+#:> 
+#:> [200 rows x 5 columns]
 ```
 
 **Column Name Contains ...**
@@ -4096,20 +4096,20 @@ mydf2 >> select('comp', contains=('col','val'))
 ```
 
 ```
-##     comp     value1     value2    newcol1    newcol2
-## 0     C2  47.722460  19.553553  47.722460  19.553553
-## 1     C1  52.187792  23.455378  52.187792  23.455378
-## 2     C2  47.217841  15.811224  47.217841  15.811224
-## 3     C1  60.953896  19.713027  60.953896  19.713027
-## 4     C3  48.734540  14.244879  48.734540  14.244879
-## ..   ...        ...        ...        ...        ...
-## 195   C2  52.956740  17.778732  52.956740  17.778732
-## 196   C3  41.742703  19.029966  41.742703  19.029966
-## 197   C2  56.517131  25.726564  56.517131  25.726564
-## 198   C1  50.985854  18.876010  50.985854  18.876010
-## 199   C1  45.853003  20.524694  45.853003  20.524694
-## 
-## [200 rows x 5 columns]
+#:>     comp     value1     value2    newcol1    newcol2
+#:> 0     C3  44.449556  25.526171  44.449556  25.526171
+#:> 1     C3  44.988058  19.327319  44.988058  19.327319
+#:> 2     C1  48.293492  21.577865  48.293492  21.577865
+#:> 3     C3  46.540876  17.784916  46.540876  17.784916
+#:> 4     C2  57.096345  19.630728  57.096345  19.630728
+#:> ..   ...        ...        ...        ...        ...
+#:> 195   C2  53.110599  17.620498  53.110599  17.620498
+#:> 196   C1  50.798765  17.686556  50.798765  17.686556
+#:> 197   C1  51.530614  23.770463  51.530614  23.770463
+#:> 198   C1  54.514834  21.382643  54.514834  21.382643
+#:> 199   C1  52.573988  21.109073  52.573988  21.109073
+#:> 
+#:> [200 rows x 5 columns]
 ```
 
 #### Specify Column Range
@@ -4120,20 +4120,20 @@ mydf2 >> select ('comp', slice('value1','newcol2'))
 ```
 
 ```
-##     comp     value1     value2    newcol1    newcol2
-## 0     C2  47.722460  19.553553  47.722460  19.553553
-## 1     C1  52.187792  23.455378  52.187792  23.455378
-## 2     C2  47.217841  15.811224  47.217841  15.811224
-## 3     C1  60.953896  19.713027  60.953896  19.713027
-## 4     C3  48.734540  14.244879  48.734540  14.244879
-## ..   ...        ...        ...        ...        ...
-## 195   C2  52.956740  17.778732  52.956740  17.778732
-## 196   C3  41.742703  19.029966  41.742703  19.029966
-## 197   C2  56.517131  25.726564  56.517131  25.726564
-## 198   C1  50.985854  18.876010  50.985854  18.876010
-## 199   C1  45.853003  20.524694  45.853003  20.524694
-## 
-## [200 rows x 5 columns]
+#:>     comp     value1     value2    newcol1    newcol2
+#:> 0     C3  44.449556  25.526171  44.449556  25.526171
+#:> 1     C3  44.988058  19.327319  44.988058  19.327319
+#:> 2     C1  48.293492  21.577865  48.293492  21.577865
+#:> 3     C3  46.540876  17.784916  46.540876  17.784916
+#:> 4     C2  57.096345  19.630728  57.096345  19.630728
+#:> ..   ...        ...        ...        ...        ...
+#:> 195   C2  53.110599  17.620498  53.110599  17.620498
+#:> 196   C1  50.798765  17.686556  50.798765  17.686556
+#:> 197   C1  51.530614  23.770463  51.530614  23.770463
+#:> 198   C1  54.514834  21.382643  54.514834  21.382643
+#:> 199   C1  52.573988  21.109073  52.573988  21.109073
+#:> 
+#:> [200 rows x 5 columns]
 ```
 
 ### Drop Column(s)
@@ -4144,20 +4144,20 @@ mydf2 >> select('newcol1','newcol2',drop=True)
 ```
 
 ```
-##     comp dept grp     value1     value2
-## 0     C2   D1  G1  47.722460  19.553553
-## 1     C1   D1  G2  52.187792  23.455378
-## 2     C2   D2  G1  47.217841  15.811224
-## 3     C1   D3  G2  60.953896  19.713027
-## 4     C3   D5  G2  48.734540  14.244879
-## ..   ...  ...  ..        ...        ...
-## 195   C2   D5  G2  52.956740  17.778732
-## 196   C3   D5  G2  41.742703  19.029966
-## 197   C2   D3  G2  56.517131  25.726564
-## 198   C1   D1  G1  50.985854  18.876010
-## 199   C1   D1  G2  45.853003  20.524694
-## 
-## [200 rows x 5 columns]
+#:>     comp dept grp     value1     value2
+#:> 0     C3   D5  G1  44.449556  25.526171
+#:> 1     C3   D4  G2  44.988058  19.327319
+#:> 2     C1   D3  G1  48.293492  21.577865
+#:> 3     C3   D4  G1  46.540876  17.784916
+#:> 4     C2   D2  G2  57.096345  19.630728
+#:> ..   ...  ...  ..        ...        ...
+#:> 195   C2   D4  G1  53.110599  17.620498
+#:> 196   C1   D5  G2  50.798765  17.686556
+#:> 197   C1   D2  G1  51.530614  23.770463
+#:> 198   C1   D2  G2  54.514834  21.382643
+#:> 199   C1   D5  G1  52.573988  21.109073
+#:> 
+#:> [200 rows x 5 columns]
 ```
 
 
@@ -4168,20 +4168,20 @@ mydf >> rename( {'val.1' : 'value1',
 ```
 
 ```
-##     comp dept grp      val.1      val.2
-## 0     C2   D1  G1  47.722460  19.553553
-## 1     C1   D1  G2  52.187792  23.455378
-## 2     C2   D2  G1  47.217841  15.811224
-## 3     C1   D3  G2  60.953896  19.713027
-## 4     C3   D5  G2  48.734540  14.244879
-## ..   ...  ...  ..        ...        ...
-## 195   C2   D5  G2  52.956740  17.778732
-## 196   C3   D5  G2  41.742703  19.029966
-## 197   C2   D3  G2  56.517131  25.726564
-## 198   C1   D1  G1  50.985854  18.876010
-## 199   C1   D1  G2  45.853003  20.524694
-## 
-## [200 rows x 5 columns]
+#:>     comp dept grp      val.1      val.2
+#:> 0     C3   D5  G1  44.449556  25.526171
+#:> 1     C3   D4  G2  44.988058  19.327319
+#:> 2     C1   D3  G1  48.293492  21.577865
+#:> 3     C3   D4  G1  46.540876  17.784916
+#:> 4     C2   D2  G2  57.096345  19.630728
+#:> ..   ...  ...  ..        ...        ...
+#:> 195   C2   D4  G1  53.110599  17.620498
+#:> 196   C1   D5  G2  50.798765  17.686556
+#:> 197   C1   D2  G1  51.530614  23.770463
+#:> 198   C1   D2  G2  54.514834  21.382643
+#:> 199   C1   D5  G1  52.573988  21.109073
+#:> 
+#:> [200 rows x 5 columns]
 ```
 
 **Combined Method**  
@@ -4195,20 +4195,20 @@ mydf >> rename( {'val.1' : 'value1',
 ```
 
 ```
-##     comp dept group      val.1      val.2
-## 0     C2   D1    G1  47.722460  19.553553
-## 1     C1   D1    G2  52.187792  23.455378
-## 2     C2   D2    G1  47.217841  15.811224
-## 3     C1   D3    G2  60.953896  19.713027
-## 4     C3   D5    G2  48.734540  14.244879
-## ..   ...  ...   ...        ...        ...
-## 195   C2   D5    G2  52.956740  17.778732
-## 196   C3   D5    G2  41.742703  19.029966
-## 197   C2   D3    G2  56.517131  25.726564
-## 198   C1   D1    G1  50.985854  18.876010
-## 199   C1   D1    G2  45.853003  20.524694
-## 
-## [200 rows x 5 columns]
+#:>     comp dept group      val.1      val.2
+#:> 0     C3   D5    G1  44.449556  25.526171
+#:> 1     C3   D4    G2  44.988058  19.327319
+#:> 2     C1   D3    G1  48.293492  21.577865
+#:> 3     C3   D4    G1  46.540876  17.784916
+#:> 4     C2   D2    G2  57.096345  19.630728
+#:> ..   ...  ...   ...        ...        ...
+#:> 195   C2   D4    G1  53.110599  17.620498
+#:> 196   C1   D5    G2  50.798765  17.686556
+#:> 197   C1   D2    G1  51.530614  23.770463
+#:> 198   C1   D2    G2  54.514834  21.382643
+#:> 199   C1   D5    G1  52.573988  21.109073
+#:> 
+#:> [200 rows x 5 columns]
 ```
 
 ## Sorting (arrange)
@@ -4220,20 +4220,20 @@ mydf >> arrange('comp', '-value1')
 ```
 
 ```
-##     comp dept grp     value1     value2
-## 116   C1   D2  G2  61.349449  18.793894
-## 3     C1   D3  G2  60.953896  19.713027
-## 13    C1   D4  G2  59.544043  19.290623
-## 173   C1   D1  G2  58.374350  21.749104
-## 178   C1   D1  G2  58.341774  17.673989
-## ..   ...  ...  ..        ...        ...
-## 130   C3   D4  G1  40.855100  16.858980
-## 117   C3   D5  G2  40.540842  20.279596
-## 17    C3   D5  G2  39.945549  23.085717
-## 64    C3   D1  G1  37.790494  24.611053
-## 8     C3   D2  G2  36.107091  18.914158
-## 
-## [200 rows x 5 columns]
+#:>     comp dept grp     value1     value2
+#:> 59    C1   D1  G1  62.604358  16.466182
+#:> 37    C1   D4  G2  59.607307  19.800024
+#:> 87    C1   D1  G2  58.332611  21.404494
+#:> 164   C1   D5  G2  57.994136  23.792139
+#:> 22    C1   D3  G2  57.764369  23.901366
+#:> ..   ...  ...  ..        ...        ...
+#:> 165   C3   D4  G2  40.433195  20.455925
+#:> 175   C3   D1  G2  39.119180  24.714215
+#:> 75    C3   D5  G2  37.829170  20.928542
+#:> 172   C3   D4  G1  37.680458  21.570012
+#:> 141   C3   D3  G2  37.374021  19.597374
+#:> 
+#:> [200 rows x 5 columns]
 ```
 
 
@@ -4248,18 +4248,18 @@ mydf.info()
 ```
 
 ```
-## <class 'pandas.core.frame.DataFrame'>
-## RangeIndex: 200 entries, 0 to 199
-## Data columns (total 5 columns):
-##  #   Column  Non-Null Count  Dtype  
-## ---  ------  --------------  -----  
-##  0   comp    200 non-null    object 
-##  1   dept    200 non-null    object 
-##  2   grp     200 non-null    object 
-##  3   value1  200 non-null    float64
-##  4   value2  200 non-null    float64
-## dtypes: float64(2), object(3)
-## memory usage: 7.9+ KB
+#:> <class 'pandas.core.frame.DataFrame'>
+#:> RangeIndex: 200 entries, 0 to 199
+#:> Data columns (total 5 columns):
+#:>  #   Column  Non-Null Count  Dtype  
+#:> ---  ------  --------------  -----  
+#:>  0   comp    200 non-null    object 
+#:>  1   dept    200 non-null    object 
+#:>  2   grp     200 non-null    object 
+#:>  3   value1  200 non-null    float64
+#:>  4   value2  200 non-null    float64
+#:> dtypes: float64(2), object(3)
+#:> memory usage: 7.9+ KB
 ```
 
 
@@ -4269,7 +4269,7 @@ type(gdf)
 ```
 
 ```
-## <class 'plydata.types.GroupedDataFrame'>
+#:> <class 'plydata.types.GroupedDataFrame'>
 ```
 
 ## Summarization
