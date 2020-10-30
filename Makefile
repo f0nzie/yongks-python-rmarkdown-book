@@ -96,6 +96,10 @@ build_book2:
 	Sys.setenv(RSTUDIO_PANDOC='/usr/lib/rstudio/bin/pandoc');\
 	bookdown::render_book('index.Rmd', 'bookdown::gitbook')"
 	
+pdf:
+	Rscript -e "\
+	Sys.setenv(RSTUDIO_PANDOC='/usr/lib/rstudio/bin/pandoc');\
+	bookdown::render_book('index.Rmd', 'bookdown::pdf_book')"	
 
 open_book:
 ifeq ($(OSFLAG), OSX)
