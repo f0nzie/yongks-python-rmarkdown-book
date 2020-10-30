@@ -25,3 +25,14 @@ bookdown::gitbook:
       twitter: no
   split_by: chapter
   highlight: tango
+bookdown::pdf_book:
+  keep_tex: yes
+  latex_engine: lualatex
+  citation_package: natbib
+  template: null
+  pandoc_args: [--top-level-division=chapter, --wrap=none]
+  toc_depth: 3
+  toc_unnumbered: no
+  toc_appendix: yes
+  highlight_bw: yes
+  quote_footer: ["\\VA{", "}{}"]
