@@ -37,7 +37,7 @@ description: "This is a python cookbook, written using RMarkdown Notebook. It is
 You may need to create a Python environment that covers all packages and dependencies for building this book. Once you have Anaconda3 installed in your computer, creating the Python environment is very easy. Go to your tterminal and run:
 
 ```bash
-conda create env -f environment.yml
+conda env create -f environment.yml
 ```
 
 Anaconda will read the file listing the core dependencies, and install them following the package version specified. This is what is inside `environment.yml`:
