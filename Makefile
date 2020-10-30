@@ -1,5 +1,6 @@
 # Makefile written by Alfonso R. Reyes
 SHELL := /bin/bash
+CONDA_ENV_NAME = python_book
 BOOKDOWN_FILES_DIRS = python_bookdown_files _bookdown_files
 OUTPUT_DIR = .
 PUBLISH_BOOK_DIR = public
@@ -22,6 +23,15 @@ else
         OSFLAG = OSX
     endif
 endif
+# conda exists?
+ifeq (,$(shell which conda))
+    HAS_CONDA=False
+else
+    HAS_CONDA=True
+    ENV_DIR=$(shell conda info --base)
+    MY_ENV_DIR=$(ENV_DIR)/envs/$(CONDA_ENV_NAME)
+    CONDA_ACTIVATE=source $$(conda info --base)/etc/profile.d/conda.sh ; conda activate ; conda activate
+endif
 
 
 .PHONY: pyenv
@@ -38,6 +48,35 @@ pyenv:
 	jupyter-notebook ${START_NOTEBOOK}
 
 
+
+# create a conda environment from specs file
+# activate conda if exists
+# https://stackoverflow.com/a/60247404/5270873
+conda_create:
+ifeq (True,$(HAS_CONDA))
+ifneq ("$(wildcard $(MY_ENV_DIR))","") # check if the directory is there
+	@echo ">>> Found $(CONDA_ENV_NAME) environment in $(MY_ENV_DIR). Skipping installation..."
+else
+	@echo ">>> Detected conda, but $(CONDA_ENV_NAME) is missing in $(ENV_DIR). Installing ..."
+	conda env create -f environment.yml -n $(CONDA_ENV_NAME)
+endif
+else
+	@echo ">>> Install conda first."
+	exit
+endif
+
+conda_activate:
+ifeq (True,$(HAS_CONDA))
+ifneq ("$(wildcard $(MY_ENV_DIR))","") 
+	conda activate $(CONDA_ENV_NAME)
+else
+	@echo ">>> Detected conda, but $(CONDA_ENV_NAME) is missing in $(ENV_DIR). Installing ..."
+	conda env create -f environment.yml -n $(CONDA_ENV_NAME)
+endif
+else
+	@echo ">>> Install conda first."
+	exit
+endif
 
 # knit the book and then open it in the browser
 .PHONY: gitbook1 gitbook2
@@ -99,3 +138,12 @@ tidy:
 		find $(OUTPUT_DIR) -maxdepth 1 -name _main.Rmd -delete
 		find $(OUTPUT_DIR) -maxdepth 1 -name now.json -delete
 		
+
+# provide some essential info about the tikz files
+.PHONY: info
+info:
+	@echo "OS is:" $(OSFLAG)
+	@echo "Publication folder:" $(PUBLISH_BOOK_DIR)
+	@echo "Has Conda?:" ${HAS_CONDA}
+	@echo ${ENV_DIR}
+	@echo ${MY_ENV_DIR}
