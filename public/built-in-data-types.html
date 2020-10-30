@@ -10,7 +10,7 @@
 
   <meta property="og:title" content="2 Built-in Data Types | Python Bookdown" />
   <meta property="og:type" content="book" />
-  
+  <meta property="og:url" content="https://github.com/f0nzie/yongks-python-rmarkdown-book" />
   
   <meta property="og:description" content="This is a python cookbook, written using RMarkdown Notebook. It is made possible by using reticulate R library as the bridge between R and Python." />
   <meta name="github-repo" content="f0nzie/yongks-python-rmarkdown-book" />
@@ -1402,13 +1402,13 @@ Remainder by float return <strong>float</strong></p>
 <div class="sourceCode" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb48-1"><a href="built-in-data-types.html#cb48-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="st">&#39;abcde&#39;</span></span>
 <span id="cb48-2"><a href="built-in-data-types.html#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="st">&#39;s : &#39;</span>, <span class="bu">id</span>(s))</span>
 <span id="cb48-3"><a href="built-in-data-types.html#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="co">#s[1] = &#39;z&#39;               # immutable, result in error</span></span></code></pre></div>
-<pre><code>#:&gt; s :  140224612987504</code></pre>
+<pre><code>#:&gt; s :  140235891293616</code></pre>
 <ul>
 <li>Changing the variable completley change the reference (for new object)</li>
 </ul>
 <div class="sourceCode" id="cb50"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb50-1"><a href="built-in-data-types.html#cb50-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="st">&#39;efgh&#39;</span></span>
 <span id="cb50-2"><a href="built-in-data-types.html#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="st">&#39;s : &#39;</span>, <span class="bu">id</span>(s))</span></code></pre></div>
-<pre><code>#:&gt; s :  140224612965424</code></pre>
+<pre><code>#:&gt; s :  140235891268464</code></pre>
 </div>
 </div>
 <div id="class-constants" class="section level3" number="2.2.2">
@@ -1558,8 +1558,8 @@ For partial match, workaround is to <strong>convert list to single string</stron
 <span id="cb107-3"><a href="built-in-data-types.html#cb107-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;id(a) = &#39;</span>, <span class="bu">id</span>(a), </span>
 <span id="cb107-4"><a href="built-in-data-types.html#cb107-4" aria-hidden="true" tabindex="-1"></a>      <span class="st">&#39;</span><span class="ch">\n</span><span class="st">id(b) = &#39;</span>, <span class="bu">id</span>(b),</span>
 <span id="cb107-5"><a href="built-in-data-types.html#cb107-5" aria-hidden="true" tabindex="-1"></a>      <span class="st">&#39;</span><span class="ch">\n</span><span class="st">a == b  &#39;</span>, a<span class="op">==</span>b)</span></code></pre></div>
-<pre><code>#:&gt; id(a) =  140225142725680 
-#:&gt; id(b) =  140225142725680 
+<pre><code>#:&gt; id(a) =  140236421028912 
+#:&gt; id(b) =  140236421028912 
 #:&gt; a == b   True</code></pre>
 </div>
 </div>
@@ -1718,17 +1718,15 @@ gitbook.start({
 "sharing": {
 "github": true,
 "facebook": false,
-"twitter": false,
+"twitter": true,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "weibo", "instapaper"],
-"google": false,
-"instapper": false
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
-"theme": "Sep;ia",
+"theme": "Sepia",
 "family": "sans",
 "size": 2
 },
