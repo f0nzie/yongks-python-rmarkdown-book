@@ -1,9 +1,24 @@
 # matplotlib
 
+```{r echo=FALSE}
+knitr::opts_chunk$set(
+  comment = "#:>",
+  echo = TRUE,
+  error = TRUE,
+  out.width = "90%",
+  fig.align = "center",
+  fig.width = 7,
+  fig.asp = 0.618,
+  results = "hide",
+  fig.show = "hold",
+  collapse = FALSE
+)
+```
 
 ```{r}
 source("R/init_python.R")
 ```
+
 
 ```{python include=FALSE, results='hide'}
 import pandas as pd
@@ -39,7 +54,7 @@ This chapter uses the sample data generate with below code. The idea is to simul
 - value1 represents numeric value, normally distributed at mean 50  
 - value2 is numeric value, normally distributed at mean 25  
 
-```{python}
+```{python, results="hold"}
 n = 200
 comp = ['C' + i for i in np.random.randint( 1,4, size  = n).astype(str)] # 3x Company
 dept = ['D' + i for i in np.random.randint( 1,6, size  = n).astype(str)] # 5x Department
@@ -58,7 +73,7 @@ mydf = pd.DataFrame({
 mydf.head()
 ```
 
-```{python}
+```{python, results="hold"}
 mydf.info()
 ```
 
@@ -344,7 +359,7 @@ plt.show()
 
 ## Sample Data
 
-```{python}
+```{python, results="hold"}
 n = 100
 comp = ['C' + i for i in np.random.randint( 1,4, size  = n).astype(str)] # 3x Company
 dept = ['D' + i for i in np.random.randint( 1,4, size  = n).astype(str)] # 5x Department
@@ -453,7 +468,7 @@ plt.show()
 
 ## Bar Chart
 
-```{python}
+```{python, results="hold"}
 com_grp = mydf.groupby('comp')
 grpdf = com_grp['value1'].sum().reset_index()
 grpdf
