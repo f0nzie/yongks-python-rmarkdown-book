@@ -50,7 +50,6 @@ pyenv:
 
 
 # create a conda environment from specs file
-# activate conda if exists
 # https://stackoverflow.com/a/60247404/5270873
 conda_create:
 ifeq (True,$(HAS_CONDA))
@@ -65,13 +64,13 @@ else
 	exit
 endif
 
+# activate conda only if environment exists
 conda_activate:
 ifeq (True,$(HAS_CONDA))
 ifneq ("$(wildcard $(MY_ENV_DIR))","") 
 	conda activate $(CONDA_ENV_NAME)
 else
-	@echo ">>> Detected conda, but $(CONDA_ENV_NAME) is missing in $(ENV_DIR). Installing ..."
-	conda env create -f environment.yml -n $(CONDA_ENV_NAME)
+	@echo ">>> Detected conda, but $(CONDA_ENV_NAME) is missing in $(ENV_DIR). Install conda first ..."
 endif
 else
 	@echo ">>> Install conda first."
