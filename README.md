@@ -1,7 +1,9 @@
 # A book of Python in Rmarkdown
 I love this book. It's not only written in Rmarkdown but also explains the fundamentals of Python in a live book; totally reproducible.
 
-Kudos to the author [Keh-Soon Yong (AP)](https://github.com/yongks), who published the original code in GitHub [here](https://github.com/yongks/python_bookdown).
+Kudos to the author [Keh-Soon Yong (AP)](https://github.com/yongks), who published the original code in GitHub [here](https://github.com/yongks/python_bookdown): 
+
+https://github.com/yongks/python_bookdown
 
 My contribution consists of making it even more reproducible: 
 
