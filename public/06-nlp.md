@@ -164,10 +164,10 @@ print(
 \b: word boundry (delimited by space, \t, \n)
 ```
 
-**Word Boundry Using `\b`**:  
+**Word Boundary Using `\b`**:  
 
-- `\bABC` match if specified characters at the beginning of word (delimited by space, \t, \n), or beginning of newline  
-- `ABC\b` match if specified characters at the end of word (delimited by space, \t, \n), or end of the line  
+- `\bABC` match if specified characters at the beginning of word (delimited by space, `\t`, `\n`), or beginning of newline  
+- `ABC\b` match if specified characters at the end of word (delimited by space, `\t`, `\n`), or end of the line  
 
 
 ```python
@@ -729,7 +729,7 @@ ngrams(tokens,2)
 ```
 
 ```
-#:> <generator object ngrams at 0x7fe2dcaf6c50>
+#:> <generator object ngrams at 0x7f2046ea5c50>
 ```
 
 Convert 1-gram to 2-Gram, wrap into list
@@ -830,7 +830,7 @@ print(' Total Sklearn Stopwords: ', len(sklearn_stop_words),'\n\n',
 ```
 #:>  Total Sklearn Stopwords:  318 
 #:> 
-#:>  frozenset({'move', 'many', 'mostly', 'get', 'everywhere', 'upon', 'ltd', 'amount', 'via', 'whom', 'former', 'full', 'ten', 'above', 'empty', 'mill', 'across', 'keep', 'through', 'already', 'perhaps', 'co', 'must', 'no', 'or', 'either', 'am', 'sometimes', 'hereafter', 'hers', 'may', 'both', 'her', 'off', 'which', 'each', 'is', 'please', 'call', 'whole', 'should', 'toward', 'it', 'as', 'me', 'yours', 'ourselves', 'six', 'to', 'even', 'thru', 'seems', 'myself', 'side', 'why', 'bottom', 'own', 'became', 'few', 'alone', 'his', 'though', 'again', 'behind', 'fifteen', 'becoming', 'most', 'therefore', 'done', 'another', 'before', 'if', 'might', 'de', 'nothing', 'someone', 'seemed', 'thereby', 'inc', 'while', 'in', 'mine', 'still', 'five', 'also', 'serious', 'afterwards', 'any', 'itself', 'thin', 'among', 'anything', 'beside', 'herself', 'twelve', 'yet', 'everyone', 're', 'whereby', 'anyway', 'has', 'under', 'seeming', 'when', 'and', 'nowhere', 'around', 'within', 'thick', 'however', 'with', 'such', 'throughout', 'until', 'several', 'nobody', 'against', 'cry', 'only', 'what', 'almost', 'on', 'out', 'except', 'con', 'eight', 'well', 'too', 'neither', 'moreover', 'whose', 'part', 'anywhere', 'not', 'whenever', 'so', 'less', 'of', 'detail', 'whereafter', 'found', 'us', 'nine', 'four', 'thus', 'elsewhere', 'be', 'namely', 'could', 'towards', 'least', 'at', 'along', 'without', 'forty', 'some', 'therein', 'something', 'go', 'etc', 'was', 'beforehand', 'amongst', 'our', 'take', 'enough', 'can', 'than', 'from', 'about', 'for', 'seem', 'up', 'sincere', 'becomes', 'i', 'my', 'yourselves', 'they', 'here', 'its', 'always', 'none', 'she', 'indeed', 'put', 'who', 'sometime', 'further', 'an', 'are', 'noone', 'would', 'anyhow', 'fire', 'two', 'system', 'due', 'between', 'them', 'beyond', 'twenty', 'last', 'others', 'over', 'once', 'their', 'cant', 'your', 'during', 'the', 'nevertheless', 'will', 'there', 'one', 'sixty', 'name', 'those', 'ours', 'top', 'whereupon', 'much', 'hundred', 'ie', 'latter', 'into', 'whereas', 'hence', 'same', 'latterly', 'couldnt', 'thereafter', 'per', 'these', 'everything', 'been', 'now', 'whither', 'where', 'rather', 'besides', 'since', 'together', 'often', 'hereby', 'all', 'below', 'otherwise', 'un', 'give', 'describe', 'thereupon', 'somewhere', 'ever', 'three', 'whatever', 'had', 'down', 'we', 'eg', 'onto', 'else', 'somehow', 'other', 'cannot', 'fill', 'being', 'hasnt', 'a', 'front', 'him', 'never', 'how', 'nor', 'bill', 'themselves', 'whence', 'wherever', 'after', 'that', 'herein', 'find', 'eleven', 'every', 'more', 'do', 'thence', 'you', 'made', 'then', 'although', 'amoungst', 'anyone', 'were', 'formerly', 'he', 'next', 'back', 'very', 'this', 'whoever', 'become', 'first', 'wherein', 'interest', 'have', 'but', 'see', 'himself', 'whether', 'hereupon', 'by', 'fifty', 'yourself', 'show', 'third', 'because', 'meanwhile'})
+#:>  frozenset({'give', 'someone', 'why', 'my', 'latterly', 'a', 'anywhere', 'whereas', 'us', 'de', 'made', 'last', 'thus', 'least', 'either', 'system', 'besides', 'nor', 'somehow', 'beside', 'call', 'fill', 'should', 'back', 'two', 'anything', 'thick', 'after', 'due', 'must', 'do', 'whom', 'first', 'be', 'across', 'via', 'some', 'it', 'the', 'at', 'hereby', 'somewhere', 'being', 'further', 'three', 'itself', 'describe', 'rather', 'same', 'always', 'whatever', 'while', 'whoever', 'moreover', 'now', 'hasnt', 'whole', 'mine', 'former', 'beforehand', 'sometime', 'of', 'you', 'very', 'sincere', 'has', 'thereby', 'against', 'only', 'until', 'thin', 'that', 'whether', 'un', 'thereupon', 'enough', 'above', 'ie', 'next', 'are', 'everywhere', 'fire', 'herself', 'she', 'himself', 'throughout', 'ten', 'anyway', 'more', 'several', 'became', 'in', 'what', 'full', 'around', 'co', 'whose', 'up', 'down', 'once', 'seems', 'whence', 'since', 'within', 'cry', 'interest', 'alone', 'becomes', 'except', 'i', 'than', 'on', 'another', 'show', 'off', 'ever', 'seem', 'is', 'might', 'an', 'he', 'therefore', 'hereupon', 'one', 'his', 'already', 'name', 'beyond', 'was', 'with', 'see', 'and', 'few', 'none', 'yet', 'we', 'eg', 'among', 'these', 'how', 'hers', 'have', 'put', 'yourself', 'everyone', 'though', 'done', 'before', 'fifty', 'there', 'also', 'couldnt', 'often', 'all', 'four', 'mill', 'had', 'am', 'not', 'sometimes', 'too', 'cant', 'herein', 'may', 'towards', 'everything', 'found', 'themselves', 'about', 'any', 'amongst', 'eleven', 'go', 'inc', 'part', 'for', 'amoungst', 'side', 'although', 'etc', 'from', 'else', 'cannot', 'hereafter', 'because', 'hundred', 'hence', 'empty', 'twelve', 'or', 'under', 'namely', 'much', 'its', 'whereupon', 'thru', 'will', 'otherwise', 'into', 'each', 'five', 'then', 'neither', 'so', 'below', 'ours', 'top', 'nothing', 'seeming', 'detail', 'six', 'serious', 'others', 'thereafter', 'could', 'but', 'without', 'con', 'yourselves', 'own', 'still', 'ltd', 'amount', 'per', 'both', 'this', 'toward', 'please', 'sixty', 'out', 'wherever', 'onto', 'bill', 'twenty', 'which', 'nobody', 'would', 'as', 'nowhere', 'can', 'been', 'find', 'anyhow', 'whereby', 'behind', 'upon', 'many', 'together', 'take', 'latter', 'here', 'afterwards', 'were', 'become', 'yours', 'again', 'myself', 'other', 'through', 'where', 'never', 'indeed', 'something', 'eight', 'our', 'such', 're', 'well', 'keep', 'them', 'most', 'your', 'seemed', 'perhaps', 'whither', 'fifteen', 'between', 'get', 'during', 'her', 'they', 'if', 'him', 'mostly', 'move', 'anyone', 'thence', 'however', 'front', 'less', 'no', 'whereafter', 'over', 'to', 'who', 'nevertheless', 'elsewhere', 'ourselves', 'nine', 'their', 'those', 'me', 'when', 'along', 'by', 'therein', 'almost', 'becoming', 'forty', 'every', 'formerly', 'bottom', 'even', 'noone', 'whenever', 'wherein', 'meanwhile', 'third'})
 ```
 
 ### Combined NLTK and SKLearn Stop Words
@@ -2051,7 +2051,7 @@ print('Tagger Classes:', tagger.classes,
 ```
 
 ```
-#:> Tagger Classes: {'``', 'VBG', 'NNPS', '#', ')', 'VBZ', 'PRP$', 'PDT', 'RP', 'RBS', 'MD', 'JJR', 'VBN', 'WP', 'TO', 'RB', 'NNP', 'RBR', 'IN', 'VB', 'VBD', 'FW', 'CD', '.', 'SYM', 'VBP', ',', 'JJS', '$', 'PRP', 'WRB', 'LS', 'UH', 'NN', 'WP$', 'DT', "''", '(', 'POS', 'CC', 'NNS', 'EX', ':', 'JJ', 'WDT'} 
+#:> Tagger Classes: {'RP', 'JJR', 'CC', 'VBZ', 'IN', 'UH', 'DT', 'VBN', 'NN', 'NNS', 'PRP', 'VBG', "''", 'PRP$', 'POS', 'WP$', 'NNPS', ':', 'FW', '(', 'WP', 'NNP', 'RBR', 'VBP', 'TO', '``', 'RB', 'WRB', 'PDT', 'MD', 'JJ', 'VB', '.', '#', 'LS', ')', 'RBS', ',', 'SYM', 'CD', 'JJS', 'VBD', '$', 'WDT', 'EX'} 
 #:> 
 #:> # Classes: 45
 ```

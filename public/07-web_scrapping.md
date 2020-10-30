@@ -330,7 +330,7 @@ soup.find('meta', category='Malaysia')['property']
 #### Get Content `get_text(strip=, separator=)`
 
 - Use **`strip=True`** to strip whitespace from the beginning and end of each bit of text  
-- Use **`separator='\n'** to specify a string to be used to join the bits of text together
+- Use **`separator='\\n'** to specify a string to be used to join the bits of text together
 - It is recommended to use `strip=True, separator='\n'` so that result from different operating system will be consistant  
 
 

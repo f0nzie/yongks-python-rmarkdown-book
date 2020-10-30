@@ -55,11 +55,11 @@ mydf.head()
 
 ```
 #:>   comp dept grp     value1     value2     value3
-#:> 0   C1   D2  G2  49.314941  23.686173  31.459242
-#:> 1   C2   D1  G2  51.591035  17.479589 -15.009456
-#:> 2   C2   D5  G2  47.130127  25.895408  -1.499597
-#:> 3   C1   D5  G2  57.599282  22.436957 -52.820357
-#:> 4   C3   D4  G2  49.133298  23.918253  21.464229
+#:> 0   C2   D2  G2  49.608502  17.500645   0.602890
+#:> 1   C1   D2  G2  47.062878  20.431398   2.575838
+#:> 2   C3   D3  G1  50.374723  21.749204 -52.430562
+#:> 3   C2   D1  G1  60.274045  21.612174 -11.886129
+#:> 4   C1   D4  G1  46.330035  20.990584 -44.464932
 ```
 
 
@@ -110,7 +110,7 @@ plt.title('My Good Data')
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-8-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-8-1} 
 
 ### Multiple Subplots
 Each call lto **subplot()** will create a new container for subsequent plot command 
@@ -125,7 +125,7 @@ plt.plot(y,x,'g*-')
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-9-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-9-1} 
 
 ## Object-Oriented API
 
@@ -152,7 +152,7 @@ axes.set_title('title')
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-11-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-11-1} 
 
 ### Multiple Axes In One Plot
 - This is still considered a **single plot**, but with **multiple axes**
@@ -174,7 +174,7 @@ ax2.set_title('insert title')
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-12-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-12-1} 
 
 ### Multiple Subplots
 - One **figure**  can contain multiple **subplots**  
@@ -203,7 +203,7 @@ for ax in axes:
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-13-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-13-1} 
 
 **Multiple Row Grid**  
 Multile row grid means axes is an 2-D array. Hence can use two levels of **for** loop to iterate through each row and column
@@ -222,7 +222,7 @@ for i in range(axes.shape[0]):
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-14-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-14-1} 
 
 #### Complicated Subplots - different size
 - **GridSpec** specify grid size of the figure  
@@ -239,7 +239,7 @@ plt.subplot(grid[1, 2]); #row 1, col 2
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-15-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-15-1} 
 
 
 ```python
@@ -251,7 +251,7 @@ plt.subplot(grid[3, 1: ]);  # row 3,   col 1:
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-16-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-16-1} 
 
 **-1 means last row or column**
 
@@ -265,7 +265,7 @@ plt.subplot(grid[-1, 1: ]); # row last row, col 1 till end
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-17-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-17-1} 
 
 ### Figure Customization
 
@@ -286,7 +286,7 @@ fig.tight_layout() # adjust the positions of axes so that there is no overlap
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-18-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-18-1} 
 
 #### Avoid Overlap - Change Figure Size
 
@@ -301,7 +301,7 @@ for ax in axes:
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-19-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-19-1} 
 
 #### Text Within Figure
 
@@ -313,7 +313,7 @@ axes = fig.add_axes([0,0,1,1]) # left, bottom, width, height (range 0 to 1)
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-20-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-20-1} 
 
 ### Axes Customization
 
@@ -326,7 +326,7 @@ fig.add_axes([0,0,1,1], ylim=(-2,5));
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-21-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-21-1} 
 
 #### Text Within Axes
 
@@ -340,7 +340,7 @@ for i in range(2):
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-22-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-22-1} 
 
 
 ```python
@@ -348,7 +348,7 @@ plt.text(0.5, 0.5, 'one',fontsize=18, ha='center')
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-23-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-23-1} 
 
 #### Share Y Axis Label
 
@@ -358,7 +358,7 @@ fig, ax = plt.subplots(2, 3, sharex='col', sharey='row') # removed inner label
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-24-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-24-1} 
 
 #### Create Subplot Individually
 Each call lto **subplot()** will create a new container for subsequent plot command 
@@ -373,7 +373,7 @@ plt.text(0.5, 0.5, 'eight',fontsize=18, ha='center')
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-25-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-25-1} 
 
 **Iterate through subplots (ax) to populate them**
 
@@ -387,7 +387,7 @@ for i in range(2):
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-26-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-26-1} 
 
 ## Histogram
 
@@ -397,7 +397,7 @@ plt.hist(mydf.value1, bins=12);
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-27-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-27-1} 
 
 ## Scatter Plot
 
@@ -407,7 +407,7 @@ plt.scatter(mydf.value1, mydf.value2)
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-28-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-28-1} 
 
 
 ## Bar Chart
@@ -427,7 +427,7 @@ plt.ylabel('Sum of Value 1')
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-30-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-30-1} 
 
 # seaborn
 
@@ -460,11 +460,11 @@ mydf.head()
 
 ```
 #:>   comp dept grp     value1     value2     value3
-#:> 0   C2   D1  G1  46.149478  16.945614  -5.675395
-#:> 1   C3   D3  G2  47.902419  18.891264  91.833095
-#:> 2   C1   D3  G2  55.455051  17.649395 -41.125177
-#:> 3   C1   D2  G3  51.243278  21.261365   9.144223
-#:> 4   C2   D1  G1  54.725549  20.037615 -24.355937
+#:> 0   C2   D2  G3  47.439493  19.427984 -23.055955
+#:> 1   C1   D1  G2  49.189873  20.467887  17.385832
+#:> 2   C2   D3  G2  49.362072  22.679397  19.615126
+#:> 3   C3   D3  G2  48.437856  24.493254   4.617160
+#:> 4   C3   D1  G3  58.568376  20.591353   8.519390
 ```
 
 ## Scatter Plot
@@ -479,7 +479,7 @@ sns.lmplot(x='value1', y='value2', data=mydf)
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-32-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-32-1} 
 
 
 ```python
@@ -490,7 +490,7 @@ sns.lmplot(x='value1', y='value2', fit_reg=False, data=mydf);  #hide regresion l
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-33-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-33-1} 
 
 ### 2xNumeric + 1x Categorical
 Use **hue** to represent additional categorical feature
@@ -501,7 +501,7 @@ sns.lmplot(x='value1', y='value2', data=mydf, hue='comp', fit_reg=False);
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-34-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-34-1} 
 
 ### 2xNumeric + 2x Categorical
 Use **col** and **hue** to represent two categorical features
@@ -512,7 +512,7 @@ sns.lmplot(x='value1', y='value2', col='comp',hue='grp', fit_reg=False, data=myd
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-35-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-35-1} 
 
 ### 2xNumeric + 3x Categorical
 Use **row, col** and **hue** to represent three categorical features
@@ -526,7 +526,7 @@ sns.lmplot(x='value1', y='value2', row='dept',col='comp', hue='grp', fit_reg=Fal
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-36-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-36-1} 
 
 ### Customization
 
@@ -542,7 +542,7 @@ sns.lmplot(x='value1', y='value2', col='comp',hue='grp', size=3,fit_reg=False, d
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-37-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-37-1} 
 
 Observe that even **size is very large**, lmplot will **fit (shrink) everything into one row** by deafult. See example below.
 
@@ -555,7 +555,7 @@ sns.lmplot(x='value1', y='value2', col='comp',hue='grp', size=5,fit_reg=False, d
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-38-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-38-1} 
 
 #### col_wrap
 
@@ -571,7 +571,7 @@ sns.lmplot(x='value1', y='value2', col='comp',hue='grp', size=5, col_wrap=2, fit
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-39-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-39-1} 
 
 ## Histogram
 ```
@@ -592,7 +592,7 @@ sns.distplot(mydf.value1)
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-40-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-40-1} 
 
 
 ```python
@@ -600,7 +600,7 @@ sns.distplot(mydf.value1,hist=True,rug=True,vertical=True, bins=30,color='g')
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-41-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-41-1} 
 
 ## Bar Chart
 
@@ -613,9 +613,9 @@ grpdf
 
 ```
 #:>   comp       value1
-#:> 0   C1  1664.538447
-#:> 1   C2  1917.637827
-#:> 2   C3  1442.015091
+#:> 0   C1  1413.683878
+#:> 1   C2  1925.358760
+#:> 2   C3  1671.172999
 ```
 
 ### 1x Categorical, 1x Numeric
@@ -626,7 +626,7 @@ sns.barplot(x='comp',y='value1',data=grpdf)
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-43-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-43-1} 
 
 ### Customization
 
@@ -642,7 +642,7 @@ sns.barplot(x='comp',y='value2', hue='grp',
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-44-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-44-1} 
 
 #### Flipping X/Y Axis
 
@@ -652,7 +652,7 @@ sns.barplot(x='value2',y='comp', hue='grp',data=mydf)
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-45-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-45-1} 
 
 ## Faceting
 Faceting in Seaborn is a generic function that works with matplotlib various plot utility.  
@@ -670,7 +670,7 @@ g.map(plt.hist, "value1")
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-46-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-46-1} 
 
 
 ```python
@@ -682,7 +682,7 @@ g.map(plt.hist, "value1")
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-47-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-47-1} 
 
 ### Faceting Scatter Plot
 
@@ -697,7 +697,7 @@ g.add_legend()
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-48-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-48-1} 
 
 ## Pair Grid
 
@@ -715,7 +715,7 @@ g.add_legend()
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-49-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-49-1} 
 
 
 ### Different Diag and OffDiag
@@ -738,7 +738,7 @@ g.add_legend()
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-50-1.png" width="90%" style="display: block; margin: auto;" />
+\includegraphics[width=0.9\linewidth]{04-visualization_files/figure-latex/unnamed-chunk-50-1} 
 
 
 
