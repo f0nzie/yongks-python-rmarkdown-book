@@ -138,7 +138,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#main-sections-of-the-book"><i class="fa fa-check"></i>Main sections of the book</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#python-environment"><i class="fa fa-check"></i>Python environment</a></li>
-<li><a href="index.html#automating-the-builds-with-a-makefile">Automating the builds with a <code>Makefile</code></a></li>
+<li><a href="index.html#automating-the-builds-with-a-makefile">Automating the builds with a <code>Makefile</code></a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#rules-for-building-the-book"><i class="fa fa-check"></i>Rules for building the book</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#clean-up-the-bookdown-project-folder"><i class="fa fa-check"></i>Clean up the bookdown project folder</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="fundamentals.html"><a href="fundamentals.html"><i class="fa fa-check"></i><b>1</b> Fundamentals</a>
 <ul>
@@ -1331,37 +1335,84 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="python-environment" class="section level2 unnumbered">
 <h2>Python environment</h2>
 <p>You may need to create a Python environment that covers all packages and dependencies for building this book. Once you have Anaconda3 installed in your computer, creating the Python environment is very easy. Go to your tterminal and run:</p>
-<pre><code>conda create env -f environment.yml</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="index.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create env -f environment.yml</span></code></pre></div>
 <p>Anaconda will read the file listing the core dependencies, and install them following the package version specified. This is what is inside <code>environment.yml</code>:</p>
-<pre><code>name: python_book
-channels:
-  - anaconda
-  - conda-forge
-  - defaults
-dependencies:
-  - python=3.7
-  - beautifulsoup4=4.9.3
-  - matplotlib=3.3.1
-  - nltk=3.5
-  - numpy=1.19.1
-  - pandas=1.1.3
-  - pandas-datareader=0.9.0
-  - pip=20.2.4
-  - requests=2.24.0
-  - scikit-learn=0.23.2
-  - seaborn=0.11.0
-  - urllib3=1.25.11
-  - pip:
-    - cufflinks
-    - h5py==2.10.0
-    - nlpia==0.5.2
-    - plotnine==0.7
-    - plydata==0.4.2
-    - yfinance==0.1.55
-prefix: /home/msfz751/anaconda3/envs/python_book</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="index.html#cb2-1" aria-hidden="true" tabindex="-1"></a>name: python_book</span>
+<span id="cb2-2"><a href="index.html#cb2-2" aria-hidden="true" tabindex="-1"></a>channels:</span>
+<span id="cb2-3"><a href="index.html#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> anaconda</span>
+<span id="cb2-4"><a href="index.html#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> conda<span class="op">-</span>forge</span>
+<span id="cb2-5"><a href="index.html#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> defaults</span>
+<span id="cb2-6"><a href="index.html#cb2-6" aria-hidden="true" tabindex="-1"></a>dependencies:</span>
+<span id="cb2-7"><a href="index.html#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> python<span class="op">=</span><span class="fl">3.7</span></span>
+<span id="cb2-8"><a href="index.html#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> beautifulsoup4<span class="op">=</span><span class="fl">4.9.3</span></span>
+<span id="cb2-9"><a href="index.html#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> matplotlib<span class="op">=</span><span class="fl">3.3.1</span></span>
+<span id="cb2-10"><a href="index.html#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> nltk<span class="op">=</span><span class="fl">3.5</span></span>
+<span id="cb2-11"><a href="index.html#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> numpy<span class="op">=</span><span class="fl">1.19.1</span></span>
+<span id="cb2-12"><a href="index.html#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> pandas<span class="op">=</span><span class="fl">1.1.3</span></span>
+<span id="cb2-13"><a href="index.html#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> pandas<span class="op">-</span>datareader<span class="op">=</span><span class="fl">0.9.0</span></span>
+<span id="cb2-14"><a href="index.html#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> pip<span class="op">=</span><span class="fl">20.2.4</span></span>
+<span id="cb2-15"><a href="index.html#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> requests<span class="op">=</span><span class="fl">2.24.0</span></span>
+<span id="cb2-16"><a href="index.html#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> scikit<span class="op">-</span>learn<span class="op">=</span><span class="fl">0.23.2</span></span>
+<span id="cb2-17"><a href="index.html#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> seaborn<span class="op">=</span><span class="fl">0.11.0</span></span>
+<span id="cb2-18"><a href="index.html#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> urllib3<span class="op">=</span><span class="fl">1.25.11</span></span>
+<span id="cb2-19"><a href="index.html#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="op">-</span> pip:</span>
+<span id="cb2-20"><a href="index.html#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="op">-</span> cufflinks</span>
+<span id="cb2-21"><a href="index.html#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="op">-</span> h5py<span class="op">==</span><span class="fl">2.10.0</span></span>
+<span id="cb2-22"><a href="index.html#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="op">-</span> nlpia<span class="op">==</span><span class="fl">0.5.2</span></span>
+<span id="cb2-23"><a href="index.html#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="op">-</span> plotnine<span class="op">==</span><span class="fl">0.7</span></span>
+<span id="cb2-24"><a href="index.html#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="op">-</span> plydata<span class="op">==</span><span class="fl">0.4.2</span></span>
+<span id="cb2-25"><a href="index.html#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="op">-</span> yfinance<span class="op">==</span><span class="fl">0.1.55</span></span>
+<span id="cb2-26"><a href="index.html#cb2-26" aria-hidden="true" tabindex="-1"></a>prefix: <span class="op">/</span>home<span class="op">/</span>msfz751<span class="op">/</span>anaconda3<span class="op">/</span>envs<span class="op">/</span>python_book</span></code></pre></div>
 </div>
 <div id="automating-the-builds-with-a-makefile" class="section level2 unnumbered">
 <h2>Automating the builds with a <code>Makefile</code></h2>
+<div id="rules-for-building-the-book" class="section level3 unnumbered">
+<h3>Rules for building the book</h3>
+<p>Here are couple of rules from the <code>Makefile</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb3-1"><a href="index.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># knit the book and then open it in the browser</span></span>
+<span id="cb3-2"><a href="index.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ot">.PHONY:</span><span class="dt"> gitbook1 gitbook2</span></span>
+<span id="cb3-3"><a href="index.html#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="dv">gitbook1:</span><span class="dt"> build_book1 open_book</span></span>
+<span id="cb3-4"><a href="index.html#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="index.html#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="dv">gitbook2:</span><span class="dt"> build_book2 open_book</span></span>
+<span id="cb3-6"><a href="index.html#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="index.html#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># use rstudio pandoc</span></span>
+<span id="cb3-8"><a href="index.html#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># this rule sets the PANDOC environment variable from the shell</span></span>
+<span id="cb3-9"><a href="index.html#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="dv">build_book1:</span></span>
+<span id="cb3-10"><a href="index.html#cb3-10" aria-hidden="true" tabindex="-1"></a>    export RSTUDIO_PANDOC=<span class="st">&quot;/usr/lib/rstudio/bin/pandoc&quot;</span>;<span class="ch">\</span></span>
+<span id="cb3-11"><a href="index.html#cb3-11" aria-hidden="true" tabindex="-1"></a>    Rscript -e <span class="st">&#39;bookdown::render_book(&quot;index.Rmd&quot;, &quot;bookdown::gitbook&quot;)&#39;</span></span>
+<span id="cb3-12"><a href="index.html#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="index.html#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># use rstudio pandoc</span></span>
+<span id="cb3-14"><a href="index.html#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># this rule sets the environment variable from R using multilines</span></span>
+<span id="cb3-15"><a href="index.html#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="dv">build_book2:</span></span>
+<span id="cb3-16"><a href="index.html#cb3-16" aria-hidden="true" tabindex="-1"></a>    Rscript -e <span class="st">&quot;</span><span class="ch">\</span></span>
+<span id="cb3-17"><a href="index.html#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="st">    Sys.setenv(RSTUDIO_PANDOC=&#39;/usr/lib/rstudio/bin/pandoc&#39;);</span><span class="ch">\</span></span>
+<span id="cb3-18"><a href="index.html#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="st">    bookdown::render_book(&#39;index.Rmd&#39;, &#39;bookdown::gitbook&#39;)&quot;</span></span></code></pre></div>
+</div>
+</div>
+<div id="clean-up-the-bookdown-project-folder" class="section level2 unnumbered">
+<h2>Clean up the bookdown project folder</h2>
+<p>With these two rules I occasionally tidy up and clean up from intermediate files the bookdown project folder:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode makefile"><code class="sourceCode makefile"><span id="cb4-1"><a href="index.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ot">.PHONY:</span><span class="dt"> clean</span></span>
+<span id="cb4-2"><a href="index.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dv">clean:</span><span class="dt"> tidy</span></span>
+<span id="cb4-3"><a href="index.html#cb4-3" aria-hidden="true" tabindex="-1"></a>        find <span class="ch">$(</span><span class="dt">OUTPUT_DIR</span><span class="ch">)</span> -maxdepth 1 -name \*.tex -not -name <span class="st">&#39;preamble.tex&#39;</span> -delete</span>
+<span id="cb4-4"><a href="index.html#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="ch">$(</span><span class="dt">RM</span><span class="ch">)</span> -rf <span class="ch">$(</span><span class="dt">BOOKDOWN_FILES_DIRS</span><span class="ch">)</span></span>
+<span id="cb4-5"><a href="index.html#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="ch">$(</span><span class="dt">RM</span><span class="ch">)</span> -rf <span class="ch">$(</span><span class="dt">DEFAULT_PUBLISH_BOOK_DIRS</span><span class="ch">)</span></span>
+<span id="cb4-6"><a href="index.html#cb4-6" aria-hidden="true" tabindex="-1"></a>        if [ -d <span class="ch">${</span><span class="dt">PUBLISH_BOOK_DIR</span><span class="ch">}</span> ]; then rm -rf <span class="ch">${</span><span class="dt">PUBLISH_BOOK_DIR</span><span class="ch">}</span>;fi</span>
+<span id="cb4-7"><a href="index.html#cb4-7" aria-hidden="true" tabindex="-1"></a>        if [ -d <span class="ch">${</span><span class="dt">CHECKPOINTS</span><span class="ch">}</span> ]; then rm -rf <span class="ch">${</span><span class="dt">CHECKPOINTS</span><span class="ch">}</span>;fi</span>
+<span id="cb4-8"><a href="index.html#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="index.html#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="index.html#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># delete unwanted files and folders in bookdown folder</span></span>
+<span id="cb4-11"><a href="index.html#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="ot">.PHONY:</span><span class="dt"> tidy</span></span>
+<span id="cb4-12"><a href="index.html#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="dv">tidy:</span></span>
+<span id="cb4-13"><a href="index.html#cb4-13" aria-hidden="true" tabindex="-1"></a>        find <span class="ch">$(</span><span class="dt">OUTPUT_DIR</span><span class="ch">)</span> -maxdepth 1 -name \*.md -not -name <span class="st">&#39;README.md&#39;</span> -delete</span>
+<span id="cb4-14"><a href="index.html#cb4-14" aria-hidden="true" tabindex="-1"></a>        find <span class="ch">$(</span><span class="dt">OUTPUT_DIR</span><span class="ch">)</span> -maxdepth 1 -name \*-book.html -delete</span>
+<span id="cb4-15"><a href="index.html#cb4-15" aria-hidden="true" tabindex="-1"></a>        find <span class="ch">$(</span><span class="dt">OUTPUT_DIR</span><span class="ch">)</span> -maxdepth 1 -name \*.png -delete</span>
+<span id="cb4-16"><a href="index.html#cb4-16" aria-hidden="true" tabindex="-1"></a>        find <span class="ch">$(</span><span class="dt">OUTPUT_DIR</span><span class="ch">)</span> -maxdepth 1 -name \*.log -delete</span>
+<span id="cb4-17"><a href="index.html#cb4-17" aria-hidden="true" tabindex="-1"></a>        find <span class="ch">$(</span><span class="dt">OUTPUT_DIR</span><span class="ch">)</span> -maxdepth 1 -name \*.rds -delete</span>
+<span id="cb4-18"><a href="index.html#cb4-18" aria-hidden="true" tabindex="-1"></a>        find <span class="ch">$(</span><span class="dt">OUTPUT_DIR</span><span class="ch">)</span> -maxdepth 1 -name \*.ckpt -delete</span>
+<span id="cb4-19"><a href="index.html#cb4-19" aria-hidden="true" tabindex="-1"></a>        find <span class="ch">$(</span><span class="dt">OUTPUT_DIR</span><span class="ch">)</span> -maxdepth 1 -name \*.nb.html -delete</span>
+<span id="cb4-20"><a href="index.html#cb4-20" aria-hidden="true" tabindex="-1"></a>        find <span class="ch">$(</span><span class="dt">OUTPUT_DIR</span><span class="ch">)</span> -maxdepth 1 -name _main.Rmd -delete</span>
+<span id="cb4-21"><a href="index.html#cb4-21" aria-hidden="true" tabindex="-1"></a>        find <span class="ch">$(</span><span class="dt">OUTPUT_DIR</span><span class="ch">)</span> -maxdepth 1 -name now.json -delete       </span></code></pre></div>
 
 </div>
 </div>

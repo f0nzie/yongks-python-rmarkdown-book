@@ -138,7 +138,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#main-sections-of-the-book"><i class="fa fa-check"></i>Main sections of the book</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#python-environment"><i class="fa fa-check"></i>Python environment</a></li>
-<li><a href="index.html#automating-the-builds-with-a-makefile">Automating the builds with a <code>Makefile</code></a></li>
+<li><a href="index.html#automating-the-builds-with-a-makefile">Automating the builds with a <code>Makefile</code></a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#rules-for-building-the-book"><i class="fa fa-check"></i>Rules for building the book</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#clean-up-the-bookdown-project-folder"><i class="fa fa-check"></i>Clean up the bookdown project folder</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="fundamentals.html"><a href="fundamentals.html"><i class="fa fa-check"></i><b>1</b> Fundamentals</a>
 <ul>
@@ -1323,11 +1327,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </li>
 <li><code>start</code> and <code>end</code> date <strong>must be string</strong></li>
 </ul>
-<div class="sourceCode" id="cb1947"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1947-1"><a href="finance.html#cb1947-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas_datareader <span class="im">as</span> pdr</span></code></pre></div>
-<div class="sourceCode" id="cb1948"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1948-1"><a href="finance.html#cb1948-1" aria-hidden="true" tabindex="-1"></a>pdr.data.DataReader(<span class="st">&#39;PUBM.KL&#39;</span>,</span>
-<span id="cb1948-2"><a href="finance.html#cb1948-2" aria-hidden="true" tabindex="-1"></a>                    start<span class="op">=</span><span class="st">&#39;2015-1-1&#39;</span>, </span>
-<span id="cb1948-3"><a href="finance.html#cb1948-3" aria-hidden="true" tabindex="-1"></a>                    end<span class="op">=</span><span class="st">&#39;2019-12-31&#39;</span>, </span>
-<span id="cb1948-4"><a href="finance.html#cb1948-4" aria-hidden="true" tabindex="-1"></a>                    data_source<span class="op">=</span><span class="st">&#39;yahoo&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1949"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1949-1"><a href="finance.html#cb1949-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas_datareader <span class="im">as</span> pdr</span></code></pre></div>
+<div class="sourceCode" id="cb1950"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1950-1"><a href="finance.html#cb1950-1" aria-hidden="true" tabindex="-1"></a>pdr.data.DataReader(<span class="st">&#39;PUBM.KL&#39;</span>,</span>
+<span id="cb1950-2"><a href="finance.html#cb1950-2" aria-hidden="true" tabindex="-1"></a>                    start<span class="op">=</span><span class="st">&#39;2015-1-1&#39;</span>, </span>
+<span id="cb1950-3"><a href="finance.html#cb1950-3" aria-hidden="true" tabindex="-1"></a>                    end<span class="op">=</span><span class="st">&#39;2019-12-31&#39;</span>, </span>
+<span id="cb1950-4"><a href="finance.html#cb1950-4" aria-hidden="true" tabindex="-1"></a>                    data_source<span class="op">=</span><span class="st">&#39;yahoo&#39;</span>)</span></code></pre></div>
 <pre><code>#:&gt;                  High        Low       Open      Close     Volume  Adj Close
 #:&gt; Date                                                                        
 #:&gt; 2015-01-02  18.280001  18.020000  18.260000  18.219999  1689000.0  15.345568
@@ -1347,11 +1351,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="splits-and-dividends" class="section level4" number="19.1.1.2">
 <h4><span class="header-section-number">19.1.1.2</span> Splits and Dividends</h4>
 <p>This method is similar to getting pricing data, except that different data_sources is used.</p>
-<div class="sourceCode" id="cb1950"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1950-1"><a href="finance.html#cb1950-1" aria-hidden="true" tabindex="-1"></a>pdr.DataReader(<span class="st">&#39;AAPL&#39;</span>,</span>
-<span id="cb1950-2"><a href="finance.html#cb1950-2" aria-hidden="true" tabindex="-1"></a>  data_source <span class="op">=</span> <span class="st">&#39;yahoo-actions&#39;</span>,</span>
-<span id="cb1950-3"><a href="finance.html#cb1950-3" aria-hidden="true" tabindex="-1"></a>  start<span class="op">=</span><span class="st">&#39;2014-01-06&#39;</span>, </span>
-<span id="cb1950-4"><a href="finance.html#cb1950-4" aria-hidden="true" tabindex="-1"></a>  end<span class="op">=</span><span class="st">&#39;2015-06-15&#39;</span></span>
-<span id="cb1950-5"><a href="finance.html#cb1950-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb1952"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1952-1"><a href="finance.html#cb1952-1" aria-hidden="true" tabindex="-1"></a>pdr.DataReader(<span class="st">&#39;AAPL&#39;</span>,</span>
+<span id="cb1952-2"><a href="finance.html#cb1952-2" aria-hidden="true" tabindex="-1"></a>  data_source <span class="op">=</span> <span class="st">&#39;yahoo-actions&#39;</span>,</span>
+<span id="cb1952-3"><a href="finance.html#cb1952-3" aria-hidden="true" tabindex="-1"></a>  start<span class="op">=</span><span class="st">&#39;2014-01-06&#39;</span>, </span>
+<span id="cb1952-4"><a href="finance.html#cb1952-4" aria-hidden="true" tabindex="-1"></a>  end<span class="op">=</span><span class="st">&#39;2015-06-15&#39;</span></span>
+<span id="cb1952-5"><a href="finance.html#cb1952-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <pre><code>#:&gt;               action     value
 #:&gt; 2015-05-07  DIVIDEND  0.130000
 #:&gt; 2015-02-05  DIVIDEND  0.117500
@@ -1363,20 +1367,20 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="merging-ohlc-and-splitsdividends" class="section level4" number="19.1.1.3">
 <h4><span class="header-section-number">19.1.1.3</span> Merging OHLC and Splits/Dividends</h4>
-<div class="sourceCode" id="cb1952"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1952-1"><a href="finance.html#cb1952-1" aria-hidden="true" tabindex="-1"></a>prices <span class="op">=</span> pdr.DataReader(<span class="st">&#39;AAPL&#39;</span>,</span>
-<span id="cb1952-2"><a href="finance.html#cb1952-2" aria-hidden="true" tabindex="-1"></a>  data_source <span class="op">=</span> <span class="st">&#39;yahoo&#39;</span>,</span>
-<span id="cb1952-3"><a href="finance.html#cb1952-3" aria-hidden="true" tabindex="-1"></a>  start<span class="op">=</span><span class="st">&#39;2014-06-06&#39;</span>, </span>
-<span id="cb1952-4"><a href="finance.html#cb1952-4" aria-hidden="true" tabindex="-1"></a>  end<span class="op">=</span><span class="st">&#39;2014-06-12&#39;</span></span>
-<span id="cb1952-5"><a href="finance.html#cb1952-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1952-6"><a href="finance.html#cb1952-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1952-7"><a href="finance.html#cb1952-7" aria-hidden="true" tabindex="-1"></a>actions <span class="op">=</span> pdr.DataReader(<span class="st">&#39;AAPL&#39;</span>,</span>
-<span id="cb1952-8"><a href="finance.html#cb1952-8" aria-hidden="true" tabindex="-1"></a>  data_source <span class="op">=</span> <span class="st">&#39;yahoo-actions&#39;</span>,</span>
-<span id="cb1952-9"><a href="finance.html#cb1952-9" aria-hidden="true" tabindex="-1"></a>  start<span class="op">=</span><span class="st">&#39;2014-06-06&#39;</span>, </span>
-<span id="cb1952-10"><a href="finance.html#cb1952-10" aria-hidden="true" tabindex="-1"></a>  end<span class="op">=</span><span class="st">&#39;2014-06-12&#39;</span></span>
-<span id="cb1952-11"><a href="finance.html#cb1952-11" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb1954"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1954-1"><a href="finance.html#cb1954-1" aria-hidden="true" tabindex="-1"></a>prices <span class="op">=</span> pdr.DataReader(<span class="st">&#39;AAPL&#39;</span>,</span>
+<span id="cb1954-2"><a href="finance.html#cb1954-2" aria-hidden="true" tabindex="-1"></a>  data_source <span class="op">=</span> <span class="st">&#39;yahoo&#39;</span>,</span>
+<span id="cb1954-3"><a href="finance.html#cb1954-3" aria-hidden="true" tabindex="-1"></a>  start<span class="op">=</span><span class="st">&#39;2014-06-06&#39;</span>, </span>
+<span id="cb1954-4"><a href="finance.html#cb1954-4" aria-hidden="true" tabindex="-1"></a>  end<span class="op">=</span><span class="st">&#39;2014-06-12&#39;</span></span>
+<span id="cb1954-5"><a href="finance.html#cb1954-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1954-6"><a href="finance.html#cb1954-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1954-7"><a href="finance.html#cb1954-7" aria-hidden="true" tabindex="-1"></a>actions <span class="op">=</span> pdr.DataReader(<span class="st">&#39;AAPL&#39;</span>,</span>
+<span id="cb1954-8"><a href="finance.html#cb1954-8" aria-hidden="true" tabindex="-1"></a>  data_source <span class="op">=</span> <span class="st">&#39;yahoo-actions&#39;</span>,</span>
+<span id="cb1954-9"><a href="finance.html#cb1954-9" aria-hidden="true" tabindex="-1"></a>  start<span class="op">=</span><span class="st">&#39;2014-06-06&#39;</span>, </span>
+<span id="cb1954-10"><a href="finance.html#cb1954-10" aria-hidden="true" tabindex="-1"></a>  end<span class="op">=</span><span class="st">&#39;2014-06-12&#39;</span></span>
+<span id="cb1954-11"><a href="finance.html#cb1954-11" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p>Use <code>pandas.merge()</code> function to combine both prices and splits dataframe in <strong>a new dataframe</strong>. Non matching line will have NaN.</p>
-<div class="sourceCode" id="cb1953"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1953-1"><a href="finance.html#cb1953-1" aria-hidden="true" tabindex="-1"></a>pd.merge(prices, actions, how<span class="op">=</span><span class="st">&#39;outer&#39;</span>, left_index<span class="op">=</span><span class="va">True</span>, right_index<span class="op">=</span><span class="va">True</span>) <span class="op">\</span></span>
-<span id="cb1953-2"><a href="finance.html#cb1953-2" aria-hidden="true" tabindex="-1"></a>  .loc[:,[<span class="st">&#39;High&#39;</span>,<span class="st">&#39;Low&#39;</span>,<span class="st">&#39;Open&#39;</span>,<span class="st">&#39;Close&#39;</span>,<span class="st">&#39;action&#39;</span>,<span class="st">&#39;value&#39;</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb1955"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1955-1"><a href="finance.html#cb1955-1" aria-hidden="true" tabindex="-1"></a>pd.merge(prices, actions, how<span class="op">=</span><span class="st">&#39;outer&#39;</span>, left_index<span class="op">=</span><span class="va">True</span>, right_index<span class="op">=</span><span class="va">True</span>) <span class="op">\</span></span>
+<span id="cb1955-2"><a href="finance.html#cb1955-2" aria-hidden="true" tabindex="-1"></a>  .loc[:,[<span class="st">&#39;High&#39;</span>,<span class="st">&#39;Low&#39;</span>,<span class="st">&#39;Open&#39;</span>,<span class="st">&#39;Close&#39;</span>,<span class="st">&#39;action&#39;</span>,<span class="st">&#39;value&#39;</span>]]</span></code></pre></div>
 <pre><code>#:&gt;                  High        Low       Open      Close action     value
 #:&gt; 2014-06-06  23.259285  23.016787  23.210714  23.056072    NaN       NaN
 #:&gt; 2014-06-09  23.469999  22.937500  23.174999  23.424999  SPLIT  0.142857
@@ -1384,8 +1388,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 #:&gt; 2014-06-11  23.690001  23.367500  23.532499  23.465000    NaN       NaN
 #:&gt; 2014-06-12  23.530001  22.975000  23.510000  23.072500    NaN       NaN</code></pre>
 <p>Alternatively, use pandas column assignment from the splits dataframe into price dataframe, it will automatically ‘merge’ based on the <strong>index</strong>. This approach reuse existing dataframe instead of creating new one.</p>
-<div class="sourceCode" id="cb1955"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1955-1"><a href="finance.html#cb1955-1" aria-hidden="true" tabindex="-1"></a>prices[<span class="st">&#39;action&#39;</span>], prices[<span class="st">&#39;value&#39;</span>] <span class="op">=</span> actions.action, actions.value</span>
-<span id="cb1955-2"><a href="finance.html#cb1955-2" aria-hidden="true" tabindex="-1"></a>prices[[<span class="st">&#39;High&#39;</span>,<span class="st">&#39;Low&#39;</span>,<span class="st">&#39;Open&#39;</span>,<span class="st">&#39;Close&#39;</span>,<span class="st">&#39;action&#39;</span>,<span class="st">&#39;value&#39;</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb1957"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1957-1"><a href="finance.html#cb1957-1" aria-hidden="true" tabindex="-1"></a>prices[<span class="st">&#39;action&#39;</span>], prices[<span class="st">&#39;value&#39;</span>] <span class="op">=</span> actions.action, actions.value</span>
+<span id="cb1957-2"><a href="finance.html#cb1957-2" aria-hidden="true" tabindex="-1"></a>prices[[<span class="st">&#39;High&#39;</span>,<span class="st">&#39;Low&#39;</span>,<span class="st">&#39;Open&#39;</span>,<span class="st">&#39;Close&#39;</span>,<span class="st">&#39;action&#39;</span>,<span class="st">&#39;value&#39;</span>]]</span></code></pre></div>
 <pre><code>#:&gt;                  High        Low       Open      Close action     value
 #:&gt; Date                                                                   
 #:&gt; 2014-06-06  23.259285  23.016787  23.210714  23.056072    NaN       NaN
@@ -1397,26 +1401,26 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="query-multiple-stocks" class="section level4" number="19.1.1.4">
 <h4><span class="header-section-number">19.1.1.4</span> Query Multiple Stocks</h4>
 <p>** When multiple symbols are supplied to DataReader, dictionary containing multiple stock’s result are returned.</p>
-<div class="sourceCode" id="cb1957"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1957-1"><a href="finance.html#cb1957-1" aria-hidden="true" tabindex="-1"></a>stocks <span class="op">=</span> [<span class="st">&#39;MLYBY&#39;</span>, <span class="st">&#39;AAPL&#39;</span>]</span>
-<span id="cb1957-2"><a href="finance.html#cb1957-2" aria-hidden="true" tabindex="-1"></a>my_dict <span class="op">=</span> pdr.DataReader( stocks,</span>
-<span id="cb1957-3"><a href="finance.html#cb1957-3" aria-hidden="true" tabindex="-1"></a>  data_source <span class="op">=</span> <span class="st">&#39;yahoo-actions&#39;</span>,</span>
-<span id="cb1957-4"><a href="finance.html#cb1957-4" aria-hidden="true" tabindex="-1"></a>  start<span class="op">=</span><span class="st">&#39;2014-01-06&#39;</span>, </span>
-<span id="cb1957-5"><a href="finance.html#cb1957-5" aria-hidden="true" tabindex="-1"></a>  end<span class="op">=</span><span class="st">&#39;2015-06-15&#39;</span></span>
-<span id="cb1957-6"><a href="finance.html#cb1957-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1957-7"><a href="finance.html#cb1957-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1957-8"><a href="finance.html#cb1957-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_dict.keys())</span></code></pre></div>
+<div class="sourceCode" id="cb1959"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1959-1"><a href="finance.html#cb1959-1" aria-hidden="true" tabindex="-1"></a>stocks <span class="op">=</span> [<span class="st">&#39;MLYBY&#39;</span>, <span class="st">&#39;AAPL&#39;</span>]</span>
+<span id="cb1959-2"><a href="finance.html#cb1959-2" aria-hidden="true" tabindex="-1"></a>my_dict <span class="op">=</span> pdr.DataReader( stocks,</span>
+<span id="cb1959-3"><a href="finance.html#cb1959-3" aria-hidden="true" tabindex="-1"></a>  data_source <span class="op">=</span> <span class="st">&#39;yahoo-actions&#39;</span>,</span>
+<span id="cb1959-4"><a href="finance.html#cb1959-4" aria-hidden="true" tabindex="-1"></a>  start<span class="op">=</span><span class="st">&#39;2014-01-06&#39;</span>, </span>
+<span id="cb1959-5"><a href="finance.html#cb1959-5" aria-hidden="true" tabindex="-1"></a>  end<span class="op">=</span><span class="st">&#39;2015-06-15&#39;</span></span>
+<span id="cb1959-6"><a href="finance.html#cb1959-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1959-7"><a href="finance.html#cb1959-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1959-8"><a href="finance.html#cb1959-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_dict.keys())</span></code></pre></div>
 <pre><code>#:&gt; dict_keys([&#39;MLYBY&#39;, &#39;AAPL&#39;])</code></pre>
 <p>Iterate through the dictionary to get the dataframe data</p>
-<div class="sourceCode" id="cb1959"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1959-1"><a href="finance.html#cb1959-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> my_dict.items():</span>
-<span id="cb1959-2"><a href="finance.html#cb1959-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\n\n</span><span class="st">Stock: &#39;</span>, i[<span class="dv">0</span>],</span>
-<span id="cb1959-3"><a href="finance.html#cb1959-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;</span><span class="ch">\n</span><span class="st">DataFrame:&#39;</span>, i[<span class="dv">1</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb1961"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1961-1"><a href="finance.html#cb1961-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> my_dict.items():</span>
+<span id="cb1961-2"><a href="finance.html#cb1961-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\n\n</span><span class="st">Stock: &#39;</span>, i[<span class="dv">0</span>],</span>
+<span id="cb1961-3"><a href="finance.html#cb1961-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;</span><span class="ch">\n</span><span class="st">DataFrame:&#39;</span>, i[<span class="dv">1</span>])</span></code></pre></div>
 <pre><code>#:&gt; 
 #:&gt; 
 #:&gt; Stock:  MLYBY 
-#:&gt; DataFrame:               action     value
-#:&gt; 2015-04-22  DIVIDEND  0.179175
-#:&gt; 2014-09-24  DIVIDEND  0.152300
-#:&gt; 2014-04-29  DIVIDEND  0.190239
+#:&gt; DataFrame:               action  value
+#:&gt; 2015-04-22  DIVIDEND  0.178
+#:&gt; 2014-09-24  DIVIDEND  0.152
+#:&gt; 2014-04-29  DIVIDEND  0.192
 #:&gt; 
 #:&gt; 
 #:&gt; Stock:  AAPL 
@@ -1446,11 +1450,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="stock-info" class="section level4" number="19.1.2.1">
 <h4><span class="header-section-number">19.1.2.1</span> Stock Info</h4>
 <p>There are plenty of infomration we can get form the dictionary of returend by <code>info</code></p>
-<div class="sourceCode" id="cb1961"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1961-1"><a href="finance.html#cb1961-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> yfinance <span class="im">as</span> yf</span>
-<span id="cb1961-2"><a href="finance.html#cb1961-2" aria-hidden="true" tabindex="-1"></a>stock <span class="op">=</span> yf.Ticker(<span class="st">&#39;AAPL&#39;</span>)</span>
-<span id="cb1961-3"><a href="finance.html#cb1961-3" aria-hidden="true" tabindex="-1"></a>stock.info.keys()</span></code></pre></div>
+<div class="sourceCode" id="cb1963"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1963-1"><a href="finance.html#cb1963-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> yfinance <span class="im">as</span> yf</span>
+<span id="cb1963-2"><a href="finance.html#cb1963-2" aria-hidden="true" tabindex="-1"></a>stock <span class="op">=</span> yf.Ticker(<span class="st">&#39;AAPL&#39;</span>)</span>
+<span id="cb1963-3"><a href="finance.html#cb1963-3" aria-hidden="true" tabindex="-1"></a>stock.info.keys()</span></code></pre></div>
 <pre><code>#:&gt; dict_keys([&#39;zip&#39;, &#39;sector&#39;, &#39;longBusinessSummary&#39;, &#39;city&#39;, &#39;phone&#39;, &#39;state&#39;, &#39;country&#39;, &#39;companyOfficers&#39;, &#39;website&#39;, &#39;maxAge&#39;, &#39;address1&#39;, &#39;industry&#39;, &#39;previousClose&#39;, &#39;regularMarketOpen&#39;, &#39;twoHundredDayAverage&#39;, &#39;trailingAnnualDividendYield&#39;, &#39;payoutRatio&#39;, &#39;volume24Hr&#39;, &#39;regularMarketDayHigh&#39;, &#39;navPrice&#39;, &#39;averageDailyVolume10Day&#39;, &#39;totalAssets&#39;, &#39;regularMarketPreviousClose&#39;, &#39;fiftyDayAverage&#39;, &#39;trailingAnnualDividendRate&#39;, &#39;open&#39;, &#39;toCurrency&#39;, &#39;averageVolume10days&#39;, &#39;expireDate&#39;, &#39;yield&#39;, &#39;algorithm&#39;, &#39;dividendRate&#39;, &#39;exDividendDate&#39;, &#39;beta&#39;, &#39;circulatingSupply&#39;, &#39;startDate&#39;, &#39;regularMarketDayLow&#39;, &#39;priceHint&#39;, &#39;currency&#39;, &#39;trailingPE&#39;, &#39;regularMarketVolume&#39;, &#39;lastMarket&#39;, &#39;maxSupply&#39;, &#39;openInterest&#39;, &#39;marketCap&#39;, &#39;volumeAllCurrencies&#39;, &#39;strikePrice&#39;, &#39;averageVolume&#39;, &#39;priceToSalesTrailing12Months&#39;, &#39;dayLow&#39;, &#39;ask&#39;, &#39;ytdReturn&#39;, &#39;askSize&#39;, &#39;volume&#39;, &#39;fiftyTwoWeekHigh&#39;, &#39;forwardPE&#39;, &#39;fromCurrency&#39;, &#39;fiveYearAvgDividendYield&#39;, &#39;fiftyTwoWeekLow&#39;, &#39;bid&#39;, &#39;tradeable&#39;, &#39;dividendYield&#39;, &#39;bidSize&#39;, &#39;dayHigh&#39;, &#39;exchange&#39;, &#39;shortName&#39;, &#39;longName&#39;, &#39;exchangeTimezoneName&#39;, &#39;exchangeTimezoneShortName&#39;, &#39;isEsgPopulated&#39;, &#39;gmtOffSetMilliseconds&#39;, &#39;quoteType&#39;, &#39;symbol&#39;, &#39;messageBoardId&#39;, &#39;market&#39;, &#39;annualHoldingsTurnover&#39;, &#39;enterpriseToRevenue&#39;, &#39;beta3Year&#39;, &#39;profitMargins&#39;, &#39;enterpriseToEbitda&#39;, &#39;52WeekChange&#39;, &#39;morningStarRiskRating&#39;, &#39;forwardEps&#39;, &#39;revenueQuarterlyGrowth&#39;, &#39;sharesOutstanding&#39;, &#39;fundInceptionDate&#39;, &#39;annualReportExpenseRatio&#39;, &#39;bookValue&#39;, &#39;sharesShort&#39;, &#39;sharesPercentSharesOut&#39;, &#39;fundFamily&#39;, &#39;lastFiscalYearEnd&#39;, &#39;heldPercentInstitutions&#39;, &#39;netIncomeToCommon&#39;, &#39;trailingEps&#39;, &#39;lastDividendValue&#39;, &#39;SandP52WeekChange&#39;, &#39;priceToBook&#39;, &#39;heldPercentInsiders&#39;, &#39;nextFiscalYearEnd&#39;, &#39;mostRecentQuarter&#39;, &#39;shortRatio&#39;, &#39;sharesShortPreviousMonthDate&#39;, &#39;floatShares&#39;, &#39;enterpriseValue&#39;, &#39;threeYearAverageReturn&#39;, &#39;lastSplitDate&#39;, &#39;lastSplitFactor&#39;, &#39;legalType&#39;, &#39;lastDividendDate&#39;, &#39;morningStarOverallRating&#39;, &#39;earningsQuarterlyGrowth&#39;, &#39;dateShortInterest&#39;, &#39;pegRatio&#39;, &#39;lastCapGain&#39;, &#39;shortPercentOfFloat&#39;, &#39;sharesShortPriorMonth&#39;, &#39;category&#39;, &#39;fiveYearAverageReturn&#39;, &#39;regularMarketPrice&#39;, &#39;logo_url&#39;])</code></pre>
-<div class="sourceCode" id="cb1963"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1963-1"><a href="finance.html#cb1963-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(stock.info[<span class="st">&#39;longName&#39;</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb1965"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1965-1"><a href="finance.html#cb1965-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(stock.info[<span class="st">&#39;longName&#39;</span>])</span></code></pre></div>
 <pre><code>#:&gt; Apple Inc.</code></pre>
 </div>
 <div id="ohlc-eod-pricing-1" class="section level4" number="19.1.2.2">
@@ -1462,8 +1466,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </li>
 <li>‘start’ and ‘end’ date <strong>must be string</strong></li>
 </ul>
-<div class="sourceCode" id="cb1965"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1965-1"><a href="finance.html#cb1965-1" aria-hidden="true" tabindex="-1"></a>stock <span class="op">=</span> yf.Ticker(<span class="st">&#39;AAPL&#39;</span>)</span>
-<span id="cb1965-2"><a href="finance.html#cb1965-2" aria-hidden="true" tabindex="-1"></a>stock.history(  start<span class="op">=</span><span class="st">&#39;2014-06-06&#39;</span>, end<span class="op">=</span><span class="st">&#39;2015-06-15&#39;</span>, auto_adjust <span class="op">=</span> <span class="va">False</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1967"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1967-1"><a href="finance.html#cb1967-1" aria-hidden="true" tabindex="-1"></a>stock <span class="op">=</span> yf.Ticker(<span class="st">&#39;AAPL&#39;</span>)</span>
+<span id="cb1967-2"><a href="finance.html#cb1967-2" aria-hidden="true" tabindex="-1"></a>stock.history(  start<span class="op">=</span><span class="st">&#39;2014-06-06&#39;</span>, end<span class="op">=</span><span class="st">&#39;2015-06-15&#39;</span>, auto_adjust <span class="op">=</span> <span class="va">False</span>)</span></code></pre></div>
 <pre><code>#:&gt;                  Open       High        Low      Close  Adj Close     Volume  Dividends  \
 #:&gt; Date                                                                                      
 #:&gt; 2014-06-06  23.210714  23.259285  23.016787  23.056072  20.844652  349938400        0.0   
@@ -1499,9 +1503,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </li>
 <li>Therefore, ‘Adj Close’ column is redundant, hence removed.</li>
 </ul>
-<div class="sourceCode" id="cb1967"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1967-1"><a href="finance.html#cb1967-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> yfinance <span class="im">as</span> yf</span>
-<span id="cb1967-2"><a href="finance.html#cb1967-2" aria-hidden="true" tabindex="-1"></a>stock <span class="op">=</span> yf.Ticker(<span class="st">&#39;AAPL&#39;</span>)</span>
-<span id="cb1967-3"><a href="finance.html#cb1967-3" aria-hidden="true" tabindex="-1"></a>stock.history(  start<span class="op">=</span><span class="st">&#39;2014-06-06&#39;</span>, end<span class="op">=</span><span class="st">&#39;2015-06-15&#39;</span>, auto_adjust <span class="op">=</span> <span class="va">True</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1969"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1969-1"><a href="finance.html#cb1969-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> yfinance <span class="im">as</span> yf</span>
+<span id="cb1969-2"><a href="finance.html#cb1969-2" aria-hidden="true" tabindex="-1"></a>stock <span class="op">=</span> yf.Ticker(<span class="st">&#39;AAPL&#39;</span>)</span>
+<span id="cb1969-3"><a href="finance.html#cb1969-3" aria-hidden="true" tabindex="-1"></a>stock.history(  start<span class="op">=</span><span class="st">&#39;2014-06-06&#39;</span>, end<span class="op">=</span><span class="st">&#39;2015-06-15&#39;</span>, auto_adjust <span class="op">=</span> <span class="va">True</span>)</span></code></pre></div>
 <pre><code>#:&gt;                  Open       High        Low      Close     Volume  Dividends  \
 #:&gt; Date                                                                           
 #:&gt; 2014-06-06  20.984462  21.028374  20.809135  20.844652  349938400        0.0   
@@ -1535,7 +1539,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="splits-and-dividends-1" class="section level4" number="19.1.2.3">
 <h4><span class="header-section-number">19.1.2.3</span> Splits and Dividends</h4>
 <p>Getting both Splits and Dividends</p>
-<div class="sourceCode" id="cb1969"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1969-1"><a href="finance.html#cb1969-1" aria-hidden="true" tabindex="-1"></a>stock.actions</span></code></pre></div>
+<div class="sourceCode" id="cb1971"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1971-1"><a href="finance.html#cb1971-1" aria-hidden="true" tabindex="-1"></a>stock.actions</span></code></pre></div>
 <pre><code>#:&gt;             Dividends  Stock Splits
 #:&gt; Date                               
 #:&gt; 2014-06-09     0.0000           7.0
@@ -1544,7 +1548,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 #:&gt; 2015-02-05     0.1175           0.0
 #:&gt; 2015-05-07     0.1300           0.0</code></pre>
 <p>Getting Dividends Only</p>
-<div class="sourceCode" id="cb1971"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1971-1"><a href="finance.html#cb1971-1" aria-hidden="true" tabindex="-1"></a>stock.dividends</span></code></pre></div>
+<div class="sourceCode" id="cb1973"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1973-1"><a href="finance.html#cb1973-1" aria-hidden="true" tabindex="-1"></a>stock.dividends</span></code></pre></div>
 <pre><code>#:&gt; Date
 #:&gt; 2014-08-07    0.1175
 #:&gt; 2014-11-06    0.1175
@@ -1552,7 +1556,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 #:&gt; 2015-05-07    0.1300
 #:&gt; Name: Dividends, dtype: float64</code></pre>
 <p>Getting Splits Only</p>
-<div class="sourceCode" id="cb1973"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1973-1"><a href="finance.html#cb1973-1" aria-hidden="true" tabindex="-1"></a>stock.splits</span></code></pre></div>
+<div class="sourceCode" id="cb1975"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1975-1"><a href="finance.html#cb1975-1" aria-hidden="true" tabindex="-1"></a>stock.splits</span></code></pre></div>
 <pre><code>#:&gt; Date
 #:&gt; 2014-06-09    7.0
 #:&gt; Name: Stock Splits, dtype: float64</code></pre>
@@ -1560,8 +1564,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="query-using-periods" class="section level4" number="19.1.2.4">
 <h4><span class="header-section-number">19.1.2.4</span> Query Using Periods</h4>
 <p>Available periods are: 1d, 5d, 1mo, 3mo, 6mo, 1y, 2y, 5y, 10y, ytd, <strong>max</strong></p>
-<div class="sourceCode" id="cb1975"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1975-1"><a href="finance.html#cb1975-1" aria-hidden="true" tabindex="-1"></a>stock <span class="op">=</span> yf.Ticker(<span class="st">&#39;AAPL&#39;</span>)</span>
-<span id="cb1975-2"><a href="finance.html#cb1975-2" aria-hidden="true" tabindex="-1"></a>stock.history(periods<span class="op">=</span><span class="st">&#39;max&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1977"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1977-1"><a href="finance.html#cb1977-1" aria-hidden="true" tabindex="-1"></a>stock <span class="op">=</span> yf.Ticker(<span class="st">&#39;AAPL&#39;</span>)</span>
+<span id="cb1977-2"><a href="finance.html#cb1977-2" aria-hidden="true" tabindex="-1"></a>stock.history(periods<span class="op">=</span><span class="st">&#39;max&#39;</span>)</span></code></pre></div>
 <pre><code>#:&gt;                   Open        High         Low       Close     Volume  Dividends  \
 #:&gt; Date                                                                               
 #:&gt; 2020-09-30  113.790001  117.260002  113.620003  115.809998  142675200          0   
@@ -1574,7 +1578,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 #:&gt; 2020-10-27  115.489998  117.279999  114.540001  116.599998   92276800          0   
 #:&gt; 2020-10-28  115.050003  115.430000  111.099998  111.199997  143937800          0   
 #:&gt; 2020-10-29  112.370003  116.930000  112.199997  115.320000  143850900          0   
-#:&gt; 2020-10-30  111.059998  111.989998  108.300003  108.509499  115624690          0   
+#:&gt; 2020-10-30  111.059998  111.989998  108.099998  108.408997  122057111          0   
 #:&gt; 
 #:&gt;             Stock Splits  
 #:&gt; Date                      
@@ -1603,17 +1607,17 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </li>
 <li>By default, <code>threads=True</code> for parallel downloading.</li>
 </ul>
-<div class="sourceCode" id="cb1977"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1977-1"><a href="finance.html#cb1977-1" aria-hidden="true" tabindex="-1"></a>stocks <span class="op">=</span> [<span class="st">&#39;MLYBY&#39;</span>,<span class="st">&#39;AAPL&#39;</span>]</span>
-<span id="cb1977-2"><a href="finance.html#cb1977-2" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> yf.download(stocks, start<span class="op">=</span><span class="st">&#39;2014-06-06&#39;</span>, end<span class="op">=</span><span class="st">&#39;2014-06-15&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1979"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1979-1"><a href="finance.html#cb1979-1" aria-hidden="true" tabindex="-1"></a>stocks <span class="op">=</span> [<span class="st">&#39;MLYBY&#39;</span>,<span class="st">&#39;AAPL&#39;</span>]</span>
+<span id="cb1979-2"><a href="finance.html#cb1979-2" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> yf.download(stocks, start<span class="op">=</span><span class="st">&#39;2014-06-06&#39;</span>, end<span class="op">=</span><span class="st">&#39;2014-06-15&#39;</span>)</span></code></pre></div>
 <pre><code>#:&gt; 
 [                       0%                       ]
 [*********************100%***********************]  2 of 2 completed</code></pre>
-<div class="sourceCode" id="cb1979"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1979-1"><a href="finance.html#cb1979-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> yf.download(stocks, start<span class="op">=</span><span class="st">&#39;2014-06-06&#39;</span>, end<span class="op">=</span><span class="st">&#39;2014-06-15&#39;</span>, group_by<span class="op">=</span><span class="st">&#39;ticker&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1981"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1981-1"><a href="finance.html#cb1981-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> yf.download(stocks, start<span class="op">=</span><span class="st">&#39;2014-06-06&#39;</span>, end<span class="op">=</span><span class="st">&#39;2014-06-15&#39;</span>, group_by<span class="op">=</span><span class="st">&#39;ticker&#39;</span>)</span></code></pre></div>
 <pre><code>#:&gt; 
 [                       0%                       ]
 [*********************100%***********************]  2 of 2 completed</code></pre>
-<div class="sourceCode" id="cb1981"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1981-1"><a href="finance.html#cb1981-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Group by Column Name:</span><span class="ch">\n</span><span class="st">&#39;</span>, df1[<span class="st">&#39;Close&#39;</span>][<span class="st">&#39;AAPL&#39;</span>], <span class="st">&#39;</span><span class="ch">\n\n</span><span class="st">&#39;</span>,</span>
-<span id="cb1981-2"><a href="finance.html#cb1981-2" aria-hidden="true" tabindex="-1"></a>      <span class="st">&#39;Group by Symbol:     ]n&#39;</span>, df2[<span class="st">&#39;AAPL&#39;</span>][<span class="st">&#39;Close&#39;</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb1983"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1983-1"><a href="finance.html#cb1983-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Group by Column Name:</span><span class="ch">\n</span><span class="st">&#39;</span>, df1[<span class="st">&#39;Close&#39;</span>][<span class="st">&#39;AAPL&#39;</span>], <span class="st">&#39;</span><span class="ch">\n\n</span><span class="st">&#39;</span>,</span>
+<span id="cb1983-2"><a href="finance.html#cb1983-2" aria-hidden="true" tabindex="-1"></a>      <span class="st">&#39;Group by Symbol:     ]n&#39;</span>, df2[<span class="st">&#39;AAPL&#39;</span>][<span class="st">&#39;Close&#39;</span>])</span></code></pre></div>
 <pre><code>#:&gt; Group by Column Name:
 #:&gt;  Date
 #:&gt; 2014-06-06    23.056072
@@ -1643,32 +1647,32 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="charting" class="section level2" number="19.2">
 <h2><span class="header-section-number">19.2</span> Charting</h2>
-<div class="sourceCode" id="cb1983"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1983-1"><a href="finance.html#cb1983-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cufflinks <span class="im">as</span> cf  <span class="co"># Cufflinks</span></span>
-<span id="cb1983-2"><a href="finance.html#cb1983-2" aria-hidden="true" tabindex="-1"></a><span class="co">#cf.set_config_file(offline=True)  # set the plotting mode to offline</span></span></code></pre></div>
+<div class="sourceCode" id="cb1985"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1985-1"><a href="finance.html#cb1985-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cufflinks <span class="im">as</span> cf  <span class="co"># Cufflinks</span></span>
+<span id="cb1985-2"><a href="finance.html#cb1985-2" aria-hidden="true" tabindex="-1"></a><span class="co">#cf.set_config_file(offline=True)  # set the plotting mode to offline</span></span></code></pre></div>
 <div id="price-comparison" class="section level3" number="19.2.1">
 <h3><span class="header-section-number">19.2.1</span> Price Comparison</h3>
-<div class="sourceCode" id="cb1984"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1984-1"><a href="finance.html#cb1984-1" aria-hidden="true" tabindex="-1"></a>stocks <span class="op">=</span> [<span class="st">&#39;XOM&#39;</span>]</span>
-<span id="cb1984-2"><a href="finance.html#cb1984-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> yf.download(stocks, start<span class="op">=</span><span class="st">&#39;2020-01-01&#39;</span>, end<span class="op">=</span><span class="st">&#39;2020-01-30&#39;</span>)</span>
-<span id="cb1984-3"><a href="finance.html#cb1984-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">&#39;Close&#39;</span>]</span>
-<span id="cb1984-4"><a href="finance.html#cb1984-4" aria-hidden="true" tabindex="-1"></a>df.iplot()</span></code></pre></div>
-<div class="sourceCode" id="cb1985"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1985-1"><a href="finance.html#cb1985-1" aria-hidden="true" tabindex="-1"></a>stocks <span class="op">=</span> [<span class="st">&#39;CVX&#39;</span>]</span>
-<span id="cb1985-2"><a href="finance.html#cb1985-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> yf.download(stocks, start<span class="op">=</span><span class="st">&#39;2019-01-01&#39;</span>, end<span class="op">=</span><span class="st">&#39;2019-12-31&#39;</span>)</span>
-<span id="cb1985-3"><a href="finance.html#cb1985-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">&#39;Close&#39;</span>]</span>
-<span id="cb1985-4"><a href="finance.html#cb1985-4" aria-hidden="true" tabindex="-1"></a>df.iplot()</span></code></pre></div>
-<div class="sourceCode" id="cb1986"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1986-1"><a href="finance.html#cb1986-1" aria-hidden="true" tabindex="-1"></a><span class="co"># stocks = [&#39;AAPL&#39;,&#39;MLYBY&#39;, &#39;PUBM.KL&#39;, &#39;HLFBF&#39;,&#39;1295.KL&#39;]</span></span>
-<span id="cb1986-2"><a href="finance.html#cb1986-2" aria-hidden="true" tabindex="-1"></a><span class="co"># stocks = [&#39;AAPL&#39;,&#39;MLYBY&#39;, &#39;PUBM.KL&#39;, &#39;HLFBF&#39;]</span></span>
-<span id="cb1986-3"><a href="finance.html#cb1986-3" aria-hidden="true" tabindex="-1"></a>stocks <span class="op">=</span> [<span class="st">&#39;AAPL&#39;</span>]</span>
-<span id="cb1986-4"><a href="finance.html#cb1986-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> yf.download(stocks, start<span class="op">=</span><span class="st">&#39;2020-01-01&#39;</span>, end<span class="op">=</span><span class="st">&#39;2020-01-30&#39;</span>)</span>
-<span id="cb1986-5"><a href="finance.html#cb1986-5" aria-hidden="true" tabindex="-1"></a>df[<span class="st">&#39;Close&#39;</span>]</span>
-<span id="cb1986-6"><a href="finance.html#cb1986-6" aria-hidden="true" tabindex="-1"></a>df.iplot()</span></code></pre></div>
-<div class="sourceCode" id="cb1987"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1987-1"><a href="finance.html#cb1987-1" aria-hidden="true" tabindex="-1"></a>stock <span class="op">=</span> yf.Ticker(<span class="st">&#39;PUBM.KL&#39;</span>)</span>
-<span id="cb1987-2"><a href="finance.html#cb1987-2" aria-hidden="true" tabindex="-1"></a><span class="co">#stock.history(periods=&#39;max&#39;)</span></span>
-<span id="cb1987-3"><a href="finance.html#cb1987-3" aria-hidden="true" tabindex="-1"></a>stock.history(  start<span class="op">=</span><span class="st">&#39;2014-06-06&#39;</span>, end<span class="op">=</span><span class="st">&#39;2015-06-15&#39;</span>, auto_adjust <span class="op">=</span> <span class="va">True</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb1988"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1988-1"><a href="finance.html#cb1988-1" aria-hidden="true" tabindex="-1"></a>stock <span class="op">=</span> yf.Ticker(<span class="st">&#39;1295.KL&#39;</span>)</span>
-<span id="cb1988-2"><a href="finance.html#cb1988-2" aria-hidden="true" tabindex="-1"></a>stock.history(  start<span class="op">=</span><span class="st">&#39;2014-06-06&#39;</span>, end<span class="op">=</span><span class="st">&#39;2015-06-15&#39;</span>, auto_adjust <span class="op">=</span> <span class="va">True</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb1989"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1989-1"><a href="finance.html#cb1989-1" aria-hidden="true" tabindex="-1"></a>stocks <span class="op">=</span> [<span class="st">&#39;MLYBY&#39;</span>]</span>
-<span id="cb1989-2"><a href="finance.html#cb1989-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> yf.download(<span class="st">&#39;MLYBY&#39;</span>, start<span class="op">=</span><span class="st">&#39;2018-12-03&#39;</span>, end<span class="op">=</span><span class="st">&#39;2019-03-21&#39;</span>)</span>
-<span id="cb1989-3"><a href="finance.html#cb1989-3" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div>
+<div class="sourceCode" id="cb1986"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1986-1"><a href="finance.html#cb1986-1" aria-hidden="true" tabindex="-1"></a>stocks <span class="op">=</span> [<span class="st">&#39;XOM&#39;</span>]</span>
+<span id="cb1986-2"><a href="finance.html#cb1986-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> yf.download(stocks, start<span class="op">=</span><span class="st">&#39;2020-01-01&#39;</span>, end<span class="op">=</span><span class="st">&#39;2020-01-30&#39;</span>)</span>
+<span id="cb1986-3"><a href="finance.html#cb1986-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">&#39;Close&#39;</span>]</span>
+<span id="cb1986-4"><a href="finance.html#cb1986-4" aria-hidden="true" tabindex="-1"></a>df.iplot()</span></code></pre></div>
+<div class="sourceCode" id="cb1987"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1987-1"><a href="finance.html#cb1987-1" aria-hidden="true" tabindex="-1"></a>stocks <span class="op">=</span> [<span class="st">&#39;CVX&#39;</span>]</span>
+<span id="cb1987-2"><a href="finance.html#cb1987-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> yf.download(stocks, start<span class="op">=</span><span class="st">&#39;2019-01-01&#39;</span>, end<span class="op">=</span><span class="st">&#39;2019-12-31&#39;</span>)</span>
+<span id="cb1987-3"><a href="finance.html#cb1987-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">&#39;Close&#39;</span>]</span>
+<span id="cb1987-4"><a href="finance.html#cb1987-4" aria-hidden="true" tabindex="-1"></a>df.iplot()</span></code></pre></div>
+<div class="sourceCode" id="cb1988"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1988-1"><a href="finance.html#cb1988-1" aria-hidden="true" tabindex="-1"></a><span class="co"># stocks = [&#39;AAPL&#39;,&#39;MLYBY&#39;, &#39;PUBM.KL&#39;, &#39;HLFBF&#39;,&#39;1295.KL&#39;]</span></span>
+<span id="cb1988-2"><a href="finance.html#cb1988-2" aria-hidden="true" tabindex="-1"></a><span class="co"># stocks = [&#39;AAPL&#39;,&#39;MLYBY&#39;, &#39;PUBM.KL&#39;, &#39;HLFBF&#39;]</span></span>
+<span id="cb1988-3"><a href="finance.html#cb1988-3" aria-hidden="true" tabindex="-1"></a>stocks <span class="op">=</span> [<span class="st">&#39;AAPL&#39;</span>]</span>
+<span id="cb1988-4"><a href="finance.html#cb1988-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> yf.download(stocks, start<span class="op">=</span><span class="st">&#39;2020-01-01&#39;</span>, end<span class="op">=</span><span class="st">&#39;2020-01-30&#39;</span>)</span>
+<span id="cb1988-5"><a href="finance.html#cb1988-5" aria-hidden="true" tabindex="-1"></a>df[<span class="st">&#39;Close&#39;</span>]</span>
+<span id="cb1988-6"><a href="finance.html#cb1988-6" aria-hidden="true" tabindex="-1"></a>df.iplot()</span></code></pre></div>
+<div class="sourceCode" id="cb1989"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1989-1"><a href="finance.html#cb1989-1" aria-hidden="true" tabindex="-1"></a>stock <span class="op">=</span> yf.Ticker(<span class="st">&#39;PUBM.KL&#39;</span>)</span>
+<span id="cb1989-2"><a href="finance.html#cb1989-2" aria-hidden="true" tabindex="-1"></a><span class="co">#stock.history(periods=&#39;max&#39;)</span></span>
+<span id="cb1989-3"><a href="finance.html#cb1989-3" aria-hidden="true" tabindex="-1"></a>stock.history(  start<span class="op">=</span><span class="st">&#39;2014-06-06&#39;</span>, end<span class="op">=</span><span class="st">&#39;2015-06-15&#39;</span>, auto_adjust <span class="op">=</span> <span class="va">True</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1990"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1990-1"><a href="finance.html#cb1990-1" aria-hidden="true" tabindex="-1"></a>stock <span class="op">=</span> yf.Ticker(<span class="st">&#39;1295.KL&#39;</span>)</span>
+<span id="cb1990-2"><a href="finance.html#cb1990-2" aria-hidden="true" tabindex="-1"></a>stock.history(  start<span class="op">=</span><span class="st">&#39;2014-06-06&#39;</span>, end<span class="op">=</span><span class="st">&#39;2015-06-15&#39;</span>, auto_adjust <span class="op">=</span> <span class="va">True</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1991"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1991-1"><a href="finance.html#cb1991-1" aria-hidden="true" tabindex="-1"></a>stocks <span class="op">=</span> [<span class="st">&#39;MLYBY&#39;</span>]</span>
+<span id="cb1991-2"><a href="finance.html#cb1991-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> yf.download(<span class="st">&#39;MLYBY&#39;</span>, start<span class="op">=</span><span class="st">&#39;2018-12-03&#39;</span>, end<span class="op">=</span><span class="st">&#39;2019-03-21&#39;</span>)</span>
+<span id="cb1991-3"><a href="finance.html#cb1991-3" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div>
 
 </div>
 </div>

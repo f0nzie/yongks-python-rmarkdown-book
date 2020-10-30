@@ -138,7 +138,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#main-sections-of-the-book"><i class="fa fa-check"></i>Main sections of the book</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#python-environment"><i class="fa fa-check"></i>Python environment</a></li>
-<li><a href="index.html#automating-the-builds-with-a-makefile">Automating the builds with a <code>Makefile</code></a></li>
+<li><a href="index.html#automating-the-builds-with-a-makefile">Automating the builds with a <code>Makefile</code></a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#rules-for-building-the-book"><i class="fa fa-check"></i>Rules for building the book</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#clean-up-the-bookdown-project-folder"><i class="fa fa-check"></i>Clean up the bookdown project folder</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="fundamentals.html"><a href="fundamentals.html"><i class="fa fa-check"></i><b>1</b> Fundamentals</a>
 <ul>
@@ -1327,24 +1331,24 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>register</strong> is a decarator, it accept <strong>decorated</strong> as the only argument</li>
 <li>foo() and bar() are the <strong>decorated function</strong> of <strong>register</strong></li>
 </ul>
-<div class="sourceCode" id="cb446"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb446-1"><a href="decorator.html#cb446-1" aria-hidden="true" tabindex="-1"></a>registry <span class="op">=</span> []</span>
-<span id="cb446-2"><a href="decorator.html#cb446-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb446-3"><a href="decorator.html#cb446-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> register(decorated):</span>
-<span id="cb446-4"><a href="decorator.html#cb446-4" aria-hidden="true" tabindex="-1"></a>    registry.append(decorated)</span>
-<span id="cb446-5"><a href="decorator.html#cb446-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> decorated</span>
-<span id="cb446-6"><a href="decorator.html#cb446-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb446-7"><a href="decorator.html#cb446-7" aria-hidden="true" tabindex="-1"></a><span class="at">@register</span></span>
-<span id="cb446-8"><a href="decorator.html#cb446-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> foo():</span>
-<span id="cb446-9"><a href="decorator.html#cb446-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">3</span></span>
-<span id="cb446-10"><a href="decorator.html#cb446-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb446-11"><a href="decorator.html#cb446-11" aria-hidden="true" tabindex="-1"></a><span class="at">@register</span></span>
-<span id="cb446-12"><a href="decorator.html#cb446-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> bar():</span>
-<span id="cb446-13"><a href="decorator.html#cb446-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">5</span></span></code></pre></div>
-<div class="sourceCode" id="cb447"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb447-1"><a href="decorator.html#cb447-1" aria-hidden="true" tabindex="-1"></a>registry</span></code></pre></div>
-<pre><code>#:&gt; [&lt;function foo at 0x7fd15aa4f710&gt;, &lt;function bar at 0x7fd15aa4f4d0&gt;]</code></pre>
-<div class="sourceCode" id="cb449"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb449-1"><a href="decorator.html#cb449-1" aria-hidden="true" tabindex="-1"></a>registry[<span class="dv">0</span>]()</span></code></pre></div>
+<div class="sourceCode" id="cb448"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb448-1"><a href="decorator.html#cb448-1" aria-hidden="true" tabindex="-1"></a>registry <span class="op">=</span> []</span>
+<span id="cb448-2"><a href="decorator.html#cb448-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb448-3"><a href="decorator.html#cb448-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> register(decorated):</span>
+<span id="cb448-4"><a href="decorator.html#cb448-4" aria-hidden="true" tabindex="-1"></a>    registry.append(decorated)</span>
+<span id="cb448-5"><a href="decorator.html#cb448-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> decorated</span>
+<span id="cb448-6"><a href="decorator.html#cb448-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb448-7"><a href="decorator.html#cb448-7" aria-hidden="true" tabindex="-1"></a><span class="at">@register</span></span>
+<span id="cb448-8"><a href="decorator.html#cb448-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> foo():</span>
+<span id="cb448-9"><a href="decorator.html#cb448-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">3</span></span>
+<span id="cb448-10"><a href="decorator.html#cb448-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb448-11"><a href="decorator.html#cb448-11" aria-hidden="true" tabindex="-1"></a><span class="at">@register</span></span>
+<span id="cb448-12"><a href="decorator.html#cb448-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> bar():</span>
+<span id="cb448-13"><a href="decorator.html#cb448-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">5</span></span></code></pre></div>
+<div class="sourceCode" id="cb449"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb449-1"><a href="decorator.html#cb449-1" aria-hidden="true" tabindex="-1"></a>registry</span></code></pre></div>
+<pre><code>#:&gt; [&lt;function foo at 0x7fdc197b9710&gt;, &lt;function bar at 0x7fdc197b94d0&gt;]</code></pre>
+<div class="sourceCode" id="cb451"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb451-1"><a href="decorator.html#cb451-1" aria-hidden="true" tabindex="-1"></a>registry[<span class="dv">0</span>]()</span></code></pre></div>
 <pre><code>#:&gt; 3</code></pre>
-<div class="sourceCode" id="cb451"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb451-1"><a href="decorator.html#cb451-1" aria-hidden="true" tabindex="-1"></a>registry[<span class="dv">1</span>]()</span></code></pre></div>
+<div class="sourceCode" id="cb453"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb453-1"><a href="decorator.html#cb453-1" aria-hidden="true" tabindex="-1"></a>registry[<span class="dv">1</span>]()</span></code></pre></div>
 <pre><code>#:&gt; 5</code></pre>
 </div>
 <div id="example-2---decorator-with-class" class="section level3" number="8.2.2">
@@ -1353,45 +1357,45 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li>Extending the use case above</li>
 <li>register is the <strong>decarator</strong>, it has only one argument</li>
 </ul>
-<div class="sourceCode" id="cb453"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb453-1"><a href="decorator.html#cb453-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Registry(<span class="bu">object</span>):</span>
-<span id="cb453-2"><a href="decorator.html#cb453-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
-<span id="cb453-3"><a href="decorator.html#cb453-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._functions <span class="op">=</span> []</span>
-<span id="cb453-4"><a href="decorator.html#cb453-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> register(<span class="va">self</span>,decorated):</span>
-<span id="cb453-5"><a href="decorator.html#cb453-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._functions.append(decorated)</span>
-<span id="cb453-6"><a href="decorator.html#cb453-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> decorated</span>
-<span id="cb453-7"><a href="decorator.html#cb453-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> run_all(<span class="va">self</span>,<span class="op">*</span>args,<span class="op">**</span>kwargs):</span>
-<span id="cb453-8"><a href="decorator.html#cb453-8" aria-hidden="true" tabindex="-1"></a>        return_values <span class="op">=</span> []</span>
-<span id="cb453-9"><a href="decorator.html#cb453-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> func <span class="kw">in</span> <span class="va">self</span>._functions:</span>
-<span id="cb453-10"><a href="decorator.html#cb453-10" aria-hidden="true" tabindex="-1"></a>            return_values.append(func(<span class="op">*</span>args,<span class="op">**</span>kwargs))</span>
-<span id="cb453-11"><a href="decorator.html#cb453-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> return_values</span></code></pre></div>
+<div class="sourceCode" id="cb455"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb455-1"><a href="decorator.html#cb455-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Registry(<span class="bu">object</span>):</span>
+<span id="cb455-2"><a href="decorator.html#cb455-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb455-3"><a href="decorator.html#cb455-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._functions <span class="op">=</span> []</span>
+<span id="cb455-4"><a href="decorator.html#cb455-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> register(<span class="va">self</span>,decorated):</span>
+<span id="cb455-5"><a href="decorator.html#cb455-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._functions.append(decorated)</span>
+<span id="cb455-6"><a href="decorator.html#cb455-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> decorated</span>
+<span id="cb455-7"><a href="decorator.html#cb455-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> run_all(<span class="va">self</span>,<span class="op">*</span>args,<span class="op">**</span>kwargs):</span>
+<span id="cb455-8"><a href="decorator.html#cb455-8" aria-hidden="true" tabindex="-1"></a>        return_values <span class="op">=</span> []</span>
+<span id="cb455-9"><a href="decorator.html#cb455-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> func <span class="kw">in</span> <span class="va">self</span>._functions:</span>
+<span id="cb455-10"><a href="decorator.html#cb455-10" aria-hidden="true" tabindex="-1"></a>            return_values.append(func(<span class="op">*</span>args,<span class="op">**</span>kwargs))</span>
+<span id="cb455-11"><a href="decorator.html#cb455-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> return_values</span></code></pre></div>
 <p>The decorator will decorate two functions, for both object <strong>a</strong> and <strong>b</strong></p>
-<div class="sourceCode" id="cb454"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb454-1"><a href="decorator.html#cb454-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> Registry()</span>
-<span id="cb454-2"><a href="decorator.html#cb454-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> Registry()</span>
-<span id="cb454-3"><a href="decorator.html#cb454-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb454-4"><a href="decorator.html#cb454-4" aria-hidden="true" tabindex="-1"></a><span class="at">@a.register</span></span>
-<span id="cb454-5"><a href="decorator.html#cb454-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> foo(x<span class="op">=</span><span class="dv">3</span>):</span>
-<span id="cb454-6"><a href="decorator.html#cb454-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x</span>
-<span id="cb454-7"><a href="decorator.html#cb454-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb454-8"><a href="decorator.html#cb454-8" aria-hidden="true" tabindex="-1"></a><span class="at">@b.register</span></span>
-<span id="cb454-9"><a href="decorator.html#cb454-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> bar(x<span class="op">=</span><span class="dv">5</span>):</span>
-<span id="cb454-10"><a href="decorator.html#cb454-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x</span>
-<span id="cb454-11"><a href="decorator.html#cb454-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb454-12"><a href="decorator.html#cb454-12" aria-hidden="true" tabindex="-1"></a><span class="at">@a.register</span></span>
-<span id="cb454-13"><a href="decorator.html#cb454-13" aria-hidden="true" tabindex="-1"></a><span class="at">@b.register</span></span>
-<span id="cb454-14"><a href="decorator.html#cb454-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> bax(x<span class="op">=</span><span class="dv">7</span>):</span>
-<span id="cb454-15"><a href="decorator.html#cb454-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x</span></code></pre></div>
+<div class="sourceCode" id="cb456"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb456-1"><a href="decorator.html#cb456-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> Registry()</span>
+<span id="cb456-2"><a href="decorator.html#cb456-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> Registry()</span>
+<span id="cb456-3"><a href="decorator.html#cb456-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb456-4"><a href="decorator.html#cb456-4" aria-hidden="true" tabindex="-1"></a><span class="at">@a.register</span></span>
+<span id="cb456-5"><a href="decorator.html#cb456-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> foo(x<span class="op">=</span><span class="dv">3</span>):</span>
+<span id="cb456-6"><a href="decorator.html#cb456-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x</span>
+<span id="cb456-7"><a href="decorator.html#cb456-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb456-8"><a href="decorator.html#cb456-8" aria-hidden="true" tabindex="-1"></a><span class="at">@b.register</span></span>
+<span id="cb456-9"><a href="decorator.html#cb456-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> bar(x<span class="op">=</span><span class="dv">5</span>):</span>
+<span id="cb456-10"><a href="decorator.html#cb456-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x</span>
+<span id="cb456-11"><a href="decorator.html#cb456-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb456-12"><a href="decorator.html#cb456-12" aria-hidden="true" tabindex="-1"></a><span class="at">@a.register</span></span>
+<span id="cb456-13"><a href="decorator.html#cb456-13" aria-hidden="true" tabindex="-1"></a><span class="at">@b.register</span></span>
+<span id="cb456-14"><a href="decorator.html#cb456-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> bax(x<span class="op">=</span><span class="dv">7</span>):</span>
+<span id="cb456-15"><a href="decorator.html#cb456-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x</span></code></pre></div>
 <p>Observe the result</p>
-<div class="sourceCode" id="cb455"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb455-1"><a href="decorator.html#cb455-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (a._functions)</span></code></pre></div>
-<pre><code>#:&gt; [&lt;function foo at 0x7fd15aa54e60&gt;, &lt;function bax at 0x7fd15aa59200&gt;]</code></pre>
-<div class="sourceCode" id="cb457"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb457-1"><a href="decorator.html#cb457-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (b._functions)</span></code></pre></div>
-<pre><code>#:&gt; [&lt;function bar at 0x7fd15aa59050&gt;, &lt;function bax at 0x7fd15aa59200&gt;]</code></pre>
-<div class="sourceCode" id="cb459"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb459-1"><a href="decorator.html#cb459-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (a.run_all())</span></code></pre></div>
+<div class="sourceCode" id="cb457"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb457-1"><a href="decorator.html#cb457-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (a._functions)</span></code></pre></div>
+<pre><code>#:&gt; [&lt;function foo at 0x7fdc197c0e60&gt;, &lt;function bax at 0x7fdc197c4200&gt;]</code></pre>
+<div class="sourceCode" id="cb459"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb459-1"><a href="decorator.html#cb459-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (b._functions)</span></code></pre></div>
+<pre><code>#:&gt; [&lt;function bar at 0x7fdc197c4050&gt;, &lt;function bax at 0x7fdc197c4200&gt;]</code></pre>
+<div class="sourceCode" id="cb461"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb461-1"><a href="decorator.html#cb461-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (a.run_all())</span></code></pre></div>
 <pre><code>#:&gt; [3, 7]</code></pre>
-<div class="sourceCode" id="cb461"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb461-1"><a href="decorator.html#cb461-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (b.run_all())</span></code></pre></div>
+<div class="sourceCode" id="cb463"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb463-1"><a href="decorator.html#cb463-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (b.run_all())</span></code></pre></div>
 <pre><code>#:&gt; [5, 7]</code></pre>
-<div class="sourceCode" id="cb463"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb463-1"><a href="decorator.html#cb463-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> ( a.run_all(x<span class="op">=</span><span class="dv">9</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb465"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb465-1"><a href="decorator.html#cb465-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> ( a.run_all(x<span class="op">=</span><span class="dv">9</span>) )</span></code></pre></div>
 <pre><code>#:&gt; [9, 9]</code></pre>
-<div class="sourceCode" id="cb465"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb465-1"><a href="decorator.html#cb465-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> ( b.run_all(x<span class="op">=</span><span class="dv">9</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb467"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb467-1"><a href="decorator.html#cb467-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> ( b.run_all(x<span class="op">=</span><span class="dv">9</span>) )</span></code></pre></div>
 <pre><code>#:&gt; [9, 9]</code></pre>
 </div>
 </div>

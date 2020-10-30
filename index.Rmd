@@ -15,6 +15,9 @@ description: "This is a python cookbook, written using RMarkdown Notebook. It is
 ---
 
 
+> Following text added by Alfonso R. Reyes
+
+
 # Introduction {-}
 
 
@@ -28,7 +31,6 @@ description: "This is a python cookbook, written using RMarkdown Notebook. It is
 * Natural Language Processing
 * Web scrapping
 * Finance
-
 
 
 
@@ -75,7 +77,7 @@ prefix: /home/msfz751/anaconda3/envs/python_book
 ## Automating the builds with a `Makefile` {-}
 
 
-### Rules for building the book
+### Rules for building the book {-}
 Here are couple of rules from the `Makefile`:
 
 ```makefile
@@ -99,7 +101,7 @@ build_book2:
 	bookdown::render_book('index.Rmd', 'bookdown::gitbook')"
 ```
 
-## Clean up project folder
+## Clean up the bookdown project folder {-}
 With these two rules I occasionally tidy up and clean up from intermediate files the bookdown project folder:
 
 ```makefile
