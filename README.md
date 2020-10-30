@@ -95,6 +95,6 @@ This is a minimal example of a book based on R Markdown and **bookdown** (https:
 
 You can find the preview of this example at https://bookdown.org/yihui/bookdown-demo/.
 
-[^1]: https://en.wikipedia.org/wiki/Literate_programming: The literate programming paradigm, as conceived by Knuth, represents a move away from writing computer programs in the manner and order imposed by the computer, and instead enables programmers to develop programs in the order demanded by the logic and flow of their thoughts.
+[^1]: The literate programming paradigm, as conceived by Knuth, represents a move away from writing computer programs in the manner and order imposed by the computer, and instead enables programmers to develop programs in the order demanded by the logic and flow of their thoughts. https://en.wikipedia.org/wiki/Literate_programming
 
-[^2]: https://en.wikipedia.org/wiki/Donald_Knuth: Knuth is also the creator of the `TeX` computer typesetting system, the related METAFONT font definition language and rendering system, and the Computer Modern family of `typefaces`.
+[^2]: Knuth is also the creator of the `TeX` computer typesetting system, the related METAFONT font definition language and rendering system, and the Computer Modern family of `typefaces`. https://en.wikipedia.org/wiki/Donald_Knuth
