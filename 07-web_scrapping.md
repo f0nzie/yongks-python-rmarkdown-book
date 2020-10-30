@@ -1,9 +1,6 @@
 # Web Scrapping
 
 
-```r
-source("R/init_python.R")
-```
 
 
 

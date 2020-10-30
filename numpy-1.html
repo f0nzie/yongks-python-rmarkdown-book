@@ -13,7 +13,7 @@
   
   
   <meta property="og:description" content="This is a python cookbook, written using RMarkdown Notebook. It is made possible by using reticulate R library as the bridge between R and Python." />
-  <meta name="github-repo" content="yongks/python_bookdown" />
+  <meta name="github-repo" content="f0nzie/yongks-python-rmarkdown-book" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="12 numpy | Python Bookdown" />
@@ -1308,7 +1308,6 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="numpy-1" class="section level1" number="12">
 <h1><span class="header-section-number">12</span> numpy</h1>
-<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb607-1"><a href="numpy-1.html#cb607-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;R/init_python.R&quot;</span>)</span></code></pre></div>
 <ul>
 <li>Best array data manipulation, fast<br />
 </li>
@@ -1319,25 +1318,25 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <!-- jupyter_markdown, jupyter_meta = list(tags = "remove_cell") -->
 <div id="environment-setup" class="section level2" number="12.1">
 <h2><span class="header-section-number">12.1</span> Environment Setup</h2>
-<div class="sourceCode" id="cb608"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb608-1"><a href="numpy-1.html#cb608-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb608-2"><a href="numpy-1.html#cb608-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb608-3"><a href="numpy-1.html#cb608-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb608-4"><a href="numpy-1.html#cb608-4" aria-hidden="true" tabindex="-1"></a>pd.set_option( <span class="st">&#39;display.notebook_repr_html&#39;</span>, <span class="va">False</span>)  <span class="co"># render Series and DataFrame as text, not HTML</span></span>
-<span id="cb608-5"><a href="numpy-1.html#cb608-5" aria-hidden="true" tabindex="-1"></a>pd.set_option( <span class="st">&#39;display.max_column&#39;</span>, <span class="dv">10</span>)    <span class="co"># number of columns</span></span>
-<span id="cb608-6"><a href="numpy-1.html#cb608-6" aria-hidden="true" tabindex="-1"></a>pd.set_option( <span class="st">&#39;display.max_rows&#39;</span>, <span class="dv">10</span>)     <span class="co"># number of rows</span></span>
-<span id="cb608-7"><a href="numpy-1.html#cb608-7" aria-hidden="true" tabindex="-1"></a>pd.set_option( <span class="st">&#39;display.width&#39;</span>, <span class="dv">90</span>)        <span class="co"># number of characters per row</span></span></code></pre></div>
+<div class="sourceCode" id="cb606"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb606-1"><a href="numpy-1.html#cb606-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb606-2"><a href="numpy-1.html#cb606-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb606-3"><a href="numpy-1.html#cb606-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb606-4"><a href="numpy-1.html#cb606-4" aria-hidden="true" tabindex="-1"></a>pd.set_option( <span class="st">&#39;display.notebook_repr_html&#39;</span>, <span class="va">False</span>)  <span class="co"># render Series and DataFrame as text, not HTML</span></span>
+<span id="cb606-5"><a href="numpy-1.html#cb606-5" aria-hidden="true" tabindex="-1"></a>pd.set_option( <span class="st">&#39;display.max_column&#39;</span>, <span class="dv">10</span>)    <span class="co"># number of columns</span></span>
+<span id="cb606-6"><a href="numpy-1.html#cb606-6" aria-hidden="true" tabindex="-1"></a>pd.set_option( <span class="st">&#39;display.max_rows&#39;</span>, <span class="dv">10</span>)     <span class="co"># number of rows</span></span>
+<span id="cb606-7"><a href="numpy-1.html#cb606-7" aria-hidden="true" tabindex="-1"></a>pd.set_option( <span class="st">&#39;display.width&#39;</span>, <span class="dv">90</span>)        <span class="co"># number of characters per row</span></span></code></pre></div>
 <!-- jupyter_markdown -->
 </div>
 <div id="module-import-1" class="section level2" number="12.2">
 <h2><span class="header-section-number">12.2</span> Module Import</h2>
-<div class="sourceCode" id="cb609"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb609-1"><a href="numpy-1.html#cb609-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb609-2"><a href="numpy-1.html#cb609-2" aria-hidden="true" tabindex="-1"></a>np.__version__</span>
-<span id="cb609-3"><a href="numpy-1.html#cb609-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb609-4"><a href="numpy-1.html#cb609-4" aria-hidden="true" tabindex="-1"></a><span class="co">## other modules</span></span></code></pre></div>
+<div class="sourceCode" id="cb607"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb607-1"><a href="numpy-1.html#cb607-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb607-2"><a href="numpy-1.html#cb607-2" aria-hidden="true" tabindex="-1"></a>np.__version__</span>
+<span id="cb607-3"><a href="numpy-1.html#cb607-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb607-4"><a href="numpy-1.html#cb607-4" aria-hidden="true" tabindex="-1"></a><span class="co">## other modules</span></span></code></pre></div>
 <pre><code>#:&gt; &#39;1.19.1&#39;</code></pre>
-<div class="sourceCode" id="cb611"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb611-1"><a href="numpy-1.html#cb611-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
-<span id="cb611-2"><a href="numpy-1.html#cb611-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> date</span>
-<span id="cb611-3"><a href="numpy-1.html#cb611-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> time</span></code></pre></div>
+<div class="sourceCode" id="cb609"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb609-1"><a href="numpy-1.html#cb609-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
+<span id="cb609-2"><a href="numpy-1.html#cb609-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> date</span>
+<span id="cb609-3"><a href="numpy-1.html#cb609-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> time</span></code></pre></div>
 </div>
 <div id="data-types" class="section level2" number="12.3">
 <h2><span class="header-section-number">12.3</span> Data Types</h2>
@@ -1351,52 +1350,52 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="int3264" class="section level3" number="12.3.2">
 <h3><span class="header-section-number">12.3.2</span> int32/64</h3>
 <p><code>np.int</code> is actually <strong>python standard int</strong></p>
-<div class="sourceCode" id="cb612"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb612-1"><a href="numpy-1.html#cb612-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.<span class="bu">int</span>(<span class="dv">13</span>)</span>
-<span id="cb612-2"><a href="numpy-1.html#cb612-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="bu">int</span>(<span class="dv">13</span>)</span>
-<span id="cb612-3"><a href="numpy-1.html#cb612-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="bu">type</span>(x) )</span></code></pre></div>
+<div class="sourceCode" id="cb610"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb610-1"><a href="numpy-1.html#cb610-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.<span class="bu">int</span>(<span class="dv">13</span>)</span>
+<span id="cb610-2"><a href="numpy-1.html#cb610-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="bu">int</span>(<span class="dv">13</span>)</span>
+<span id="cb610-3"><a href="numpy-1.html#cb610-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="bu">type</span>(x) )</span></code></pre></div>
 <pre><code>#:&gt; &lt;class &#39;int&#39;&gt;</code></pre>
-<div class="sourceCode" id="cb614"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb614-1"><a href="numpy-1.html#cb614-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="bu">type</span>(y) )</span></code></pre></div>
+<div class="sourceCode" id="cb612"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb612-1"><a href="numpy-1.html#cb612-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="bu">type</span>(y) )</span></code></pre></div>
 <pre><code>#:&gt; &lt;class &#39;int&#39;&gt;</code></pre>
 <p><code>np.int32/64</code> are NumPy specific</p>
-<div class="sourceCode" id="cb616"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb616-1"><a href="numpy-1.html#cb616-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.int32(<span class="dv">13</span>)</span>
-<span id="cb616-2"><a href="numpy-1.html#cb616-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.int64(<span class="dv">13</span>)</span>
-<span id="cb616-3"><a href="numpy-1.html#cb616-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="bu">type</span>(x) )</span></code></pre></div>
+<div class="sourceCode" id="cb614"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb614-1"><a href="numpy-1.html#cb614-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.int32(<span class="dv">13</span>)</span>
+<span id="cb614-2"><a href="numpy-1.html#cb614-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.int64(<span class="dv">13</span>)</span>
+<span id="cb614-3"><a href="numpy-1.html#cb614-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="bu">type</span>(x) )</span></code></pre></div>
 <pre><code>#:&gt; &lt;class &#39;numpy.int32&#39;&gt;</code></pre>
-<div class="sourceCode" id="cb618"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb618-1"><a href="numpy-1.html#cb618-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="bu">type</span>(y) )</span></code></pre></div>
+<div class="sourceCode" id="cb616"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb616-1"><a href="numpy-1.html#cb616-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="bu">type</span>(y) )</span></code></pre></div>
 <pre><code>#:&gt; &lt;class &#39;numpy.int64&#39;&gt;</code></pre>
 </div>
 <div id="float3264" class="section level3" number="12.3.3">
 <h3><span class="header-section-number">12.3.3</span> float32/64</h3>
-<div class="sourceCode" id="cb620"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb620-1"><a href="numpy-1.html#cb620-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.<span class="bu">float</span>(<span class="dv">13</span>)</span>
-<span id="cb620-2"><a href="numpy-1.html#cb620-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="bu">float</span>(<span class="dv">13</span>)</span>
-<span id="cb620-3"><a href="numpy-1.html#cb620-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="bu">type</span>(x) )</span></code></pre></div>
+<div class="sourceCode" id="cb618"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb618-1"><a href="numpy-1.html#cb618-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.<span class="bu">float</span>(<span class="dv">13</span>)</span>
+<span id="cb618-2"><a href="numpy-1.html#cb618-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="bu">float</span>(<span class="dv">13</span>)</span>
+<span id="cb618-3"><a href="numpy-1.html#cb618-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="bu">type</span>(x) )</span></code></pre></div>
 <pre><code>#:&gt; &lt;class &#39;float&#39;&gt;</code></pre>
-<div class="sourceCode" id="cb622"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb622-1"><a href="numpy-1.html#cb622-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="bu">type</span>(y) )</span></code></pre></div>
+<div class="sourceCode" id="cb620"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb620-1"><a href="numpy-1.html#cb620-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="bu">type</span>(y) )</span></code></pre></div>
 <pre><code>#:&gt; &lt;class &#39;float&#39;&gt;</code></pre>
-<div class="sourceCode" id="cb624"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb624-1"><a href="numpy-1.html#cb624-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.float32(<span class="dv">13</span>)</span>
-<span id="cb624-2"><a href="numpy-1.html#cb624-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.float64(<span class="dv">13</span>)</span>
-<span id="cb624-3"><a href="numpy-1.html#cb624-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="bu">type</span>(x) )</span></code></pre></div>
+<div class="sourceCode" id="cb622"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb622-1"><a href="numpy-1.html#cb622-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.float32(<span class="dv">13</span>)</span>
+<span id="cb622-2"><a href="numpy-1.html#cb622-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.float64(<span class="dv">13</span>)</span>
+<span id="cb622-3"><a href="numpy-1.html#cb622-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="bu">type</span>(x) )</span></code></pre></div>
 <pre><code>#:&gt; &lt;class &#39;numpy.float32&#39;&gt;</code></pre>
-<div class="sourceCode" id="cb626"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb626-1"><a href="numpy-1.html#cb626-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="bu">type</span>(y) )</span></code></pre></div>
+<div class="sourceCode" id="cb624"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb624-1"><a href="numpy-1.html#cb624-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="bu">type</span>(y) )</span></code></pre></div>
 <pre><code>#:&gt; &lt;class &#39;numpy.float64&#39;&gt;</code></pre>
 </div>
 <div id="bool" class="section level3" number="12.3.4">
 <h3><span class="header-section-number">12.3.4</span> bool</h3>
 <p><code>np.bool</code> is actually <strong>python standard bool</strong></p>
-<div class="sourceCode" id="cb628"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb628-1"><a href="numpy-1.html#cb628-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.<span class="bu">bool</span>(<span class="va">True</span>)</span>
-<span id="cb628-2"><a href="numpy-1.html#cb628-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="bu">type</span>(x) )</span></code></pre></div>
+<div class="sourceCode" id="cb626"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb626-1"><a href="numpy-1.html#cb626-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.<span class="bu">bool</span>(<span class="va">True</span>)</span>
+<span id="cb626-2"><a href="numpy-1.html#cb626-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="bu">type</span>(x) )</span></code></pre></div>
 <pre><code>#:&gt; &lt;class &#39;bool&#39;&gt;</code></pre>
-<div class="sourceCode" id="cb630"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb630-1"><a href="numpy-1.html#cb630-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="bu">type</span>(<span class="va">True</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb628"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb628-1"><a href="numpy-1.html#cb628-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="bu">type</span>(<span class="va">True</span>) )</span></code></pre></div>
 <pre><code>#:&gt; &lt;class &#39;bool&#39;&gt;</code></pre>
 </div>
 <div id="str" class="section level3" number="12.3.5">
 <h3><span class="header-section-number">12.3.5</span> str</h3>
 <p><code>np.str</code> is actually <strong>python standard str</strong></p>
-<div class="sourceCode" id="cb632"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb632-1"><a href="numpy-1.html#cb632-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.<span class="bu">str</span>(<span class="st">&quot;ali&quot;</span>)</span>
-<span id="cb632-2"><a href="numpy-1.html#cb632-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="bu">type</span>(x) )</span></code></pre></div>
+<div class="sourceCode" id="cb630"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb630-1"><a href="numpy-1.html#cb630-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.<span class="bu">str</span>(<span class="st">&quot;ali&quot;</span>)</span>
+<span id="cb630-2"><a href="numpy-1.html#cb630-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="bu">type</span>(x) )</span></code></pre></div>
 <pre><code>#:&gt; &lt;class &#39;str&#39;&gt;</code></pre>
-<div class="sourceCode" id="cb634"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb634-1"><a href="numpy-1.html#cb634-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.str_(<span class="st">&quot;ali&quot;</span>)</span>
-<span id="cb634-2"><a href="numpy-1.html#cb634-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="bu">type</span>(x) )</span></code></pre></div>
+<div class="sourceCode" id="cb632"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb632-1"><a href="numpy-1.html#cb632-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.str_(<span class="st">&quot;ali&quot;</span>)</span>
+<span id="cb632-2"><a href="numpy-1.html#cb632-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="bu">type</span>(x) )</span></code></pre></div>
 <pre><code>#:&gt; &lt;class &#39;numpy.str_&#39;&gt;</code></pre>
 </div>
 <div id="datetime64" class="section level3" number="12.3.6">
@@ -1408,23 +1407,23 @@ NumPy only has one object: <strong>datetime64</strong> object .</p>
 <h4><span class="header-section-number">12.3.6.1</span> Constructor</h4>
 <p><strong>From String</strong><br />
 Note that the input string <strong>cannot be ISO8601 compliance</strong>, meaning any timezone related information at the end of the string (such as Z or +8) will result in <strong>error</strong>.</p>
-<div class="sourceCode" id="cb636"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb636-1"><a href="numpy-1.html#cb636-1" aria-hidden="true" tabindex="-1"></a>np.datetime64(<span class="st">&#39;2005-02&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb634"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb634-1"><a href="numpy-1.html#cb634-1" aria-hidden="true" tabindex="-1"></a>np.datetime64(<span class="st">&#39;2005-02&#39;</span>)</span></code></pre></div>
 <pre><code>#:&gt; numpy.datetime64(&#39;2005-02&#39;)</code></pre>
-<div class="sourceCode" id="cb638"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb638-1"><a href="numpy-1.html#cb638-1" aria-hidden="true" tabindex="-1"></a>np.datetime64(<span class="st">&#39;2005-02-25&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb636"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb636-1"><a href="numpy-1.html#cb636-1" aria-hidden="true" tabindex="-1"></a>np.datetime64(<span class="st">&#39;2005-02-25&#39;</span>)</span></code></pre></div>
 <pre><code>#:&gt; numpy.datetime64(&#39;2005-02-25&#39;)</code></pre>
-<div class="sourceCode" id="cb640"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb640-1"><a href="numpy-1.html#cb640-1" aria-hidden="true" tabindex="-1"></a>np.datetime64(<span class="st">&#39;2005-02-25T03:30&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb638"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb638-1"><a href="numpy-1.html#cb638-1" aria-hidden="true" tabindex="-1"></a>np.datetime64(<span class="st">&#39;2005-02-25T03:30&#39;</span>)</span></code></pre></div>
 <pre><code>#:&gt; numpy.datetime64(&#39;2005-02-25T03:30&#39;)</code></pre>
 <p><strong>From datetime</strong></p>
-<div class="sourceCode" id="cb642"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb642-1"><a href="numpy-1.html#cb642-1" aria-hidden="true" tabindex="-1"></a>np.datetime64( date.today() )</span></code></pre></div>
+<div class="sourceCode" id="cb640"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb640-1"><a href="numpy-1.html#cb640-1" aria-hidden="true" tabindex="-1"></a>np.datetime64( date.today() )</span></code></pre></div>
 <pre><code>#:&gt; numpy.datetime64(&#39;2020-10-30&#39;)</code></pre>
-<div class="sourceCode" id="cb644"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb644-1"><a href="numpy-1.html#cb644-1" aria-hidden="true" tabindex="-1"></a>np.datetime64( datetime.now() )</span></code></pre></div>
-<pre><code>#:&gt; numpy.datetime64(&#39;2020-10-30T10:22:40.559424&#39;)</code></pre>
+<div class="sourceCode" id="cb642"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb642-1"><a href="numpy-1.html#cb642-1" aria-hidden="true" tabindex="-1"></a>np.datetime64( datetime.now() )</span></code></pre></div>
+<pre><code>#:&gt; numpy.datetime64(&#39;2020-10-30T11:09:55.670127&#39;)</code></pre>
 </div>
 <div id="instance-method-2" class="section level4" number="12.3.6.2">
 <h4><span class="header-section-number">12.3.6.2</span> Instance Method</h4>
 <p>Convert to <strong>datetime</strong> using <strong><code>astype()</code></strong></p>
-<div class="sourceCode" id="cb646"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb646-1"><a href="numpy-1.html#cb646-1" aria-hidden="true" tabindex="-1"></a>dt64 <span class="op">=</span> np.datetime64(<span class="st">&quot;2019-01-31&quot;</span> )</span>
-<span id="cb646-2"><a href="numpy-1.html#cb646-2" aria-hidden="true" tabindex="-1"></a>dt64.astype(datetime)</span></code></pre></div>
+<div class="sourceCode" id="cb644"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb644-1"><a href="numpy-1.html#cb644-1" aria-hidden="true" tabindex="-1"></a>dt64 <span class="op">=</span> np.datetime64(<span class="st">&quot;2019-01-31&quot;</span> )</span>
+<span id="cb644-2"><a href="numpy-1.html#cb644-2" aria-hidden="true" tabindex="-1"></a>dt64.astype(datetime)</span></code></pre></div>
 <pre><code>#:&gt; datetime.date(2019, 1, 31)</code></pre>
 </div>
 </div>
@@ -1433,29 +1432,29 @@ Note that the input string <strong>cannot be ISO8601 compliance</strong>, meanin
 <div id="creating-nan" class="section level4" number="12.3.7.1">
 <h4><span class="header-section-number">12.3.7.1</span> Creating NaN</h4>
 <p>NaN is NOT A BUILT-IN datatype. It means <strong>not a number</strong>, a numpy <strong>float</strong> object type. Can be created using two methods below.</p>
-<div class="sourceCode" id="cb648"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb648-1"><a href="numpy-1.html#cb648-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb648-2"><a href="numpy-1.html#cb648-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb648-3"><a href="numpy-1.html#cb648-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb648-4"><a href="numpy-1.html#cb648-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb648-5"><a href="numpy-1.html#cb648-5" aria-hidden="true" tabindex="-1"></a>kosong1 <span class="op">=</span> <span class="bu">float</span>(<span class="st">&#39;NaN&#39;</span>)</span>
-<span id="cb648-6"><a href="numpy-1.html#cb648-6" aria-hidden="true" tabindex="-1"></a>kosong2 <span class="op">=</span> np.nan</span>
-<span id="cb648-7"><a href="numpy-1.html#cb648-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb648-8"><a href="numpy-1.html#cb648-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Type: &#39;</span>, <span class="bu">type</span>(kosong1), <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</span>
-<span id="cb648-9"><a href="numpy-1.html#cb648-9" aria-hidden="true" tabindex="-1"></a>       <span class="st">&#39;Value: &#39;</span>, kosong1)</span></code></pre></div>
+<div class="sourceCode" id="cb646"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb646-1"><a href="numpy-1.html#cb646-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb646-2"><a href="numpy-1.html#cb646-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb646-3"><a href="numpy-1.html#cb646-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb646-4"><a href="numpy-1.html#cb646-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb646-5"><a href="numpy-1.html#cb646-5" aria-hidden="true" tabindex="-1"></a>kosong1 <span class="op">=</span> <span class="bu">float</span>(<span class="st">&#39;NaN&#39;</span>)</span>
+<span id="cb646-6"><a href="numpy-1.html#cb646-6" aria-hidden="true" tabindex="-1"></a>kosong2 <span class="op">=</span> np.nan</span>
+<span id="cb646-7"><a href="numpy-1.html#cb646-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb646-8"><a href="numpy-1.html#cb646-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Type: &#39;</span>, <span class="bu">type</span>(kosong1), <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</span>
+<span id="cb646-9"><a href="numpy-1.html#cb646-9" aria-hidden="true" tabindex="-1"></a>       <span class="st">&#39;Value: &#39;</span>, kosong1)</span></code></pre></div>
 <pre><code>#:&gt; Type:  &lt;class &#39;float&#39;&gt; 
 #:&gt;  Value:  nan</code></pre>
-<div class="sourceCode" id="cb650"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb650-1"><a href="numpy-1.html#cb650-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Type: &#39;</span>, <span class="bu">type</span>(kosong2), <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</span>
-<span id="cb650-2"><a href="numpy-1.html#cb650-2" aria-hidden="true" tabindex="-1"></a>       <span class="st">&#39;Value: &#39;</span>, kosong2)</span></code></pre></div>
+<div class="sourceCode" id="cb648"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb648-1"><a href="numpy-1.html#cb648-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Type: &#39;</span>, <span class="bu">type</span>(kosong2), <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</span>
+<span id="cb648-2"><a href="numpy-1.html#cb648-2" aria-hidden="true" tabindex="-1"></a>       <span class="st">&#39;Value: &#39;</span>, kosong2)</span></code></pre></div>
 <pre><code>#:&gt; Type:  &lt;class &#39;float&#39;&gt; 
 #:&gt;  Value:  nan</code></pre>
 </div>
 <div id="detecting-nan" class="section level4" number="12.3.7.2">
 <h4><span class="header-section-number">12.3.7.2</span> Detecting NaN</h4>
 <p>Detect nan using various function from panda, numpy and math.</p>
-<div class="sourceCode" id="cb652"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb652-1"><a href="numpy-1.html#cb652-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pd.isna(kosong1), <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</span>
-<span id="cb652-2"><a href="numpy-1.html#cb652-2" aria-hidden="true" tabindex="-1"></a>      pd.isna(kosong2), <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</span>
-<span id="cb652-3"><a href="numpy-1.html#cb652-3" aria-hidden="true" tabindex="-1"></a>      np.isnan(kosong1),<span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</span>
-<span id="cb652-4"><a href="numpy-1.html#cb652-4" aria-hidden="true" tabindex="-1"></a>      math.isnan(kosong2))</span></code></pre></div>
+<div class="sourceCode" id="cb650"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb650-1"><a href="numpy-1.html#cb650-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pd.isna(kosong1), <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</span>
+<span id="cb650-2"><a href="numpy-1.html#cb650-2" aria-hidden="true" tabindex="-1"></a>      pd.isna(kosong2), <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</span>
+<span id="cb650-3"><a href="numpy-1.html#cb650-3" aria-hidden="true" tabindex="-1"></a>      np.isnan(kosong1),<span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>,</span>
+<span id="cb650-4"><a href="numpy-1.html#cb650-4" aria-hidden="true" tabindex="-1"></a>      math.isnan(kosong2))</span></code></pre></div>
 <pre><code>#:&gt; True 
 #:&gt;  True 
 #:&gt;  True 
@@ -1465,24 +1464,24 @@ Note that the input string <strong>cannot be ISO8601 compliance</strong>, meanin
 <h4><span class="header-section-number">12.3.7.3</span> Operation</h4>
 <div id="logical-operator" class="section level5" number="12.3.7.3.1">
 <h5><span class="header-section-number">12.3.7.3.1</span> Logical Operator</h5>
-<div class="sourceCode" id="cb654"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb654-1"><a href="numpy-1.html#cb654-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="va">True</span> <span class="kw">and</span> kosong1,</span>
-<span id="cb654-2"><a href="numpy-1.html#cb654-2" aria-hidden="true" tabindex="-1"></a>       kosong1 <span class="kw">and</span> <span class="va">True</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb652"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb652-1"><a href="numpy-1.html#cb652-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="va">True</span> <span class="kw">and</span> kosong1,</span>
+<span id="cb652-2"><a href="numpy-1.html#cb652-2" aria-hidden="true" tabindex="-1"></a>       kosong1 <span class="kw">and</span> <span class="va">True</span>)</span></code></pre></div>
 <pre><code>#:&gt; nan True</code></pre>
-<div class="sourceCode" id="cb656"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb656-1"><a href="numpy-1.html#cb656-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="va">True</span> <span class="kw">or</span> kosong1,</span>
-<span id="cb656-2"><a href="numpy-1.html#cb656-2" aria-hidden="true" tabindex="-1"></a>       <span class="va">False</span> <span class="kw">or</span> kosong1)</span></code></pre></div>
+<div class="sourceCode" id="cb654"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb654-1"><a href="numpy-1.html#cb654-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="va">True</span> <span class="kw">or</span> kosong1,</span>
+<span id="cb654-2"><a href="numpy-1.html#cb654-2" aria-hidden="true" tabindex="-1"></a>       <span class="va">False</span> <span class="kw">or</span> kosong1)</span></code></pre></div>
 <pre><code>#:&gt; True nan</code></pre>
 </div>
 <div id="comparing" class="section level5" number="12.3.7.3.2">
 <h5><span class="header-section-number">12.3.7.3.2</span> Comparing</h5>
 <p>Compare nan with <strong>anything results in False</strong>, including itself.</p>
-<div class="sourceCode" id="cb658"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb658-1"><a href="numpy-1.html#cb658-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(kosong1 <span class="op">&gt;</span> <span class="dv">0</span>, kosong1<span class="op">==</span><span class="dv">0</span>, kosong1<span class="op">&lt;</span><span class="dv">0</span>,</span>
-<span id="cb658-2"><a href="numpy-1.html#cb658-2" aria-hidden="true" tabindex="-1"></a>      kosong1 <span class="op">==</span><span class="dv">1</span>, kosong1<span class="op">==</span>kosong1, kosong1<span class="op">==</span><span class="va">False</span>, kosong1<span class="op">==</span><span class="va">True</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb656"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb656-1"><a href="numpy-1.html#cb656-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(kosong1 <span class="op">&gt;</span> <span class="dv">0</span>, kosong1<span class="op">==</span><span class="dv">0</span>, kosong1<span class="op">&lt;</span><span class="dv">0</span>,</span>
+<span id="cb656-2"><a href="numpy-1.html#cb656-2" aria-hidden="true" tabindex="-1"></a>      kosong1 <span class="op">==</span><span class="dv">1</span>, kosong1<span class="op">==</span>kosong1, kosong1<span class="op">==</span><span class="va">False</span>, kosong1<span class="op">==</span><span class="va">True</span>)</span></code></pre></div>
 <pre><code>#:&gt; False False False False False False False</code></pre>
 </div>
 <div id="casting" class="section level5" number="12.3.7.3.3">
 <h5><span class="header-section-number">12.3.7.3.3</span> Casting</h5>
 <p>nan is numpy floating value. It is not a zero value, therefore casting to boolean returns True.</p>
-<div class="sourceCode" id="cb660"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb660-1"><a href="numpy-1.html#cb660-1" aria-hidden="true" tabindex="-1"></a><span class="bu">bool</span>(kosong1)</span></code></pre></div>
+<div class="sourceCode" id="cb658"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb658-1"><a href="numpy-1.html#cb658-1" aria-hidden="true" tabindex="-1"></a><span class="bu">bool</span>(kosong1)</span></code></pre></div>
 <pre><code>#:&gt; True</code></pre>
 </div>
 </div>
@@ -1507,29 +1506,29 @@ Note that the input string <strong>cannot be ISO8601 compliance</strong>, meanin
 <h4><span class="header-section-number">12.4.2.1</span> dType: int, float</h4>
 <!-- jupyter_markdown -->
 <p>Notice example below <strong>auto detected</strong> as int32 data type</p>
-<div class="sourceCode" id="cb662"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb662-1"><a href="numpy-1.html#cb662-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array( (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>) )</span>
-<span id="cb662-2"><a href="numpy-1.html#cb662-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb660"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb660-1"><a href="numpy-1.html#cb660-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array( (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>) )</span>
+<span id="cb660-2"><a href="numpy-1.html#cb660-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code></pre></div>
 <pre><code>#:&gt; [1 2 3 4 5]</code></pre>
-<div class="sourceCode" id="cb664"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb664-1"><a href="numpy-1.html#cb664-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Type: &#39;</span>, <span class="bu">type</span>(x))</span></code></pre></div>
+<div class="sourceCode" id="cb662"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb662-1"><a href="numpy-1.html#cb662-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Type: &#39;</span>, <span class="bu">type</span>(x))</span></code></pre></div>
 <pre><code>#:&gt; Type:  &lt;class &#39;numpy.ndarray&#39;&gt;</code></pre>
-<div class="sourceCode" id="cb666"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb666-1"><a href="numpy-1.html#cb666-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;dType:&#39;</span>, x.dtype)</span></code></pre></div>
+<div class="sourceCode" id="cb664"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb664-1"><a href="numpy-1.html#cb664-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;dType:&#39;</span>, x.dtype)</span></code></pre></div>
 <pre><code>#:&gt; dType: int64</code></pre>
 <!-- jupyter_markdown -->
 <p>Notice example below <strong>auto detected</strong> as float64 data type</p>
-<div class="sourceCode" id="cb668"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb668-1"><a href="numpy-1.html#cb668-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array( (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="fl">4.5</span>,<span class="dv">5</span>) )</span>
-<span id="cb668-2"><a href="numpy-1.html#cb668-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span>
-<span id="cb668-3"><a href="numpy-1.html#cb668-3" aria-hidden="true" tabindex="-1"></a><span class="co"># print(&#39;Type: &#39;, type(x))</span></span>
-<span id="cb668-4"><a href="numpy-1.html#cb668-4" aria-hidden="true" tabindex="-1"></a><span class="co"># print(&#39;dType:&#39;, x.dtype)</span></span></code></pre></div>
+<div class="sourceCode" id="cb666"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb666-1"><a href="numpy-1.html#cb666-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array( (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="fl">4.5</span>,<span class="dv">5</span>) )</span>
+<span id="cb666-2"><a href="numpy-1.html#cb666-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span>
+<span id="cb666-3"><a href="numpy-1.html#cb666-3" aria-hidden="true" tabindex="-1"></a><span class="co"># print(&#39;Type: &#39;, type(x))</span></span>
+<span id="cb666-4"><a href="numpy-1.html#cb666-4" aria-hidden="true" tabindex="-1"></a><span class="co"># print(&#39;dType:&#39;, x.dtype)</span></span></code></pre></div>
 <pre><code>#:&gt; [1.  2.  3.  4.5 5. ]</code></pre>
 <!-- jupyter_markdown -->
 <p>You can specify dtype to specify desired data types.<br />
 NumPy will <strong>auto convert</strong> the data into specifeid types. Observe below that we convert float into integer</p>
-<div class="sourceCode" id="cb670"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb670-1"><a href="numpy-1.html#cb670-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array( (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="fl">4.5</span>,<span class="dv">5</span>), dtype<span class="op">=</span><span class="st">&#39;int&#39;</span> )</span>
-<span id="cb670-2"><a href="numpy-1.html#cb670-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb668"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb668-1"><a href="numpy-1.html#cb668-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array( (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="fl">4.5</span>,<span class="dv">5</span>), dtype<span class="op">=</span><span class="st">&#39;int&#39;</span> )</span>
+<span id="cb668-2"><a href="numpy-1.html#cb668-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code></pre></div>
 <pre><code>#:&gt; [1 2 3 4 5]</code></pre>
-<div class="sourceCode" id="cb672"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb672-1"><a href="numpy-1.html#cb672-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Type: &#39;</span>, <span class="bu">type</span>(x))</span></code></pre></div>
+<div class="sourceCode" id="cb670"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb670-1"><a href="numpy-1.html#cb670-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Type: &#39;</span>, <span class="bu">type</span>(x))</span></code></pre></div>
 <pre><code>#:&gt; Type:  &lt;class &#39;numpy.ndarray&#39;&gt;</code></pre>
-<div class="sourceCode" id="cb674"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb674-1"><a href="numpy-1.html#cb674-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;dType:&#39;</span>, x.dtype)</span></code></pre></div>
+<div class="sourceCode" id="cb672"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb672-1"><a href="numpy-1.html#cb672-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;dType:&#39;</span>, x.dtype)</span></code></pre></div>
 <pre><code>#:&gt; dType: int64</code></pre>
 <!-- jupyter_markdown -->
 </div>
@@ -1537,32 +1536,32 @@ NumPy will <strong>auto convert</strong> the data into specifeid types. Observe 
 <h4><span class="header-section-number">12.4.2.2</span> dType: datetime64</h4>
 <p>Specify <code>dtype</code> is necessary to ensure output is datetime type. If not, output is generic <strong>object</strong> type.</p>
 <p>From <code>str</code></p>
-<div class="sourceCode" id="cb676"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb676-1"><a href="numpy-1.html#cb676-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array([<span class="st">&#39;2007-07-13&#39;</span>, <span class="st">&#39;2006-01-13&#39;</span>, <span class="st">&#39;2010-08-13&#39;</span>], dtype<span class="op">=</span><span class="st">&#39;datetime64&#39;</span>)</span>
-<span id="cb676-2"><a href="numpy-1.html#cb676-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb674"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb674-1"><a href="numpy-1.html#cb674-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array([<span class="st">&#39;2007-07-13&#39;</span>, <span class="st">&#39;2006-01-13&#39;</span>, <span class="st">&#39;2010-08-13&#39;</span>], dtype<span class="op">=</span><span class="st">&#39;datetime64&#39;</span>)</span>
+<span id="cb674-2"><a href="numpy-1.html#cb674-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code></pre></div>
 <pre><code>#:&gt; [&#39;2007-07-13&#39; &#39;2006-01-13&#39; &#39;2010-08-13&#39;]</code></pre>
-<div class="sourceCode" id="cb678"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb678-1"><a href="numpy-1.html#cb678-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Type: &#39;</span>, <span class="bu">type</span>(x))</span></code></pre></div>
+<div class="sourceCode" id="cb676"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb676-1"><a href="numpy-1.html#cb676-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Type: &#39;</span>, <span class="bu">type</span>(x))</span></code></pre></div>
 <pre><code>#:&gt; Type:  &lt;class &#39;numpy.ndarray&#39;&gt;</code></pre>
-<div class="sourceCode" id="cb680"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb680-1"><a href="numpy-1.html#cb680-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;dType:&#39;</span>, x.dtype)</span></code></pre></div>
+<div class="sourceCode" id="cb678"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb678-1"><a href="numpy-1.html#cb678-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;dType:&#39;</span>, x.dtype)</span></code></pre></div>
 <pre><code>#:&gt; dType: datetime64[D]</code></pre>
 <!-- jupyter_markdown -->
 <p>From <code>datetime</code></p>
-<div class="sourceCode" id="cb682"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb682-1"><a href="numpy-1.html#cb682-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array([datetime(<span class="dv">2019</span>,<span class="dv">1</span>,<span class="dv">12</span>), datetime(<span class="dv">2019</span>,<span class="dv">1</span>,<span class="dv">14</span>),datetime(<span class="dv">2019</span>,<span class="dv">3</span>,<span class="dv">3</span>)], dtype<span class="op">=</span><span class="st">&#39;datetime64&#39;</span>)</span>
-<span id="cb682-2"><a href="numpy-1.html#cb682-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb680"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb680-1"><a href="numpy-1.html#cb680-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array([datetime(<span class="dv">2019</span>,<span class="dv">1</span>,<span class="dv">12</span>), datetime(<span class="dv">2019</span>,<span class="dv">1</span>,<span class="dv">14</span>),datetime(<span class="dv">2019</span>,<span class="dv">3</span>,<span class="dv">3</span>)], dtype<span class="op">=</span><span class="st">&#39;datetime64&#39;</span>)</span>
+<span id="cb680-2"><a href="numpy-1.html#cb680-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code></pre></div>
 <pre><code>#:&gt; [&#39;2019-01-12T00:00:00.000000&#39; &#39;2019-01-14T00:00:00.000000&#39;
 #:&gt;  &#39;2019-03-03T00:00:00.000000&#39;]</code></pre>
-<div class="sourceCode" id="cb684"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb684-1"><a href="numpy-1.html#cb684-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Type: &#39;</span>, <span class="bu">type</span>(x))</span></code></pre></div>
+<div class="sourceCode" id="cb682"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb682-1"><a href="numpy-1.html#cb682-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Type: &#39;</span>, <span class="bu">type</span>(x))</span></code></pre></div>
 <pre><code>#:&gt; Type:  &lt;class &#39;numpy.ndarray&#39;&gt;</code></pre>
-<div class="sourceCode" id="cb686"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb686-1"><a href="numpy-1.html#cb686-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;dType:&#39;</span>, x.dtype)</span></code></pre></div>
+<div class="sourceCode" id="cb684"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb684-1"><a href="numpy-1.html#cb684-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;dType:&#39;</span>, x.dtype)</span></code></pre></div>
 <pre><code>#:&gt; dType: datetime64[us]</code></pre>
-<div class="sourceCode" id="cb688"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb688-1"><a href="numpy-1.html#cb688-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">Element Type:&#39;</span>,<span class="bu">type</span>(x[<span class="dv">1</span>]))</span></code></pre></div>
+<div class="sourceCode" id="cb686"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb686-1"><a href="numpy-1.html#cb686-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">Element Type:&#39;</span>,<span class="bu">type</span>(x[<span class="dv">1</span>]))</span></code></pre></div>
 <pre><code>#:&gt; 
 #:&gt; Element Type: &lt;class &#39;numpy.datetime64&#39;&gt;</code></pre>
 <!-- jupyter_markdown -->
 </div>
 <div id="d-array" class="section level4" number="12.4.2.3">
 <h4><span class="header-section-number">12.4.2.3</span> 2D Array</h4>
-<div class="sourceCode" id="cb690"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb690-1"><a href="numpy-1.html#cb690-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array([<span class="bu">range</span>(<span class="dv">10</span>),np.arange(<span class="dv">10</span>)])</span>
-<span id="cb690-2"><a href="numpy-1.html#cb690-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb688"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb688-1"><a href="numpy-1.html#cb688-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array([<span class="bu">range</span>(<span class="dv">10</span>),np.arange(<span class="dv">10</span>)])</span>
+<span id="cb688-2"><a href="numpy-1.html#cb688-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>#:&gt; array([[0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
 #:&gt;        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]])</code></pre>
 <!-- jupyter_markdown -->
@@ -1582,61 +1581,61 @@ NumPy will <strong>auto convert</strong> the data into specifeid types. Observe 
 <h4><span class="header-section-number">12.4.3.2</span> 1-D Array</h4>
 <p>Observe that the <strong>shape of the array</strong> is (5,). It seems like an array with 5 rows, <strong>empty columns</strong> !<br />
 What it really means is 5 items <strong>single dimension</strong>.</p>
-<div class="sourceCode" id="cb692"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb692-1"><a href="numpy-1.html#cb692-1" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.array(<span class="bu">range</span>(<span class="dv">5</span>))</span>
-<span id="cb692-2"><a href="numpy-1.html#cb692-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (arr)</span></code></pre></div>
+<div class="sourceCode" id="cb690"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb690-1"><a href="numpy-1.html#cb690-1" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.array(<span class="bu">range</span>(<span class="dv">5</span>))</span>
+<span id="cb690-2"><a href="numpy-1.html#cb690-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (arr)</span></code></pre></div>
 <pre><code>#:&gt; [0 1 2 3 4]</code></pre>
-<div class="sourceCode" id="cb694"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb694-1"><a href="numpy-1.html#cb694-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (arr.shape)</span></code></pre></div>
+<div class="sourceCode" id="cb692"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb692-1"><a href="numpy-1.html#cb692-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (arr.shape)</span></code></pre></div>
 <pre><code>#:&gt; (5,)</code></pre>
-<div class="sourceCode" id="cb696"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb696-1"><a href="numpy-1.html#cb696-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (arr.ndim)</span></code></pre></div>
+<div class="sourceCode" id="cb694"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb694-1"><a href="numpy-1.html#cb694-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (arr.ndim)</span></code></pre></div>
 <pre><code>#:&gt; 1</code></pre>
 <!-- jupyter_markdown -->
 </div>
 <div id="d-array-2" class="section level4" number="12.4.3.3">
 <h4><span class="header-section-number">12.4.3.3</span> 2-D Array</h4>
-<div class="sourceCode" id="cb698"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb698-1"><a href="numpy-1.html#cb698-1" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.array([<span class="bu">range</span>(<span class="dv">5</span>),<span class="bu">range</span>(<span class="dv">5</span>,<span class="dv">10</span>),<span class="bu">range</span>(<span class="dv">10</span>,<span class="dv">15</span>)])</span>
-<span id="cb698-2"><a href="numpy-1.html#cb698-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (arr)</span></code></pre></div>
+<div class="sourceCode" id="cb696"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb696-1"><a href="numpy-1.html#cb696-1" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.array([<span class="bu">range</span>(<span class="dv">5</span>),<span class="bu">range</span>(<span class="dv">5</span>,<span class="dv">10</span>),<span class="bu">range</span>(<span class="dv">10</span>,<span class="dv">15</span>)])</span>
+<span id="cb696-2"><a href="numpy-1.html#cb696-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (arr)</span></code></pre></div>
 <pre><code>#:&gt; [[ 0  1  2  3  4]
 #:&gt;  [ 5  6  7  8  9]
 #:&gt;  [10 11 12 13 14]]</code></pre>
-<div class="sourceCode" id="cb700"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb700-1"><a href="numpy-1.html#cb700-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (arr.shape)</span></code></pre></div>
+<div class="sourceCode" id="cb698"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb698-1"><a href="numpy-1.html#cb698-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (arr.shape)</span></code></pre></div>
 <pre><code>#:&gt; (3, 5)</code></pre>
-<div class="sourceCode" id="cb702"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb702-1"><a href="numpy-1.html#cb702-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (arr.ndim)</span></code></pre></div>
+<div class="sourceCode" id="cb700"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb700-1"><a href="numpy-1.html#cb700-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (arr.ndim)</span></code></pre></div>
 <pre><code>#:&gt; 2</code></pre>
 <!-- jupyter_markdown -->
 </div>
 <div id="d-array---single-row" class="section level4" number="12.4.3.4">
 <h4><span class="header-section-number">12.4.3.4</span> 2-D Array - Single Row</h4>
-<div class="sourceCode" id="cb704"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb704-1"><a href="numpy-1.html#cb704-1" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.array([<span class="bu">range</span>(<span class="dv">5</span>)])</span>
-<span id="cb704-2"><a href="numpy-1.html#cb704-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (arr)</span></code></pre></div>
+<div class="sourceCode" id="cb702"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb702-1"><a href="numpy-1.html#cb702-1" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.array([<span class="bu">range</span>(<span class="dv">5</span>)])</span>
+<span id="cb702-2"><a href="numpy-1.html#cb702-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (arr)</span></code></pre></div>
 <pre><code>#:&gt; [[0 1 2 3 4]]</code></pre>
-<div class="sourceCode" id="cb706"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb706-1"><a href="numpy-1.html#cb706-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (arr.shape)</span></code></pre></div>
+<div class="sourceCode" id="cb704"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb704-1"><a href="numpy-1.html#cb704-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (arr.shape)</span></code></pre></div>
 <pre><code>#:&gt; (1, 5)</code></pre>
-<div class="sourceCode" id="cb708"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb708-1"><a href="numpy-1.html#cb708-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (arr.ndim)</span></code></pre></div>
+<div class="sourceCode" id="cb706"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb706-1"><a href="numpy-1.html#cb706-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (arr.ndim)</span></code></pre></div>
 <pre><code>#:&gt; 2</code></pre>
 <!-- jupyter_markdown -->
 </div>
 <div id="d-array-single-column" class="section level4" number="12.4.3.5">
 <h4><span class="header-section-number">12.4.3.5</span> 2-D Array : Single Column</h4>
 <p>Using array slicing method with <strong>newaxis</strong> at <strong>COLUMN</strong>, will turn 1D array into 2D of <strong>single column</strong></p>
-<div class="sourceCode" id="cb710"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb710-1"><a href="numpy-1.html#cb710-1" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.arange(<span class="dv">5</span>)[:, np.newaxis]</span>
-<span id="cb710-2"><a href="numpy-1.html#cb710-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (arr)</span></code></pre></div>
+<div class="sourceCode" id="cb708"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb708-1"><a href="numpy-1.html#cb708-1" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.arange(<span class="dv">5</span>)[:, np.newaxis]</span>
+<span id="cb708-2"><a href="numpy-1.html#cb708-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (arr)</span></code></pre></div>
 <pre><code>#:&gt; [[0]
 #:&gt;  [1]
 #:&gt;  [2]
 #:&gt;  [3]
 #:&gt;  [4]]</code></pre>
-<div class="sourceCode" id="cb712"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb712-1"><a href="numpy-1.html#cb712-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (arr.shape)</span></code></pre></div>
+<div class="sourceCode" id="cb710"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb710-1"><a href="numpy-1.html#cb710-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (arr.shape)</span></code></pre></div>
 <pre><code>#:&gt; (5, 1)</code></pre>
-<div class="sourceCode" id="cb714"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb714-1"><a href="numpy-1.html#cb714-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (arr.ndim)</span></code></pre></div>
+<div class="sourceCode" id="cb712"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb712-1"><a href="numpy-1.html#cb712-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (arr.ndim)</span></code></pre></div>
 <pre><code>#:&gt; 2</code></pre>
 <!-- jupyter_markdown -->
 <p>Using array slicing method with <strong>newaxis</strong> at <strong>ROW</strong>, will turn 1D array into 2D of <strong>single row</strong></p>
-<div class="sourceCode" id="cb716"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb716-1"><a href="numpy-1.html#cb716-1" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.arange(<span class="dv">5</span>)[np.newaxis,:]</span>
-<span id="cb716-2"><a href="numpy-1.html#cb716-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (arr)</span></code></pre></div>
+<div class="sourceCode" id="cb714"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb714-1"><a href="numpy-1.html#cb714-1" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.arange(<span class="dv">5</span>)[np.newaxis,:]</span>
+<span id="cb714-2"><a href="numpy-1.html#cb714-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (arr)</span></code></pre></div>
 <pre><code>#:&gt; [[0 1 2 3 4]]</code></pre>
-<div class="sourceCode" id="cb718"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb718-1"><a href="numpy-1.html#cb718-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (arr.shape)</span></code></pre></div>
+<div class="sourceCode" id="cb716"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb716-1"><a href="numpy-1.html#cb716-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (arr.shape)</span></code></pre></div>
 <pre><code>#:&gt; (1, 5)</code></pre>
-<div class="sourceCode" id="cb720"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb720-1"><a href="numpy-1.html#cb720-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (arr.ndim)</span></code></pre></div>
+<div class="sourceCode" id="cb718"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb718-1"><a href="numpy-1.html#cb718-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (arr.ndim)</span></code></pre></div>
 <pre><code>#:&gt; 2</code></pre>
 <!-- jupyter_markdown -->
 </div>
@@ -1647,24 +1646,24 @@ What it really means is 5 items <strong>single dimension</strong>.</p>
 <div id="arange" class="section level4" number="12.4.4.1">
 <h4><span class="header-section-number">12.4.4.1</span> <code>arange()</code></h4>
 <p>Generate array with a sequence of numbers</p>
-<div class="sourceCode" id="cb722"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb722-1"><a href="numpy-1.html#cb722-1" aria-hidden="true" tabindex="-1"></a>np.arange(<span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb720"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb720-1"><a href="numpy-1.html#cb720-1" aria-hidden="true" tabindex="-1"></a>np.arange(<span class="dv">10</span>)</span></code></pre></div>
 <pre><code>#:&gt; array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</code></pre>
 <!-- jupyter_markdown -->
 </div>
 <div id="ones" class="section level4" number="12.4.4.2">
 <h4><span class="header-section-number">12.4.4.2</span> <code>ones()</code></h4>
-<div class="sourceCode" id="cb724"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb724-1"><a href="numpy-1.html#cb724-1" aria-hidden="true" tabindex="-1"></a>np.ones(<span class="dv">10</span>)  <span class="co"># One dimension, default is float</span></span></code></pre></div>
+<div class="sourceCode" id="cb722"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb722-1"><a href="numpy-1.html#cb722-1" aria-hidden="true" tabindex="-1"></a>np.ones(<span class="dv">10</span>)  <span class="co"># One dimension, default is float</span></span></code></pre></div>
 <pre><code>#:&gt; array([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])</code></pre>
-<div class="sourceCode" id="cb726"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb726-1"><a href="numpy-1.html#cb726-1" aria-hidden="true" tabindex="-1"></a>np.ones((<span class="dv">2</span>,<span class="dv">5</span>),<span class="st">&#39;int&#39;</span>)  <span class="co">#Two dimensions</span></span></code></pre></div>
+<div class="sourceCode" id="cb724"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb724-1"><a href="numpy-1.html#cb724-1" aria-hidden="true" tabindex="-1"></a>np.ones((<span class="dv">2</span>,<span class="dv">5</span>),<span class="st">&#39;int&#39;</span>)  <span class="co">#Two dimensions</span></span></code></pre></div>
 <pre><code>#:&gt; array([[1, 1, 1, 1, 1],
 #:&gt;        [1, 1, 1, 1, 1]])</code></pre>
 <!-- jupyter_markdown -->
 </div>
 <div id="zeros" class="section level4" number="12.4.4.3">
 <h4><span class="header-section-number">12.4.4.3</span> <code>zeros()</code></h4>
-<div class="sourceCode" id="cb728"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb728-1"><a href="numpy-1.html#cb728-1" aria-hidden="true" tabindex="-1"></a>np.zeros( <span class="dv">10</span> )    <span class="co"># One dimension, default is float</span></span></code></pre></div>
+<div class="sourceCode" id="cb726"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb726-1"><a href="numpy-1.html#cb726-1" aria-hidden="true" tabindex="-1"></a>np.zeros( <span class="dv">10</span> )    <span class="co"># One dimension, default is float</span></span></code></pre></div>
 <pre><code>#:&gt; array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])</code></pre>
-<div class="sourceCode" id="cb730"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb730-1"><a href="numpy-1.html#cb730-1" aria-hidden="true" tabindex="-1"></a>np.zeros((<span class="dv">2</span>,<span class="dv">5</span>),<span class="st">&#39;int&#39;</span>)   <span class="co"># 2 rows, 5 columns of ZERO</span></span></code></pre></div>
+<div class="sourceCode" id="cb728"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb728-1"><a href="numpy-1.html#cb728-1" aria-hidden="true" tabindex="-1"></a>np.zeros((<span class="dv">2</span>,<span class="dv">5</span>),<span class="st">&#39;int&#39;</span>)   <span class="co"># 2 rows, 5 columns of ZERO</span></span></code></pre></div>
 <pre><code>#:&gt; array([[0, 0, 0, 0, 0],
 #:&gt;        [0, 0, 0, 0, 0]])</code></pre>
 <!-- jupyter_markdown -->
@@ -1672,20 +1671,20 @@ What it really means is 5 items <strong>single dimension</strong>.</p>
 <div id="where" class="section level4" number="12.4.4.4">
 <h4><span class="header-section-number">12.4.4.4</span> <code>where()</code></h4>
 <p>On <strong>1D array</strong> <code>numpy.where()</code> returns the items matching the criteria</p>
-<div class="sourceCode" id="cb732"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb732-1"><a href="numpy-1.html#cb732-1" aria-hidden="true" tabindex="-1"></a>ar1 <span class="op">=</span> np.array(<span class="bu">range</span>(<span class="dv">10</span>))</span>
-<span id="cb732-2"><a href="numpy-1.html#cb732-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( ar1 )</span></code></pre></div>
+<div class="sourceCode" id="cb730"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb730-1"><a href="numpy-1.html#cb730-1" aria-hidden="true" tabindex="-1"></a>ar1 <span class="op">=</span> np.array(<span class="bu">range</span>(<span class="dv">10</span>))</span>
+<span id="cb730-2"><a href="numpy-1.html#cb730-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( ar1 )</span></code></pre></div>
 <pre><code>#:&gt; [0 1 2 3 4 5 6 7 8 9]</code></pre>
-<div class="sourceCode" id="cb734"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb734-1"><a href="numpy-1.html#cb734-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( np.where(ar1<span class="op">&gt;</span><span class="dv">5</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb732"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb732-1"><a href="numpy-1.html#cb732-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( np.where(ar1<span class="op">&gt;</span><span class="dv">5</span>) )</span></code></pre></div>
 <pre><code>#:&gt; (array([6, 7, 8, 9]),)</code></pre>
 <!-- jupyter_markdown -->
 <p>On <strong>2D array</strong>, <code>where()</code> return array of <strong>row index and col index</strong> for matching elements</p>
-<div class="sourceCode" id="cb736"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb736-1"><a href="numpy-1.html#cb736-1" aria-hidden="true" tabindex="-1"></a>ar <span class="op">=</span> np.array([(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),(<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>),(<span class="dv">21</span>,<span class="dv">22</span>,<span class="dv">23</span>,<span class="dv">24</span>,<span class="dv">25</span>)])</span>
-<span id="cb736-2"><a href="numpy-1.html#cb736-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="st">&#39;Data : </span><span class="ch">\n</span><span class="st">&#39;</span>, ar)</span></code></pre></div>
+<div class="sourceCode" id="cb734"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb734-1"><a href="numpy-1.html#cb734-1" aria-hidden="true" tabindex="-1"></a>ar <span class="op">=</span> np.array([(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>),(<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>),(<span class="dv">21</span>,<span class="dv">22</span>,<span class="dv">23</span>,<span class="dv">24</span>,<span class="dv">25</span>)])</span>
+<span id="cb734-2"><a href="numpy-1.html#cb734-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="st">&#39;Data : </span><span class="ch">\n</span><span class="st">&#39;</span>, ar)</span></code></pre></div>
 <pre><code>#:&gt; Data : 
 #:&gt;  [[ 1  2  3  4  5]
 #:&gt;  [11 12 13 14 15]
 #:&gt;  [21 22 23 24 25]]</code></pre>
-<div class="sourceCode" id="cb738"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb738-1"><a href="numpy-1.html#cb738-1" aria-hidden="true" tabindex="-1"></a>np.where(ar<span class="op">&gt;</span><span class="dv">13</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb736"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb736-1"><a href="numpy-1.html#cb736-1" aria-hidden="true" tabindex="-1"></a>np.where(ar<span class="op">&gt;</span><span class="dv">13</span>)</span></code></pre></div>
 <pre><code>#:&gt; (array([1, 1, 2, 2, 2, 2, 2]), array([3, 4, 0, 1, 2, 3, 4]))</code></pre>
 <!-- jupyter_markdown -->
 </div>
@@ -1693,22 +1692,22 @@ What it really means is 5 items <strong>single dimension</strong>.</p>
 <h4><span class="header-section-number">12.4.4.5</span> Logical Methods</h4>
 <p><strong><code>numpy.logical_or</code></strong><br />
 Perform <strong>or</strong> operation on two boolean array, generate new resulting <strong>boolean arrays</strong></p>
-<div class="sourceCode" id="cb740"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb740-1"><a href="numpy-1.html#cb740-1" aria-hidden="true" tabindex="-1"></a>ar <span class="op">=</span> np.arange(<span class="dv">10</span>)</span>
-<span id="cb740-2"><a href="numpy-1.html#cb740-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( ar<span class="op">==</span><span class="dv">3</span> )  <span class="co"># boolean array 1</span></span></code></pre></div>
+<div class="sourceCode" id="cb738"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb738-1"><a href="numpy-1.html#cb738-1" aria-hidden="true" tabindex="-1"></a>ar <span class="op">=</span> np.arange(<span class="dv">10</span>)</span>
+<span id="cb738-2"><a href="numpy-1.html#cb738-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( ar<span class="op">==</span><span class="dv">3</span> )  <span class="co"># boolean array 1</span></span></code></pre></div>
 <pre><code>#:&gt; [False False False  True False False False False False False]</code></pre>
-<div class="sourceCode" id="cb742"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb742-1"><a href="numpy-1.html#cb742-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( ar<span class="op">==</span><span class="dv">6</span> )  <span class="co"># boolean array 2</span></span></code></pre></div>
+<div class="sourceCode" id="cb740"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb740-1"><a href="numpy-1.html#cb740-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( ar<span class="op">==</span><span class="dv">6</span> )  <span class="co"># boolean array 2</span></span></code></pre></div>
 <pre><code>#:&gt; [False False False False False False  True False False False]</code></pre>
-<div class="sourceCode" id="cb744"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb744-1"><a href="numpy-1.html#cb744-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( np.logical_or(ar<span class="op">==</span><span class="dv">3</span>,ar<span class="op">==</span><span class="dv">6</span> ) ) <span class="co"># resulting boolean</span></span></code></pre></div>
+<div class="sourceCode" id="cb742"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb742-1"><a href="numpy-1.html#cb742-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( np.logical_or(ar<span class="op">==</span><span class="dv">3</span>,ar<span class="op">==</span><span class="dv">6</span> ) ) <span class="co"># resulting boolean</span></span></code></pre></div>
 <pre><code>#:&gt; [False False False  True False False  True False False False]</code></pre>
 <!-- jupyter_markdown -->
 <p><strong><code>numpy.logical_and</code></strong><br />
 Perform <strong>and</strong> operation on two boolean array, generate new resulting <strong>boolean arrays</strong></p>
-<div class="sourceCode" id="cb746"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb746-1"><a href="numpy-1.html#cb746-1" aria-hidden="true" tabindex="-1"></a>ar <span class="op">=</span> np.arange(<span class="dv">10</span>)</span>
-<span id="cb746-2"><a href="numpy-1.html#cb746-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( ar<span class="op">==</span><span class="dv">3</span> ) <span class="co"># boolean array 1</span></span></code></pre></div>
+<div class="sourceCode" id="cb744"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb744-1"><a href="numpy-1.html#cb744-1" aria-hidden="true" tabindex="-1"></a>ar <span class="op">=</span> np.arange(<span class="dv">10</span>)</span>
+<span id="cb744-2"><a href="numpy-1.html#cb744-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( ar<span class="op">==</span><span class="dv">3</span> ) <span class="co"># boolean array 1</span></span></code></pre></div>
 <pre><code>#:&gt; [False False False  True False False False False False False]</code></pre>
-<div class="sourceCode" id="cb748"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb748-1"><a href="numpy-1.html#cb748-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( ar<span class="op">==</span><span class="dv">6</span> ) <span class="co"># boolean array 2</span></span></code></pre></div>
+<div class="sourceCode" id="cb746"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb746-1"><a href="numpy-1.html#cb746-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( ar<span class="op">==</span><span class="dv">6</span> ) <span class="co"># boolean array 2</span></span></code></pre></div>
 <pre><code>#:&gt; [False False False False False False  True False False False]</code></pre>
-<div class="sourceCode" id="cb750"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb750-1"><a href="numpy-1.html#cb750-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( np.logical_and(ar<span class="op">==</span><span class="dv">3</span>,ar<span class="op">==</span><span class="dv">6</span> ) )  <span class="co"># resulting boolean</span></span></code></pre></div>
+<div class="sourceCode" id="cb748"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb748-1"><a href="numpy-1.html#cb748-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( np.logical_and(ar<span class="op">==</span><span class="dv">3</span>,ar<span class="op">==</span><span class="dv">6</span> ) )  <span class="co"># resulting boolean</span></span></code></pre></div>
 <pre><code>#:&gt; [False False False False False False False False False False]</code></pre>
 <!-- jupyter_markdown -->
 </div>
@@ -1719,17 +1718,17 @@ Perform <strong>and</strong> operation on two boolean array, generate new result
 <div id="astype-conversion" class="section level4" number="12.4.5.1">
 <h4><span class="header-section-number">12.4.5.1</span> <code>astype()</code> conversion</h4>
 <p><strong>Convert to from datetime64 to datetime</strong></p>
-<div class="sourceCode" id="cb752"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb752-1"><a href="numpy-1.html#cb752-1" aria-hidden="true" tabindex="-1"></a>ar1 <span class="op">=</span> np.array([<span class="st">&#39;2007-07-13&#39;</span>, <span class="st">&#39;2006-01-13&#39;</span>, <span class="st">&#39;2010-08-13&#39;</span>], dtype<span class="op">=</span><span class="st">&#39;datetime64&#39;</span>)</span>
-<span id="cb752-2"><a href="numpy-1.html#cb752-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="bu">type</span>(ar1) )  <span class="co">## a numpy array</span></span></code></pre></div>
+<div class="sourceCode" id="cb750"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb750-1"><a href="numpy-1.html#cb750-1" aria-hidden="true" tabindex="-1"></a>ar1 <span class="op">=</span> np.array([<span class="st">&#39;2007-07-13&#39;</span>, <span class="st">&#39;2006-01-13&#39;</span>, <span class="st">&#39;2010-08-13&#39;</span>], dtype<span class="op">=</span><span class="st">&#39;datetime64&#39;</span>)</span>
+<span id="cb750-2"><a href="numpy-1.html#cb750-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="bu">type</span>(ar1) )  <span class="co">## a numpy array</span></span></code></pre></div>
 <pre><code>#:&gt; &lt;class &#39;numpy.ndarray&#39;&gt;</code></pre>
-<div class="sourceCode" id="cb754"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb754-1"><a href="numpy-1.html#cb754-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( ar1.dtype )  <span class="co">## dtype is a numpy data type</span></span></code></pre></div>
+<div class="sourceCode" id="cb752"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb752-1"><a href="numpy-1.html#cb752-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( ar1.dtype )  <span class="co">## dtype is a numpy data type</span></span></code></pre></div>
 <pre><code>#:&gt; datetime64[D]</code></pre>
 <!-- jupyter_markdown -->
 <p>After convert to datetime (non-numpy object, the dtype becomes <strong>generic ‘object’</strong>.</p>
-<div class="sourceCode" id="cb756"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb756-1"><a href="numpy-1.html#cb756-1" aria-hidden="true" tabindex="-1"></a>ar2 <span class="op">=</span> ar1.astype(datetime)</span>
-<span id="cb756-2"><a href="numpy-1.html#cb756-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="bu">type</span>(ar2) )  <span class="co">## still a numpy array</span></span></code></pre></div>
+<div class="sourceCode" id="cb754"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb754-1"><a href="numpy-1.html#cb754-1" aria-hidden="true" tabindex="-1"></a>ar2 <span class="op">=</span> ar1.astype(datetime)</span>
+<span id="cb754-2"><a href="numpy-1.html#cb754-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="bu">type</span>(ar2) )  <span class="co">## still a numpy array</span></span></code></pre></div>
 <pre><code>#:&gt; &lt;class &#39;numpy.ndarray&#39;&gt;</code></pre>
-<div class="sourceCode" id="cb758"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb758-1"><a href="numpy-1.html#cb758-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( ar2.dtype )  <span class="co">## dtype becomes generic &#39;object&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb756"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb756-1"><a href="numpy-1.html#cb756-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( ar2.dtype )  <span class="co">## dtype becomes generic &#39;object&#39;</span></span></code></pre></div>
 <pre><code>#:&gt; object</code></pre>
 <!-- jupyter_markdown -->
 </div>
@@ -1738,26 +1737,26 @@ Perform <strong>and</strong> operation on two boolean array, generate new result
 <pre><code>reshape ( row numbers, col numbers )</code></pre>
 <!-- jupyter_markdown -->
 <p><strong>Sample Data</strong></p>
-<div class="sourceCode" id="cb761"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb761-1"><a href="numpy-1.html#cb761-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array([<span class="bu">range</span>(<span class="dv">5</span>), <span class="bu">range</span>(<span class="dv">10</span>,<span class="dv">15</span>), <span class="bu">range</span>(<span class="dv">20</span>,<span class="dv">25</span>), <span class="bu">range</span>(<span class="dv">30</span>,<span class="dv">35</span>)])</span>
-<span id="cb761-2"><a href="numpy-1.html#cb761-2" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div>
+<div class="sourceCode" id="cb759"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb759-1"><a href="numpy-1.html#cb759-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array([<span class="bu">range</span>(<span class="dv">5</span>), <span class="bu">range</span>(<span class="dv">10</span>,<span class="dv">15</span>), <span class="bu">range</span>(<span class="dv">20</span>,<span class="dv">25</span>), <span class="bu">range</span>(<span class="dv">30</span>,<span class="dv">35</span>)])</span>
+<span id="cb759-2"><a href="numpy-1.html#cb759-2" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div>
 <pre><code>#:&gt; array([[ 0,  1,  2,  3,  4],
 #:&gt;        [10, 11, 12, 13, 14],
 #:&gt;        [20, 21, 22, 23, 24],
 #:&gt;        [30, 31, 32, 33, 34]])</code></pre>
 <!-- jupyter_markdown -->
 <p><strong>Resphepe 1-Dim to 2-Dim</strong></p>
-<div class="sourceCode" id="cb763"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb763-1"><a href="numpy-1.html#cb763-1" aria-hidden="true" tabindex="-1"></a>np.arange(<span class="dv">12</span>) <span class="co"># 1-D Array</span></span></code></pre></div>
+<div class="sourceCode" id="cb761"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb761-1"><a href="numpy-1.html#cb761-1" aria-hidden="true" tabindex="-1"></a>np.arange(<span class="dv">12</span>) <span class="co"># 1-D Array</span></span></code></pre></div>
 <pre><code>#:&gt; array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11])</code></pre>
-<div class="sourceCode" id="cb765"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb765-1"><a href="numpy-1.html#cb765-1" aria-hidden="true" tabindex="-1"></a>np.arange(<span class="dv">12</span>).reshape(<span class="dv">3</span>,<span class="dv">4</span>)  <span class="co"># 2-D Array</span></span></code></pre></div>
+<div class="sourceCode" id="cb763"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb763-1"><a href="numpy-1.html#cb763-1" aria-hidden="true" tabindex="-1"></a>np.arange(<span class="dv">12</span>).reshape(<span class="dv">3</span>,<span class="dv">4</span>)  <span class="co"># 2-D Array</span></span></code></pre></div>
 <pre><code>#:&gt; array([[ 0,  1,  2,  3],
 #:&gt;        [ 4,  5,  6,  7],
 #:&gt;        [ 8,  9, 10, 11]])</code></pre>
 <!-- jupyter_markdown -->
 <p><strong>Respahe 2-Dim to 2-Dim</strong></p>
-<div class="sourceCode" id="cb767"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb767-1"><a href="numpy-1.html#cb767-1" aria-hidden="true" tabindex="-1"></a>np.array([<span class="bu">range</span>(<span class="dv">5</span>), <span class="bu">range</span>(<span class="dv">10</span>,<span class="dv">15</span>)])  <span class="co"># 2-D Array</span></span></code></pre></div>
+<div class="sourceCode" id="cb765"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb765-1"><a href="numpy-1.html#cb765-1" aria-hidden="true" tabindex="-1"></a>np.array([<span class="bu">range</span>(<span class="dv">5</span>), <span class="bu">range</span>(<span class="dv">10</span>,<span class="dv">15</span>)])  <span class="co"># 2-D Array</span></span></code></pre></div>
 <pre><code>#:&gt; array([[ 0,  1,  2,  3,  4],
 #:&gt;        [10, 11, 12, 13, 14]])</code></pre>
-<div class="sourceCode" id="cb769"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb769-1"><a href="numpy-1.html#cb769-1" aria-hidden="true" tabindex="-1"></a>np.array([<span class="bu">range</span>(<span class="dv">5</span>), <span class="bu">range</span>(<span class="dv">10</span>,<span class="dv">15</span>)]).reshape(<span class="dv">5</span>,<span class="dv">2</span>) <span class="co"># 2-D Array</span></span></code></pre></div>
+<div class="sourceCode" id="cb767"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb767-1"><a href="numpy-1.html#cb767-1" aria-hidden="true" tabindex="-1"></a>np.array([<span class="bu">range</span>(<span class="dv">5</span>), <span class="bu">range</span>(<span class="dv">10</span>,<span class="dv">15</span>)]).reshape(<span class="dv">5</span>,<span class="dv">2</span>) <span class="co"># 2-D Array</span></span></code></pre></div>
 <pre><code>#:&gt; array([[ 0,  1],
 #:&gt;        [ 2,  3],
 #:&gt;        [ 4, 10],
@@ -1767,16 +1766,16 @@ Perform <strong>and</strong> operation on two boolean array, generate new result
 <p><strong>Reshape 2-Dimension to 2-Dim (of single row)</strong>
 - Change 2x10 to 1x10<br />
 - Observe [[ ]], and the number of dimension is stll 2, don’t be fooled</p>
-<div class="sourceCode" id="cb771"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb771-1"><a href="numpy-1.html#cb771-1" aria-hidden="true" tabindex="-1"></a>np.array( [<span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">5</span>), <span class="bu">range</span>(<span class="dv">5</span>,<span class="dv">10</span>)])  <span class="co"># 2-D Array</span></span></code></pre></div>
+<div class="sourceCode" id="cb769"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb769-1"><a href="numpy-1.html#cb769-1" aria-hidden="true" tabindex="-1"></a>np.array( [<span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">5</span>), <span class="bu">range</span>(<span class="dv">5</span>,<span class="dv">10</span>)])  <span class="co"># 2-D Array</span></span></code></pre></div>
 <pre><code>#:&gt; array([[0, 1, 2, 3, 4],
 #:&gt;        [5, 6, 7, 8, 9]])</code></pre>
-<div class="sourceCode" id="cb773"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb773-1"><a href="numpy-1.html#cb773-1" aria-hidden="true" tabindex="-1"></a>np.array( [<span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">5</span>), <span class="bu">range</span>(<span class="dv">5</span>,<span class="dv">10</span>)]).reshape(<span class="dv">1</span>,<span class="dv">10</span>) <span class="co"># 2-D Array</span></span></code></pre></div>
+<div class="sourceCode" id="cb771"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb771-1"><a href="numpy-1.html#cb771-1" aria-hidden="true" tabindex="-1"></a>np.array( [<span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">5</span>), <span class="bu">range</span>(<span class="dv">5</span>,<span class="dv">10</span>)]).reshape(<span class="dv">1</span>,<span class="dv">10</span>) <span class="co"># 2-D Array</span></span></code></pre></div>
 <pre><code>#:&gt; array([[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]])</code></pre>
 <!-- jupyter_markdown -->
 <p><strong>Reshape 1-Dim Array to 2-Dim Array (single column)</strong></p>
-<div class="sourceCode" id="cb775"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb775-1"><a href="numpy-1.html#cb775-1" aria-hidden="true" tabindex="-1"></a>np.arange(<span class="dv">8</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb773"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb773-1"><a href="numpy-1.html#cb773-1" aria-hidden="true" tabindex="-1"></a>np.arange(<span class="dv">8</span>)</span></code></pre></div>
 <pre><code>#:&gt; array([0, 1, 2, 3, 4, 5, 6, 7])</code></pre>
-<div class="sourceCode" id="cb777"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb777-1"><a href="numpy-1.html#cb777-1" aria-hidden="true" tabindex="-1"></a>np.arange(<span class="dv">8</span>).reshape(<span class="dv">8</span>,<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb775"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb775-1"><a href="numpy-1.html#cb775-1" aria-hidden="true" tabindex="-1"></a>np.arange(<span class="dv">8</span>).reshape(<span class="dv">8</span>,<span class="dv">1</span>)</span></code></pre></div>
 <pre><code>#:&gt; array([[0],
 #:&gt;        [1],
 #:&gt;        [2],
@@ -1787,7 +1786,7 @@ Perform <strong>and</strong> operation on two boolean array, generate new result
 #:&gt;        [7]])</code></pre>
 <!-- jupyter_markdown -->
 <p>A better method, use <strong>newaxis</strong>, easier because no need to input row number as parameter</p>
-<div class="sourceCode" id="cb779"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb779-1"><a href="numpy-1.html#cb779-1" aria-hidden="true" tabindex="-1"></a>np.arange(<span class="dv">8</span>)[:,np.newaxis]</span></code></pre></div>
+<div class="sourceCode" id="cb777"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb777-1"><a href="numpy-1.html#cb777-1" aria-hidden="true" tabindex="-1"></a>np.arange(<span class="dv">8</span>)[:,np.newaxis]</span></code></pre></div>
 <pre><code>#:&gt; array([[0],
 #:&gt;        [1],
 #:&gt;        [2],
@@ -1798,9 +1797,9 @@ Perform <strong>and</strong> operation on two boolean array, generate new result
 #:&gt;        [7]])</code></pre>
 <!-- jupyter_markdown -->
 <p><strong>Reshape 1-Dim Array to 2-Dim Array (single row)</strong></p>
-<div class="sourceCode" id="cb781"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb781-1"><a href="numpy-1.html#cb781-1" aria-hidden="true" tabindex="-1"></a>np.arange(<span class="dv">8</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb779"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb779-1"><a href="numpy-1.html#cb779-1" aria-hidden="true" tabindex="-1"></a>np.arange(<span class="dv">8</span>)</span></code></pre></div>
 <pre><code>#:&gt; array([0, 1, 2, 3, 4, 5, 6, 7])</code></pre>
-<div class="sourceCode" id="cb783"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb783-1"><a href="numpy-1.html#cb783-1" aria-hidden="true" tabindex="-1"></a>np.arange(<span class="dv">8</span>)[np.newaxis,:]</span></code></pre></div>
+<div class="sourceCode" id="cb781"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb781-1"><a href="numpy-1.html#cb781-1" aria-hidden="true" tabindex="-1"></a>np.arange(<span class="dv">8</span>)[np.newaxis,:]</span></code></pre></div>
 <pre><code>#:&gt; array([[0, 1, 2, 3, 4, 5, 6, 7]])</code></pre>
 <!-- jupyter_markdown -->
 </div>
@@ -1809,13 +1808,13 @@ Perform <strong>and</strong> operation on two boolean array, generate new result
 <h3><span class="header-section-number">12.4.6</span> Element Selection</h3>
 <div id="sample-data-1" class="section level4" number="12.4.6.1">
 <h4><span class="header-section-number">12.4.6.1</span> Sample Data</h4>
-<div class="sourceCode" id="cb785"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb785-1"><a href="numpy-1.html#cb785-1" aria-hidden="true" tabindex="-1"></a>x1 <span class="op">=</span> np.array( (<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>))</span>
-<span id="cb785-2"><a href="numpy-1.html#cb785-2" aria-hidden="true" tabindex="-1"></a>x2 <span class="op">=</span> np.array(( (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>), </span>
-<span id="cb785-3"><a href="numpy-1.html#cb785-3" aria-hidden="true" tabindex="-1"></a>      (<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>),</span>
-<span id="cb785-4"><a href="numpy-1.html#cb785-4" aria-hidden="true" tabindex="-1"></a>      (<span class="dv">21</span>,<span class="dv">22</span>,<span class="dv">23</span>,<span class="dv">24</span>,<span class="dv">25</span>)))</span>
-<span id="cb785-5"><a href="numpy-1.html#cb785-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x1)</span></code></pre></div>
+<div class="sourceCode" id="cb783"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb783-1"><a href="numpy-1.html#cb783-1" aria-hidden="true" tabindex="-1"></a>x1 <span class="op">=</span> np.array( (<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>))</span>
+<span id="cb783-2"><a href="numpy-1.html#cb783-2" aria-hidden="true" tabindex="-1"></a>x2 <span class="op">=</span> np.array(( (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>), </span>
+<span id="cb783-3"><a href="numpy-1.html#cb783-3" aria-hidden="true" tabindex="-1"></a>      (<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>),</span>
+<span id="cb783-4"><a href="numpy-1.html#cb783-4" aria-hidden="true" tabindex="-1"></a>      (<span class="dv">21</span>,<span class="dv">22</span>,<span class="dv">23</span>,<span class="dv">24</span>,<span class="dv">25</span>)))</span>
+<span id="cb783-5"><a href="numpy-1.html#cb783-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x1)</span></code></pre></div>
 <pre><code>#:&gt; [0 1 2 3 4 5 6 7 8]</code></pre>
-<div class="sourceCode" id="cb787"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb787-1"><a href="numpy-1.html#cb787-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x2)</span></code></pre></div>
+<div class="sourceCode" id="cb785"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb785-1"><a href="numpy-1.html#cb785-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x2)</span></code></pre></div>
 <pre><code>#:&gt; [[ 1  2  3  4  5]
 #:&gt;  [11 12 13 14 15]
 #:&gt;  [21 22 23 24 25]]</code></pre>
@@ -1826,32 +1825,32 @@ Perform <strong>and</strong> operation on two boolean array, generate new result
 <p>All indexing starts from 0 (not 1)</p>
 <!-- jupyter_markdown -->
 <p>Choosing <strong>Single Element</strong> does not return array</p>
-<div class="sourceCode" id="cb789"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb789-1"><a href="numpy-1.html#cb789-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( x1[<span class="dv">0</span>]   )  <span class="co">## first element</span></span></code></pre></div>
+<div class="sourceCode" id="cb787"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb787-1"><a href="numpy-1.html#cb787-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( x1[<span class="dv">0</span>]   )  <span class="co">## first element</span></span></code></pre></div>
 <pre><code>#:&gt; 0</code></pre>
-<div class="sourceCode" id="cb791"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb791-1"><a href="numpy-1.html#cb791-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( x1[<span class="op">-</span><span class="dv">1</span>]  )  <span class="co">## last element</span></span></code></pre></div>
+<div class="sourceCode" id="cb789"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb789-1"><a href="numpy-1.html#cb789-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( x1[<span class="op">-</span><span class="dv">1</span>]  )  <span class="co">## last element</span></span></code></pre></div>
 <pre><code>#:&gt; 8</code></pre>
-<div class="sourceCode" id="cb793"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb793-1"><a href="numpy-1.html#cb793-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( x1[<span class="dv">3</span>]   )  <span class="co">## third element from start 3</span></span></code></pre></div>
+<div class="sourceCode" id="cb791"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb791-1"><a href="numpy-1.html#cb791-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( x1[<span class="dv">3</span>]   )  <span class="co">## third element from start 3</span></span></code></pre></div>
 <pre><code>#:&gt; 3</code></pre>
-<div class="sourceCode" id="cb795"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb795-1"><a href="numpy-1.html#cb795-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( x1[<span class="op">-</span><span class="dv">3</span>]  )  <span class="co">## third element from end</span></span></code></pre></div>
+<div class="sourceCode" id="cb793"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb793-1"><a href="numpy-1.html#cb793-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( x1[<span class="op">-</span><span class="dv">3</span>]  )  <span class="co">## third element from end</span></span></code></pre></div>
 <pre><code>#:&gt; 6</code></pre>
 <!-- jupyter_markdown -->
 <p>Selecting <strong>multiple elments</strong> return <strong>ndarray</strong></p>
-<div class="sourceCode" id="cb797"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb797-1"><a href="numpy-1.html#cb797-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( x1[:<span class="dv">3</span>]  )  <span class="co">## first 3 elements</span></span></code></pre></div>
+<div class="sourceCode" id="cb795"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb795-1"><a href="numpy-1.html#cb795-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( x1[:<span class="dv">3</span>]  )  <span class="co">## first 3 elements</span></span></code></pre></div>
 <pre><code>#:&gt; [0 1 2]</code></pre>
-<div class="sourceCode" id="cb799"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb799-1"><a href="numpy-1.html#cb799-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( x1[<span class="op">-</span><span class="dv">3</span>:])   <span class="co">## last 3 elements</span></span></code></pre></div>
+<div class="sourceCode" id="cb797"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb797-1"><a href="numpy-1.html#cb797-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( x1[<span class="op">-</span><span class="dv">3</span>:])   <span class="co">## last 3 elements</span></span></code></pre></div>
 <pre><code>#:&gt; [6 7 8]</code></pre>
-<div class="sourceCode" id="cb801"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb801-1"><a href="numpy-1.html#cb801-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( x1[<span class="dv">3</span>:]  )  <span class="co">## all except first 3 elements</span></span></code></pre></div>
+<div class="sourceCode" id="cb799"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb799-1"><a href="numpy-1.html#cb799-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( x1[<span class="dv">3</span>:]  )  <span class="co">## all except first 3 elements</span></span></code></pre></div>
 <pre><code>#:&gt; [3 4 5 6 7 8]</code></pre>
-<div class="sourceCode" id="cb803"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb803-1"><a href="numpy-1.html#cb803-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( x1[:<span class="op">-</span><span class="dv">3</span>] )  <span class="co">## all except last 3 elements</span></span></code></pre></div>
+<div class="sourceCode" id="cb801"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb801-1"><a href="numpy-1.html#cb801-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( x1[:<span class="op">-</span><span class="dv">3</span>] )  <span class="co">## all except last 3 elements</span></span></code></pre></div>
 <pre><code>#:&gt; [0 1 2 3 4 5]</code></pre>
-<div class="sourceCode" id="cb805"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb805-1"><a href="numpy-1.html#cb805-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( x1[<span class="dv">1</span>:<span class="dv">4</span>] )  <span class="co">## elemnt 1 to 4 (not including 4)</span></span></code></pre></div>
+<div class="sourceCode" id="cb803"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb803-1"><a href="numpy-1.html#cb803-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( x1[<span class="dv">1</span>:<span class="dv">4</span>] )  <span class="co">## elemnt 1 to 4 (not including 4)</span></span></code></pre></div>
 <pre><code>#:&gt; [1 2 3]</code></pre>
 <!-- jupyter_markdown -->
 </div>
 <div id="dimension-1" class="section level4" number="12.4.6.3">
 <h4><span class="header-section-number">12.4.6.3</span> 2-Dimension</h4>
 <p>Indexing with <strong>[ row_positoins, row_positions ]</strong>, index starts with 0</p>
-<div class="sourceCode" id="cb807"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb807-1"><a href="numpy-1.html#cb807-1" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">1</span>:<span class="dv">3</span>, <span class="dv">1</span>:<span class="dv">4</span>] <span class="co"># row 1 to 2 column 1 to 3</span></span></code></pre></div>
+<div class="sourceCode" id="cb805"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb805-1"><a href="numpy-1.html#cb805-1" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">1</span>:<span class="dv">3</span>, <span class="dv">1</span>:<span class="dv">4</span>] <span class="co"># row 1 to 2 column 1 to 3</span></span></code></pre></div>
 <pre><code>#:&gt; array([[1, 2, 3]])</code></pre>
 <!-- jupyter_markdown -->
 </div>
@@ -1861,34 +1860,34 @@ Perform <strong>and</strong> operation on two boolean array, generate new result
 <div id="dtype" class="section level4" number="12.4.7.1">
 <h4><span class="header-section-number">12.4.7.1</span> <code>dtype</code></h4>
 <p>ndarray contain a property called <strong>dtype</strong>, whcih tell us the type of underlying items</p>
-<div class="sourceCode" id="cb809"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb809-1"><a href="numpy-1.html#cb809-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array( (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>), dtype<span class="op">=</span><span class="st">&#39;float&#39;</span> )</span>
-<span id="cb809-2"><a href="numpy-1.html#cb809-2" aria-hidden="true" tabindex="-1"></a>a.dtype</span></code></pre></div>
+<div class="sourceCode" id="cb807"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb807-1"><a href="numpy-1.html#cb807-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array( (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>), dtype<span class="op">=</span><span class="st">&#39;float&#39;</span> )</span>
+<span id="cb807-2"><a href="numpy-1.html#cb807-2" aria-hidden="true" tabindex="-1"></a>a.dtype</span></code></pre></div>
 <pre><code>#:&gt; dtype(&#39;float64&#39;)</code></pre>
-<div class="sourceCode" id="cb811"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb811-1"><a href="numpy-1.html#cb811-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a.dtype)</span></code></pre></div>
+<div class="sourceCode" id="cb809"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb809-1"><a href="numpy-1.html#cb809-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a.dtype)</span></code></pre></div>
 <pre><code>#:&gt; float64</code></pre>
-<div class="sourceCode" id="cb813"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb813-1"><a href="numpy-1.html#cb813-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="bu">type</span>(a[<span class="dv">1</span>]))</span></code></pre></div>
+<div class="sourceCode" id="cb811"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb811-1"><a href="numpy-1.html#cb811-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="bu">type</span>(a[<span class="dv">1</span>]))</span></code></pre></div>
 <pre><code>#:&gt; &lt;class &#39;numpy.float64&#39;&gt;</code></pre>
 <!-- jupyter_markdown -->
 </div>
 <div id="dim" class="section level4" number="12.4.7.2">
 <h4><span class="header-section-number">12.4.7.2</span> <code>dim</code></h4>
 <p><strong><code>dim</code></strong> returns the number of dimensions of the NumPy array. Example below shows 2-D array</p>
-<div class="sourceCode" id="cb815"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb815-1"><a href="numpy-1.html#cb815-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array(( (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>), </span>
-<span id="cb815-2"><a href="numpy-1.html#cb815-2" aria-hidden="true" tabindex="-1"></a>      (<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>),</span>
-<span id="cb815-3"><a href="numpy-1.html#cb815-3" aria-hidden="true" tabindex="-1"></a>      (<span class="dv">21</span>,<span class="dv">22</span>,<span class="dv">23</span>,<span class="dv">24</span>,<span class="dv">25</span>)))</span>
-<span id="cb815-4"><a href="numpy-1.html#cb815-4" aria-hidden="true" tabindex="-1"></a>x.ndim  </span></code></pre></div>
+<div class="sourceCode" id="cb813"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb813-1"><a href="numpy-1.html#cb813-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array(( (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>), </span>
+<span id="cb813-2"><a href="numpy-1.html#cb813-2" aria-hidden="true" tabindex="-1"></a>      (<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>),</span>
+<span id="cb813-3"><a href="numpy-1.html#cb813-3" aria-hidden="true" tabindex="-1"></a>      (<span class="dv">21</span>,<span class="dv">22</span>,<span class="dv">23</span>,<span class="dv">24</span>,<span class="dv">25</span>)))</span>
+<span id="cb813-4"><a href="numpy-1.html#cb813-4" aria-hidden="true" tabindex="-1"></a>x.ndim  </span></code></pre></div>
 <pre><code>#:&gt; 2</code></pre>
 <!-- jupyter_markdown -->
 </div>
 <div id="shape" class="section level4" number="12.4.7.3">
 <h4><span class="header-section-number">12.4.7.3</span> <code>shape</code></h4>
 <p><strong><code>shape</code></strong> return a type of <strong>(rows, cols)</strong></p>
-<div class="sourceCode" id="cb817"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb817-1"><a href="numpy-1.html#cb817-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array(( (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>), </span>
-<span id="cb817-2"><a href="numpy-1.html#cb817-2" aria-hidden="true" tabindex="-1"></a>      (<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>),</span>
-<span id="cb817-3"><a href="numpy-1.html#cb817-3" aria-hidden="true" tabindex="-1"></a>      (<span class="dv">21</span>,<span class="dv">22</span>,<span class="dv">23</span>,<span class="dv">24</span>,<span class="dv">25</span>)))</span>
-<span id="cb817-4"><a href="numpy-1.html#cb817-4" aria-hidden="true" tabindex="-1"></a>x.shape  </span></code></pre></div>
+<div class="sourceCode" id="cb815"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb815-1"><a href="numpy-1.html#cb815-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array(( (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>), </span>
+<span id="cb815-2"><a href="numpy-1.html#cb815-2" aria-hidden="true" tabindex="-1"></a>      (<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>),</span>
+<span id="cb815-3"><a href="numpy-1.html#cb815-3" aria-hidden="true" tabindex="-1"></a>      (<span class="dv">21</span>,<span class="dv">22</span>,<span class="dv">23</span>,<span class="dv">24</span>,<span class="dv">25</span>)))</span>
+<span id="cb815-4"><a href="numpy-1.html#cb815-4" aria-hidden="true" tabindex="-1"></a>x.shape  </span></code></pre></div>
 <pre><code>#:&gt; (3, 5)</code></pre>
-<div class="sourceCode" id="cb819"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb819-1"><a href="numpy-1.html#cb819-1" aria-hidden="true" tabindex="-1"></a>np.identity(<span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb817"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb817-1"><a href="numpy-1.html#cb817-1" aria-hidden="true" tabindex="-1"></a>np.identity(<span class="dv">5</span>)</span></code></pre></div>
 <pre><code>#:&gt; array([[1., 0., 0., 0., 0.],
 #:&gt;        [0., 1., 0., 0., 0.],
 #:&gt;        [0., 0., 1., 0., 0.],
@@ -1903,40 +1902,40 @@ Perform <strong>and</strong> operation on two boolean array, generate new result
 <div id="arithmetic" class="section level4" number="12.4.8.1">
 <h4><span class="header-section-number">12.4.8.1</span> Arithmetic</h4>
 <p><strong>Sample Date</strong></p>
-<div class="sourceCode" id="cb821"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb821-1"><a href="numpy-1.html#cb821-1" aria-hidden="true" tabindex="-1"></a>ar <span class="op">=</span> np.arange(<span class="dv">10</span>)</span>
-<span id="cb821-2"><a href="numpy-1.html#cb821-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( ar )</span></code></pre></div>
+<div class="sourceCode" id="cb819"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb819-1"><a href="numpy-1.html#cb819-1" aria-hidden="true" tabindex="-1"></a>ar <span class="op">=</span> np.arange(<span class="dv">10</span>)</span>
+<span id="cb819-2"><a href="numpy-1.html#cb819-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( ar )</span></code></pre></div>
 <pre><code>#:&gt; [0 1 2 3 4 5 6 7 8 9]</code></pre>
 <!-- jupyter_markdown -->
 <p><strong><code>*</code></strong></p>
-<div class="sourceCode" id="cb823"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb823-1"><a href="numpy-1.html#cb823-1" aria-hidden="true" tabindex="-1"></a>ar <span class="op">=</span> np.arange(<span class="dv">10</span>)</span>
-<span id="cb823-2"><a href="numpy-1.html#cb823-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (ar)</span></code></pre></div>
+<div class="sourceCode" id="cb821"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb821-1"><a href="numpy-1.html#cb821-1" aria-hidden="true" tabindex="-1"></a>ar <span class="op">=</span> np.arange(<span class="dv">10</span>)</span>
+<span id="cb821-2"><a href="numpy-1.html#cb821-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (ar)</span></code></pre></div>
 <pre><code>#:&gt; [0 1 2 3 4 5 6 7 8 9]</code></pre>
-<div class="sourceCode" id="cb825"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb825-1"><a href="numpy-1.html#cb825-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (ar<span class="op">*</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb823"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb823-1"><a href="numpy-1.html#cb823-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (ar<span class="op">*</span><span class="dv">2</span>)</span></code></pre></div>
 <pre><code>#:&gt; [ 0  2  4  6  8 10 12 14 16 18]</code></pre>
 <!-- jupyter_markdown -->
 <p><code>**+ and -**</code></p>
-<div class="sourceCode" id="cb827"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb827-1"><a href="numpy-1.html#cb827-1" aria-hidden="true" tabindex="-1"></a>ar <span class="op">=</span> np.arange(<span class="dv">10</span>)</span>
-<span id="cb827-2"><a href="numpy-1.html#cb827-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (ar<span class="op">+</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb825"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb825-1"><a href="numpy-1.html#cb825-1" aria-hidden="true" tabindex="-1"></a>ar <span class="op">=</span> np.arange(<span class="dv">10</span>)</span>
+<span id="cb825-2"><a href="numpy-1.html#cb825-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (ar<span class="op">+</span><span class="dv">2</span>)</span></code></pre></div>
 <pre><code>#:&gt; [ 2  3  4  5  6  7  8  9 10 11]</code></pre>
-<div class="sourceCode" id="cb829"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb829-1"><a href="numpy-1.html#cb829-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (ar<span class="op">-</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb827"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb827-1"><a href="numpy-1.html#cb827-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (ar<span class="op">-</span><span class="dv">2</span>)</span></code></pre></div>
 <pre><code>#:&gt; [-2 -1  0  1  2  3  4  5  6  7]</code></pre>
 <!-- jupyter_markdown -->
 </div>
 <div id="comparison" class="section level4" number="12.4.8.2">
 <h4><span class="header-section-number">12.4.8.2</span> Comparison</h4>
 <p><strong>Sample Data</strong></p>
-<div class="sourceCode" id="cb831"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb831-1"><a href="numpy-1.html#cb831-1" aria-hidden="true" tabindex="-1"></a>ar <span class="op">=</span> np.arange(<span class="dv">10</span>)</span>
-<span id="cb831-2"><a href="numpy-1.html#cb831-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( ar )</span></code></pre></div>
+<div class="sourceCode" id="cb829"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb829-1"><a href="numpy-1.html#cb829-1" aria-hidden="true" tabindex="-1"></a>ar <span class="op">=</span> np.arange(<span class="dv">10</span>)</span>
+<span id="cb829-2"><a href="numpy-1.html#cb829-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( ar )</span></code></pre></div>
 <pre><code>#:&gt; [0 1 2 3 4 5 6 7 8 9]</code></pre>
 <!-- jupyter_markdown -->
 <p><strong><code>==</code></strong></p>
-<div class="sourceCode" id="cb833"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb833-1"><a href="numpy-1.html#cb833-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( ar<span class="op">==</span><span class="dv">3</span> )</span></code></pre></div>
+<div class="sourceCode" id="cb831"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb831-1"><a href="numpy-1.html#cb831-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( ar<span class="op">==</span><span class="dv">3</span> )</span></code></pre></div>
 <pre><code>#:&gt; [False False False  True False False False False False False]</code></pre>
 <!-- jupyter_markdown -->
 <p><strong><code>&gt;, &gt;=, &lt;, &lt;=</code></strong></p>
-<div class="sourceCode" id="cb835"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb835-1"><a href="numpy-1.html#cb835-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( ar<span class="op">&gt;</span><span class="dv">3</span> )</span></code></pre></div>
+<div class="sourceCode" id="cb833"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb833-1"><a href="numpy-1.html#cb833-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( ar<span class="op">&gt;</span><span class="dv">3</span> )</span></code></pre></div>
 <pre><code>#:&gt; [False False False False  True  True  True  True  True  True]</code></pre>
-<div class="sourceCode" id="cb837"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb837-1"><a href="numpy-1.html#cb837-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( ar<span class="op">&lt;=</span><span class="dv">3</span> )</span></code></pre></div>
+<div class="sourceCode" id="cb835"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb835-1"><a href="numpy-1.html#cb835-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( ar<span class="op">&lt;=</span><span class="dv">3</span> )</span></code></pre></div>
 <pre><code>#:&gt; [ True  True  True  True False False False False False False]</code></pre>
 <!-- jupyter_markdown -->
 </div>
@@ -1955,16 +1954,16 @@ Perform <strong>and</strong> operation on two boolean array, generate new result
 np.random.randint( low, high )            # generate an integer, i, which  low &lt;= i &lt; high
 np.random.randint( low, high, size=1)     # generate an ndarray of integer, single dimension
 np.random.randint( low, high, size=(r,c)) # generate an ndarray of integer, two dimensions </code></pre>
-<div class="sourceCode" id="cb840"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb840-1"><a href="numpy-1.html#cb840-1" aria-hidden="true" tabindex="-1"></a>np.random.randint( <span class="dv">10</span> )</span></code></pre></div>
-<pre><code>#:&gt; 3</code></pre>
-<div class="sourceCode" id="cb842"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb842-1"><a href="numpy-1.html#cb842-1" aria-hidden="true" tabindex="-1"></a>np.random.randint( <span class="dv">10</span>, <span class="dv">20</span> )</span></code></pre></div>
-<pre><code>#:&gt; 14</code></pre>
-<div class="sourceCode" id="cb844"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb844-1"><a href="numpy-1.html#cb844-1" aria-hidden="true" tabindex="-1"></a>np.random.randint( <span class="dv">10</span>, high<span class="op">=</span><span class="dv">20</span>, size<span class="op">=</span><span class="dv">5</span>)   <span class="co"># single dimension</span></span></code></pre></div>
-<pre><code>#:&gt; array([11, 18, 14, 12, 14])</code></pre>
-<div class="sourceCode" id="cb846"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb846-1"><a href="numpy-1.html#cb846-1" aria-hidden="true" tabindex="-1"></a>np.random.randint( <span class="dv">10</span>, <span class="dv">20</span>, (<span class="dv">3</span>,<span class="dv">5</span>) )        <span class="co"># two dimensions</span></span></code></pre></div>
-<pre><code>#:&gt; array([[10, 16, 18, 19, 13],
-#:&gt;        [14, 18, 19, 19, 11],
-#:&gt;        [18, 13, 19, 14, 19]])</code></pre>
+<div class="sourceCode" id="cb838"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb838-1"><a href="numpy-1.html#cb838-1" aria-hidden="true" tabindex="-1"></a>np.random.randint( <span class="dv">10</span> )</span></code></pre></div>
+<pre><code>#:&gt; 0</code></pre>
+<div class="sourceCode" id="cb840"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb840-1"><a href="numpy-1.html#cb840-1" aria-hidden="true" tabindex="-1"></a>np.random.randint( <span class="dv">10</span>, <span class="dv">20</span> )</span></code></pre></div>
+<pre><code>#:&gt; 16</code></pre>
+<div class="sourceCode" id="cb842"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb842-1"><a href="numpy-1.html#cb842-1" aria-hidden="true" tabindex="-1"></a>np.random.randint( <span class="dv">10</span>, high<span class="op">=</span><span class="dv">20</span>, size<span class="op">=</span><span class="dv">5</span>)   <span class="co"># single dimension</span></span></code></pre></div>
+<pre><code>#:&gt; array([10, 14, 10, 13, 17])</code></pre>
+<div class="sourceCode" id="cb844"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb844-1"><a href="numpy-1.html#cb844-1" aria-hidden="true" tabindex="-1"></a>np.random.randint( <span class="dv">10</span>, <span class="dv">20</span>, (<span class="dv">3</span>,<span class="dv">5</span>) )        <span class="co"># two dimensions</span></span></code></pre></div>
+<pre><code>#:&gt; array([[13, 10, 14, 12, 19],
+#:&gt;        [16, 14, 17, 14, 18],
+#:&gt;        [11, 11, 11, 16, 15]])</code></pre>
 <!-- jupyter_markdown -->
 </div>
 <div id="random-integer-with-or-without-replacement" class="section level4" number="12.5.1.2">
@@ -1973,31 +1972,31 @@ np.random.randint( low, high, size=(r,c)) # generate an ndarray of integer, two 
  # sampling from a, 
  #   if a is integer, then it is assumed sampling from arange(a)
  #   if a is an 1-D array, then sampling from this array</code></pre>
-<div class="sourceCode" id="cb849"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb849-1"><a href="numpy-1.html#cb849-1" aria-hidden="true" tabindex="-1"></a>np.random.choice(<span class="dv">10</span>,<span class="dv">5</span>, replace<span class="op">=</span><span class="va">False</span>) <span class="co"># take 5 samples from 0:19, without replacement</span></span></code></pre></div>
-<pre><code>#:&gt; array([9, 8, 0, 5, 3])</code></pre>
-<div class="sourceCode" id="cb851"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb851-1"><a href="numpy-1.html#cb851-1" aria-hidden="true" tabindex="-1"></a>np.random.choice( np.arange(<span class="dv">10</span>,<span class="dv">20</span>), <span class="dv">5</span>, replace<span class="op">=</span><span class="va">False</span>)</span></code></pre></div>
-<pre><code>#:&gt; array([10, 16, 11, 14, 12])</code></pre>
+<div class="sourceCode" id="cb847"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb847-1"><a href="numpy-1.html#cb847-1" aria-hidden="true" tabindex="-1"></a>np.random.choice(<span class="dv">10</span>,<span class="dv">5</span>, replace<span class="op">=</span><span class="va">False</span>) <span class="co"># take 5 samples from 0:19, without replacement</span></span></code></pre></div>
+<pre><code>#:&gt; array([1, 7, 2, 9, 3])</code></pre>
+<div class="sourceCode" id="cb849"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb849-1"><a href="numpy-1.html#cb849-1" aria-hidden="true" tabindex="-1"></a>np.random.choice( np.arange(<span class="dv">10</span>,<span class="dv">20</span>), <span class="dv">5</span>, replace<span class="op">=</span><span class="va">False</span>)</span></code></pre></div>
+<pre><code>#:&gt; array([11, 14, 10, 19, 12])</code></pre>
 <!-- jupyter_markdown -->
 </div>
 <div id="random-float" class="section level4" number="12.5.1.3">
 <h4><span class="header-section-number">12.5.1.3</span> Random Float</h4>
 <p><strong>randf()</strong> Generate float numbers in <strong>between 0.0 and 1.0</strong></p>
 <pre><code>np.random.ranf(size=None)</code></pre>
-<div class="sourceCode" id="cb854"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb854-1"><a href="numpy-1.html#cb854-1" aria-hidden="true" tabindex="-1"></a>np.random.ranf(<span class="dv">4</span>)</span></code></pre></div>
-<pre><code>#:&gt; array([0.30740748, 0.60111338, 0.31697318, 0.74471583])</code></pre>
+<div class="sourceCode" id="cb852"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb852-1"><a href="numpy-1.html#cb852-1" aria-hidden="true" tabindex="-1"></a>np.random.ranf(<span class="dv">4</span>)</span></code></pre></div>
+<pre><code>#:&gt; array([0.52819549, 0.68299077, 0.84378424, 0.55867742])</code></pre>
 <!-- jupyter_markdown -->
 <p><strong>uniform()</strong> Return random float from <strong>low (inclusive) to high (exclusive)</strong></p>
 <pre><code>np.random.uniform( low )                  # generate an float, i, which         f &lt; low
 np.random.uniform( low, high )            # generate an float, i, which  low &lt;= f &lt; high
 np.random.uniform( low, high, size=1)     # generate an array of float, single dimension
 np.random.uniform( low, high, size=(r,c)) # generate an array of float, two dimensions </code></pre>
-<div class="sourceCode" id="cb857"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb857-1"><a href="numpy-1.html#cb857-1" aria-hidden="true" tabindex="-1"></a>np.random.uniform( <span class="dv">2</span> )</span></code></pre></div>
-<pre><code>#:&gt; 1.870921868856644</code></pre>
-<div class="sourceCode" id="cb859"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb859-1"><a href="numpy-1.html#cb859-1" aria-hidden="true" tabindex="-1"></a>np.random.uniform( <span class="dv">2</span>,<span class="dv">5</span>, size<span class="op">=</span>(<span class="dv">4</span>,<span class="dv">4</span>) )</span></code></pre></div>
-<pre><code>#:&gt; array([[3.07414323, 3.0234018 , 4.14168336, 4.36839603],
-#:&gt;        [3.05791186, 2.02133601, 4.66179626, 3.7872606 ],
-#:&gt;        [4.43945442, 3.70306221, 3.53472807, 3.31299435],
-#:&gt;        [4.74926656, 3.7631339 , 4.69324386, 4.98140585]])</code></pre>
+<div class="sourceCode" id="cb855"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb855-1"><a href="numpy-1.html#cb855-1" aria-hidden="true" tabindex="-1"></a>np.random.uniform( <span class="dv">2</span> )</span></code></pre></div>
+<pre><code>#:&gt; 1.9922792211157014</code></pre>
+<div class="sourceCode" id="cb857"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb857-1"><a href="numpy-1.html#cb857-1" aria-hidden="true" tabindex="-1"></a>np.random.uniform( <span class="dv">2</span>,<span class="dv">5</span>, size<span class="op">=</span>(<span class="dv">4</span>,<span class="dv">4</span>) )</span></code></pre></div>
+<pre><code>#:&gt; array([[3.64261599, 4.34666357, 4.80759566, 3.1421595 ],
+#:&gt;        [2.51881868, 2.35382612, 3.11922967, 4.37080463],
+#:&gt;        [2.31300355, 2.86812474, 3.30228396, 3.58865738],
+#:&gt;        [4.11477963, 4.22594655, 2.69682556, 4.72749711]])</code></pre>
 <!-- jupyter_markdown -->
 </div>
 </div>
@@ -2013,35 +2012,35 @@ numpy. random.normal         ( loc=0, scale=1, size=None) # loc = mean, scale = 
 <p>Generate random normal numbers with gaussion distribution (mean=0, stdev=1)</p>
 <!-- jupyter_markdown -->
 <p><strong>One Dimension</strong></p>
-<div class="sourceCode" id="cb862"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb862-1"><a href="numpy-1.html#cb862-1" aria-hidden="true" tabindex="-1"></a>np.random.standard_normal(<span class="dv">3</span>)</span></code></pre></div>
-<pre><code>#:&gt; array([-0.81895559,  0.89630393,  0.36256569])</code></pre>
-<div class="sourceCode" id="cb864"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb864-1"><a href="numpy-1.html#cb864-1" aria-hidden="true" tabindex="-1"></a>np.random.randn(<span class="dv">3</span>)</span></code></pre></div>
-<pre><code>#:&gt; array([ 0.07175814, -1.12686071, -0.02498976])</code></pre>
+<div class="sourceCode" id="cb860"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb860-1"><a href="numpy-1.html#cb860-1" aria-hidden="true" tabindex="-1"></a>np.random.standard_normal(<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>#:&gt; array([-1.52757549,  0.13117374,  0.1543652 ])</code></pre>
+<div class="sourceCode" id="cb862"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb862-1"><a href="numpy-1.html#cb862-1" aria-hidden="true" tabindex="-1"></a>np.random.randn(<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>#:&gt; array([ 2.06917568,  0.61272802, -0.33846011])</code></pre>
 <!-- jupyter_markdown -->
 <p><strong>Two Dimensions</strong></p>
-<div class="sourceCode" id="cb866"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb866-1"><a href="numpy-1.html#cb866-1" aria-hidden="true" tabindex="-1"></a>np.random.randn(<span class="dv">2</span>,<span class="dv">4</span>)</span></code></pre></div>
-<pre><code>#:&gt; array([[-1.37811646,  0.17801094, -0.30141922,  0.00514774],
-#:&gt;        [-0.36858591,  0.34368068,  0.81341308, -0.95794879]])</code></pre>
-<div class="sourceCode" id="cb868"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb868-1"><a href="numpy-1.html#cb868-1" aria-hidden="true" tabindex="-1"></a>np.random.standard_normal((<span class="dv">2</span>,<span class="dv">4</span>))</span></code></pre></div>
-<pre><code>#:&gt; array([[-0.52557935,  0.77998978,  0.07567566,  2.26097254],
-#:&gt;        [-1.37190722, -0.1727334 ,  0.26326772, -0.60736514]])</code></pre>
+<div class="sourceCode" id="cb864"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb864-1"><a href="numpy-1.html#cb864-1" aria-hidden="true" tabindex="-1"></a>np.random.randn(<span class="dv">2</span>,<span class="dv">4</span>)</span></code></pre></div>
+<pre><code>#:&gt; array([[-0.77228805, -0.11887924, -0.59080208, -0.0384926 ],
+#:&gt;        [ 0.05405265,  1.34175863,  0.60764037,  0.23696553]])</code></pre>
+<div class="sourceCode" id="cb866"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb866-1"><a href="numpy-1.html#cb866-1" aria-hidden="true" tabindex="-1"></a>np.random.standard_normal((<span class="dv">2</span>,<span class="dv">4</span>))</span></code></pre></div>
+<pre><code>#:&gt; array([[ 0.77025278,  0.024787  , -0.87222159,  1.90411901],
+#:&gt;        [ 1.25888394, -1.18511933, -0.64570512,  1.42146306]])</code></pre>
 <!-- jupyter_markdown -->
 <p><strong>Observe:</strong> randn(), standard_normal() and normal() are able to generate standard normal numbers</p>
+<div class="sourceCode" id="cb868"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb868-1"><a href="numpy-1.html#cb868-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">15</span>)</span>
+<span id="cb868-2"><a href="numpy-1.html#cb868-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (np.random.randn(<span class="dv">5</span>))</span></code></pre></div>
+<pre><code>#:&gt; [-0.31232848  0.33928471 -0.15590853 -0.50178967  0.23556889]</code></pre>
 <div class="sourceCode" id="cb870"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb870-1"><a href="numpy-1.html#cb870-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">15</span>)</span>
-<span id="cb870-2"><a href="numpy-1.html#cb870-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (np.random.randn(<span class="dv">5</span>))</span></code></pre></div>
+<span id="cb870-2"><a href="numpy-1.html#cb870-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (np.random.normal ( size <span class="op">=</span> <span class="dv">5</span> )) <span class="co"># stdev and mean not specified, default to standard normal</span></span></code></pre></div>
 <pre><code>#:&gt; [-0.31232848  0.33928471 -0.15590853 -0.50178967  0.23556889]</code></pre>
 <div class="sourceCode" id="cb872"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb872-1"><a href="numpy-1.html#cb872-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">15</span>)</span>
-<span id="cb872-2"><a href="numpy-1.html#cb872-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (np.random.normal ( size <span class="op">=</span> <span class="dv">5</span> )) <span class="co"># stdev and mean not specified, default to standard normal</span></span></code></pre></div>
-<pre><code>#:&gt; [-0.31232848  0.33928471 -0.15590853 -0.50178967  0.23556889]</code></pre>
-<div class="sourceCode" id="cb874"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb874-1"><a href="numpy-1.html#cb874-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">15</span>)</span>
-<span id="cb874-2"><a href="numpy-1.html#cb874-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (np.random.standard_normal (size<span class="op">=</span><span class="dv">5</span>))</span></code></pre></div>
+<span id="cb872-2"><a href="numpy-1.html#cb872-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (np.random.standard_normal (size<span class="op">=</span><span class="dv">5</span>))</span></code></pre></div>
 <pre><code>#:&gt; [-0.31232848  0.33928471 -0.15590853 -0.50178967  0.23556889]</code></pre>
 <!-- jupyter_markdown -->
 </div>
 <div id="normal-distribution-non-standard" class="section level4" number="12.5.2.2">
 <h4><span class="header-section-number">12.5.2.2</span> Normal Distribution (Non-Standard)</h4>
-<div class="sourceCode" id="cb876"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb876-1"><a href="numpy-1.html#cb876-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">125</span>)</span>
-<span id="cb876-2"><a href="numpy-1.html#cb876-2" aria-hidden="true" tabindex="-1"></a>np.random.normal( loc <span class="op">=</span> <span class="dv">12</span>, scale<span class="op">=</span><span class="fl">1.25</span>, size<span class="op">=</span>(<span class="dv">3</span>,<span class="dv">3</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb874"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb874-1"><a href="numpy-1.html#cb874-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">125</span>)</span>
+<span id="cb874-2"><a href="numpy-1.html#cb874-2" aria-hidden="true" tabindex="-1"></a>np.random.normal( loc <span class="op">=</span> <span class="dv">12</span>, scale<span class="op">=</span><span class="fl">1.25</span>, size<span class="op">=</span>(<span class="dv">3</span>,<span class="dv">3</span>))</span></code></pre></div>
 <pre><code>#:&gt; array([[11.12645382, 12.01327885, 10.81651695],
 #:&gt;        [12.41091248, 12.39383072, 11.49647195],
 #:&gt;        [ 8.70837035, 12.25246312, 11.49084235]])</code></pre>
@@ -2054,13 +2053,13 @@ numpy. random.normal         ( loc=0, scale=1, size=None) # loc = mean, scale = 
 <!-- jupyter_markdown -->
 <p><strong>Include Endpoint</strong><br />
 Step = Gap divide by (number of elements minus 1) (2/(10-1))</p>
-<div class="sourceCode" id="cb879"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb879-1"><a href="numpy-1.html#cb879-1" aria-hidden="true" tabindex="-1"></a>np.linspace(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">10</span>) <span class="co">#default endpont=True</span></span></code></pre></div>
+<div class="sourceCode" id="cb877"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb877-1"><a href="numpy-1.html#cb877-1" aria-hidden="true" tabindex="-1"></a>np.linspace(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">10</span>) <span class="co">#default endpont=True</span></span></code></pre></div>
 <pre><code>#:&gt; array([1.        , 1.22222222, 1.44444444, 1.66666667, 1.88888889,
 #:&gt;        2.11111111, 2.33333333, 2.55555556, 2.77777778, 3.        ])</code></pre>
 <!-- jupyter_markdown -->
 <p><strong>Does Not Include Endpoint</strong><br />
 Step = Gap divide by (number of elements minus 1) (2/(101))</p>
-<div class="sourceCode" id="cb881"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb881-1"><a href="numpy-1.html#cb881-1" aria-hidden="true" tabindex="-1"></a>np.linspace(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">10</span>,endpoint<span class="op">=</span><span class="va">False</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb879"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb879-1"><a href="numpy-1.html#cb879-1" aria-hidden="true" tabindex="-1"></a>np.linspace(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">10</span>,endpoint<span class="op">=</span><span class="va">False</span>)</span></code></pre></div>
 <pre><code>#:&gt; array([1. , 1.2, 1.4, 1.6, 1.8, 2. , 2.2, 2.4, 2.6, 2.8])</code></pre>
 <!-- jupyter_markdown, jupyter_meta = list(heading_collapsed = TRUE) -->
 </div>
@@ -2070,9 +2069,9 @@ Step = Gap divide by (number of elements minus 1) (2/(101))</p>
 <h2><span class="header-section-number">12.6</span> Sampling (Integer)</h2>
 <pre><code>random.choice( a, size=None, replace=True, p=None)  # a=integer, return &lt;size&gt; integers &lt; a
 random.choice( a, size=None, replace=True, p=None)  # a=array-like, return &lt;size&gt; integers picked from list a</code></pre>
-<div class="sourceCode" id="cb884"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb884-1"><a href="numpy-1.html#cb884-1" aria-hidden="true" tabindex="-1"></a>np.random.choice (<span class="dv">100</span>, size<span class="op">=</span><span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb882"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb882-1"><a href="numpy-1.html#cb882-1" aria-hidden="true" tabindex="-1"></a>np.random.choice (<span class="dv">100</span>, size<span class="op">=</span><span class="dv">10</span>)</span></code></pre></div>
 <pre><code>#:&gt; array([58,  0, 84, 50, 89, 32, 87, 30, 66, 92])</code></pre>
-<div class="sourceCode" id="cb886"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb886-1"><a href="numpy-1.html#cb886-1" aria-hidden="true" tabindex="-1"></a>np.random.choice( [<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">11</span>,<span class="dv">13</span>,<span class="dv">15</span>,<span class="dv">17</span>,<span class="dv">19</span>,<span class="dv">21</span>,<span class="dv">23</span>], size<span class="op">=</span><span class="dv">10</span>, replace<span class="op">=</span><span class="va">False</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb884"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb884-1"><a href="numpy-1.html#cb884-1" aria-hidden="true" tabindex="-1"></a>np.random.choice( [<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">9</span>,<span class="dv">11</span>,<span class="dv">13</span>,<span class="dv">15</span>,<span class="dv">17</span>,<span class="dv">19</span>,<span class="dv">21</span>,<span class="dv">23</span>], size<span class="op">=</span><span class="dv">10</span>, replace<span class="op">=</span><span class="va">False</span>)</span></code></pre></div>
 <pre><code>#:&gt; array([ 5,  1, 23, 17,  3, 13, 15,  9, 21,  7])</code></pre>
 <!-- jupyter_markdown -->
 </div>
@@ -2081,16 +2080,16 @@ random.choice( a, size=None, replace=True, p=None)  # a=array-like, return &lt;s
 <ul>
 <li>You should be aware that NaN is a bit like a data virus?it infects any other object it touches</li>
 </ul>
-<div class="sourceCode" id="cb888"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb888-1"><a href="numpy-1.html#cb888-1" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.array([<span class="dv">1</span>, np.nan, <span class="dv">3</span>, <span class="dv">4</span>]) </span>
-<span id="cb888-2"><a href="numpy-1.html#cb888-2" aria-hidden="true" tabindex="-1"></a>t.dtype</span></code></pre></div>
+<div class="sourceCode" id="cb886"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb886-1"><a href="numpy-1.html#cb886-1" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.array([<span class="dv">1</span>, np.nan, <span class="dv">3</span>, <span class="dv">4</span>]) </span>
+<span id="cb886-2"><a href="numpy-1.html#cb886-2" aria-hidden="true" tabindex="-1"></a>t.dtype</span></code></pre></div>
 <pre><code>#:&gt; dtype(&#39;float64&#39;)</code></pre>
 <!-- jupyter_markdown -->
 <p>Regardless of the operation, the result of arithmetic with NaN will be another NaN</p>
-<div class="sourceCode" id="cb890"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb890-1"><a href="numpy-1.html#cb890-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">+</span> np.nan</span></code></pre></div>
+<div class="sourceCode" id="cb888"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb888-1"><a href="numpy-1.html#cb888-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">+</span> np.nan</span></code></pre></div>
 <pre><code>#:&gt; nan</code></pre>
-<div class="sourceCode" id="cb892"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb892-1"><a href="numpy-1.html#cb892-1" aria-hidden="true" tabindex="-1"></a>t.<span class="bu">sum</span>(), t.mean(), t.<span class="bu">max</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb890"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb890-1"><a href="numpy-1.html#cb890-1" aria-hidden="true" tabindex="-1"></a>t.<span class="bu">sum</span>(), t.mean(), t.<span class="bu">max</span>()</span></code></pre></div>
 <pre><code>#:&gt; (nan, nan, nan)</code></pre>
-<div class="sourceCode" id="cb894"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb894-1"><a href="numpy-1.html#cb894-1" aria-hidden="true" tabindex="-1"></a>np.nansum(t), np.nanmean(t), np.nanmax(t)</span></code></pre></div>
+<div class="sourceCode" id="cb892"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb892-1"><a href="numpy-1.html#cb892-1" aria-hidden="true" tabindex="-1"></a>np.nansum(t), np.nanmean(t), np.nanmax(t)</span></code></pre></div>
 <pre><code>#:&gt; (8.0, 2.6666666666666665, 4.0)</code></pre>
 
 </div>
@@ -2117,7 +2116,7 @@ random.choice( a, size=None, replace=True, p=None)  # a=array-like, return &lt;s
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": false,
+"github": true,
 "facebook": false,
 "twitter": false,
 "linkedin": false,
@@ -2134,8 +2133,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/yongks/python_bookdown/edit/master/02-numpy.Rmd",
-"text": "Edit"
+"link": null,
+"text": null
 },
 "history": {
 "link": null,
