@@ -1289,6 +1289,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="19.2.1" data-path="finance.html"><a href="finance.html#price-comparison"><i class="fa fa-check"></i><b>19.2.1</b> Price Comparison</a></li>
 </ul></li>
 </ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/yongks/python_bookdown" target="blank">Original repo by Keh-Soon Yong</a></li> <li><a href="https://github.com/f0nzie/yongks-python-rmarkdown-book/" target="blank">This book repo by Alfonso R. Reyes</a></li> <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with Yihui Xie's bookdown</a></li>
 </ul>
 
       </nav>
@@ -1336,11 +1338,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1526-16"><a href="seaborn.html#cb1526-16" aria-hidden="true" tabindex="-1"></a>})</span>
 <span id="cb1526-17"><a href="seaborn.html#cb1526-17" aria-hidden="true" tabindex="-1"></a>mydf.head()</span></code></pre></div>
 <pre><code>#:&gt;   comp dept grp     value1     value2     value3
-#:&gt; 0   C1   D3  G2  55.674053  20.447746  -5.605335
-#:&gt; 1   C1   D3  G1  45.743565  19.113982 -10.244216
-#:&gt; 2   C1   D1  G3  50.114985  21.929833 -21.478424
-#:&gt; 3   C3   D3  G2  47.435916  20.236519  25.214201
-#:&gt; 4   C2   D1  G3  48.217237  20.487988   5.631413</code></pre>
+#:&gt; 0   C2   D1  G1  52.488356  17.054515 -19.151264
+#:&gt; 1   C1   D2  G2  47.771445  20.424732  20.474070
+#:&gt; 2   C3   D3  G3  57.349465  18.360366 -25.397911
+#:&gt; 3   C2   D3  G1  57.509574  22.599401 -15.267522
+#:&gt; 4   C1   D1  G2  49.217517  17.821467  46.845849</code></pre>
 </div>
 <div id="scatter-plot-1" class="section level2" number="15.3">
 <h2><span class="header-section-number">15.3</span> Scatter Plot</h2>
@@ -1422,9 +1424,9 @@ Compare the size (height of each facet) with the above <strong>without</strong> 
 <span id="cb1545-2"><a href="seaborn.html#cb1545-2" aria-hidden="true" tabindex="-1"></a>grpdf <span class="op">=</span> com_grp[<span class="st">&#39;value1&#39;</span>].<span class="bu">sum</span>().reset_index()</span>
 <span id="cb1545-3"><a href="seaborn.html#cb1545-3" aria-hidden="true" tabindex="-1"></a>grpdf</span></code></pre></div>
 <pre><code>#:&gt;   comp       value1
-#:&gt; 0   C1  1820.698436
-#:&gt; 1   C2  1863.673873
-#:&gt; 2   C3  1346.372841</code></pre>
+#:&gt; 0   C1  1709.076280
+#:&gt; 1   C2  1778.178947
+#:&gt; 2   C3  1562.979406</code></pre>
 <div id="x-categorical-1x-numeric" class="section level3" number="15.5.1">
 <h3><span class="header-section-number">15.5.1</span> 1x Categorical, 1x Numeric</h3>
 <div class="sourceCode" id="cb1547"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1547-1"><a href="seaborn.html#cb1547-1" aria-hidden="true" tabindex="-1"></a>sns.barplot(x<span class="op">=</span><span class="st">&#39;comp&#39;</span>,y<span class="op">=</span><span class="st">&#39;value1&#39;</span>,data<span class="op">=</span>grpdf)</span>
