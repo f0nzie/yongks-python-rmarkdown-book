@@ -1345,7 +1345,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb448-12"><a href="decorator.html#cb448-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> bar():</span>
 <span id="cb448-13"><a href="decorator.html#cb448-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">5</span></span></code></pre></div>
 <div class="sourceCode" id="cb449"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb449-1"><a href="decorator.html#cb449-1" aria-hidden="true" tabindex="-1"></a>registry</span></code></pre></div>
-<pre><code>#:&gt; [&lt;function foo at 0x7fdc197b9710&gt;, &lt;function bar at 0x7fdc197b94d0&gt;]</code></pre>
+<pre><code>#:&gt; [&lt;function foo at 0x7ff8def4e710&gt;, &lt;function bar at 0x7ff8def4e4d0&gt;]</code></pre>
 <div class="sourceCode" id="cb451"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb451-1"><a href="decorator.html#cb451-1" aria-hidden="true" tabindex="-1"></a>registry[<span class="dv">0</span>]()</span></code></pre></div>
 <pre><code>#:&gt; 3</code></pre>
 <div class="sourceCode" id="cb453"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb453-1"><a href="decorator.html#cb453-1" aria-hidden="true" tabindex="-1"></a>registry[<span class="dv">1</span>]()</span></code></pre></div>
@@ -1386,9 +1386,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb456-15"><a href="decorator.html#cb456-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x</span></code></pre></div>
 <p>Observe the result</p>
 <div class="sourceCode" id="cb457"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb457-1"><a href="decorator.html#cb457-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (a._functions)</span></code></pre></div>
-<pre><code>#:&gt; [&lt;function foo at 0x7fdc197c0e60&gt;, &lt;function bax at 0x7fdc197c4200&gt;]</code></pre>
+<pre><code>#:&gt; [&lt;function foo at 0x7ff8def54e60&gt;, &lt;function bax at 0x7ff8def59200&gt;]</code></pre>
 <div class="sourceCode" id="cb459"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb459-1"><a href="decorator.html#cb459-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (b._functions)</span></code></pre></div>
-<pre><code>#:&gt; [&lt;function bar at 0x7fdc197c4050&gt;, &lt;function bax at 0x7fdc197c4200&gt;]</code></pre>
+<pre><code>#:&gt; [&lt;function bar at 0x7ff8def59050&gt;, &lt;function bax at 0x7ff8def59200&gt;]</code></pre>
 <div class="sourceCode" id="cb461"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb461-1"><a href="decorator.html#cb461-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (a.run_all())</span></code></pre></div>
 <pre><code>#:&gt; [3, 7]</code></pre>
 <div class="sourceCode" id="cb463"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb463-1"><a href="decorator.html#cb463-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (b.run_all())</span></code></pre></div>
