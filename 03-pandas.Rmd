@@ -1,16 +1,14 @@
-
 # pandas
 
-```{r include=FALSE}
-library(reticulate)
-use_condaenv('Anaconda3')    #conda_list() - to find out the name of conda environment
+```{r}
+source("R/init_python.R")
 ```
+
 
 ```{python include=FALSE, results='hide'}
 import numpy as np
 import pandas as pd
-from IPython.core.display import display, HTML
-display(HTML("<style>.container { width:75% !important; margin-left:350px; }</style>"))
+
 pd.set_option( 'display.notebook_repr_html', False)  # render Series and DataFrame as text, not HTML
 pd.set_option( 'display.max_column', 10)    # number of columns
 pd.set_option( 'display.max_rows', 10)      # number of rows
@@ -233,11 +231,11 @@ tb/tb.loc['All']
 
 #### Sample Data
 
-```{python}
+```{python concatenation}
 s1 = pd.Series(['A1','A2','A3','A4'])
 s2 = pd.Series(['B1','B2','B3','B4'], name='B')
 s3 = pd.Series(['C1','C2','C3','C4'], name='C')
-df
+
 ```
 
 #### Column-Wise
@@ -281,7 +279,7 @@ This method require **html5lib** library.
 read_html(url)  # return list of dataframe(s) that maps to web table(s) structure
 ```
 
-```{python}
+```{python read-html}
 df_list = pd.read_html('https://www.malaysiastock.biz/Listed-Companies.aspx?type=S&s1=18')  ## read all tables
 df = df_list[6]  ## get the specific table
 
@@ -317,7 +315,7 @@ DataFrame.to_csv(
 
 Example below shows column value containing different special character. Note that pandas handles these very well by default.
 
-```{python}
+```{python convert-to-csv}
 mydf = pd.DataFrame({'Id':[10,20,30,40], 
                      'Name':  ['Aaa','Bbb','Ccc','Ddd'],
                      'Funny': ["world's most \clever", 
@@ -331,8 +329,8 @@ mydf
 
 **This is the file saved**
 
-```{r}
-system('more data\\csv_test.csv')
+```{r bash-more}
+# system('more data\\csv_test.csv')
 ```
 
 **All content retained when reading back by Pandas**
@@ -821,7 +819,8 @@ print( s.loc['c'], '\n',
 
 If index is not found, it will return **NaN**
 
-```{python}
+```{python error-missing-label, eval=FALSE}
+# error: missing labels no longer supported
 s.loc[['k','c']]
 ```
 
@@ -1205,7 +1204,8 @@ s.dt.dayofweek
 s.dt.weekday
 ```
 
-```{python}
+```{python, eval=FALSE}
+# error no attribute weekday_name
 s.dt.weekday_name
 ```
 
@@ -1668,7 +1668,8 @@ Allowed types are:
 - timedelta  
 - category  
 
-```{python}
+```{python error-pandas-no-attribute, eval=FALSE}
+# error: no attribute get_dtype_counts
 df.get_dtype_counts()
 ```
 
@@ -1948,7 +1949,8 @@ print("Original DataFrame:\n", my_df,
 
 **Appending Items Containing None** results in **ERROR**
 
-```{python}
+```{python error-no-attribute-keys, eval=FALSE}
+# error
 my_df.append( [new_item1, None] )
 ```
 
@@ -2128,7 +2130,7 @@ Find out the column names, data type in a summary. Output is for display only, n
 df.info()  # return text output
 ```
 
-```{python}
+```{python, error-no-attribute-get_dtype, eval=FALSE}
 df.get_dtype_counts() # return Series
 ```
 
@@ -2464,7 +2466,8 @@ temp_cat = pd.Categorical(temp, categories=['low','medium','high'], ordered=True
 temp_cat
 ```
 
-```{python}
+```{python, error-no-attribute-get_values, eval=FALSE}
+# error
 temp_cat.get_values()
 ```
 
@@ -2600,7 +2603,7 @@ temp_cat.value_counts()
 #### .get_values()
 Since actual value stored by categorical object are integer **codes**, get_values() function return values translated from *.codes** property
 
-```{python}
+```{python, error-no-attribute-get_values-2, eval=FALSE}
 temp_cat.get_values()  #array
 ```
 

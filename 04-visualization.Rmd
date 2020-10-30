@@ -1,21 +1,20 @@
-```{r include=FALSE}
-library(reticulate)
-use_condaenv('Anaconda3')    #conda_list() - to find out the name of conda environment
+# matplotlib
+
+
+```{r}
+source("R/init_python.R")
 ```
 
 ```{python include=FALSE, results='hide'}
-from IPython.core.display import display, HTML
-display(HTML("<style>.container { width:75% !important; margin-left:350px; }</style>"))
+import pandas as pd
+
 pd.set_option( 'display.notebook_repr_html', False)  # render Series and DataFrame as text, not HTML
 pd.set_option( 'display.max_column', 10)    # number of columns
 pd.set_option( 'display.max_rows', 10)      # number of rows
 pd.set_option( 'display.width', 90)         # number of characters per row
-
-import os
-os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = "C:\ProgramData\Anaconda3\Library\plugins\platforms"
 ```
 
-# matplotlib
+
 
 ## Library
 
@@ -23,15 +22,11 @@ os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = "C:\ProgramData\Anaconda3\Library\pl
 import matplotlib
 import matplotlib.pyplot as plt
 import seaborn as sns
-import pandas as pd
 import numpy as np
 
 from plydata import define, query, select, group_by, summarize, arrange, head, rename
 import plotnine
 from plotnine import *
-
-import os
-os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = "C:\ProgramData\Anaconda3\Library\plugins\platforms"
 ```
 
 ## Sample Data
@@ -542,151 +537,4 @@ plt.show()
 ```
 
 
-# plotnine
 
-
-## Histogram
-
-
-### 1xNumeric
-
-
-```
-plotnine.ggplot( dataframe, aex(x='colName')) + geom_histogram( bins=10 )
-plotnine.ggplot( dataframe, aex(x='colName')) + geom_histogram( binwidth=? )
-```
-
-```{python}
-plotnine.options.figure_size = (3, 3)
-ggplot(mydf, aes(x='value1')) + geom_histogram()  # default bins = 10
-```
-
-```{python}
-ggplot(mydf, aes(x='value1')) + geom_histogram(bins = 15)
-```
-
-```{python}
-ggplot(mydf, aes(x='value1')) + geom_histogram(binwidth = 3)
-```
-
-
-### 1xNumeric + 1xCategorical
-
-
-```
-plotnine.ggplot( dataframe, 
-                    aes(x='colName'), 
-                    fill='categorical-alike-colName') 
-+ geom_histogram()
-```
-
-```{python}
-ggplot(mydf, aes(x='value1', fill='grp')) + geom_histogram(bins=15)
-```
-
-
-## Scatter Plot
-
-
-### 2x Numeric
-
-```{python}
-ggplot(mydf, aes(x='value1',y='value2')) + geom_point()
-```
-
-
-### 2x Numeric + 1x Categorical
-```
-ggplot( DataFrame, aes(x='colName1',y='colName2')) 
-    + geom_point( aes(
-        color='categorical-alike-colName',
-        size='numberColName'
-    ))
-```
-
-```{python}
-ggplot(mydf, aes(x='value1',y='value2')) + geom_point(aes(color='grp'))
-```
-
-```{python}
-ggplot(mydf, aes(x='value1',y='value2',color='grp')) + geom_point()
-```
-
-```{python}
-ggplot(mydf, aes(x='value1',y='value2')) + \
-    geom_point(aes(
-        color='grp'
-    ))
-```
-
-
-### 2x Numeric + 1x Numeric + 1x Categorical
-
-```{python}
-ggplot(mydf, aes(x='value1',y='value2')) + \
-    geom_point(aes( 
-        color='grp', size='value3'
-    ))
-```
-
-
-### Overlay Smooth Line
-
-```{python}
-ggplot(mydf, aes(x='value1', y='value2')) + \
-    geom_point() + \
-    geom_smooth()          # default method='loess'
-```
-
-```{python}
-ggplot(mydf, aes(x='value1', y='value2',fill='grp')) + \
-    geom_point() + \
-    geom_smooth(
-        se=True,
-        color='red',
-        method='lm', 
-        level=0.75)
-```
-
-## Line Chart
-
-### 2x Numeric Data
-
-```{python, jupyter_meta = list(hidden = TRUE)}
-ggplot (mydf.head(15), aes(x='value1', y='value2')) + geom_line()
-```
-
-
-### 1x Numeric, 1x Categorical
-
-```{python, jupyter_meta = list(hidden = TRUE)}
-ggplot (mydf.head(15), aes(x='dept', y='value1')) + geom_line()
-```
-
-```{python, jupyter_meta = list(hidden = TRUE)}
-ggplot (mydf.head(30), aes(x='dept', y='value1')) + geom_line( aes(group=1))
-```
-
-### 2x Numeric, 1x Categorical
-
-```{python, jupyter_meta = list(hidden = TRUE)}
-ggplot (mydf.head(15), aes(x='value1', y='value2')) + geom_line( aes(color='grp'),size=2)
-```
-
-## Bar Chart
-
-#### 1x Categorical
-Single categorical variable produces frequency chart.
-
-```{python}
-tmpdf = mydf.groupby(['comp'],as_index=False).count()
-tmpdf
-```
-
-```{python}
-tmpdf.info()
-```
-
-```{python}
-ggplot (tmpdf, aes(x='comp', y='grp')) +geom_col()
-```

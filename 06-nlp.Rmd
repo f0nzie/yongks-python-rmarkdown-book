@@ -1,16 +1,16 @@
 # NLP
 Natural Language Processing
 
-```{r include=FALSE}
-library(reticulate)
-use_condaenv('Anaconda3')   #conda_list() - to find out the name of conda environment
+
+```{r}
+source("R/init_python.R")
 ```
+
 
 ```{python include=FALSE, results='hide'}
 import numpy as np
 import pandas as pd
-from IPython.core.display import display, HTML
-display(HTML("<style>.container { width:75% !important; margin-left:350px; }</style>"))
+
 pd.set_option( 'display.notebook_repr_html', False)  # render Series and DataFrame as text, not HTML
 pd.set_option( 'display.max_column', 10)    # number of columns
 pd.set_option( 'display.max_rows', 10)      # number of rows
@@ -317,6 +317,12 @@ my_tokenizer.tokenize("hi @ali--baba, you are aweeeeeesome! isn't it. Believe it
 Words and punctuations are considered as tokens!
 
 ```{python}
+import nltk
+nltk.download('punkt')
+```
+
+
+```{python}
 from nltk.tokenize import word_tokenize
 print( word_tokenize("hi @ali-baba, you are aweeeeeesome! isn't it. Believe it.:)") )
 ```
@@ -539,6 +545,12 @@ Contain 179 words, in a list form
 
 ```{python}
 import nltk
+nltk.download('stopwords')
+```
+
+
+```{python}
+import nltk
 #nltk.download('stopwords')
 nltk_stop_words = nltk.corpus.stopwords.words('english')
 print('Total NLTK Stopwords: ', len(nltk_stop_words),'\n',
@@ -598,7 +610,7 @@ tokens = ('house','Housing','hOuses', 'Malicious','goodness')
 NLTK uses connections within **princeton WordNet** graph for word meanings.
 
 ```{python}
-#nltk.download('wordnet')
+nltk.download('wordnet')
 from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
 
@@ -766,6 +778,7 @@ X - other: foreign words, typos, abbreviations
 [PENN POS Tagset](https://www.sketchengine.eu/penn-treebank-tagset/)
 
 ```{python}
+nltk.download('tagsets')
 nltk.help.upenn_tagset()
 ```
 
@@ -811,6 +824,9 @@ PerceptronTagger produce tags with **Penn Treebank** tagset
 
 ```{python}
 from nltk.tag import PerceptronTagger
+
+nltk.download('averaged_perceptron_tagger')
+
 tagger = PerceptronTagger()
 print('Tagger Classes:', tagger.classes, 
       '\n\n# Classes:', len(tagger.classes))
@@ -961,6 +977,9 @@ The lexicon is a dictionary. To make it iterable, need to convert into list:
 ```{python}
 #from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer   ## seperate pip installed library
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
+
+nltk.download('vader_lexicon')
+
 vader_lex  = SentimentIntensityAnalyzer().lexicon  # get the lexicon dictionary
 vader_list = list(vader_lex.items())               # convert to items then list
 print( 'Total Vader Lexicon:', len(vader_lex),'\n',

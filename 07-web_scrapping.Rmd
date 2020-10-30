@@ -1,15 +1,13 @@
 # Web Scrapping
 
-```{r include=FALSE}
-library(reticulate)
-use_condaenv('Anaconda3')    #conda_list() - to find out the name of conda environment
+```{r}
+source("R/init_python.R")
 ```
 
 ```{python include=FALSE, results='hide'}
 import numpy as np
 import pandas as pd
-from IPython.core.display import display, HTML
-display(HTML("<style>.container { width:75% !important; margin-left:350px; }</style>"))
+
 pd.set_option( 'display.notebook_repr_html', False)  # render Series and DataFrame as text, not HTML
 pd.set_option( 'display.max_column', 10)    # number of columns
 pd.set_option( 'display.max_rows', 10)      # number of rows
@@ -47,7 +45,7 @@ link2 = 'http://mamamia777.com.au'
 ```
 
 
-```{python}
+```{python, eval=FALSE}
 print (page1.status_code)
 ```
 

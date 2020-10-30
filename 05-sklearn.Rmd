@@ -1,22 +1,13 @@
 # sklearn
 This is a machine learning library.
 
-## Setup (hidden)
-
-```{r include=FALSE}
-library(reticulate)
-use_condaenv('Anaconda3')    #conda_list() - to find out the name of conda environment
-py_config()
-
-library(knitr)
-knitr::knit_engines$set(python = reticulate::eng_python)
-
+```{r}
+source("R/init_python.R")
 ```
 
+## Setup (hidden)
+
 ```{python, jupyter_meta = list(hide_input = FALSE, tags = "remove_cell")}
-from IPython.core.display import display, HTML
-display(HTML("<style>.container { width:75% !important; margin-left:350px; }</style>"))
-#matplotlib inline
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -25,12 +16,6 @@ pd.set_option( 'display.notebook_repr_html', False)  # render Series and DataFra
 pd.set_option( 'display.max_column', 10)    # number of columns
 pd.set_option( 'display.max_rows', 10)     # number of rows
 pd.set_option( 'display.width', 90)        # number of characters per row
-
-import os
-os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = "C:\ProgramData\Anaconda3\Library\plugins\platforms"
-#import matplotlib
-#matplotlib.use('Qt5Agg')
-
 ```
 
 ## The Library
@@ -47,7 +32,9 @@ from sklearn.model_selection import LeaveOneOut
 from sklearn.model_selection import cross_validate
 
 # Preprocessing
-from sklearn.preprocessing   import Imputer
+# from sklearn.preprocessing   import Imputer
+from sklearn.impute import SimpleImputer
+
 from sklearn.preprocessing   import MinMaxScaler
 from sklearn.preprocessing   import StandardScaler
 from sklearn.preprocessing   import Normalizer
@@ -506,8 +493,8 @@ y = np.array([14, 16, -1,  8, -5])
 
 #### mean strategy
 
-```{python}
-imp = Imputer(strategy='mean')
+```{python simple-imputer}
+imp = SimpleImputer(strategy='mean')
 X2 = imp.fit_transform(X)
 X2
 ```
@@ -631,9 +618,9 @@ y
 
 ### Create Pipeline
 
-```{python}
+```{python simple-imputer-mean}
 my_pipe = make_pipeline (
-    Imputer            (strategy='mean'),
+    SimpleImputer            (strategy='mean'),
     PolynomialFeatures (degree=2),
     LinearRegression   ()
 )

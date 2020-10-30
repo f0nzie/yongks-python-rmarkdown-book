@@ -1,21 +1,20 @@
-```{r include=FALSE}
-library(reticulate)
-use_condaenv('Anaconda3')    #conda_list() - to find out the name of conda environment
+# Fundamentals
+
+
+```{r}
+source("R/init_python.R")
 ```
 
 ```{python include=FALSE, results='hide'}
-from IPython.core.display import display, HTML
-display(HTML("<style>.container { width:75% !important; margin-left:350px; }</style>"))
+import pandas as pd
+
 pd.set_option( 'display.notebook_repr_html', False)  # render Series and DataFrame as text, not HTML
 pd.set_option( 'display.max_column', 10)    # number of columns
 pd.set_option( 'display.max_rows', 10)      # number of rows
 pd.set_option( 'display.width', 90)         # number of characters per row
-
-import os
-os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = "C:\ProgramData\Anaconda3\Library\plugins\platforms"
 ```
 
-# Fundamentals
+
 
 ## Library Management
 
@@ -39,20 +38,17 @@ import matplotlib.pyplot as plt
 from plydata import define, query, select, group_by, summarize, arrange, head, rename
 import plotnine
 from plotnine import *
-
-import os
-os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = "C:\ProgramData\Anaconda3\Library\plugins\platforms"
 ```
 
 #### numpy
-- large multi-dimensional array and matrices  
+- Large multi-dimensional array and matrices  
 - High level mathematical funcitons to operate on them 
 - Efficient array computation, modeled after matlab  
 - Support vectorized array math functions (built on C, hence faster than python for loop and list)  
 
 #### scipy
 - Collection of mathematical algorithms and convenience functions built on the numpy extension  
-- Built uponi **numpy**
+- Built upon **numpy**
 
 #### Pandas
 - Data manipulation and analysis 
@@ -637,7 +633,7 @@ print( null_variable is not None )
 
 Any operator (except `is`) on None results in error.
 
-```{python}
+```{python, error=TRUE}
 None & None
 ```
 
@@ -658,9 +654,9 @@ Benefits of tuple against List are:
 
 #### Constructor 
 
-```{python}
-mylist = [1,2,3]
-tuple(mylist)
+```{python, eval=FALSE}
+# mylist = [1,2,3]
+# print(tuple(mylist))
 ```
 
 #### Assignment
@@ -678,7 +674,7 @@ print(type(t1), type(t2))
 
 ### Accessing
 
-```{python}
+```{python, eval=FALSE}
 print( t[1], t[1:3] )
 ```
 
@@ -2411,7 +2407,7 @@ type(gdf)
 ### Simple Method
 **Passing Multiple Expressions**
 
-```{python, }
+```{python, eval=FALSE}
 gdf >> summarize('n()','sum(value1)','mean(value2)')
 ```
 
@@ -2421,14 +2417,14 @@ gdf >> summarize('n()','sum(value1)','mean(value2)')
 - Passing colName='expression'**  
 - Column name cannot contain special character
 
-```{python, }
+```{python, eval=FALSE}
 gdf >> summarize(count='n()',v1sum='sum(value1)',v2_mean='mean(value2)')
 ```
 
 **Tuple Method ('colName','expression')**  
 Use when the column name contain special character
 
-```{python, }
+```{python, eval=FALSE}
 gdf >> summarize(('count','n()'),('v1.sum','sum(value1)'),('s2.sum','sum(value2)'),v2mean=np.mean(value2))
 ```
 
@@ -2437,6 +2433,6 @@ gdf >> summarize(('count','n()'),('v1.sum','sum(value1)'),('s2.sum','sum(value2)
 - n()        : total rows in group  
 - n_unique() : total of rows with unique value
 
-```{python, }
+```{python, , eval=FALSE}
 gdf >> summarize(count='n()', va11_unique='n_unique(value1)')
 ```

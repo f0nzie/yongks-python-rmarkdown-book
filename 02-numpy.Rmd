@@ -1,5 +1,9 @@
-<!-- jupyter_markdown -->
 # numpy
+
+```{r}
+source("R/init_python.R")
+```
+
 - Best array data manipulation, fast  
 - numpy array allows only single data type, unlike list  
 - Support matrix operation
@@ -8,9 +12,6 @@
 ## Environment Setup
 
 ```{python, jupyter_meta = list(tags = "remove_cell")}
-from IPython.core.display import display, HTML
-display(HTML("<style>.container { width:75% !important; margin-left:350px; }</style>"))
-#%matplotlib inline
 import pandas as pd
 import matplotlib.pyplot as plt
 import math
@@ -19,6 +20,7 @@ pd.set_option( 'display.max_column', 10)    # number of columns
 pd.set_option( 'display.max_rows', 10)     # number of rows
 pd.set_option( 'display.width', 90)        # number of characters per row
 ```
+
 
 <!-- jupyter_markdown -->
 ## Module Import
@@ -37,11 +39,10 @@ from datetime import time
 
 ### NumPy Data Types
 
-NumPy supports a much greater variety of numerical types than Python does. This makes numpy **much more powerful**
-https://www.numpy.org/devdocs/user/basics.types.html
+NumPy supports a much greater variety of numerical types than Python does. This makes numpy **much more powerful** https://www.numpy.org/devdocs/user/basics.types.html
 
-Integer: np.int8, np.int16, np.int32, np.uint8, np.uint16, np.uint32  
-Float: np.float32, np.float64
+**Integer**: np.int8, np.int16, np.int32, np.uint8, np.uint16, np.uint32  
+**Float**: np.float32, np.float64
 
 <!-- jupyter_markdown -->
 ### int32/64
@@ -240,8 +241,8 @@ Notice example below **auto detected** as float64 data type
 ```{python}
 x = np.array( (1,2,3,4.5,5) )
 print(x)
-print('Type: ', type(x))
-print('dType:', x.dtype)
+# print('Type: ', type(x))
+# print('dType:', x.dtype)
 ```
 
 <!-- jupyter_markdown -->
