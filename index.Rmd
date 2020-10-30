@@ -15,11 +15,10 @@ description: "This is a python cookbook, written using RMarkdown Notebook. It is
 ---
 
 
-> Following text added by Alfonso R. Reyes
-
 
 # Introduction {-}
 
+*Following text added by Alfonso R. Reyes*
 
 ## Main sections of the book {-}
 
