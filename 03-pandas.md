@@ -68,10 +68,10 @@ print( dti,
 ```
 
 ```
-## DatetimeIndex(['2011-01-03 00:00:00', '2018-04-13 00:00:00', '2018-03-01 07:30:00'], dtype='datetime64[ns]', freq=None) 
-## Object Type:   <class 'pandas.core.indexes.datetimes.DatetimeIndex'> 
-## Object dtype:  datetime64[ns] 
-## Element Type:  <class 'pandas._libs.tslibs.timestamps.Timestamp'>
+#:> DatetimeIndex(['2011-01-03 00:00:00', '2018-04-13 00:00:00', '2018-03-01 07:30:00'], dtype='datetime64[ns]', freq=None) 
+#:> Object Type:   <class 'pandas.core.indexes.datetimes.DatetimeIndex'> 
+#:> Object dtype:  datetime64[ns] 
+#:> Element Type:  <class 'pandas._libs.tslibs.timestamps.Timestamp'>
 ```
 
 #### From List to Series of Timestamps
@@ -89,13 +89,13 @@ print(sdt,
 ```
 
 ```
-## 0   2011-01-03 00:00:00
-## 1   2018-04-13 00:00:00
-## 2   2018-03-01 07:30:00
-## dtype: datetime64[ns] 
-## Object Type:   <class 'pandas.core.series.Series'> 
-## Object dtype:  datetime64[ns] 
-## Element Type:  <class 'pandas._libs.tslibs.timestamps.Timestamp'>
+#:> 0   2011-01-03 00:00:00
+#:> 1   2018-04-13 00:00:00
+#:> 2   2018-03-01 07:30:00
+#:> dtype: datetime64[ns] 
+#:> Object Type:   <class 'pandas.core.series.Series'> 
+#:> Object dtype:  datetime64[ns] 
+#:> Element Type:  <class 'pandas._libs.tslibs.timestamps.Timestamp'>
 ```
 
 #### From Scalar to Timestamp
@@ -109,11 +109,11 @@ print( pd.to_datetime('2011-01-03'), '\n',
 ```
 
 ```
-## 2011-01-03 00:00:00 
-##  2011-01-03 00:00:00 
-##  2011-01-03 05:30:00 
-##  
-## Element Type:  <class 'pandas._libs.tslibs.timestamps.Timestamp'>
+#:> 2011-01-03 00:00:00 
+#:>  2011-01-03 00:00:00 
+#:>  2011-01-03 05:30:00 
+#:>  
+#:> Element Type:  <class 'pandas._libs.tslibs.timestamps.Timestamp'>
 ```
 
 ### Generate Timestamp Sequence
@@ -135,10 +135,10 @@ print(
 ```
 
 ```
-## DatetimeIndex(['2018-01-01 00:00:00', '2018-01-01 01:00:00', '2018-01-01 02:00:00'], dtype='datetime64[ns]', freq='H') DatetimeIndex(['2018-01-01 12:30:00', '2018-01-01 13:30:00', '2018-01-01 14:30:00'], dtype='datetime64[ns]', freq='H') DatetimeIndex(['2018-01-03 12:30:00', '2018-01-03 13:30:00', '2018-01-03 14:30:00',
-##                '2018-01-03 15:30:00', '2018-01-03 16:30:00', '2018-01-03 17:30:00',
-##                '2018-01-03 18:30:00'],
-##               dtype='datetime64[ns]', freq='H')
+#:> DatetimeIndex(['2018-01-01 00:00:00', '2018-01-01 01:00:00', '2018-01-01 02:00:00'], dtype='datetime64[ns]', freq='H') DatetimeIndex(['2018-01-01 12:30:00', '2018-01-01 13:30:00', '2018-01-01 14:30:00'], dtype='datetime64[ns]', freq='H') DatetimeIndex(['2018-01-03 12:30:00', '2018-01-03 13:30:00', '2018-01-03 14:30:00',
+#:>                '2018-01-03 15:30:00', '2018-01-03 16:30:00', '2018-01-03 17:30:00',
+#:>                '2018-01-03 18:30:00'],
+#:>               dtype='datetime64[ns]', freq='H')
 ```
 
 #### Daily
@@ -154,9 +154,9 @@ print(
 ```
 
 ```
-## DatetimeIndex(['2018-01-02', '2018-01-03', '2018-01-04'], dtype='datetime64[ns]', freq='D') DatetimeIndex(['2018-01-01 12:30:00', '2018-01-02 12:30:00', '2018-01-03 12:30:00',
-##                '2018-01-04 12:30:00'],
-##               dtype='datetime64[ns]', freq='D')
+#:> DatetimeIndex(['2018-01-02', '2018-01-03', '2018-01-04'], dtype='datetime64[ns]', freq='D') DatetimeIndex(['2018-01-01 12:30:00', '2018-01-02 12:30:00', '2018-01-03 12:30:00',
+#:>                '2018-01-04 12:30:00'],
+#:>               dtype='datetime64[ns]', freq='D')
 ```
 
 #### First Day Of Month
@@ -172,9 +172,9 @@ print(
 ```
 
 ```
-## DatetimeIndex(['2018-01-01', '2018-02-01', '2018-03-01', '2018-04-01'], dtype='datetime64[ns]', freq='MS') DatetimeIndex(['2018-02-01', '2018-03-01', '2018-04-01', '2018-05-01'], dtype='datetime64[ns]', freq='MS') DatetimeIndex(['2018-02-01 12:30:00', '2018-03-01 12:30:00', '2018-04-01 12:30:00',
-##                '2018-05-01 12:30:00'],
-##               dtype='datetime64[ns]', freq='MS')
+#:> DatetimeIndex(['2018-01-01', '2018-02-01', '2018-03-01', '2018-04-01'], dtype='datetime64[ns]', freq='MS') DatetimeIndex(['2018-02-01', '2018-03-01', '2018-04-01', '2018-05-01'], dtype='datetime64[ns]', freq='MS') DatetimeIndex(['2018-02-01 12:30:00', '2018-03-01 12:30:00', '2018-04-01 12:30:00',
+#:>                '2018-05-01 12:30:00'],
+#:>               dtype='datetime64[ns]', freq='MS')
 ```
 #### Last Day of Month
 
@@ -189,9 +189,9 @@ print(
 ```
 
 ```
-## DatetimeIndex(['2018-01-31', '2018-02-28', '2018-03-31', '2018-04-30'], dtype='datetime64[ns]', freq='M') DatetimeIndex(['2018-01-31', '2018-02-28', '2018-03-31', '2018-04-30'], dtype='datetime64[ns]', freq='M') DatetimeIndex(['2018-01-31 12:30:00', '2018-02-28 12:30:00', '2018-03-31 12:30:00',
-##                '2018-04-30 12:30:00'],
-##               dtype='datetime64[ns]', freq='M')
+#:> DatetimeIndex(['2018-01-31', '2018-02-28', '2018-03-31', '2018-04-30'], dtype='datetime64[ns]', freq='M') DatetimeIndex(['2018-01-31', '2018-02-28', '2018-03-31', '2018-04-30'], dtype='datetime64[ns]', freq='M') DatetimeIndex(['2018-01-31 12:30:00', '2018-02-28 12:30:00', '2018-03-31 12:30:00',
+#:>                '2018-04-30 12:30:00'],
+#:>               dtype='datetime64[ns]', freq='M')
 ```
 
 ### Frequency Table (crosstab)
@@ -227,12 +227,12 @@ mydf.head()
 ```
 
 ```
-##   comp dept grp     value1     value2     value3
-## 0   C1   D3  G1  49.444854  21.245179  23.189085
-## 1   C1   D4  G2  45.918567  19.161051 -49.496203
-## 2   C1   D5  G2  47.124309  22.236166 -27.475894
-## 3   C2   D3  G1  50.890405  18.563260 -21.600735
-## 4   C3   D4  G1  51.428272  21.323326  -4.644053
+#:>   comp dept grp     value1     value2     value3
+#:> 0   C3   D5  G1  45.098727  19.260834 -30.058967
+#:> 1   C3   D4  G2  54.176238  21.953358 -26.958746
+#:> 2   C2   D3  G2  49.534924  20.089302 -46.617422
+#:> 3   C3   D2  G1  50.535279  16.496662 -27.164897
+#:> 4   C2   D3  G1  46.182791  22.754701  27.087203
 ```
 
 #### One DimensionTable
@@ -246,19 +246,19 @@ print(
 ```
 
 ```
-## col_0  counter
-## comp          
-## C1          66
-## C2          67
-## C3          67 
-## 
-##  col_0  counter
-## dept          
-## D1          29
-## D2          42
-## D3          38
-## D4          51
-## D5          40
+#:> col_0  counter
+#:> comp          
+#:> C1          71
+#:> C2          69
+#:> C3          60 
+#:> 
+#:>  col_0  counter
+#:> dept          
+#:> D1          38
+#:> D2          35
+#:> D3          45
+#:> D4          39
+#:> D5          43
 ```
 
 #### Two Dimension Table
@@ -269,11 +269,11 @@ pd.crosstab(index=mydf.comp, columns=mydf.dept)
 ```
 
 ```
-## dept  D1  D2  D3  D4  D5
-## comp                    
-## C1    14  13  10  15  14
-## C2     6  11  16  20  14
-## C3     9  18  12  16  12
+#:> dept  D1  D2  D3  D4  D5
+#:> comp                    
+#:> C1    15   9  24  11  12
+#:> C2    11  17  13  12  16
+#:> C3    12   9   8  16  15
 ```
 
 #### Higher Dimension Table
@@ -288,24 +288,24 @@ print( tb, '\n\n',
 ```
 
 ```
-## dept  D1     D2    D3    D4     D5   
-## grp   G1 G2  G1 G2 G1 G2 G1  G2 G1 G2
-## comp                                 
-## C1    10  4   8  5  5  5  5  10  6  8
-## C2     3  3   8  3  8  8  9  11  5  9
-## C3     5  4  11  7  5  7  8   8  5  7 
-## 
-##  MultiIndex([('D1', 'G1'),
-##             ('D1', 'G2'),
-##             ('D2', 'G1'),
-##             ('D2', 'G2'),
-##             ('D3', 'G1'),
-##             ('D3', 'G2'),
-##             ('D4', 'G1'),
-##             ('D4', 'G2'),
-##             ('D5', 'G1'),
-##             ('D5', 'G2')],
-##            names=['dept', 'grp'])
+#:> dept D1     D2     D3     D4      D5   
+#:> grp  G1  G2 G1 G2  G1  G2 G1  G2  G1 G2
+#:> comp                                   
+#:> C1    5  10  8  1  12  12  4   7   7  5
+#:> C2    8   3  9  8   6   7  7   5  10  6
+#:> C3    2  10  7  2   3   5  6  10   8  7 
+#:> 
+#:>  MultiIndex([('D1', 'G1'),
+#:>             ('D1', 'G2'),
+#:>             ('D2', 'G1'),
+#:>             ('D2', 'G2'),
+#:>             ('D3', 'G1'),
+#:>             ('D3', 'G2'),
+#:>             ('D4', 'G1'),
+#:>             ('D4', 'G2'),
+#:>             ('D5', 'G1'),
+#:>             ('D5', 'G2')],
+#:>            names=['dept', 'grp'])
 ```
 
 Select **sub-dataframe** using multi-level referencing.
@@ -317,19 +317,19 @@ print( 'Under D2:\n', tb['D2'], '\n\n',
 ```
 
 ```
-## Under D2:
-##  grp   G1  G2
-## comp        
-## C1     8   5
-## C2     8   3
-## C3    11   7 
-## 
-##  Under D2-G2:
-##  comp
-## C1     8
-## C2     8
-## C3    11
-## Name: (D2, G1), dtype: int64
+#:> Under D2:
+#:>  grp   G1  G2
+#:> comp        
+#:> C1     8   1
+#:> C2     9   8
+#:> C3     7   2 
+#:> 
+#:>  Under D2-G2:
+#:>  comp
+#:> C1    8
+#:> C2    9
+#:> C3    7
+#:> Name: (D2, G1), dtype: int64
 ```
 
 #### Getting Margin
@@ -342,14 +342,14 @@ tb
 ```
 
 ```
-## grp    G1  G2  All
-## dept              
-## D1     18  11   29
-## D2     27  15   42
-## D3     18  20   38
-## D4     22  29   51
-## D5     16  24   40
-## All   101  99  200
+#:> grp    G1  G2  All
+#:> dept              
+#:> D1     15  23   38
+#:> D2     24  11   35
+#:> D3     21  24   45
+#:> D4     17  22   39
+#:> D5     25  18   43
+#:> All   102  98  200
 ```
 
 
@@ -360,22 +360,22 @@ print(
 ```
 
 ```
-## Row Sums:     
-##  dept
-## D1      29
-## D2      42
-## D3      38
-## D4      51
-## D5      40
-## All    200
-## Name: All, dtype: int64 
-## 
-## Column Sums:
-##  grp
-## G1     101
-## G2      99
-## All    200
-## Name: All, dtype: int64
+#:> Row Sums:     
+#:>  dept
+#:> D1      38
+#:> D2      35
+#:> D3      45
+#:> D4      39
+#:> D5      43
+#:> All    200
+#:> Name: All, dtype: int64 
+#:> 
+#:> Column Sums:
+#:>  grp
+#:> G1     102
+#:> G2      98
+#:> All    200
+#:> Name: All, dtype: int64
 ```
 
 #### Getting Proportion
@@ -387,14 +387,14 @@ tb/tb.loc['All']
 ```
 
 ```
-## grp         G1        G2    All
-## dept                           
-## D1    0.178218  0.111111  0.145
-## D2    0.267327  0.151515  0.210
-## D3    0.178218  0.202020  0.190
-## D4    0.217822  0.292929  0.255
-## D5    0.158416  0.242424  0.200
-## All   1.000000  1.000000  1.000
+#:> grp         G1        G2    All
+#:> dept                           
+#:> D1    0.147059  0.234694  0.190
+#:> D2    0.235294  0.112245  0.175
+#:> D3    0.205882  0.244898  0.225
+#:> D4    0.166667  0.224490  0.195
+#:> D5    0.245098  0.183673  0.215
+#:> All   1.000000  1.000000  1.000
 ```
 
 ### Concatination
@@ -421,11 +421,11 @@ pd.concat([s1,s2,s3, None], axis=1)
 ```
 
 ```
-##     0   B   C
-## 0  A1  B1  C1
-## 1  A2  B2  C2
-## 2  A3  B3  C3
-## 3  A4  B4  C4
+#:>     0   B   C
+#:> 0  A1  B1  C1
+#:> 1  A2  B2  C2
+#:> 2  A3  B3  C3
+#:> 3  A4  B4  C4
 ```
 
 **Add Multiple Series Into An Existing DataFrame**  
@@ -439,11 +439,11 @@ pd.concat([df,s3,s1, None],axis=1)
 ```
 
 ```
-##     A   B   C   0
-## 0  A1  B1  C1  A1
-## 1  A2  B2  C2  A2
-## 2  A3  B3  C3  A3
-## 3  A4  B4  C4  A4
+#:>     A   B   C   0
+#:> 0  A1  B1  C1  A1
+#:> 1  A2  B2  C2  A2
+#:> 2  A3  B3  C3  A3
+#:> 3  A4  B4  C4  A4
 ```
 
 #### Row-Wise
@@ -475,9 +475,9 @@ print ('Total Table(s) Found : ', len(df_list), '\n',
 ```
 
 ```
-## Total Table(s) Found :  11 
-##  First Table Found:                0                                                  1
-## 0  Sector:  --- Filter by Sector ---  BOND ISLAMIC  CLOSED...
+#:> Total Table(s) Found :  11 
+#:>  First Table Found:                0                                                  1
+#:> 0  Sector:  --- Filter by Sector ---  BOND ISLAMIC  CLOSED...
 ```
 
 #### CSV Writing
@@ -522,12 +522,12 @@ mydf
 ```
 
 ```
-##    Name                 Funny
-## Id                           
-## 10  Aaa  world's most \clever
-## 20  Bbb    Bloody, damn, good
-## 30  Ccc      many\nmany\nline
-## 40  Ddd    Quoting "is" tough
+#:>    Name                 Funny
+#:> Id                           
+#:> 10  Aaa  world's most \clever
+#:> 20  Bbb    Bloody, damn, good
+#:> 30  Ccc      many\nmany\nline
+#:> 40  Ddd    Quoting "is" tough
 ```
 
 **This is the file saved**
@@ -545,12 +545,12 @@ pd.read_csv('data/csv_test.csv', index_col='Id')
 ```
 
 ```
-##    Name                 Funny
-## Id                           
-## 10  Aaa  world's most \clever
-## 20  Bbb    Bloody, damn, good
-## 30  Ccc      many\nmany\nline
-## 40  Ddd    Quoting "is" tough
+#:>    Name                 Funny
+#:> Id                           
+#:> 10  Aaa  world's most \clever
+#:> 20  Bbb    Bloody, damn, good
+#:> 30  Ccc      many\nmany\nline
+#:> 40  Ddd    Quoting "is" tough
 ```
 
 #### CSV Reading
@@ -588,27 +588,27 @@ print(goo.head(), '\n\n',
 ```
 
 ```
-## <class 'pandas.core.frame.DataFrame'>
-## RangeIndex: 61 entries, 0 to 60
-## Data columns (total 6 columns):
-##  #   Column  Non-Null Count  Dtype  
-## ---  ------  --------------  -----  
-##  0   Date    61 non-null     object 
-##  1   Open    61 non-null     float64
-##  2   High    61 non-null     float64
-##  3   Low     61 non-null     float64
-##  4   Close   61 non-null     float64
-##  5   Volume  61 non-null     int64  
-## dtypes: float64(4), int64(1), object(1)
-## memory usage: 3.0+ KB
-##          Date        Open        High         Low       Close   Volume
-## 0  12/19/2016  790.219971  797.659973  786.270020  794.200012  1225900
-## 1  12/20/2016  796.760010  798.650024  793.270020  796.419983   925100
-## 2  12/21/2016  795.840027  796.676025  787.099976  794.559998  1208700
-## 3  12/22/2016  792.359985  793.320007  788.580017  791.260010   969100
-## 4  12/23/2016  790.900024  792.739990  787.280029  789.909973   623400 
-## 
-##  None
+#:> <class 'pandas.core.frame.DataFrame'>
+#:> RangeIndex: 61 entries, 0 to 60
+#:> Data columns (total 6 columns):
+#:>  #   Column  Non-Null Count  Dtype  
+#:> ---  ------  --------------  -----  
+#:>  0   Date    61 non-null     object 
+#:>  1   Open    61 non-null     float64
+#:>  2   High    61 non-null     float64
+#:>  3   Low     61 non-null     float64
+#:>  4   Close   61 non-null     float64
+#:>  5   Volume  61 non-null     int64  
+#:> dtypes: float64(4), int64(1), object(1)
+#:> memory usage: 3.0+ KB
+#:>          Date        Open        High         Low       Close   Volume
+#:> 0  12/19/2016  790.219971  797.659973  786.270020  794.200012  1225900
+#:> 1  12/20/2016  796.760010  798.650024  793.270020  796.419983   925100
+#:> 2  12/21/2016  795.840027  796.676025  787.099976  794.559998  1208700
+#:> 3  12/22/2016  792.359985  793.320007  788.580017  791.260010   969100
+#:> 4  12/23/2016  790.900024  792.739990  787.280029  789.909973   623400 
+#:> 
+#:>  None
 ```
 
 **Specify Data Types**  
@@ -622,19 +622,19 @@ pd.read_csv('data/goog.csv', dtype=d_types).info()
 ```
 
 ```
-## <class 'pandas.core.frame.DataFrame'>
-## RangeIndex: 61 entries, 0 to 60
-## Data columns (total 6 columns):
-##  #   Column  Non-Null Count  Dtype  
-## ---  ------  --------------  -----  
-##  0   Date    61 non-null     object 
-##  1   Open    61 non-null     float64
-##  2   High    61 non-null     float64
-##  3   Low     61 non-null     float64
-##  4   Close   61 non-null     float64
-##  5   Volume  61 non-null     object 
-## dtypes: float64(4), object(2)
-## memory usage: 3.0+ KB
+#:> <class 'pandas.core.frame.DataFrame'>
+#:> RangeIndex: 61 entries, 0 to 60
+#:> Data columns (total 6 columns):
+#:>  #   Column  Non-Null Count  Dtype  
+#:> ---  ------  --------------  -----  
+#:>  0   Date    61 non-null     object 
+#:>  1   Open    61 non-null     float64
+#:>  2   High    61 non-null     float64
+#:>  3   Low     61 non-null     float64
+#:>  4   Close   61 non-null     float64
+#:>  5   Volume  61 non-null     object 
+#:> dtypes: float64(4), object(2)
+#:> memory usage: 3.0+ KB
 ```
 
 **Parse Datetime**
@@ -647,19 +647,19 @@ pd.read_csv('data/goog.csv', parse_dates=['Date']).info()
 ```
 
 ```
-## <class 'pandas.core.frame.DataFrame'>
-## RangeIndex: 61 entries, 0 to 60
-## Data columns (total 6 columns):
-##  #   Column  Non-Null Count  Dtype         
-## ---  ------  --------------  -----         
-##  0   Date    61 non-null     datetime64[ns]
-##  1   Open    61 non-null     float64       
-##  2   High    61 non-null     float64       
-##  3   Low     61 non-null     float64       
-##  4   Close   61 non-null     float64       
-##  5   Volume  61 non-null     int64         
-## dtypes: datetime64[ns](1), float64(4), int64(1)
-## memory usage: 3.0 KB
+#:> <class 'pandas.core.frame.DataFrame'>
+#:> RangeIndex: 61 entries, 0 to 60
+#:> Data columns (total 6 columns):
+#:>  #   Column  Non-Null Count  Dtype         
+#:> ---  ------  --------------  -----         
+#:>  0   Date    61 non-null     datetime64[ns]
+#:>  1   Open    61 non-null     float64       
+#:>  2   High    61 non-null     float64       
+#:>  3   Low     61 non-null     float64       
+#:>  4   Close   61 non-null     float64       
+#:>  5   Volume  61 non-null     int64         
+#:> dtypes: datetime64[ns](1), float64(4), int64(1)
+#:> memory usage: 3.0 KB
 ```
 
 **Parse Datetime, Then Set as Index**  
@@ -673,18 +673,18 @@ goo3.info()
 ```
 
 ```
-## <class 'pandas.core.frame.DataFrame'>
-## DatetimeIndex: 61 entries, 2016-12-19 to 2017-03-17
-## Data columns (total 5 columns):
-##  #   Column  Non-Null Count  Dtype  
-## ---  ------  --------------  -----  
-##  0   Open    61 non-null     float64
-##  1   High    61 non-null     float64
-##  2   Low     61 non-null     float64
-##  3   Close   61 non-null     float64
-##  4   Volume  61 non-null     int64  
-## dtypes: float64(4), int64(1)
-## memory usage: 2.9 KB
+#:> <class 'pandas.core.frame.DataFrame'>
+#:> DatetimeIndex: 61 entries, 2016-12-19 to 2017-03-17
+#:> Data columns (total 5 columns):
+#:>  #   Column  Non-Null Count  Dtype  
+#:> ---  ------  --------------  -----  
+#:>  0   Open    61 non-null     float64
+#:>  1   High    61 non-null     float64
+#:>  2   Low     61 non-null     float64
+#:>  3   Close   61 non-null     float64
+#:>  4   Volume  61 non-null     int64  
+#:> dtypes: float64(4), int64(1)
+#:> memory usage: 2.9 KB
 ```
 
 ### Inspection
@@ -703,19 +703,19 @@ goo.info()
 ```
 
 ```
-## <class 'pandas.core.frame.DataFrame'>
-## RangeIndex: 61 entries, 0 to 60
-## Data columns (total 6 columns):
-##  #   Column  Non-Null Count  Dtype  
-## ---  ------  --------------  -----  
-##  0   Date    61 non-null     object 
-##  1   Open    61 non-null     float64
-##  2   High    61 non-null     float64
-##  3   Low     61 non-null     float64
-##  4   Close   61 non-null     float64
-##  5   Volume  61 non-null     int64  
-## dtypes: float64(4), int64(1), object(1)
-## memory usage: 3.0+ KB
+#:> <class 'pandas.core.frame.DataFrame'>
+#:> RangeIndex: 61 entries, 0 to 60
+#:> Data columns (total 6 columns):
+#:>  #   Column  Non-Null Count  Dtype  
+#:> ---  ------  --------------  -----  
+#:>  0   Date    61 non-null     object 
+#:>  1   Open    61 non-null     float64
+#:>  2   High    61 non-null     float64
+#:>  3   Low     61 non-null     float64
+#:>  4   Close   61 non-null     float64
+#:>  5   Volume  61 non-null     int64  
+#:> dtypes: float64(4), int64(1), object(1)
+#:> memory usage: 3.0+ KB
 ```
 
 #### `head`
@@ -726,12 +726,12 @@ goo.head()
 ```
 
 ```
-##          Date        Open        High         Low       Close   Volume
-## 0  12/19/2016  790.219971  797.659973  786.270020  794.200012  1225900
-## 1  12/20/2016  796.760010  798.650024  793.270020  796.419983   925100
-## 2  12/21/2016  795.840027  796.676025  787.099976  794.559998  1208700
-## 3  12/22/2016  792.359985  793.320007  788.580017  791.260010   969100
-## 4  12/23/2016  790.900024  792.739990  787.280029  789.909973   623400
+#:>          Date        Open        High         Low       Close   Volume
+#:> 0  12/19/2016  790.219971  797.659973  786.270020  794.200012  1225900
+#:> 1  12/20/2016  796.760010  798.650024  793.270020  796.419983   925100
+#:> 2  12/21/2016  795.840027  796.676025  787.099976  794.559998  1208700
+#:> 3  12/22/2016  792.359985  793.320007  788.580017  791.260010   969100
+#:> 4  12/23/2016  790.900024  792.739990  787.280029  789.909973   623400
 ```
 
 ## class: Timestamp
@@ -754,12 +754,12 @@ print( pd.Timestamp(year=2017, month=1, day=1),'\n',  #date-like numbers
 ```
 
 ```
-## 2017-01-01 00:00:00 
-##  2017-01-01 00:00:00 
-##  2017-12-11 05:45:00 
-##  2017-12-11 05:45:55.000999 
-##  2017-12-11 05:45:55.000999008 
-##  <class 'pandas._libs.tslibs.timestamps.Timestamp'>
+#:> 2017-01-01 00:00:00 
+#:>  2017-01-01 00:00:00 
+#:>  2017-12-11 05:45:00 
+#:>  2017-12-11 05:45:55.000999 
+#:>  2017-12-11 05:45:55.000999008 
+#:>  <class 'pandas._libs.tslibs.timestamps.Timestamp'>
 ```
 
 #### From String
@@ -776,10 +776,10 @@ print( pd.Timestamp('2017-12-11'),'\n',   # date-like string: year-month-day
 ```
 
 ```
-## 2017-12-11 00:00:00 
-##  2017-12-11 00:00:00 
-##  2017-12-11 00:00:00 
-##  2017-12-11 00:00:00
+#:> 2017-12-11 00:00:00 
+#:>  2017-12-11 00:00:00 
+#:>  2017-12-11 00:00:00 
+#:>  2017-12-11 00:00:00
 ```
 
 **YMD Hour Minute Second Ms**
@@ -794,11 +794,11 @@ print( pd.Timestamp('2017-12-11 0545'),'\n',     ## hour minute
 ```
 
 ```
-## 2017-12-11 05:45:00 
-##  2017-12-11 05:45:00 
-##  2017-12-11 05:45:00 
-##  2017-12-11 05:45:33 
-##  2017-12-11 05:45:33
+#:> 2017-12-11 05:45:00 
+#:>  2017-12-11 05:45:00 
+#:>  2017-12-11 05:45:00 
+#:>  2017-12-11 05:45:33 
+#:>  2017-12-11 05:45:33
 ```
 
 **With Timezone** can be included in various ways.
@@ -812,10 +812,10 @@ print( pd.Timestamp('2017-01-01T0545Z'),'\n',  # GMT
 ```
 
 ```
-## 2017-01-01 05:45:00+00:00 
-##  2017-01-01 05:45:00+09:00 
-##  2017-01-01 05:45:00+08:00 
-##  2017-01-01 05:45:00+08:00
+#:> 2017-01-01 05:45:00+00:00 
+#:>  2017-01-01 05:45:00+09:00 
+#:>  2017-01-01 05:45:00+08:00 
+#:>  2017-01-01 05:45:00+08:00
 ```
 
 #### From Standard Library ```datetime``` and ```date``` Object
@@ -828,9 +828,9 @@ print( pd.Timestamp(date(2017,3,5)),'\n',           # from date
 ```
 
 ```
-## 2017-03-05 00:00:00 
-##  2017-03-05 04:30:00 
-##  2017-03-05 04:30:00+08:00
+#:> 2017-03-05 00:00:00 
+#:>  2017-03-05 04:30:00 
+#:>  2017-03-05 04:30:00+08:00
 ```
 
 ### Attributes
@@ -858,21 +858,21 @@ print( ts.month, '\n',
 ```
 
 ```
-## 1 
-##  1 
-##  2017 
-##  5 
-##  45 
-##  33 
-##  0 
-##  0 
-##  pytz.FixedOffset(480) 
-##  31 
-##  1 
-##  False 
-##  False 
-##  True 
-##  6
+#:> 1 
+#:>  1 
+#:>  2017 
+#:>  5 
+#:>  45 
+#:>  33 
+#:>  0 
+#:>  0 
+#:>  pytz.FixedOffset(480) 
+#:>  31 
+#:>  1 
+#:>  False 
+#:>  False 
+#:>  True 
+#:>  6
 ```
 
 Note that timezone (tz) is a **pytz object**.
@@ -889,9 +889,9 @@ print( ts1.tz, 'Type:', type(ts1.tz), '\n',
 ```
 
 ```
-## Asia/Kuala_Lumpur Type: <class 'pytz.tzfile.Asia/Kuala_Lumpur'> 
-##  pytz.FixedOffset(480) Type: <class 'pytz._FixedOffset'> 
-##  None Type: <class 'NoneType'>
+#:> Asia/Kuala_Lumpur Type: <class 'pytz.tzfile.Asia/Kuala_Lumpur'> 
+#:>  pytz.FixedOffset(480) Type: <class 'pytz._FixedOffset'> 
+#:>  None Type: <class 'NoneType'>
 ```
 
 ### Instance Methods
@@ -909,10 +909,10 @@ print( ' Weekday:    ', ts.weekday(), '\n',
 ```
 
 ```
-##  Weekday:     6 
-##  ISO Weekday: 7 
-##  Day Name:    Sunday 
-##  ISO Calendar: (2016, 52, 7)
+#:>  Weekday:     6 
+#:>  ISO Weekday: 7 
+#:>  Day Name:    Sunday 
+#:>  ISO Calendar: (2016, 52, 7)
 ```
 
 #### Timezones
@@ -933,9 +933,9 @@ print(' Origininal Timestamp           :', ts,  '\n',
 ```
 
 ```
-##  Origininal Timestamp           : 2017-01-10 10:34:00 
-##  Loacalized Timestamp (added TZ): 2017-01-10 10:34:00+08:00 
-##  Converted Timestamp (shifted)  : 2017-01-10 02:34:00+00:00
+#:>  Origininal Timestamp           : 2017-01-10 10:34:00 
+#:>  Loacalized Timestamp (added TZ): 2017-01-10 10:34:00+08:00 
+#:>  Converted Timestamp (shifted)  : 2017-01-10 02:34:00+00:00
 ```
 
 **Removing Timezone**
@@ -951,7 +951,7 @@ ts
 ```
 
 ```
-## Timestamp('2017-01-10 10:34:00')
+#:> Timestamp('2017-01-10 10:34:00')
 ```
 
 #### Formatting 
@@ -968,7 +968,7 @@ ts.strftime("%m/%d")
 ```
 
 ```
-## '01/10'
+#:> '01/10'
 ```
 
 **`isoformat`**  
@@ -984,8 +984,8 @@ print( ' ISO Format without TZ:', ts.isoformat(), '\n',
 ```
 
 ```
-##  ISO Format without TZ: 2017-01-10T10:34:00 
-##  ISO Format with TZ   : 2017-01-10T10:34:00+08:00
+#:>  ISO Format without TZ: 2017-01-10T10:34:00 
+#:>  ISO Format with TZ   : 2017-01-10T10:34:00+08:00
 ```
 
 #### Type Conversion
@@ -1003,8 +1003,8 @@ print(
 ```
 
 ```
-## Datetime: 2017-01-10 07:30:52 
-##  Date Only: 2017-01-10
+#:> Datetime: 2017-01-10 07:30:52 
+#:>  Date Only: 2017-01-10
 ```
 
 **Convert To `numpy.datetime64`**
@@ -1018,7 +1018,7 @@ ts.to_datetime64()
 ```
 
 ```
-## numpy.datetime64('2017-01-10T07:30:52.000000000')
+#:> numpy.datetime64('2017-01-10T07:30:52.000000000')
 ```
 
 
@@ -1030,7 +1030,7 @@ print( ts.ceil(freq='D') ) # ceiling to day
 ```
 
 ```
-## 2017-01-11 00:00:00
+#:> 2017-01-11 00:00:00
 ```
 
 #### Updating
@@ -1043,7 +1043,7 @@ ts.replace(year=2000, month=1,day=1)
 ```
 
 ```
-## Timestamp('2000-01-01 07:30:52')
+#:> Timestamp('2000-01-01 07:30:52')
 ```
 
 ## class: DateTimeIndex
@@ -1066,10 +1066,10 @@ print('Converted to List:', dti.to_pydatetime(), '\n\n',
 ```
 
 ```
-## Converted to List: [datetime.datetime(2011, 1, 3, 0, 0) datetime.datetime(2018, 4, 13, 0, 0)
-##  datetime.datetime(2018, 3, 1, 7, 30)] 
-## 
-##  Converted Type: <class 'numpy.ndarray'>
+#:> Converted to List: [datetime.datetime(2011, 1, 3, 0, 0) datetime.datetime(2018, 4, 13, 0, 0)
+#:>  datetime.datetime(2018, 3, 1, 7, 30)] 
+#:> 
+#:>  Converted Type: <class 'numpy.ndarray'>
 ```
 
 #### Structure Conversion
@@ -1084,10 +1084,10 @@ dti.to_series()
 ```
 
 ```
-## 2011-01-03 00:00:00   2011-01-03 00:00:00
-## 2018-04-13 00:00:00   2018-04-13 00:00:00
-## 2018-03-01 07:30:00   2018-03-01 07:30:00
-## dtype: datetime64[ns]
+#:> 2011-01-03 00:00:00   2011-01-03 00:00:00
+#:> 2018-04-13 00:00:00   2018-04-13 00:00:00
+#:> 2018-03-01 07:30:00   2018-03-01 07:30:00
+#:> dtype: datetime64[ns]
 ```
 
 **Convert To DataFrame: `to_frame()`**  
@@ -1099,10 +1099,10 @@ dti.to_frame()
 ```
 
 ```
-##                                       0
-## 2011-01-03 00:00:00 2011-01-03 00:00:00
-## 2018-04-13 00:00:00 2018-04-13 00:00:00
-## 2018-03-01 07:30:00 2018-03-01 07:30:00
+#:>                                       0
+#:> 2011-01-03 00:00:00 2011-01-03 00:00:00
+#:> 2018-04-13 00:00:00 2018-04-13 00:00:00
+#:> 2018-03-01 07:30:00 2018-03-01 07:30:00
 ```
 
 ### Attributes
@@ -1117,9 +1117,9 @@ print( dti.weekday, '\n',
 ```
 
 ```
-## Int64Index([0, 4, 3], dtype='int64') 
-##  Int64Index([1, 4, 3], dtype='int64') 
-##  Int64Index([31, 30, 31], dtype='int64')
+#:> Int64Index([0, 4, 3], dtype='int64') 
+#:>  Int64Index([1, 4, 3], dtype='int64') 
+#:>  Int64Index([31, 30, 31], dtype='int64')
 ```
 
 ## class: Series
@@ -1146,8 +1146,8 @@ print (s, '\n',
 ```
 
 ```
-## Series([], dtype: object) 
-##  <class 'pandas.core.series.Series'>
+#:> Series([], dtype: object) 
+#:>  <class 'pandas.core.series.Series'>
 ```
 
 #### From Scalar
@@ -1160,11 +1160,11 @@ pd.Series( 99, index = ['a','b','c','d'])
 ```
 
 ```
-## a    99
-## b    99
-## c    99
-## d    99
-## dtype: int64
+#:> a    99
+#:> b    99
+#:> c    99
+#:> d    99
+#:> dtype: int64
 ```
 
 #### From array-like
@@ -1177,12 +1177,12 @@ pd.Series(['a','b','c','d','e'])           # from Python list
 ```
 
 ```
-## 0    a
-## 1    b
-## 2    c
-## 3    d
-## 4    e
-## dtype: object
+#:> 0    a
+#:> 1    b
+#:> 2    c
+#:> 3    d
+#:> 4    e
+#:> dtype: object
 ```
 
 
@@ -1195,12 +1195,12 @@ pd.Series(np.array(['a','b','c','d','e']))
 ```
 
 ```
-## 0    a
-## 1    b
-## 2    c
-## 3    d
-## 4    e
-## dtype: object
+#:> 0    a
+#:> 1    b
+#:> 2    c
+#:> 3    d
+#:> 4    e
+#:> dtype: object
 ```
 
 **From DateTimeIndex**
@@ -1211,10 +1211,10 @@ pd.Series(pd.date_range('2011-1-1','2011-1-3'))
 ```
 
 ```
-## 0   2011-01-01
-## 1   2011-01-02
-## 2   2011-01-03
-## dtype: datetime64[ns]
+#:> 0   2011-01-01
+#:> 1   2011-01-02
+#:> 2   2011-01-03
+#:> dtype: datetime64[ns]
 ```
 
 
@@ -1227,10 +1227,10 @@ pd.Series({'a' : 0., 'c' : 5., 'b' : 2.})
 ```
 
 ```
-## a    0.0
-## c    5.0
-## b    2.0
-## dtype: float64
+#:> a    0.0
+#:> c    5.0
+#:> b    2.0
+#:> dtype: float64
 ```
 
 If **index sequence** is specifeid, then Series will forllow the index order  
@@ -1242,11 +1242,11 @@ pd.Series({'a' : 0., 'c' : 1., 'b' : 2.},index = ['a','b','c','d'])
 ```
 
 ```
-## a    0.0
-## b    2.0
-## c    1.0
-## d    NaN
-## dtype: float64
+#:> a    0.0
+#:> b    2.0
+#:> c    1.0
+#:> d    NaN
+#:> dtype: float64
 ```
 
 #### Specify Index
@@ -1257,12 +1257,12 @@ pd.Series(['a','b','c','d','e'], index=[10,20,30,40,50])
 ```
 
 ```
-## 10    a
-## 20    b
-## 30    c
-## 40    d
-## 50    e
-## dtype: object
+#:> 10    a
+#:> 20    b
+#:> 30    c
+#:> 40    d
+#:> 50    e
+#:> dtype: object
 ```
 
 #### Mix Element Types
@@ -1279,10 +1279,10 @@ print('Object Type :  ', type(ser),'\n',
 ```
 
 ```
-## Object Type :   <class 'pandas.core.series.Series'> 
-##  Object dType:   object 
-##  Element 1 Type:  <class 'str'> 
-##  Elmeent 2 Type:  <class 'int'>
+#:> Object Type :   <class 'pandas.core.series.Series'> 
+#:>  Object dType:   object 
+#:>  Element 1 Type:  <class 'str'> 
+#:>  Elmeent 2 Type:  <class 'int'>
 ```
 
 #### Specify Data Types
@@ -1300,9 +1300,9 @@ print(' Inferred:        ',ser1.dtype, '\n',
 ```
 
 ```
-##  Inferred:         int64 
-##  Specified int8:   int8 
-##  Specified object: object
+#:>  Inferred:         int64 
+#:>  Specified int8:   int8 
+#:>  Specified object: object
 ```
 
 ### Accessing Series
@@ -1322,12 +1322,12 @@ s
 ```
 
 ```
-## a    1
-## b    2
-## c    3
-## d    4
-## e    5
-## dtype: int64
+#:> a    1
+#:> b    2
+#:> c    3
+#:> d    4
+#:> e    5
+#:> dtype: int64
 ```
 
 #### by Row Number(s)
@@ -1342,12 +1342,12 @@ print( 'Referencing by number:',s.iloc[1],'\n\n',
 ```
 
 ```
-## Referencing by number: 2 
-## 
-##  
-## Referencing by list of number:
-##  b    2
-## dtype: int64
+#:> Referencing by number: 2 
+#:> 
+#:>  
+#:> Referencing by list of number:
+#:>  b    2
+#:> dtype: int64
 ```
 
 
@@ -1359,9 +1359,9 @@ s.iloc[[1,3]]
 ```
 
 ```
-## b    2
-## d    4
-## dtype: int64
+#:> b    2
+#:> d    4
+#:> dtype: int64
 ```
 
 
@@ -1373,10 +1373,10 @@ s.iloc[:3]
 ```
 
 ```
-## a    1
-## b    2
-## c    3
-## dtype: int64
+#:> a    1
+#:> b    2
+#:> c    3
+#:> dtype: int64
 ```
 
 
@@ -1388,10 +1388,10 @@ s.iloc[-3:]
 ```
 
 ```
-## c    3
-## d    4
-## e    5
-## dtype: int64
+#:> c    3
+#:> d    4
+#:> e    5
+#:> dtype: int64
 ```
 
 **Range (in between)**
@@ -1402,8 +1402,8 @@ s.iloc[2:3]
 ```
 
 ```
-## c    3
-## dtype: int64
+#:> c    3
+#:> dtype: int64
 ```
 
 #### by Index(es)
@@ -1418,9 +1418,9 @@ print( s.loc['c'], '\n',
 ```
 
 ```
-## 3 
-##  c    3
-## dtype: int64
+#:> 3 
+#:>  c    3
+#:> dtype: int64
 ```
 
 **Multiple Labels**
@@ -1441,10 +1441,10 @@ s.loc['b':'d']
 ```
 
 ```
-## b    2
-## c    3
-## d    4
-## dtype: int64
+#:> b    2
+#:> c    3
+#:> d    4
+#:> dtype: int64
 ```
 
 #### Filtering
@@ -1458,11 +1458,11 @@ s[s<5]
 ```
 
 ```
-## 0    1
-## 1    2
-## 2    3
-## 3    4
-## dtype: int64
+#:> 0    1
+#:> 1    2
+#:> 2    3
+#:> 3    4
+#:> dtype: int64
 ```
 
 Use **where**  
@@ -1479,23 +1479,23 @@ print(s.where(s<4),'\n\n',
 ```
 
 ```
-## 0    1.0
-## 1    2.0
-## 2    3.0
-## 3    NaN
-## 4    NaN
-## 5    NaN
-## 6    NaN
-## dtype: float64 
-## 
-##  0       1
-## 1       2
-## 2       3
-## 3    None
-## 4    None
-## 5    None
-## 6    None
-## dtype: object
+#:> 0    1.0
+#:> 1    2.0
+#:> 2    3.0
+#:> 3    NaN
+#:> 4    NaN
+#:> 5    NaN
+#:> 6    NaN
+#:> dtype: float64 
+#:> 
+#:>  0       1
+#:> 1       2
+#:> 2       3
+#:> 3    None
+#:> 4    None
+#:> 5    None
+#:> 6    None
+#:> dtype: object
 ```
 
 ### Updating Series
@@ -1511,13 +1511,13 @@ s
 ```
 
 ```
-## a      1
-## b      2
-## c    999
-## d    888
-## e    777
-## f      6
-## dtype: int64
+#:> a      1
+#:> b      2
+#:> c    999
+#:> d    888
+#:> e    777
+#:> f      6
+#:> dtype: int64
 ```
 
 #### by Index(es)
@@ -1531,13 +1531,13 @@ s
 ```
 
 ```
-## a      1
-## b      2
-## c    777
-## d    888
-## e    888
-## f      6
-## dtype: int64
+#:> a      1
+#:> b      2
+#:> c    777
+#:> d    888
+#:> e    888
+#:> f      6
+#:> dtype: int64
 ```
 
 ### Series Attributes
@@ -1551,12 +1551,12 @@ s
 ```
 
 ```
-## a    1
-## b    2
-## c    3
-## d    4
-## e    5
-## Name: SuperHero, dtype: int64
+#:> a    1
+#:> b    2
+#:> c    3
+#:> d    4
+#:> e    5
+#:> Name: SuperHero, dtype: int64
 ```
 
 #### The Attributes
@@ -1571,11 +1571,11 @@ print( ' Series Index:    ',s.index, '\n',
 ```
 
 ```
-##  Series Index:     Index(['a', 'b', 'c', 'd', 'e'], dtype='object') 
-##  Series dType:     int64 
-##  Series Size:      5 
-##  Series Shape:     (5,) 
-##  Series Dimension: 1
+#:>  Series Index:     Index(['a', 'b', 'c', 'd', 'e'], dtype='object') 
+#:>  Series dType:     int64 
+#:>  Series Size:      5 
+#:>  Series Shape:     (5,) 
+#:>  Series Dimension: 1
 ```
 
 ### Instance Methods
@@ -1590,13 +1590,13 @@ s.rename_axis('haribulan')
 ```
 
 ```
-## haribulan
-## a    1
-## b    2
-## c    3
-## d    4
-## e    5
-## Name: SuperHero, dtype: int64
+#:> haribulan
+#:> a    1
+#:> b    2
+#:> c    3
+#:> d    4
+#:> e    5
+#:> Name: SuperHero, dtype: int64
 ```
 
 **`.reset_index()`**
@@ -1612,12 +1612,12 @@ s.reset_index()
 ```
 
 ```
-##   index  SuperHero
-## 0     a          1
-## 1     b          2
-## 2     c          3
-## 3     d          4
-## 4     e          5
+#:>   index  SuperHero
+#:> 0     a          1
+#:> 1     b          2
+#:> 2     c          3
+#:> 3     d          4
+#:> 4     e          5
 ```
 
 #### Structure Conversion
@@ -1634,9 +1634,9 @@ print(' Series value:      ', s.values, '\n',
 ```
 
 ```
-##  Series value:       [1 2 3 4 5] 
-##  Series value type:  <class 'numpy.ndarray'> 
-##  Series dtype:       int64
+#:>  Series value:       [1 2 3 4 5] 
+#:>  Series value type:  <class 'numpy.ndarray'> 
+#:>  Series dtype:       int64
 ```
 
 Convert To List using **`.tolist()`**
@@ -1647,7 +1647,7 @@ pd.Series.tolist(s)
 ```
 
 ```
-## [1, 2, 3, 4, 5]
+#:> [1, 2, 3, 4, 5]
 ```
 
 #### DataType Conversion
@@ -1661,12 +1661,12 @@ s.astype('int8')
 ```
 
 ```
-## 0    1
-## 1    2
-## 2    3
-## 3    4
-## 4    5
-## dtype: int8
+#:> 0    1
+#:> 1    2
+#:> 2    3
+#:> 3    4
+#:> 4    5
+#:> dtype: int8
 ```
 
 ### Series Operators
@@ -1689,12 +1689,12 @@ s1 - 100
 ```
 
 ```
-## 0      0
-## 1    100
-## 2    200
-## 3    300
-## 4    400
-## dtype: int64
+#:> 0      0
+#:> 1    100
+#:> 2    200
+#:> 3    300
+#:> 4    400
+#:> dtype: int64
 ```
 
 **Apply To Two Series Objects**
@@ -1705,12 +1705,12 @@ s1 - s2
 ```
 
 ```
-## 0     90
-## 1    180
-## 2    270
-## 3    360
-## 4    450
-## dtype: int64
+#:> 0     90
+#:> 1    180
+#:> 2    270
+#:> 3    360
+#:> 4    450
+#:> dtype: int64
 ```
 
 #### Logic Operator
@@ -1725,17 +1725,17 @@ bs>3
 ```
 
 ```
-## 0    False
-## 1    False
-## 2    False
-## 3    False
-## 4     True
-## 5     True
-## 6     True
-## 7     True
-## 8     True
-## 9     True
-## dtype: bool
+#:> 0    False
+#:> 1    False
+#:> 2    False
+#:> 3    False
+#:> 4     True
+#:> 5     True
+#:> 6     True
+#:> 7     True
+#:> 8     True
+#:> 9     True
+#:> dtype: bool
 ```
 
 
@@ -1744,17 +1744,17 @@ bs>3
 ```
 
 ```
-## 0     True
-## 1     True
-## 2     True
-## 3     True
-## 4    False
-## 5    False
-## 6    False
-## 7    False
-## 8    False
-## 9    False
-## dtype: bool
+#:> 0     True
+#:> 1     True
+#:> 2     True
+#:> 3     True
+#:> 4    False
+#:> 5    False
+#:> 6    False
+#:> 7    False
+#:> 8    False
+#:> 9    False
+#:> dtype: bool
 ```
 
 ### Series `.str` Accesor
@@ -1796,17 +1796,17 @@ print(
 ```
 
 ```
-##  Extracted Dataframe:
-##       0    1
-## 0    a    1
-## 1    b    2
-## 2  NaN  NaN 
-## 
-##  Extracted Dataframe witn Names:
-##    Letter    1
-## 0      a    1
-## 1      b    2
-## 2    NaN  NaN
+#:>  Extracted Dataframe:
+#:>       0    1
+#:> 0    a    1
+#:> 1    b    2
+#:> 2  NaN  NaN 
+#:> 
+#:>  Extracted Dataframe witn Names:
+#:>    Letter    1
+#:> 0      a    1
+#:> 1      b    2
+#:> 2    NaN  NaN
 ```
 
 Below ouptut single columne, use **`expand=False`** to make the result a **Series**, instead of DataFrame.
@@ -1818,12 +1818,12 @@ print( r, '\n\n', type(r) )
 ```
 
 ```
-## 0      1
-## 1      2
-## 2    NaN
-## dtype: object 
-## 
-##  <class 'pandas.core.series.Series'>
+#:> 0      1
+#:> 1      2
+#:> 2    NaN
+#:> dtype: object 
+#:> 
+#:>  <class 'pandas.core.series.Series'>
 ```
 #### Character Extractor
 
@@ -1835,13 +1835,13 @@ monte
 ```
 
 ```
-## 0    Graham Chapman
-## 1       John Cleese
-## 2     Terry Gilliam
-## 3         Eric Idle
-## 4       Terry Jones
-## 5     Michael Palin
-## dtype: object
+#:> 0    Graham Chapman
+#:> 1       John Cleese
+#:> 2     Terry Gilliam
+#:> 3         Eric Idle
+#:> 4       Terry Jones
+#:> 5     Michael Palin
+#:> dtype: object
 ```
 
 **```startwith```**
@@ -1852,13 +1852,13 @@ monte.str.startswith('T')
 ```
 
 ```
-## 0    False
-## 1    False
-## 2     True
-## 3    False
-## 4     True
-## 5    False
-## dtype: bool
+#:> 0    False
+#:> 1    False
+#:> 2     True
+#:> 3    False
+#:> 4     True
+#:> 5    False
+#:> dtype: bool
 ```
 
 **```Slicing```**
@@ -1869,13 +1869,13 @@ monte.str[0:3]
 ```
 
 ```
-## 0    Gra
-## 1    Joh
-## 2    Ter
-## 3    Eri
-## 4    Ter
-## 5    Mic
-## dtype: object
+#:> 0    Gra
+#:> 1    Joh
+#:> 2    Ter
+#:> 3    Eri
+#:> 4    Ter
+#:> 5    Mic
+#:> dtype: object
 ```
 
 #### Splitting
@@ -1894,11 +1894,11 @@ s
 ```
 
 ```
-## 0        a_b_c
-## 1        c_d_e
-## 2          NaN
-## 3    f_g_h_i_j
-## dtype: object
+#:> 0        a_b_c
+#:> 1        c_d_e
+#:> 2          NaN
+#:> 3    f_g_h_i_j
+#:> dtype: object
 ```
 
 **```str.split()```** by default, split will split each item into **array**
@@ -1909,11 +1909,11 @@ s.str.split('_')
 ```
 
 ```
-## 0          [a, b, c]
-## 1          [c, d, e]
-## 2                NaN
-## 3    [f, g, h, i, j]
-## dtype: object
+#:> 0          [a, b, c]
+#:> 1          [c, d, e]
+#:> 2                NaN
+#:> 3    [f, g, h, i, j]
+#:> dtype: object
 ```
 
 **```expand=True```** will return a **dataframe** instead of series. By default, expand split into all possible columns.
@@ -1924,11 +1924,11 @@ print( s.str.split('_', expand=True) )
 ```
 
 ```
-##      0    1    2     3     4
-## 0    a    b    c  None  None
-## 1    c    d    e  None  None
-## 2  NaN  NaN  NaN   NaN   NaN
-## 3    f    g    h     i     j
+#:>      0    1    2     3     4
+#:> 0    a    b    c  None  None
+#:> 1    c    d    e  None  None
+#:> 2  NaN  NaN  NaN   NaN   NaN
+#:> 3    f    g    h     i     j
 ```
 
 It is possible to limit the number of columns splitted
@@ -1939,11 +1939,11 @@ print( s.str.split('_', expand=True, n=1) )
 ```
 
 ```
-##      0        1
-## 0    a      b_c
-## 1    c      d_e
-## 2  NaN      NaN
-## 3    f  g_h_i_j
+#:>      0        1
+#:> 0    a      b_c
+#:> 1    c      d_e
+#:> 2  NaN      NaN
+#:> 3    f  g_h_i_j
 ```
 
 **```str.rsplit()```**
@@ -1957,11 +1957,11 @@ print( s.str.rsplit('_', expand=True, n=1) )
 ```
 
 ```
-##          0    1
-## 0      a_b    c
-## 1      c_d    e
-## 2      NaN  NaN
-## 3  f_g_h_i    j
+#:>          0    1
+#:> 0      a_b    c
+#:> 1      c_d    e
+#:> 2      NaN  NaN
+#:> 3  f_g_h_i    j
 ```
 
 
@@ -1981,26 +1981,26 @@ print( s.str.upper(), '\n',
 ```
 
 ```
-## 0        A
-## 1        B
-## 2        C
-## 3     AABA
-## 4    BBACA
-## 5      NaN
-## 6    CCABA
-## 7      DOG
-## 8      CAT
-## dtype: object 
-##  0        A
-## 1        B
-## 2        C
-## 3     Aaba
-## 4    Bbaca
-## 5      NaN
-## 6    Ccaba
-## 7      Dog
-## 8      Cat
-## dtype: object
+#:> 0        A
+#:> 1        B
+#:> 2        C
+#:> 3     AABA
+#:> 4    BBACA
+#:> 5      NaN
+#:> 6    CCABA
+#:> 7      DOG
+#:> 8      CAT
+#:> dtype: object 
+#:>  0        A
+#:> 1        B
+#:> 2        C
+#:> 3     Aaba
+#:> 4    Bbaca
+#:> 5      NaN
+#:> 6    Ccaba
+#:> 7      Dog
+#:> 8      Cat
+#:> dtype: object
 ```
 
 #### Number of Characters
@@ -2011,16 +2011,16 @@ s.str.len()
 ```
 
 ```
-## 0    1.0
-## 1    1.0
-## 2    1.0
-## 3    4.0
-## 4    5.0
-## 5    NaN
-## 6    5.0
-## 7    3.0
-## 8    3.0
-## dtype: float64
+#:> 0    1.0
+#:> 1    1.0
+#:> 2    1.0
+#:> 3    4.0
+#:> 4    5.0
+#:> 5    NaN
+#:> 6    5.0
+#:> 7    3.0
+#:> 8    3.0
+#:> dtype: float64
 ```
 
 #### String Indexing
@@ -2034,7 +2034,7 @@ s.str[0].values    # first char
 ```
 
 ```
-## array(['A', 'B', 'C', 'A', 'B', nan, 'C', 'd', 'c'], dtype=object)
+#:> array(['A', 'B', 'C', 'A', 'B', nan, 'C', 'd', 'c'], dtype=object)
 ```
 
 ```python
@@ -2042,7 +2042,7 @@ s.str[0:2].values  # first and second char
 ```
 
 ```
-## array(['A', 'B', 'C', 'Aa', 'Ba', nan, 'CA', 'do', 'ca'], dtype=object)
+#:> array(['A', 'B', 'C', 'Aa', 'Ba', nan, 'CA', 'do', 'ca'], dtype=object)
 ```
 
 #### Series Substring Extraction
@@ -2056,10 +2056,10 @@ s
 ```
 
 ```
-## 0    a1
-## 1    b2
-## 2    c3
-## dtype: object
+#:> 0    a1
+#:> 1    b2
+#:> 2    c3
+#:> dtype: object
 ```
 
 
@@ -2072,7 +2072,7 @@ type(s.str.extract('([ab])(\d)', expand=False))
 ```
 
 ```
-## <class 'pandas.core.frame.DataFrame'>
+#:> <class 'pandas.core.frame.DataFrame'>
 ```
 
 
@@ -2096,12 +2096,12 @@ s
 ```
 
 ```
-## 0   2000-01-01 00:00:00
-## 1   1999-12-15 12:34:55
-## 2   2020-03-08 05:07:12
-## 3   2018-01-01 00:00:00
-## 4   2003-03-04 05:06:07
-## dtype: datetime64[ns]
+#:> 0   2000-01-01 00:00:00
+#:> 1   1999-12-15 12:34:55
+#:> 2   2020-03-08 05:07:12
+#:> 3   2018-01-01 00:00:00
+#:> 4   2003-03-04 05:06:07
+#:> dtype: datetime64[ns]
 ```
 
 
@@ -2116,7 +2116,7 @@ print( type(pdt) )
 ```
 
 ```
-## <class 'numpy.ndarray'>
+#:> <class 'numpy.ndarray'>
 ```
 
 ```python
@@ -2124,11 +2124,11 @@ pdt
 ```
 
 ```
-## array([datetime.datetime(2000, 1, 1, 0, 0),
-##        datetime.datetime(1999, 12, 15, 12, 34, 55),
-##        datetime.datetime(2020, 3, 8, 5, 7, 12),
-##        datetime.datetime(2018, 1, 1, 0, 0),
-##        datetime.datetime(2003, 3, 4, 5, 6, 7)], dtype=object)
+#:> array([datetime.datetime(2000, 1, 1, 0, 0),
+#:>        datetime.datetime(1999, 12, 15, 12, 34, 55),
+#:>        datetime.datetime(2020, 3, 8, 5, 7, 12),
+#:>        datetime.datetime(2018, 1, 1, 0, 0),
+#:>        datetime.datetime(2003, 3, 4, 5, 6, 7)], dtype=object)
 ```
 
 
@@ -2143,7 +2143,7 @@ print( type(sdt[1] ))
 ```
 
 ```
-## <class 'datetime.date'>
+#:> <class 'datetime.date'>
 ```
 
 ```python
@@ -2151,7 +2151,7 @@ print( type(sdt))
 ```
 
 ```
-## <class 'pandas.core.series.Series'>
+#:> <class 'pandas.core.series.Series'>
 ```
 
 ```python
@@ -2159,12 +2159,12 @@ sdt
 ```
 
 ```
-## 0    2000-01-01
-## 1    1999-12-15
-## 2    2020-03-08
-## 3    2018-01-01
-## 4    2003-03-04
-## dtype: object
+#:> 0    2000-01-01
+#:> 1    1999-12-15
+#:> 2    2020-03-08
+#:> 3    2018-01-01
+#:> 4    2003-03-04
+#:> dtype: object
 ```
 
 
@@ -2192,12 +2192,12 @@ s.dt.date
 ```
 
 ```
-## 0    2000-01-01
-## 1    1999-12-15
-## 2    2020-03-08
-## 3    2018-01-01
-## 4    2003-03-04
-## dtype: object
+#:> 0    2000-01-01
+#:> 1    1999-12-15
+#:> 2    2020-03-08
+#:> 3    2018-01-01
+#:> 4    2003-03-04
+#:> dtype: object
 ```
 
 
@@ -2206,12 +2206,12 @@ s.dt.month
 ```
 
 ```
-## 0     1
-## 1    12
-## 2     3
-## 3     1
-## 4     3
-## dtype: int64
+#:> 0     1
+#:> 1    12
+#:> 2     3
+#:> 3     1
+#:> 4     3
+#:> dtype: int64
 ```
 
 
@@ -2220,12 +2220,12 @@ s.dt.dayofweek
 ```
 
 ```
-## 0    5
-## 1    2
-## 2    6
-## 3    0
-## 4    1
-## dtype: int64
+#:> 0    5
+#:> 1    2
+#:> 2    6
+#:> 3    0
+#:> 4    1
+#:> dtype: int64
 ```
 
 
@@ -2234,12 +2234,12 @@ s.dt.weekday
 ```
 
 ```
-## 0    5
-## 1    2
-## 2    6
-## 3    0
-## 4    1
-## dtype: int64
+#:> 0    5
+#:> 1    2
+#:> 2    6
+#:> 3    0
+#:> 4    1
+#:> dtype: int64
 ```
 
 
@@ -2254,12 +2254,12 @@ s.dt.quarter
 ```
 
 ```
-## 0    1
-## 1    4
-## 2    1
-## 3    1
-## 4    1
-## dtype: int64
+#:> 0    1
+#:> 1    4
+#:> 2    1
+#:> 3    1
+#:> 4    1
+#:> dtype: int64
 ```
 
 
@@ -2268,12 +2268,12 @@ s.dt.daysinmonth
 ```
 
 ```
-## 0    31
-## 1    31
-## 2    31
-## 3    31
-## 4    31
-## dtype: int64
+#:> 0    31
+#:> 1    31
+#:> 2    31
+#:> 3    31
+#:> 4    31
+#:> dtype: int64
 ```
 
 
@@ -2282,12 +2282,12 @@ s.dt.time   # extract time as time Object
 ```
 
 ```
-## 0    00:00:00
-## 1    12:34:55
-## 2    05:07:12
-## 3    00:00:00
-## 4    05:06:07
-## dtype: object
+#:> 0    00:00:00
+#:> 1    12:34:55
+#:> 2    05:07:12
+#:> 3    00:00:00
+#:> 4    05:06:07
+#:> dtype: object
 ```
 
 
@@ -2296,12 +2296,12 @@ s.dt.hour  # extract hour as integer
 ```
 
 ```
-## 0     0
-## 1    12
-## 2     5
-## 3     0
-## 4     5
-## dtype: int64
+#:> 0     0
+#:> 1    12
+#:> 2     5
+#:> 3     0
+#:> 4     5
+#:> dtype: int64
 ```
 
 
@@ -2310,12 +2310,12 @@ s.dt.minute # extract minute as integer
 ```
 
 ```
-## 0     0
-## 1    34
-## 2     7
-## 3     0
-## 4     6
-## dtype: int64
+#:> 0     0
+#:> 1    34
+#:> 2     7
+#:> 3     0
+#:> 4     6
+#:> dtype: int64
 ```
 
 
@@ -2335,9 +2335,9 @@ print(id(empty_df1), id(empty_df2), empty_df1)
 ```
 
 ```
-## 139933086724048 139933086528592 Empty DataFrame
-## Columns: []
-## Index: []
+#:> 140042506303504 140042492611408 Empty DataFrame
+#:> Columns: []
+#:> Index: []
 ```
 
 However, you can also initialize an empty DataFrame with Index and/or Columns.
@@ -2349,10 +2349,10 @@ print( empty_df )
 ```
 
 ```
-##      A    B    C
-## 1  NaN  NaN  NaN
-## 2  NaN  NaN  NaN
-## 3  NaN  NaN  NaN
+#:>      A    B    C
+#:> 1  NaN  NaN  NaN
+#:> 2  NaN  NaN  NaN
+#:> 3  NaN  NaN  NaN
 ```
 
 Take note that below empty_df1 and empty_df2 refers to **same memory location**. Meaning they cantain similar data.
@@ -2364,7 +2364,7 @@ print(id(empty_df1), id(empty_df2))
 ```
 
 ```
-## 139933100076688 139933100076688
+#:> 140042492415056 140042492415056
 ```
 
 
@@ -2388,10 +2388,10 @@ pd.DataFrame ([[101,'Alice',40000,2017],
 ```
 
 ```
-##      0        1      2     3
-## 0  101    Alice  40000  2017
-## 1  102      Bob  24000  2017
-## 2  103  Charles  31000  2017
+#:>      0        1      2     3
+#:> 0  101    Alice  40000  2017
+#:> 1  102      Bob  24000  2017
+#:> 2  103  Charles  31000  2017
 ```
 
 **Specify Column Header during Creation**
@@ -2404,10 +2404,10 @@ pd.DataFrame ([[101,'Alice',40000,2017],
 ```
 
 ```
-##    empID     name  salary  year
-## 0    101    Alice   40000  2017
-## 1    102      Bob   24000  2017
-## 2    103  Charles   31000  2017
+#:>    empID     name  salary  year
+#:> 0    101    Alice   40000  2017
+#:> 1    102      Bob   24000  2017
+#:> 2    103  Charles   31000  2017
 ```
 
 
@@ -2421,10 +2421,10 @@ pd.DataFrame ([[101,'Alice',40000,2017],
 ```
 
 ```
-##       0        1      2     3
-## r1  101    Alice  40000  2017
-## r2  102      Bob  24000  2017
-## r3  103  Charles  31000  2017
+#:>       0        1      2     3
+#:> r1  101    Alice  40000  2017
+#:> r2  102      Bob  24000  2017
+#:> r3  103  Charles  31000  2017
 ```
 
 
@@ -2447,9 +2447,9 @@ pd.DataFrame ([{"name":"Yong", "id":1,"zkey":101},{"name":"Gan","id":2}])
 ```
 
 ```
-##    name  id   zkey
-## 0  Yong   1  101.0
-## 1   Gan   2    NaN
+#:>    name  id   zkey
+#:> 0  Yong   1  101.0
+#:> 1   Gan   2    NaN
 ```
 
 
@@ -2462,9 +2462,9 @@ pd.DataFrame ([{"name":"Yong", "id":'wd1'},{"name":"Gan","id":'wd2'}],
 ```
 
 ```
-##    name   id
-## 1  Yong  wd1
-## 2   Gan  wd2
+#:>    name   id
+#:> 1  Yong  wd1
+#:> 2   Gan  wd2
 ```
 
 
@@ -2478,9 +2478,9 @@ pd.DataFrame ([{"name":"Yong", "id":1, "zkey":101},{"name":"Gan","id":2}],
 ```
 
 ```
-##    name  id   zkey
-## 0  Yong   1  101.0
-## 1   Gan   2    NaN
+#:>    name  id   zkey
+#:> 0  Yong   1  101.0
+#:> 1   Gan   2    NaN
 ```
 
 
@@ -2509,12 +2509,12 @@ pd.DataFrame(data)
 ```
 
 ```
-##    empID  year  salary     name
-## 0    100  2017   40000    Alice
-## 1    101  2017   24000      Bob
-## 2    102  2017   31000  Charles
-## 3    103  2018   20000    David
-## 4    104  2018   30000     Eric
+#:>    empID  year  salary     name
+#:> 0    100  2017   40000    Alice
+#:> 1    101  2017   24000      Bob
+#:> 2    102  2017   31000  Charles
+#:> 3    103  2018   20000    David
+#:> 4    104  2018   30000     Eric
 ```
 
 
@@ -2530,12 +2530,12 @@ pd.DataFrame (data, index=['r1','r2','r3','r4','r5'])
 ```
 
 ```
-##     empID     name  year  salary
-## r1    100    Alice  2017   40000
-## r2    101      Bob  2017   24000
-## r3    102  Charles  2017   31000
-## r4    103    David  2018   20000
-## r5    104     Eric  2018   30000
+#:>     empID     name  year  salary
+#:> r1    100    Alice  2017   40000
+#:> r2    101      Bob  2017   24000
+#:> r3    102  Charles  2017   31000
+#:> r4    103    David  2018   20000
+#:> r5    104     Eric  2018   30000
 ```
 
 
@@ -2551,12 +2551,12 @@ pd.DataFrame (data, columns=('empID','name','salary'), index=['r1','r2','r3','r4
 ```
 
 ```
-##     empID     name  salary
-## r1    100    Alice   40000
-## r2    101      Bob   24000
-## r3    102  Charles   31000
-## r4    103    David   20000
-## r5    104     Eric   30000
+#:>     empID     name  salary
+#:> r1    100    Alice   40000
+#:> r2    101      Bob   24000
+#:> r3    102  Charles   31000
+#:> r4    103    David   20000
+#:> r5    104     Eric   30000
 ```
 
 
@@ -2585,17 +2585,17 @@ print( df1, '\n\n', df2)
 ```
 
 ```
-##        x  y    z
-## idx             
-## row1  10  1  0.1
-## row2  20  2  0.2
-## row3  30  3  0.3 
-## 
-##         x    z   k
-## idx              
-## row1  13  0.1  11
-## row2  23  0.2  21
-## row4  33  0.3  31
+#:>        x  y    z
+#:> idx             
+#:> row1  10  1  0.1
+#:> row2  20  2  0.2
+#:> row3  30  3  0.3 
+#:> 
+#:>         x    z   k
+#:> idx              
+#:> row1  13  0.1  11
+#:> row2  23  0.2  21
+#:> row4  33  0.3  31
 ```
 
 #### Addition
@@ -2613,19 +2613,19 @@ print( r1, '\n\n', r2)
 ```
 
 ```
-##        k     x   y    z
-## idx                    
-## row1 NaN  23.0 NaN  0.2
-## row2 NaN  43.0 NaN  0.4
-## row3 NaN   NaN NaN  NaN
-## row4 NaN   NaN NaN  NaN 
-## 
-##             k       x       y       z
-## idx                                 
-## row1  1011.0    23.0  1001.0     0.2
-## row2  1021.0    43.0  1002.0     0.4
-## row3     NaN  1030.0  1003.0  1000.3
-## row4  1031.0  1033.0     NaN  1000.3
+#:>        k     x   y    z
+#:> idx                    
+#:> row1 NaN  23.0 NaN  0.2
+#:> row2 NaN  43.0 NaN  0.4
+#:> row3 NaN   NaN NaN  NaN
+#:> row4 NaN   NaN NaN  NaN 
+#:> 
+#:>             k       x       y       z
+#:> idx                                 
+#:> row1  1011.0    23.0  1001.0     0.2
+#:> row2  1021.0    43.0  1002.0     0.4
+#:> row3     NaN  1030.0  1003.0  1000.3
+#:> row4  1031.0  1033.0     NaN  1000.3
 ```
 
 **Adding Series and DataFrame**
@@ -2645,26 +2645,26 @@ print('Original Data:\n',df1,'\n\n',
 ```
 
 ```
-## Original Data:
-##         x  y    z
-## idx             
-## row1  10  1  0.1
-## row2  20  2  0.2
-## row3  30  3  0.3 
-## 
-##  Add By Rows: 
-##           x    y    z
-## row1  11.0  2.0  1.1
-## row2  21.0  3.0  1.2
-## row3   NaN  NaN  NaN
-## row4   NaN  NaN  NaN 
-## 
-##  Add By Columns: 
-##         s     x    y   z
-## idx                    
-## row1 NaN  13.0  4.0 NaN
-## row2 NaN  23.0  5.0 NaN
-## row3 NaN  33.0  6.0 NaN
+#:> Original Data:
+#:>         x  y    z
+#:> idx             
+#:> row1  10  1  0.1
+#:> row2  20  2  0.2
+#:> row3  30  3  0.3 
+#:> 
+#:>  Add By Rows: 
+#:>           x    y    z
+#:> row1  11.0  2.0  1.1
+#:> row2  21.0  3.0  1.2
+#:> row3   NaN  NaN  NaN
+#:> row4   NaN  NaN  NaN 
+#:> 
+#:>  Add By Columns: 
+#:>         s     x    y   z
+#:> idx                    
+#:> row1 NaN  13.0  4.0 NaN
+#:> row2 NaN  23.0  5.0 NaN
+#:> row3 NaN  33.0  6.0 NaN
 ```
 
 #### Substraction
@@ -2678,19 +2678,19 @@ print( r1, '\n\n', r2)
 ```
 
 ```
-##        k    x   y    z
-## idx                   
-## row1 NaN  3.0 NaN  0.0
-## row2 NaN  3.0 NaN  0.0
-## row3 NaN  NaN NaN  NaN
-## row4 NaN  NaN NaN  NaN 
-## 
-##            k      x      y      z
-## idx                             
-## row1 -989.0    3.0  999.0    0.0
-## row2 -979.0    3.0  998.0    0.0
-## row3    NaN  970.0  997.0  999.7
-## row4 -969.0 -967.0    NaN -999.7
+#:>        k    x   y    z
+#:> idx                   
+#:> row1 NaN  3.0 NaN  0.0
+#:> row2 NaN  3.0 NaN  0.0
+#:> row3 NaN  NaN NaN  NaN
+#:> row4 NaN  NaN NaN  NaN 
+#:> 
+#:>            k      x      y      z
+#:> idx                             
+#:> row1 -989.0    3.0  999.0    0.0
+#:> row2 -979.0    3.0  998.0    0.0
+#:> row3    NaN  970.0  997.0  999.7
+#:> row4 -969.0 -967.0    NaN -999.7
 ```
 
 ```python
@@ -2700,21 +2700,21 @@ print( 'Original Data: \n', r2, '\n\n',
 ```
 
 ```
-## Original Data: 
-##            k      x      y      z
-## idx                             
-## row1 -989.0    3.0  999.0    0.0
-## row2 -979.0    3.0  998.0    0.0
-## row3    NaN  970.0  997.0  999.7
-## row4 -969.0 -967.0    NaN -999.7 
-## 
-##  Logical Operator:
-##            k      x      y      z
-## idx                             
-## row1  False   True  False  False
-## row2  False   True  False  False
-## row3  False  False  False  False
-## row4  False  False  False  False
+#:> Original Data: 
+#:>            k      x      y      z
+#:> idx                             
+#:> row1 -989.0    3.0  999.0    0.0
+#:> row2 -979.0    3.0  998.0    0.0
+#:> row3    NaN  970.0  997.0  999.7
+#:> row4 -969.0 -967.0    NaN -999.7 
+#:> 
+#:>  Logical Operator:
+#:>            k      x      y      z
+#:> idx                             
+#:> row1  False   True  False  False
+#:> row2  False   True  False  False
+#:> row3  False  False  False  False
+#:> row4  False  False  False  False
 ```
 
 
@@ -2740,7 +2740,7 @@ df.shape
 ```
 
 ```
-## (5, 5)
+#:> (5, 5)
 ```
 
 
@@ -2752,7 +2752,7 @@ df.index
 ```
 
 ```
-## RangeIndex(start=0, stop=5, step=1)
+#:> RangeIndex(start=0, stop=5, step=1)
 ```
 
 **Underlying Index values are numpy object**
@@ -2763,7 +2763,7 @@ df.index.values
 ```
 
 ```
-## array([0, 1, 2, 3, 4])
+#:> array([0, 1, 2, 3, 4])
 ```
 
 #### Columns
@@ -2774,7 +2774,7 @@ df.columns
 ```
 
 ```
-## Index(['year1', 'salary', 'year2', 'empID', 'name'], dtype='object')
+#:> Index(['year1', 'salary', 'year2', 'empID', 'name'], dtype='object')
 ```
 
 **Underlying Index values are numpy object**
@@ -2785,7 +2785,7 @@ df.columns.values
 ```
 
 ```
-## array(['year1', 'salary', 'year2', 'empID', 'name'], dtype=object)
+#:> array(['year1', 'salary', 'year2', 'empID', 'name'], dtype=object)
 ```
 
 #### Values
@@ -2798,11 +2798,11 @@ df.values
 ```
 
 ```
-## array([[2017, 40000, 2001, 100, 'Alice'],
-##        [2017, 24000, 1907, 101, 'Bob'],
-##        [2017, 31000, 2003, 102, 'Charles'],
-##        [2018, 20000, 1998, 103, 'David'],
-##        [2018, 30000, 2011, 104, 'Eric']], dtype=object)
+#:> array([[2017, 40000, 2001, 100, 'Alice'],
+#:>        [2017, 24000, 1907, 101, 'Bob'],
+#:>        [2017, 31000, 2003, 102, 'Charles'],
+#:>        [2018, 20000, 1998, 103, 'David'],
+#:>        [2018, 30000, 2011, 104, 'Eric']], dtype=object)
 ```
 
 ### Index Manipulation
@@ -2826,12 +2826,12 @@ print (df, '\n')
 ```
 
 ```
-##    year1  salary  year2  empID     name
-## 0   2017   40000   2001    100    Alice
-## 1   2017   24000   1907    101      Bob
-## 2   2017   31000   2003    102  Charles
-## 3   2018   20000   1998    103    David
-## 4   2018   30000   2011    104     Eric
+#:>    year1  salary  year2  empID     name
+#:> 0   2017   40000   2001    100    Alice
+#:> 1   2017   24000   1907    101      Bob
+#:> 2   2017   31000   2003    102  Charles
+#:> 3   2018   20000   1998    103    David
+#:> 4   2018   30000   2011    104     Eric
 ```
 
 ```python
@@ -2839,7 +2839,7 @@ print (df.index)
 ```
 
 ```
-## RangeIndex(start=0, stop=5, step=1)
+#:> RangeIndex(start=0, stop=5, step=1)
 ```
 
 #### Convert Column To Index
@@ -2855,12 +2855,12 @@ print(df)
 ```
 
 ```
-##    year1  salary  year2  empID     name
-## 0   2017   40000   2001    100    Alice
-## 1   2017   24000   1907    101      Bob
-## 2   2017   31000   2003    102  Charles
-## 3   2018   20000   1998    103    David
-## 4   2018   30000   2011    104     Eric
+#:>    year1  salary  year2  empID     name
+#:> 0   2017   40000   2001    100    Alice
+#:> 1   2017   24000   1907    101      Bob
+#:> 2   2017   31000   2003    102  Charles
+#:> 3   2018   20000   1998    103    David
+#:> 4   2018   30000   2011    104     Eric
 ```
 
 ```python
@@ -2868,7 +2868,7 @@ print(df.index,'\n')
 ```
 
 ```
-## RangeIndex(start=0, stop=5, step=1)
+#:> RangeIndex(start=0, stop=5, step=1)
 ```
 
 ```python
@@ -2877,13 +2877,13 @@ print(df)
 ```
 
 ```
-##        year1  salary  year2     name
-## empID                               
-## 100     2017   40000   2001    Alice
-## 101     2017   24000   1907      Bob
-## 102     2017   31000   2003  Charles
-## 103     2018   20000   1998    David
-## 104     2018   30000   2011     Eric
+#:>        year1  salary  year2     name
+#:> empID                               
+#:> 100     2017   40000   2001    Alice
+#:> 101     2017   24000   1907      Bob
+#:> 102     2017   31000   2003  Charles
+#:> 103     2018   20000   1998    David
+#:> 104     2018   30000   2011     Eric
 ```
 
 ```python
@@ -2891,7 +2891,7 @@ print(df.index) # return new DataFrameObj
 ```
 
 ```
-## Int64Index([100, 101, 102, 103, 104], dtype='int64', name='empID')
+#:> Int64Index([100, 101, 102, 103, 104], dtype='int64', name='empID')
 ```
 
 #### Convert Index Back To Column
@@ -2906,12 +2906,12 @@ print(df)
 ```
 
 ```
-##    empID  year1  salary  year2     name
-## 0    100   2017   40000   2001    Alice
-## 1    101   2017   24000   1907      Bob
-## 2    102   2017   31000   2003  Charles
-## 3    103   2018   20000   1998    David
-## 4    104   2018   30000   2011     Eric
+#:>    empID  year1  salary  year2     name
+#:> 0    100   2017   40000   2001    Alice
+#:> 1    101   2017   24000   1907      Bob
+#:> 2    102   2017   31000   2003  Charles
+#:> 3    103   2018   20000   1998    David
+#:> 4    104   2018   30000   2011     Eric
 ```
 
 #### Updating Index ( .index= )
@@ -2928,12 +2928,12 @@ df
 ```
 
 ```
-##      empID  year1  salary  year2     name
-## 101    100   2017   40000   2001    Alice
-## 101    101   2017   24000   1907      Bob
-## 101    102   2017   31000   2003  Charles
-## 102    103   2018   20000   1998    David
-## 103    104   2018   30000   2011     Eric
+#:>      empID  year1  salary  year2     name
+#:> 101    100   2017   40000   2001    Alice
+#:> 101    101   2017   24000   1907      Bob
+#:> 101    102   2017   31000   2003  Charles
+#:> 102    103   2018   20000   1998    David
+#:> 103    104   2018   30000   2011     Eric
 ```
 
 #### Reordering Index (. reindex )
@@ -2949,12 +2949,12 @@ df
 ```
 
 ```
-##      empID  year1  salary  year2     name
-## 101    100   2017   40000   2001    Alice
-## 102    101   2017   24000   1907      Bob
-## 103    102   2017   31000   2003  Charles
-## 104    103   2018   20000   1998    David
-## 105    104   2018   30000   2011     Eric
+#:>      empID  year1  salary  year2     name
+#:> 101    100   2017   40000   2001    Alice
+#:> 102    101   2017   24000   1907      Bob
+#:> 103    102   2017   31000   2003  Charles
+#:> 104    103   2018   20000   1998    David
+#:> 105    104   2018   30000   2011     Eric
 ```
 **Change the order of Index**, always return a new dataframe
 
@@ -2963,12 +2963,12 @@ df.reindex([103,102,101,104,105])
 ```
 
 ```
-##      empID  year1  salary  year2     name
-## 103    102   2017   31000   2003  Charles
-## 102    101   2017   24000   1907      Bob
-## 101    100   2017   40000   2001    Alice
-## 104    103   2018   20000   1998    David
-## 105    104   2018   30000   2011     Eric
+#:>      empID  year1  salary  year2     name
+#:> 103    102   2017   31000   2003  Charles
+#:> 102    101   2017   24000   1907      Bob
+#:> 101    100   2017   40000   2001    Alice
+#:> 104    103   2018   20000   1998    David
+#:> 105    104   2018   30000   2011     Eric
 ```
 #### Rename Index
 
@@ -2981,13 +2981,13 @@ df.rename_axis('super_id').rename_axis('my_cols', axis=1)
 ```
 
 ```
-## my_cols   empID  year1  salary  year2     name
-## super_id                                      
-## 101         100   2017   40000   2001    Alice
-## 102         101   2017   24000   1907      Bob
-## 103         102   2017   31000   2003  Charles
-## 104         103   2018   20000   1998    David
-## 105         104   2018   30000   2011     Eric
+#:> my_cols   empID  year1  salary  year2     name
+#:> super_id                                      
+#:> 101         100   2017   40000   2001    Alice
+#:> 102         101   2017   24000   1907      Bob
+#:> 103         102   2017   31000   2003  Charles
+#:> 104         103   2018   20000   1998    David
+#:> 105         104   2018   30000   2011     Eric
 ```
 ### Subsetting Columns
 
@@ -3024,33 +3024,33 @@ print(
 ```
 
 ```
-## 101      Alice
-## 102        Bob
-## 103    Charles
-## 104      David
-## 105       Eric
-## Name: name, dtype: object 
-## 
-##  101      Alice
-## 102        Bob
-## 103    Charles
-## 104      David
-## 105       Eric
-## Name: name, dtype: object 
-## 
-##  101      Alice
-## 102        Bob
-## 103    Charles
-## 104      David
-## 105       Eric
-## Name: name, dtype: object 
-## 
-##  101    2001
-## 102    1907
-## 103    2003
-## 104    1998
-## 105    2011
-## Name: year2, dtype: int64
+#:> 101      Alice
+#:> 102        Bob
+#:> 103    Charles
+#:> 104      David
+#:> 105       Eric
+#:> Name: name, dtype: object 
+#:> 
+#:>  101      Alice
+#:> 102        Bob
+#:> 103    Charles
+#:> 104      David
+#:> 105       Eric
+#:> Name: name, dtype: object 
+#:> 
+#:>  101      Alice
+#:> 102        Bob
+#:> 103    Charles
+#:> 104      David
+#:> 105       Eric
+#:> Name: name, dtype: object 
+#:> 
+#:>  101    2001
+#:> 102    1907
+#:> 103    2003
+#:> 104    1998
+#:> 105    2011
+#:> Name: year2, dtype: int64
 ```
 
 #### Select Multiple Columns
@@ -3064,12 +3064,12 @@ df[['name']]  # return one column dataframe
 ```
 
 ```
-##         name
-## 101    Alice
-## 102      Bob
-## 103  Charles
-## 104    David
-## 105     Eric
+#:>         name
+#:> 101    Alice
+#:> 102      Bob
+#:> 103  Charles
+#:> 104    David
+#:> 105     Eric
 ```
 
 
@@ -3080,19 +3080,19 @@ print(
 ```
 
 ```
-##         name  year1
-## 101    Alice   2017
-## 102      Bob   2017
-## 103  Charles   2017
-## 104    David   2018
-## 105     Eric   2018 
-## 
-##          name  year1
-## 101    Alice   2017
-## 102      Bob   2017
-## 103  Charles   2017
-## 104    David   2018
-## 105     Eric   2018
+#:>         name  year1
+#:> 101    Alice   2017
+#:> 102      Bob   2017
+#:> 103  Charles   2017
+#:> 104    David   2018
+#:> 105     Eric   2018 
+#:> 
+#:>          name  year1
+#:> 101    Alice   2017
+#:> 102      Bob   2017
+#:> 103  Charles   2017
+#:> 104    David   2018
+#:> 105     Eric   2018
 ```
 
 **Select Range of Columns**
@@ -3107,26 +3107,26 @@ print(
 ```
 
 ```
-##      year1  salary  year2
-## 101   2017   40000   2001
-## 102   2017   24000   1907
-## 103   2017   31000   2003
-## 104   2018   20000   1998
-## 105   2018   30000   2011 
-## 
-##       empID  year2
-## 101    100   2001
-## 102    101   1907
-## 103    102   2003
-## 104    103   1998
-## 105    104   2011 
-## 
-##       empID  year1  salary
-## 101    100   2017   40000
-## 102    101   2017   24000
-## 103    102   2017   31000
-## 104    103   2018   20000
-## 105    104   2018   30000
+#:>      year1  salary  year2
+#:> 101   2017   40000   2001
+#:> 102   2017   24000   1907
+#:> 103   2017   31000   2003
+#:> 104   2018   20000   1998
+#:> 105   2018   30000   2011 
+#:> 
+#:>       empID  year2
+#:> 101    100   2001
+#:> 102    101   1907
+#:> 103    102   2003
+#:> 104    103   1998
+#:> 105    104   2011 
+#:> 
+#:>       empID  year1  salary
+#:> 101    100   2017   40000
+#:> 102    101   2017   24000
+#:> 103    102   2017   31000
+#:> 104    103   2018   20000
+#:> 105    104   2018   30000
 ```
 
 #### By Column Name (.filter)
@@ -3141,12 +3141,12 @@ df.filter( like='year',  axis='columns')  ## or axis = 1
 ```
 
 ```
-##      year1  year2
-## 101   2017   2001
-## 102   2017   1907
-## 103   2017   2003
-## 104   2018   1998
-## 105   2018   2011
+#:>      year1  year2
+#:> 101   2017   2001
+#:> 102   2017   1907
+#:> 103   2017   2003
+#:> 104   2018   1998
+#:> 105   2018   2011
 ```
 
 **items = list of column names**
@@ -3157,12 +3157,12 @@ df.filter( items=('year1','year2'),  axis=1)  ## or axis = 1
 ```
 
 ```
-##      year1  year2
-## 101   2017   2001
-## 102   2017   1907
-## 103   2017   2003
-## 104   2018   1998
-## 105   2018   2011
+#:>      year1  year2
+#:> 101   2017   2001
+#:> 102   2017   1907
+#:> 103   2017   2003
+#:> 104   2018   1998
+#:> 105   2018   2011
 ```
 
 **regex = Regular Expression**   
@@ -3174,12 +3174,12 @@ df.filter(regex='\d')  ## default axis=1 if DataFrame
 ```
 
 ```
-##      year1  year2
-## 101   2017   2001
-## 102   2017   1907
-## 103   2017   2003
-## 104   2018   1998
-## 105   2018   2011
+#:>      year1  year2
+#:> 101   2017   2001
+#:> 102   2017   1907
+#:> 103   2017   2003
+#:> 104   2018   1998
+#:> 105   2018   2011
 ```
 
 #### Data Type (.select_dtypes)
@@ -3207,12 +3207,12 @@ df.select_dtypes(exclude='number')
 ```
 
 ```
-##         name
-## 101    Alice
-## 102      Bob
-## 103  Charles
-## 104    David
-## 105     Eric
+#:>         name
+#:> 101    Alice
+#:> 102      Bob
+#:> 103  Charles
+#:> 104    David
+#:> 105     Eric
 ```
 
 
@@ -3221,9 +3221,9 @@ df.select_dtypes(exclude=('number','object'))
 ```
 
 ```
-## Empty DataFrame
-## Columns: []
-## Index: [101, 102, 103, 104, 105]
+#:> Empty DataFrame
+#:> Columns: []
+#:> Index: [101, 102, 103, 104, 105]
 ```
 
 
@@ -3237,12 +3237,12 @@ df
 ```
 
 ```
-##      empID  year1  salary  year2     name
-## 101    100   2017   40000   2001    Alice
-## 102    101   2017   24000   1907      Bob
-## 103    102   2017   31000   2003  Charles
-## 104    103   2018   20000   1998    David
-## 105    104   2018   30000   2011     Eric
+#:>      empID  year1  salary  year2     name
+#:> 101    100   2017   40000   2001    Alice
+#:> 102    101   2017   24000   1907      Bob
+#:> 103    102   2017   31000   2003  Charles
+#:> 104    103   2018   20000   1998    David
+#:> 105    104   2018   30000   2011     Eric
 ```
 
 
@@ -3262,9 +3262,9 @@ df.head(2)
 ```
 
 ```
-##      year.1  salary  year.2  empID   name
-## 101     100    2017   40000   2001  Alice
-## 102     101    2017   24000   1907    Bob
+#:>      year.1  salary  year.2  empID   name
+#:> 101     100    2017   40000   2001  Alice
+#:> 102     101    2017   24000   1907    Bob
 ```
 
 
@@ -3280,9 +3280,9 @@ df.head(2)
 ```
 
 ```
-##      year1  salary  year2  empID   name
-## 101    100    2017  40000   2001  Alice
-## 102    101    2017  24000   1907    Bob
+#:>      year1  salary  year2  empID   name
+#:> 101    100    2017  40000   2001  Alice
+#:> 102    101    2017  24000   1907    Bob
 ```
 
 
@@ -3300,9 +3300,9 @@ df.reindex(columns = new_colorder).head(2)
 ```
 
 ```
-##      empID   name  salary  year1  year2
-## 101   2001  Alice    2017    100  40000
-## 102   1907    Bob    2017    101  24000
+#:>      empID   name  salary  year1  year2
+#:> 101   2001  Alice    2017    100  40000
+#:> 102   1907    Bob    2017    101  24000
 ```
 
 
@@ -3316,12 +3316,12 @@ df[new_colorder]
 ```
 
 ```
-##      empID     name  salary  year1  year2
-## 101   2001    Alice    2017    100  40000
-## 102   1907      Bob    2017    101  24000
-## 103   2003  Charles    2017    102  31000
-## 104   1998    David    2018    103  20000
-## 105   2011     Eric    2018    104  30000
+#:>      empID     name  salary  year1  year2
+#:> 101   2001    Alice    2017    100  40000
+#:> 102   1907      Bob    2017    101  24000
+#:> 103   2003  Charles    2017    102  31000
+#:> 104   1998    David    2018    103  20000
+#:> 105   2011     Eric    2018    104  30000
 ```
 
 
@@ -3336,12 +3336,12 @@ df
 ```
 
 ```
-##      year1  salary  year2  empID     name  year3
-## 101    100    2017  40000   2001    Alice    100
-## 102    101    2017  24000   1907      Bob    101
-## 103    102    2017  31000   2003  Charles    102
-## 104    103    2018  20000   1998    David    103
-## 105    104    2018  30000   2011     Eric    104
+#:>      year1  salary  year2  empID     name  year3
+#:> 101    100    2017  40000   2001    Alice    100
+#:> 102    101    2017  24000   1907      Bob    101
+#:> 103    102    2017  31000   2003  Charles    102
+#:> 104    103    2018  20000   1998    David    103
+#:> 105    104    2018  30000   2011     Eric    104
 ```
 
 
@@ -3365,12 +3365,12 @@ df.drop( columns='year1') # drop single column
 ```
 
 ```
-##      salary  year2  empID     name  year3
-## 101    2017  40000   2001    Alice    100
-## 102    2017  24000   1907      Bob    101
-## 103    2017  31000   2003  Charles    102
-## 104    2018  20000   1998    David    103
-## 105    2018  30000   2011     Eric    104
+#:>      salary  year2  empID     name  year3
+#:> 101    2017  40000   2001    Alice    100
+#:> 102    2017  24000   1907      Bob    101
+#:> 103    2017  31000   2003  Charles    102
+#:> 104    2018  20000   1998    David    103
+#:> 105    2018  30000   2011     Eric    104
 ```
 
 
@@ -3379,12 +3379,12 @@ df.drop(columns=['year2','year3'])  # drop multiple columns
 ```
 
 ```
-##      year1  salary  empID     name
-## 101    100    2017   2001    Alice
-## 102    101    2017   1907      Bob
-## 103    102    2017   2003  Charles
-## 104    103    2018   1998    David
-## 105    104    2018   2011     Eric
+#:>      year1  salary  empID     name
+#:> 101    100    2017   2001    Alice
+#:> 102    101    2017   1907      Bob
+#:> 103    102    2017   2003  Charles
+#:> 104    103    2018   1998    David
+#:> 105    104    2018   2011     Eric
 ```
 
 
@@ -3397,12 +3397,12 @@ df.drop( columns=df.columns[[3,4,5]] )   # delete columns by list of column numb
 ```
 
 ```
-##      year1  salary  year2
-## 101    100    2017  40000
-## 102    101    2017  24000
-## 103    102    2017  31000
-## 104    103    2018  20000
-## 105    104    2018  30000
+#:>      year1  salary  year2
+#:> 101    100    2017  40000
+#:> 102    101    2017  24000
+#:> 103    102    2017  31000
+#:> 104    103    2018  20000
+#:> 105    104    2018  30000
 ```
 
 
@@ -3411,12 +3411,12 @@ df.drop( columns=df.columns[3:6] )       # delete columns by range of column num
 ```
 
 ```
-##      year1  salary  year2
-## 101    100    2017  40000
-## 102    101    2017  24000
-## 103    102    2017  31000
-## 104    103    2018  20000
-## 105    104    2018  30000
+#:>      year1  salary  year2
+#:> 101    100    2017  40000
+#:> 102    101    2017  24000
+#:> 103    102    2017  31000
+#:> 104    103    2018  20000
+#:> 105    104    2018  30000
 ```
 
 
@@ -3448,13 +3448,13 @@ df
 ```
 
 ```
-##        year1  salary  year2     name
-## empID                               
-## 100     2017   40000   2001    Alice
-## 101     2017   24000   1907      Bob
-## 102     2017   31000   2003  Charles
-## 103     2018   20000   1998    David
-## 104     2018   30000   2011     Eric
+#:>        year1  salary  year2     name
+#:> empID                               
+#:> 100     2017   40000   2001    Alice
+#:> 101     2017   24000   1907      Bob
+#:> 102     2017   31000   2003  Charles
+#:> 103     2018   20000   1998    David
+#:> 104     2018   30000   2011     Eric
 ```
 
 
@@ -3470,11 +3470,11 @@ df.loc[101]         # by single row label, return series
 ```
 
 ```
-## year1      2017
-## salary    24000
-## year2      1907
-## name        Bob
-## Name: 101, dtype: object
+#:> year1      2017
+#:> salary    24000
+#:> year2      1907
+#:> name        Bob
+#:> Name: 101, dtype: object
 ```
 
 
@@ -3486,10 +3486,10 @@ df.loc[ [100,103] ]  # by multiple row labels
 ```
 
 ```
-##        year1  salary  year2   name
-## empID                             
-## 100     2017   40000   2001  Alice
-## 103     2018   20000   1998  David
+#:>        year1  salary  year2   name
+#:> empID                             
+#:> 100     2017   40000   2001  Alice
+#:> 103     2018   20000   1998  David
 ```
 
 
@@ -3498,12 +3498,12 @@ df.loc[  100:103  ]  # by range of row labels
 ```
 
 ```
-##        year1  salary  year2     name
-## empID                               
-## 100     2017   40000   2001    Alice
-## 101     2017   24000   1907      Bob
-## 102     2017   31000   2003  Charles
-## 103     2018   20000   1998    David
+#:>        year1  salary  year2     name
+#:> empID                               
+#:> 100     2017   40000   2001    Alice
+#:> 101     2017   24000   1907      Bob
+#:> 102     2017   31000   2003  Charles
+#:> 103     2018   20000   1998    David
 ```
 
 
@@ -3516,13 +3516,13 @@ print (criteria)
 ```
 
 ```
-## empID
-## 100     True
-## 101    False
-## 102     True
-## 103    False
-## 104    False
-## dtype: bool
+#:> empID
+#:> 100     True
+#:> 101    False
+#:> 102     True
+#:> 103    False
+#:> 104    False
+#:> dtype: bool
 ```
 
 ```python
@@ -3530,10 +3530,10 @@ print (df.loc[criteria])
 ```
 
 ```
-##        year1  salary  year2     name
-## empID                               
-## 100     2017   40000   2001    Alice
-## 102     2017   31000   2003  Charles
+#:>        year1  salary  year2     name
+#:> empID                               
+#:> 100     2017   40000   2001    Alice
+#:> 102     2017   31000   2003  Charles
 ```
 
 
@@ -3546,11 +3546,11 @@ df.iloc[1]  # by single row number
 ```
 
 ```
-## year1      2017
-## salary    24000
-## year2      1907
-## name        Bob
-## Name: 101, dtype: object
+#:> year1      2017
+#:> salary    24000
+#:> year2      1907
+#:> name        Bob
+#:> Name: 101, dtype: object
 ```
 
 
@@ -3562,10 +3562,10 @@ df.iloc[ [0,3] ]    # by row numbers
 ```
 
 ```
-##        year1  salary  year2   name
-## empID                             
-## 100     2017   40000   2001  Alice
-## 103     2018   20000   1998  David
+#:>        year1  salary  year2   name
+#:> empID                             
+#:> 100     2017   40000   2001  Alice
+#:> 103     2018   20000   1998  David
 ```
 
 
@@ -3574,11 +3574,11 @@ df.iloc[  0:3  ]    # by row number range
 ```
 
 ```
-##        year1  salary  year2     name
-## empID                               
-## 100     2017   40000   2001    Alice
-## 101     2017   24000   1907      Bob
-## 102     2017   31000   2003  Charles
+#:>        year1  salary  year2     name
+#:> empID                               
+#:> 100     2017   40000   2001    Alice
+#:> 101     2017   24000   1907      Bob
+#:> 102     2017   31000   2003  Charles
 ```
 
 #### By Expression (.query)
@@ -3591,10 +3591,10 @@ df.query('salary<=31000 and year1 == 2017')
 ```
 
 ```
-##        year1  salary  year2     name
-## empID                               
-## 101     2017   24000   1907      Bob
-## 102     2017   31000   2003  Charles
+#:>        year1  salary  year2     name
+#:> empID                               
+#:> 101     2017   24000   1907      Bob
+#:> 102     2017   31000   2003  Charles
 ```
 
 #### By Random (.sample)
@@ -3606,11 +3606,11 @@ df.sample(frac=0.6) #randomly pick 60% of rows, without replacement
 ```
 
 ```
-##        year1  salary  year2     name
-## empID                               
-## 102     2017   31000   2003  Charles
-## 103     2018   20000   1998    David
-## 104     2018   30000   2011     Eric
+#:>        year1  salary  year2     name
+#:> empID                               
+#:> 102     2017   31000   2003  Charles
+#:> 103     2018   20000   1998    David
+#:> 104     2018   30000   2011     Eric
 ```
 
 ### Row Manipulation
@@ -3651,32 +3651,32 @@ print("Original DataFrame:\n", my_df,
 ```
 
 ```
-## Original DataFrame:
-##     Id Name
-## 0  10  Aaa
-## 1  20  Bbb
-## 2  30  Ccc 
-## 
-## To Be Appended DataFrame:
-##     Id Name  Age
-## 0  40  Ddd   12
-## 1  50  Eee   13 
-## 
-## Appended DataFrame (index maintained):
-##     Id Name   Age
-## 0  10  Aaa   NaN
-## 1  20  Bbb   NaN
-## 2  30  Ccc   NaN
-## 0  40  Ddd  12.0
-## 1  50  Eee  13.0 
-## 
-## Appended DataFrame (index ignored):
-##     Id Name   Age
-## 0  10  Aaa   NaN
-## 1  20  Bbb   NaN
-## 2  30  Ccc   NaN
-## 3  40  Ddd  12.0
-## 4  50  Eee  13.0
+#:> Original DataFrame:
+#:>     Id Name
+#:> 0  10  Aaa
+#:> 1  20  Bbb
+#:> 2  30  Ccc 
+#:> 
+#:> To Be Appended DataFrame:
+#:>     Id Name  Age
+#:> 0  40  Ddd   12
+#:> 1  50  Eee   13 
+#:> 
+#:> Appended DataFrame (index maintained):
+#:>     Id Name   Age
+#:> 0  10  Aaa   NaN
+#:> 1  20  Bbb   NaN
+#:> 2  30  Ccc   NaN
+#:> 0  40  Ddd  12.0
+#:> 1  50  Eee  13.0 
+#:> 
+#:> Appended DataFrame (index ignored):
+#:>     Id Name   Age
+#:> 0  10  Aaa   NaN
+#:> 1  20  Bbb   NaN
+#:> 2  30  Ccc   NaN
+#:> 3  40  Ddd  12.0
+#:> 4  50  Eee  13.0
 ```
 
 **Append From Dictionary**
@@ -3701,27 +3701,27 @@ print("Original DataFrame:\n", my_df,
 ```
 
 ```
-## Original DataFrame:
-##     Name
-## Id     
-## 10  Aaa
-## 20  Bbb
-## 30  Ccc 
-## 
-## Add One Item (index ignored):
-##    Name    Id
-## 0  Aaa   NaN
-## 1  Bbb   NaN
-## 2  Ccc   NaN
-## 3  Ddd  40.0 
-## 
-## Add Multi Item (index ignored):
-##    Name    Id
-## 0  Aaa   NaN
-## 1  Bbb   NaN
-## 2  Ccc   NaN
-## 3  Eee  50.0
-## 4  Fff  60.0
+#:> Original DataFrame:
+#:>     Name
+#:> Id     
+#:> 10  Aaa
+#:> 20  Bbb
+#:> 30  Ccc 
+#:> 
+#:> Add One Item (index ignored):
+#:>    Name    Id
+#:> 0  Aaa   NaN
+#:> 1  Bbb   NaN
+#:> 2  Ccc   NaN
+#:> 3  Ddd  40.0 
+#:> 
+#:> Add Multi Item (index ignored):
+#:>    Name    Id
+#:> 0  Aaa   NaN
+#:> 1  Bbb   NaN
+#:> 2  Ccc   NaN
+#:> 3  Eee  50.0
+#:> 4  Fff  60.0
 ```
 
 
@@ -3742,26 +3742,26 @@ print("Original DataFrame:\n", my_df,
 ```
 
 ```
-## Original DataFrame:
-##     Name
-## Id     
-## 10  Aaa
-## 20  Bbb
-## 30  Ccc 
-## 
-## Add One None (index ignored):
-##     Name
-## Id     
-## 10  Aaa
-## 20  Bbb
-## 30  Ccc 
-## 
-## Add List of None (index ignored):
-##     Name     0
-## 10  Aaa   NaN
-## 20  Bbb   NaN
-## 30  Ccc   NaN
-## 0   NaN  None
+#:> Original DataFrame:
+#:>     Name
+#:> Id     
+#:> 10  Aaa
+#:> 20  Bbb
+#:> 30  Ccc 
+#:> 
+#:> Add One None (index ignored):
+#:>     Name
+#:> Id     
+#:> 10  Aaa
+#:> 20  Bbb
+#:> 30  Ccc 
+#:> 
+#:> Add List of None (index ignored):
+#:>     Name     0
+#:> 10  Aaa   NaN
+#:> 20  Bbb   NaN
+#:> 30  Ccc   NaN
+#:> 0   NaN  None
 ```
 
 **Appending Items Containing None** results in **ERROR**
@@ -3790,12 +3790,12 @@ df.drop(index=100)       # single row
 ```
 
 ```
-##        year1  salary  year2     name
-## empID                               
-## 101     2017   24000   1907      Bob
-## 102     2017   31000   2003  Charles
-## 103     2018   20000   1998    David
-## 104     2018   30000   2011     Eric
+#:>        year1  salary  year2     name
+#:> empID                               
+#:> 101     2017   24000   1907      Bob
+#:> 102     2017   31000   2003  Charles
+#:> 103     2018   20000   1998    David
+#:> 104     2018   30000   2011     Eric
 ```
 
 
@@ -3804,11 +3804,11 @@ df.drop(index=[100,103])   # multiple rows
 ```
 
 ```
-##        year1  salary  year2     name
-## empID                               
-## 101     2017   24000   1907      Bob
-## 102     2017   31000   2003  Charles
-## 104     2018   30000   2011     Eric
+#:>        year1  salary  year2     name
+#:> empID                               
+#:> 101     2017   24000   1907      Bob
+#:> 102     2017   31000   2003  Charles
+#:> 104     2018   30000   2011     Eric
 ```
 
 
@@ -3823,13 +3823,13 @@ df
 ```
 
 ```
-##        year1  salary  year2     name
-## empID                               
-## 100     2017   40000   2001    Alice
-## 101     2017   24000   1907      Bob
-## 102     2017   31000   2003  Charles
-## 103     2018   20000   1998    David
-## 104     2018   30000   2011     Eric
+#:>        year1  salary  year2     name
+#:> empID                               
+#:> 100     2017   40000   2001    Alice
+#:> 101     2017   24000   1907      Bob
+#:> 102     2017   31000   2003  Charles
+#:> 103     2018   20000   1998    David
+#:> 104     2018   30000   2011     Eric
 ```
 
 
@@ -3849,7 +3849,7 @@ print (df.loc[100,'year1'])
 ```
 
 ```
-## 2017
+#:> 2017
 ```
 
 
@@ -3861,7 +3861,7 @@ print (df.iloc[1,2])
 ```
 
 ```
-## 1907
+#:> 1907
 ```
 
 
@@ -3882,10 +3882,10 @@ print (df.loc[ [101,103], ['name','year1'] ], '\n')  # by list of row label and 
 ```
 
 ```
-##         name  year1
-## empID              
-## 101      Bob   2017
-## 103    David   2018
+#:>         name  year1
+#:> empID              
+#:> 101      Bob   2017
+#:> 103    David   2018
 ```
 
 ```python
@@ -3893,12 +3893,12 @@ print (df.loc[  101:104 ,  'year1':'year2'  ], '\n')  # by range of row label an
 ```
 
 ```
-##        year1  salary  year2
-## empID                      
-## 101     2017   24000   1907
-## 102     2017   31000   2003
-## 103     2018   20000   1998
-## 104     2018   30000   2011
+#:>        year1  salary  year2
+#:> empID                      
+#:> 101     2017   24000   1907
+#:> 102     2017   31000   2003
+#:> 103     2018   20000   1998
+#:> 104     2018   30000   2011
 ```
 
 
@@ -3910,11 +3910,11 @@ df.loc[df.year1==2017, 'year1':'year2']
 ```
 
 ```
-##        year1  salary  year2
-## empID                      
-## 100     2017   40000   2001
-## 101     2017   24000   1907
-## 102     2017   31000   2003
+#:>        year1  salary  year2
+#:> empID                      
+#:> 100     2017   40000   2001
+#:> 101     2017   24000   1907
+#:> 102     2017   31000   2003
 ```
 
 
@@ -3926,10 +3926,10 @@ print (df.iloc[ [1,4], [0,3]],'\n' )   # by individual rows/columns
 ```
 
 ```
-##        year1  name
-## empID             
-## 101     2017   Bob
-## 104     2018  Eric
+#:>        year1  name
+#:> empID             
+#:> 101     2017   Bob
+#:> 104     2018  Eric
 ```
 
 ```python
@@ -3937,11 +3937,11 @@ print (df.iloc[  1:4 ,  0:3], '\n')    # by range
 ```
 
 ```
-##        year1  salary  year2
-## empID                      
-## 101     2017   24000   1907
-## 102     2017   31000   2003
-## 103     2018   20000   1998
+#:>        year1  salary  year2
+#:> empID                      
+#:> 101     2017   24000   1907
+#:> 102     2017   31000   2003
+#:> 103     2018   20000   1998
 ```
 
 
@@ -3968,13 +3968,13 @@ df
 ```
 
 ```
-##        year1  salary  year2     name
-## empID                               
-## 100     2017   40000   2001    Alice
-## 101     2017   24000   1907      Bob
-## 102     2017   31000   2003  Charles
-## 103     2018   20000   1998    David
-## 104     2018   30000   2011     Eric
+#:>        year1  salary  year2     name
+#:> empID                               
+#:> 100     2017   40000   2001    Alice
+#:> 101     2017   24000   1907      Bob
+#:> 102     2017   31000   2003  Charles
+#:> 103     2018   20000   1998    David
+#:> 104     2018   30000   2011     Eric
 ```
 
 
@@ -3983,15 +3983,15 @@ df.loc[100]['year'] =2000
 ```
 
 ```
-## /home/msfz751/anaconda3/envs/python_book/bin/python:1: SettingWithCopyWarning: 
-## A value is trying to be set on a copy of a slice from a DataFrame
-## 
-## See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-## /home/msfz751/.local/lib/python3.7/site-packages/pandas/core/indexing.py:670: SettingWithCopyWarning: 
-## A value is trying to be set on a copy of a slice from a DataFrame
-## 
-## See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-##   iloc._setitem_with_indexer(indexer, value)
+#:> /home/msfz751/anaconda3/envs/python_book/bin/python:1: SettingWithCopyWarning: 
+#:> A value is trying to be set on a copy of a slice from a DataFrame
+#:> 
+#:> See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+#:> /home/msfz751/.local/lib/python3.7/site-packages/pandas/core/indexing.py:670: SettingWithCopyWarning: 
+#:> A value is trying to be set on a copy of a slice from a DataFrame
+#:> 
+#:> See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+#:>   iloc._setitem_with_indexer(indexer, value)
 ```
 
 ```python
@@ -3999,13 +3999,13 @@ df  ## notice row label 100 had not been updated, because data was updated on a 
 ```
 
 ```
-##        year1  salary  year2     name
-## empID                               
-## 100     2017   40000   2001    Alice
-## 101     2017   24000   1907      Bob
-## 102     2017   31000   2003  Charles
-## 103     2018   20000   1998    David
-## 104     2018   30000   2011     Eric
+#:>        year1  salary  year2     name
+#:> empID                               
+#:> 100     2017   40000   2001    Alice
+#:> 101     2017   24000   1907      Bob
+#:> 102     2017   31000   2003  Charles
+#:> 103     2018   20000   1998    David
+#:> 104     2018   30000   2011     Eric
 ```
 
 ### Cell Value Replacement
@@ -4033,23 +4033,23 @@ print('Original DF: \n', ori, '\n\n',
 ```
 
 ```
-## Original DF: 
-##        x  y  z
-## row1  1  2  3
-## row2  4  5  6
-## row3  7  8  9 
-## 
-##  Big DF : 
-##            y      x      z
-## row1  False  False  False
-## row2   True  False   True
-## row3   True   True   True 
-## 
-##  Result : 
-##          x    y    z
-## row1    1    2    3
-## row2    4  999  999
-## row3  999  999  999
+#:> Original DF: 
+#:>        x  y  z
+#:> row1  1  2  3
+#:> row2  4  5  6
+#:> row3  7  8  9 
+#:> 
+#:>  Big DF : 
+#:>            y      x      z
+#:> row1  False  False  False
+#:> row2   True  False   True
+#:> row3   True   True   True 
+#:> 
+#:>  Result : 
+#:>          x    y    z
+#:> row1    1    2    3
+#:> row2    4  999  999
+#:> row3  999  999  999
 ```
 
 #### `where()`
@@ -4062,13 +4062,13 @@ df.where(cond=df_big)
 ```
 
 ```
-##        year1  salary  year2 name
-## empID                           
-## 100      NaN     NaN    NaN  NaN
-## 101      NaN     NaN    NaN  NaN
-## 102      NaN     NaN    NaN  NaN
-## 103      NaN     NaN    NaN  NaN
-## 104      NaN     NaN    NaN  NaN
+#:>        year1  salary  year2 name
+#:> empID                           
+#:> 100      NaN     NaN    NaN  NaN
+#:> 101      NaN     NaN    NaN  NaN
+#:> 102      NaN     NaN    NaN  NaN
+#:> 103      NaN     NaN    NaN  NaN
+#:> 104      NaN     NaN    NaN  NaN
 ```
 
 ### Iteration
@@ -4087,11 +4087,11 @@ for idx, row in df.iterrows():
 ```
 
 ```
-## 100 Alice
-## 101 Bob
-## 102 Charles
-## 103 David
-## 104 Eric
+#:> 100 Alice
+#:> 101 Bob
+#:> 102 Charles
+#:> 103 David
+#:> 104 Eric
 ```
 
 #### Loop Through Columns (.itemes)
@@ -4104,28 +4104,28 @@ for label, content in df.items():
 ```
 
 ```
-## Label: Name 
-## 
-##  Content (Series):
-##  empID
-## 100      Alice
-## 101        Bob
-## 102    Charles
-## 103      David
-## 104       Eric
-## Name: Name, dtype: object 
-## 
-## 
-## Label: Year 
-## 
-##  Content (Series):
-##  empID
-## 100    1999
-## 101    1988
-## 102    2001
-## 103    2010
-## 104    2020
-## Name: Year, dtype: int64
+#:> Label: Name 
+#:> 
+#:>  Content (Series):
+#:>  empID
+#:> 100      Alice
+#:> 101        Bob
+#:> 102    Charles
+#:> 103      David
+#:> 104       Eric
+#:> Name: Name, dtype: object 
+#:> 
+#:> 
+#:> Label: Year 
+#:> 
+#:>  Content (Series):
+#:>  empID
+#:> 100    1999
+#:> 101    1988
+#:> 102    2001
+#:> 103    2010
+#:> 104    2020
+#:> Name: Year, dtype: int64
 ```
 
 ### Data Structure
@@ -4140,15 +4140,15 @@ df.info()  # return text output
 ```
 
 ```
-## <class 'pandas.core.frame.DataFrame'>
-## Int64Index: 5 entries, 100 to 104
-## Data columns (total 2 columns):
-##  #   Column  Non-Null Count  Dtype 
-## ---  ------  --------------  ----- 
-##  0   Name    5 non-null      object
-##  1   Year    5 non-null      int64 
-## dtypes: int64(1), object(1)
-## memory usage: 120.0+ bytes
+#:> <class 'pandas.core.frame.DataFrame'>
+#:> Int64Index: 5 entries, 100 to 104
+#:> Data columns (total 2 columns):
+#:>  #   Column  Non-Null Count  Dtype 
+#:> ---  ------  --------------  ----- 
+#:>  0   Name    5 non-null      object
+#:>  1   Year    5 non-null      int64 
+#:> dtypes: int64(1), object(1)
+#:> memory usage: 120.0+ bytes
 ```
 
 
@@ -4165,7 +4165,7 @@ df.to_json()
 ```
 
 ```
-## '{"Name":{"100":"Alice","101":"Bob","102":"Charles","103":"David","104":"Eric"},"Year":{"100":1999,"101":1988,"102":2001,"103":2010,"104":2020}}'
+#:> '{"Name":{"100":"Alice","101":"Bob","102":"Charles","103":"David","104":"Eric"},"Year":{"100":1999,"101":1988,"102":2001,"103":2010,"104":2020}}'
 ```
 
 
@@ -4174,10 +4174,10 @@ df.to_records()
 ```
 
 ```
-## rec.array([(100, 'Alice', 1999), (101, 'Bob', 1988),
-##            (102, 'Charles', 2001), (103, 'David', 2010),
-##            (104, 'Eric', 2020)],
-##           dtype=[('empID', '<i8'), ('Name', 'O'), ('Year', '<i8')])
+#:> rec.array([(100, 'Alice', 1999), (101, 'Bob', 1988),
+#:>            (102, 'Charles', 2001), (103, 'David', 2010),
+#:>            (104, 'Eric', 2020)],
+#:>           dtype=[('empID', '<i8'), ('Name', 'O'), ('Year', '<i8')])
 ```
 
 
@@ -4186,7 +4186,7 @@ df.to_csv()
 ```
 
 ```
-## 'empID,Name,Year\n100,Alice,1999\n101,Bob,1988\n102,Charles,2001\n103,David,2010\n104,Eric,2020\n'
+#:> 'empID,Name,Year\n100,Alice,1999\n101,Bob,1988\n102,Charles,2001\n103,David,2010\n104,Eric,2020\n'
 ```
 
 
@@ -4209,11 +4209,11 @@ df
 ```
 
 ```
-##          One_X  One_Y  Two_X  Two_Y
-## myindex                            
-## 0          1.1    1.2   1.11   1.22
-## 1          1.1    1.2   1.11   1.22
-## 2          1.1    1.2   1.11   1.22
+#:>          One_X  One_Y  Two_X  Two_Y
+#:> myindex                            
+#:> 0          1.1    1.2   1.11   1.22
+#:> 1          1.1    1.2   1.11   1.22
+#:> 2          1.1    1.2   1.11   1.22
 ```
 
 ### Creating MultiIndex Object
@@ -4235,26 +4235,26 @@ print(' Column Headers :\n\n',           my_tuples,
 ```
 
 ```
-##  Column Headers :
-## 
-##  [('One', 'X'), ('One', 'Y'), ('Two', 'X'), ('Two', 'Y')] 
-## 
-## New Columns: 
-## 
-##  MultiIndex([('One', 'X'),
-##             ('One', 'Y'),
-##             ('Two', 'X'),
-##             ('Two', 'Y')],
-##            ) 
-## 
-## Two Layers Header DF:
-## 
-##           One        Two      
-##            X    Y     X     Y
-## myindex                      
-## 0        1.1  1.2  1.11  1.22
-## 1        1.1  1.2  1.11  1.22
-## 2        1.1  1.2  1.11  1.22
+#:>  Column Headers :
+#:> 
+#:>  [('One', 'X'), ('One', 'Y'), ('Two', 'X'), ('Two', 'Y')] 
+#:> 
+#:> New Columns: 
+#:> 
+#:>  MultiIndex([('One', 'X'),
+#:>             ('One', 'Y'),
+#:>             ('Two', 'X'),
+#:>             ('Two', 'Y')],
+#:>            ) 
+#:> 
+#:> Two Layers Header DF:
+#:> 
+#:>           One        Two      
+#:>            X    Y     X     Y
+#:> myindex                      
+#:> 0        1.1  1.2  1.11  1.22
+#:> 1        1.1  1.2  1.11  1.22
+#:> 2        1.1  1.2  1.11  1.22
 ```
 
 
@@ -4273,8 +4273,8 @@ print(df.columns.get_level_values(0), '\n',
 ```
 
 ```
-## Index(['One', 'One', 'Two', 'Two'], dtype='object') 
-##  Index(['X', 'Y', 'X', 'Y'], dtype='object')
+#:> Index(['One', 'One', 'Two', 'Two'], dtype='object') 
+#:>  Index(['X', 'Y', 'X', 'Y'], dtype='object')
 ```
 
 **`MultiIndex.levels`** return the **unique values** of each level.
@@ -4286,8 +4286,8 @@ print(df.columns.levels[0], '\n',
 ```
 
 ```
-## Index(['One', 'Two'], dtype='object') 
-##  Index(['X', 'Y'], dtype='object')
+#:> Index(['One', 'Two'], dtype='object') 
+#:>  Index(['X', 'Y'], dtype='object')
 ```
 
 #### Convert MultiIndex Back To Tuples
@@ -4298,7 +4298,7 @@ df.columns.to_list()
 ```
 
 ```
-## [('One', 'X'), ('One', 'Y'), ('Two', 'X'), ('Two', 'Y')]
+#:> [('One', 'X'), ('One', 'Y'), ('Two', 'X'), ('Two', 'Y')]
 ```
 
 ### Selecting Column(s)
@@ -4327,11 +4327,11 @@ print( test_df )
 ```
 
 ```
-##        Male          Female          Pondan         
-##      Medium High Low Medium High Low Medium High Low
-## row1      1    2   3      4    5   6      7    8   9
-## row2     11   12  13     14   15  16     17   18  19
-## row3     21   22  23     24   25  26     27   28  29
+#:>        Male          Female          Pondan         
+#:>      Medium High Low Medium High Low Medium High Low
+#:> row1      1    2   3      4    5   6      7    8   9
+#:> row2     11   12  13     14   15  16     17   18  19
+#:> row3     21   22  23     24   25  26     27   28  29
 ```
 
 #### Select Level0 Header(s)
@@ -4346,21 +4346,21 @@ print( test_df[['Male','Pondan']] ,'\n\n',  ## Include multiple Level0 Header
 ```
 
 ```
-##        Male          Pondan         
-##      Medium High Low Medium High Low
-## row1      1    2   3      7    8   9
-## row2     11   12  13     17   18  19
-## row3     21   22  23     27   28  29 
-## 
-##        Medium  High  Low
-## row1       1     2    3
-## row2      11    12   13
-## row3      21    22   23 
-## 
-##        Medium  High  Low
-## row1       1     2    3
-## row2      11    12   13
-## row3      21    22   23
+#:>        Male          Pondan         
+#:>      Medium High Low Medium High Low
+#:> row1      1    2   3      7    8   9
+#:> row2     11   12  13     17   18  19
+#:> row3     21   22  23     27   28  29 
+#:> 
+#:>        Medium  High  Low
+#:> row1       1     2    3
+#:> row2      11    12   13
+#:> row3      21    22   23 
+#:> 
+#:>        Medium  High  Low
+#:> row1       1     2    3
+#:> row2      11    12   13
+#:> row3      21    22   23
 ```
 
 **Using `.loc[]`**
@@ -4374,16 +4374,16 @@ print( test_df.loc[:, ['Male','Pondan']] , '\n\n',  ## Multiple Level0 Header
 ```
 
 ```
-##        Male          Pondan         
-##      Medium High Low Medium High Low
-## row1      1    2   3      7    8   9
-## row2     11   12  13     17   18  19
-## row3     21   22  23     27   28  29 
-## 
-##        Medium  High  Low
-## row1       1     2    3
-## row2      11    12   13
-## row3      21    22   23
+#:>        Male          Pondan         
+#:>      Medium High Low Medium High Low
+#:> row1      1    2   3      7    8   9
+#:> row2     11   12  13     17   18  19
+#:> row3     21   22  23     27   28  29 
+#:> 
+#:>        Medium  High  Low
+#:> row1       1     2    3
+#:> row2      11    12   13
+#:> row3      21    22   23
 ```
 
 #### Selecting Level 1 Header(s)
@@ -4398,17 +4398,17 @@ print( test_df.loc[ : , (All, 'High')],  '\n\n',  ## Signle L1 header
 ```
 
 ```
-##      Male Female Pondan
-##      High   High   High
-## row1    2      5      8
-## row2   12     15     18
-## row3   22     25     28 
-## 
-##       Male     Female     Pondan    
-##      High Low   High Low   High Low
-## row1    2   3      5   6      8   9
-## row2   12  13     15  16     18  19
-## row3   22  23     25  26     28  29
+#:>      Male Female Pondan
+#:>      High   High   High
+#:> row1    2      5      8
+#:> row2   12     15     18
+#:> row3   22     25     28 
+#:> 
+#:>       Male     Female     Pondan    
+#:>      High Low   High Low   High Low
+#:> row1    2   3      5   6      8   9
+#:> row2   12  13     15  16     18  19
+#:> row3   22  23     25  26     28  29
 ```
 
 #### Select Level 0 and Level1 Headers
@@ -4421,11 +4421,11 @@ test_df.loc[ : , (['Male','Pondan'], ['Medium','High'])]
 ```
 
 ```
-##        Male      Pondan     
-##      Medium High Medium High
-## row1      1    2      7    8
-## row2     11   12     17   18
-## row3     21   22     27   28
+#:>        Male      Pondan     
+#:>      Medium High Medium High
+#:> row1      1    2      7    8
+#:> row2     11   12     17   18
+#:> row3     21   22     27   28
 ```
 
 #### Select single L0,L1 Header
@@ -4440,16 +4440,16 @@ print( test_df.loc[ : , ('Female', 'High')], '\n\n',
 ```
 
 ```
-## row1     5
-## row2    15
-## row3    25
-## Name: (Female, High), dtype: int64 
-## 
-##       Female
-##        High
-## row1      5
-## row2     15
-## row3     25
+#:> row1     5
+#:> row2    15
+#:> row3    25
+#:> Name: (Female, High), dtype: int64 
+#:> 
+#:>       Female
+#:>        High
+#:> row1      5
+#:> row2     15
+#:> row3     25
 ```
 
 ### Headers Ordering
@@ -4468,23 +4468,23 @@ print(test_df, '\n\n',test_df_sorted_l0, '\n\n', test_df_sorted_l1)
 ```
 
 ```
-##        Male          Female          Pondan         
-##      Medium High Low Medium High Low Medium High Low
-## row1      1    2   3      4    5   6      7    8   9
-## row2     11   12  13     14   15  16     17   18  19
-## row3     21   22  23     24   25  26     27   28  29 
-## 
-##       Female            Male            Pondan           
-##        High Low Medium High Low Medium   High Low Medium
-## row1      5   6      4    2   3      1      8   9      7
-## row2     15  16     14   12  13     11     18  19     17
-## row3     25  26     24   22  23     21     28  29     27 
-## 
-##       Pondan   Male Female Pondan Male Female Pondan Male Female
-##      Medium Medium Medium    Low  Low    Low   High High   High
-## row1      7      1      4      9    3      6      8    2      5
-## row2     17     11     14     19   13     16     18   12     15
-## row3     27     21     24     29   23     26     28   22     25
+#:>        Male          Female          Pondan         
+#:>      Medium High Low Medium High Low Medium High Low
+#:> row1      1    2   3      4    5   6      7    8   9
+#:> row2     11   12  13     14   15  16     17   18  19
+#:> row3     21   22  23     24   25  26     27   28  29 
+#:> 
+#:>       Female            Male            Pondan           
+#:>        High Low Medium High Low Medium   High Low Medium
+#:> row1      5   6      4    2   3      1      8   9      7
+#:> row2     15  16     14   12  13     11     18  19     17
+#:> row3     25  26     24   22  23     21     28  29     27 
+#:> 
+#:>       Pondan   Male Female Pondan Male Female Pondan Male Female
+#:>      Medium Medium Medium    Low  Low    Low   High High   High
+#:> row1      7      1      4      9    3      6      8    2      5
+#:> row2     17     11     14     19   13     16     18   12     15
+#:> row3     27     21     24     29   23     26     28   22     25
 ```
 #### Rearranging Headers
 
@@ -4497,11 +4497,11 @@ test_df.reindex(cats, level=1, axis=1)
 ```
 
 ```
-##      Male             Female             Pondan            
-##       Low Medium High    Low Medium High    Low Medium High
-## row1    3      1    2      6      4    5      9      7    8
-## row2   13     11   12     16     14   15     19     17   18
-## row3   23     21   22     26     24   25     29     27   28
+#:>      Male             Female             Pondan            
+#:>       Low Medium High    Low Medium High    Low Medium High
+#:> row1    3      1    2      6      4    5      9      7    8
+#:> row2   13     11   12     16     14   15     19     17   18
+#:> row3   23     21   22     26     24   25     29     27   28
 ```
 
 ### Stacking and Unstacking
@@ -4512,14 +4512,14 @@ df.stack()
 ```
 
 ```
-##            One   Two
-## myindex             
-## 0       X  1.1  1.11
-##         Y  1.2  1.22
-## 1       X  1.1  1.11
-##         Y  1.2  1.22
-## 2       X  1.1  1.11
-##         Y  1.2  1.22
+#:>            One   Two
+#:> myindex             
+#:> 0       X  1.1  1.11
+#:>         Y  1.2  1.22
+#:> 1       X  1.1  1.11
+#:>         Y  1.2  1.22
+#:> 2       X  1.1  1.11
+#:>         Y  1.2  1.22
 ```
 
 #### Stacking Columns to Rows
@@ -4533,27 +4533,27 @@ print('Stacking Header Level 0: \n\n', df.stack(0),
 ```
 
 ```
-## Stacking Header Level 0: 
-## 
-##                  X     Y
-## myindex                
-## 0       One  1.10  1.20
-##         Two  1.11  1.22
-## 1       One  1.10  1.20
-##         Two  1.11  1.22
-## 2       One  1.10  1.20
-##         Two  1.11  1.22 
-## 
-## Stacking Header Level 1: 
-## 
-##             One   Two
-## myindex             
-## 0       X  1.1  1.11
-##         Y  1.2  1.22
-## 1       X  1.1  1.11
-##         Y  1.2  1.22
-## 2       X  1.1  1.11
-##         Y  1.2  1.22
+#:> Stacking Header Level 0: 
+#:> 
+#:>                  X     Y
+#:> myindex                
+#:> 0       One  1.10  1.20
+#:>         Two  1.11  1.22
+#:> 1       One  1.10  1.20
+#:>         Two  1.11  1.22
+#:> 2       One  1.10  1.20
+#:>         Two  1.11  1.22 
+#:> 
+#:> Stacking Header Level 1: 
+#:> 
+#:>             One   Two
+#:> myindex             
+#:> 0       X  1.1  1.11
+#:>         Y  1.2  1.22
+#:> 1       X  1.1  1.11
+#:>         Y  1.2  1.22
+#:> 2       X  1.1  1.11
+#:>         Y  1.2  1.22
 ```
 
 ### Exploratory Analysis
@@ -4567,12 +4567,12 @@ df
 ```
 
 ```
-##          One        Two      
-##            X    Y     X     Y
-## myindex                      
-## 0        1.1  1.2  1.11  1.22
-## 1        1.1  1.2  1.11  1.22
-## 2        1.1  1.2  1.11  1.22
+#:>          One        Two      
+#:>            X    Y     X     Y
+#:> myindex                      
+#:> 0        1.1  1.2  1.11  1.22
+#:> 1        1.1  1.2  1.11  1.22
+#:> 2        1.1  1.2  1.11  1.22
 ```
 
 
@@ -4605,16 +4605,16 @@ df.describe()
 ```
 
 ```
-##        One        Two      
-##          X    Y     X     Y
-## count  3.0  3.0  3.00  3.00
-## mean   1.1  1.2  1.11  1.22
-## std    0.0  0.0  0.00  0.00
-## min    1.1  1.2  1.11  1.22
-## 25%    1.1  1.2  1.11  1.22
-## 50%    1.1  1.2  1.11  1.22
-## 75%    1.1  1.2  1.11  1.22
-## max    1.1  1.2  1.11  1.22
+#:>        One        Two      
+#:>          X    Y     X     Y
+#:> count  3.0  3.0  3.00  3.00
+#:> mean   1.1  1.2  1.11  1.22
+#:> std    0.0  0.0  0.00  0.00
+#:> min    1.1  1.2  1.11  1.22
+#:> 25%    1.1  1.2  1.11  1.22
+#:> 50%    1.1  1.2  1.11  1.22
+#:> 75%    1.1  1.2  1.11  1.22
+#:> max    1.1  1.2  1.11  1.22
 ```
 
 
@@ -4623,18 +4623,18 @@ df.describe(percentiles=[0.9,0.3,0.2,0.1])
 ```
 
 ```
-##        One        Two      
-##          X    Y     X     Y
-## count  3.0  3.0  3.00  3.00
-## mean   1.1  1.2  1.11  1.22
-## std    0.0  0.0  0.00  0.00
-## min    1.1  1.2  1.11  1.22
-## 10%    1.1  1.2  1.11  1.22
-## 20%    1.1  1.2  1.11  1.22
-## 30%    1.1  1.2  1.11  1.22
-## 50%    1.1  1.2  1.11  1.22
-## 90%    1.1  1.2  1.11  1.22
-## max    1.1  1.2  1.11  1.22
+#:>        One        Two      
+#:>          X    Y     X     Y
+#:> count  3.0  3.0  3.00  3.00
+#:> mean   1.1  1.2  1.11  1.22
+#:> std    0.0  0.0  0.00  0.00
+#:> min    1.1  1.2  1.11  1.22
+#:> 10%    1.1  1.2  1.11  1.22
+#:> 20%    1.1  1.2  1.11  1.22
+#:> 30%    1.1  1.2  1.11  1.22
+#:> 50%    1.1  1.2  1.11  1.22
+#:> 90%    1.1  1.2  1.11  1.22
+#:> max    1.1  1.2  1.11  1.22
 ```
 
 
@@ -4646,16 +4646,16 @@ df.describe(include='all')
 ```
 
 ```
-##        One        Two      
-##          X    Y     X     Y
-## count  3.0  3.0  3.00  3.00
-## mean   1.1  1.2  1.11  1.22
-## std    0.0  0.0  0.00  0.00
-## min    1.1  1.2  1.11  1.22
-## 25%    1.1  1.2  1.11  1.22
-## 50%    1.1  1.2  1.11  1.22
-## 75%    1.1  1.2  1.11  1.22
-## max    1.1  1.2  1.11  1.22
+#:>        One        Two      
+#:>          X    Y     X     Y
+#:> count  3.0  3.0  3.00  3.00
+#:> mean   1.1  1.2  1.11  1.22
+#:> std    0.0  0.0  0.00  0.00
+#:> min    1.1  1.2  1.11  1.22
+#:> 25%    1.1  1.2  1.11  1.22
+#:> 50%    1.1  1.2  1.11  1.22
+#:> 75%    1.1  1.2  1.11  1.22
+#:> max    1.1  1.2  1.11  1.22
 ```
 
 
@@ -4667,11 +4667,11 @@ df.min()  # default axis=0, column-wise
 ```
 
 ```
-## One  X    1.10
-##      Y    1.20
-## Two  X    1.11
-##      Y    1.22
-## dtype: float64
+#:> One  X    1.10
+#:>      Y    1.20
+#:> Two  X    1.11
+#:>      Y    1.22
+#:> dtype: float64
 ```
 
 
@@ -4680,11 +4680,11 @@ df.min(axis=1) # axis=1, row-wise
 ```
 
 ```
-## myindex
-## 0    1.1
-## 1    1.1
-## 2    1.1
-## dtype: float64
+#:> myindex
+#:> 0    1.1
+#:> 1    1.1
+#:> 2    1.1
+#:> dtype: float64
 ```
 
 
@@ -4696,11 +4696,11 @@ df.sum(0)
 ```
 
 ```
-## One  X    3.30
-##      Y    3.60
-## Two  X    3.33
-##      Y    3.66
-## dtype: float64
+#:> One  X    3.30
+#:>      Y    3.60
+#:> Two  X    3.33
+#:>      Y    3.66
+#:> dtype: float64
 ```
 
 
@@ -4709,11 +4709,11 @@ df.sum(1)
 ```
 
 ```
-## myindex
-## 0    4.63
-## 1    4.63
-## 2    4.63
-## dtype: float64
+#:> myindex
+#:> 0    4.63
+#:> 1    4.63
+#:> 2    4.63
+#:> dtype: float64
 ```
 
 
@@ -4741,8 +4741,8 @@ temp_cat
 ```
 
 ```
-## ['low', 'high', 'medium', 'high', 'high', 'low', 'medium', 'medium', 'high']
-## Categories (3, object): ['high', 'low', 'medium']
+#:> ['low', 'high', 'medium', 'high', 'high', 'low', 'medium', 'medium', 'high']
+#:> Categories (3, object): ['high', 'low', 'medium']
 ```
 
 
@@ -4751,7 +4751,7 @@ type( temp_cat )
 ```
 
 ```
-## <class 'pandas.core.arrays.categorical.Categorical'>
+#:> <class 'pandas.core.arrays.categorical.Categorical'>
 ```
 
 
@@ -4765,8 +4765,8 @@ temp_cat
 ```
 
 ```
-## ['low', 'high', 'medium', 'high', 'high', 'low', 'medium', 'medium', 'high']
-## Categories (3, object): ['low', 'medium', 'high']
+#:> ['low', 'high', 'medium', 'high', 'high', 'low', 'medium', 'medium', 'high']
+#:> Categories (3, object): ['low', 'medium', 'high']
 ```
 
 
@@ -4783,7 +4783,7 @@ print (type(temp_cat))       # Series object
 ```
 
 ```
-## <class 'pandas.core.series.Series'>
+#:> <class 'pandas.core.series.Series'>
 ```
 
 ```python
@@ -4791,7 +4791,7 @@ print (type(temp_cat.cat))   # Categorical Accessor
 ```
 
 ```
-## <class 'pandas.core.arrays.categorical.CategoricalAccessor'>
+#:> <class 'pandas.core.arrays.categorical.CategoricalAccessor'>
 ```
 
 
@@ -4806,7 +4806,7 @@ print (type(temp_cat))       # Series object
 ```
 
 ```
-## <class 'pandas.core.series.Series'>
+#:> <class 'pandas.core.series.Series'>
 ```
 
 ```python
@@ -4814,7 +4814,7 @@ print (type(temp_cat.cat))   # Categorical Accessor
 ```
 
 ```
-## <class 'pandas.core.arrays.categorical.CategoricalAccessor'>
+#:> <class 'pandas.core.arrays.categorical.CategoricalAccessor'>
 ```
 
 
@@ -4823,7 +4823,7 @@ temp_cat.cat.categories
 ```
 
 ```
-## Index(['high', 'low', 'medium'], dtype='object')
+#:> Index(['high', 'low', 'medium'], dtype='object')
 ```
 
 
@@ -4837,8 +4837,8 @@ temp_cat
 ```
 
 ```
-## ['low', 'high', 'medium', 'high', 'high', 'low', 'medium', 'medium', 'high']
-## Categories (3, object): ['low' < 'medium' < 'high']
+#:> ['low', 'high', 'medium', 'high', 'high', 'low', 'medium', 'medium', 'high']
+#:> Categories (3, object): ['low' < 'medium' < 'high']
 ```
 
 
@@ -4853,7 +4853,7 @@ temp_cat.codes
 ```
 
 ```
-## array([0, 2, 1, 2, 2, 0, 1, 1, 2], dtype=int8)
+#:> array([0, 2, 1, 2, 2, 0, 1, 1, 2], dtype=int8)
 ```
 
 
@@ -4862,7 +4862,7 @@ temp_cat[0] < temp_cat[3]
 ```
 
 ```
-## False
+#:> False
 ```
 
 <!-- jupyter_markdown, jupyter_meta = list(heading_collapsed = TRUE) -->
@@ -4880,7 +4880,7 @@ temp_cat.categories
 ```
 
 ```
-## Index(['low', 'medium', 'high'], dtype='object')
+#:> Index(['low', 'medium', 'high'], dtype='object')
 ```
 
 <!-- jupyter_markdown, jupyter_meta = list(hidden = TRUE) -->
@@ -4893,7 +4893,7 @@ temp_cat.codes
 ```
 
 ```
-## array([0, 2, 1, 2, 2, 0, 1, 1, 2], dtype=int8)
+#:> array([0, 2, 1, 2, 2, 0, 1, 1, 2], dtype=int8)
 ```
 
 <!-- jupyter_markdown, jupyter_meta = list(heading_collapsed = TRUE) -->
@@ -4911,8 +4911,8 @@ new_temp_cat
 ```
 
 ```
-## ['sejuk', 'panas', 'sederhana', 'panas', 'panas', 'sejuk', 'sederhana', 'sederhana', 'panas']
-## Categories (3, object): ['sejuk' < 'sederhana' < 'panas']
+#:> ['sejuk', 'panas', 'sederhana', 'panas', 'panas', 'sejuk', 'sederhana', 'sederhana', 'panas']
+#:> Categories (3, object): ['sejuk' < 'sederhana' < 'panas']
 ```
 
 
@@ -4921,8 +4921,8 @@ temp_cat   # original category object categories not changed
 ```
 
 ```
-## ['low', 'high', 'medium', 'high', 'high', 'low', 'medium', 'medium', 'high']
-## Categories (3, object): ['low' < 'medium' < 'high']
+#:> ['low', 'high', 'medium', 'high', 'high', 'low', 'medium', 'medium', 'high']
+#:> Categories (3, object): ['low' < 'medium' < 'high']
 ```
 
 <!-- jupyter_markdown, jupyter_meta = list(hidden = TRUE) -->
@@ -4936,8 +4936,8 @@ temp_cat   # original category object categories is changed
 ```
 
 ```
-## ['sejuk', 'panas', 'sederhana', 'panas', 'panas', 'sejuk', 'sederhana', 'sederhana', 'panas']
-## Categories (3, object): ['sejuk' < 'sederhana' < 'panas']
+#:> ['sejuk', 'panas', 'sederhana', 'panas', 'panas', 'sejuk', 'sederhana', 'sederhana', 'panas']
+#:> Categories (3, object): ['sejuk' < 'sederhana' < 'panas']
 ```
 
 <!-- jupyter_markdown, jupyter_meta = list(heading_collapsed = TRUE) -->
@@ -4951,8 +4951,8 @@ temp_cat_more
 ```
 
 ```
-## ['sejuk', 'panas', 'sederhana', 'panas', 'panas', 'sejuk', 'sederhana', 'sederhana', 'panas']
-## Categories (5, object): ['sejuk' < 'sederhana' < 'panas' < 'susah' < 'senang']
+#:> ['sejuk', 'panas', 'sederhana', 'panas', 'panas', 'sejuk', 'sederhana', 'sederhana', 'panas']
+#:> Categories (5, object): ['sejuk' < 'sederhana' < 'panas' < 'susah' < 'senang']
 ```
 
 <!-- jupyter_markdown, jupyter_meta = list(heading_collapsed = TRUE) -->
@@ -4972,8 +4972,8 @@ temp_cat_removed
 ```
 
 ```
-## [NaN, 'high', 'medium', 'high', 'high', NaN, 'medium', 'medium', 'high']
-## Categories (2, object): ['high', 'medium']
+#:> [NaN, 'high', 'medium', 'high', 'high', NaN, 'medium', 'medium', 'high']
+#:> Categories (2, object): ['high', 'medium']
 ```
 
 <!-- jupyter_markdown, jupyter_meta = list(hidden = TRUE) -->
@@ -4986,8 +4986,8 @@ print (temp_cat_more)
 ```
 
 ```
-## ['sejuk', 'panas', 'sederhana', 'panas', 'panas', 'sejuk', 'sederhana', 'sederhana', 'panas']
-## Categories (5, object): ['sejuk' < 'sederhana' < 'panas' < 'susah' < 'senang']
+#:> ['sejuk', 'panas', 'sederhana', 'panas', 'panas', 'sejuk', 'sederhana', 'sederhana', 'panas']
+#:> Categories (5, object): ['sejuk' < 'sederhana' < 'panas' < 'susah' < 'senang']
 ```
 
 ```python
@@ -4995,8 +4995,8 @@ temp_cat_more.remove_unused_categories()
 ```
 
 ```
-## ['sejuk', 'panas', 'sederhana', 'panas', 'panas', 'sejuk', 'sederhana', 'sederhana', 'panas']
-## Categories (3, object): ['sejuk' < 'sederhana' < 'panas']
+#:> ['sejuk', 'panas', 'sederhana', 'panas', 'panas', 'sejuk', 'sederhana', 'sederhana', 'panas']
+#:> Categories (3, object): ['sejuk' < 'sederhana' < 'panas']
 ```
 
 <!-- jupyter_markdown, jupyter_meta = list(heading_collapsed = TRUE) -->
@@ -5010,8 +5010,8 @@ temp_cat
 ```
 
 ```
-## ['low', 'high', 'medium', 'high', 'high', 'low', 'medium', 'medium', 'high']
-## Categories (3, object): ['high' < 'low' < 'medium']
+#:> ['low', 'high', 'medium', 'high', 'high', 'low', 'medium', 'medium', 'high']
+#:> Categories (3, object): ['high' < 'low' < 'medium']
 ```
 
 
@@ -5020,8 +5020,8 @@ temp_cat.set_categories(['low','medium','sederhana','susah','senang'])
 ```
 
 ```
-## ['low', NaN, 'medium', NaN, NaN, 'low', 'medium', 'medium', NaN]
-## Categories (5, object): ['low' < 'medium' < 'sederhana' < 'susah' < 'senang']
+#:> ['low', NaN, 'medium', NaN, NaN, 'low', 'medium', 'medium', NaN]
+#:> Categories (5, object): ['low' < 'medium' < 'sederhana' < 'susah' < 'senang']
 ```
 
 <!-- jupyter_markdown, jupyter_meta = list(heading_collapsed = TRUE) -->
@@ -5036,11 +5036,11 @@ temp_cat.describe()
 ```
 
 ```
-##             counts     freqs
-## categories                  
-## high             4  0.444444
-## low              2  0.222222
-## medium           3  0.333333
+#:>             counts     freqs
+#:> categories                  
+#:> high             4  0.444444
+#:> low              2  0.222222
+#:> medium           3  0.333333
 ```
 
 <!-- jupyter_markdown, jupyter_meta = list(hidden = TRUE) -->
@@ -5052,10 +5052,10 @@ temp_cat.value_counts()
 ```
 
 ```
-## high      4
-## low       2
-## medium    3
-## dtype: int64
+#:> high      4
+#:> low       2
+#:> medium    3
+#:> dtype: int64
 ```
 
 <!-- jupyter_markdown, jupyter_meta = list(hidden = TRUE) -->
@@ -5067,8 +5067,8 @@ temp_cat.value_counts()
 ```
 
 ```
-## ('high', 'medium', ['high']
-## Categories (3, object): ['high' < 'low' < 'medium'])
+#:> ('high', 'medium', ['high']
+#:> Categories (3, object): ['high' < 'low' < 'medium'])
 ```
 
 
@@ -5103,13 +5103,13 @@ df
 ```
 
 ```
-##     A   B    C
-## 0  A1  B1   C1
-## 1  A2  B2   C2
-## 2  A3  B3   C3
-## 3  A1  B1   C1
-## 4  A3  B1  NaN
-## 5  A1  B3  NaN
+#:>     A   B    C
+#:> 0  A1  B1   C1
+#:> 1  A2  B2   C2
+#:> 2  A3  B3   C3
+#:> 3  A1  B1   C1
+#:> 4  A3  B1  NaN
+#:> 5  A1  B3  NaN
 ```
 
 
@@ -5121,13 +5121,13 @@ pd.get_dummies(df.A)
 ```
 
 ```
-##    A1  A2  A3
-## 0   1   0   0
-## 1   0   1   0
-## 2   0   0   1
-## 3   1   0   0
-## 4   0   0   1
-## 5   1   0   0
+#:>    A1  A2  A3
+#:> 0   1   0   0
+#:> 1   0   1   0
+#:> 2   0   0   1
+#:> 3   1   0   0
+#:> 4   0   0   1
+#:> 5   1   0   0
 ```
 
 
@@ -5142,13 +5142,13 @@ pd.get_dummies(df)
 ```
 
 ```
-##    A_A1  A_A2  A_A3  B_B1  B_B2  B_B3  C_C1  C_C2  C_C3
-## 0     1     0     0     1     0     0     1     0     0
-## 1     0     1     0     0     1     0     0     1     0
-## 2     0     0     1     0     0     1     0     0     1
-## 3     1     0     0     1     0     0     1     0     0
-## 4     0     0     1     1     0     0     0     0     0
-## 5     1     0     0     0     0     1     0     0     0
+#:>    A_A1  A_A2  A_A3  B_B1  B_B2  B_B3  C_C1  C_C2  C_C3
+#:> 0     1     0     0     1     0     0     1     0     0
+#:> 1     0     1     0     0     1     0     0     1     0
+#:> 2     0     0     1     0     0     1     0     0     1
+#:> 3     1     0     0     1     0     0     1     0     0
+#:> 4     0     0     1     1     0     0     0     0     0
+#:> 5     1     0     0     0     0     1     0     0     0
 ```
 
 
@@ -5161,13 +5161,13 @@ pd.get_dummies(df[cols])
 ```
 
 ```
-##    A_A1  A_A2  A_A3  B_B1  B_B2  B_B3
-## 0     1     0     0     1     0     0
-## 1     0     1     0     0     1     0
-## 2     0     0     1     0     0     1
-## 3     1     0     0     1     0     0
-## 4     0     0     1     1     0     0
-## 5     1     0     0     0     0     1
+#:>    A_A1  A_A2  A_A3  B_B1  B_B2  B_B3
+#:> 0     1     0     0     1     0     0
+#:> 1     0     1     0     0     1     0
+#:> 2     0     0     1     0     0     1
+#:> 3     1     0     0     1     0     0
+#:> 4     0     0     1     1     0     0
+#:> 5     1     0     0     0     0     1
 ```
 
 
@@ -5180,13 +5180,13 @@ pd.get_dummies(df.C)
 ```
 
 ```
-##    C1  C2  C3
-## 0   1   0   0
-## 1   0   1   0
-## 2   0   0   1
-## 3   1   0   0
-## 4   0   0   0
-## 5   0   0   0
+#:>    C1  C2  C3
+#:> 0   1   0   0
+#:> 1   0   1   0
+#:> 2   0   0   1
+#:> 3   1   0   0
+#:> 4   0   0   0
+#:> 5   0   0   0
 ```
 
 
@@ -5198,13 +5198,13 @@ pd.get_dummies(df.C,dummy_na=True)
 ```
 
 ```
-##    C1  C2  C3  NaN
-## 0   1   0   0    0
-## 1   0   1   0    0
-## 2   0   0   1    0
-## 3   1   0   0    0
-## 4   0   0   0    1
-## 5   0   0   0    1
+#:>    C1  C2  C3  NaN
+#:> 0   1   0   0    0
+#:> 1   0   1   0    0
+#:> 2   0   0   1    0
+#:> 3   1   0   0    0
+#:> 4   0   0   0    1
+#:> 5   0   0   0    1
 ```
 
 
@@ -5216,13 +5216,13 @@ pd.get_dummies(df.A, prefix='col')
 ```
 
 ```
-##    col_A1  col_A2  col_A3
-## 0       1       0       0
-## 1       0       1       0
-## 2       0       0       1
-## 3       1       0       0
-## 4       0       0       1
-## 5       1       0       0
+#:>    col_A1  col_A2  col_A3
+#:> 0       1       0       0
+#:> 1       0       1       0
+#:> 2       0       0       1
+#:> 3       1       0       0
+#:> 4       0       0       1
+#:> 5       1       0       0
 ```
 
 
@@ -5231,13 +5231,13 @@ pd.get_dummies(df[cols], prefix=['colA','colB'])
 ```
 
 ```
-##    colA_A1  colA_A2  colA_A3  colB_B1  colB_B2  colB_B3
-## 0        1        0        0        1        0        0
-## 1        0        1        0        0        1        0
-## 2        0        0        1        0        0        1
-## 3        1        0        0        1        0        0
-## 4        0        0        1        1        0        0
-## 5        1        0        0        0        0        1
+#:>    colA_A1  colA_A2  colA_A3  colB_B1  colB_B2  colB_B3
+#:> 0        1        0        0        1        0        0
+#:> 1        0        1        0        0        1        0
+#:> 2        0        0        1        0        0        1
+#:> 3        1        0        0        1        0        0
+#:> 4        0        0        1        1        0        0
+#:> 5        1        0        0        0        0        1
 ```
 
 
@@ -5251,13 +5251,13 @@ pd.get_dummies(df[cols],drop_first=True)
 ```
 
 ```
-##    A_A2  A_A3  B_B2  B_B3
-## 0     0     0     0     0
-## 1     1     0     1     0
-## 2     0     1     0     1
-## 3     0     0     0     0
-## 4     0     1     0     0
-## 5     0     0     0     1
+#:>    A_A2  A_A3  B_B2  B_B3
+#:> 0     0     0     0     0
+#:> 1     1     0     1     0
+#:> 2     0     1     0     1
+#:> 3     0     0     0     0
+#:> 4     0     1     0     0
+#:> 5     0     0     0     1
 ```
 
 ## DataFrameGroupBy
@@ -5276,20 +5276,20 @@ company
 ```
 
 ```
-##    Company Department      Name  Age  Salary  Birthdate
-## 0       C1         D1      Yong   45   15000   1/1/1970
-## 1       C1         D1      Chew   35   12000   2/1/1980
-## 2       C1         D2       Lim   34    8000  2/19/1977
-## 3       C1         D3     Jessy   23    2500  3/15/1990
-## 4       C1         D3  Hoi Ming   55   25000  4/15/1987
-## ..     ...        ...       ...  ...     ...        ...
-## 13      C3         D3     Chang   32    7900  7/26/1973
-## 14      C3         D1       Ong   44   17500  8/21/1980
-## 15      C3         D2      Lily   41   15300  7/17/1990
-## 16      C3         D3     Sally   54   21000  7/19/1968
-## 17      C3         D3    Esther   37   13500  3/16/1969
-## 
-## [18 rows x 6 columns]
+#:>    Company Department      Name  Age  Salary  Birthdate
+#:> 0       C1         D1      Yong   45   15000   1/1/1970
+#:> 1       C1         D1      Chew   35   12000   2/1/1980
+#:> 2       C1         D2       Lim   34    8000  2/19/1977
+#:> 3       C1         D3     Jessy   23    2500  3/15/1990
+#:> 4       C1         D3  Hoi Ming   55   25000  4/15/1987
+#:> ..     ...        ...       ...  ...     ...        ...
+#:> 13      C3         D3     Chang   32    7900  7/26/1973
+#:> 14      C3         D1       Ong   44   17500  8/21/1980
+#:> 15      C3         D2      Lily   41   15300  7/17/1990
+#:> 16      C3         D3     Sally   54   21000  7/19/1968
+#:> 17      C3         D3    Esther   37   13500  3/16/1969
+#:> 
+#:> [18 rows x 6 columns]
 ```
 
 ### Creating Groups
@@ -5304,7 +5304,7 @@ type(com_dep_grp)
 ```
 
 ```
-## <class 'pandas.core.groupby.generic.DataFrameGroupBy'>
+#:> <class 'pandas.core.groupby.generic.DataFrameGroupBy'>
 ```
 
 ### Properties
@@ -5317,7 +5317,7 @@ com_dep_grp.ngroups
 ```
 
 ```
-## 9
+#:> 9
 ```
 
 #### Row Numbers Associated For Each Group
@@ -5332,9 +5332,9 @@ print( gdict.keys()   , '\n\n',  # group identifier
 ```
 
 ```
-## dict_keys([('C1', 'D1'), ('C1', 'D2'), ('C1', 'D3'), ('C2', 'D1'), ('C2', 'D2'), ('C2', 'D3'), ('C3', 'D1'), ('C3', 'D2'), ('C3', 'D3')]) 
-## 
-##  dict_values([Int64Index([0, 1], dtype='int64'), Int64Index([2], dtype='int64'), Int64Index([3, 4, 5], dtype='int64'), Int64Index([6], dtype='int64'), Int64Index([7, 8, 9], dtype='int64'), Int64Index([10, 11, 12], dtype='int64'), Int64Index([14], dtype='int64'), Int64Index([15], dtype='int64'), Int64Index([13, 16, 17], dtype='int64')])
+#:> dict_keys([('C1', 'D1'), ('C1', 'D2'), ('C1', 'D3'), ('C2', 'D1'), ('C2', 'D2'), ('C2', 'D3'), ('C3', 'D1'), ('C3', 'D2'), ('C3', 'D3')]) 
+#:> 
+#:>  dict_values([Int64Index([0, 1], dtype='int64'), Int64Index([2], dtype='int64'), Int64Index([3, 4, 5], dtype='int64'), Int64Index([6], dtype='int64'), Int64Index([7, 8, 9], dtype='int64'), Int64Index([10, 11, 12], dtype='int64'), Int64Index([14], dtype='int64'), Int64Index([15], dtype='int64'), Int64Index([13, 16, 17], dtype='int64')])
 ```
 
 ### Methods
@@ -5347,17 +5347,17 @@ com_dep_grp.size()  # return panda Series object
 ```
 
 ```
-## Company  Department
-## C1       D1            2
-##          D2            1
-##          D3            3
-## C2       D1            1
-##          D2            3
-##          D3            3
-## C3       D1            1
-##          D2            1
-##          D3            3
-## dtype: int64
+#:> Company  Department
+#:> C1       D1            2
+#:>          D2            1
+#:>          D3            3
+#:> C2       D1            1
+#:>          D2            3
+#:>          D3            3
+#:> C3       D1            1
+#:>          D2            1
+#:>          D3            3
+#:> dtype: int64
 ```
 
 ### Retrieve Rows
@@ -5374,28 +5374,28 @@ print( com_dep_grp.nth(0)  , '\n',
 ```
 
 ```
-##                        Name  Age  Salary   Birthdate
-## Company Department                                  
-## C1      D1             Yong   45   15000    1/1/1970
-##         D2              Lim   34    8000   2/19/1977
-##         D3            Jessy   23    2500   3/15/1990
-## C2      D1             Anne   18     400   7/15/1997
-##         D2          Deborah   30    8600   8/15/1984
-##         D3          Michael   38   17000  11/30/1997
-## C3      D1              Ong   44   17500   8/21/1980
-##         D2             Lily   41   15300   7/17/1990
-##         D3            Chang   32    7900   7/26/1973 
-##                         Name  Age  Salary   Birthdate
-## Company Department                                  
-## C1      D1             Yong   45   15000    1/1/1970
-##         D2              Lim   34    8000   2/19/1977
-##         D3            Jessy   23    2500   3/15/1990
-## C2      D1             Anne   18     400   7/15/1997
-##         D2          Deborah   30    8600   8/15/1984
-##         D3          Michael   38   17000  11/30/1997
-## C3      D1              Ong   44   17500   8/21/1980
-##         D2             Lily   41   15300   7/17/1990
-##         D3            Chang   32    7900   7/26/1973
+#:>                        Name  Age  Salary   Birthdate
+#:> Company Department                                  
+#:> C1      D1             Yong   45   15000    1/1/1970
+#:>         D2              Lim   34    8000   2/19/1977
+#:>         D3            Jessy   23    2500   3/15/1990
+#:> C2      D1             Anne   18     400   7/15/1997
+#:>         D2          Deborah   30    8600   8/15/1984
+#:>         D3          Michael   38   17000  11/30/1997
+#:> C3      D1              Ong   44   17500   8/21/1980
+#:>         D2             Lily   41   15300   7/17/1990
+#:>         D3            Chang   32    7900   7/26/1973 
+#:>                         Name  Age  Salary   Birthdate
+#:> Company Department                                  
+#:> C1      D1             Yong   45   15000    1/1/1970
+#:>         D2              Lim   34    8000   2/19/1977
+#:>         D3            Jessy   23    2500   3/15/1990
+#:> C2      D1             Anne   18     400   7/15/1997
+#:>         D2          Deborah   30    8600   8/15/1984
+#:>         D3          Michael   38   17000  11/30/1997
+#:> C3      D1              Ong   44   17500   8/21/1980
+#:>         D2             Lily   41   15300   7/17/1990
+#:>         D3            Chang   32    7900   7/26/1973
 ```
 
 - For Last row,  use `.last()` or `nth(`-1)`
@@ -5407,28 +5407,28 @@ print( com_dep_grp.nth(-1)  , '\n',
 ```
 
 ```
-##                        Name  Age  Salary   Birthdate
-## Company Department                                  
-## C1      D1             Chew   35   12000    2/1/1980
-##         D2              Lim   34    8000   2/19/1977
-##         D3          Sui Wei   56    3000   6/15/1990
-## C2      D1             Anne   18     400   7/15/1997
-##         D2            Jimmy   46   14000  10/31/1988
-##         D3          Bernard   29    9800   12/1/1963
-## C3      D1              Ong   44   17500   8/21/1980
-##         D2             Lily   41   15300   7/17/1990
-##         D3           Esther   37   13500   3/16/1969 
-##                         Name  Age  Salary   Birthdate
-## Company Department                                  
-## C1      D1             Chew   35   12000    2/1/1980
-##         D2              Lim   34    8000   2/19/1977
-##         D3          Sui Wei   56    3000   6/15/1990
-## C2      D1             Anne   18     400   7/15/1997
-##         D2            Jimmy   46   14000  10/31/1988
-##         D3          Bernard   29    9800   12/1/1963
-## C3      D1              Ong   44   17500   8/21/1980
-##         D2             Lily   41   15300   7/17/1990
-##         D3           Esther   37   13500   3/16/1969
+#:>                        Name  Age  Salary   Birthdate
+#:> Company Department                                  
+#:> C1      D1             Chew   35   12000    2/1/1980
+#:>         D2              Lim   34    8000   2/19/1977
+#:>         D3          Sui Wei   56    3000   6/15/1990
+#:> C2      D1             Anne   18     400   7/15/1997
+#:>         D2            Jimmy   46   14000  10/31/1988
+#:>         D3          Bernard   29    9800   12/1/1963
+#:> C3      D1              Ong   44   17500   8/21/1980
+#:>         D2             Lily   41   15300   7/17/1990
+#:>         D3           Esther   37   13500   3/16/1969 
+#:>                         Name  Age  Salary   Birthdate
+#:> Company Department                                  
+#:> C1      D1             Chew   35   12000    2/1/1980
+#:>         D2              Lim   34    8000   2/19/1977
+#:>         D3          Sui Wei   56    3000   6/15/1990
+#:> C2      D1             Anne   18     400   7/15/1997
+#:>         D2            Jimmy   46   14000  10/31/1988
+#:>         D3          Bernard   29    9800   12/1/1963
+#:> C3      D1              Ong   44   17500   8/21/1980
+#:>         D2             Lily   41   15300   7/17/1990
+#:>         D3           Esther   37   13500   3/16/1969
 ```
 
 #### Retrieve N Rows Of Each Groups
@@ -5441,20 +5441,20 @@ com_dep_grp.head(2)
 ```
 
 ```
-##    Company Department      Name  Age  Salary   Birthdate
-## 0       C1         D1      Yong   45   15000    1/1/1970
-## 1       C1         D1      Chew   35   12000    2/1/1980
-## 2       C1         D2       Lim   34    8000   2/19/1977
-## 3       C1         D3     Jessy   23    2500   3/15/1990
-## 4       C1         D3  Hoi Ming   55   25000   4/15/1987
-## ..     ...        ...       ...  ...     ...         ...
-## 11      C2         D3   Jeannie   30   12500  12/31/1980
-## 13      C3         D3     Chang   32    7900   7/26/1973
-## 14      C3         D1       Ong   44   17500   8/21/1980
-## 15      C3         D2      Lily   41   15300   7/17/1990
-## 16      C3         D3     Sally   54   21000   7/19/1968
-## 
-## [14 rows x 6 columns]
+#:>    Company Department      Name  Age  Salary   Birthdate
+#:> 0       C1         D1      Yong   45   15000    1/1/1970
+#:> 1       C1         D1      Chew   35   12000    2/1/1980
+#:> 2       C1         D2       Lim   34    8000   2/19/1977
+#:> 3       C1         D3     Jessy   23    2500   3/15/1990
+#:> 4       C1         D3  Hoi Ming   55   25000   4/15/1987
+#:> ..     ...        ...       ...  ...     ...         ...
+#:> 11      C2         D3   Jeannie   30   12500  12/31/1980
+#:> 13      C3         D3     Chang   32    7900   7/26/1973
+#:> 14      C3         D1       Ong   44   17500   8/21/1980
+#:> 15      C3         D2      Lily   41   15300   7/17/1990
+#:> 16      C3         D3     Sally   54   21000   7/19/1968
+#:> 
+#:> [14 rows x 6 columns]
 ```
 
 #### Retrieve All Rows Of  Specific Group
@@ -5467,10 +5467,10 @@ com_dep_grp.get_group(('C1','D3'))
 ```
 
 ```
-##   Company Department      Name  Age  Salary  Birthdate
-## 3      C1         D3     Jessy   23    2500  3/15/1990
-## 4      C1         D3  Hoi Ming   55   25000  4/15/1987
-## 5      C1         D3   Sui Wei   56    3000  6/15/1990
+#:>   Company Department      Name  Age  Salary  Birthdate
+#:> 3      C1         D3     Jessy   23    2500  3/15/1990
+#:> 4      C1         D3  Hoi Ming   55   25000  4/15/1987
+#:> 5      C1         D3   Sui Wei   56    3000  6/15/1990
 ```
 
 ### Single Statistic Per Group
@@ -5485,17 +5485,17 @@ com_dep_grp.count()  # return panda DataFrame object
 ```
 
 ```
-##                     Name  Age  Salary  Birthdate
-## Company Department                              
-## C1      D1             2    2       2          2
-##         D2             1    1       1          1
-##         D3             3    3       3          3
-## C2      D1             1    1       1          1
-##         D2             3    3       3          3
-##         D3             3    3       3          3
-## C3      D1             1    1       1          1
-##         D2             1    1       1          1
-##         D3             3    3       3          3
+#:>                     Name  Age  Salary  Birthdate
+#:> Company Department                              
+#:> C1      D1             2    2       2          2
+#:>         D2             1    1       1          1
+#:>         D3             3    3       3          3
+#:> C2      D1             1    1       1          1
+#:>         D2             3    3       3          3
+#:>         D3             3    3       3          3
+#:> C3      D1             1    1       1          1
+#:>         D2             1    1       1          1
+#:>         D3             3    3       3          3
 ```
 
 #### `sum()`
@@ -5508,17 +5508,17 @@ com_dep_grp.sum()
 ```
 
 ```
-##                     Age  Salary
-## Company Department             
-## C1      D1           80   27000
-##         D2           34    8000
-##         D3          134   30500
-## C2      D1           18     400
-##         D2          127   34600
-##         D3           97   39300
-## C3      D1           44   17500
-##         D2           41   15300
-##         D3          123   42400
+#:>                     Age  Salary
+#:> Company Department             
+#:> C1      D1           80   27000
+#:>         D2           34    8000
+#:>         D3          134   30500
+#:> C2      D1           18     400
+#:>         D2          127   34600
+#:>         D3           97   39300
+#:> C3      D1           44   17500
+#:>         D2           41   15300
+#:>         D3          123   42400
 ```
 
 To sum specific columns of each group, use `['columnName']` to select the column.  
@@ -5530,17 +5530,17 @@ com_dep_grp['Age'].sum()
 ```
 
 ```
-## Company  Department
-## C1       D1             80
-##          D2             34
-##          D3            134
-## C2       D1             18
-##          D2            127
-##          D3             97
-## C3       D1             44
-##          D2             41
-##          D3            123
-## Name: Age, dtype: int64
+#:> Company  Department
+#:> C1       D1             80
+#:>          D2             34
+#:>          D3            134
+#:> C2       D1             18
+#:>          D2            127
+#:>          D3             97
+#:> C3       D1             44
+#:>          D2             41
+#:>          D3            123
+#:> Name: Age, dtype: int64
 ```
 
 #### `mean()`
@@ -5553,17 +5553,17 @@ com_dep_grp.mean()
 ```
 
 ```
-##                           Age        Salary
-## Company Department                         
-## C1      D1          40.000000  13500.000000
-##         D2          34.000000   8000.000000
-##         D3          44.666667  10166.666667
-## C2      D1          18.000000    400.000000
-##         D2          42.333333  11533.333333
-##         D3          32.333333  13100.000000
-## C3      D1          44.000000  17500.000000
-##         D2          41.000000  15300.000000
-##         D3          41.000000  14133.333333
+#:>                           Age        Salary
+#:> Company Department                         
+#:> C1      D1          40.000000  13500.000000
+#:>         D2          34.000000   8000.000000
+#:>         D3          44.666667  10166.666667
+#:> C2      D1          18.000000    400.000000
+#:>         D2          42.333333  11533.333333
+#:>         D3          32.333333  13100.000000
+#:> C3      D1          44.000000  17500.000000
+#:>         D2          41.000000  15300.000000
+#:>         D3          41.000000  14133.333333
 ```
 
 To average specific columns of each group, use `['columnName']` to select the column.  
@@ -5575,17 +5575,17 @@ com_dep_grp['Age'].mean()
 ```
 
 ```
-## Company  Department
-## C1       D1            40.000000
-##          D2            34.000000
-##          D3            44.666667
-## C2       D1            18.000000
-##          D2            42.333333
-##          D3            32.333333
-## C3       D1            44.000000
-##          D2            41.000000
-##          D3            41.000000
-## Name: Age, dtype: float64
+#:> Company  Department
+#:> C1       D1            40.000000
+#:>          D2            34.000000
+#:>          D3            44.666667
+#:> C2       D1            18.000000
+#:>          D2            42.333333
+#:>          D3            32.333333
+#:> C3       D1            44.000000
+#:>          D2            41.000000
+#:>          D3            41.000000
+#:> Name: Age, dtype: float64
 ```
 
 ### Multi Statistic Per Group
@@ -5606,17 +5606,17 @@ com_dep_grp.agg({
 ```
 
 ```
-##                     Age  Salary   Birthdate
-## Company Department                         
-## C1      D1           80   15000    1/1/1970
-##         D2           34    8000   2/19/1977
-##         D3          134   25000   3/15/1990
-## C2      D1           18     400   7/15/1997
-##         D2          127   14000   8/15/1984
-##         D3           97   17000  11/30/1997
-## C3      D1           44   17500   8/21/1980
-##         D2           41   15300   7/17/1990
-##         D3          123   21000   7/26/1973
+#:>                     Age  Salary   Birthdate
+#:> Company Department                         
+#:> C1      D1           80   15000    1/1/1970
+#:>         D2           34    8000   2/19/1977
+#:>         D3          134   25000   3/15/1990
+#:> C2      D1           18     400   7/15/1997
+#:>         D2          127   14000   8/15/1984
+#:>         D3           97   17000  11/30/1997
+#:> C3      D1           44   17500   8/21/1980
+#:>         D2           41   15300   7/17/1990
+#:>         D3          123   21000   7/26/1973
 ```
 
 #### Multiple Function to Column(s)
@@ -5636,24 +5636,24 @@ print (ag, '\n\n', ag.columns)
 ```
 
 ```
-##                           Age        Salary   Birthdate
-##                          mean  sum <lambda>       first
-## Company Department                                     
-## C1      D1          40.000000   80    15000    1/1/1970
-##         D2          34.000000   34     8000   2/19/1977
-##         D3          44.666667  134    25000   3/15/1990
-## C2      D1          18.000000   18      400   7/15/1997
-##         D2          42.333333  127    14000   8/15/1984
-##         D3          32.333333   97    17000  11/30/1997
-## C3      D1          44.000000   44    17500   8/21/1980
-##         D2          41.000000   41    15300   7/17/1990
-##         D3          41.000000  123    21000   7/26/1973 
-## 
-##  MultiIndex([(      'Age',     'mean'),
-##             (      'Age',      'sum'),
-##             (   'Salary', '<lambda>'),
-##             ('Birthdate',    'first')],
-##            )
+#:>                           Age        Salary   Birthdate
+#:>                          mean  sum <lambda>       first
+#:> Company Department                                     
+#:> C1      D1          40.000000   80    15000    1/1/1970
+#:>         D2          34.000000   34     8000   2/19/1977
+#:>         D3          44.666667  134    25000   3/15/1990
+#:> C2      D1          18.000000   18      400   7/15/1997
+#:>         D2          42.333333  127    14000   8/15/1984
+#:>         D3          32.333333   97    17000  11/30/1997
+#:> C3      D1          44.000000   44    17500   8/21/1980
+#:>         D2          41.000000   41    15300   7/17/1990
+#:>         D3          41.000000  123    21000   7/26/1973 
+#:> 
+#:>  MultiIndex([(      'Age',     'mean'),
+#:>             (      'Age',      'sum'),
+#:>             (   'Salary', '<lambda>'),
+#:>             ('Birthdate',    'first')],
+#:>            )
 ```
 
 #### Column Relabling
@@ -5670,17 +5670,17 @@ com_dep_grp.agg(
 ```
 
 ```
-##                     max_age  salary_m100    first_bd
-## Company Department                                  
-## C1      D1               45        15100    1/1/1970
-##         D2               34         8100   2/19/1977
-##         D3               56        25100   3/15/1990
-## C2      D1               18          500   7/15/1997
-##         D2               51        14100   8/15/1984
-##         D3               38        17100  11/30/1997
-## C3      D1               44        17600   8/21/1980
-##         D2               41        15400   7/17/1990
-##         D3               54        21100   7/26/1973
+#:>                     max_age  salary_m100    first_bd
+#:> Company Department                                  
+#:> C1      D1               45        15100    1/1/1970
+#:>         D2               34         8100   2/19/1977
+#:>         D3               56        25100   3/15/1990
+#:> C2      D1               18          500   7/15/1997
+#:>         D2               51        14100   8/15/1984
+#:>         D3               38        17100  11/30/1997
+#:> C3      D1               44        17600   8/21/1980
+#:>         D2               41        15400   7/17/1990
+#:>         D3               54        21100   7/26/1973
 ```
 
 ### Iteration
@@ -5698,18 +5698,18 @@ print_groups (com_grp)
 ```
 
 ```
-## C1
-##   Company Department  Name  Age  Salary Birthdate
-## 0      C1         D1  Yong   45   15000  1/1/1970
-## 1      C1         D1  Chew   35   12000  2/1/1980
-## C2
-##   Company Department     Name  Age  Salary  Birthdate
-## 6      C2         D1     Anne   18     400  7/15/1997
-## 7      C2         D2  Deborah   30    8600  8/15/1984
-## C3
-##    Company Department   Name  Age  Salary  Birthdate
-## 13      C3         D3  Chang   32    7900  7/26/1973
-## 14      C3         D1    Ong   44   17500  8/21/1980
+#:> C1
+#:>   Company Department  Name  Age  Salary Birthdate
+#:> 0      C1         D1  Yong   45   15000  1/1/1970
+#:> 1      C1         D1  Chew   35   12000  2/1/1980
+#:> C2
+#:>   Company Department     Name  Age  Salary  Birthdate
+#:> 6      C2         D1     Anne   18     400  7/15/1997
+#:> 7      C2         D2  Deborah   30    8600  8/15/1984
+#:> C3
+#:>    Company Department   Name  Age  Salary  Birthdate
+#:> 13      C3         D3  Chang   32    7900  7/26/1973
+#:> 14      C3         D1    Ong   44   17500  8/21/1980
 ```
 
 
@@ -5718,7 +5718,7 @@ com_grp
 ```
 
 ```
-## <pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f44b5e88b90>
+#:> <pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f5e2f2fa0d0>
 ```
 
 ### Transform
@@ -5733,11 +5733,11 @@ grp.size()
 ```
 
 ```
-## Company
-## C1    6
-## C2    7
-## C3    5
-## dtype: int64
+#:> Company
+#:> C1    6
+#:> C2    7
+#:> C3    5
+#:> dtype: int64
 ```
 
 
@@ -5749,20 +5749,20 @@ grp[['Age','Salary']].transform('sum')
 ```
 
 ```
-##     Age  Salary
-## 0   248   65500
-## 1   248   65500
-## 2   248   65500
-## 3   248   65500
-## 4   248   65500
-## ..  ...     ...
-## 13  208   75200
-## 14  208   75200
-## 15  208   75200
-## 16  208   75200
-## 17  208   75200
-## 
-## [18 rows x 2 columns]
+#:>     Age  Salary
+#:> 0   248   65500
+#:> 1   248   65500
+#:> 2   248   65500
+#:> 3   248   65500
+#:> 4   248   65500
+#:> ..  ...     ...
+#:> 13  208   75200
+#:> 14  208   75200
+#:> 15  208   75200
+#:> 16  208   75200
+#:> 17  208   75200
+#:> 
+#:> [18 rows x 2 columns]
 ```
 
 
@@ -5771,20 +5771,20 @@ grp.transform( lambda x:x+10 )
 ```
 
 ```
-##     Age  Salary
-## 0    55   15010
-## 1    45   12010
-## 2    44    8010
-## 3    33    2510
-## 4    65   25010
-## ..  ...     ...
-## 13   42    7910
-## 14   54   17510
-## 15   51   15310
-## 16   64   21010
-## 17   47   13510
-## 
-## [18 rows x 2 columns]
+#:>     Age  Salary
+#:> 0    55   15010
+#:> 1    45   12010
+#:> 2    44    8010
+#:> 3    33    2510
+#:> 4    65   25010
+#:> ..  ...     ...
+#:> 13   42    7910
+#:> 14   54   17510
+#:> 15   51   15310
+#:> 16   64   21010
+#:> 17   47   13510
+#:> 
+#:> [18 rows x 2 columns]
 ```
 
 ## Fundamental Analysis
@@ -5807,15 +5807,15 @@ df.reindex(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'])
 ```
 
 ```
-##         one       two     three four   five
-## a -0.155909 -0.501790  0.235569  bar  False
-## b       NaN       NaN       NaN  NaN    NaN
-## c -1.763605 -1.095862 -1.087766  bar  False
-## d       NaN       NaN       NaN  NaN    NaN
-## e -0.305170 -0.473748 -0.200595  bar  False
-## f  0.355197  0.689518  0.410590  bar   True
-## g       NaN       NaN       NaN  NaN    NaN
-## h -0.564978  0.599391 -0.162936  bar  False
+#:>         one       two     three four   five
+#:> a -0.155909 -0.501790  0.235569  bar  False
+#:> b       NaN       NaN       NaN  NaN    NaN
+#:> c -1.763605 -1.095862 -1.087766  bar  False
+#:> d       NaN       NaN       NaN  NaN    NaN
+#:> e -0.305170 -0.473748 -0.200595  bar  False
+#:> f  0.355197  0.689518  0.410590  bar   True
+#:> g       NaN       NaN       NaN  NaN    NaN
+#:> h -0.564978  0.599391 -0.162936  bar  False
 ```
 
 **How Missing Data For Each Column ?**
@@ -5826,12 +5826,12 @@ df.count()
 ```
 
 ```
-## one      5
-## two      5
-## three    5
-## four     5
-## five     5
-## dtype: int64
+#:> one      5
+#:> two      5
+#:> three    5
+#:> four     5
+#:> five     5
+#:> dtype: int64
 ```
 
 
@@ -5840,12 +5840,12 @@ len(df.index) - df.count()
 ```
 
 ```
-## one      0
-## two      0
-## three    0
-## four     0
-## five     0
-## dtype: int64
+#:> one      0
+#:> two      0
+#:> three    0
+#:> four     0
+#:> five     0
+#:> dtype: int64
 ```
 
 
@@ -5854,12 +5854,12 @@ df.isnull()
 ```
 
 ```
-##      one    two  three   four   five
-## a  False  False  False  False  False
-## c  False  False  False  False  False
-## e  False  False  False  False  False
-## f  False  False  False  False  False
-## h  False  False  False  False  False
+#:>      one    two  three   four   five
+#:> a  False  False  False  False  False
+#:> c  False  False  False  False  False
+#:> e  False  False  False  False  False
+#:> f  False  False  False  False  False
+#:> h  False  False  False  False  False
 ```
 
 
@@ -5868,15 +5868,15 @@ df.describe()
 ```
 
 ```
-##             one       two     three
-## count  5.000000  5.000000  5.000000
-## mean  -0.486893 -0.156498 -0.161028
-## std    0.788635  0.772882  0.579752
-## min   -1.763605 -1.095862 -1.087766
-## 25%   -0.564978 -0.501790 -0.200595
-## 50%   -0.305170 -0.473748 -0.162936
-## 75%   -0.155909  0.599391  0.235569
-## max    0.355197  0.689518  0.410590
+#:>             one       two     three
+#:> count  5.000000  5.000000  5.000000
+#:> mean  -0.486893 -0.156498 -0.161028
+#:> std    0.788635  0.772882  0.579752
+#:> min   -1.763605 -1.095862 -1.087766
+#:> 25%   -0.564978 -0.501790 -0.200595
+#:> 50%   -0.305170 -0.473748 -0.162936
+#:> 75%   -0.155909  0.599391  0.235569
+#:> max    0.355197  0.689518  0.410590
 ```
 
 

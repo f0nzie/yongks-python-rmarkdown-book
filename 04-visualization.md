@@ -2,9 +2,11 @@
 
 
 
+
 ```r
 source("R/init_python.R")
 ```
+
 
 
 
@@ -55,12 +57,12 @@ mydf.head()
 ```
 
 ```
-##   comp dept grp     value1     value2     value3
-## 0   C2   D1  G1  45.312894  20.563388 -15.143649
-## 1   C2   D4  G1  49.534042  18.070494 -29.802775
-## 2   C3   D1  G2  50.133495  13.650269  13.197111
-## 3   C2   D4  G2  46.855795  17.866985 -15.646084
-## 4   C1   D3  G1  45.956838  22.329677  12.808762
+#:>   comp dept grp     value1     value2     value3
+#:> 0   C1   D3  G1  46.635258  21.078829  17.206790
+#:> 1   C3   D2  G1  57.715815  22.078307   2.327002
+#:> 2   C3   D2  G2  59.097935  15.475081 -17.301261
+#:> 3   C1   D5  G2  50.720332  16.089233  85.288828
+#:> 4   C2   D4  G2  51.041268  22.851025  12.360817
 ```
 
 
@@ -69,19 +71,19 @@ mydf.info()
 ```
 
 ```
-## <class 'pandas.core.frame.DataFrame'>
-## RangeIndex: 200 entries, 0 to 199
-## Data columns (total 6 columns):
-##  #   Column  Non-Null Count  Dtype  
-## ---  ------  --------------  -----  
-##  0   comp    200 non-null    object 
-##  1   dept    200 non-null    object 
-##  2   grp     200 non-null    object 
-##  3   value1  200 non-null    float64
-##  4   value2  200 non-null    float64
-##  5   value3  200 non-null    float64
-## dtypes: float64(3), object(3)
-## memory usage: 9.5+ KB
+#:> <class 'pandas.core.frame.DataFrame'>
+#:> RangeIndex: 200 entries, 0 to 199
+#:> Data columns (total 6 columns):
+#:>  #   Column  Non-Null Count  Dtype  
+#:> ---  ------  --------------  -----  
+#:>  0   comp    200 non-null    object 
+#:>  1   dept    200 non-null    object 
+#:>  2   grp     200 non-null    object 
+#:>  3   value1  200 non-null    float64
+#:>  4   value2  200 non-null    float64
+#:>  5   value3  200 non-null    float64
+#:> dtypes: float64(3), object(3)
+#:> memory usage: 9.5+ KB
 ```
 
 ## MATLAB-like API
@@ -111,7 +113,7 @@ plt.title('My Good Data')
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-8-1.png" width="90%" style="display: block; margin: auto;" />
 
 ### Multiple Subplots
 Each call lto **subplot()** will create a new container for subsequent plot command 
@@ -126,7 +128,7 @@ plt.plot(y,x,'g*-')
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-9-1.png" width="90%" style="display: block; margin: auto;" />
 
 ## Object-Oriented API
 
@@ -153,7 +155,7 @@ axes.set_title('title')
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-11-1.png" width="90%" style="display: block; margin: auto;" />
 
 ### Multiple Axes In One Plot
 - This is still considered a **single plot**, but with **multiple axes**
@@ -175,7 +177,7 @@ ax2.set_title('insert title')
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-11-1.png" width="672" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-12-1.png" width="90%" style="display: block; margin: auto;" />
 
 ### Multiple Subplots
 - One **figure**  can contain multiple **subplots**  
@@ -194,10 +196,6 @@ fig, axes = plt.subplots( nrows=1,ncols=3 )
 print (axes.shape)
 ```
 
-```
-## (3,)
-```
-
 ```python
 for ax in axes:
     ax.plot(x, y, 'r')
@@ -208,7 +206,7 @@ for ax in axes:
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-12-1.png" width="672" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-13-1.png" width="90%" style="display: block; margin: auto;" />
 
 **Multiple Row Grid**  
 Multile row grid means axes is an 2-D array. Hence can use two levels of **for** loop to iterate through each row and column
@@ -219,10 +217,6 @@ fig, axes = plt.subplots(2, 3, sharex='col', sharey='row')
 print (axes.shape)
 ```
 
-```
-## (2, 3)
-```
-
 ```python
 for i in range(axes.shape[0]):
     for j in range(axes.shape[1]):
@@ -231,7 +225,7 @@ for i in range(axes.shape[0]):
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-14-1.png" width="90%" style="display: block; margin: auto;" />
 
 #### Complicated Subplots - different size
 - **GridSpec** specify grid size of the figure  
@@ -248,7 +242,7 @@ plt.subplot(grid[1, 2]); #row 1, col 2
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-14-1.png" width="480" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-15-1.png" width="90%" style="display: block; margin: auto;" />
 
 
 ```python
@@ -260,7 +254,7 @@ plt.subplot(grid[3, 1: ]);  # row 3,   col 1:
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-15-1.png" width="480" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-16-1.png" width="90%" style="display: block; margin: auto;" />
 
 **-1 means last row or column**
 
@@ -274,7 +268,7 @@ plt.subplot(grid[-1, 1: ]); # row last row, col 1 till end
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-16-1.png" width="576" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-17-1.png" width="90%" style="display: block; margin: auto;" />
 
 ### Figure Customization
 
@@ -295,7 +289,7 @@ fig.tight_layout() # adjust the positions of axes so that there is no overlap
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-17-1.png" width="672" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-18-1.png" width="90%" style="display: block; margin: auto;" />
 
 #### Avoid Overlap - Change Figure Size
 
@@ -310,7 +304,7 @@ for ax in axes:
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-18-1.png" width="1152" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-19-1.png" width="90%" style="display: block; margin: auto;" />
 
 #### Text Within Figure
 
@@ -322,7 +316,7 @@ axes = fig.add_axes([0,0,1,1]) # left, bottom, width, height (range 0 to 1)
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-19-1.png" width="672" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-20-1.png" width="90%" style="display: block; margin: auto;" />
 
 ### Axes Customization
 
@@ -335,7 +329,7 @@ fig.add_axes([0,0,1,1], ylim=(-2,5));
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-20-1.png" width="672" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-21-1.png" width="90%" style="display: block; margin: auto;" />
 
 #### Text Within Axes
 
@@ -349,7 +343,7 @@ for i in range(2):
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-21-1.png" width="672" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-22-1.png" width="90%" style="display: block; margin: auto;" />
 
 
 ```python
@@ -357,7 +351,7 @@ plt.text(0.5, 0.5, 'one',fontsize=18, ha='center')
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-22-1.png" width="672" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-23-1.png" width="90%" style="display: block; margin: auto;" />
 
 #### Share Y Axis Label
 
@@ -367,7 +361,7 @@ fig, ax = plt.subplots(2, 3, sharex='col', sharey='row') # removed inner label
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-23-1.png" width="672" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-24-1.png" width="90%" style="display: block; margin: auto;" />
 
 #### Create Subplot Individually
 Each call lto **subplot()** will create a new container for subsequent plot command 
@@ -382,7 +376,7 @@ plt.text(0.5, 0.5, 'eight',fontsize=18, ha='center')
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-24-1.png" width="672" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-25-1.png" width="90%" style="display: block; margin: auto;" />
 
 **Iterate through subplots (ax) to populate them**
 
@@ -396,7 +390,7 @@ for i in range(2):
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-25-1.png" width="672" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-26-1.png" width="90%" style="display: block; margin: auto;" />
 
 ## Histogram
 
@@ -406,7 +400,7 @@ plt.hist(mydf.value1, bins=12);
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-26-1.png" width="672" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-27-1.png" width="90%" style="display: block; margin: auto;" />
 
 ## Scatter Plot
 
@@ -416,7 +410,7 @@ plt.scatter(mydf.value1, mydf.value2)
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-27-1.png" width="672" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-28-1.png" width="90%" style="display: block; margin: auto;" />
 
 
 ## Bar Chart
@@ -428,13 +422,6 @@ grpdf = com_grp['value1'].sum().reset_index()
 grpdf
 ```
 
-```
-##   comp       value1
-## 0   C1  3978.857704
-## 1   C2  2889.371513
-## 2   C3  3113.542762
-```
-
 
 ```python
 plt.bar(grpdf.comp, grpdf.value1);
@@ -443,7 +430,7 @@ plt.ylabel('Sum of Value 1')
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-29-1.png" width="672" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-30-1.png" width="90%" style="display: block; margin: auto;" />
 
 # seaborn
 
@@ -475,12 +462,12 @@ mydf.head()
 ```
 
 ```
-##   comp dept grp     value1     value2     value3
-## 0   C2   D1  G3  42.518155  21.434890 -46.522486
-## 1   C1   D2  G3  57.767348  21.148730  35.243230
-## 2   C2   D2  G3  49.421519  23.597451  26.009438
-## 3   C2   D3  G2  52.766497  17.968871  73.824515
-## 4   C3   D2  G1  45.070383  23.226475   3.916130
+#:>   comp dept grp     value1     value2     value3
+#:> 0   C2   D1  G3  54.086381  18.675226 -29.683179
+#:> 1   C2   D1  G2  52.960326  20.801333  15.662159
+#:> 2   C1   D3  G2  49.975648  23.636401  17.510219
+#:> 3   C2   D3  G3  52.060887  25.177800  -9.208095
+#:> 4   C2   D2  G1  47.997811  25.595032  40.891878
 ```
 
 ## Scatter Plot
@@ -491,30 +478,22 @@ mydf.head()
 sns.lmplot(x='value1', y='value2', data=mydf)
 ```
 
-```
-## <seaborn.axisgrid.FacetGrid object at 0x7f1dcd6e9d90>
-```
-
 ```python
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-31-1.png" width="480" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-32-1.png" width="90%" style="display: block; margin: auto;" />
 
 
 ```python
 sns.lmplot(x='value1', y='value2', fit_reg=False, data=mydf);  #hide regresion line
 ```
 
-```
-## <seaborn.axisgrid.FacetGrid object at 0x7f1dcd64b790>
-```
-
 ```python
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-32-1.png" width="480" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-33-1.png" width="90%" style="display: block; margin: auto;" />
 
 ### 2xNumeric + 1x Categorical
 Use **hue** to represent additional categorical feature
@@ -525,7 +504,7 @@ sns.lmplot(x='value1', y='value2', data=mydf, hue='comp', fit_reg=False);
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-33-1.png" width="546" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-34-1.png" width="90%" style="display: block; margin: auto;" />
 
 ### 2xNumeric + 2x Categorical
 Use **col** and **hue** to represent two categorical features
@@ -536,7 +515,7 @@ sns.lmplot(x='value1', y='value2', col='comp',hue='grp', fit_reg=False, data=myd
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-34-1.png" width="1506" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-35-1.png" width="90%" style="display: block; margin: auto;" />
 
 ### 2xNumeric + 3x Categorical
 Use **row, col** and **hue** to represent three categorical features
@@ -546,15 +525,11 @@ Use **row, col** and **hue** to represent three categorical features
 sns.lmplot(x='value1', y='value2', row='dept',col='comp', hue='grp', fit_reg=False, data=mydf);
 ```
 
-```
-## /home/msfz751/anaconda3/envs/python_book/lib/python3.7/site-packages/seaborn/axisgrid.py:392: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
-```
-
 ```python
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-35-1.png" width="1506" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-36-1.png" width="90%" style="display: block; margin: auto;" />
 
 ### Customization
 
@@ -566,17 +541,11 @@ size: **height** in inch for each facet
 sns.lmplot(x='value1', y='value2', col='comp',hue='grp', size=3,fit_reg=False, data=mydf)
 ```
 
-```
-## <seaborn.axisgrid.FacetGrid object at 0x7f1dc4529190>
-## 
-## /home/msfz751/anaconda3/envs/python_book/lib/python3.7/site-packages/seaborn/regression.py:580: UserWarning: The `size` parameter has been renamed to `height`; please update your code.
-```
-
 ```python
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-36-1.png" width="930" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-37-1.png" width="90%" style="display: block; margin: auto;" />
 
 Observe that even **size is very large**, lmplot will **fit (shrink) everything into one row** by deafult. See example below.
 
@@ -585,17 +554,11 @@ Observe that even **size is very large**, lmplot will **fit (shrink) everything 
 sns.lmplot(x='value1', y='value2', col='comp',hue='grp', size=5,fit_reg=False, data=mydf)
 ```
 
-```
-## <seaborn.axisgrid.FacetGrid object at 0x7f1dcd352a50>
-## 
-## /home/msfz751/anaconda3/envs/python_book/lib/python3.7/site-packages/seaborn/regression.py:580: UserWarning: The `size` parameter has been renamed to `height`; please update your code.
-```
-
 ```python
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-37-1.png" width="1506" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-38-1.png" width="90%" style="display: block; margin: auto;" />
 
 #### col_wrap
 
@@ -607,17 +570,11 @@ Compare the size (height of each facet) with the above **without** col_wrap. Bel
 sns.lmplot(x='value1', y='value2', col='comp',hue='grp', size=5, col_wrap=2, fit_reg=False, data=mydf)
 ```
 
-```
-## <seaborn.axisgrid.FacetGrid object at 0x7f1dcd371310>
-## 
-## /home/msfz751/anaconda3/envs/python_book/lib/python3.7/site-packages/seaborn/regression.py:580: UserWarning: The `size` parameter has been renamed to `height`; please update your code.
-```
-
 ```python
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-38-1.png" width="1026" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-39-1.png" width="90%" style="display: block; margin: auto;" />
 
 ## Histogram
 ```
@@ -638,7 +595,7 @@ sns.distplot(mydf.value1)
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-39-1.png" width="1026" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-40-1.png" width="90%" style="display: block; margin: auto;" />
 
 
 ```python
@@ -646,7 +603,7 @@ sns.distplot(mydf.value1,hist=True,rug=True,vertical=True, bins=30,color='g')
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-40-1.png" width="1026" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-41-1.png" width="90%" style="display: block; margin: auto;" />
 
 ## Bar Chart
 
@@ -658,10 +615,10 @@ grpdf
 ```
 
 ```
-##   comp       value1
-## 0   C1  1570.745896
-## 1   C2  2093.879376
-## 2   C3  1291.509818
+#:>   comp       value1
+#:> 0   C1  1622.028634
+#:> 1   C2  1782.067733
+#:> 2   C3  1543.864091
 ```
 
 ### 1x Categorical, 1x Numeric
@@ -672,7 +629,7 @@ sns.barplot(x='comp',y='value1',data=grpdf)
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-42-1.png" width="1026" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-43-1.png" width="90%" style="display: block; margin: auto;" />
 
 ### Customization
 
@@ -688,7 +645,7 @@ sns.barplot(x='comp',y='value2', hue='grp',
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-43-1.png" width="1026" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-44-1.png" width="90%" style="display: block; margin: auto;" />
 
 #### Flipping X/Y Axis
 
@@ -698,7 +655,7 @@ sns.barplot(x='value2',y='comp', hue='grp',data=mydf)
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-44-1.png" width="1026" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-45-1.png" width="90%" style="display: block; margin: auto;" />
 
 ## Faceting
 Faceting in Seaborn is a generic function that works with matplotlib various plot utility.  
@@ -712,15 +669,11 @@ g = sns.FacetGrid(mydf, col="comp", row='dept')
 g.map(plt.hist, "value1")
 ```
 
-```
-## <seaborn.axisgrid.FacetGrid object at 0x7f1dc4729d90>
-```
-
 ```python
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-45-1.png" width="864" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-46-1.png" width="90%" style="display: block; margin: auto;" />
 
 
 ```python
@@ -728,15 +681,11 @@ g = sns.FacetGrid(mydf, col="comp", row='dept')
 g.map(plt.hist, "value1")
 ```
 
-```
-## <seaborn.axisgrid.FacetGrid object at 0x7f1dcd353b10>
-```
-
 ```python
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-46-1.png" width="864" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-47-1.png" width="90%" style="display: block; margin: auto;" />
 
 ### Faceting Scatter Plot
 
@@ -747,15 +696,11 @@ g.map(plt.scatter, "value1","value2",alpha=0.7);
 g.add_legend()
 ```
 
-```
-## <seaborn.axisgrid.FacetGrid object at 0x7f1dcd464210>
-```
-
 ```python
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-47-1.png" width="930" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-48-1.png" width="90%" style="display: block; margin: auto;" />
 
 ## Pair Grid
 
@@ -769,15 +714,11 @@ g.map(plt.scatter);
 g.add_legend()
 ```
 
-```
-## <seaborn.axisgrid.PairGrid object at 0x7f1dcd2da6d0>
-```
-
 ```python
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-48-1.png" width="786" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-49-1.png" width="90%" style="display: block; margin: auto;" />
 
 
 ### Different Diag and OffDiag
@@ -788,31 +729,19 @@ g = sns.PairGrid(mydf, hue='comp')
 g.map_diag(plt.hist, bins=15)
 ```
 
-```
-## <seaborn.axisgrid.PairGrid object at 0x7f1dc3fcddd0>
-```
-
 ```python
 g.map_offdiag(plt.scatter)
-```
-
-```
-## <seaborn.axisgrid.PairGrid object at 0x7f1dc3fcddd0>
 ```
 
 ```python
 g.add_legend()
 ```
 
-```
-## <seaborn.axisgrid.PairGrid object at 0x7f1dc3fcddd0>
-```
-
 ```python
 plt.show()
 ```
 
-<img src="04-visualization_files/figure-html/unnamed-chunk-49-1.png" width="786" />
+<img src="04-visualization_files/figure-html/unnamed-chunk-50-1.png" width="90%" style="display: block; margin: auto;" />
 
 
 

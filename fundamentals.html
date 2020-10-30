@@ -134,7 +134,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Python Bookdown</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prerequisites</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#main-sections-of-the-book"><i class="fa fa-check"></i>Main sections of the book</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#python-environment"><i class="fa fa-check"></i>Python environment</a></li>
+<li><a href="index.html#automating-the-builds-with-a-makefile">Automating the builds with a <code>Makefile</code></a></li>
+</ul></li>
 <li class="chapter" data-level="1" data-path="fundamentals.html"><a href="fundamentals.html"><i class="fa fa-check"></i><b>1</b> Fundamentals</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="fundamentals.html"><a href="fundamentals.html#library-management"><i class="fa fa-check"></i><b>1.1</b> Library Management</a>
@@ -1303,26 +1308,26 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="fundamentals" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Fundamentals</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="fundamentals.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;R/init_python.R&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="fundamentals.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;R/init_python.R&quot;</span>)</span></code></pre></div>
 <div id="library-management" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> Library Management</h2>
 <div id="built-in-libraries" class="section level3" number="1.1.1">
 <h3><span class="header-section-number">1.1.1</span> Built-In Libraries</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="fundamentals.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> string</span>
-<span id="cb2-2"><a href="fundamentals.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> datetime <span class="im">as</span> dt</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="fundamentals.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> string</span>
+<span id="cb4-2"><a href="fundamentals.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> datetime <span class="im">as</span> dt</span></code></pre></div>
 </div>
 <div id="common-external-libraries" class="section level3" number="1.1.2">
 <h3><span class="header-section-number">1.1.2</span> Common External Libraries</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="fundamentals.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb3-2"><a href="fundamentals.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb3-3"><a href="fundamentals.html#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> datetime <span class="im">as</span> dt</span>
-<span id="cb3-4"><a href="fundamentals.html#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="fundamentals.html#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib</span>
-<span id="cb3-6"><a href="fundamentals.html#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb3-7"><a href="fundamentals.html#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="fundamentals.html#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plydata <span class="im">import</span> define, query, select, group_by, summarize, arrange, head, rename</span>
-<span id="cb3-9"><a href="fundamentals.html#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotnine</span>
-<span id="cb3-10"><a href="fundamentals.html#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="fundamentals.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb5-2"><a href="fundamentals.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb5-3"><a href="fundamentals.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> datetime <span class="im">as</span> dt</span>
+<span id="cb5-4"><a href="fundamentals.html#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="fundamentals.html#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib</span>
+<span id="cb5-6"><a href="fundamentals.html#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb5-7"><a href="fundamentals.html#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="fundamentals.html#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plydata <span class="im">import</span> define, query, select, group_by, summarize, arrange, head, rename</span>
+<span id="cb5-9"><a href="fundamentals.html#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotnine</span>
+<span id="cb5-10"><a href="fundamentals.html#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span></code></pre></div>
 <div id="numpy" class="section level4" number="1.1.2.1">
 <h4><span class="header-section-number">1.1.2.1</span> numpy</h4>
 <ul>
@@ -1376,11 +1381,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">1.1.4</span> Conda</h3>
 <div id="conda-environment" class="section level4" number="1.1.4.1">
 <h4><span class="header-section-number">1.1.4.1</span> Conda Environment</h4>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="fundamentals.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system</span>(<span class="st">&quot;conda info&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="fundamentals.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system</span>(<span class="st">&quot;conda info&quot;</span>)</span></code></pre></div>
 </div>
 <div id="package-version" class="section level4" number="1.1.4.2">
 <h4><span class="header-section-number">1.1.4.2</span> Package Version</h4>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="fundamentals.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system</span>(<span class="st">&quot;conda list&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="fundamentals.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system</span>(<span class="st">&quot;conda list&quot;</span>) </span></code></pre></div>
 </div>
 <div id="package-installation" class="section level4" number="1.1.4.3">
 <h4><span class="header-section-number">1.1.4.3</span> Package Installation</h4>
@@ -1410,7 +1415,7 @@ conda install -c conda-forge plotnine</code></pre>
 <p>PIP is python open repository (not part of conda). Use <strong>pip</strong> if the package is not available in conda.</p>
 <div id="package-version-1" class="section level4" number="1.1.5.1">
 <h4><span class="header-section-number">1.1.5.1</span> Package Version</h4>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="fundamentals.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system</span>(<span class="st">&quot;pip list&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="fundamentals.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system</span>(<span class="st">&quot;pip list&quot;</span>)</span></code></pre></div>
 </div>
 <div id="package-installation-1" class="section level4" number="1.1.5.2">
 <h4><span class="header-section-number">1.1.5.2</span> Package Installation</h4>
@@ -1429,67 +1434,67 @@ conda install -c conda-forge plotnine</code></pre>
 <p>In the below exmaple, <strong>a, b and c </strong> refer to the <strong>same memory location</strong>:<br />
 - Notice when an object assigned to another object, they refer to the same memory location<br />
 - When two variable refers to the same value, they refer to the same memory location</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="fundamentals.html#cb10-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">123</span></span>
-<span id="cb10-2"><a href="fundamentals.html#cb10-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">123</span>  </span>
-<span id="cb10-3"><a href="fundamentals.html#cb10-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> a</span>
-<span id="cb10-4"><a href="fundamentals.html#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="st">&#39;Data of a =&#39;</span>,  a,</span>
-<span id="cb10-5"><a href="fundamentals.html#cb10-5" aria-hidden="true" tabindex="-1"></a>       <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Data of b =&#39;</span>,b,</span>
-<span id="cb10-6"><a href="fundamentals.html#cb10-6" aria-hidden="true" tabindex="-1"></a>       <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Data of c =&#39;</span>,c,</span>
-<span id="cb10-7"><a href="fundamentals.html#cb10-7" aria-hidden="true" tabindex="-1"></a>       <span class="st">&#39;</span><span class="ch">\n</span><span class="st">ID of a = &#39;</span>, <span class="bu">id</span>(a),</span>
-<span id="cb10-8"><a href="fundamentals.html#cb10-8" aria-hidden="true" tabindex="-1"></a>       <span class="st">&#39;</span><span class="ch">\n</span><span class="st">ID of b = &#39;</span>, <span class="bu">id</span>(b),</span>
-<span id="cb10-9"><a href="fundamentals.html#cb10-9" aria-hidden="true" tabindex="-1"></a>       <span class="st">&#39;</span><span class="ch">\n</span><span class="st">ID of c = &#39;</span>, <span class="bu">id</span>(c)</span>
-<span id="cb10-10"><a href="fundamentals.html#cb10-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<pre><code>## Data of a = 123 
-## Data of b = 123 
-## Data of c = 123 
-## ID of a =  140068316109280 
-## ID of b =  140068316109280 
-## ID of c =  140068316109280</code></pre>
-<p>Changing data value (using assignment) changes <strong>the reference</strong></p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="fundamentals.html#cb12-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">123</span></span>
-<span id="cb12-2"><a href="fundamentals.html#cb12-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> a</span>
-<span id="cb12-3"><a href="fundamentals.html#cb12-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">456</span>  <span class="co"># reassignemnt changed a memory reference</span></span>
-<span id="cb12-4"><a href="fundamentals.html#cb12-4" aria-hidden="true" tabindex="-1"></a>         <span class="co"># b memory reference not changed</span></span>
-<span id="cb12-5"><a href="fundamentals.html#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="st">&#39;Data of a =&#39;</span>,a,</span>
-<span id="cb12-6"><a href="fundamentals.html#cb12-6" aria-hidden="true" tabindex="-1"></a>     <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Data of b =&#39;</span>,b,</span>
-<span id="cb12-7"><a href="fundamentals.html#cb12-7" aria-hidden="true" tabindex="-1"></a>     <span class="st">&#39;</span><span class="ch">\n</span><span class="st">ID of a = &#39;</span>, <span class="bu">id</span>(a),</span>
-<span id="cb12-8"><a href="fundamentals.html#cb12-8" aria-hidden="true" tabindex="-1"></a>     <span class="st">&#39;</span><span class="ch">\n</span><span class="st">ID of b = &#39;</span>, <span class="bu">id</span>(b)</span>
-<span id="cb12-9"><a href="fundamentals.html#cb12-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<pre><code>## Data of a = 456 
-## Data of b = 123 
-## ID of a =  140067710582832 
-## ID of b =  140068316109280</code></pre>
+<span id="cb12-2"><a href="fundamentals.html#cb12-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">123</span>  </span>
+<span id="cb12-3"><a href="fundamentals.html#cb12-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> a</span>
+<span id="cb12-4"><a href="fundamentals.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="st">&#39;Data of a =&#39;</span>,  a,</span>
+<span id="cb12-5"><a href="fundamentals.html#cb12-5" aria-hidden="true" tabindex="-1"></a>       <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Data of b =&#39;</span>,b,</span>
+<span id="cb12-6"><a href="fundamentals.html#cb12-6" aria-hidden="true" tabindex="-1"></a>       <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Data of c =&#39;</span>,c,</span>
+<span id="cb12-7"><a href="fundamentals.html#cb12-7" aria-hidden="true" tabindex="-1"></a>       <span class="st">&#39;</span><span class="ch">\n</span><span class="st">ID of a = &#39;</span>, <span class="bu">id</span>(a),</span>
+<span id="cb12-8"><a href="fundamentals.html#cb12-8" aria-hidden="true" tabindex="-1"></a>       <span class="st">&#39;</span><span class="ch">\n</span><span class="st">ID of b = &#39;</span>, <span class="bu">id</span>(b),</span>
+<span id="cb12-9"><a href="fundamentals.html#cb12-9" aria-hidden="true" tabindex="-1"></a>       <span class="st">&#39;</span><span class="ch">\n</span><span class="st">ID of c = &#39;</span>, <span class="bu">id</span>(c)</span>
+<span id="cb12-10"><a href="fundamentals.html#cb12-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>#:&gt; Data of a = 123 
+#:&gt; Data of b = 123 
+#:&gt; Data of c = 123 
+#:&gt; ID of a =  140214585485792 
+#:&gt; ID of b =  140214585485792 
+#:&gt; ID of c =  140214585485792</code></pre>
+<p>Changing data value (using assignment) changes <strong>the reference</strong></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="fundamentals.html#cb14-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">123</span></span>
+<span id="cb14-2"><a href="fundamentals.html#cb14-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> a</span>
+<span id="cb14-3"><a href="fundamentals.html#cb14-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">456</span>  <span class="co"># reassignemnt changed a memory reference</span></span>
+<span id="cb14-4"><a href="fundamentals.html#cb14-4" aria-hidden="true" tabindex="-1"></a>         <span class="co"># b memory reference not changed</span></span>
+<span id="cb14-5"><a href="fundamentals.html#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="st">&#39;Data of a =&#39;</span>,a,</span>
+<span id="cb14-6"><a href="fundamentals.html#cb14-6" aria-hidden="true" tabindex="-1"></a>     <span class="st">&#39;</span><span class="ch">\n</span><span class="st">Data of b =&#39;</span>,b,</span>
+<span id="cb14-7"><a href="fundamentals.html#cb14-7" aria-hidden="true" tabindex="-1"></a>     <span class="st">&#39;</span><span class="ch">\n</span><span class="st">ID of a = &#39;</span>, <span class="bu">id</span>(a),</span>
+<span id="cb14-8"><a href="fundamentals.html#cb14-8" aria-hidden="true" tabindex="-1"></a>     <span class="st">&#39;</span><span class="ch">\n</span><span class="st">ID of b = &#39;</span>, <span class="bu">id</span>(b)</span>
+<span id="cb14-9"><a href="fundamentals.html#cb14-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>#:&gt; Data of a = 456 
+#:&gt; Data of b = 123 
+#:&gt; ID of a =  140213980000304 
+#:&gt; ID of b =  140214585485792</code></pre>
 </div>
 <div id="assignment" class="section level2" number="1.3">
 <h2><span class="header-section-number">1.3</span> Assignment</h2>
 <div id="multiple-assignment" class="section level3" number="1.3.1">
 <h3><span class="header-section-number">1.3.1</span> Multiple Assignment</h3>
 <p>Assign multiple variable at the same time with same value. Note that all object created using this method refer to the <strong>same memory location</strong>.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="fundamentals.html#cb14-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> y <span class="op">=</span> <span class="st">&#39;same mem loc&#39;</span></span>
-<span id="cb14-2"><a href="fundamentals.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="st">&#39;x = &#39;</span>, x,</span>
-<span id="cb14-3"><a href="fundamentals.html#cb14-3" aria-hidden="true" tabindex="-1"></a>     <span class="st">&#39;</span><span class="ch">\n</span><span class="st">y = &#39;</span>, y,</span>
-<span id="cb14-4"><a href="fundamentals.html#cb14-4" aria-hidden="true" tabindex="-1"></a>     <span class="st">&#39;</span><span class="ch">\n</span><span class="st">id(x) = &#39;</span>, <span class="bu">id</span>(x), </span>
-<span id="cb14-5"><a href="fundamentals.html#cb14-5" aria-hidden="true" tabindex="-1"></a>     <span class="st">&#39;</span><span class="ch">\n</span><span class="st">id(y) = &#39;</span>, <span class="bu">id</span>(y)</span>
-<span id="cb14-6"><a href="fundamentals.html#cb14-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<pre><code>## x =  same mem loc 
-## y =  same mem loc 
-## id(x) =  140067710591152 
-## id(y) =  140067710591152</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="fundamentals.html#cb16-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> y <span class="op">=</span> <span class="st">&#39;same mem loc&#39;</span></span>
+<span id="cb16-2"><a href="fundamentals.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="st">&#39;x = &#39;</span>, x,</span>
+<span id="cb16-3"><a href="fundamentals.html#cb16-3" aria-hidden="true" tabindex="-1"></a>     <span class="st">&#39;</span><span class="ch">\n</span><span class="st">y = &#39;</span>, y,</span>
+<span id="cb16-4"><a href="fundamentals.html#cb16-4" aria-hidden="true" tabindex="-1"></a>     <span class="st">&#39;</span><span class="ch">\n</span><span class="st">id(x) = &#39;</span>, <span class="bu">id</span>(x), </span>
+<span id="cb16-5"><a href="fundamentals.html#cb16-5" aria-hidden="true" tabindex="-1"></a>     <span class="st">&#39;</span><span class="ch">\n</span><span class="st">id(y) = &#39;</span>, <span class="bu">id</span>(y)</span>
+<span id="cb16-6"><a href="fundamentals.html#cb16-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>#:&gt; x =  same mem loc 
+#:&gt; y =  same mem loc 
+#:&gt; id(x) =  140213979980144 
+#:&gt; id(y) =  140213979980144</code></pre>
 </div>
 <div id="augmented-assignment" class="section level3" number="1.3.2">
 <h3><span class="header-section-number">1.3.2</span> Augmented Assignment</h3>
-<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="fundamentals.html#cb16-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb16-2"><a href="fundamentals.html#cb16-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> x <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb16-3"><a href="fundamentals.html#cb16-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb16-4"><a href="fundamentals.html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="st">&#39;y = &#39;</span>, y)</span></code></pre></div>
-<pre><code>## y =  3</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="fundamentals.html#cb18-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb18-2"><a href="fundamentals.html#cb18-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> x <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb18-3"><a href="fundamentals.html#cb18-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb18-4"><a href="fundamentals.html#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="st">&#39;y = &#39;</span>, y)</span></code></pre></div>
+<pre><code>#:&gt; y =  3</code></pre>
 </div>
 <div id="unpacking-assingment" class="section level3" number="1.3.3">
 <h3><span class="header-section-number">1.3.3</span> Unpacking Assingment</h3>
 <p>Assign multiple value to multiple variabels at the same time.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="fundamentals.html#cb18-1" aria-hidden="true" tabindex="-1"></a>x,y <span class="op">=</span> <span class="dv">1</span>,<span class="dv">3</span></span>
-<span id="cb18-2"><a href="fundamentals.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (x,y)</span></code></pre></div>
-<pre><code>## 1 3</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="fundamentals.html#cb20-1" aria-hidden="true" tabindex="-1"></a>x,y <span class="op">=</span> <span class="dv">1</span>,<span class="dv">3</span></span>
+<span id="cb20-2"><a href="fundamentals.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (x,y)</span></code></pre></div>
+<pre><code>#:&gt; 1 3</code></pre>
 </div>
 </div>
 </div>
