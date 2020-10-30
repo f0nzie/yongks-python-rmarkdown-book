@@ -1,15 +1,14 @@
 # Makefile written by Alfonso R. Reyes
 SHELL := /bin/bash
-BOOKDOWN_FILES_DIRS = plotnine_files _bookdown_files
+BOOKDOWN_FILES_DIRS = python_bookdown_files _bookdown_files
 OUTPUT_DIR = .
 PUBLISH_BOOK_DIR = public
 DEFAULT_PUBLISH_BOOK_DIRS = _book docs ${PUBLISH_BOOK_DIR}
-PYTHON_ENV_DIR = pyenv
+PYTHON_ENV_DIR = 
 START_NOTEBOOK = 
-FIGURE_DIR = figure
-LIBRARY = renv/library
+LIBRARY = 
+FIGURE_DIR = 
 CHECKPOINTS = .ipynb_checkpoints
-
 # Detect operating system. Sort of tricky for Windows because of MSYS, cygwin, MGWIN
 OSFLAG :=
 ifeq ($(OS), Windows_NT)
@@ -39,9 +38,6 @@ pyenv:
 	jupyter-notebook ${START_NOTEBOOK}
 
 
-renv/library: renv.lock
-	Rscript --vanilla -e 'if (!requireNamespace("renv")) install.packages("renv"); renv::restore()'
-	touch $@
 
 # knit the book and then open it in the browser
 .PHONY: gitbook1 gitbook2
@@ -75,10 +71,15 @@ ifeq ($(OSFLAG), WINDOWS)
 endif
 
 
+.PHONY: push
+push:
+	git push
+	git subtree push --prefix public origin gh-pages
+
 
 .PHONY: clean
 clean: tidy
-		find $(OUTPUT_DIR) -maxdepth 1 -name \*.tex -delete
+		find $(OUTPUT_DIR) -maxdepth 1 -name \*.tex -not -name 'preamble.tex' -delete
 		$(RM) -rf $(BOOKDOWN_FILES_DIRS)
 		$(RM) -rf $(DEFAULT_PUBLISH_BOOK_DIRS)
 		if [ -d ${PUBLISH_BOOK_DIR} ]; then rm -rf ${PUBLISH_BOOK_DIR};fi
