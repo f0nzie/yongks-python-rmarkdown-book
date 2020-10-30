@@ -5,6 +5,7 @@ date: "2020-10-30"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
+colorlinks: yes
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
