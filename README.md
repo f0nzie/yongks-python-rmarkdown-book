@@ -37,13 +37,20 @@ My contribution consists of making this Python book even more reproducible:
 
 ## Build the book
 ### R installation
-I built this book with `R-3.6.3` in a **Debian-10** Linux operating system using [Visual Code Studio]() with the addition of some extension and [GNU `make`](https://www.gnu.org/software/make/).
+I built this book with `R-3.6.3` in a **Debian-10** Linux operating system using [Visual Code Studio]() with the addition of some R friendly `vscode` extensions and [GNU `make`](https://www.gnu.org/software/make/). The `Makefile` file is included in the repo.
 
 ### Anaconda
-The Anaconda version I used was the July version of 2020. The Python version of the environment is `3.7`. But I also tested the book with Python `3.8`.
+The Anaconda version I used was the July version of 2020 (the name of the download is `Anaconda3-2020.07-Linux-x86_64.sh`). The Python version of the environment is `3.7`. But I also tested the book with Python `3.8` and the book works fine.
+
+### Create the `conda` environment
+When your Anaconda is ready, is the moment to create the Python environment using `conda`. The process takes few minutes - in my machine around 3 minutes). That Python environment will have all the packages necessary to run all the Python scripts in the book. Run this command from the terminal:
+
+```
+make conda_create
+```
 
 ### Build the gitbook
-You don't really need RStudio to build this book. I took the challenge of building it from the terminal window in `vscode`, with the little help of `Makefile` automation.
+You don't really need RStudio to build this book, but you need R installed. I took the challenge of building the book from the terminal window in `vscode`, with a little help of `Makefile` automation.
 
 From a terminal, run:
 
@@ -54,13 +61,13 @@ or
     make gitbook2
 
 
-Both do the same thing: building the Rmarkdown book. I left the two options available for the reader to get familiar with `Makefile`; how to set environment variables from the shell, or set it from within R.
+Both do the same thing: building the Rmarkdown book. I left the two options available for the reader to get familiar with `Makefile`; how to set environment variables from the shell, or set them from within R.
 
 If the book builds successfully, it should open your browser with the main page of the book. This is all handled by `make` and the commands in `Makefile`.
 
 
 ## Optional after building the book
-If you make changes to the Rmarkdown documents, you may want to tidy up or totally clean from auxiliary and files that were generated during the knitting process. The are two rules in the `Makefile`: `tidy` and `clean `.
+If you make changes to the Rmarkdown documents, you may want to tidy up or totally clean it from auxiliary folders and files that were generated during the knitting process. The are two rules in the `Makefile`: `tidy` and `clean `.
 
 ### Tidy up the folder
 This deletes the auxiliary files that were created during the book building process.
@@ -72,6 +79,15 @@ Does `make tidy` plus deletes the publication folder, to start over fresh.
 
     make clean
 
+
+### Activate the `conda` environment
+This is optional. I added it to document it for the next I have to work with book later. You activate it with:
+
+```
+make conda_activate
+```
+
+Of course, you could have typed this such trivial command on the terminal yourself.
 
 
 ## Original README
