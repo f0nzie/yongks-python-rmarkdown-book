@@ -1,3 +1,17 @@
+bookdown::bs4_book:
+  config:
+      fontsettings:
+      theme: Sepia
+      family: sans
+      size: 2
+  theme:
+    highlight: tango
+    # primary: "#982a31"
+    primary: "#3c99ca"
+    fg: "#2b2121"
+    bg: "#ffffff"
+  repo: https://github.com//f0nzie/yongks-python-rmarkdown-book
+
 bookdown::gitbook:
   toc_depth: 4
   css: custom.css
@@ -25,6 +39,7 @@ bookdown::gitbook:
       twitter: no
   split_by: chapter
   highlight: tango
+
 bookdown::pdf_book:
   keep_tex: yes
   latex_engine: lualatex
