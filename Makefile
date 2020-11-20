@@ -156,9 +156,9 @@ git_book: conda_activate gitbook_render open_book conda_deactivate
 
 
 .PHONY: push
-push:
+git_push:
 	git push
-	git subtree push --prefix public origin gh-pages
+	git subtree push --prefix ${PUBLISH_BOOK_DIR} origin gh-pages
 
 
 .PHONY: clean
