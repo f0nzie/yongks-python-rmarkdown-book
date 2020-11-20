@@ -10,6 +10,7 @@ START_NOTEBOOK =
 LIBRARY = 
 FIGURE_DIR = 
 CHECKPOINTS = .ipynb_checkpoints
+CONDA_TYPE = miniconda3
 # Detect operating system. Sort of tricky for Windows because of MSYS, cygwin, MGWIN
 OSFLAG :=
 ifeq ($(OS), Windows_NT)
