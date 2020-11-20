@@ -117,6 +117,12 @@ build_book1:
 	export RSTUDIO_PANDOC="/usr/lib/rstudio/bin/pandoc";\
 	Rscript -e 'bookdown::render_book("index.Rmd", "bookdown::gitbook")'
 
+# render book using bootstrap
+bs4book_render:
+	export RSTUDIO_PANDOC="/usr/lib/rstudio/bin/pandoc";\
+	Rscript -e 'bookdown::render_book("index.Rmd", "bookdown::bs4_book")'
+
+
 # use rstudio pandoc
 # this rule sets the environment variable from R using multilines
 build_book2:
