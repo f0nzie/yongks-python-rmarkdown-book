@@ -32,6 +32,14 @@ else
     MY_ENV_DIR=$(ENV_DIR)/envs/$(CONDA_ENV_NAME)
     CONDA_ACTIVATE=source $$(conda info --base)/etc/profile.d/conda.sh ; conda activate ; conda activate
 endif
+# conda environment exists?
+ifeq (True,$(HAS_CONDA))
+ifneq ("$(wildcard $(MY_ENV_DIR))","")
+	HAS_ENVIRONMENT=True	
+else
+	HAS_ENVIRONMENT=False
+endif
+endif
 
 
 .PHONY: pyenv
