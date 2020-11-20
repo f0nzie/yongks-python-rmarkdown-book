@@ -65,6 +65,7 @@ ifneq ("$(wildcard $(MY_ENV_DIR))","") # check if the directory is there
 	@echo ">>> Found $(CONDA_ENV_NAME) environment in $(MY_ENV_DIR). Skipping installation..."
 else
 	@echo ">>> Detected conda, but $(CONDA_ENV_NAME) is missing in $(ENV_DIR). Installing ..."
+	source ${HOME}/${CONDA_TYPE}/etc/profile.d/conda.sh ;\
 	conda env create -f environment.yml -n $(CONDA_ENV_NAME)
 endif
 else
