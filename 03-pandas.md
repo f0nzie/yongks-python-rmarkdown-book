@@ -225,11 +225,11 @@ mydf.head()
 
 ```
 #:>   comp dept grp     value1     value2     value3
-#:> 0   C1   D2  G1  38.471249  24.601730  13.001785
-#:> 1   C3   D3  G2  51.308631  27.135444  -6.088454
-#:> 2   C2   D2  G2  52.251220  23.073042 -85.465809
-#:> 3   C2   D1  G2  57.206447  17.094731   9.254349
-#:> 4   C3   D2  G1  46.723021  23.756123  14.128651
+#:> 0   C2   D4  G2  51.276501  23.944060 -19.453141
+#:> 1   C3   D5  G1  48.241634  19.823981   7.926569
+#:> 2   C1   D2  G2  52.025269  20.216081 -40.035628
+#:> 3   C2   D1  G1  55.582803  19.893167  40.971304
+#:> 4   C3   D5  G1  54.443123  23.286554  12.842095
 ```
 
 #### One DimensionTable
@@ -245,17 +245,17 @@ print(
 ```
 #:> col_0  counter
 #:> comp          
-#:> C1          84
+#:> C1          72
 #:> C2          58
-#:> C3          58 
+#:> C3          70 
 #:> 
 #:>  col_0  counter
 #:> dept          
-#:> D1          34
-#:> D2          40
-#:> D3          38
-#:> D4          47
-#:> D5          41
+#:> D1          41
+#:> D2          41
+#:> D3          49
+#:> D4          44
+#:> D5          25
 ```
 
 #### Two Dimension Table
@@ -268,9 +268,9 @@ pd.crosstab(index=mydf.comp, columns=mydf.dept)
 ```
 #:> dept  D1  D2  D3  D4  D5
 #:> comp                    
-#:> C1    13  17  15  23  16
-#:> C2     8  17  13   9  11
-#:> C3    13   6  10  15  14
+#:> C1    11  15  17  19  10
+#:> C2    16  14  15  10   3
+#:> C3    14  12  17  15  12
 ```
 
 #### Higher Dimension Table
@@ -285,12 +285,12 @@ print( tb, '\n\n',
 ```
 
 ```
-#:> dept D1    D2      D3     D4    D5    
-#:> grp  G1 G2 G1  G2  G1 G2  G1 G2 G1  G2
+#:> dept  D1    D2    D3      D4     D5   
+#:> grp   G1 G2 G1 G2 G1  G2  G1  G2 G1 G2
 #:> comp                                  
-#:> C1    7  6  9   8  12  3  15  8  5  11
-#:> C2    4  4  5  12   8  5   6  3  3   8
-#:> C3    5  8  4   2   2  8   9  6  7   7 
+#:> C1     8  3  9  6  8   9   8  11  6  4
+#:> C2    11  5  5  9  5  10   4   6  0  3
+#:> C3     8  6  6  6  9   8  10   5  7  5 
 #:> 
 #:>  MultiIndex([('D1', 'G1'),
 #:>             ('D1', 'G2'),
@@ -317,15 +317,15 @@ print( 'Under D2:\n', tb['D2'], '\n\n',
 #:> Under D2:
 #:>  grp   G1  G2
 #:> comp        
-#:> C1     9   8
-#:> C2     5  12
-#:> C3     4   2 
+#:> C1     9   6
+#:> C2     5   9
+#:> C3     6   6 
 #:> 
 #:>  Under D2-G2:
 #:>  comp
 #:> C1    9
 #:> C2    5
-#:> C3    4
+#:> C3    6
 #:> Name: (D2, G1), dtype: int64
 ```
 
@@ -341,12 +341,12 @@ tb
 ```
 #:> grp    G1  G2  All
 #:> dept              
-#:> D1     16  18   34
-#:> D2     18  22   40
-#:> D3     22  16   38
-#:> D4     30  17   47
-#:> D5     15  26   41
-#:> All   101  99  200
+#:> D1     27  14   41
+#:> D2     20  21   41
+#:> D3     22  27   49
+#:> D4     22  22   44
+#:> D5     13  12   25
+#:> All   104  96  200
 ```
 
 
@@ -359,18 +359,18 @@ print(
 ```
 #:> Row Sums:     
 #:>  dept
-#:> D1      34
-#:> D2      40
-#:> D3      38
-#:> D4      47
-#:> D5      41
+#:> D1      41
+#:> D2      41
+#:> D3      49
+#:> D4      44
+#:> D5      25
 #:> All    200
 #:> Name: All, dtype: int64 
 #:> 
 #:> Column Sums:
 #:>  grp
-#:> G1     101
-#:> G2      99
+#:> G1     104
+#:> G2      96
 #:> All    200
 #:> Name: All, dtype: int64
 ```
@@ -386,11 +386,11 @@ tb/tb.loc['All']
 ```
 #:> grp         G1        G2    All
 #:> dept                           
-#:> D1    0.158416  0.181818  0.170
-#:> D2    0.178218  0.222222  0.200
-#:> D3    0.217822  0.161616  0.190
-#:> D4    0.297030  0.171717  0.235
-#:> D5    0.148515  0.262626  0.205
+#:> D1    0.259615  0.145833  0.205
+#:> D2    0.192308  0.218750  0.205
+#:> D3    0.211538  0.281250  0.245
+#:> D4    0.211538  0.229167  0.220
+#:> D5    0.125000  0.125000  0.125
 #:> All   1.000000  1.000000  1.000
 ```
 
@@ -2332,7 +2332,7 @@ print(id(empty_df1), id(empty_df2), empty_df1)
 ```
 
 ```
-#:> 140412390980816 140412390676496 Empty DataFrame
+#:> 140189694040336 140189694018000 Empty DataFrame
 #:> Columns: []
 #:> Index: []
 ```
@@ -2361,7 +2361,7 @@ print(id(empty_df1), id(empty_df2))
 ```
 
 ```
-#:> 140412391056656 140412391056656
+#:> 140189694328016 140189694328016
 ```
 
 
@@ -3980,11 +3980,11 @@ df.loc[100]['year'] =2000
 ```
 
 ```
-#:> /home/msfz751/anaconda3/envs/python_book/bin/python:1: SettingWithCopyWarning: 
+#:> /home/msfz751/miniconda3/envs/python_book/bin/python:1: SettingWithCopyWarning: 
 #:> A value is trying to be set on a copy of a slice from a DataFrame
 #:> 
 #:> See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-#:> /home/msfz751/.local/lib/python3.7/site-packages/pandas/core/indexing.py:670: SettingWithCopyWarning: 
+#:> /home/msfz751/miniconda3/envs/python_book/lib/python3.7/site-packages/pandas/core/indexing.py:670: SettingWithCopyWarning: 
 #:> A value is trying to be set on a copy of a slice from a DataFrame
 #:> 
 #:> See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
@@ -5715,7 +5715,7 @@ com_grp
 ```
 
 ```
-#:> <pandas.core.groupby.generic.DataFrameGroupBy object at 0x7fb447274390>
+#:> <pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f8074bdd190>
 ```
 
 ### Transform
