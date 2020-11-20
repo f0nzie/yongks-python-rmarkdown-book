@@ -96,6 +96,15 @@ else
 	exit
 endif
 
+conda_deactivate:
+	source ${HOME}/${CONDA_TYPE}/etc/profile.d/conda.sh ;\
+	conda deactivate
+
+which_conda_env:
+	@echo ${CONDA_DEFAULT_ENV} at ${CONDA_PREFIX}
+
+
+
 # knit the book and then open it in the browser
 .PHONY: gitbook1 gitbook2
 gitbook1: build_book1 open_book
