@@ -195,7 +195,7 @@ stock.info.keys()
 ```
 
 ```
-#:> dict_keys(['zip', 'sector', 'longBusinessSummary', 'city', 'phone', 'state', 'country', 'companyOfficers', 'website', 'maxAge', 'address1', 'industry', 'previousClose', 'regularMarketOpen', 'twoHundredDayAverage', 'trailingAnnualDividendYield', 'payoutRatio', 'volume24Hr', 'regularMarketDayHigh', 'navPrice', 'averageDailyVolume10Day', 'totalAssets', 'regularMarketPreviousClose', 'fiftyDayAverage', 'trailingAnnualDividendRate', 'open', 'toCurrency', 'averageVolume10days', 'expireDate', 'yield', 'algorithm', 'dividendRate', 'exDividendDate', 'beta', 'circulatingSupply', 'startDate', 'regularMarketDayLow', 'priceHint', 'currency', 'trailingPE', 'regularMarketVolume', 'lastMarket', 'maxSupply', 'openInterest', 'marketCap', 'volumeAllCurrencies', 'strikePrice', 'averageVolume', 'priceToSalesTrailing12Months', 'dayLow', 'ask', 'ytdReturn', 'askSize', 'volume', 'fiftyTwoWeekHigh', 'forwardPE', 'fromCurrency', 'fiveYearAvgDividendYield', 'fiftyTwoWeekLow', 'bid', 'tradeable', 'dividendYield', 'bidSize', 'dayHigh', 'exchange', 'shortName', 'longName', 'exchangeTimezoneName', 'exchangeTimezoneShortName', 'isEsgPopulated', 'gmtOffSetMilliseconds', 'quoteType', 'symbol', 'messageBoardId', 'market', 'annualHoldingsTurnover', 'enterpriseToRevenue', 'beta3Year', 'profitMargins', 'enterpriseToEbitda', '52WeekChange', 'morningStarRiskRating', 'forwardEps', 'revenueQuarterlyGrowth', 'sharesOutstanding', 'fundInceptionDate', 'annualReportExpenseRatio', 'bookValue', 'sharesShort', 'sharesPercentSharesOut', 'fundFamily', 'lastFiscalYearEnd', 'heldPercentInstitutions', 'netIncomeToCommon', 'trailingEps', 'lastDividendValue', 'SandP52WeekChange', 'priceToBook', 'heldPercentInsiders', 'nextFiscalYearEnd', 'mostRecentQuarter', 'shortRatio', 'sharesShortPreviousMonthDate', 'floatShares', 'enterpriseValue', 'threeYearAverageReturn', 'lastSplitDate', 'lastSplitFactor', 'legalType', 'lastDividendDate', 'morningStarOverallRating', 'earningsQuarterlyGrowth', 'dateShortInterest', 'pegRatio', 'lastCapGain', 'shortPercentOfFloat', 'sharesShortPriorMonth', 'category', 'fiveYearAverageReturn', 'regularMarketPrice', 'logo_url'])
+#:> dict_keys(['zip', 'sector', 'fullTimeEmployees', 'longBusinessSummary', 'city', 'phone', 'state', 'country', 'companyOfficers', 'website', 'maxAge', 'address1', 'industry', 'previousClose', 'regularMarketOpen', 'twoHundredDayAverage', 'trailingAnnualDividendYield', 'payoutRatio', 'volume24Hr', 'regularMarketDayHigh', 'navPrice', 'averageDailyVolume10Day', 'totalAssets', 'regularMarketPreviousClose', 'fiftyDayAverage', 'trailingAnnualDividendRate', 'open', 'toCurrency', 'averageVolume10days', 'expireDate', 'yield', 'algorithm', 'dividendRate', 'exDividendDate', 'beta', 'circulatingSupply', 'startDate', 'regularMarketDayLow', 'priceHint', 'currency', 'trailingPE', 'regularMarketVolume', 'lastMarket', 'maxSupply', 'openInterest', 'marketCap', 'volumeAllCurrencies', 'strikePrice', 'averageVolume', 'priceToSalesTrailing12Months', 'dayLow', 'ask', 'ytdReturn', 'askSize', 'volume', 'fiftyTwoWeekHigh', 'forwardPE', 'fromCurrency', 'fiveYearAvgDividendYield', 'fiftyTwoWeekLow', 'bid', 'tradeable', 'dividendYield', 'bidSize', 'dayHigh', 'exchange', 'shortName', 'longName', 'exchangeTimezoneName', 'exchangeTimezoneShortName', 'isEsgPopulated', 'gmtOffSetMilliseconds', 'quoteType', 'symbol', 'messageBoardId', 'market', 'annualHoldingsTurnover', 'enterpriseToRevenue', 'beta3Year', 'profitMargins', 'enterpriseToEbitda', '52WeekChange', 'morningStarRiskRating', 'forwardEps', 'revenueQuarterlyGrowth', 'sharesOutstanding', 'fundInceptionDate', 'annualReportExpenseRatio', 'bookValue', 'sharesShort', 'sharesPercentSharesOut', 'fundFamily', 'lastFiscalYearEnd', 'heldPercentInstitutions', 'netIncomeToCommon', 'trailingEps', 'lastDividendValue', 'SandP52WeekChange', 'priceToBook', 'heldPercentInsiders', 'nextFiscalYearEnd', 'mostRecentQuarter', 'shortRatio', 'sharesShortPreviousMonthDate', 'floatShares', 'enterpriseValue', 'threeYearAverageReturn', 'lastSplitDate', 'lastSplitFactor', 'legalType', 'lastDividendDate', 'morningStarOverallRating', 'earningsQuarterlyGrowth', 'dateShortInterest', 'pegRatio', 'lastCapGain', 'shortPercentOfFloat', 'sharesShortPriorMonth', 'category', 'fiveYearAverageReturn', 'regularMarketPrice', 'logo_url'])
 ```
 
 ```python
@@ -223,17 +223,17 @@ stock.history(  start='2014-06-06', end='2015-06-15', auto_adjust = False)
 ```
 #:>                  Open       High        Low      Close  Adj Close     Volume  Dividends  \
 #:> Date                                                                                      
-#:> 2014-06-06  23.210714  23.259285  23.016787  23.056072  20.844652  349938400        0.0   
-#:> 2014-06-09  23.174999  23.469999  22.937500  23.424999  21.178194  301660000        0.0   
-#:> 2014-06-10  23.682501  23.762501  23.392500  23.562500  21.302504  251108000        0.0   
-#:> 2014-06-11  23.532499  23.690001  23.367500  23.465000  21.214357  182724000        0.0   
-#:> 2014-06-12  23.510000  23.530001  22.975000  23.072500  20.859509  218996000        0.0   
+#:> 2014-06-06  23.210714  23.259285  23.016787  23.056072  20.639763  349938400        0.0   
+#:> 2014-06-09  23.174999  23.469999  22.937500  23.424999  20.970028  301660000        0.0   
+#:> 2014-06-10  23.682501  23.762501  23.392500  23.562500  21.093121  251108000        0.0   
+#:> 2014-06-11  23.532499  23.690001  23.367500  23.465000  21.005835  182724000        0.0   
+#:> 2014-06-12  23.510000  23.530001  22.975000  23.072500  20.654472  218996000        0.0   
 #:> ...               ...        ...        ...        ...        ...        ...        ...   
-#:> 2015-06-08  32.224998  32.302502  31.707500  31.950001  29.392403  210699200        0.0   
-#:> 2015-06-09  31.674999  32.020000  31.405001  31.855000  29.305008  224301600        0.0   
-#:> 2015-06-10  31.980000  32.334999  31.962500  32.220001  29.640785  156349200        0.0   
-#:> 2015-06-11  32.294998  32.544998  32.119999  32.147499  29.574097  141563600        0.0   
-#:> 2015-06-12  32.047501  32.082500  31.777500  31.792500  29.247511  147544800        0.0   
+#:> 2015-06-08  32.224998  32.302502  31.707500  31.950001  29.103498  210699200        0.0   
+#:> 2015-06-09  31.674999  32.020000  31.405001  31.855000  29.016962  224301600        0.0   
+#:> 2015-06-10  31.980000  32.334999  31.962500  32.220001  29.349443  156349200        0.0   
+#:> 2015-06-11  32.294998  32.544998  32.119999  32.147499  29.283403  141563600        0.0   
+#:> 2015-06-12  32.047501  32.082500  31.777500  31.792500  28.960032  147544800        0.0   
 #:> 
 #:>             Stock Splits  
 #:> Date                      
@@ -267,17 +267,17 @@ stock.history(  start='2014-06-06', end='2015-06-15', auto_adjust = True)
 ```
 #:>                  Open       High        Low      Close     Volume  Dividends  \
 #:> Date                                                                           
-#:> 2014-06-06  20.984462  21.028374  20.809135  20.844652  349938400        0.0   
-#:> 2014-06-09  20.952173  21.218878  20.737453  21.178194  301660000        0.0   
-#:> 2014-06-10  21.410995  21.483321  21.148809  21.302504  251108000        0.0   
-#:> 2014-06-11  21.275382  21.417777  21.126209  21.214357  182724000        0.0   
-#:> 2014-06-12  21.255046  21.273128  20.771360  20.859509  218996000        0.0   
+#:> 2014-06-06  20.778198  20.821679  20.604594  20.639763  349938400        0.0   
+#:> 2014-06-09  20.746228  21.010312  20.533619  20.970028  301660000        0.0   
+#:> 2014-06-10  21.200545  21.272161  20.940937  21.093121  251108000        0.0   
+#:> 2014-06-11  21.066260  21.207255  20.918553  21.005835  182724000        0.0   
+#:> 2014-06-12  21.046122  21.064026  20.567191  20.654472  218996000        0.0   
 #:> ...               ...        ...        ...        ...        ...        ...   
-#:> 2015-06-08  29.645387  29.716686  29.169314  29.392403  210699200        0.0   
-#:> 2015-06-09  29.139417  29.456801  28.891031  29.305008  224301600        0.0   
-#:> 2015-06-10  29.419996  29.746577  29.403897  29.640785  156349200        0.0   
-#:> 2015-06-11  29.709788  29.939776  29.548798  29.574097  141563600        0.0   
-#:> 2015-06-12  29.482099  29.514297  29.233712  29.247511  147544800        0.0   
+#:> 2015-06-08  29.353996  29.424594  28.882603  29.103498  210699200        0.0   
+#:> 2015-06-09  28.852998  29.167263  28.607055  29.016962  224301600        0.0   
+#:> 2015-06-10  29.130824  29.454196  29.114883  29.349443  156349200        0.0   
+#:> 2015-06-11  29.417761  29.645488  29.258353  29.283403  141563600        0.0   
+#:> 2015-06-12  29.192314  29.224196  28.946368  28.960032  147544800        0.0   
 #:> 
 #:>             Stock Splits  
 #:> Date                      
@@ -357,33 +357,33 @@ stock.history(periods='max')
 ```
 #:>                   Open        High         Low       Close     Volume  Dividends  \
 #:> Date                                                                               
-#:> 2020-09-30  113.790001  117.260002  113.620003  115.809998  142675200          0   
-#:> 2020-10-01  117.639999  117.720001  115.830002  116.790001  116120400          0   
-#:> 2020-10-02  112.889999  115.370003  112.220001  113.019997  144712000          0   
-#:> 2020-10-05  113.910004  116.650002  113.550003  116.500000  106243800          0   
-#:> 2020-10-06  115.699997  116.120003  112.250000  113.160004  161498200          0   
+#:> 2020-10-20  115.999868  118.775087  115.430850  117.307617  124423700        0.0   
+#:> 2020-10-21  116.469064  118.505551  116.249442  116.668724   89946000        0.0   
+#:> 2020-10-22  117.247713  117.836701  114.392638  115.550644  101988000        0.0   
+#:> 2020-10-23  116.189547  116.349275  114.083180  114.841873   82572600        0.0   
+#:> 2020-10-26  113.813643  116.349269  112.685584  114.851852  111850700        0.0   
 #:> ...                ...         ...         ...         ...        ...        ...   
-#:> 2020-10-26  114.010002  116.550003  112.879997  115.050003  111850700          0   
-#:> 2020-10-27  115.489998  117.279999  114.540001  116.599998   92276800          0   
-#:> 2020-10-28  115.050003  115.430000  111.099998  111.199997  143937800          0   
-#:> 2020-10-29  112.370003  116.930000  112.199997  115.320000  143850900          0   
-#:> 2020-10-30  111.059998  111.989998  107.720001  108.860001  184033737          0   
+#:> 2020-11-16  118.919998  120.989998  118.150002  120.300003   91183000        0.0   
+#:> 2020-11-17  119.550003  120.669998  118.959999  119.389999   74271000        0.0   
+#:> 2020-11-18  118.610001  119.820000  118.000000  118.029999   76322100        0.0   
+#:> 2020-11-19  117.589996  119.059998  116.809998  118.639999   73860200        0.0   
+#:> 2020-11-20  118.639999  118.769997  117.500000  117.610001   54692629        0.0   
 #:> 
 #:>             Stock Splits  
 #:> Date                      
-#:> 2020-09-30             0  
-#:> 2020-10-01             0  
-#:> 2020-10-02             0  
-#:> 2020-10-05             0  
-#:> 2020-10-06             0  
-#:> ...                  ...  
+#:> 2020-10-20             0  
+#:> 2020-10-21             0  
+#:> 2020-10-22             0  
+#:> 2020-10-23             0  
 #:> 2020-10-26             0  
-#:> 2020-10-27             0  
-#:> 2020-10-28             0  
-#:> 2020-10-29             0  
-#:> 2020-10-30             0  
+#:> ...                  ...  
+#:> 2020-11-16             0  
+#:> 2020-11-17             0  
+#:> 2020-11-18             0  
+#:> 2020-11-19             0  
+#:> 2020-11-20             0  
 #:> 
-#:> [23 rows x 7 columns]
+#:> [24 rows x 7 columns]
 ```
 #### Query Multiple Stocks
 
