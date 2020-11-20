@@ -191,3 +191,7 @@ info:
 	@echo "Has Conda?:" ${HAS_CONDA}
 	@echo ${ENV_DIR}
 	@echo ${MY_ENV_DIR}
+	@echo "Conda environment:" ${CONDA_ENV_NAME}
+	@echo "Does Environment *${CONDA_ENV_NAME}* exist?" ${HAS_ENVIRONMENT}
+	@echo ${CONDA_DEFAULT_ENV}
+	
