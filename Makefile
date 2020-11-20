@@ -59,7 +59,7 @@ pyenv:
 
 # create a conda environment from specs file
 # https://stackoverflow.com/a/60247404/5270873
-conda_create:
+conda_create_old:
 ifeq (True,$(HAS_CONDA))
 ifneq ("$(wildcard $(MY_ENV_DIR))","") # check if the directory is there
 	@echo ">>> Found $(CONDA_ENV_NAME) environment in $(MY_ENV_DIR). Skipping installation..."
