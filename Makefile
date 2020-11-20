@@ -115,7 +115,7 @@ gitbook2: build_book2 open_book
 
 # use rstudio pandoc
 # this rule sets the PANDOC environment variable from the shell
-build_book1:
+gitbook_render:
 	export RSTUDIO_PANDOC="/usr/lib/rstudio/bin/pandoc";\
 	Rscript -e 'bookdown::render_book("index.Rmd", "bookdown::gitbook")'
 
