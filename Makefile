@@ -147,6 +147,11 @@ ifeq ($(OSFLAG), WINDOWS)
 endif
 
 
+bs4_book: conda_activate bs4book_render open_book conda_deactivate
+
+git_book: conda_activate gitbook_render open_book conda_deactivate
+
+
 .PHONY: push
 push:
 	git push
