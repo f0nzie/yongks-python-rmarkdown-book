@@ -1,16 +1,24 @@
 # Makefile written by Alfonso R. Reyes
+# Conda environment: Yes
+# Docker: No
+# Book format: bs4_book
 SHELL := /bin/bash
-CONDA_ENV_NAME = python_book
+# Python Jupyter
+PYTHON_ENV_DIR = 
+START_NOTEBOOK = 
+CHECKPOINTS = .ipynb_checkpoints
+# bookdown
 BOOKDOWN_FILES_DIRS = python_bookdown_files _bookdown_files
 OUTPUT_DIR = .
 PUBLISH_BOOK_DIR = public
 DEFAULT_PUBLISH_BOOK_DIRS = _book docs ${PUBLISH_BOOK_DIR}
-PYTHON_ENV_DIR = 
-START_NOTEBOOK = 
-LIBRARY = 
 FIGURE_DIR = 
-CHECKPOINTS = .ipynb_checkpoints
+LIBRARY = 
+MAIN_RMD = python_bookdown.Rmd
+# conda
+CONDA_ENV_NAME = python_book
 CONDA_TYPE = miniconda3
+ENV_RECIPE = environment.yml
 # Detect operating system. Sort of tricky for Windows because of MSYS, cygwin, MGWIN
 OSFLAG :=
 ifeq ($(OS), Windows_NT)
@@ -29,8 +37,8 @@ ifeq (,$(shell which conda))
     HAS_CONDA=False
 else
     HAS_CONDA=True
-    ENV_DIR=$(shell conda info --base)
-    MY_ENV_DIR=$(ENV_DIR)/envs/$(CONDA_ENV_NAME)
+    CONDA_BASE_DIR=$(shell conda info --base)
+    MY_ENV_DIR=$(CONDA_BASE_DIR)/envs/$(CONDA_ENV_NAME)
     CONDA_ACTIVATE=source $$(conda info --base)/etc/profile.d/conda.sh ; conda activate ; conda activate
 endif
 # conda environment exists?
@@ -65,7 +73,7 @@ ifeq (True,$(HAS_CONDA))
 ifneq ("$(wildcard $(MY_ENV_DIR))","") # check if the directory is there
 	@echo ">>> Found $(CONDA_ENV_NAME) environment in $(MY_ENV_DIR). Skipping installation..."
 else
-	@echo ">>> Detected conda, but $(CONDA_ENV_NAME) is missing in $(ENV_DIR). Installing ..."
+	@echo ">>> Detected conda, but $(CONDA_ENV_NAME) is missing in $(CONDA_BASE_DIR). Installing ..."
 	source ${HOME}/${CONDA_TYPE}/etc/profile.d/conda.sh ;\
 	conda env create -f environment.yml -n $(CONDA_ENV_NAME)
 endif
@@ -79,11 +87,24 @@ ifeq (True,$(HAS_ENVIRONMENT))
 	@echo ">>> Found $(CONDA_ENV_NAME) environment in $(MY_ENV_DIR)"
 	@echo "Skipping installation..."
 else
-	@echo ">> Detected conda, but *$(CONDA_ENV_NAME)* is missing in $(ENV_DIR)"
-	@echo "Installing ...\n"
+	@echo ">> Detected conda, but *$(CONDA_ENV_NAME)* is missing in $(CONDA_BASE_DIR)"
+	@echo "Installing ..."
 	source ${HOME}/${CONDA_TYPE}/etc/profile.d/conda.sh ;\
-	conda env create -f environment.yml -n $(CONDA_ENV_NAME)
+	conda env create -f ${ENV_RECIPE} -n $(CONDA_ENV_NAME)
 endif
+
+
+conda_remove:
+ifeq (True,$(HAS_ENVIRONMENT))	
+	@echo ">>> Found $(CONDA_ENV_NAME) environment in $(MY_ENV_DIR)"
+	source ${HOME}/${CONDA_TYPE}/etc/profile.d/conda.sh ;\
+	conda deactivate
+	conda remove --name ${CONDA_ENV_NAME} --all -y
+else
+	@echo ">> Detected conda, but *$(CONDA_ENV_NAME)* is missing at $(CONDA_BASE_DIR)"
+	@echo "Nothing to remove ..."
+endif
+
 
 # activate conda only if environment exists
 conda_activate:
@@ -92,7 +113,7 @@ ifneq ("$(wildcard $(MY_ENV_DIR))","")
 	@source ${HOME}/${CONDA_TYPE}/etc/profile.d/conda.sh ;\
 	conda activate $(CONDA_ENV_NAME)
 else
-	@echo ">>> Detected conda, but $(CONDA_ENV_NAME) is missing in $(ENV_DIR). Install conda first ..."
+	@echo ">>> Detected conda, but $(CONDA_ENV_NAME) is missing in $(CONDA_BASE_DIR). Install conda first ..."
 endif
 else
 	@echo ">>> Install conda first."
@@ -164,8 +185,10 @@ git_push:
 .PHONY: clean
 clean: tidy
 		find $(OUTPUT_DIR) -maxdepth 1 -name \*.tex -not -name 'preamble.tex' -delete
+		find $(FIGURE_DIR) -maxdepth 1 -name \*.png -delete ;\
 		$(RM) -rf $(BOOKDOWN_FILES_DIRS)
 		$(RM) -rf $(DEFAULT_PUBLISH_BOOK_DIRS)
+		if [ -f ${MAIN_RMD} ]; then rm -rf ${MAIN_RMD};fi ;\
 		if [ -d ${PUBLISH_BOOK_DIR} ]; then rm -rf ${PUBLISH_BOOK_DIR};fi
 		if [ -d ${CHECKPOINTS} ]; then rm -rf ${CHECKPOINTS};fi
 
@@ -188,11 +211,11 @@ tidy:
 .PHONY: info
 info:
 	@echo "OS is:" $(OSFLAG)
-	@echo "Publication folder:" $(PUBLISH_BOOK_DIR)
+	@echo "Bookdown publication folder:" $(PUBLISH_BOOK_DIR)
 	@echo "Has Conda?:" ${HAS_CONDA}
-	@echo ${ENV_DIR}
-	@echo ${MY_ENV_DIR}
+	@echo "Conda Base  Dir:" ${CONDA_BASE_DIR}
+	@echo "Environment Dir:" ${MY_ENV_DIR}
 	@echo "Conda environment:" ${CONDA_ENV_NAME}
 	@echo "Does Environment *${CONDA_ENV_NAME}* exist?" ${HAS_ENVIRONMENT}
-	@echo ${CONDA_DEFAULT_ENV}
+	@echo "Active Conda environment:" ${CONDA_DEFAULT_ENV}
 	
