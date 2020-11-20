@@ -72,6 +72,17 @@ else
 	exit
 endif
 
+conda_create:
+ifeq (True,$(HAS_ENVIRONMENT))	
+	@echo ">>> Found $(CONDA_ENV_NAME) environment in $(MY_ENV_DIR)"
+	@echo "Skipping installation..."
+else
+	@echo ">> Detected conda, but *$(CONDA_ENV_NAME)* is missing in $(ENV_DIR)"
+	@echo "Installing ...\n"
+	source ${HOME}/${CONDA_TYPE}/etc/profile.d/conda.sh ;\
+	conda env create -f environment.yml -n $(CONDA_ENV_NAME)
+endif
+
 # activate conda only if environment exists
 conda_activate:
 ifeq (True,$(HAS_CONDA))
