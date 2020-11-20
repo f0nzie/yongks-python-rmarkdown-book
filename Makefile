@@ -88,6 +88,7 @@ endif
 conda_activate:
 ifeq (True,$(HAS_CONDA))
 ifneq ("$(wildcard $(MY_ENV_DIR))","") 
+	@source ${HOME}/${CONDA_TYPE}/etc/profile.d/conda.sh ;\
 	conda activate $(CONDA_ENV_NAME)
 else
 	@echo ">>> Detected conda, but $(CONDA_ENV_NAME) is missing in $(ENV_DIR). Install conda first ..."
