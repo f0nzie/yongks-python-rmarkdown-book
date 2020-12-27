@@ -50,7 +50,6 @@
 <li><a class="" href="sklearn.html"><span class="header-section-number">16</span> sklearn</a></li>
 <li><a class="" href="nlp.html"><span class="header-section-number">17</span> NLP</a></li>
 <li><a class="" href="web-scrapping.html"><span class="header-section-number">18</span> Web Scrapping</a></li>
-<li><a class="" href="finance.html"><span class="header-section-number">19</span> Finance</a></li>
 </ul>
 
         <div class="book-extra">
@@ -114,9 +113,9 @@
 <pre><code>#:&gt; (1, 2, 3, 4, 5)</code></pre>
 <p>The copy and original has the same memory location.</p>
 <div class="sourceCode" id="cb169"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb169-1"><a href="built-in-data-structure.html#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Original ID: '</span>, <span class="bu">id</span>(original))</span></code></pre></div>
-<pre><code>#:&gt; Original ID:  139903753534832</code></pre>
+<pre><code>#:&gt; Original ID:  139780314303856</code></pre>
 <div class="sourceCode" id="cb171"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb171-1"><a href="built-in-data-structure.html#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Copy ID:     '</span>, <span class="bu">id</span>(copy_test))</span></code></pre></div>
-<pre><code>#:&gt; Copy ID:      139903753534832</code></pre>
+<pre><code>#:&gt; Copy ID:      139780314303856</code></pre>
 </div>
 </div>
 <div id="list" class="section level2" number="3.2">
@@ -266,10 +265,10 @@
 <p>The reference of list variable won’t change after adding/removing its item</p>
 <div class="sourceCode" id="cb219"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb219-1"><a href="built-in-data-structure.html#cb219-1" aria-hidden="true" tabindex="-1"></a>food <span class="op">=</span> [<span class="st">'cake'</span>,<span class="st">'jelly'</span>,<span class="st">'roti'</span>,<span class="st">'noodle'</span>]</span>
 <span id="cb219-2"><a href="built-in-data-structure.html#cb219-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="st">'food : '</span>,<span class="bu">id</span>(food))</span></code></pre></div>
-<pre><code>#:&gt; food :  139903753597728</code></pre>
+<pre><code>#:&gt; food :  139780314428192</code></pre>
 <div class="sourceCode" id="cb221"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb221-1"><a href="built-in-data-structure.html#cb221-1" aria-hidden="true" tabindex="-1"></a>food <span class="op">+=</span> [<span class="st">'salad'</span>,<span class="st">'chicken'</span>]</span>
 <span id="cb221-2"><a href="built-in-data-structure.html#cb221-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="st">'food : '</span>,<span class="bu">id</span>(food))</span></code></pre></div>
-<pre><code>#:&gt; food :  139903753597728</code></pre>
+<pre><code>#:&gt; food :  139780314428192</code></pre>
 <p>A function is actually an <strong>object</strong>, which reference never change, hence <strong>mutable</strong></p>
 <div class="sourceCode" id="cb223"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb223-1"><a href="built-in-data-structure.html#cb223-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> spam (elem, some_list<span class="op">=</span>[<span class="st">'a'</span>,<span class="st">'b'</span>]):</span>
 <span id="cb223-2"><a href="built-in-data-structure.html#cb223-2" aria-hidden="true" tabindex="-1"></a>    some_list.append(elem)</span>
@@ -290,9 +289,9 @@
 <div class="sourceCode" id="cb229"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb229-1"><a href="built-in-data-structure.html#cb229-1" aria-hidden="true" tabindex="-1"></a>original <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]</span>
 <span id="cb229-2"><a href="built-in-data-structure.html#cb229-2" aria-hidden="true" tabindex="-1"></a>copy_test <span class="op">=</span> original</span>
 <span id="cb229-3"><a href="built-in-data-structure.html#cb229-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Original ID: '</span>, <span class="bu">id</span>(original))</span></code></pre></div>
-<pre><code>#:&gt; Original ID:  139903753598368</code></pre>
+<pre><code>#:&gt; Original ID:  139780314428832</code></pre>
 <div class="sourceCode" id="cb231"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb231-1"><a href="built-in-data-structure.html#cb231-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Copy ID:     '</span>, <span class="bu">id</span>(copy_test))                          </span></code></pre></div>
-<pre><code>#:&gt; Copy ID:      139903753598368</code></pre>
+<pre><code>#:&gt; Copy ID:      139780314428832</code></pre>
 <div class="sourceCode" id="cb233"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb233-1"><a href="built-in-data-structure.html#cb233-1" aria-hidden="true" tabindex="-1"></a>original[<span class="dv">0</span>]<span class="op">=</span><span class="dv">999</span>   <span class="co">## change original</span></span>
 <span id="cb233-2"><a href="built-in-data-structure.html#cb233-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(original)</span></code></pre></div>
 <pre><code>#:&gt; [999, 2, 3, 4, 5]</code></pre>
@@ -306,9 +305,9 @@
 <div class="sourceCode" id="cb239"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb239-1"><a href="built-in-data-structure.html#cb239-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(copy_test)</span></code></pre></div>
 <pre><code>#:&gt; [1, 2, 3, 4, 5]</code></pre>
 <div class="sourceCode" id="cb241"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb241-1"><a href="built-in-data-structure.html#cb241-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Original ID: '</span>, <span class="bu">id</span>(original))</span></code></pre></div>
-<pre><code>#:&gt; Original ID:  139903753608240</code></pre>
+<pre><code>#:&gt; Original ID:  139780314377024</code></pre>
 <div class="sourceCode" id="cb243"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb243-1"><a href="built-in-data-structure.html#cb243-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Copy ID:     '</span>, <span class="bu">id</span>(copy_test))</span></code></pre></div>
-<pre><code>#:&gt; Copy ID:      139903914202208</code></pre>
+<pre><code>#:&gt; Copy ID:      139780474970912</code></pre>
 <div class="sourceCode" id="cb245"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb245-1"><a href="built-in-data-structure.html#cb245-1" aria-hidden="true" tabindex="-1"></a>original[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">999</span>  <span class="co">## change original</span></span>
 <span id="cb245-2"><a href="built-in-data-structure.html#cb245-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(original)    </span></code></pre></div>
 <pre><code>#:&gt; [999, 2, 3, 4, 5]</code></pre>
@@ -322,10 +321,10 @@
 <span id="cb249-5"><a href="built-in-data-structure.html#cb249-5" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb249-6"><a href="built-in-data-structure.html#cb249-6" aria-hidden="true" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]</span>
 <span id="cb249-7"><a href="built-in-data-structure.html#cb249-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'ID outside Function: '</span>, <span class="bu">id</span>(my_list))</span></code></pre></div>
-<pre><code>#:&gt; ID outside Function:  139903914209360</code></pre>
+<pre><code>#:&gt; ID outside Function:  139780474983120</code></pre>
 <div class="sourceCode" id="cb251"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb251-1"><a href="built-in-data-structure.html#cb251-1" aria-hidden="true" tabindex="-1"></a>func(my_list)  <span class="co">## call the function, pass the reference</span></span></code></pre></div>
 <pre><code>#:&gt; [1, 2, 3, 4, 5]
-#:&gt; ID in Function:       139903914209360</code></pre>
+#:&gt; ID in Function:       139780474983120</code></pre>
 <div class="sourceCode" id="cb253"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb253-1"><a href="built-in-data-structure.html#cb253-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_list) <span class="co">## content was altered</span></span></code></pre></div>
 <pre><code>#:&gt; [1, 2, 3, 4, 5, 6]</code></pre>
 </div>
@@ -372,7 +371,7 @@
 <span id="cb261-2"><a href="built-in-data-structure.html#cb261-2" aria-hidden="true" tabindex="-1"></a>original_tuple <span class="op">=</span> <span class="bu">tuple</span>(original)</span>
 <span id="cb261-3"><a href="built-in-data-structure.html#cb261-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( <span class="bu">id</span>(original),</span>
 <span id="cb261-4"><a href="built-in-data-structure.html#cb261-4" aria-hidden="true" tabindex="-1"></a>       <span class="bu">id</span>(original_tuple))</span></code></pre></div>
-<pre><code>#:&gt; 139903753700928 139903753630976</code></pre>
+<pre><code>#:&gt; 139780314469872 139780314335824</code></pre>
 </div>
 <div id="built-in-functions-applicable-to-list" class="section level3" number="3.2.9">
 <h3>
@@ -503,7 +502,7 @@
 <p>Set can be declared with <code>{}</code>, unlike list creation uses ‘[].’</p>
 <div class="sourceCode" id="cb292"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb292-1"><a href="built-in-data-structure.html#cb292-1" aria-hidden="true" tabindex="-1"></a>myset <span class="op">=</span> {<span class="st">'a'</span>,<span class="st">'b'</span>,<span class="st">'c'</span>,<span class="st">'d'</span>,<span class="st">'a'</span>,<span class="st">'b'</span>,<span class="st">'e'</span>,<span class="st">'f'</span>,<span class="st">'g'</span>}</span>
 <span id="cb292-2"><a href="built-in-data-structure.html#cb292-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (myset) <span class="co"># notice no repetition values</span></span></code></pre></div>
-<pre><code>#:&gt; {'c', 'e', 'b', 'f', 'g', 'd', 'a'}</code></pre>
+<pre><code>#:&gt; {'g', 'd', 'e', 'b', 'f', 'c', 'a'}</code></pre>
 <p>Set can be created from list, and then converted back to list</p>
 <div class="sourceCode" id="cb294"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb294-1"><a href="built-in-data-structure.html#cb294-1" aria-hidden="true" tabindex="-1"></a>mylist <span class="op">=</span> [<span class="st">'a'</span>,<span class="st">'b'</span>,<span class="st">'c'</span>,<span class="st">'d'</span>,<span class="st">'a'</span>,<span class="st">'b'</span>,<span class="st">'e'</span>,<span class="st">'f'</span>,<span class="st">'g'</span>]</span>
 <span id="cb294-2"><a href="built-in-data-structure.html#cb294-2" aria-hidden="true" tabindex="-1"></a>myset <span class="op">=</span> <span class="bu">set</span>(mylist)</span>
@@ -513,8 +512,8 @@
 <span id="cb294-6"><a href="built-in-data-structure.html#cb294-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">'</span><span class="ch">\n</span><span class="st">Convert to set      : '</span>, myset,</span>
 <span id="cb294-7"><a href="built-in-data-structure.html#cb294-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">'</span><span class="ch">\n</span><span class="st">Convert back to list: '</span>, my_unique_list) <span class="co"># notice no repetition values</span></span></code></pre></div>
 <pre><code>#:&gt; Original List       :  ['a', 'b', 'c', 'd', 'a', 'b', 'e', 'f', 'g'] 
-#:&gt; Convert to set      :  {'c', 'e', 'b', 'f', 'g', 'd', 'a'} 
-#:&gt; Convert back to list:  ['c', 'e', 'b', 'f', 'g', 'd', 'a']</code></pre>
+#:&gt; Convert to set      :  {'g', 'd', 'e', 'b', 'f', 'c', 'a'} 
+#:&gt; Convert back to list:  ['g', 'd', 'e', 'b', 'f', 'c', 'a']</code></pre>
 </div>
 <div id="membership-test" class="section level3" number="3.4.2">
 <h3>
@@ -546,7 +545,7 @@ Proper Subset Test : &lt;</p>
 <span class="header-section-number">3.4.4</span> Union using <code>|</code><a class="anchor" aria-label="anchor" href="#union-using"><i class="fas fa-link"></i></a>
 </h3>
 <div class="sourceCode" id="cb306"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb306-1"><a href="built-in-data-structure.html#cb306-1" aria-hidden="true" tabindex="-1"></a>{<span class="st">'a'</span>,<span class="st">'b'</span>,<span class="st">'c'</span>} <span class="op">|</span> {<span class="st">'a'</span>,<span class="st">'e'</span>,<span class="st">'f'</span>}</span></code></pre></div>
-<pre><code>#:&gt; {'c', 'e', 'b', 'f', 'a'}</code></pre>
+<pre><code>#:&gt; {'e', 'b', 'f', 'c', 'a'}</code></pre>
 </div>
 <div id="intersection-using" class="section level3" number="3.4.5">
 <h3>
@@ -554,7 +553,7 @@ Proper Subset Test : &lt;</p>
 </h3>
 <p>Any elments that exist in both left and right set</p>
 <div class="sourceCode" id="cb308"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb308-1"><a href="built-in-data-structure.html#cb308-1" aria-hidden="true" tabindex="-1"></a>{<span class="st">'a'</span>,<span class="st">'b'</span>,<span class="st">'c'</span>,<span class="st">'d'</span>} <span class="op">&amp;</span> {<span class="st">'c'</span>,<span class="st">'d'</span>,<span class="st">'e'</span>,<span class="st">'f'</span>}</span></code></pre></div>
-<pre><code>#:&gt; {'d', 'c'}</code></pre>
+<pre><code>#:&gt; {'c', 'd'}</code></pre>
 </div>
 <div id="difference-using--" class="section level3" number="3.4.6">
 <h3>
@@ -652,7 +651,7 @@ Proper Subset Test : &lt;</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Python Bookdown</strong>" was written by Yong Keh Soon. It was last built on 2020-11-20.</p>
+    <p>"<strong>Python Bookdown</strong>" was written by Yong Keh Soon. It was last built on 2020-12-27.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
