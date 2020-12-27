@@ -196,7 +196,7 @@ clean: tidy
 # delete unwanted files and folders in bookdown folder
 .PHONY: tidy
 tidy:
-		find $(OUTPUT_DIR) -maxdepth 1 -name \*.md -not -name 'README.md' -delete
+		find $(OUTPUT_DIR) -maxdepth 1 -name \*.md -not -name 'README.md' -not -name 'BUILD.md'-delete
 		find $(OUTPUT_DIR) -maxdepth 1 -name \*-book.html -delete
 		find $(OUTPUT_DIR) -maxdepth 1 -name \*.png -delete
 		find $(OUTPUT_DIR) -maxdepth 1 -name \*.log -delete
