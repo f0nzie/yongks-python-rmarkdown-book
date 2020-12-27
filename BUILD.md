@@ -1,6 +1,10 @@
 # BUILD
 
-## What is so special about this book?
+[toc]
+
+## Introduction
+
+### What is so special about this book?
 
 1. A Python tutorial written in Rmarkdown
 
@@ -11,6 +15,8 @@
     ```
     source("R/init_python.R")
     ```
+
+1. It calls `before-each-chapter.R`
 
 1. Python environment can be created with Conda or `virtualenv`. Rules in Makefile.
 
@@ -53,12 +59,76 @@
 
 
 
+## Building the book
+
+### As gitbook
+
+```
+make git_book
+```
+
+### As bs4_book
+
+```
+make bs4_book
+```
+
+
+
+### As PDF
+
+```
+make pdf
+```
+
+
+
+## Makefile
+
+### Environment rules
+
+*   `conda_create`: 
+
+*   `conda_remove`
+
+*   `conda_activate`
+
+*   `conda_deactivate`:
+
+*   `which_conda_env`: tells us if we are in a `conda` environment or under the `base` environment
+
+*   `info`: shows information about the environment
+
+    
+
+
+
+### `conda_info`
+
+```
+.PHONY: info
+info:
+	@echo "OS is:" $(OSFLAG)
+	@echo "Bookdown publication folder:" $(PUBLISH_BOOK_DIR)
+	@echo "Has Conda?:" ${HAS_CONDA}
+	@echo "Conda Base  Dir:" ${CONDA_BASE_DIR}
+	@echo "Environment Dir:" ${MY_ENV_DIR}
+	@echo "Conda environment:" ${CONDA_ENV_NAME}
+	@echo "Does Environment *${CONDA_ENV_NAME}* exist?" ${HAS_ENVIRONMENT}
+	@echo "Active Conda environment:" ${CONDA_DEFAULT_ENV}
+```
+
 
 
 ## Repository
 
+### GitHub `oilgains`
+
 *   ssh: `git@github-oilgains:f0nzie/yongks-python-rmarkdown-book.git`
-*   
+
+
+
+
 
 
 
