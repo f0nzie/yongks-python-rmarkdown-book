@@ -1,0 +1,255 @@
+# Finance
+
+
+```{r, echo=FALSE}
+source("R/init_python.R")
+```
+
+```{python include=FALSE, results='hide'}
+import numpy as np
+import pandas as pd
+
+pd.set_option( 'display.notebook_repr_html', False)  # render Series and DataFrame as text, not HTML
+pd.set_option( 'display.max_column', 10)    # number of columns
+pd.set_option( 'display.max_rows', 10)      # number of rows
+pd.set_option( 'display.width', 90)         # number of characters per row
+```
+
+## Getting Data
+
+### `pandas_datareder`
+
+#### OHLC EOD Pricing
+
+- HLOC columns are adjusted with splits  
+- 'Adj Close' columns is adjusted with **split and dividends**  
+- `start` and `end` date **must be string**
+
+```{python}
+import pandas_datareader as pdr
+```
+
+```{python}
+pdr.data.DataReader('PUBM.KL',
+                    start='2015-1-1', 
+                    end='2019-12-31', 
+                    data_source='yahoo')
+```
+
+
+#### Splits and Dividends
+
+This method is similar to getting pricing data, except that different data_sources is used.
+
+```{python}
+pdr.DataReader('AAPL',
+  data_source = 'yahoo-actions',
+  start='2014-01-06', 
+  end='2015-06-15'
+)
+```
+
+#### Merging OHLC and Splits/Dividends
+
+```{python}
+prices = pdr.DataReader('AAPL',
+  data_source = 'yahoo',
+  start='2014-06-06', 
+  end='2014-06-12'
+)
+
+actions = pdr.DataReader('AAPL',
+  data_source = 'yahoo-actions',
+  start='2014-06-06', 
+  end='2014-06-12'
+)
+```
+
+Use `pandas.merge()` function to combine both prices and splits dataframe in **a new dataframe**. Non matching line will have NaN.
+
+```{python}
+pd.merge(prices, actions, how='outer', left_index=True, right_index=True) \
+  .loc[:,['High','Low','Open','Close','action','value']]
+```
+
+Alternatively, use pandas column assignment from the splits dataframe into price dataframe, it will automatically 'merge' based on the **index**. This approach reuse existing dataframe instead of creating new one.
+
+```{python}
+prices['action'], prices['value'] = actions.action, actions.value
+prices[['High','Low','Open','Close','action','value']]
+```
+
+#### Query Multiple Stocks
+
+** When multiple symbols are supplied to DataReader, dictionary containing multiple stock's result are returned.
+
+```{python}
+stocks = ['MLYBY', 'AAPL']
+my_dict = pdr.DataReader( stocks,
+  data_source = 'yahoo-actions',
+  start='2014-01-06', 
+  end='2015-06-15'
+)
+
+print(my_dict.keys())
+```
+
+Iterate through the dictionary to get the dataframe data
+
+```{python}
+for i in my_dict.items():
+  print('\n\nStock: ', i[0],
+        '\nDataFrame:', i[1])
+```
+
+### `yfinance`
+
+[yFinance](https://github.com/ranaroussi/yfinance)
+
+- Support Yahoo only, **a better alternative**  
+- This library has advantage of calculating adjsuted OHLC by **split and dividends**. 
+- Dividends and Splits are conveniently incorporated into pricing dataframe, so no manual merging necessary.  
+- Multiple symbols are represented in columns  
+- This library provides stock information (not all exchanges are supported though)  
+
+#### Stock Info
+
+There are plenty of infomration we can get form the dictionary of returend by `info`
+
+```{python}
+import yfinance as yf
+stock = yf.Ticker('AAPL')
+stock.info.keys()
+```
+```{python}
+print(stock.info['longName'])
+```
+
+#### OHLC EOD Pricing
+
+**Split Adjusted**  
+
+- OHLC columns are adjusted with splits  (when `auto_adjust=False`)
+- 'Adj Close' columns is adjusted with **split and dividends**  
+- 'start' and 'end' date **must be string**
+
+```{python}
+stock = yf.Ticker('AAPL')
+stock.history(  start='2014-06-06', end='2015-06-15', auto_adjust = False)
+```
+
+**Split and Dividends Adjusted**  
+
+- OHLC columns are adjusted with splits and  **dividends**  (when `auto_adjust=True`)  
+- Therefore, 'Adj Close' column is redundant, hence removed.
+
+```{python}
+import yfinance as yf
+stock = yf.Ticker('AAPL')
+stock.history(  start='2014-06-06', end='2015-06-15', auto_adjust = True)
+```
+
+#### Splits and Dividends
+
+Getting both Splits and Dividends
+
+```{python}
+stock.actions
+```
+
+Getting Dividends Only
+
+```{python}
+stock.dividends
+```
+
+Getting Splits Only
+
+```{python}
+stock.splits
+```
+
+#### Query Using Periods
+
+Available periods are: 1d, 5d, 1mo, 3mo, 6mo, 1y, 2y, 5y, 10y, ytd, **max**
+
+```{python}
+stock = yf.Ticker('AAPL')
+stock.history(periods='max')
+```
+#### Query Multiple Stocks
+
+- **Use `download()` function to query multiple stocks.  
+- By default, it is grouped by column. Access data in `result['Column']['Symbol']`  
+- To group by **Symbol**, use `group_by` parameter.  With this, access data in `result['Symbol']['Column']`  
+- By default, `threads=True` for parallel downloading.
+
+```{python}
+stocks = ['MLYBY','AAPL']
+df1 = yf.download(stocks, start='2014-06-06', end='2014-06-15')
+df2 = yf.download(stocks, start='2014-06-06', end='2014-06-15', group_by='ticker')
+
+print('Group by Column Name:\n', df1['Close']['AAPL'], '\n\n',
+      'Group by Symbol:     ]n', df2['AAPL']['Close'])
+```
+
+
+### `world trading`
+
+#### OHLC EOD Pricing
+
+```{python}
+
+```
+
+
+## Charting
+
+```{python}
+import cufflinks as cf  # Cufflinks
+#cf.set_config_file(offline=True)  # set the plotting mode to offline
+```
+
+
+### Price Comparison
+
+```{python, eval=FALSE}
+stocks = ['XOM']
+df = yf.download(stocks, start='2020-01-01', end='2020-01-30')
+df['Close']
+df.iplot()
+```
+```{python, eval=FALSE}
+stocks = ['CVX']
+df = yf.download(stocks, start='2019-01-01', end='2019-12-31')
+df['Close']
+df.iplot()
+```
+
+
+```{python, eval=FALSE}
+# stocks = ['AAPL','MLYBY', 'PUBM.KL', 'HLFBF','1295.KL']
+# stocks = ['AAPL','MLYBY', 'PUBM.KL', 'HLFBF']
+stocks = ['AAPL']
+df = yf.download(stocks, start='2020-01-01', end='2020-01-30')
+df['Close']
+df.iplot()
+```
+
+```{python, eval=FALSE}
+stock = yf.Ticker('PUBM.KL')
+#stock.history(periods='max')
+stock.history(  start='2014-06-06', end='2015-06-15', auto_adjust = True)
+```
+
+```{python, eval=FALSE}
+stock = yf.Ticker('1295.KL')
+stock.history(  start='2014-06-06', end='2015-06-15', auto_adjust = True)
+```
+
+```{python, eval=FALSE}
+stocks = ['MLYBY']
+df = yf.download('MLYBY', start='2018-12-03', end='2019-03-21')
+df
+```
+
